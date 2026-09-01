@@ -7,15 +7,17 @@ primary_sources:
     upstream_url: "https://github.com/HPMLL/BurstGPT"
     citation: "arXiv:2401.17644 / ACM SIGKDD 2025"
     license: CC-BY-4.0
-    version_date: "unpinned upstream release; pin before acquisition"
-    checksum: null
+    version_date: "release_tag:v2.0"
+    checksum: "sha256:56193aa9b2bb26128ded43d2d29a960df6bf5af062bcfc9b005f3fcaa4e6e501"  # BurstGPT_without_fails_2.csv, re-verified 2026-09-01
     adapter_path: src/robustbench/workloads/external/adapters/burstgpt.py
     fields_retained: [arrival_time_s, input_tokens, output_tokens, total_tokens, session_id, model_class]
     fields_synthesized_by_this_project: [priority, slo_deadline, predicted_output_tokens]
     redistribution_permission: permitted_with_attribution
     chronology_available: true
     provider_domain_identity: "chat-style production serving (HPMLL release)"
-    acquired: false
+    acquired: true
+    acquisition_note: "See docs/DATA_ACQUISITION_STATUS.md. Real file referenced read-only on Wulver at /project/ikoutis/sv96/llmserveopt-data/datasets/burstgpt_v2/raw/BurstGPT_without_fails_2.csv -- not copied into this repo. Stage-0 windows drawn specifically from file 2 (not 1) via src/robustbench/workloads/external/burstgpt_independent_sampling.py."
+    wulver_path: /project/ikoutis/sv96/llmserveopt-data/datasets/burstgpt_v2/raw/BurstGPT_without_fails_2.csv
 
   - id: azure_llm_2023
     upstream_url: "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2023.md"
@@ -37,7 +39,7 @@ primary_sources:
     citation: "DynamoLLM, HPCA 2025"
     license: CC-BY
     version_date: "2024-05-10_to_2024-05-19"
-    checksum: null
+    checksum: "sha256:a0cc9b969a9bbf0fd811802cbf4323edd3a209ace791e3799ad4f9207f213941"  # AzureLLMInferenceTrace_conv_2024.csv, re-verified 2026-09-01
     adapter_path: src/robustbench/workloads/external/adapters/azure_llm.py
     adapter_construction: { split_name: "code|conversation", dataset_year: "2024" }
     fields_retained: [arrival_time_s, input_tokens, output_tokens]
@@ -45,21 +47,25 @@ primary_sources:
     redistribution_permission: permitted_with_attribution
     chronology_available: true
     provider_domain_identity: "Microsoft Azure production LLM inference, 2024 (distinct provider snapshot from 2023 -- treat as a separate source for temporal/provider-OOD splits)"
-    acquired: false
+    acquired: true
+    acquisition_note: "See docs/DATA_ACQUISITION_STATUS.md. Real file referenced read-only on Wulver -- not copied into this repo. Stage-0 uses the conversation split only."
+    wulver_path: /project/ikoutis/sv96/llmserveopt-data/datasets/azure_llm_2024/raw/AzureLLMInferenceTrace_conv_2024.csv
 
   - id: bailian_qwen
     upstream_url: "https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon"
     citation: "Alibaba Bailian/Qwen anonymized serving traces"
     license: Apache-2.0
     version_date: "pinned tip inspected 2026-07-24: commit 5f7439c51ec248a0c585f7d90a41a6f57773b912 (per upstream repo, per LLM 2026 repo notes)"
-    checksum: null
+    checksum: "sha256:68e3f98e2d601d60d0abf4b89bc8a3654372abab7b1cde6373a13d0054379d59"  # qwen_traceB_blksz_16.jsonl, re-verified 2026-09-01
     adapter_path: src/robustbench/workloads/external/adapters/bailian.py  # Ported 2026-08-31 -- new implementation against this repo's TraceAdapter interface, see docs/PROVENANCE.md
     fields_retained: [timestamp, input_length, output_length, chat_id, parent_chat_id, type, turn, hash_ids]
     fields_synthesized_by_this_project: [predicted_output_tokens, class_id, priority, slo_deadline]
     redistribution_permission: permitted
     chronology_available: true
     provider_domain_identity: "Alibaba Bailian/Qwen production serving, anonymized"
-    acquired: false
+    acquired: true
+    acquisition_note: "See docs/DATA_ACQUISITION_STATUS.md. Real file referenced read-only on Wulver -- not copied into this repo. Stage-0 uses qwen_traceB_blksz_16.jsonl (general to_b traffic, not coder/thinking)."
+    wulver_path: /project/ikoutis/sv96/llmserveopt-data/datasets/bailian_qwen/raw/qwen_traceB_blksz_16.jsonl
 
   - id: tracelab
     upstream_url: "https://github.com/uw-syfi/TraceLab and https://arxiv.org/abs/2606.30560"
