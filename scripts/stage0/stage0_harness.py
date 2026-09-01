@@ -113,6 +113,35 @@ def _load_plan(out_dir: Path) -> dict:
         return json.load(f)
 
 
+def shard_cells(all_cells: list[dict], shard_index: int, shard_count: int,
+                 cost_estimates: dict | None = None) -> list[dict]:
+    """Assigns cells to a shard. With `cost_estimates` (policy_id -> estimated
+    seconds/cell), uses greedy longest-processing-time-first bin-packing --
+    deterministic (stable sort, ties broken by cell_id) and far more
+    balanced than naive stride slicing when per-policy cost varies wildly
+    (e.g. a faithful reimplementation ~100x slower than a classical
+    baseline -- measured, not assumed). Without `cost_estimates`, falls
+    back to simple stride slicing (unit-cost assumption; fine for
+    small/uniform smoke or dev grids)."""
+    if shard_count <= 1:
+        return all_cells
+    if not cost_estimates:
+        return all_cells[shard_index::shard_count]
+
+    default_cost = sum(cost_estimates.values()) / len(cost_estimates)
+    ordered = sorted(
+        all_cells,
+        key=lambda c: (-cost_estimates.get(c["policy_id"], default_cost), c["cell_id"]),
+    )
+    shard_loads = [0.0] * shard_count
+    assigned: list[list[dict]] = [[] for _ in range(shard_count)]
+    for c in ordered:
+        target = min(range(shard_count), key=lambda i: shard_loads[i])
+        shard_loads[target] += cost_estimates.get(c["policy_id"], default_cost)
+        assigned[target].append(c)
+    return assigned[shard_index]
+
+
 def cmd_run(args: argparse.Namespace) -> None:
     out_dir = Path(args.output_dir)
     plan = _load_plan(out_dir)
@@ -123,7 +152,11 @@ def cmd_run(args: argparse.Namespace) -> None:
     cells_dir.mkdir(parents=True, exist_ok=True)
 
     all_cells = plan["cells"]
-    shard = all_cells[args.shard_index::args.shard_count] if args.shard_count > 1 else all_cells
+    cost_estimates = None
+    if getattr(args, "cost_estimates", None):
+        with open(args.cost_estimates) as f:
+            cost_estimates = json.load(f)
+    shard = shard_cells(all_cells, args.shard_index, args.shard_count, cost_estimates)
 
     n_run, n_skipped, n_failed = 0, 0, 0
     for cd in shard:
@@ -266,6 +299,11 @@ def main() -> None:
             p.add_argument("--scientific-status", default=None,
                             help='Set to "SMOKE_ONLY_DO_NOT_ANALYZE" for infrastructure-exercise runs -- '
                                  "stamped onto every cell result; analyzer.py refuses to analyze labeled cells.")
+            p.add_argument("--cost-estimates", default=None,
+                            help="path to a JSON {policy_id: estimated_seconds_per_cell} file -- enables "
+                                 "cost-aware greedy shard balancing instead of naive stride slicing. "
+                                 "Purely an operational/scheduling input, never used in any scientific "
+                                 "computation or the 5-criterion analyzer.")
         p.set_defaults(func=fn)
 
     args = ap.parse_args()
