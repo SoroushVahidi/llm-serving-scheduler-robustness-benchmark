@@ -134,7 +134,7 @@ def build_burstgpt(path: Path) -> List[dict]:
 def build_azure_2024_conversation(path: Path) -> List[dict]:
     adapter = AzureLLMAdapter(split_name="conversation", dataset_year="2024")
     windows, report = select_stride_windows(
-        adapter.stream_records(path),
+        lambda: adapter.stream_records(path),
         window_size=WINDOW_SIZE,
         n_windows=N_WINDOWS,
         offset_valid_rows=AZURE_2024_CONV_OFFSET,
@@ -162,7 +162,7 @@ def build_azure_2024_conversation(path: Path) -> List[dict]:
 def build_bailian_traceb(path: Path) -> List[dict]:
     adapter = BailianAdapter()
     windows, report = select_stride_windows(
-        adapter.stream_records(path),
+        lambda: adapter.stream_records(path),
         window_size=WINDOW_SIZE,
         n_windows=N_WINDOWS,
         offset_valid_rows=BAILIAN_TRACEB_OFFSET,

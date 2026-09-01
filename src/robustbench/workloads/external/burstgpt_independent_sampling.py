@@ -103,7 +103,7 @@ def build_burstgpt_stage0_windows(
         )
     adapter = BurstGPTAdapter()
     windows, report = select_stride_windows(
-        adapter.stream_records(path),
+        lambda: adapter.stream_records(path),
         window_size=BURSTGPT_WINDOW_SIZE,
         n_windows=BURSTGPT_N_WINDOWS,
         offset_valid_rows=BURSTGPT_OFFSET_VALID_ROWS,
