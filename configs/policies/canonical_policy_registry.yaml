@@ -1,0 +1,207 @@
+# Canonical policy registry. See docs/POLICY_COMPARABILITY_AUDIT.md for the
+# full narrative audit this file summarizes in machine-readable form.
+schema_version: 1
+
+policies:
+  - id: fifo
+    family: classical
+    implementation_path: src/robustbench/policies/fifo.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: null
+    provenance_class: mechanism_reimplementation
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: []
+
+  - id: edf
+    family: classical_deadline
+    implementation_path: src/robustbench/policies/edf.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: null
+    provenance_class: mechanism_reimplementation
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: [requires_slo_deadline_field_may_be_synthesized]
+
+  - id: least_laxity_first
+    family: classical_deadline
+    implementation_path: src/robustbench/policies/least_laxity_first.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: null
+    provenance_class: mechanism_reimplementation
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: [requires_slo_deadline_field_may_be_synthesized]
+
+  - id: estimated_service_time_first
+    family: classical_sjf
+    implementation_path: src/robustbench/policies/estimated_service_time_first.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: null
+    provenance_class: mechanism_reimplementation
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: [requires_predicted_output_tokens_synthesized_on_real_traces]
+
+  - id: weighted_fair_share
+    family: fairness
+    implementation_path: src/robustbench/policies/weighted_fair_share.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "Sheng et al., VTC / Fairness in Serving LLMs, OSDI 2024 (conceptual lineage; not a pinned reimplementation)"
+    provenance_class: mechanism_reimplementation
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: []
+
+  - id: kv_constrained_online
+    family: kv_aware
+    implementation_path: src/robustbench/policies/kv_constrained_online.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: null
+    provenance_class: mechanism_reimplementation
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: [kv_pressure_is_simulator_internal_not_real_backend_measurement]
+
+  - id: vllm_style_token_budget
+    family: serving_proxy
+    implementation_path: src/robustbench/policies/vllm_style_token_budget.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "vLLM (inspired-by, not pinned)"
+    provenance_class: inspired_proxy
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: [do_not_conflate_with_vllm_faithful_in_prose_or_tables]
+
+  - id: vllm_faithful
+    family: serving_faithful
+    implementation_path: src/robustbench/policies/vllm_faithful.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "vLLM commit 67d96c29fba9b72cb4c4edbc26211c208a00ebdd (tag v0.1.0), pre-chunked-prefill FCFS scheduler"
+    provenance_class: faithful_reimplementation
+    validation_status: validated_against_pinned_reference_algorithm
+    primary_analysis: true
+    secondary_only: false
+    caveats: [excludes_chunked_prefill_and_swap_preemption]
+
+  - id: vllm_chunked_prefill_faithful
+    family: serving_faithful
+    implementation_path: src/robustbench/policies/vllm_chunked_prefill_faithful.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "vLLM chunked-prefill era (pin to be re-confirmed before confirmatory sweep)"
+    provenance_class: faithful_reimplementation
+    validation_status: needs_reaudit_pin_confirmation
+    primary_analysis: true
+    secondary_only: false
+    caveats: []
+
+  - id: sarathi_faithful
+    family: serving_faithful
+    implementation_path: src/robustbench/policies/sarathi_faithful.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "Sarathi-Serve (Agrawal et al., OSDI 2024) -- pinned reference to be re-confirmed before confirmatory sweep"
+    provenance_class: faithful_reimplementation
+    validation_status: needs_reaudit_pin_confirmation
+    primary_analysis: true
+    secondary_only: false
+    caveats: []
+
+  - id: slai_faithful
+    family: slo_aware_faithful
+    implementation_path: src/robustbench/policies/slai_faithful.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "see docs/slai_faithful_scheduler_reference.md in source repo (citation to be re-derived)"
+    provenance_class: faithful_reimplementation
+    validation_status: needs_reaudit_pin_confirmation
+    primary_analysis: true
+    secondary_only: false
+    caveats: []
+
+  - id: scorpio_style_slo_guard
+    family: slo_aware_proxy
+    implementation_path: src/robustbench/policies/scorpio_style_slo_guard.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "SCORPIO (inspired-by, not pinned)"
+    provenance_class: inspired_proxy
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: []
+
+  - id: admission_control
+    family: classical
+    implementation_path: src/robustbench/policies/admission_control.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: null
+    provenance_class: mechanism_reimplementation
+    validation_status: validated_unit_tests
+    primary_analysis: true
+    secondary_only: false
+    caveats: []
+
+  - id: distserve_faithful
+    family: disaggregated
+    implementation_path: src/robustbench/policies/distserve_faithful.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "DistServe (Zhong et al., OSDI 2024) -- pin to be re-confirmed"
+    provenance_class: faithful_reimplementation
+    validation_status: needs_reaudit_pin_confirmation
+    primary_analysis: false
+    secondary_only: true
+    caveats: [requires_disaggregated_gpuconfig_role_semantics]
+
+  - id: llumnix_faithful
+    family: migration
+    implementation_path: src/robustbench/policies/llumnix_faithful.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "Llumnix (Sun et al., OSDI 2024) -- pin to be re-confirmed"
+    provenance_class: faithful_reimplementation
+    validation_status: needs_reaudit_pin_confirmation
+    primary_analysis: false
+    secondary_only: true
+    caveats: [requires_multi_instance_relocation_semantics]
+
+  - id: apt_serve_faithful
+    family: hybrid_cache_tiering
+    implementation_path: src/robustbench/policies/apt_serve_faithful.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: "Apt-Serve"
+    provenance_class: scaffolding_only
+    validation_status: NOT_VALIDATED_scaffolding_only
+    primary_analysis: false
+    secondary_only: false
+    caveats: [excluded_from_all_analysis_until_reimplemented_and_validated, never_privileged_per_project_charter]
+
+  - id: oracle_srtf
+    family: oracle
+    implementation_path: src/robustbench/policies/oracle.py
+    provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
+    external_reference: null
+    provenance_class: mechanism_reimplementation
+    validation_status: validated_unit_tests
+    primary_analysis: false
+    secondary_only: true
+    caveats: [non_deployable_hindsight_upper_bound_report_as_envelope_only_never_ranked]
+
+candidates_not_yet_implemented:
+  - id: pars_serve
+    external_reference: "Prompt-Aware Ranking Scheduler, arXiv 2510.03243"
+    status: not_implemented_needs_from_scratch_reimplementation_and_validation
+  - id: vllm_ltr
+    external_reference: "Efficient LLM Scheduling by Learning to Rank, NeurIPS 2024, arXiv 2408.15792"
+    status: not_implemented_needs_from_scratch_reimplementation_and_validation
+  - id: jitserve
+    external_reference: "JITServe, arXiv 2504.20068"
+    status: not_implemented_needs_from_scratch_reimplementation_and_validation
+
+needs_reaudit_before_any_use:
+  - tetriinfer_routing
+  - tetriinfer_length_prediction
+  - tetriinfer_paper_reimplementation

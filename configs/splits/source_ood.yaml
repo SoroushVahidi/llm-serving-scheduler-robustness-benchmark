@@ -1,0 +1,7 @@
+schema_version: 1
+split_name: source-OOD
+construction_rule: "Held-out source family (candidate: tracelab) never used for exploratory analysis; evaluated only with rankings fixed from {burstgpt, azure_llm_2023, azure_llm_2024, bailian_qwen}."
+held_out_source_family: tracelab
+constructed_at: null
+window_ids: []
+manifest_sha256: null

@@ -1,0 +1,6 @@
+schema_version: 1
+split_name: source-ID
+construction_rule: "Windows from the same source family used for exploratory + confirmatory analysis within that family. Placeholder: no real window IDs populated yet (see docs/SPLIT_PROTOCOL.md)."
+constructed_at: null
+window_ids: []
+manifest_sha256: null

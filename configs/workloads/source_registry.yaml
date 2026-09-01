@@ -1,0 +1,95 @@
+# Workload source registry. See docs/DATA_LICENSE_AUDIT.md and
+# docs/DATA_FIELD_PROVENANCE.md for the full narrative audit.
+schema_version: 1
+
+primary_sources:
+  - id: burstgpt
+    upstream_url: "https://github.com/HPMLL/BurstGPT"
+    citation: "arXiv:2401.17644 / ACM SIGKDD 2025"
+    license: CC-BY-4.0
+    version_date: "unpinned upstream release; pin before acquisition"
+    checksum: null
+    adapter_path: src/robustbench/workloads/external/adapters/burstgpt.py
+    fields_retained: [arrival_time_s, input_tokens, output_tokens, total_tokens, session_id, model_class]
+    fields_synthesized_by_this_project: [priority, slo_deadline, predicted_output_tokens]
+    redistribution_permission: permitted_with_attribution
+    chronology_available: true
+    provider_domain_identity: "chat-style production serving (HPMLL release)"
+    acquired: false
+
+  - id: azure_llm_2023
+    upstream_url: "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2023.md"
+    citation: "Splitwise, ISCA 2024"
+    license: CC-BY
+    version_date: "2023-11-11"
+    checksum: null
+    adapter_path: src/robustbench/workloads/external/adapters/azure_llm.py
+    adapter_construction: { split_name: "code|conversation", dataset_year: "2023" }
+    fields_retained: [arrival_time_s, input_tokens, output_tokens]
+    fields_synthesized_by_this_project: [session_id, tenant_id, priority, slo_deadline, predicted_output_tokens]
+    redistribution_permission: permitted_with_attribution
+    chronology_available: true
+    provider_domain_identity: "Microsoft Azure production LLM inference, 2023"
+    acquired: false
+
+  - id: azure_llm_2024
+    upstream_url: "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md"
+    citation: "DynamoLLM, HPCA 2025"
+    license: CC-BY
+    version_date: "2024-05-10_to_2024-05-19"
+    checksum: null
+    adapter_path: src/robustbench/workloads/external/adapters/azure_llm.py
+    adapter_construction: { split_name: "code|conversation", dataset_year: "2024" }
+    fields_retained: [arrival_time_s, input_tokens, output_tokens]
+    fields_synthesized_by_this_project: [session_id, tenant_id, priority, slo_deadline, predicted_output_tokens]
+    redistribution_permission: permitted_with_attribution
+    chronology_available: true
+    provider_domain_identity: "Microsoft Azure production LLM inference, 2024 (distinct provider snapshot from 2023 -- treat as a separate source for temporal/provider-OOD splits)"
+    acquired: false
+
+  - id: bailian_qwen
+    upstream_url: "https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon"
+    citation: "Alibaba Bailian/Qwen anonymized serving traces"
+    license: Apache-2.0
+    version_date: "pinned tip inspected 2026-07-24: commit 5f7439c51ec248a0c585f7d90a41a6f57773b912 (per upstream repo, per LLM 2026 repo notes)"
+    checksum: null
+    adapter_path: null  # NOT YET PORTED to this repo's TraceAdapter interface -- see docs/EXPERIMENT_CAMPAIGN_PLAN.md Stage 0
+    fields_retained: [timestamp, input_length, output_length, chat_id, parent_chat_id, type, turn, hash_ids]
+    fields_synthesized_by_this_project: [predicted_output_tokens, class_id, priority, slo_deadline]
+    redistribution_permission: permitted
+    chronology_available: true
+    provider_domain_identity: "Alibaba Bailian/Qwen production serving, anonymized"
+    acquired: false
+
+  - id: tracelab
+    upstream_url: "https://github.com/uw-syfi/TraceLab and https://arxiv.org/abs/2606.30560"
+    citation: "TraceLab: Characterizing Coding Agent Workloads for LLM Serving, arXiv 2606.30560, 2026"
+    license: "Code Apache-2.0; trace dataset CC BY 4.0 per repo README/NOTICE -- RE-VERIFY before acquisition, see docs/DATA_LICENSE_AUDIT.md"
+    version_date: "2026 release; ~4,300 coding-agent sessions, ~350K LLM steps, ~430K tool calls"
+    checksum: null
+    adapter_path: null  # NOT YET IMPLEMENTED -- schema requires independent inspection first
+    fields_retained: []  # unknown pending schema inspection
+    fields_synthesized_by_this_project: []  # to be determined after schema inspection
+    redistribution_permission: unverified
+    chronology_available: unknown
+    provider_domain_identity: "Long-horizon coding-agent sessions (Claude Code / Codex usage) -- a genuinely different domain from chat-style serving; strongest provider/domain-OOD candidate"
+    acquired: false
+    known_discrepancy: "HF dataset SoroushVahidi/llm-serving-scheduler-baselines already ships a tracelab_scheduler_ood_policy_sweep config despite this manifest's acquired=false -- see docs/OVERLAP_LEDGER.md"
+
+investigate_sources:
+  - id: servegen
+    upstream_url: "https://github.com/alibaba/ServeGen and https://arxiv.org/abs/2505.09999"
+    citation: "ServeGen: Workload Characterization and Generation of LLM Serving in Production, NSDI 2026"
+    license: unverified
+    kind: generator_not_fixed_trace
+    notes: "Characterizes/replicates production workload drift (bursty arrivals, shifting length distributions over days/weeks); complements rather than replaces the four fixed-trace sources for RQ2/RQ3."
+    acquired: false
+
+internal_only_excluded_sources:
+  - id: mooncake
+    upstream_url: "https://github.com/kvcache-ai/Mooncake, FAST25-release/traces/"
+    citation: "arXiv:2407.00079 / USENIX FAST'25 Best Paper"
+    license: "Apache-2.0 (code); no trace-specific data-license statement identified"
+    status: INTERNAL_ONLY
+    reason: "Redistribution license for raw rows/hash_ids not independently verified -- excluded from any distributable output per project charter rule 13."
+    adapter_path: src/robustbench/workloads/external/adapters/mooncake.py

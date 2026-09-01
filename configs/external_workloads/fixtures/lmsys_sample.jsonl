@@ -1,0 +1,2 @@
+{"conversation_id": "fixture-conv-0001", "model": "fixture-model-a", "conversation": [{"role": "user", "content": "placeholder question 1"}, {"role": "assistant", "content": "placeholder answer 1"}]}
+{"conversation_id": "fixture-conv-0002", "model": "fixture-model-b", "conversation": [{"role": "user", "content": "placeholder question 2a"}, {"role": "assistant", "content": "placeholder answer 2a"}, {"role": "user", "content": "placeholder question 2b"}, {"role": "assistant", "content": "placeholder answer 2b"}]}
