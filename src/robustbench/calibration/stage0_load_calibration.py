@@ -138,6 +138,45 @@ class WindowCalibration:
         return asdict(self)
 
 
+def _classify_sanity_notes(m_pre, m_over, lambda_ref: float) -> tuple[List[str], List[str]]:
+    """Pure classification of the calibration sanity conditions, split into
+    (blocking_notes, informational_notes) -- `plausible` is gated only by
+    `blocking_notes`. `m_pre`/`m_over` need only duck-type
+    `completion_fraction`/`slo_violation_rate`/`num_completed`/`num_dropped`
+    (a `RunMetrics` instance in production; any object with those attributes
+    in tests).
+
+    PRE_KNEE is *supposed* to sit below the violation-crossing point, so a
+    near-zero PRE_KNEE violation rate is the CORRECT, expected outcome of a
+    properly calibrated window, not a symptom of a broken one. With
+    `window_size` requests, `slo_violation_rate` can only take values that
+    are multiples of `1/window_size`; `SLO_VIOLATION_THRESHOLD` (0.005) is
+    itself exactly one such step for the frozen Stage-0 window size (200),
+    so PRE_KNEE landing at exactly 0 violations is close to mathematically
+    guaranteed for any reasonably monotonic response curve, regardless of
+    whether the calibration is good or bad. This condition therefore cannot
+    discriminate a real problem and is INFORMATIONAL ONLY -- it does not
+    gate `plausible` (see docs/STAGE0_LOAD_CALIBRATION_AUDIT_20260901.md
+    section A4/A6, derived entirely from this reference-calibration
+    mechanism, before any Stage-0-study policy was ever run)."""
+    blocking: List[str] = []
+    informational: List[str] = []
+
+    if m_pre.completion_fraction >= 0.999 and m_pre.slo_violation_rate < 1e-6:
+        informational.append(
+            "PRE_KNEE looks trivially underloaded (completion_fraction~=1.0, slo_violation_rate~=0) "
+            "-- informational only, not a plausibility failure (see STAGE0_LOAD_CALIBRATION_AUDIT_20260901.md)."
+        )
+    if m_over.slo_violation_rate < SLO_VIOLATION_THRESHOLD * 2:
+        blocking.append("OVERLOAD shows little more pressure than the calibration threshold itself.")
+    if math.isnan(m_over.completion_fraction) or m_over.num_completed == 0 and m_over.num_dropped == 0:
+        blocking.append("OVERLOAD produced no completions and no drops -- possible simulator malfunction.")
+    if lambda_ref in (10 ** BISECTION_LOG_LO, 10 ** BISECTION_LOG_HI):
+        blocking.append("lambda_ref pinned to a search-range bound rather than a genuine interior crossing.")
+
+    return blocking, informational
+
+
 def calibrate_window(requests: Sequence[Request], *, window_id: str, source_family: str) -> WindowCalibration:
     """Binary-searches lambda_ref for one window, then derives and sanity-checks
     the three Stage-0 load regions. Never adjusts the search or the
@@ -184,14 +223,8 @@ def calibrate_window(requests: Sequence[Request], *, window_id: str, source_fami
     m_knee = _metrics_at(regions["KNEE"])
     m_over = _metrics_at(regions["OVERLOAD"])
 
-    if m_pre.completion_fraction >= 0.999 and m_pre.slo_violation_rate < 1e-6:
-        notes.append("PRE_KNEE looks trivially underloaded (completion_fraction~=1.0, slo_violation_rate~=0).")
-    if m_over.slo_violation_rate < SLO_VIOLATION_THRESHOLD * 2:
-        notes.append("OVERLOAD shows little more pressure than the calibration threshold itself.")
-    if math.isnan(m_over.completion_fraction) or m_over.num_completed == 0 and m_over.num_dropped == 0:
-        notes.append("OVERLOAD produced no completions and no drops -- possible simulator malfunction.")
-    if lambda_ref in (10 ** BISECTION_LOG_LO, 10 ** BISECTION_LOG_HI):
-        notes.append("lambda_ref pinned to a search-range bound rather than a genuine interior crossing.")
+    blocking_notes, informational_notes = _classify_sanity_notes(m_pre, m_over, lambda_ref)
+    notes.extend(blocking_notes)
 
     sanity = CalibrationSanityCheck(
         pre_knee_completion_fraction=m_pre.completion_fraction,
@@ -201,7 +234,7 @@ def calibrate_window(requests: Sequence[Request], *, window_id: str, source_fami
         overload_completion_fraction=m_over.completion_fraction,
         overload_slo_violation_rate=m_over.slo_violation_rate,
         plausible=len(notes) == 0,
-        notes=notes,
+        notes=notes + informational_notes,
     )
 
     return WindowCalibration(
