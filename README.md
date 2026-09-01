@@ -46,6 +46,23 @@ pytest
 
 ## Status
 
-Bootstrap stage. No confirmatory experiments have been run — see
-`docs/EXPERIMENT_CAMPAIGN_PLAN.md` for the staged plan and
-`docs/GO_NO_GO_GATES.md` for current gate status.
+**Project status → `docs/PROJECT_STATUS.md`** (canonical, kept current —
+read this first for "where are we right now").
+**Roadmap → `docs/PROJECT_ROADMAP.md`** (dependency-ordered plan to
+submission/release).
+**Branch map → `docs/BRANCH_MAP.md`** (which branch has what; none are
+merged to `main` yet).
+
+Summary as of the last status update: the Stage-0 discriminability pilot
+ran to completion (`STAGE0_NO_GO`, diagnosed root cause
+`POLICY_PANEL_MECHANISM_MISMATCH`); a redesigned ranking-portability
+study ("Pilot V2") is preregistered and its workload-window data layer is
+under construction. The eventual public dataset for this project is
+named the **LLM-Serving Scheduler Portability Benchmark (LSSP
+Benchmark)** — see `docs/PROJECT_STATUS.md` §12 for its (not yet
+published) release plan.
+
+`docs/PROJECT_STATUS.md` is the single source of truth for current
+state; do not infer status from `docs/GO_NO_GO_GATES.md` or
+`docs/EXPERIMENT_CAMPAIGN_PLAN.md` alone — both remain useful historical/
+frozen references but are not kept in sync with day-to-day status.
