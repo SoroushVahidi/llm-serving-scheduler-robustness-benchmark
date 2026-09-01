@@ -64,17 +64,19 @@ primary_sources:
   - id: tracelab
     upstream_url: "https://github.com/uw-syfi/TraceLab and https://arxiv.org/abs/2606.30560"
     citation: "TraceLab: Characterizing Coding Agent Workloads for LLM Serving, arXiv 2606.30560, 2026"
-    license: "Code Apache-2.0; trace dataset CC BY 4.0 per repo README/NOTICE -- RE-VERIFY before acquisition, see docs/DATA_LICENSE_AUDIT.md"
-    version_date: "2026 release; ~4,300 coding-agent sessions, ~350K LLM steps, ~430K tool calls"
-    checksum: null
-    adapter_path: null  # NOT YET IMPLEMENTED -- schema requires independent inspection first
-    fields_retained: []  # unknown pending schema inspection
-    fields_synthesized_by_this_project: []  # to be determined after schema inspection
+    license: "Code Apache-2.0; trace dataset CC BY 4.0 per repo README/NOTICE -- RE-VERIFY before any redistribution, see docs/DATA_LICENSE_AUDIT.md"
+    version_date: "release_tag:v0.0.1"
+    checksum: "sha256:9d265eae69a31cae203848bea936f018148eed7ca8bf56050c5abe96da0b4e6b"  # syfi_coding_trace.jsonl.gz, official GitHub release asset, verified 2026-09-01
+    adapter_path: src/robustbench/workloads/external/adapters/tracelab.py  # Added 2026-09-01 for the workload-distribution-characterization experiment -- independent re-derivation from the raw release asset, NOT a reuse of the existing HF tracelab_scheduler_ood_policy_sweep config (see docs/TRACELAB_PROVENANCE_RESOLUTION.md).
+    fields_retained: [session_id, round_index, model, input_tokens_total, output_tokens, newly_append_tokens, prefix_tokens, provider, user, "timing_events[].timestamp"]
+    fields_synthesized_by_this_project: []
     redistribution_permission: unverified
-    chronology_available: unknown
-    provider_domain_identity: "Long-horizon coding-agent sessions (Claude Code / Codex usage) -- a genuinely different domain from chat-style serving; strongest provider/domain-OOD candidate"
-    acquired: false
-    known_discrepancy: "HF dataset SoroushVahidi/llm-serving-scheduler-baselines already ships a tracelab_scheduler_ood_policy_sweep config despite this manifest's acquired=false -- see docs/OVERLAP_LEDGER.md"
+    chronology_available: true
+    provider_domain_identity: "Long-horizon coding-agent sessions (Claude Code / Codex usage) -- a genuinely different domain from chat-style serving; strongest provider/domain-OOD candidate. provider field gives a native Claude-family vs Codex-family split."
+    acquired: true
+    acquisition_note: "See docs/DATA_ACQUISITION_STATUS.md. Real file referenced read-only on Wulver at /project/ikoutis/sv96/llmserveopt-data/tracelab_staging_20260722T192050Z/raw/syfi_coding_trace.jsonl.gz -- not copied into this repo. 357,161 rounds total (matches source README's '357K rounds'). Used only for the outcome-blind workload-characterization experiment; not used for any scheduler-policy comparison."
+    wulver_path: /project/ikoutis/sv96/llmserveopt-data/tracelab_staging_20260722T192050Z/raw/syfi_coding_trace.jsonl.gz
+    known_discrepancy: "HF dataset SoroushVahidi/llm-serving-scheduler-baselines separately ships a tracelab_scheduler_ood_policy_sweep config (512 derived windows) that this project does NOT reuse -- see docs/TRACELAB_PROVENANCE_RESOLUTION.md and docs/OVERLAP_LEDGER.md."
 
 investigate_sources:
   - id: servegen
