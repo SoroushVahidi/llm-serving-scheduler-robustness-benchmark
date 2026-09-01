@@ -113,6 +113,14 @@ def analyze_stage0_matrix(cells: list[dict], *, primary_metric: str = "arrival_n
     only computes the 5 criteria over whatever it is given (so it can also
     run on deliberately incomplete synthetic matrices for adversarial
     testing, per section F)."""
+    labeled_smoke = [c["cell_id"] for c in cells if c.get("scientific_status")]
+    if labeled_smoke:
+        raise ValueError(
+            f"refusing to analyze {len(labeled_smoke)} cell(s) labeled scientific_status != None "
+            f"(e.g. SMOKE_ONLY_DO_NOT_ANALYZE) as Stage-0 evidence -- filter them out before calling "
+            f"analyze_stage0_matrix. First few: {labeled_smoke[:5]}"
+        )
+
     rep_problems = _verify_repetition_consistency(cells)
 
     successful = [c for c in cells if c.get("success")]

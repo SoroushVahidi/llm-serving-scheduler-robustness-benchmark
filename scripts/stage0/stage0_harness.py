@@ -73,15 +73,26 @@ def _load_manifests(windows_path: Path, calibration_path: Path):
 
 
 def cmd_plan(args: argparse.Namespace) -> None:
+    from robustbench.stage0.cell import STAGE0_LOAD_REGIONS, STAGE0_N_REPETITIONS, STAGE0_POLICIES
+
     windows_path = Path(args.windows_manifest)
     calibration_path = Path(args.calibration_manifest)
     windows_manifest, calibration_manifest = _load_manifests(windows_path, calibration_path)
-    cells = expand_cell_grid(windows_manifest, calibration_manifest)
+    kwargs = {}
+    if args.policies:
+        kwargs["policies"] = tuple(args.policies.split(","))
+    if args.load_regions:
+        kwargs["load_regions"] = tuple(args.load_regions.split(","))
+    if args.n_repetitions:
+        kwargs["n_repetitions"] = args.n_repetitions
+    cells = expand_cell_grid(windows_manifest, calibration_manifest, **kwargs)
+    is_full_frozen_grid = not kwargs
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     plan = {
         "plan_kind": "stage0_cell_plan",
+        "is_full_frozen_grid": is_full_frozen_grid,
         "repo_sha": _git_sha(),
         "window_manifest_sha256": _sha256_file(windows_path),
         "calibration_manifest_sha256": _sha256_file(calibration_path),
@@ -140,6 +151,7 @@ def cmd_run(args: argparse.Namespace) -> None:
             repo_sha=plan["repo_sha"], window_manifest_sha256=plan["window_manifest_sha256"],
             calibration_manifest_sha256=plan["calibration_manifest_sha256"],
             policy_registry_hash=plan["policy_registry_hash"],
+            scientific_status=args.scientific_status,
         )
         n_run += 1
         if not result.success:
@@ -239,10 +251,21 @@ def main() -> None:
         if name in ("plan", "run"):
             p.add_argument("--windows-manifest", **common)
             p.add_argument("--calibration-manifest", **common)
+        if name == "plan":
+            p.add_argument("--policies", default=None,
+                            help="comma-separated policy override (default: the 6 frozen Stage-0 policies). "
+                                 "Setting this marks the plan is_full_frozen_grid=false -- for smoke/dev use only.")
+            p.add_argument("--load-regions", default=None,
+                            help="comma-separated load-region override (default: PRE_KNEE,KNEE,OVERLOAD).")
+            p.add_argument("--n-repetitions", type=int, default=None,
+                            help="repetition-count override (default: 2, the frozen verification-rep count).")
         if name == "run":
             p.add_argument("--shard-index", type=int, default=0)
             p.add_argument("--shard-count", type=int, default=1)
             p.add_argument("--force", action="store_true")
+            p.add_argument("--scientific-status", default=None,
+                            help='Set to "SMOKE_ONLY_DO_NOT_ANALYZE" for infrastructure-exercise runs -- '
+                                 "stamped onto every cell result; analyzer.py refuses to analyze labeled cells.")
         p.set_defaults(func=fn)
 
     args = ap.parse_args()

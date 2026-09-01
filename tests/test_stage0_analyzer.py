@@ -253,3 +253,11 @@ def test_duplicate_cells_do_not_double_count_in_tie_detection():
     for a, b in zip(report_dup["criteria"], report_plain["criteria"]):
         assert a["numerator"] == b["numerator"]
         assert a["denominator"] == b["denominator"]
+
+
+def test_analyzer_refuses_cells_labeled_smoke_only():
+    cells = _build_matrix(2, _pass_all_spec)
+    cells[0]["scientific_status"] = "SMOKE_ONLY_DO_NOT_ANALYZE"
+    import pytest
+    with pytest.raises(ValueError, match="SMOKE_ONLY_DO_NOT_ANALYZE|scientific_status"):
+        analyze_stage0_matrix(cells)

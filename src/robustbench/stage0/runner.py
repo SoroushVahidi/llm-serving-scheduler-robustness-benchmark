@@ -42,12 +42,19 @@ def execute_cell(
     window_manifest_sha256: str,
     calibration_manifest_sha256: str,
     policy_registry_hash: str,
+    scientific_status: Optional[str] = None,
 ) -> CellResult:
     """Never raises -- any exception is caught and returned as an explicit
     `success=False` CellResult with `error_category`/`error_detail`, so a
     single bad cell can never silently drop out of the matrix or crash a
-    SLURM array task processing many cells."""
+    SLURM array task processing many cells.
+
+    `scientific_status`: pass "SMOKE_ONLY_DO_NOT_ANALYZE" for
+    infrastructure-exercise runs (section E) -- stamped onto the result and
+    enforced by analyzer.py, which refuses to treat any labeled cell as
+    Stage-0 evidence."""
     base = CellResult(
+        scientific_status=scientific_status,
         cell_id=spec.cell_id,
         canonical_hash=spec.canonical_hash(),
         source_family=spec.source_family,

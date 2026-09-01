@@ -56,6 +56,12 @@ class CellResult:
     error_category: Optional[str] = None
     error_detail: Optional[str] = None
 
+    # Set to "SMOKE_ONLY_DO_NOT_ANALYZE" by harness.py's `run --scientific-status`
+    # for infrastructure-exercise runs (section E) -- None for a real Stage-0
+    # evidence run. Never analyzed by analyzer.py as scientific evidence;
+    # callers/analysts must check this field before treating any row as data.
+    scientific_status: Optional[str] = None
+
     def to_dict(self) -> dict:
         return asdict(self)
 
