@@ -35,6 +35,8 @@ from .slai_style_phase_aware import SlaiStylePhaseAwarePolicy
 from .slo_slack_score import SloSlackScorePolicy
 from .sola_style_state_aware import SolaStyleStateAwarePolicy
 from .splitfuse_style import SplitFuseStylePolicy
+from .sarathi_faithful import SarathiFaithfulPolicy
+from .vllm_faithful import VLLMFaithfulPolicy
 from .vllm_style_token_budget import VLLMStyleTokenBudgetPolicy
 from .weighted_shortest_processing import WeightedShortestProcessingPolicy
 from .weighted_fair_share import WeightedFairSharePolicy
@@ -86,6 +88,24 @@ _POLICY_LIBRARY_V2_REGISTRY: Dict[str, type] = {
 
 POLICY_LIBRARY_V2_NEW_NAMES: List[str] = list(_POLICY_LIBRARY_V2_REGISTRY.keys())
 POLICY_LIBRARY_V2_NAMES: List[str] = list(BASELINE_NAMES) + list(POLICY_LIBRARY_V2_NEW_NAMES)
+
+# Faithful external reimplementations (docs/POLICY_COMPARABILITY_AUDIT.md
+# `faithful_reimplementation` rows). These classes existed and were already
+# used throughout the simulator (core/action.py's `preempt`,
+# simulator/kv_block_manager.py, simulator/gpu.py) but were never wired
+# into any name->class registry -- discovered as a real gap while building
+# the Stage-0 orchestration harness (docs/STAGE0_DISCRIMINABILITY_PROTOCOL.md
+# names `vllm_faithful`/`sarathi_faithful` among its 6 frozen policies).
+# Kept in a separate dict rather than added to _REGISTRY/BASELINE_NAMES or
+# _POLICY_LIBRARY_V2_REGISTRY/POLICY_LIBRARY_V2_NAMES, both of which are
+# explicitly pinned-count lists relied on elsewhere (Selector v2
+# reproducibility) -- this dict adds a new lookup path without changing
+# either pinned list's membership or order.
+_FAITHFUL_REGISTRY: Dict[str, type] = {
+    "vllm_faithful": VLLMFaithfulPolicy,
+    "sarathi_faithful": SarathiFaithfulPolicy,
+}
+FAITHFUL_POLICY_NAMES: List[str] = list(_FAITHFUL_REGISTRY.keys())
 
 # Oracle policies — non-deployable, hindsight upper bounds only.
 # MUST NOT appear in BASELINE_NAMES or SELECTOR_CANDIDATE_NAMES.
@@ -144,6 +164,26 @@ def make_policy_library_v2(name: str, seed: int = 0, **kwargs) -> BasePolicy:
             f"Unknown Policy Library v2 policy '{name}'. Available: {sorted(POLICY_LIBRARY_V2_NAMES)}"
         )
     return _POLICY_LIBRARY_V2_REGISTRY[name](**kwargs)
+
+
+def make_policy_any(name: str, seed: int = 0, **kwargs) -> BasePolicy:
+    """Instantiate a policy by name from ANY registry this module knows
+    about (_REGISTRY, then _POLICY_LIBRARY_V2_REGISTRY, then
+    _FAITHFUL_REGISTRY) -- a universal resolver for callers (e.g. the
+    Stage-0 harness) that need policies spanning multiple of the
+    intentionally-separate pinned-count lists above. Does not change the
+    behavior of `make_policy`/`make_policy_library_v2` for existing
+    callers."""
+    if name in _REGISTRY:
+        return make_policy(name, seed=seed, **kwargs)
+    if name in _POLICY_LIBRARY_V2_REGISTRY:
+        return _POLICY_LIBRARY_V2_REGISTRY[name](**kwargs)
+    if name in _FAITHFUL_REGISTRY:
+        return _FAITHFUL_REGISTRY[name](**kwargs)
+    raise KeyError(
+        f"Unknown policy '{name}'. Available: "
+        f"{sorted(set(BASELINE_NAMES) | set(POLICY_LIBRARY_V2_NAMES) | set(FAITHFUL_POLICY_NAMES))}"
+    )
 
 
 def all_baseline_policies(seed: int = 0) -> List[BasePolicy]:
