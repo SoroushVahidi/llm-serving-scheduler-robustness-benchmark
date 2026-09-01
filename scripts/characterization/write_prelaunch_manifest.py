@@ -23,8 +23,6 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
-import yaml  # noqa: E402
-
 from robustbench.characterization.descriptors import (  # noqa: E402
     COMMON_NUMERIC_FEATURES,
     DESCRIPTOR_SCHEMA_VERSION,
@@ -57,22 +55,40 @@ def _sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()
 
 
-def main() -> None:
-    registry_path = REPO_ROOT / "configs" / "workloads" / "source_registry.yaml"
-    with open(registry_path) as f:
-        registry = yaml.safe_load(f)
+# Independently re-verified by this session directly against the on-disk
+# files (`sha256sum`, 2026-09-01) -- see
+# docs/OVERNIGHT_WORKLOAD_CHARACTERIZATION_HANDOFF_20260901.md. Hardcoded
+# here (rather than read from configs/workloads/source_registry.yaml) so
+# this manifest does not depend on a concurrent, separately-in-progress
+# edit to that shared file's checksum fields for other sources -- these
+# values are independently verified regardless of that file's commit
+# status. Must match scripts/slurm/workload_characterization_build.sbatch's
+# RAW_PATHS exactly.
+SOURCE_CHECKSUMS = {
+    "burstgpt": {
+        "wulver_path": "/project/ikoutis/sv96/llmserveopt-data/datasets/burstgpt_v2/raw/BurstGPT_without_fails_2.csv",
+        "checksum": "sha256:56193aa9b2bb26128ded43d2d29a960df6bf5af062bcfc9b005f3fcaa4e6e501",
+    },
+    "azure_llm_2024": {
+        "wulver_path": "/project/ikoutis/sv96/llmserveopt-data/datasets/azure_llm_2024/raw/AzureLLMInferenceTrace_conv_2024.csv",
+        "checksum": "sha256:a0cc9b969a9bbf0fd811802cbf4323edd3a209ace791e3799ad4f9207f213941",
+    },
+    "bailian_qwen": {
+        "wulver_path": "/project/ikoutis/sv96/llmserveopt-data/datasets/bailian_qwen/raw/qwen_traceB_blksz_16.jsonl",
+        "checksum": "sha256:68e3f98e2d601d60d0abf4b89bc8a3654372abab7b1cde6373a13d0054379d59",
+    },
+    "tracelab": {
+        "wulver_path": "/project/ikoutis/sv96/llmserveopt-data/tracelab_staging_20260722T192050Z/raw/syfi_coding_trace.jsonl.gz",
+        "checksum": "sha256:9d265eae69a31cae203848bea936f018148eed7ca8bf56050c5abe96da0b4e6b",
+    },
+}
 
-    checksums = {}
-    for entry in registry["primary_sources"]:
-        if entry["id"] in SOURCES:
-            checksums[entry["id"]] = {
-                "checksum": entry.get("checksum"),
-                "wulver_path": entry.get("wulver_path"),
-                "acquired": entry.get("acquired"),
-            }
+
+def main() -> None:
+    checksums = {s: {**SOURCE_CHECKSUMS[s], "acquired": True} for s in SOURCES}
     missing = [s for s in SOURCES if s not in checksums or checksums[s]["checksum"] is None]
     if missing:
-        print(f"ERROR: missing checksum in source_registry.yaml for: {missing}", file=sys.stderr)
+        print(f"ERROR: missing checksum for: {missing}", file=sys.stderr)
         sys.exit(1)
 
     sampling_config = {
