@@ -71,6 +71,12 @@ results and its own real-vLLM validation).
 | `adapters/mooncake.py` | `adapters/mooncake.py` | Verbatim | Mooncake JSONL adapter (kept for schema-parity only — see `docs/DATA_LICENSE_AUDIT.md` for why Mooncake stays `INTERNAL_ONLY`/excluded from any distributable output in this project). |
 | `adapters/lmsys.py` | `adapters/lmsys.py` | Verbatim | LMSYS-Chat-1M adapter (secondary/optional source, not one of the five primary sources named in the project charter). |
 
+### New for this project (2026-08-31, not copied from either source repo)
+
+| Path | Informed by | Reason it is new, not copied |
+|---|---|---|
+| `src/robustbench/workloads/external/adapters/bailian.py` (`BailianAdapter`) | Field-mapping knowledge only from `llm-serving-heuristic-evolution`'s `src/llmserveopt/workloads/bailian.py` @ `94f4621b` (which fields exist: `timestamp`, `input_length`, `output_length`, `chat_id`/`parent_chat_id`, `type`, `turn`, `hash_ids`; which are synthesized: `predicted_output_tokens`, `class_id`, `priority`, `slo_deadline`) | The source loader bakes Layer-3 SLO/priority/predicted-output-token synthesis directly into ingestion (via `augment_trace`), which this project's `ExternalWorkloadRecord`/`TraceAdapter` contract (ported from module-intervention-benchmark) explicitly forbids at Layer 1. Reimplemented from scratch against this project's own adapter interface; the source's pinned commit (`5f7439c5...`) is carried forward as an **unverified inherited pin**, not independently re-confirmed. |
+
 Small synthetic, schema-equivalent CSV/JSONL fixtures used only by this
 project's own tests were also copied from
 `configs/external_workloads/fixtures/` — these are not real trace data (see

@@ -9,6 +9,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: null
     provenance_class: mechanism_reimplementation
+    fidelity_class: REPOSITORY_NATIVE_CLASSICAL
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -20,6 +21,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: null
     provenance_class: mechanism_reimplementation
+    fidelity_class: REPOSITORY_NATIVE_CLASSICAL
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -31,6 +33,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: null
     provenance_class: mechanism_reimplementation
+    fidelity_class: REPOSITORY_NATIVE_CLASSICAL
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -42,6 +45,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: null
     provenance_class: mechanism_reimplementation
+    fidelity_class: REPOSITORY_NATIVE_CLASSICAL
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -53,6 +57,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "Sheng et al., VTC / Fairness in Serving LLMs, OSDI 2024 (conceptual lineage; not a pinned reimplementation)"
     provenance_class: mechanism_reimplementation
+    fidelity_class: REPOSITORY_NATIVE_CLASSICAL
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -64,6 +69,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: null
     provenance_class: mechanism_reimplementation
+    fidelity_class: SIMULATOR_PROXY
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -75,6 +81,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "vLLM (inspired-by, not pinned)"
     provenance_class: inspired_proxy
+    fidelity_class: STYLE_APPROXIMATION
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -86,6 +93,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "vLLM commit 67d96c29fba9b72cb4c4edbc26211c208a00ebdd (tag v0.1.0), pre-chunked-prefill FCFS scheduler"
     provenance_class: faithful_reimplementation
+    fidelity_class: FAITHFUL_EXTERNAL
     validation_status: validated_against_pinned_reference_algorithm
     primary_analysis: true
     secondary_only: false
@@ -97,6 +105,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "vLLM chunked-prefill era (pin to be re-confirmed before confirmatory sweep)"
     provenance_class: faithful_reimplementation
+    fidelity_class: FAITHFUL_EXTERNAL
     validation_status: needs_reaudit_pin_confirmation
     primary_analysis: true
     secondary_only: false
@@ -108,6 +117,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "Sarathi-Serve (Agrawal et al., OSDI 2024) -- pinned reference to be re-confirmed before confirmatory sweep"
     provenance_class: faithful_reimplementation
+    fidelity_class: FAITHFUL_EXTERNAL
     validation_status: needs_reaudit_pin_confirmation
     primary_analysis: true
     secondary_only: false
@@ -119,6 +129,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "see docs/slai_faithful_scheduler_reference.md in source repo (citation to be re-derived)"
     provenance_class: faithful_reimplementation
+    fidelity_class: FAITHFUL_EXTERNAL
     validation_status: needs_reaudit_pin_confirmation
     primary_analysis: true
     secondary_only: false
@@ -130,6 +141,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "SCORPIO (inspired-by, not pinned)"
     provenance_class: inspired_proxy
+    fidelity_class: STYLE_APPROXIMATION
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -141,6 +153,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: null
     provenance_class: mechanism_reimplementation
+    fidelity_class: REPOSITORY_NATIVE_CLASSICAL
     validation_status: validated_unit_tests
     primary_analysis: true
     secondary_only: false
@@ -152,6 +165,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "DistServe (Zhong et al., OSDI 2024) -- pin to be re-confirmed"
     provenance_class: faithful_reimplementation
+    fidelity_class: FAITHFUL_EXTERNAL
     validation_status: needs_reaudit_pin_confirmation
     primary_analysis: false
     secondary_only: true
@@ -163,6 +177,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "Llumnix (Sun et al., OSDI 2024) -- pin to be re-confirmed"
     provenance_class: faithful_reimplementation
+    fidelity_class: FAITHFUL_EXTERNAL
     validation_status: needs_reaudit_pin_confirmation
     primary_analysis: false
     secondary_only: true
@@ -174,6 +189,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: "Apt-Serve"
     provenance_class: scaffolding_only
+    fidelity_class: NOT_CLASSIFIED_SCAFFOLDING_ONLY
     validation_status: NOT_VALIDATED_scaffolding_only
     primary_analysis: false
     secondary_only: false
@@ -185,6 +201,7 @@ policies:
     provenance: { source_repo: llm-serving-heuristic-evolution, source_sha: 94f4621bb6610c2b426e365f659636b1a48a89f5 }
     external_reference: null
     provenance_class: mechanism_reimplementation
+    fidelity_class: REPOSITORY_NATIVE_CLASSICAL
     validation_status: validated_unit_tests
     primary_analysis: false
     secondary_only: true
@@ -200,6 +217,7 @@ candidates_not_yet_implemented:
   - id: jitserve
     external_reference: "JITServe, arXiv 2504.20068"
     status: not_implemented_needs_from_scratch_reimplementation_and_validation
+    semantic_mismatch_audit: "No fundamental mismatch identified 2026-08-31 -- see docs/POLICY_COMPARABILITY_AUDIT.md 'JITServe inclusion investigation'. ObservableGPUState.tokens_decoded_per_request already exposes the generation-progress signal JITServe's imprecise-to-refined estimation needs. Not forced into the panel; requires implementation + validation first."
 
 needs_reaudit_before_any_use:
   - tetriinfer_routing

@@ -61,6 +61,68 @@ all single-GPU-colocated, all comparable under one workload/load protocol.
 - **Scaffolding / excluded:** `apt_serve_faithful` (not yet a validated
   reimplementation — see above).
 
+## Fidelity classification (added 2026-08-31)
+
+A second, orthogonal taxonomy to `provenance_class` above, used specifically
+to define a **high-fidelity subset** on which primary confirmatory
+conclusions must also be checked for robustness (i.e., a headline finding
+that only holds when `STYLE_APPROXIMATION` policies are included is weaker
+evidence than one that survives their removal).
+
+- **`OFFICIAL_ADAPTER`** — calls a real upstream system/API directly.
+- **`FAITHFUL_EXTERNAL`** — pinned reimplementation of a specific external
+  system/paper (`provenance_class: faithful_reimplementation`, scaffolding
+  excluded — see `apt_serve_faithful` below).
+- **`REPOSITORY_NATIVE_CLASSICAL`** — a scheduling discipline with an
+  identity independent of this repository (real-time-systems or OR
+  scheduling theory: FIFO, EDF, LLF, ESTF/SJF-family, fair-share,
+  admission control), implemented natively here with no single external
+  system to pin to.
+- **`SIMULATOR_PROXY`** — a mechanism invented for/native to this
+  simulator's own abstractions (e.g. KV-block accounting), representing a
+  general idea rather than a textbook algorithm or a named external system.
+- **`STYLE_APPROXIMATION`** — an explicitly named "-style"/"-guard" proxy,
+  disclaimed as inspired-by rather than faithful to a specific external
+  system.
+
+| Policy ID | Fidelity class |
+|---|---|
+| `fifo`, `edf`, `least_laxity_first`, `estimated_service_time_first`, `weighted_fair_share`, `admission_control` | `REPOSITORY_NATIVE_CLASSICAL` |
+| `kv_constrained_online` | `SIMULATOR_PROXY` |
+| `vllm_faithful`, `vllm_chunked_prefill_faithful`, `sarathi_faithful`, `slai_faithful` | `FAITHFUL_EXTERNAL` |
+| `vllm_style_token_budget`, `scorpio_style_slo_guard` | `STYLE_APPROXIMATION` |
+| `distserve_faithful`, `llumnix_faithful` (secondary stratum) | `FAITHFUL_EXTERNAL` |
+| `apt_serve_faithful` | Not classified — excluded pending reimplementation (`scaffolding_only`, see above). |
+| *(none currently)* | `OFFICIAL_ADAPTER` — no primary-panel policy calls a real upstream system/API at simulation time; `real_llm/calibration_common.py` is used for Stage 4 real-system *validation*, not as an in-simulator policy. |
+
+### High-fidelity subset (primary panel minus `STYLE_APPROXIMATION`)
+
+`fifo`, `edf`, `least_laxity_first`, `estimated_service_time_first`,
+`weighted_fair_share`, `kv_constrained_online`, `vllm_faithful`,
+`vllm_chunked_prefill_faithful`, `sarathi_faithful`, `slai_faithful`,
+`admission_control` — **11 of 13** primary policies (still satisfies Go/No-Go
+Gate C's "≥8 scientifically comparable policies" on its own). Every headline
+RQ1–RQ6 confirmatory result must be checked for whether it still holds on
+this 11-policy subset before being reported as robust to policy-fidelity
+choice (`docs/STATISTICAL_ANALYSIS_PLAN.md`).
+
+### JITServe inclusion investigation
+
+`JITServe` (arXiv 2504.20068) schedules using *imprecise* request
+information, refining its own internal estimate as generation proceeds
+("grouped margin goodput maximization," relaxing conservatism over time).
+This project's `ObservableGPUState.tokens_decoded_per_request` already
+exposes, per step, how many tokens of each active request have been
+decoded — the same kind of "generation-progress" signal JITServe's
+refinement mechanism needs. **No fundamental semantic mismatch was
+identified** that would block a good-faith reimplementation (unlike
+`distserve_faithful`'s disaggregated-role requirement or `llumnix_faithful`'s
+multi-instance requirement). JITServe is therefore recorded as a genuine
+future-inclusion candidate in `canonical_policy_registry.yaml`'s
+`candidates_not_yet_implemented` list, **not forced into the current panel**
+— it requires a from-scratch implementation and independent validation
+before any inclusion, same bar as `pars_serve`/`vllm_ltr`.
+
 ## Candidates requiring re-audit before any use
 
 `tetriinfer_*` (three variants, unclear which is faithful vs. proxy at

@@ -53,7 +53,7 @@ primary_sources:
     license: Apache-2.0
     version_date: "pinned tip inspected 2026-07-24: commit 5f7439c51ec248a0c585f7d90a41a6f57773b912 (per upstream repo, per LLM 2026 repo notes)"
     checksum: null
-    adapter_path: null  # NOT YET PORTED to this repo's TraceAdapter interface -- see docs/EXPERIMENT_CAMPAIGN_PLAN.md Stage 0
+    adapter_path: src/robustbench/workloads/external/adapters/bailian.py  # Ported 2026-08-31 -- new implementation against this repo's TraceAdapter interface, see docs/PROVENANCE.md
     fields_retained: [timestamp, input_length, output_length, chat_id, parent_chat_id, type, turn, hash_ids]
     fields_synthesized_by_this_project: [predicted_output_tokens, class_id, priority, slo_deadline]
     redistribution_permission: permitted
