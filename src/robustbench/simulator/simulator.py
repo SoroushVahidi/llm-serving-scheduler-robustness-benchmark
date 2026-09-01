@@ -42,6 +42,7 @@ from .contention_diagnostics import summarize as _summarize_contention_diagnosti
 from .gpu import GPUState
 from .request import InternalRequest, RequestPhase
 from .service_model import ServiceModel
+from .telemetry import TelemetrySummary, compute_telemetry_summary
 
 
 @dataclass
@@ -100,6 +101,14 @@ class Simulator:
         # Steps skipped during idle-period fast-forwarding
         self._idle_skipped: int = 0
 
+        # Mechanism-activation telemetry (docs/RANKING_PORTABILITY_PILOT_V2_PROTOCOL.md
+        # section 8, docs/RANKING_PORTABILITY_TELEMETRY_IMPLEMENTATION.md).
+        # Purely observational counters, written once per step from values
+        # already computed for execution -- never read by compute_metrics()
+        # or any policy. See telemetry_summary().
+        self._admission_control_activations: int = 0
+        self._preemption_reorder_events: int = 0
+
     # ------------------------------------------------------------------
     # Public interface
     # ------------------------------------------------------------------
@@ -123,6 +132,14 @@ class Simulator:
             if self._waiting_queue_history else 0.0
         )
         return summary
+
+    def telemetry_summary(self) -> TelemetrySummary:
+        """Mechanism-activation telemetry from the most recently completed
+        `run()`/`continue_run()` (docs/RANKING_PORTABILITY_PILOT_V2_PROTOCOL.md
+        section 8). Purely observational, same convention as
+        `contention_diagnostics_summary()` above -- never consulted by any
+        policy, metric, or objective."""
+        return compute_telemetry_summary(self)
 
     def run(self, policy, workload_tag: str = "unknown", seed: int = 0) -> RunMetrics:
         """Run simulation with `policy` and return metrics.
@@ -171,6 +188,7 @@ class Simulator:
             t0 = _time.perf_counter()
             action = policy.select_action(state)
             self._policy_times.append(_time.perf_counter() - t0)
+            self._record_admission_telemetry(state, action)
 
             # --- 3b. Sync request tiers for hybrid cache support ---
             if getattr(policy, "hybrid_cache_enabled", False):
@@ -321,6 +339,7 @@ class Simulator:
             t0 = _time.perf_counter()
             action = policy.select_action(state)
             self._policy_times.append(_time.perf_counter() - t0)
+            self._record_admission_telemetry(state, action)
 
             if getattr(policy, "hybrid_cache_enabled", False):
                 for g in self._gpus:
@@ -424,6 +443,8 @@ class Simulator:
         self._waiting_queue_history.clear()
         self._policy_times.clear()
         self._idle_skipped = 0
+        self._admission_control_activations = 0
+        self._preemption_reorder_events = 0
         # Reset internal request states
         for ir in self._pending_arrivals:
             ir.phase = RequestPhase.WAITING
@@ -474,6 +495,29 @@ class Simulator:
             migrating_queue=migrating_obs,
         )
 
+    def _record_admission_telemetry(self, state: ObservableState, action: Action) -> None:
+        """Mechanism-activation telemetry only
+        (docs/RANKING_PORTABILITY_TELEMETRY_IMPLEMENTATION.md): counts
+        waiting requests the policy declined to admit this step despite at
+        least one GPU having spare `max_active_sequences` capacity. A
+        general, capacity-only proxy for "admission control activated" --
+        does not check the fuller `max_batch_tokens`/`max_kv_tokens`
+        feasibility a specific request might also be blocked by (documented
+        limitation, not a silent inaccuracy). Purely observational: reads
+        `state`/`action`/GPU config already produced this step, never
+        re-invokes the policy or mutates anything."""
+        if not state.waiting_queue:
+            return
+        any_spare_capacity = any(
+            g.num_active < g.config.max_active_sequences for g in self._gpus
+        )
+        if not any_spare_capacity:
+            return
+        admitted_ids = {rid for ids in action.admit.values() for rid in ids}
+        for req in state.waiting_queue:
+            if req.request_id not in admitted_ids:
+                self._admission_control_activations += 1
+
     def _apply_action(self, action: Action) -> None:
         # Preemptions, swaps, and migrations are applied first (matching
         # the pinned vllm_faithful/distserve_faithful/llumnix_faithful
@@ -487,6 +531,9 @@ class Simulator:
         swapped_ids = self._apply_swaps(action)
         migrated_ids = self._apply_migrations(action)
         evicted_ids = preempted_ids | swapped_ids | migrated_ids
+        # Mechanism-activation telemetry only (docs/RANKING_PORTABILITY_TELEMETRY_IMPLEMENTATION.md):
+        # accumulates an already-computed count, never fed back into execution.
+        self._preemption_reorder_events += len(evicted_ids)
 
         admitted_ids = set()
 

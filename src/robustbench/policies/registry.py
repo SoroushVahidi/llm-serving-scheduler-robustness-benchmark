@@ -36,6 +36,8 @@ from .slo_slack_score import SloSlackScorePolicy
 from .sola_style_state_aware import SolaStyleStateAwarePolicy
 from .splitfuse_style import SplitFuseStylePolicy
 from .sarathi_faithful import SarathiFaithfulPolicy
+from .slai_faithful import SlaiFaithfulPolicy
+from .vllm_chunked_prefill_faithful import VLLMChunkedPrefillFaithfulPolicy
 from .vllm_faithful import VLLMFaithfulPolicy
 from .vllm_style_token_budget import VLLMStyleTokenBudgetPolicy
 from .weighted_shortest_processing import WeightedShortestProcessingPolicy
@@ -104,6 +106,12 @@ POLICY_LIBRARY_V2_NAMES: List[str] = list(BASELINE_NAMES) + list(POLICY_LIBRARY_
 _FAITHFUL_REGISTRY: Dict[str, type] = {
     "vllm_faithful": VLLMFaithfulPolicy,
     "sarathi_faithful": SarathiFaithfulPolicy,
+    # Same gap, same fix, found while building the ranking-portability
+    # pilot's 13-policy PRIMARY panel coverage test
+    # (docs/RANKING_PORTABILITY_POLICY_PANEL.md) -- both classes already
+    # existed, fully implemented, and were never wired into any registry.
+    "vllm_chunked_prefill_faithful": VLLMChunkedPrefillFaithfulPolicy,
+    "slai_faithful": SlaiFaithfulPolicy,
 }
 FAITHFUL_POLICY_NAMES: List[str] = list(_FAITHFUL_REGISTRY.keys())
 

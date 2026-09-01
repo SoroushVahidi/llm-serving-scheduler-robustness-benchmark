@@ -131,15 +131,24 @@ results before any real-vLLM run — cannot be written until those exist.]`
 generalized): `docs/STAGE0_BURSTGPT_DIAGNOSTIC.md` §F (policy-pair
 collapse), §E (workload descriptors).
 
-`[PENDING RESULT (RQ4): repeat the policy-pair-similarity and
-workload-descriptor association analysis (docs/STATISTICAL_ANALYSIS_PLAN.md
-§G, pre-specified logistic regression, no post-hoc model search) across
-all 3 sources' pilot-v2 data, extended to classify both reversal *and*
-equivalence/collapse sites (docs/RANKING_PORTABILITY_PILOT_V2_PROTOCOL.md
-§1's RQ4 extension). Use the new mechanism telemetry
-(docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md §E) directly, rather than
-workload-level proxies, wherever available — this is the specific gap
-Stage 0's diagnostic had to work around indirectly.]`
+`[PENDING RESULT (RQ4): For each workload source and operating region,
+report distributions of queue depth, batch saturation, prefill/decode
+contention fraction, KV occupancy, admission-control activations,
+preemption/reorder events, and token-budget saturation fraction (the 7
+fields in docs/RANKING_PORTABILITY_TELEMETRY_IMPLEMENTATION.md's
+implementation map, schema `ranking_portability_telemetry_v1`). Relate
+these mechanism-activation statistics to observed scheduler
+equivalence/rank-change sites only after the Pilot-V2 outcomes are
+complete, via the pre-specified logistic regression already defined in
+docs/STATISTICAL_ANALYSIS_PLAN.md §G (no post-hoc model search). Use
+workload window as the inferential unit, exactly as §G already specifies.
+Use this direct simulator-internal telemetry, not workload-level
+descriptor proxies, wherever available — this is the specific gap Stage
+0's diagnostic (docs/STAGE0_BURSTGPT_DIAGNOSTIC.md §F) had to work around
+indirectly via `kv_pressure_proxy`/`concurrency_proxy`. Do not claim a
+direction (which mechanism explains which reversal or equivalence site)
+before Pilot-V2 execution completes — the telemetry schema existing does
+not imply any particular finding.]`
 
 ## Explicit non-claims (repeated from `docs/CLAIM_BOUNDARIES.md`, for drafting discipline)
 
