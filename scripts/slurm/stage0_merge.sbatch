@@ -15,25 +15,29 @@
 # Validates the completed matrix is exactly the expected 1,080 cells (no
 # missing/duplicate/extra), then applies the frozen 5-criterion analyzer
 # (scripts/stage0/stage0_harness.py validate + a direct call into
-# robustbench.stage0.analyzer). Does NOT launch anything further.
+# robustbench.stage0.analyzer). Does NOT launch anything further, does NOT
+# auto-launch Stage 1/2 or the confirmatory campaign regardless of verdict.
+#
+# Runs from the stage0-orchestration-prelaunch worktree, same as
+# stage0_array.sbatch -- STAGE0_WORKTREE_DIR must be set by the submitter.
 
 set -euo pipefail
-cd /project/ikoutis/sv96/github/llm-serving-scheduler-robustness-benchmark
+cd "${STAGE0_WORKTREE_DIR:?set STAGE0_WORKTREE_DIR to the stage0-orchestration-prelaunch worktree path}"
 mkdir -p logs/stage0_pilot
 
-OUTPUT_DIR=${STAGE0_OUTPUT_DIR:-results/stage0_pilot_v1}
+OUTPUT_DIR=${STAGE0_OUTPUT_DIR:-results/stage0_v1}
+PYTHON=/project/ikoutis/sv96/github/llm-serving-scheduler-robustness-benchmark/.venv312/bin/python3
 
 echo "[$(date -u +%FT%TZ)] validating matrix in $OUTPUT_DIR"
-.venv312/bin/python scripts/stage0/stage0_harness.py validate --output-dir "$OUTPUT_DIR" \
+PYTHONPATH=src "$PYTHON" scripts/stage0/stage0_harness.py validate --output-dir "$OUTPUT_DIR" \
   | tee "$OUTPUT_DIR/validation_report.json"
 
 echo "[$(date -u +%FT%TZ)] running 5-criterion analyzer"
-.venv312/bin/python - "$OUTPUT_DIR" <<'PYEOF'
+PYTHONPATH=src "$PYTHON" - "$OUTPUT_DIR" <<'PYEOF'
 import json
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent if "__file__" in dir() else Path(".")
 sys.path.insert(0, "src")
 from robustbench.stage0.analyzer import analyze_stage0_matrix  # noqa: E402
 
