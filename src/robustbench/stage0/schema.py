@@ -73,12 +73,29 @@ def validate_cell_result(d: dict) -> list[str]:
         if f not in d:
             problems.append(f"missing required field: {f}")
     if d.get("success") is True:
-        for metric_field in ("arrival_normalized_weighted_goodput", "completion_fraction", "slo_violation_rate"):
+        # ALWAYS_DEFINED metrics (see docs/STAGE0_METRIC_DEFINITIONS.md's
+        # "Conditional metric audit"): never NaN for a real Stage-0 window.
+        for metric_field in ("arrival_normalized_weighted_goodput", "completion_fraction"):
             v = d.get(metric_field)
             if v is None:
                 problems.append(f"success=True but {metric_field} is None")
             elif isinstance(v, float) and (v != v):  # NaN check without importing math
                 problems.append(f"success=True but {metric_field} is NaN")
+
+        # slo_violation_rate is CONDITIONAL_ON_COMPLETION (population =
+        # completed requests only). NaN is the documented, valid
+        # representation of "undefined" exactly when completion_fraction
+        # == 0.0 (docs/STAGE0_ZERO_COMPLETION_METRIC_AMENDMENT_20260901.md)
+        # -- it must still be finite whenever its population is non-empty.
+        svr = d.get("slo_violation_rate")
+        if svr is None:
+            problems.append("success=True but slo_violation_rate is None")
+        elif isinstance(svr, float) and (svr != svr):
+            if d.get("completion_fraction") != 0.0:
+                problems.append(
+                    "success=True but slo_violation_rate is NaN despite "
+                    "completion_fraction != 0.0"
+                )
     if d.get("success") is False:
         if not d.get("error_category"):
             problems.append("success=False but error_category is empty")

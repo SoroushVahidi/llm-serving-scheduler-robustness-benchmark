@@ -54,3 +54,28 @@ success/failure, priority-weighted requests, zero-priority fallback to
 unit weight, the `num_total==0` NaN edge case, ANWG-vs-`weighted_goodput`
 divergence under drops, and ANWG-vs-throughput/completion divergence under
 late-but-complete responses — 8 tests, all passing.
+
+## Conditional metric audit (added by
+`docs/STAGE0_ZERO_COMPLETION_METRIC_AMENDMENT_20260901.md`)
+
+Every field persisted on a Stage-0 `CellResult`
+(`src/robustbench/stage0/runner.py::execute_cell`), classified by whether
+its mathematical population can be empty and, if so, what it is:
+
+| metric | population | zero-completion behavior | class |
+|---|---|---|---|
+| `completion_fraction` | all arrivals (`num_total`) | `num_completed / num_total`, `= 0.0` at zero completions (never NaN for Stage-0, since every frozen window has `num_total > 0`) | `ALWAYS_DEFINED` |
+| `arrival_normalized_weighted_goodput` (ANWG) | all arrivals | `= 0.0` at zero completions (pre-registered, tested, see above) | `ALWAYS_DEFINED` |
+| `weighted_completion_fraction` | all arrivals | `= 0.0` at zero completions (same arrival-weight denominator as ANWG) | `ALWAYS_DEFINED` |
+| `slo_violation_rate` | **completed requests only** | `NaN` — undefined when `num_completed == 0` (this amendment: `NaN` is schema-valid exactly when `completion_fraction == 0.0`, and must stay finite otherwise) | `CONDITIONAL_ON_COMPLETION` |
+| `weighted_goodput` | completed requests only (weight) | `NaN` when `num_completed == 0` (already documented in code as "historical"/conditional; not in Stage-0's required-field set, so never blocked a cell) | `CONDITIONAL_ON_COMPLETION` |
+| `mean_latency` / `p95_latency` | completed requests only | `NaN` when `num_completed == 0` | `CONDITIONAL_ON_COMPLETION` |
+| `request_throughput` / `token_throughput` | completed requests, given `sim_duration > 0` | `NaN` when `num_completed == 0` | `CONDITIONAL_ON_COMPLETION` |
+| `mean_ttft` / `p95_ttft` | completed requests with a recorded first-token time | `NaN` when `num_completed == 0`, or when no completed request has a recorded first-token time even if some completed | `CONDITIONAL_ON_OTHER_PRECONDITION` |
+
+Only `slo_violation_rate` is in the Stage-0 schema's required-field set
+among the `CONDITIONAL_ON_COMPLETION`/`CONDITIONAL_ON_OTHER_PRECONDITION`
+rows above, so it is the only field this amendment's schema change affects
+(`src/robustbench/stage0/schema.py::validate_cell_result`). The
+`ALWAYS_DEFINED` rows are unchanged by this amendment and remain required
+finite on every successful Stage-0 cell.
