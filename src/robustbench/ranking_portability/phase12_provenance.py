@@ -47,7 +47,14 @@ APPROVED_ENRICHMENT_FIELDS = REPAIRED_SCHEMA_FIELDS + EXPLICIT_PHASE11_FIELDS
 
 
 def canonical_json_sha256(payload) -> str:
-    """SHA-256 over stable sorted compact JSON."""
+    """SHA-256 over stable sorted compact JSON.
+
+    ``allow_nan=True`` is deliberate: the scientific schema legitimately uses
+    NaN for documented undefined conditional metrics.  Canonical JSON hashing
+    therefore provides a stable invariance comparison even when raw and
+    enriched rows are parsed in separate ``json.load`` calls (two Python NaN
+    objects do not compare equal with ordinary dict equality).
+    """
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":"), allow_nan=True)
     return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
 
@@ -142,6 +149,11 @@ def masked_non_provenance_view(row: Mapping) -> dict:
     return {k: v for k, v in row.items() if k not in APPROVED_ENRICHMENT_FIELDS}
 
 
+def masked_non_provenance_hash(row: Mapping) -> str:
+    """Canonical, NaN-safe identity of every non-repair field in a row."""
+    return canonical_json_sha256(masked_non_provenance_view(row))
+
+
 def validate_analysis_admission_row(
     row: Mapping,
     campaign_manifest: Mapping,
@@ -192,5 +204,6 @@ __all__ = [
     "expected_phase12_provenance",
     "enrich_row_provenance",
     "masked_non_provenance_view",
+    "masked_non_provenance_hash",
     "validate_analysis_admission_row",
 ]
