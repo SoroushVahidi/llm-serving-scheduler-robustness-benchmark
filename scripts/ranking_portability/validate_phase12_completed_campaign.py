@@ -12,10 +12,12 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
+from typing import Mapping, Sequence
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT / "src"))
@@ -73,6 +75,49 @@ DEFAULT_FULL_WINDOW_MANIFEST = Path(
     "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-ranking-portability-windows/"
     "artifacts/manifests/ranking_portability_pilot_v2_windows.json"
 )
+PHASE11_FREEZE_FINALIZATION_COMMIT = "6e2c02fc46b287a5f741c0907475c92c9e33fc87"
+PHASE11_PRELAUNCH_DOC_REL = "docs/RANKING_PORTABILITY_PHASE11_PRELAUNCH_FREEZE.md"
+PHASE11_PRELAUNCH_AGGREGATE_LABEL = "aggregate prelaunch-freeze SHA-256"
+PHASE11_PRELAUNCH_CONSTITUENT_LABELS = (
+    ("branch_sha", "branch SHA"),
+    ("phase10_window_hash", "Phase-10 window hash"),
+    ("compact_window_index_hash", "compact index hash"),
+    ("calibration_impl_hash", "calibration implementation hash"),
+    ("build_script_hash", "build script hash"),
+    ("calibration_plan_hash", "calibration plan hash"),
+    ("candidate_factor_grid_hash", "candidate factor grid hash"),
+    ("six_region_definition_hash", "six-region definition hash"),
+    ("fifo_policy_hash", "FIFO policy implementation hash"),
+    ("simulator_implementation_hash", "simulator implementation/config hash"),
+    ("validator_schema_hash", "validator/schema hash"),
+)
+PHASE11_PRELAUNCH_CROSS_BINDINGS = (
+    (
+        "phase11_calibration_freeze_document",
+        REPO_ROOT / "docs/RANKING_PORTABILITY_PHASE11_CALIBRATION_FREEZE.md",
+        "Phase-11 prelaunch freeze hash",
+    ),
+    (
+        "phase12_campaign_prelaunch_freeze_document",
+        REPO_ROOT / "docs/RANKING_PORTABILITY_PHASE12_CAMPAIGN_PRELAUNCH_FREEZE.md",
+        "Phase-11 prelaunch freeze",
+    ),
+    (
+        "artifact_hash_ledger",
+        REPO_ROOT / "docs/ARTIFACT_HASH_LEDGER.md",
+        "Phase-11 prelaunch freeze",
+    ),
+    (
+        "canonical_handoff",
+        REPO_ROOT / "docs/CANONICAL_HANDOFF.md",
+        "Phase-11 prelaunch freeze contract",
+    ),
+    (
+        "project_status",
+        REPO_ROOT / "docs/PROJECT_STATUS.md",
+        "Phase-11 prelaunch freeze hash",
+    ),
+)
 
 
 def _sha256_file(path: Path) -> str:
@@ -81,6 +126,10 @@ def _sha256_file(path: Path) -> str:
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def _sha256_bytes(payload: bytes) -> str:
+    return hashlib.sha256(payload).hexdigest()
 
 
 def _canonical_sha256(payload) -> str:
@@ -93,6 +142,20 @@ def _git_sha() -> str:
         return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO_ROOT).decode().strip()
     except Exception:
         return "unknown"
+
+
+def _git_commit_exists(commit: str) -> bool:
+    return subprocess.run(
+        ["git", "cat-file", "-e", f"{commit}^{{commit}}"],
+        cwd=REPO_ROOT,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    ).returncode == 0
+
+
+def _git_file_bytes(commit: str, relpath: str) -> bytes:
+    return subprocess.check_output(["git", "show", f"{commit}:{relpath}"], cwd=REPO_ROOT)
 
 
 def _atomic_json(path: Path, payload) -> None:
@@ -113,6 +176,119 @@ def _problem(problems: list[str], message: str) -> None:
 def _load_json(path: Path):
     with open(path) as f:
         return json.load(f)
+
+
+def _extract_labeled_sha256(text: str, label: str) -> str:
+    for line in text.splitlines():
+        if label in line:
+            match = re.search(r"`([0-9a-f]{40}|[0-9a-f]{64})`", line)
+            if match:
+                return match.group(1)
+    raise ValueError(f"could not find SHA-256 for label: {label}")
+
+
+def _phase11_prelaunch_payload_from_text(text: str) -> dict[str, str]:
+    return {
+        key: _extract_labeled_sha256(text, label)
+        for key, label in PHASE11_PRELAUNCH_CONSTITUENT_LABELS
+    }
+
+
+def _phase11_prelaunch_aggregate_from_text(text: str) -> str:
+    return _canonical_sha256(_phase11_prelaunch_payload_from_text(text))
+
+
+def _file_artifact_identity_checks(
+    compact_index: Path,
+    raw_fifo: Path,
+    region_assignments: Path,
+) -> dict[str, str]:
+    return {
+        "phase10_compact_index_hash": _sha256_file(compact_index),
+        "phase11_raw_fifo_hash": _sha256_file(raw_fifo),
+        "phase11_region_assignment_hash": _sha256_file(region_assignments),
+    }
+
+
+def _verify_phase11_prelaunch_contract(
+    phase11_prelaunch: Path,
+    campaign: Mapping,
+    problems: list[str],
+    *,
+    cross_bindings: Sequence[tuple[str, Path, str]] = PHASE11_PRELAUNCH_CROSS_BINDINGS,
+) -> dict[str, object]:
+    expected = EXPECTED["phase11_prelaunch_hash"]
+    info: dict[str, object] = {
+        "phase11_prelaunch_finalization_commit": PHASE11_FREEZE_FINALIZATION_COMMIT,
+        "PHASE11_PRELAUNCH_IDENTITY_IS_AGGREGATE_CONTRACT_HASH": True,
+    }
+
+    if not _git_commit_exists(PHASE11_FREEZE_FINALIZATION_COMMIT):
+        _problem(problems, f"Phase-11 finalization commit missing: {PHASE11_FREEZE_FINALIZATION_COMMIT}")
+        historical_bytes = b""
+    else:
+        try:
+            historical_bytes = _git_file_bytes(PHASE11_FREEZE_FINALIZATION_COMMIT, PHASE11_PRELAUNCH_DOC_REL)
+        except subprocess.CalledProcessError as exc:
+            _problem(problems, f"Phase-11 finalized prelaunch document missing from git history: {exc}")
+            historical_bytes = b""
+
+    current_bytes = phase11_prelaunch.read_bytes() if phase11_prelaunch.exists() else b""
+    if not current_bytes:
+        _problem(problems, f"Phase-11 prelaunch document missing: {phase11_prelaunch}")
+
+    info["phase11_prelaunch_document_file_sha256"] = _sha256_bytes(current_bytes)
+    info["phase11_prelaunch_historical_document_file_sha256"] = _sha256_bytes(historical_bytes)
+    info["phase11_prelaunch_document_matches_finalization_commit"] = bool(
+        current_bytes and historical_bytes and current_bytes == historical_bytes
+    )
+    if current_bytes and historical_bytes and current_bytes != historical_bytes:
+        _problem(problems, "Phase-11 prelaunch document differs from finalization commit")
+
+    historical_text = historical_bytes.decode("utf-8") if historical_bytes else ""
+    current_text = current_bytes.decode("utf-8") if current_bytes else ""
+    try:
+        aggregate_identity = _extract_labeled_sha256(historical_text, PHASE11_PRELAUNCH_AGGREGATE_LABEL)
+    except ValueError as exc:
+        aggregate_identity = "MISSING"
+        _problem(problems, str(exc))
+    info["phase11_prelaunch_contract_identity"] = aggregate_identity
+    if aggregate_identity != expected:
+        _problem(problems, f"Phase-11 prelaunch aggregate identity mismatch: expected={expected}, observed={aggregate_identity}")
+
+    if current_text:
+        try:
+            current_identity = _extract_labeled_sha256(current_text, PHASE11_PRELAUNCH_AGGREGATE_LABEL)
+        except ValueError as exc:
+            current_identity = "MISSING"
+            _problem(problems, str(exc))
+        if current_identity != expected:
+            _problem(problems, f"current Phase-11 prelaunch aggregate identity mismatch: {current_identity}")
+
+    try:
+        recomputed_aggregate = _phase11_prelaunch_aggregate_from_text(historical_text)
+    except ValueError as exc:
+        recomputed_aggregate = "UNAVAILABLE"
+        _problem(problems, str(exc))
+    info["phase11_prelaunch_recomputed_aggregate_sha256"] = recomputed_aggregate
+    if recomputed_aggregate != expected:
+        _problem(problems, f"Phase-11 prelaunch aggregate reconstruction mismatch: expected={expected}, observed={recomputed_aggregate}")
+
+    bindings = {
+        "phase11_finalized_prelaunch_document": aggregate_identity,
+        "phase12_campaign_manifest": campaign.get("phase11_prelaunch_hash"),
+    }
+    for name, path, label in cross_bindings:
+        try:
+            bindings[name] = _extract_labeled_sha256(path.read_text(), label)
+        except (OSError, ValueError) as exc:
+            bindings[name] = "MISSING"
+            _problem(problems, f"Phase-11 prelaunch cross-binding unavailable in {name}: {exc}")
+    info["phase11_prelaunch_cross_bindings"] = bindings
+    for name, observed in bindings.items():
+        if observed != expected:
+            _problem(problems, f"Phase-11 prelaunch cross-binding mismatch: {name}: {observed}")
+    return info
 
 
 def _independent_expected_cells(compact_index: dict, campaign: dict) -> dict[str, dict]:
@@ -176,12 +352,12 @@ def main() -> None:
     assign_doc = _load_json(args.region_assignments)
 
     # ---- Five immutable scientific identities, independently rechecked. ----
-    immutable_checks = {
-        "phase10_compact_index_hash": _sha256_file(args.compact_index),
-        "phase11_prelaunch_hash": _sha256_file(args.phase11_prelaunch),
-        "phase11_raw_fifo_hash": _sha256_file(args.raw_fifo),
-        "phase11_region_assignment_hash": _sha256_file(args.region_assignments),
-    }
+    phase11_prelaunch_info = _verify_phase11_prelaunch_contract(args.phase11_prelaunch, campaign, problems)
+    immutable_checks = _file_artifact_identity_checks(
+        args.compact_index,
+        args.raw_fifo,
+        args.region_assignments,
+    )
     if not args.full_window_manifest.exists():
         _problem(problems, f"full Phase-10 materialized manifest missing: {args.full_window_manifest}")
         observed_phase10_window = "MISSING"
@@ -269,7 +445,9 @@ def main() -> None:
     duplicate_raw_ids = 0
     non_provenance_differences = 0
     execution_schema_failures = 0
+    telemetry_failures = 0
     provenance_failures = 0
+    raw_shard_hash_drift = 0
 
     for sid in range(EXPECTED["n_shards"]):
         raw_path = args.raw_dir / f"shard_{sid:03d}.json"
@@ -284,6 +462,7 @@ def main() -> None:
         raw_sha = _sha256_file(raw_path)
         enriched_sha = _sha256_file(enriched_path)
         if raw_sha != raw_entries[sid].get("original_sha256"):
+            raw_shard_hash_drift += 1
             _problem(problems, f"raw shard {sid} changed after ledger freeze")
         if raw_sha != repaired_entries[sid].get("original_sha256"):
             _problem(problems, f"repair ledger original hash mismatch for shard {sid}")
@@ -314,6 +493,8 @@ def main() -> None:
             schema_problems = validate_cell_result(enriched)
             if schema_problems:
                 execution_schema_failures += 1
+                if any("telemetry" in p.lower() for p in schema_problems):
+                    telemetry_failures += 1
                 _problem(problems, f"enriched execution-schema invalid {cid}: {schema_problems}")
             admission = validate_analysis_admission_row(
                 enriched, campaign, expected_execution_repo_sha=EXPECTED["execution_repo_sha"]
@@ -449,10 +630,12 @@ def main() -> None:
         "rep_pair_groups": len(rep_groups),
         "rep_scientific_input_mismatches": rep_input_mismatches,
         "execution_schema_failures": execution_schema_failures,
+        "telemetry_failures": telemetry_failures,
         "conditional_metric_semantic_violations": execution_schema_failures,
         "analysis_provenance_failures": provenance_failures,
         "non_provenance_row_differences": non_provenance_differences,
         "frozen_execution_file_hash_mismatches": execution_hash_mismatches,
+        "raw_shard_hash_drift": raw_shard_hash_drift,
         "raw_shard_ledger_sha256": _sha256_file(args.raw_ledger),
         "repaired_shard_ledger_sha256": _sha256_file(args.repair_ledger),
         "consolidated_artifact_sha256": _sha256_file(args.consolidated),
@@ -461,6 +644,7 @@ def main() -> None:
         "PHASE12_COMPLETED_CAMPAIGN_VALID": valid,
         "PHASE12_ANALYSIS_INPUT_ADMITTED": valid,
     }
+    report.update(phase11_prelaunch_info)
 
     if valid:
         analysis_input = {

@@ -14,11 +14,15 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts/ranking_portability/enrich_phase12_campaign_provenance.py"
+VALIDATOR_SCRIPT = REPO_ROOT / "scripts/ranking_portability/validate_phase12_completed_campaign.py"
 
 sys.path.insert(0, str(REPO_ROOT / "src"))
 _spec = importlib.util.spec_from_file_location("phase12d_enrich", SCRIPT)
 repair = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(repair)
+_validator_spec = importlib.util.spec_from_file_location("phase12d_completed_validator", VALIDATOR_SCRIPT)
+completed_validator = importlib.util.module_from_spec(_validator_spec)
+_validator_spec.loader.exec_module(completed_validator)
 
 from robustbench.ranking_portability.phase12_provenance import (  # noqa: E402
     enrich_row_provenance,
@@ -155,3 +159,145 @@ def test_consolidated_content_hash_is_deterministic_for_frozen_order():
     # The consolidation contract is explicitly order-sensitive because real
     # output is serialized in the frozen campaign-manifest cell order.
     assert first != repair._canonical_sha256(list(reversed(rows)))
+
+
+def _phase11_prelaunch_doc(*, aggregate: str | None = None, branch_sha: str | None = None) -> str:
+    return f"""# Phase-11 prelaunch freeze
+
+## Frozen identity
+
+- branch SHA: `{branch_sha or "f67c65f2f0b6cef661701e75c14f0a7e6868da4d"}`
+- Phase-10 window hash: `0d1aa06ccbee352207327ea369ae75f12e91c0cda006c813a41b381effd29eef`
+- compact index hash: `d78ec1087fedae02174ca093a9860c70468be336ccb1d7e6de756c81ba331e53`
+- aggregate prelaunch-freeze SHA-256: `{aggregate or completed_validator.EXPECTED["phase11_prelaunch_hash"]}`
+- calibration implementation hash: `030ea1760ecc4797ab7a1bab48f8a7af3f59ddba54905d571ece6ef5cb1c8804`
+- build script hash: `45e4d7c2d7228ac5f7f421a99f711735f8de0affd3fb97c97da0138a9b19a39c`
+- calibration plan hash: `01e403daed3ad0fc2ea92bfd042457198d47740c7ea6bc51edc953268bfd1593`
+- candidate factor grid hash: `217e99b5b7ab3e25ca2d89eb29adc997c15a7d5684f05bb339ce301255ae2cd0`
+- six-region definition hash: `139be6d2ad6db9bbea8a642ec420ff29228f74b5ab2105fdd520acbbae73f533`
+- FIFO policy implementation hash: `431171492d5174caa1358cf2adf76bf699ffb76f252a602ee9ec5ce69ef61381`
+- simulator implementation/config hash: `a4fa693aa24c76e87bf0fc023ec88086f727dd926d89b586648c75c182ed1b5e`
+- validator/schema hash: `dfb4b7815047852c5bf8d626daed1073380a844158ca54c76d030e47ae28e2b3`
+"""
+
+
+def _patch_phase11_history(monkeypatch, historical_doc: str, *, commit_exists: bool = True) -> None:
+    monkeypatch.setattr(completed_validator, "_git_commit_exists", lambda commit: commit_exists)
+    monkeypatch.setattr(
+        completed_validator,
+        "_git_file_bytes",
+        lambda commit, relpath: historical_doc.encode("utf-8"),
+    )
+
+
+def test_phase11_prelaunch_identity_is_aggregate_not_markdown_file_hash(tmp_path, monkeypatch):
+    doc = _phase11_prelaunch_doc() + "\n<!-- representation-only byte change -->\n"
+    path = tmp_path / "RANKING_PORTABILITY_PHASE11_PRELAUNCH_FREEZE.md"
+    path.write_text(doc)
+    _patch_phase11_history(monkeypatch, doc)
+
+    problems: list[str] = []
+    info = completed_validator._verify_phase11_prelaunch_contract(
+        path,
+        {"phase11_prelaunch_hash": completed_validator.EXPECTED["phase11_prelaunch_hash"]},
+        problems,
+        cross_bindings=(),
+    )
+
+    assert problems == []
+    assert info["phase11_prelaunch_contract_identity"] == completed_validator.EXPECTED["phase11_prelaunch_hash"]
+    assert info["phase11_prelaunch_document_file_sha256"] != completed_validator.EXPECTED["phase11_prelaunch_hash"]
+    assert info["PHASE11_PRELAUNCH_IDENTITY_IS_AGGREGATE_CONTRACT_HASH"] is True
+
+
+def test_phase11_prelaunch_wrong_embedded_aggregate_identity_fails(tmp_path, monkeypatch):
+    doc = _phase11_prelaunch_doc(aggregate="f" * 64)
+    path = tmp_path / "RANKING_PORTABILITY_PHASE11_PRELAUNCH_FREEZE.md"
+    path.write_text(doc)
+    _patch_phase11_history(monkeypatch, doc)
+
+    problems: list[str] = []
+    completed_validator._verify_phase11_prelaunch_contract(
+        path,
+        {"phase11_prelaunch_hash": completed_validator.EXPECTED["phase11_prelaunch_hash"]},
+        problems,
+        cross_bindings=(),
+    )
+
+    assert any("aggregate identity mismatch" in p for p in problems)
+
+
+def test_phase11_prelaunch_wrong_finalization_commit_document_fails(tmp_path, monkeypatch):
+    current_doc = _phase11_prelaunch_doc()
+    historical_doc = current_doc + "\n<!-- wrong historical representation -->\n"
+    path = tmp_path / "RANKING_PORTABILITY_PHASE11_PRELAUNCH_FREEZE.md"
+    path.write_text(current_doc)
+    _patch_phase11_history(monkeypatch, historical_doc)
+
+    problems: list[str] = []
+    completed_validator._verify_phase11_prelaunch_contract(
+        path,
+        {"phase11_prelaunch_hash": completed_validator.EXPECTED["phase11_prelaunch_hash"]},
+        problems,
+        cross_bindings=(),
+    )
+
+    assert any("differs from finalization commit" in p for p in problems)
+
+
+def test_phase11_prelaunch_conflicting_campaign_manifest_identity_fails(tmp_path, monkeypatch):
+    doc = _phase11_prelaunch_doc()
+    path = tmp_path / "RANKING_PORTABILITY_PHASE11_PRELAUNCH_FREEZE.md"
+    path.write_text(doc)
+    _patch_phase11_history(monkeypatch, doc)
+
+    problems: list[str] = []
+    completed_validator._verify_phase11_prelaunch_contract(
+        path,
+        {"phase11_prelaunch_hash": "0" * 64},
+        problems,
+        cross_bindings=(),
+    )
+
+    assert any("phase12_campaign_manifest" in p for p in problems)
+
+
+def test_phase11_prelaunch_cross_binding_identity_fails_on_disagreement(tmp_path, monkeypatch):
+    doc = _phase11_prelaunch_doc()
+    path = tmp_path / "RANKING_PORTABILITY_PHASE11_PRELAUNCH_FREEZE.md"
+    path.write_text(doc)
+    disagreeing = tmp_path / "disagreeing.md"
+    disagreeing.write_text("- Phase-11 prelaunch freeze hash: `" + "1" * 64 + "`\n")
+    _patch_phase11_history(monkeypatch, doc)
+
+    problems: list[str] = []
+    completed_validator._verify_phase11_prelaunch_contract(
+        path,
+        {"phase11_prelaunch_hash": completed_validator.EXPECTED["phase11_prelaunch_hash"]},
+        problems,
+        cross_bindings=(("synthetic_binding", disagreeing, "Phase-11 prelaunch freeze hash"),),
+    )
+
+    assert any("synthetic_binding" in p for p in problems)
+
+
+def test_raw_fifo_and_region_assignment_identities_remain_file_hashes(tmp_path):
+    compact_index = tmp_path / "compact.json"
+    raw_fifo = tmp_path / "raw_fifo.json"
+    region_assignments = tmp_path / "region_assignments.json"
+    compact_index.write_text("compact\n")
+    raw_fifo.write_text("raw\n")
+    region_assignments.write_text("region\n")
+
+    checks = completed_validator._file_artifact_identity_checks(
+        compact_index,
+        raw_fifo,
+        region_assignments,
+    )
+
+    assert "phase11_prelaunch_hash" not in checks
+    assert checks["phase11_raw_fifo_hash"] == completed_validator._sha256_file(raw_fifo)
+    assert checks["phase11_region_assignment_hash"] == completed_validator._sha256_file(region_assignments)
+    raw_fifo.write_text("raw changed\n")
+    assert checks["phase11_raw_fifo_hash"] != completed_validator._sha256_file(raw_fifo)
+
