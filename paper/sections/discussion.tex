@@ -1,69 +1,95 @@
 \section{Discussion}
 \label{sec:discussion}
 
-% NOTE (Query 3, pre-Phase-12): this section's structure is complete and
-% written to accommodate either direction of the pending Pilot-V2 outcome.
-% Its final numeric content (which branch below actually applies, and by
-% how much) cannot be finalized until Pilot-V2 executes (\S\ref{sec:results}).
+The result (\S\ref{sec:results}) is neither cleanly ``portable'' nor
+cleanly ``fragile'' -- it is source-pair-dependent in a specific,
+mechanistically legible way, and that dependence itself is the finding.
 
-Because \S\ref{sec:results}--\S\ref{sec:real-system} report no comparative
-outcome yet, we structure this discussion around both directions the
-pending result may take, so that the discussion below requires no
-rewriting once the outcome is known -- only the removal of whichever branch
-did not occur.
+\subsection{Portability Is Real but Source-Pair-Dependent, Not Uniform}
 
-\subsection{If Ranking Portability Is High}
+Comparative scheduler rankings are never uncorrelated between any two
+sources at any region ($\tau \geq 0.55$ everywhere,
+\S\ref{sec:cross-source-rankings}): a scheduler comparison performed on
+one of this study's three sources is never scientifically meaningless
+evidence about the others. At the same time, the degree of portability is
+far from uniform, and the source of the non-uniformity is legible rather
+than diffuse: Azure-2024 and Bailian/Qwen agree with each other almost
+perfectly at every operating region ($\tau = 0.89$--$1.00$), while every
+comparison involving BurstGPT sits $0.2$--$0.4$ lower in Kendall's tau-b,
+consistently across all six regions (\S\ref{sec:cross-source-rankings},
+\S\ref{sec:results-robustness}'s leave-one-source-out breakdown). The
+practical implication is neither ``a small, well-chosen evaluation
+footprint always suffices'' nor ``every scheduler comparison must be
+re-verified on every workload'': it is that \emph{which} second source a
+comparison is checked against matters more than \emph{whether} a second
+source is checked at all. A comparison validated only on Azure-2024-like
+traffic transfers with high confidence to Bailian/Qwen-like traffic under
+this study's panel and metric, but the same transfer to BurstGPT-like
+traffic is measurably less reliable, and that reliability gap holds at
+every load level tested, not only under stress.
 
-If scheduler rankings prove largely portable across the three independently
-sourced workload families, operating regions, and metrics tested
-(\S\ref{sec:cross-source-rankings}--\S\ref{sec:metric-conditioning}), the
-practical implication is that future scheduler comparisons may not need to
-be repeated across many independently sourced workloads to be trustworthy:
-a smaller, well-chosen evaluation footprint could suffice, reducing the
-evidence burden of scheduler evaluation. A high-portability result would
-also constitute evidence of a kind of robustness for the panel's
-mechanisms themselves -- that their relative strengths and weaknesses are
-not artifacts of any one workload's specific structure. At the same time, a
-high-portability finding on this benchmark's three sources and fixed
-operating-region grid would not license an unconditional claim of
-portability to every workload a practitioner might encounter; the boundary
-conditions under which portability was observed (source identity, load
-range, metric set, and simulator fidelity; \S\ref{sec:threats}) would need
-to be stated precisely, and \S\ref{sec:sample-complexity}'s result would
-still bound how much evidence is required before a specific portability
-claim is statistically warranted.
+\subsection{Practically Supported Reversals Are Real, Uncommon, and
+Load-Concentrated}
 
-\subsection{If Ranking Portability Is Low}
+Of 990 pairwise (policy pair $\times$ condition) comparisons on the
+PRIMARY metric, $3.6\%$ are practically and statistically supported
+reversals (\S\ref{sec:reversals}) -- a small minority, but not zero, and
+therefore not dismissible as measurement noise: the same bootstrap
+procedure that supports these 36 reversals also classified 906 comparisons
+as stable and produced zero comparisons in the ambiguous
+\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI} class. Every supported
+reversal we examined is the same policy pair
+(\texttt{slai\_faithful} vs.\ \texttt{vllm\_faithful}) and involves
+BurstGPT on one side, and reversal counts rise from zero at \texttt{LOW}
+to a peak at \texttt{OVERLOAD} (\S\ref{sec:reversals}) -- reversals are not
+spread evenly across the operating envelope; they concentrate at and above
+\texttt{PRE\_KNEE}. A scheduler comparison performed only at low load,
+even on a source pair that is otherwise highly portable, would have missed
+every reversal this benchmark found. This motivates evaluating scheduler
+comparisons across an operating curve, not at a single convenient load
+point, as this benchmark's design already does
+(\S\ref{sec:calibration}).
 
-If scheduler rankings instead prove fragile -- with practically meaningful,
-statistically supported reversals concentrated in particular sources,
-regions, or metrics (\S\ref{sec:reversals}) -- the practical implication is
-the opposite: single-workload scheduler evaluations risk over-generalizing,
-and a comparative claim of the form ``scheduler $A$ outperforms scheduler
-$B$'' should be read as conditional on the workload, metric, and load
-region it was measured under, unless independently re-verified. This would
-motivate multi-source evaluation as a de facto requirement for
-general-purpose scheduler comparisons going forward, and would sharpen the
-importance of \S\ref{sec:sample-complexity}'s sample-complexity result for
-practitioners who cannot afford to test every candidate workload
-distribution. A low-portability finding would also raise the practical
-question of which workload characteristics predict a reversal
-(RQ4, \S\ref{sec:cross-source-diffs}, \S\ref{sec:telemetry}) -- explanatory,
-not selector-building, in scope (\S\ref{sec:evidence-boundaries}).
+\subsection{Practical Implications for Benchmark Design}
 
-\subsection{Mechanism Equivalence and Collapse}
+Two implications follow directly and are not deployment recommendations
+about which scheduler to use, only about how to evaluate schedulers
+credibly. First, a comparison checked against only one additional workload
+source cannot be assumed representative of ``other workloads'' in
+general -- which specific source is used as the check matters, and
+BurstGPT-like traffic in particular is where this study's evidence
+concentrates its cross-source disagreement. Second, benchmark sample
+complexity is itself load- and metric-behavior-relevant evidence:
+\S\ref{sec:sample-complexity}'s finding that exact-order recovery requires
+the full window budget for two of three sources, while top-1 recovery is
+achievable from very few windows for those same two sources, means a
+researcher who only needs to know ``which scheduler is best'' faces a
+different, much smaller evidence requirement than one who needs the
+complete ordering -- a distinction a single point-estimate benchmark
+result cannot convey on its own.
 
-Independent of which branch above applies at the ranking-portability level,
-the mechanism telemetry collected for every cell (\S\ref{sec:telemetry})
-allows a finer-grained discussion of \emph{why} rankings behave as observed
--- for example, whether policies that appear to tie on a given workload do
-so because their scheduling decisions genuinely converge (as Stage~0's
-historical diagnostic found for several policies on BurstGPT's
-structurally short-prompt traffic; \S\ref{sec:stage0}) or because the
-metric used cannot distinguish otherwise-different decision sequences. This
-discussion is deferred to the post-Pilot-V2 revision of this section, once
-\S\ref{sec:cross-source-rankings}--\S\ref{sec:metric-conditioning} exist to
-anchor it.
+\subsection{Explanatory Telemetry: A Preliminary, Heavily Qualified Read}
+
+The frozen, pre-specified explanatory model (\S\ref{sec:telemetry},
+\texttt{telemetry\_explanation.json}) associates the five workload
+descriptors with reversal sites at each (policy pair, condition) cell, but
+converges with a usable sample size ($\geq 20$ observations) for only 42 of
+990 cells -- most reversal sites are too sparse for this per-cell model to
+fit reliably, and the frozen output records point coefficients only, with
+no standard errors or significance test. Any reading of this evidence must
+therefore be provisional. Within that small, non-significance-tested set,
+\texttt{prompt\_tokens\_cv} has a negative coefficient in 39 of 42 cells --
+the most consistent single direction among the five descriptors -- which
+is at least \emph{consistent with} (not confirmatory of) prompt-length
+variability being associated with where reversals occur, echoing
+\S\ref{sec:drivers}'s finding that prompt-length structure is the primary
+driver of source separability itself. The other four descriptors show
+weaker, closer-to-even sign splits across the interpretable cells and do
+not support a directional claim. We do not read this as evidence that any
+descriptor \emph{causes} a reversal, only as a candidate association worth
+a properly powered, purpose-built follow-up study; consistent with
+\S\ref{sec:evidence-boundaries}, this model is explanatory only and is
+never used to select, route, or recommend a scheduler.
 
 \subsection{Workload Descriptor Interpretation}
 

@@ -1,28 +1,30 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-% NOTE (Query 3, pre-Phase-12): structure complete; final numeric summary
-% pending Pilot-V2 (\S\ref{sec:results}).
-
 We have formulated the portability of a comparative scheduler ranking,
 $R(W, M, L)$, as a benchmark object distinct from both workload
-characterization and single-scheduler evaluation, and we have designed,
-frozen, and documented a paired, multi-source evaluation protocol -- a
-mechanism-diverse fixed scheduler panel, a calibrated six-region operating
-grid, an explicit metric contract, and an uncertainty/reversal-detection
-methodology -- before generating any comparative outcome. We have
-established, as project-local evidence available now, that the three
-primary workload sources underlying this benchmark are measurably
-different and strongly separable in their observed descriptor
-distributions (\S\ref{sec:workloads}), and, as historical pilot evidence,
-that scheduler differentiation under this project's protocol is real but
-strongly source-dependent, motivating the larger panel and denser load
-grid used going forward (\S\ref{sec:stage0}). The benchmark's central
-questions -- whether comparative scheduler rankings are portable across
-independent sources, operating regions, and metrics, how many workload
-windows are required before such a ranking is trustworthy, and whether
-simulated rankings reproduce on a real serving engine -- remain open at the
-time of this manuscript and are stated as explicit result contracts
-(\S\ref{sec:results}--\S\ref{sec:real-system}) rather than asserted in
-either direction. We plan to release LSSP as a public, independently
-reproducible artifact (\S\ref{sec:artifact}) once these results exist.
+characterization and single-scheduler evaluation, and designed, froze, and
+executed a paired, multi-source evaluation protocol -- a mechanism-diverse
+fixed 13-policy scheduler panel, a calibrated six-region operating grid, an
+explicit metric contract, and an uncertainty/reversal-detection
+methodology -- against 18{,}720 structurally validated cells, before
+interpreting any comparative outcome. The three primary workload sources
+are measurably different and strongly separable in their observed
+descriptor distributions (\S\ref{sec:workloads}). Comparative scheduler
+rankings are portable in aggregate (Kendall's tau-b never below $0.55$
+across 18 source-pair $\times$ region conditions) but source-pair-dependent
+rather than uniform: two of the three sources agree almost perfectly with
+each other, while the third is measurably and consistently less portable
+against either, and this gap holds at every operating region tested
+(\S\ref{sec:results}). A small ($3.6\%$) but non-zero share of pairwise
+comparisons are practically and statistically supported reversals,
+concentrated at and above the pre-knee operating region rather than spread
+evenly across the load curve (\S\ref{sec:reversals}). Exact-order recovery
+of the full-corpus ranking requires most or all of the 40-window budget
+for two of three sources, while identifying only the single best policy is
+achievable from far fewer windows for those same two sources
+(\S\ref{sec:sample-complexity}). Whether this benchmark's largest
+identified reversal reproduces on real vLLM/GPU execution (RQ6) remains a
+frozen, not-yet-executed result contract (\S\ref{sec:real-system}). We plan
+to release LSSP as a public, independently reproducible artifact
+(\S\ref{sec:artifact}) once RQ6 completes.

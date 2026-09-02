@@ -23,29 +23,65 @@ smaller corpus) as an adequate evidentiary base for the results in
 \subsection{Design}
 \label{sec:sample-complexity-design}
 
-\emph{[PENDING RESULT: probability of recovering the full $n=40$-window
-ranking at $n \in \{5, 10, 20, 30, 40\}$ windows per source, using at least
-500 draws per $n$ (sampling without replacement from the full window pool),
-per source and per metric, including a comparison between a concentrated
-(single-source-heavy) and a distributed (evenly-spread) window budget.
-Recovery is reported both as exact-order recovery and as top-$k$ ($k \in
-\{1,3\}$) recovery relative to the full-window reference ranking. We report
-the smallest $n$ at which recovery probability first exceeds the
-preregistered $0.9$ threshold; no specific value of $n$ is claimed before
-this analysis exists.]}
+For the PRIMARY metric, recovery of the exact $n=40$ reference ranking is
+slow and strongly source-dependent (Figure~\ref{fig:sample-complexity},
+Table~\ref{tab:rq4-first-n}): BurstGPT never reaches the preregistered
+$0.9$ exact-order recovery threshold below the full window budget ($0.2\%$
+at $n=5$, rising only to $56.6\%$ at $n=30$), Bailian/Qwen similarly does
+not cross $0.9$ before $n=40$ ($64.0\%$ at $n=30$), while Azure-2024
+crosses the threshold already at $n=30$ ($98.8\%$). None of the three
+sources reaches $0.9$ exact-order recovery at $n \in \{5,10,20\}$. Because
+$n=40$ is the size of the full reference pool itself, exact recovery at
+$n=40$ is $1.0$ by construction (sampling all 40 windows without
+replacement reproduces the reference exactly) and is not an informative
+data point on its own; the informative content is in how slowly each
+source's curve rises toward that trivial ceiling.
+
+Top-1 recovery (does the resampled subset identify the single
+best-performing PRIMARY-panel policy correctly) is a materially easier
+question than exact-order recovery for two of the three sources: Azure-2024
+and Bailian/Qwen both exceed $0.9$ top-1 recovery already at $n=5$
+($96.6\%$ and essentially $100\%$ respectively), even though their
+\emph{exact}-order recovery at $n=5$ is only $35.0\%$ and $14.6\%$. For
+these two sources, identifying the single best policy requires far less
+evidence than reconstructing the complete 11-policy ordering. BurstGPT
+shows no such gap: its top-1 recovery is comparably slow to its
+exact-order recovery ($13.0\%$ at $n=5$, $74.2\%$ at $n=30$, not reaching
+$0.9$ within the tested ladder either) -- consistent with
+\S\ref{sec:cross-source-rankings}'s finding that BurstGPT is the source
+whose relative ordering is hardest to pin down. Comparing a concentrated
+(single-source-heavy) against a distributed (evenly-spread-across-sources)
+window budget of equal total size, the distributed budget achieves higher
+mean Kendall's tau-b against the reference ranking ($0.986$) than the
+concentrated budget ($0.940$) for the primary metric -- spreading a fixed
+evaluation budget across sources recovers the reference ranking more
+reliably than concentrating it in one source.
+
+\begin{table}[h]
+\centering
+\caption{Smallest $n$ at which PRIMARY-metric recovery probability first
+exceeds $0.9$ (blank = not reached within the tested ladder,
+$n \in \{5,10,20,30,40\}$).}
+\label{tab:rq4-first-n}
+\begin{tabular}{lcc}
+\toprule
+Source & first $n$, exact-order $\geq 0.9$ & first $n$, top-1 $\geq 0.9$ \\
+\midrule
+Azure-2024    & 30 & 5 \\
+Bailian/Qwen  & 40 & 5 \\
+BurstGPT      & 40 (not reached below 40) & not reached \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[h]
 \centering
-\fbox{\parbox{0.85\textwidth}{\centering
-  [SAMPLE-COMPLEXITY RECOVERY CURVES] \\[4pt]
-  P(recovery) vs.\ $n \in \{5,10,20,30,40\}$, exact-order and top-$k$,
-  concentrated vs.\ distributed budget
-}}
-\caption{Placeholder: benchmark sample-complexity recovery curves
-(\S\ref{sec:sample-complexity-design}). One curve per (recovery type,
-window-budget strategy) pair, with the preregistered $0.9$ recovery
-threshold marked; no specific $n$ value is asserted until the underlying
-analysis runs.}
+\includegraphics[width=\textwidth]{generated/figures/fig3_sample_complexity_curves.pdf}
+\caption{Benchmark sample-complexity recovery curves, PRIMARY metric, 500
+draws per $n$, sampling without replacement. Left: exact-order recovery of
+the full $n=40$ reference ranking. Right: top-1 recovery. The $0.9$
+threshold is marked. Computed from \texttt{sample\_complexity.json}
+(SHA-256 \texttt{cb54afc0\ldots}).}
 \label{fig:sample-complexity}
 \end{figure}
 

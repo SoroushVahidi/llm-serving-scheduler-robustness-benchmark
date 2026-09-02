@@ -1,0 +1,557 @@
+{
+  "manifest_kind": "rq4_sample_complexity_table",
+  "generated_at": "2026-09-02T23:27:37.807094+00:00",
+  "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+  "generation_script_git_sha": "f37c532fffc3e533e70e94cf3defc255c55c928e",
+  "source_artifact_hashes": {
+    "ranking_correlations.json": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff",
+    "topk_overlap.json": "585e916acfb32cb02a8f99cdce65a882c5dee7acc6cbdfbad2e86716d0001b37",
+    "pairwise_reversals.json": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde",
+    "sample_complexity.json": "cb54afc0e1bb868580b6a8c929d94f4718dbc1eaa01d527b0a2c265c07578dcf",
+    "temporal_robustness.json": "c19a3c6400336525beda132386585e9d709782f5e0b05dec36867ee1850675d0",
+    "telemetry_explanation.json": "b073fa0bbe91efe670151e7250d603f020ed7c0f1a60b90397fa7c18c5d591f6"
+  },
+  "primary_metric": "arrival_normalized_weighted_goodput",
+  "ladder_n_values": [
+    5,
+    10,
+    20,
+    30,
+    40
+  ],
+  "draws_per_n": 500,
+  "recovery_threshold": 0.9,
+  "primary_metric_rows": [
+    {
+      "source": "burstgpt",
+      "points": [
+        {
+          "n": 5,
+          "p_exact_recovery": 0.002,
+          "p_topk_recovery": {
+            "1": 0.13,
+            "3": 0.124
+          }
+        },
+        {
+          "n": 10,
+          "p_exact_recovery": 0.02,
+          "p_topk_recovery": {
+            "1": 0.224,
+            "3": 0.268
+          }
+        },
+        {
+          "n": 20,
+          "p_exact_recovery": 0.218,
+          "p_topk_recovery": {
+            "1": 0.494,
+            "3": 0.51
+          }
+        },
+        {
+          "n": 30,
+          "p_exact_recovery": 0.566,
+          "p_topk_recovery": {
+            "1": 0.742,
+            "3": 0.78
+          }
+        },
+        {
+          "n": 40,
+          "p_exact_recovery": 1.0,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 1.0
+          }
+        }
+      ],
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 40,
+        "3": 40
+      },
+      "reaches_0.9_exact_by_n40": true
+    },
+    {
+      "source": "azure_llm_2024",
+      "points": [
+        {
+          "n": 5,
+          "p_exact_recovery": 0.35,
+          "p_topk_recovery": {
+            "1": 0.966,
+            "3": 0.35
+          }
+        },
+        {
+          "n": 10,
+          "p_exact_recovery": 0.624,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 0.624
+          }
+        },
+        {
+          "n": 20,
+          "p_exact_recovery": 0.886,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 0.886
+          }
+        },
+        {
+          "n": 30,
+          "p_exact_recovery": 0.988,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 0.988
+          }
+        },
+        {
+          "n": 40,
+          "p_exact_recovery": 1.0,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 1.0
+          }
+        }
+      ],
+      "first_n_meeting_exact_threshold": 30,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 30
+      },
+      "reaches_0.9_exact_by_n40": true
+    },
+    {
+      "source": "bailian_qwen",
+      "points": [
+        {
+          "n": 5,
+          "p_exact_recovery": 0.146,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 0.248
+          }
+        },
+        {
+          "n": 10,
+          "p_exact_recovery": 0.242,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 0.42
+          }
+        },
+        {
+          "n": 20,
+          "p_exact_recovery": 0.478,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 0.77
+          }
+        },
+        {
+          "n": 30,
+          "p_exact_recovery": 0.64,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 0.936
+          }
+        },
+        {
+          "n": 40,
+          "p_exact_recovery": 1.0,
+          "p_topk_recovery": {
+            "1": 1.0,
+            "3": 1.0
+          }
+        }
+      ],
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 30
+      },
+      "reaches_0.9_exact_by_n40": true
+    }
+  ],
+  "concentrated_vs_spread": [
+    {
+      "mean_tau_concentrated": 0.9396226415094339,
+      "mean_tau_spread": 0.9857012466741388,
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.9999999999999998,
+      "mean_tau_spread": 0.9999999999999998,
+      "metric": "completion_fraction",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.9999999999999998,
+      "mean_tau_spread": 0.9999999999999998,
+      "metric": "weighted_completion_fraction",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.9202066207346895,
+      "mean_tau_spread": 0.9835351219358002,
+      "metric": "slo_violation_rate",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.9202066207346895,
+      "mean_tau_spread": 0.9841037139131145,
+      "metric": "weighted_goodput",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.8529104930832521,
+      "mean_tau_spread": 0.9934997403889312,
+      "metric": "mean_latency",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.9099309085113113,
+      "mean_tau_spread": 0.9862573489441786,
+      "metric": "p95_latency",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.8882448843625893,
+      "mean_tau_spread": 0.892875854705696,
+      "metric": "request_throughput",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.9125411806588856,
+      "mean_tau_spread": 0.8980652131697102,
+      "metric": "token_throughput",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.8409473537959552,
+      "mean_tau_spread": 0.9939255797778341,
+      "metric": "mean_ttft",
+      "n_draws": 500,
+      "n_total": 40
+    },
+    {
+      "mean_tau_concentrated": 0.8587342419339135,
+      "mean_tau_spread": 0.9568685465923127,
+      "metric": "p95_ttft",
+      "n_draws": 500,
+      "n_total": 40
+    }
+  ],
+  "secondary_metric_thresholds": [
+    {
+      "source": "burstgpt",
+      "metric": "arrival_normalized_weighted_goodput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 40,
+        "3": 40
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "completion_fraction",
+      "first_n_meeting_exact_threshold": 30,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "weighted_completion_fraction",
+      "first_n_meeting_exact_threshold": 30,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "slo_violation_rate",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "weighted_goodput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 40,
+        "3": 40
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "mean_latency",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 20
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "p95_latency",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 30
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "request_throughput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 40,
+        "3": 30
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "token_throughput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 40,
+        "3": 30
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "mean_ttft",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 20,
+        "3": 5
+      }
+    },
+    {
+      "source": "burstgpt",
+      "metric": "p95_ttft",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 30
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "arrival_normalized_weighted_goodput",
+      "first_n_meeting_exact_threshold": 30,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 30
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "completion_fraction",
+      "first_n_meeting_exact_threshold": 5,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "weighted_completion_fraction",
+      "first_n_meeting_exact_threshold": 5,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "slo_violation_rate",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "weighted_goodput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 30
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "mean_latency",
+      "first_n_meeting_exact_threshold": 30,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "p95_latency",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "request_throughput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 40
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "token_throughput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 40
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "mean_ttft",
+      "first_n_meeting_exact_threshold": 30,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "azure_llm_2024",
+      "metric": "p95_ttft",
+      "first_n_meeting_exact_threshold": 30,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "arrival_normalized_weighted_goodput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 30
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "completion_fraction",
+      "first_n_meeting_exact_threshold": 5,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "weighted_completion_fraction",
+      "first_n_meeting_exact_threshold": 5,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "slo_violation_rate",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 40
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "weighted_goodput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 40
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "mean_latency",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "p95_latency",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "request_throughput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 40
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "token_throughput",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 40
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "mean_ttft",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    },
+    {
+      "source": "bailian_qwen",
+      "metric": "p95_ttft",
+      "first_n_meeting_exact_threshold": 40,
+      "first_n_meeting_topk_threshold": {
+        "1": 5,
+        "3": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,494 @@
+{
+  "manifest_kind": "rq1_rq2_portability_table",
+  "generated_at": "2026-09-02T23:27:37.802612+00:00",
+  "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+  "generation_script_git_sha": "f37c532fffc3e533e70e94cf3defc255c55c928e",
+  "source_artifact_hashes": {
+    "ranking_correlations.json": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff",
+    "topk_overlap.json": "585e916acfb32cb02a8f99cdce65a882c5dee7acc6cbdfbad2e86716d0001b37",
+    "pairwise_reversals.json": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde",
+    "sample_complexity.json": "cb54afc0e1bb868580b6a8c929d94f4718dbc1eaa01d527b0a2c265c07578dcf",
+    "temporal_robustness.json": "c19a3c6400336525beda132386585e9d709782f5e0b05dec36867ee1850675d0",
+    "telemetry_explanation.json": "b073fa0bbe91efe670151e7250d603f020ed7c0f1a60b90397fa7c18c5d591f6"
+  },
+  "primary_metric": "arrival_normalized_weighted_goodput",
+  "primary_metric_source_pair_x_region_table": [
+    {
+      "condition_x": "azure_llm_2024::LOW",
+      "condition_y": "bailian_qwen::LOW",
+      "kendall_tau": 0.9198662110077999,
+      "kendall_tau_ci": [
+        0.8641167436739938,
+        0.9198662110077999
+      ],
+      "spearman_rho": 0.9412064413386635,
+      "spearman_rho_ci": [
+        0.8950122601686679,
+        0.9412064413386635
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::LOW",
+      "condition_y": "burstgpt::LOW",
+      "kendall_tau": 0.5510387687779837,
+      "kendall_tau_ci": [
+        0.2025478734167333,
+        0.5510387687779837
+      ],
+      "spearman_rho": 0.5897678246195884,
+      "spearman_rho_ci": [
+        0.21869176243407465,
+        0.5897678246195884
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "bailian_qwen::LOW",
+      "condition_y": "burstgpt::LOW",
+      "kendall_tau": 0.5990422978731537,
+      "kendall_tau_ci": [
+        0.22019275302527214,
+        0.5990422978731537
+      ],
+      "spearman_rho": 0.6266083599903658,
+      "spearman_rho_ci": [
+        0.2323525985681023,
+        0.6266083599903658
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::PRE_KNEE",
+      "condition_y": "bailian_qwen::PRE_KNEE",
+      "kendall_tau": 0.8931884167327451,
+      "kendall_tau_ci": [
+        0.8931884167327451,
+        1.0
+      ],
+      "spearman_rho": 0.9511213670856142,
+      "spearman_rho_ci": [
+        0.9511213670856142,
+        1.0
+      ],
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::PRE_KNEE",
+      "condition_y": "burstgpt::PRE_KNEE",
+      "kendall_tau": 0.7085662394599953,
+      "kendall_tau_ci": [
+        0.4496144015129485,
+        0.7526178090063816
+      ],
+      "spearman_rho": 0.8384103035504803,
+      "spearman_rho_ci": [
+        0.5245720917061686,
+        0.87191516958367
+      ],
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "bailian_qwen::PRE_KNEE",
+      "condition_y": "burstgpt::PRE_KNEE",
+      "kendall_tau": 0.6968683416725756,
+      "kendall_tau_ci": [
+        0.4040950971038548,
+        0.7526178090063816
+      ],
+      "spearman_rho": 0.7910753525361773,
+      "spearman_rho_ci": [
+        0.4570700640801811,
+        0.87191516958367
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::KNEE",
+      "condition_y": "bailian_qwen::KNEE",
+      "kendall_tau": 0.9583333333333335,
+      "kendall_tau_ci": [
+        0.9139076937674138,
+        1.0
+      ],
+      "spearman_rho": 0.9904306220095696,
+      "spearman_rho_ci": [
+        0.9659764638541438,
+        1.0
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::KNEE",
+      "condition_y": "burstgpt::KNEE",
+      "kendall_tau": 0.6458333333333335,
+      "kendall_tau_ci": [
+        0.577896743774047,
+        0.7291666666666667
+      ],
+      "spearman_rho": 0.820574162679426,
+      "spearman_rho_ci": [
+        0.7805651185713036,
+        0.8581009196673864
+      ],
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "bailian_qwen::KNEE",
+      "condition_y": "burstgpt::KNEE",
+      "kendall_tau": 0.6041666666666667,
+      "kendall_tau_ci": [
+        0.5208333333333334,
+        0.6875
+      ],
+      "spearman_rho": 0.7822966507177034,
+      "spearman_rho_ci": [
+        0.6722488038277512,
+        0.820574162679426
+      ],
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::POST_KNEE",
+      "condition_y": "bailian_qwen::POST_KNEE",
+      "kendall_tau": 0.9583333333333335,
+      "kendall_tau_ci": [
+        0.9583333333333335,
+        1.0
+      ],
+      "spearman_rho": 0.9904306220095696,
+      "spearman_rho_ci": [
+        0.9904306220095696,
+        1.0
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::POST_KNEE",
+      "condition_y": "burstgpt::POST_KNEE",
+      "kendall_tau": 0.6467616667635546,
+      "kendall_tau_ci": [
+        0.5103103630798288,
+        0.6784005252999682
+      ],
+      "spearman_rho": 0.8349892675291338,
+      "spearman_rho_ci": [
+        0.6383424685746489,
+        0.8349892675291338
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "bailian_qwen::POST_KNEE",
+      "condition_y": "burstgpt::POST_KNEE",
+      "kendall_tau": 0.6063390625908325,
+      "kendall_tau_ci": [
+        0.46948553403344245,
+        0.6470973183683323
+      ],
+      "spearman_rho": 0.7972496396182126,
+      "spearman_rho_ci": [
+        0.6099716921935535,
+        0.8349892675291338
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::OVERLOAD",
+      "condition_y": "bailian_qwen::OVERLOAD",
+      "kendall_tau": 0.9583333333333335,
+      "kendall_tau_ci": [
+        0.9583333333333335,
+        1.0
+      ],
+      "spearman_rho": 0.9904306220095696,
+      "spearman_rho_ci": [
+        0.9904306220095696,
+        1.0
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::OVERLOAD",
+      "condition_y": "burstgpt::OVERLOAD",
+      "kendall_tau": 0.6204965959947127,
+      "kendall_tau_ci": [
+        0.5659164584181102,
+        0.6204965959947127
+      ],
+      "spearman_rho": 0.8146976604292223,
+      "spearman_rho_ci": [
+        0.7553965866945604,
+        0.8146976604292223
+      ],
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "bailian_qwen::OVERLOAD",
+      "condition_y": "burstgpt::OVERLOAD",
+      "kendall_tau": 0.580464557543441,
+      "kendall_tau_ci": [
+        0.5254938542453881,
+        0.6204965959947127
+      ],
+      "spearman_rho": 0.7771323504382495,
+      "spearman_rho_ci": [
+        0.7097482827225056,
+        0.8146976604292223
+      ],
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+      "condition_y": "bailian_qwen::HIGH_PRESSURE",
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9040133315325639,
+        1.0
+      ],
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9653811384521649,
+        1.0
+      ],
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+      "condition_y": "burstgpt::HIGH_PRESSURE",
+      "kendall_tau": 0.6226415094339623,
+      "kendall_tau_ci": [
+        0.549962314837632,
+        0.7116700695043587
+      ],
+      "spearman_rho": 0.8348623853211009,
+      "spearman_rho_ci": [
+        0.7692118272256386,
+        0.8822382652840358
+      ],
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    },
+    {
+      "condition_x": "bailian_qwen::HIGH_PRESSURE",
+      "condition_y": "burstgpt::HIGH_PRESSURE",
+      "kendall_tau": 0.6226415094339623,
+      "kendall_tau_ci": [
+        0.549962314837632,
+        0.6993258208972303
+      ],
+      "spearman_rho": 0.8348623853211009,
+      "spearman_rho_ci": [
+        0.7692118272256386,
+        0.879667339085829
+      ],
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      },
+      "n_policies_compared": 11,
+      "n_conditions_excluded_for_undefined_metric": 0
+    }
+  ],
+  "secondary_metric_summary": {
+    "arrival_normalized_weighted_goodput": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.7329397320713733,
+      "min_kendall_tau": 0.5510387687779837,
+      "max_kendall_tau": 1.0
+    },
+    "completion_fraction": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.9999999999999998,
+      "min_kendall_tau": 0.9999999999999999,
+      "max_kendall_tau": 0.9999999999999999
+    },
+    "mean_latency": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.6593297740009103,
+      "min_kendall_tau": 0.3553345272593508,
+      "max_kendall_tau": 0.9533126619564753
+    },
+    "mean_ttft": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.6427143027685535,
+      "min_kendall_tau": 0.3553345272593508,
+      "max_kendall_tau": 0.9533126619564753
+    },
+    "p95_latency": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.7311164223927239,
+      "min_kendall_tau": 0.4500904011951776,
+      "max_kendall_tau": 0.9533126619564753
+    },
+    "p95_ttft": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.6754133068750359,
+      "min_kendall_tau": 0.3553345272593508,
+      "max_kendall_tau": 0.8785430414108694
+    },
+    "request_throughput": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.8111189549053208,
+      "min_kendall_tau": 0.6603773584905661,
+      "max_kendall_tau": 0.9533126619564753
+    },
+    "slo_violation_rate": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.7121179101123583,
+      "min_kendall_tau": 0.3302891295379082,
+      "max_kendall_tau": 0.9545454545454546
+    },
+    "token_throughput": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.8355024745521265,
+      "min_kendall_tau": 0.6603773584905661,
+      "max_kendall_tau": 0.9424819839382048
+    },
+    "weighted_completion_fraction": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.9999999999999998,
+      "min_kendall_tau": 0.9999999999999999,
+      "max_kendall_tau": 0.9999999999999999
+    },
+    "weighted_goodput": {
+      "n_defined": 18,
+      "n_total": 18,
+      "mean_kendall_tau": 0.7121179101123583,
+      "min_kendall_tau": 0.3302891295379082,
+      "max_kendall_tau": 0.9545454545454546
+    }
+  },
+  "primary_metric_by_region_summary": {
+    "LOW": {
+      "n_defined": 3,
+      "mean_kendall_tau": 0.6899824258863124,
+      "min_kendall_tau": 0.5510387687779837,
+      "max_kendall_tau": 0.9198662110077999
+    },
+    "PRE_KNEE": {
+      "n_defined": 3,
+      "mean_kendall_tau": 0.7662076659551054,
+      "min_kendall_tau": 0.6968683416725756,
+      "max_kendall_tau": 0.8931884167327451
+    },
+    "KNEE": {
+      "n_defined": 3,
+      "mean_kendall_tau": 0.7361111111111113,
+      "min_kendall_tau": 0.6041666666666667,
+      "max_kendall_tau": 0.9583333333333335
+    },
+    "POST_KNEE": {
+      "n_defined": 3,
+      "mean_kendall_tau": 0.7371446875625735,
+      "min_kendall_tau": 0.6063390625908325,
+      "max_kendall_tau": 0.9583333333333335
+    },
+    "OVERLOAD": {
+      "n_defined": 3,
+      "mean_kendall_tau": 0.7197648289571624,
+      "min_kendall_tau": 0.580464557543441,
+      "max_kendall_tau": 0.9583333333333335
+    },
+    "HIGH_PRESSURE": {
+      "n_defined": 3,
+      "mean_kendall_tau": 0.7484276729559749,
+      "min_kendall_tau": 0.6226415094339623,
+      "max_kendall_tau": 1.0
+    }
+  }
+}

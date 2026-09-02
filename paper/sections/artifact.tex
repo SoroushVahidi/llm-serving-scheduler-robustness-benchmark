@@ -2,19 +2,53 @@
 \label{sec:artifact}
 
 We plan to release the LLM-Serving Scheduler Portability Benchmark (LSSP)
-as a public artifact at the Hugging Face repository slug
-\texttt{SoroushVahidi/llm-serving-scheduler-portability}. \textbf{As of this
-manuscript, that artifact is planned but not yet released.} The intended
-release will include: the frozen workload window identities and their
-provenance (\S\ref{sec:windows}); the scheduler panel and its configuration
+as two linked artifacts: a GitHub repository (source code, simulator,
+analysis pipeline, validation scripts, the reproduction workflow, and
+figure/table-generation code including
+\texttt{paper/scripts/generate\_phase12\_tables\_figures.py}, at
+\texttt{SoroushVahidi/llm-serving-scheduler-robustness-benchmark}) and a
+Hugging Face dataset (released benchmark manifests, legally redistributable
+processed workload artifacts, validated campaign outputs, analysis-ready
+data, provenance/checksums, and a dataset card, at the repository slug
+\texttt{SoroushVahidi/llm-serving-scheduler-portability}). \textbf{As of
+this manuscript, neither release is yet public.} Upstream workload traces
+(\S\ref{sec:provenance}) remain governed by their original publishers'
+licenses and will not be republished where redistribution is not
+permitted; the release documents provenance and, where license terms
+allow, redistributes processed derivatives, not a copy of every source
+trace. The Pilot-V2 comparative outcome (\S\ref{sec:results}) has now been
+generated and structurally validated (six canonical analysis artifacts,
+hash ledger below) prior to any scientific interpretation
+(\S\ref{sec:artifact-hashes}); the planned release will include: the
+frozen workload window identities and their provenance
+(\S\ref{sec:windows}); the scheduler panel and its configuration
 (\S\ref{sec:panel}); the six-region calibration protocol and its outputs
 (\S\ref{sec:calibration}); the full set of paired policy outcomes across
-windows, regions, and metrics, once generated (\S\ref{sec:results}); the
-mechanism telemetry collected for every cell (\S\ref{sec:telemetry}); the
+windows, regions, and metrics (\S\ref{sec:results}); the mechanism
+telemetry collected for every cell (\S\ref{sec:telemetry}); the
 ranking-portability analysis outputs (Kendall/Spearman statistics, reversal
-tables, block-bootstrap confidence intervals); and the reproduction scripts
-used to regenerate every table and figure in this manuscript from those
-frozen inputs.
+tables, block-bootstrap confidence intervals); and the reproduction
+scripts used to regenerate every table and figure in this manuscript from
+those frozen inputs.
+
+\subsection{Phase-12 Analysis Identities}
+\label{sec:artifact-hashes}
+
+The Pilot-V2 statistical analysis was executed from sealed analysis code
+(git commit \texttt{eb574a8c\ldots}) against the admitted, independently
+re-validated 18{,}720-cell consolidated matrix (SHA-256
+\texttt{73adf7d9\ldots}), producing exactly six canonical output
+artifacts, each stamped with the analysis code SHA, the frozen analysis
+contract version (\texttt{phase12\_analysis\_prefreeze\_v1}), and the
+campaign freeze identity, and each independently structurally audited
+(consistent provenance across all six, no missing/extra/malformed
+artifact, exact five-class reversal taxonomy, exact frozen statistical
+contract) before this manuscript's Results and Sample Complexity sections
+were populated. The full audit record and per-artifact SHA-256 ledger are
+committed on the isolated
+\texttt{validation/lssp-phase12-structural-audit-20260902} branch (commit
+\texttt{2aba8b63\ldots}) and are part of the planned artifact release
+rather than reproduced in full in the main text.
 
 Every generated artifact in the planned release is designed to carry, or
 link via a provenance manifest, its generating repository commit SHA,

@@ -4,6 +4,7 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{hyperref}
 \usepackage{booktabs}
+\usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage[htt]{hyphenat}
 \usepackage{seqsplit}
@@ -13,7 +14,8 @@
 \title{How Portable Are LLM-Serving Scheduler Rankings Across Workloads,\\
   Operating Regions, and Metrics?}
 \author{Soroush Vahidi}
-\date{Draft V1 --- pre-Phase-12 authoritative consolidation, 2026-09-02}
+\date{Draft V2 --- Phase-12 RQ1--RQ5 results populated, RQ6 (real-vLLM)
+pending, 2026-09-02}
 
 \begin{document}
 \maketitle
@@ -23,19 +25,19 @@ Large language model (LLM) serving systems rely on sophisticated
 scheduling mechanisms, evaluated on workloads that are themselves
 heterogeneous across source, time, and operating region. We ask a
 second-order question: is the \emph{comparative ranking} a scheduler
-benchmark reports portable, formalized as $R(W, M, L)$, a comparative
-scheduler ranking as $W$ (workload source/window), $M$ (metric), and $L$
-(operating/load region) vary? We present the LLM-Serving Scheduler
-Portability Benchmark (LSSP): a preregistered, paired evaluation spanning
-three workload sources, 120 workload windows, a calibrated six-region
-operating grid, an 11-primary/13-total scheduling-policy
-panel, and 18{,}720 completed cells, plus a benchmark sample-complexity
-study and a targeted real-vLLM validation design. We establish, as evidence
-available now, that the three workload sources are measurably different
-and strongly separable in their observed descriptor distributions, and, as
-historical pilot evidence, that scheduler differentiation is real but
-strongly source-dependent. LSSP's central results remain outstanding and
-are stated as explicit, outcome-neutral result contracts.
+benchmark reports portable across workload source, metric, and operating
+region? We present the LLM-Serving Scheduler Portability Benchmark
+(LSSP): a preregistered, paired evaluation spanning three workload
+sources, 120 windows, a calibrated six-region operating grid, an
+11-primary/13-total scheduling-policy panel, and 18{,}720 completed
+cells, plus a benchmark sample-complexity study and a targeted real-vLLM
+validation design. Comparative rankings agree strongly between two of the
+three sources (Kendall's $\tau$ up to $1.0$) but are measurably less
+portable wherever the third source is involved ($\tau$ as low as
+$0.55$); $3.6\%$ of pairwise comparisons show practically and
+statistically supported reversals, concentrated at higher operating load.
+Real-vLLM validation of the strongest reversal is frozen but not yet
+executed.
 \end{abstract}
 
 \noindent\textbf{Keywords:} LLM inference serving; request scheduling;

@@ -1,0 +1,1138 @@
+{
+  "manifest_kind": "rq5_temporal_robustness_table",
+  "generated_at": "2026-09-02T23:27:37.808242+00:00",
+  "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+  "generation_script_git_sha": "f37c532fffc3e533e70e94cf3defc255c55c928e",
+  "source_artifact_hashes": {
+    "ranking_correlations.json": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff",
+    "topk_overlap.json": "585e916acfb32cb02a8f99cdce65a882c5dee7acc6cbdfbad2e86716d0001b37",
+    "pairwise_reversals.json": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde",
+    "sample_complexity.json": "cb54afc0e1bb868580b6a8c929d94f4718dbc1eaa01d527b0a2c265c07578dcf",
+    "temporal_robustness.json": "c19a3c6400336525beda132386585e9d709782f5e0b05dec36867ee1850675d0",
+    "telemetry_explanation.json": "b073fa0bbe91efe670151e7250d603f020ed7c0f1a60b90397fa7c18c5d591f6"
+  },
+  "primary_metric": "arrival_normalized_weighted_goodput",
+  "temporal_records": [
+    {
+      "condition_x": "burstgpt::LOW::TERCILE::EARLY",
+      "condition_y": "burstgpt::LOW::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.001565402258002548,
+      "kendall_tau": 0.9999999999999999,
+      "kendall_tau_ci": [
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        1.0,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::LOW::TERCILE::EARLY",
+      "condition_y": "burstgpt::LOW::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.7518296340458492,
+      "kendall_tau": -0.09999999999999999,
+      "kendall_tau_ci": [
+        -0.09999999999999999,
+        -0.09999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.7698749998921367,
+      "spearman_rho": -0.10000000000000002,
+      "spearman_rho_ci": [
+        -0.10000000000000002,
+        -0.10000000000000002
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::LOW::TERCILE::LATE",
+      "condition_y": "burstgpt::LOW::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.7518296340458492,
+      "kendall_tau": -0.09999999999999999,
+      "kendall_tau_ci": [
+        -0.09999999999999999,
+        -0.09999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.7698749998921367,
+      "spearman_rho": -0.10000000000000002,
+      "spearman_rho_ci": [
+        -0.10000000000000002,
+        -0.10000000000000002
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::PRE_KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::PRE_KNEE::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0031159184886809044,
+      "kendall_tau": 0.8947368421052629,
+      "kendall_tau_ci": [
+        0.5803810000880093,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 1.2869632723222726e-07,
+      "spearman_rho": 0.9799999999999999,
+      "spearman_rho_ci": [
+        0.5932958789676531,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::PRE_KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::PRE_KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.3692494004206658,
+      "kendall_tau": 0.2699527623995085,
+      "kendall_tau_ci": [
+        0.2699527623995085,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.4123853026238912,
+      "spearman_rho": 0.27541214906363853,
+      "spearman_rho_ci": [
+        0.27541214906363853,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::PRE_KNEE::TERCILE::LATE",
+      "condition_y": "burstgpt::PRE_KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.23123887683475286,
+      "kendall_tau": 0.359937016532678,
+      "kendall_tau_ci": [
+        0.2699527623995085,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.2392724248269785,
+      "spearman_rho": 0.38729833462074165,
+      "spearman_rho_ci": [
+        0.27541214906363853,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::KNEE::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00043784124494494607,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.6827887419989189,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 9.370452282996268e-72,
+      "spearman_rho": 0.9999999999999999,
+      "spearman_rho_ci": [
+        0.6876057271371582,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.011217580036727183,
+      "kendall_tau": 0.6784005252999682,
+      "kendall_tau_ci": [
+        0.5586203877309281,
+        0.8876253645985946
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.004159155550223962,
+      "spearman_rho": 0.7855992442348344,
+      "spearman_rho_ci": [
+        0.6266083599903658,
+        0.9631901840490797
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::KNEE::TERCILE::LATE",
+      "condition_y": "burstgpt::KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.011217580036727183,
+      "kendall_tau": 0.6784005252999682,
+      "kendall_tau_ci": [
+        0.6094040593428307,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.004159155550223962,
+      "spearman_rho": 0.7855992442348344,
+      "spearman_rho_ci": [
+        0.6897286264197526,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::POST_KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::POST_KNEE::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0020018577930924738,
+      "kendall_tau": 0.8787878787878788,
+      "kendall_tau_ci": [
+        0.7510676161988108,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 1.95525123023201e-06,
+      "spearman_rho": 0.9631901840490797,
+      "spearman_rho_ci": [
+        0.7752417511840508,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::POST_KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::POST_KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.04121061037978315,
+      "kendall_tau": 0.541602560309064,
+      "kendall_tau_ci": [
+        0.541602560309064,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.043708713486726176,
+      "spearman_rho": 0.6157396939277886,
+      "spearman_rho_ci": [
+        0.6157396939277886,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::POST_KNEE::TERCILE::LATE",
+      "condition_y": "burstgpt::POST_KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.015840526746870448,
+      "kendall_tau": 0.6400757530925302,
+      "kendall_tau_ci": [
+        0.541602560309064,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0119659899342931,
+      "spearman_rho": 0.722824858089143,
+      "spearman_rho_ci": [
+        0.6157396939277886,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::OVERLOAD::TERCILE::EARLY",
+      "condition_y": "burstgpt::OVERLOAD::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0020018577930924738,
+      "kendall_tau": 0.8787878787878788,
+      "kendall_tau_ci": [
+        0.7510676161988108,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 1.95525123023201e-06,
+      "spearman_rho": 0.9631901840490797,
+      "spearman_rho_ci": [
+        0.7752417511840508,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::OVERLOAD::TERCILE::EARLY",
+      "condition_y": "burstgpt::OVERLOAD::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.016351843955289123,
+      "kendall_tau": 0.6337694342435132,
+      "kendall_tau_ci": [
+        0.6337694342435132,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.009107430208452423,
+      "spearman_rho": 0.7407883136280001,
+      "spearman_rho_ci": [
+        0.7407883136280001,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::OVERLOAD::TERCILE::LATE",
+      "condition_y": "burstgpt::OVERLOAD::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00559968266876402,
+      "kendall_tau": 0.7312724241271306,
+      "kendall_tau_ci": [
+        0.6337694342435132,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0028126351226469546,
+      "spearman_rho": 0.8047412615671081,
+      "spearman_rho_ci": [
+        0.7407883136280001,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::HIGH_PRESSURE::TERCILE::EARLY",
+      "condition_y": "burstgpt::HIGH_PRESSURE::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.002197847545626046,
+      "kendall_tau": 0.812403840463596,
+      "kendall_tau_ci": [
+        0.6784005252999682,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.00045435631069108175,
+      "spearman_rho": 0.8727440879150394,
+      "spearman_rho_ci": [
+        0.7752417511840508,
+        0.9999999999999999
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::HIGH_PRESSURE::TERCILE::EARLY",
+      "condition_y": "burstgpt::HIGH_PRESSURE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0024301417658237137,
+      "kendall_tau": 0.7890763647670371,
+      "kendall_tau_ci": [
+        0.6759263694193746,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0005914588360003668,
+      "spearman_rho": 0.8647001919846836,
+      "spearman_rho_ci": [
+        0.7869345938805026,
+        0.9999999999999999
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.3333333333333333
+      }
+    },
+    {
+      "condition_x": "burstgpt::HIGH_PRESSURE::TERCILE::LATE",
+      "condition_y": "burstgpt::HIGH_PRESSURE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0004551767944563678,
+      "kendall_tau": 0.8547315588743926,
+      "kendall_tau_ci": [
+        0.700404195972475,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 2.3876223764919137e-05,
+      "spearman_rho": 0.9352252762912497,
+      "spearman_rho_ci": [
+        0.7869345938805026,
+        0.9999999999999999
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::LOW::BISECT::EARLY",
+      "condition_y": "burstgpt::LOW::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.019016473672300527,
+      "kendall_tau": 0.7254762501100116,
+      "kendall_tau_ci": [
+        -0.09999999999999999,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.008988517447141391,
+      "spearman_rho": 0.7416198487095662,
+      "spearman_rho_ci": [
+        -0.10000000000000002,
+        1.0
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::PRE_KNEE::BISECT::EARLY",
+      "condition_y": "burstgpt::PRE_KNEE::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.009684949956290744,
+      "kendall_tau": 0.7587869106393281,
+      "kendall_tau_ci": [
+        0.359937016532678,
+        0.9999999999999998
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.004351391695810162,
+      "spearman_rho": 0.7832604499879573,
+      "spearman_rho_ci": [
+        0.38729833462074165,
+        1.0
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::KNEE::BISECT::EARLY",
+      "condition_y": "burstgpt::KNEE::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.006455760027574831,
+      "kendall_tau": 0.7286524160629289,
+      "kendall_tau_ci": [
+        0.6094040593428307,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0009041264595332434,
+      "spearman_rho": 0.8506143541025448,
+      "spearman_rho_ci": [
+        0.6897286264197526,
+        0.9999999999999999
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::POST_KNEE::BISECT::EARLY",
+      "condition_y": "burstgpt::POST_KNEE::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.0022564046681571416,
+      "kendall_tau": 0.8043996665398436,
+      "kendall_tau_ci": [
+        0.6041585400191987,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.00048644033510462074,
+      "spearman_rho": 0.870712084953299,
+      "spearman_rho_ci": [
+        0.6750123615163116,
+        0.9999999999999999
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::OVERLOAD::BISECT::EARLY",
+      "condition_y": "burstgpt::OVERLOAD::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.0023688151759310135,
+      "kendall_tau": 0.7966275068156915,
+      "kendall_tau_ci": [
+        0.700066596898638,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0005549675928102464,
+      "spearman_rho": 0.8666902986261695,
+      "spearman_rho_ci": [
+        0.7887457230744283,
+        0.9999999999999999
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::HIGH_PRESSURE::BISECT::EARLY",
+      "condition_y": "burstgpt::HIGH_PRESSURE::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.0024301417658237137,
+      "kendall_tau": 0.7890763647670371,
+      "kendall_tau_ci": [
+        0.7724872793364282,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0005914588360003668,
+      "spearman_rho": 0.8647001919846836,
+      "spearman_rho_ci": [
+        0.835789033327984,
+        0.9999999999999999
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.3333333333333333
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::LOW::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::LOW::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.000488870531699955,
+      "kendall_tau": 0.9487179487179487,
+      "kendall_tau_ci": [
+        0.8164965809277261,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 8.386803945703662e-09,
+      "spearman_rho": 0.9891304347826085,
+      "spearman_rho_ci": [
+        0.8565603610802409,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::PRE_KNEE::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::PRE_KNEE::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00041434065586331165,
+      "kendall_tau": 0.9414688716912717,
+      "kendall_tau_ci": [
+        0.8931884167327451,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 2.366997560163373e-06,
+      "spearman_rho": 0.9615732502404013,
+      "spearman_rho_ci": [
+        0.9511213670856142,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::KNEE::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::KNEE::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9574271077563381,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9757833315074853,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::POST_KNEE::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::POST_KNEE::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9574271077563381,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9757833315074853,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::OVERLOAD::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::OVERLOAD::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9574271077563381,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9757833315074853,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::HIGH_PRESSURE::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0001888621386744852,
+      "kendall_tau": 0.9040133315325639,
+      "kendall_tau_ci": [
+        0.8723567442899586,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 1.4881766992279836e-06,
+      "spearman_rho": 0.9653811384521649,
+      "spearman_rho_ci": [
+        0.9510309442380371,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::LOW::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::LOW::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00043784124494494607,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        1.0,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 9.370452282996268e-72,
+      "spearman_rho": 0.9999999999999999,
+      "spearman_rho_ci": [
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::PRE_KNEE::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::PRE_KNEE::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0002376108411566479,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9487179487179487,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9891304347826085,
+        1.0
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::KNEE::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::KNEE::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9166666666666667,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9808612440191388,
+        1.0
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::POST_KNEE::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::POST_KNEE::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9166666666666667,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9808612440191388,
+        1.0
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::OVERLOAD::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::OVERLOAD::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00014533934914921472,
+      "kendall_tau": 0.9583333333333335,
+      "kendall_tau_ci": [
+        0.9166666666666667,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 4.736199687432892e-09,
+      "spearman_rho": 0.9904306220095696,
+      "spearman_rho_ci": [
+        0.9808612440191388,
+        1.0
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::HIGH_PRESSURE::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::HIGH_PRESSURE::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 9.928292769231532e-05,
+      "kendall_tau": 0.9424819839382048,
+      "kendall_tau_ci": [
+        0.8723567442899586,
+        0.9814268704352471
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 4.934406812747578e-08,
+      "spearman_rho": 0.9838573324895269,
+      "spearman_rho_ci": [
+        0.9604007072354562,
+        0.9932680437705017
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    }
+  ],
+  "robustness_primary_only": {
+    "note": "Headline ranking_correlations.json already restricts to the 11-policy PRIMARY panel (verified in the structural audit); PRIMARY_ONLY is therefore identical to the headline result by construction, not a separate recomputation."
+  },
+  "robustness_leave_one_source_out": {
+    "full_panel_mean_kendall_tau": 0.7329397320713733,
+    "per_excluded_source": {
+      "azure_llm_2024": {
+        "n_conditions_remaining": 6,
+        "mean_kendall_tau_excluding_this_source": 0.618253739296772
+      },
+      "bailian_qwen": {
+        "n_conditions_remaining": 6,
+        "mean_kendall_tau_excluding_this_source": 0.6325563522939237
+      },
+      "burstgpt": {
+        "n_conditions_remaining": 6,
+        "mean_kendall_tau_excluding_this_source": 0.9480091046234241
+      }
+    }
+  },
+  "robustness_load_calibration_sensitivity": {
+    "four_region_subset": [
+      "LOW",
+      "PRE_KNEE",
+      "KNEE",
+      "OVERLOAD"
+    ],
+    "n_conditions_four_region": 12,
+    "mean_kendall_tau_four_region": 0.7280165079774229,
+    "mean_kendall_tau_full_six_region": 0.7329397320713733
+  },
+  "robustness_window_size_sensitivity_note": "Identical to the RQ4 sample-complexity ladder (per the frozen robustness contract); not separately recomputed here.",
+  "robustness_metric_definition_sensitivity_note": "NOT computable from the six aggregate canonical artifacts alone -- requires per-cell metric values from the full consolidated matrix, which are out of scope for this manuscript-generation pass.",
+  "robustness_leave_one_policy_family_out_note": "NOT computable from the six aggregate canonical artifacts alone for the tau-b/rho ranking statistics (which depend on the joint 11-policy ranking) -- requires per-cell metric values.",
+  "slo_definition_sensitivity": "UNAVAILABLE -- no preregistered alternative SLO-synthesis rule ever existed; not fabricated."
+}

@@ -22,10 +22,11 @@ frozen set of validation cases -- not a hardware duplication of the full
 The following design is prepared, and its supporting harness -- server/
 client request orchestration against a real vLLM deployment, randomized/
 ABBA execution ordering, and per-run provenance capture -- has been
-functionally smoke-tested (\S\ref{sec:artifact}); it is not yet run as a
-scientific validation, because case selection depends on
-\S\ref{sec:cross-source-rankings}/\S\ref{sec:reversals}, which do not yet
-exist.
+functionally smoke-tested (\S\ref{sec:artifact}). Case selection
+(\S\ref{sec:real-system-case-selection}) has now been frozen from
+\S\ref{sec:cross-source-rankings}/\S\ref{sec:reversals}'s validated
+results; scientific execution has not yet run, pending the mechanism-
+mapping prerequisite disclosed in \S\ref{sec:real-system-case-selection}.
 
 \begin{itemize}
   \item \textbf{Mechanisms.} Approximately four representative
@@ -67,28 +68,68 @@ exist.
     (\S\ref{sec:artifact}).
 \end{itemize}
 
+\subsection{Frozen Case Selection}
+\label{sec:real-system-case-selection}
+
+Case selection has been frozen mechanically from \S\ref{sec:reversals}'s
+validated results, applying the predeclared rule (\texttt{docs/RANKING\_
+PORTABILITY\_ANALYSIS\_PLAN.md} \S G) verbatim: ``prefer (a) the pairwise
+reversal with the largest bootstrap-CI-excluding-zero effect size\ldots
+and (b) one representative stable ordering (largest tau, smallest CI) as a
+null-result control.'' The frozen selection
+(\texttt{artifacts/manifests/phase12\_rq6\_case\_selection\_20260902.json},
+committed on the isolated
+\texttt{validation/lssp-phase12-rq6-case-selection-20260902} branch,
+commit \texttt{fcb0379c\ldots}) is:
+
+\begin{itemize}
+  \item \textbf{Reversal case:} \texttt{slai\_faithful} vs.\
+    \texttt{vllm\_faithful}, comparing Azure-2024 against BurstGPT at
+    \texttt{HIGH\_PRESSURE} -- the largest-effect-size
+    \texttt{SUPPORTED\_PRACTICAL\_REVERSAL} among all 36 identified. This
+    was an exact tie with the equivalent Bailian/Qwen-vs-BurstGPT
+    comparison; both the tie and the (fully disclosed, non-subjective)
+    lexicographic tiebreak used are recorded in the manifest.
+  \item \textbf{Stable control:} Azure-2024 vs.\ Bailian/Qwen at
+    \texttt{HIGH\_PRESSURE} ($\tau = 1.0$) -- the highest-tau, and among
+    the ceiling-tau conditions narrowest-CI, source pair.
+\end{itemize}
+
+Applying this selection surfaced a genuine mechanism-mapping gap not
+identified by the earlier engineering-preflight mechanism inventory
+(\S\ref{sec:artifact}): \texttt{vllm\_faithful} has a native real-vLLM
+execution path, but \texttt{slai\_faithful} -- the specific SLO-aware
+mechanism in the largest reversal -- does not. Unlike \texttt{fifo} or
+\texttt{vllm\_faithful}, SLAI/RAD is not a vLLM-native scheduling mode;
+realizing it on real hardware requires a custom vLLM \texttt{--scheduler-cls}
+plugin (a technically supported but not-yet-built extension point) rather
+than an existing configuration flag. This is reported as a scoped,
+well-defined engineering prerequisite for RQ6, not worked around, and not
+a reason to substitute a more conveniently available mechanism into the
+frozen case.
+
 \subsection{Result Placeholder}
 \label{sec:real-system-result}
 
 \emph{[PENDING RESULT: sign agreement, Kendall's tau, and
 reversal-agreement between simulated and real-vLLM policy rankings, for the
-frozen validation cases above. Case selection must be frozen from this
-study's own \S\ref{sec:cross-source-rankings}/\S\ref{sec:reversals} results
-before any real-vLLM run is executed, and cannot be written until those
-results exist.]}
+two frozen cases in \S\ref{sec:real-system-case-selection}. Not yet
+executed -- the SLAI/RAD real-execution engineering prerequisite above
+must be resolved first.]}
 
 \begin{figure}[h]
 \centering
 \fbox{\parbox{0.85\textwidth}{\centering
   [REAL VALIDATION HARDWARE] \\[4pt]
-  [REAL VALIDATION CASES] \\[4pt]
+  slai\_faithful vs vllm\_faithful (Azure-2024 vs BurstGPT, HIGH\_PRESSURE) \\
+  Azure-2024 vs Bailian/Qwen, HIGH\_PRESSURE (stable control) \\[4pt]
   [REAL/SIM RANK AGREEMENT] \\[4pt]
   [REAL VALIDATION RESULT]
 }}
-\caption{Placeholder: simulator-vs-real-vLLM ranking agreement for the
-frozen validation cases (\S\ref{sec:real-system-design}), reported as
-sign agreement and Kendall's tau per case, never as an absolute
-latency/throughput comparison. Populated only after case selection is
-frozen from \S\ref{sec:reversals}.}
+\caption{Placeholder: simulator-vs-real-vLLM ranking agreement for the two
+frozen cases in \S\ref{sec:real-system-case-selection}, reported as sign
+agreement and Kendall's tau per case, never as an absolute
+latency/throughput comparison. Case identities are frozen; the hardware
+row, agreement values, and result remain pending RQ6 execution.}
 \label{fig:real-system-agreement}
 \end{figure}
