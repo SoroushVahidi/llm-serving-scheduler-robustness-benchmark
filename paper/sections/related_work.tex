@@ -1,0 +1,175 @@
+\section{Related Work}
+\label{sec:related-work}
+
+\subsection{Serving Architectures and Scheduling Mechanisms}
+\label{sec:related-serving}
+
+A substantial body of systems work has improved LLM inference throughput and
+latency through scheduling and memory-management mechanisms. Orca introduced
+iteration-level scheduling, interleaving requests at the granularity of
+individual decoding steps rather than whole requests
+\citep{yu2022orca}. vLLM introduced PagedAttention, a paged
+virtual-memory-style KV-cache allocator that substantially raised achievable
+batch sizes and became a widely adopted serving-system reference point
+\citep{kwon2023vllm}. Sarathi-Serve introduced chunked prefill, splitting
+long prefill computations across multiple decode-interleaved steps to reduce
+head-of-line blocking under continuous batching \citep{agrawal2024sarathi}.
+Splitwise and DistServe independently proposed disaggregating the
+compute-bound prefill phase and the memory-bound decode phase onto separate
+hardware pools connected by fast interconnects, each showing throughput or
+cost improvements from phase-specific resource allocation
+\citep{patel2024splitwise,zhong2024distserve}; Mooncake extends this
+direction with a KV-cache-centric disaggregated architecture that treats a
+shared, elastic KV cache -- rather than the compute engines themselves -- as
+the central resource to schedule around \citep{qin2025mooncake}. Llumnix
+adds dynamic, cross-instance request migration and rebalancing on top of a
+serving cluster \citep{sun2024llumnix}. DynamoLLM addresses cluster-level
+energy and cost efficiency by dynamically reconfiguring an inference
+cluster's resource allocation under latency SLOs \citep{stojkovic2025dynamollm}.
+
+A second cluster of work targets scheduling \emph{policy} design more
+specifically. VTC (Virtual Token Counter) defines an explicit token-level
+fairness objective for continuous-batching schedulers and proves a bound on
+the resulting service-difference guarantee \citep{sheng2024vtc}. $S^3$
+predicts each request's output length ahead of generation and uses that
+prediction to pack KV-cache memory more tightly at admission time, trading
+occasional misprediction-driven preemption for higher achievable batch size
+\citep{jin2023s3}. \citet{efficientllmscheduling2024} instead learns a
+pairwise ranking model over waiting requests to prioritize decode order --
+a distinct mechanism from $S^3$'s admission-time length prediction, despite
+both papers appearing at NeurIPS in consecutive years and both targeting
+throughput under uncertain output length. FastServe, JITServe, PARS, Libra,
+SLAI/RAD, SCORPIO, LMetric, Apt-Serve, and ProServe extend this space
+further with iteration-level preemption, SLO-aware admission under imprecise
+request information, pairwise learning-to-rank variants, dynamic request
+partitioning, theoretically motivated multi-objective scheduling,
+heterogeneous-SLO-aware admission, lightweight scheduling metrics, adaptive
+hybrid-cache scheduling, and unified multi-priority scheduling, respectively
+\citep{fastserve2024,jitserve2025,pars2025,libra2026,slai2025,scorpio2025,lmetric2026,aptserve2025,proserve2025}.
+Each of these papers reports an improvement over one or more baselines on
+the workload(s) chosen for its own experiments; none of them, individually
+or collectively, asks whether the \emph{relative ordering} they report would
+be preserved under an independently sourced workload, a different metric,
+or a different operating load -- the question this benchmark is built
+around (\S\ref{sec:related-position}).
+
+\subsection{Production Workloads and Characterization}
+\label{sec:related-workloads}
+
+A parallel literature documents that LLM-serving workloads observed in
+production are themselves heterogeneous. BurstGPT releases 10.31 million
+traces collected from a regional deployment of Microsoft's Azure OpenAI GPT
+service over 213 days, characterizing request burstiness, conversation
+structure, and response-length behavior, and is now published as a full
+KDD~2025 paper rather than only as a preprint \citep{burstgpt2025}. Two
+official Microsoft releases document Azure's own internal LLM-inference
+traffic: Splitwise analyzes production conversation and code-completion
+traces collected on Azure in November 2023 \citep{patel2024splitwise}, and
+DynamoLLM analyzes a longer, one-week Azure trace collected in May 2024
+\citep{stojkovic2025dynamollm}. \citet{kvcache_wild2025} characterizes
+KV-cache reuse patterns at a large cloud provider, finding that reuse
+probability and lifespan are workload-category-dependent in ways that
+synthetic workload studies had not captured. \citet{ayearinllmserving2026}
+reports a one-year longitudinal characterization of production traffic
+spanning workload evolution, caching behavior, and load balancing (a recent
+preprint at the time of writing; \S\ref{sec:related-position}).
+ServeGen instead characterizes a worldwide production inference service in
+order to build a principled per-client workload \emph{generator}, motivated
+explicitly by the position that no single fixed trace is representative
+enough on its own \citep{servegen2026}; because it characterizes the same
+underlying Alibaba Cloud platform as this project's Bailian/Qwen source, we
+do not count it as an independent workload provider (\S\ref{sec:workloads}).
+TraceLab characterizes a distinct workload family entirely -- coding-agent
+sessions rather than single-turn or short-multi-turn chat requests -- and is
+used here only as out-of-distribution context, not as one of this project's
+primary Pilot-V2 sources.
+
+\subsection{Simulators and Benchmark Frameworks}
+\label{sec:related-simulators}
+
+Vidur is the closest existing infrastructure precedent to LSSP: a
+large-scale simulation framework purpose-built for exploring LLM-inference
+system configurations at a fidelity and speed unavailable from
+running full experiments on real hardware \citep{vidur2024}. LLMServingSim
+and its successor LLMServingSim~2.0 provide a related but architecturally
+different hardware/software co-simulation infrastructure, adding
+iteration-granularity simulation with algorithmic-redundancy reuse and,
+in the 2.0 revision, explicit support for heterogeneous accelerators and
+disaggregated serving techniques \citep{llmservingsim2024,llmservingsim2_2025}.
+These simulators are built to let researchers explore serving-system design
+points cheaply; none of them is built around, or reports, a benchmark of
+\emph{comparative scheduler ranking portability} across independently
+sourced workloads in the sense this paper defines. LSSP's own simulator
+(\S\ref{sec:methodology}) is project-local infrastructure, not a
+contribution positioned against this literature; we make no claim that its
+output is equivalent to production hardware latency or throughput, only
+that it supports a fixed, controlled benchmark protocol for relative
+comparisons (\S\ref{sec:methodology}).
+
+\subsection{Workload Dependence and Benchmark Sensitivity}
+\label{sec:related-dependence}
+
+Prior work has already established, individually, that LLM-serving
+workloads are heterogeneous (\S\ref{sec:related-workloads}) and that
+individual serving mechanisms and schedulers are sensitive to batching
+structure, prefill/decode balance, load level, and service-level
+objectives (\S\ref{sec:related-serving}). We treat both of these as accepted
+background, not as a novel contribution of this work. What we do not find
+in the literature reviewed here is a direct study of whether a
+\emph{comparative ordering} among a fixed panel of schedulers is itself
+portable across independently sourced workloads, operating regions, and
+metrics -- the distinction this paper's Introduction develops between
+single-system sensitivity and comparative-ranking portability.
+
+\subsection{Ranking Portability and Benchmark Methodology}
+\label{sec:related-methodology}
+
+The statistical methodology this benchmark uses -- Kendall's tau-b and
+Spearman's rho for pairwise ranking agreement, paired comparison and
+block-bootstrap confidence intervals for ranking-uncertainty
+quantification, and a probability-of-correct-selection framing for
+benchmark sample complexity -- draws on standard nonparametric statistics
+and comparative-algorithm-ranking methodology (\S\ref{sec:methodology});
+these are general statistical tools, not literature claims specific to LLM
+serving, and are cited here only as the methods this benchmark's analysis
+plan applies to its own, independently generated data.
+
+\subsection{Position of LSSP}
+\label{sec:related-position}
+
+LSSP asks a different question than the majority of the prior work surveyed
+above. Prior work generally studies a scheduler, a serving system, a
+simulation environment, or a workload generator/characterization in its own
+right. LSSP instead studies the portability of \emph{comparative} scheduler
+rankings across independently sourced workload families, operating regimes,
+and metrics, using a fixed, mechanism-diverse scheduler panel and a
+preregistered protocol. To our knowledge, the LSSP benchmark is distinct in
+treating the portability of comparative scheduler rankings itself as the
+primary object of study across independent workload sources, operating
+regimes, and metrics, while explicitly quantifying ranking uncertainty and
+benchmark sample complexity. Vidur is the closest infrastructure precedent
+(\S\ref{sec:related-simulators}); LLMServingSim and its successor are
+related but differently scoped simulator infrastructure; the recent
+production-characterization literature
+(\S\ref{sec:related-workloads}) establishes the workload heterogeneity this
+benchmark's design responds to, but does not itself study cross-source
+ranking portability. This wording is intentionally narrower than an
+unconditional claim of priority; we do not claim to be the first to study
+LLM-serving workload dependence or scheduler sensitivity, only that we did
+not identify a prior benchmark treating cross-source, cross-metric,
+cross-load-region scheduler-ranking portability as its primary object of
+study under the primary-source review conducted for this manuscript.
+
+A note on provider independence is warranted here because it bears directly
+on how several of the sources above should be read together
+(\S\ref{sec:workloads} gives the full treatment). BurstGPT's own reported
+methodology collects its traces from a regional customer's use of
+Microsoft's Azure OpenAI GPT service \citep{burstgpt2025}; this project's
+own Azure-sourced traces are Microsoft's own official releases of internal
+Azure LLM-inference-service traffic \citep{patel2024splitwise,stojkovic2025dynamollm}.
+Both therefore sit on the same underlying cloud provider's infrastructure,
+even though they are collected by different teams through different
+mechanisms and released as distinct, independently versioned artifacts. We
+describe BurstGPT and this project's Azure traces as distinct,
+independently released workload sources throughout this manuscript, and we
+do not describe them as independent providers.

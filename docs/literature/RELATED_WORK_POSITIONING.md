@@ -18,6 +18,10 @@ LSSP asks a different question than the majority of prior LLM-serving systems an
 - "This study is motivated by the question of whether comparative scheduler rankings remain portable across independent workload sources and operating regimes."
 - "A closest infrastructure precedent is Vidur; relevant simulator families include LLMServingSim and general-purpose serving systems such as vLLM, Orca, and DistServe."
 
+## Provider-independence caveat
+
+BurstGPT's underlying traffic was logged from a regional customer of Microsoft's Azure OpenAI GPT service (per the BurstGPT paper itself), and this project's own Azure 2023/2024 traces are Microsoft's own internal releases (Splitwise, ISCA 2024; DynamoLLM, HPCA 2025). Both sit on the same underlying cloud provider's infrastructure. The manuscript must describe BurstGPT and this project's Azure traces as `distinct workload sources` / `independently released workload artifacts`, never as `independent providers`. This does not affect Bailian/Qwen or TraceLab, which are genuinely different underlying platforms.
+
 ## Prohibited phrasing
 
 - "No previous work studies this problem."

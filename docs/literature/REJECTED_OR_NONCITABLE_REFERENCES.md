@@ -8,12 +8,16 @@ This document records references considered but rejected because they were non-p
 | Google Scholar preview summaries | not authoritative metadata | rejected |
 | blog or press coverage | not a primary-source authority | rejected |
 | unsupported dataset-card summaries | version ambiguity and no direct source record | rejected |
-| `P-PAS` as a generic label without full official metadata | exact title/venue not stable enough for final manuscript use | rejected until fully resolved |
-| `VTC` and other acronym-only entries | insufficient exact metadata for final citation | rejected |
-| `S^3` as an acronym-only label | not a stable canonical title in the current verification pass | rejected; use the exact paper title |
+| `P-PAS` | title/author now resolved (`P-PAS: Prefill-Pressure Adaptive Scheduling for Long-Context LLM Serving`, arXiv:2608.15171) but single-author, very recent (2026-08), not peer-reviewed | moved to `PRIMARY_SOURCE_CITATION_LEDGER.md`'s VERIFIED_RELATED_WORK_ONLY table; not in `verified_related_work.bib` |
+| `XPerf` | no primary source located across two independent targeted searches | rejected; re-attempt only if a reviewer or reader supplies an exact citation |
 | non-official recommendations from model cards or third-party summaries | insufficient provenance | rejected |
 | websites without a formal paper or DOI record | cannot be used as canonical metadata | rejected |
 | literature claims that overstate novelty without direct benchmark evidence | violates manuscript safety rules | rejected |
+
+## Corrected in Query 3 (no longer rejected)
+
+- `VTC` — **RESOLVED, no longer rejected.** Exact primary source: `Fairness in Serving Large Language Models` (Sheng, Cao, Li, Zhu, Li, Zhuo, Gonzalez, Stoica; USENIX OSDI 2024; arXiv:2401.00588), which introduces the Virtual Token Counter (VTC) algorithm. Now `PRIMARY_SOURCE_VERIFIED` as `sheng2024vtc`.
+- `S^3` — **RESOLVED, no longer rejected.** Exact primary source: `S^3: Increasing GPU Utilization during Generative Inference for Higher Throughput` (Jin, Wu, Brooks, Wei; NeurIPS 2023; arXiv:2306.06000). It is a distinct paper from `Efficient LLM Scheduling by Learning to Rank` (NeurIPS 2024) and must never be substituted for it. Now `PRIMARY_SOURCE_VERIFIED` as `jin2023s3`. See `METADATA_CORRECTIONS.md` for the full resolution record.
 
 ## Rule
 

@@ -15,8 +15,10 @@ This directory consolidates the literature and metadata required for:
 ## Authoritative state
 
 - scientific source branch: `research/lssp-integrated-phase11-20260901` @ `30995d6dc5c9d3bb5db3aecdb975ddb70a92e86a`
-- literature branch: `research/lssp-literature-canonical-20260901`
-- search cutoff: 2026-09-01
+- literature branch: `research/lssp-literature-canonical-20260901` @ `7e5230f4aa1ea408a7d9580594135ca471dc3e42`
+- authoritative pre-Phase-12 branch: `research/lssp-authoritative-pre-phase12-20260901`
+- broad search cutoff: 2026-09-01
+- targeted literature integrity gate (Query 3): 2026-09-02, `LITERATURE_INTEGRITY_GATE = PASS` (see `SEARCH_COVERAGE_LOG.md` and `METADATA_CORRECTIONS.md`)
 - PRIMARY_SOURCE_LITERATURE_CONSOLIDATED: YES
 - FUTURE_AGENTS_SHOULD_NOT_REPEAT_BROAD_SEARCH_WITHOUT_TRIGGER = YES
 

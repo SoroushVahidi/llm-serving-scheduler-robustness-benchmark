@@ -1,0 +1,86 @@
+\section{Threats to Validity}
+\label{sec:threats}
+
+\paragraph{Simulator abstraction.} All results in this manuscript are
+produced by a discrete-event simulator, not a real serving engine
+(\S\ref{sec:execution-model}). We do not claim that simulated absolute
+latency or throughput values match real-hardware values; only relative
+ranking and reversal direction are claimed to transfer, and only for the
+frozen validation cases in \S\ref{sec:real-system}, once that section's
+result exists.
+
+\paragraph{Fidelity of reimplemented policies.} \texttt{FAITHFUL\_EXTERNAL}
+policies are validated reimplementations, not the original authors' code;
+residual implementation gaps relative to the original published systems
+are possible despite unit-test validation (\S\ref{sec:fidelity}).
+
+\paragraph{\texttt{STYLE\_APPROXIMATION} baselines.} The two style-level
+approximation policies are explicitly excluded from the PRIMARY headline
+panel and used only for a robustness check; they must not be read as
+official or validated reimplementations of their namesake systems
+(\S\ref{sec:fidelity}).
+
+\paragraph{Three primary workload families.} The Pilot-V2 corpus draws from
+three primary sources (\S\ref{sec:sources}); a fourth candidate source
+(TraceLab) is retained only as out-of-distribution context because its
+independence from a prior public window sweep cannot be fully verified.
+Any portability finding in \S\ref{sec:results} is scoped to these three
+sources plus whatever out-of-distribution evidence TraceLab can
+responsibly contribute, not to LLM-serving workloads in general.
+
+\paragraph{Dataset/provider dependence.} As established in
+\S\ref{sec:sources}, BurstGPT and this project's Azure traces are not
+established to come from independent underlying providers -- both trace
+back to Microsoft Azure infrastructure, collected through different
+mechanisms. Any cross-source finding involving BurstGPT and Azure should be
+read with this in mind; Bailian/Qwen remains a genuinely independent
+platform.
+
+\paragraph{Prompt-token semantic differences.} Prompt-token fields compose
+differently across sources (single-request figure for BurstGPT versus
+potentially multi-turn-cumulative context for Azure and TraceLab;
+\S\ref{sec:descriptors}). Any prompt-length-based claim in this manuscript
+carries this caveat and should not be read as evidence that the sources'
+underlying conversations differ in length, only that their observed,
+request-level prompt-token figures do.
+
+\paragraph{Unresolved historical byte-level overlap.} An exact,
+byte-level reconstruction of a prior related project's specific 60-window
+public-trace replay set could not be independently re-derived from this
+project's available checkout; that project's own recorded parameters and
+final verdict are taken on the strength of direct manuscript inspection,
+not independently re-derived from local artifacts. This project's own
+window construction is independently verified as non-identical
+(\S\ref{sec:windows}, \S\ref{sec:evidence-boundaries}), but the historical
+byte-level reconstruction gap itself remains an open item.
+
+\paragraph{Homogeneous hardware / execution assumptions.} The simulator
+executes every cell under a fixed, single-GPU-colocated execution model for
+the PRIMARY panel; two disaggregation-requiring policies are confined to a
+secondary stratum and never pooled with the PRIMARY leaderboard
+(\S\ref{sec:panel}).
+
+\paragraph{Completion-conditioned undefined metrics.} Several metrics are
+undefined, not zero, when a cell records zero completions
+(\S\ref{sec:metrics}); this is a real methodological choice with a
+real cost -- an undefined-metric policy is excluded from that specific
+condition's ranking-derived statistics, which lowers effective sample size
+for those conditions and must be read alongside every ranking-derived
+table's reported exclusion count.
+
+\paragraph{Phase-11 zero-completion prevalence.} 301 of 720 FIFO-only
+calibration-region records recorded zero completions
+(\S\ref{sec:calibration}). This is disclosed as a calibration
+characteristic, not a headline finding; it does, however, mean that a
+non-trivial share of (window, region) combinations will contribute no
+completion-conditioned-metric observation to \S\ref{sec:results}'s
+downstream analyses for any policy at that specific region, which is a
+structural constraint on statistical power in the highest-pressure regions
+in particular.
+
+\paragraph{Scope of real-system validation.} \S\ref{sec:real-system}'s
+validation is limited by design to a small, frozen set of case-selected
+conditions (largest-effect-size reversal plus one stable-ordering control),
+not a full re-execution of the Pilot-V2 matrix on real hardware; agreement
+or disagreement on those specific cases should not be over-generalized to
+every cell in \S\ref{sec:results}.

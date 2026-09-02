@@ -1,0 +1,35 @@
+\section{Reproducibility and the LSSP Artifact}
+\label{sec:artifact}
+
+We plan to release the LLM-Serving Scheduler Portability Benchmark (LSSP)
+as a public artifact at the Hugging Face repository slug
+\texttt{SoroushVahidi/llm-serving-scheduler-portability}. \textbf{As of this
+manuscript, that artifact is planned but not yet released.} The intended
+release will include: the frozen workload window identities and their
+provenance (\S\ref{sec:windows}); the scheduler panel and its configuration
+(\S\ref{sec:panel}); the six-region calibration protocol and its outputs
+(\S\ref{sec:calibration}); the full set of paired policy outcomes across
+windows, regions, and metrics, once generated (\S\ref{sec:results}); the
+mechanism telemetry collected for every cell (\S\ref{sec:telemetry}); the
+ranking-portability analysis outputs (Kendall/Spearman statistics, reversal
+tables, block-bootstrap confidence intervals); and the reproduction scripts
+used to regenerate every table and figure in this manuscript from those
+frozen inputs.
+
+Every generated artifact in the planned release is designed to carry, or
+link via a provenance manifest, its generating repository commit SHA,
+resolved experiment-config hash, workload-manifest hash, policy-registry
+version, dataset-source checksums, environment version, and (where
+relevant) per-cell seed, so that any released row can be regenerated from
+this project's own commit history alone rather than depending on an
+external, possibly-rewritten historical commit.
+
+The immutable scientific identifiers already fixed at the time of this
+manuscript are recorded in Table~\ref{tab:hashes} and in
+\texttt{docs/ARTIFACT\_HASH\_LEDGER.md}: the Phase-10 workload-window freeze
+content hash, the Phase-10 compact index hash, the Phase-11 prelaunch
+freeze contract hash, the Phase-11 raw FIFO calibration output hash, and
+the Phase-11 region-assignment output hash. These five identifiers were
+independently re-verified as unchanged, and consistent across every
+cross-referencing project document, immediately before this manuscript's
+authoritative branch was committed (\S\ref{sec:conclusion}).

@@ -18,3 +18,13 @@ artifacts/*
 *.log
 .DS_Store
 .env
+
+# LaTeX build intermediates (paper/main.pdf itself is tracked)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.out
+paper/*.toc
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz

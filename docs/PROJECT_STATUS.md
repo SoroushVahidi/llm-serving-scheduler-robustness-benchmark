@@ -1,30 +1,49 @@
 # LLM-Serving Scheduler Portability Benchmark — Project Status
 
-Last verified: 2026-09-02
-Canonical mutable status for the integrated scientific state through Phase 11.
+Last verified: 2026-09-02 (Query 3 — pre-Phase-12 authoritative consolidation)
+Canonical mutable status for the integrated scientific state through Phase 11,
+plus the corrected canonical literature and the manuscript foundation.
 
 PROJECT_STATUS.md is the canonical single source of truth for project-state changes.
 
 ## 1. Executive summary
 
-The repository is now in a verified Phase-11 scientific integration state.
+The repository is now in a verified Phase-11 scientific integration state,
+with a corrected, primary-source-verified literature base and a compileable
+manuscript foundation layered on top on a new authoritative branch.
 
 - Phase 10: DONE
 - Phase 11: DONE
-- Phase 12: READY
+- Phase 12: READY (not started)
 - Pilot-V2 smoke: NOT STARTED
 - 18,720-cell campaign: NOT STARTED
 - ranking analysis: NOT STARTED
 - sample-complexity analysis: NOT STARTED
 - real-system validation: NOT STARTED
 - comparative Pilot-V2 scheduler results: NONE
-- manuscript/literature work: PARALLEL / NOT INTEGRATED
+- literature consolidation (Query 2): DONE
+- targeted literature integrity gate (Query 3): DONE, `LITERATURE_INTEGRITY_GATE = PASS`
+- manuscript foundation (Query 3): DONE — see §7 below
 
-The authoritative current scientific branch is:
-`research/lssp-integrated-phase11-20260901` @ `6e2c02fc46b287a5f741c0907475c92c9e33fc87`
+The authoritative current scientific branch (unchanged, Phase 11 tip) is:
+`research/lssp-integrated-phase11-20260901` @ `30995d6dc5c9d3bb5db3aecdb975ddb70a92e86a`
+
+The corrected canonical literature branch is:
+`research/lssp-literature-canonical-20260901` @ `7e5230f4aa1ea408a7d9580594135ca471dc3e42`
+
+**The single branch a new chat should read is the final authoritative
+pre-Phase-12 branch**, which descends from both of the above:
+`research/lssp-authoritative-pre-phase12-20260901`
+(worktree: `/home/soroush/repos/llm-serving-scheduler-lssp-authoritative`).
 
 The previous authoritative Phase-10 integration branch remains preserved as:
 `research/lssp-integrated-phase10-20260901` @ `4a545b9ae17ae01312db093e6e350f5822bf0bec`
+
+(Note: an earlier revision of this file recorded the Phase-11 branch tip as
+`6e2c02fc46b287a5f741c0907475c92c9e33fc87`; that was a stale intermediate
+commit on that branch. `30995d6dc5c9d3bb5db3aecdb975ddb70a92e86a` is the
+verified current tip and the SHA this document's immutable-hash table in
+§4 was generated against.)
 
 ## 2. Phase map
 
@@ -84,18 +103,40 @@ The zero-completion counts retained in the Phase-11 calibration documentation ar
 
 ## 7. Manuscript status
 
-- manuscript work remains on the separate literature verification worktree,
-- not merged into the scientific execution branch,
-- and not considered part of the Phase-11 authority boundary.
+Manuscript sections, tracked in `docs/MANUSCRIPT_CONTENT_MAP.md` (per-subsection
+detail) and `paper/sections/*.tex` (actual prose):
+
+| Section | Status |
+|---|---|
+| Introduction | `DRAFT_V1` (manuscript-quality prose, outcome-neutral) |
+| Related Work | `DRAFT_V1` (all 6 subsections, corrected literature) |
+| Study Design | `DRAFT_V1` |
+| Workload Corpus / Characterization | `DRAFT_V1` (established numbers included) |
+| Scheduler Methodology (panel/fidelity/calibration/metrics/telemetry/robustness) | `DRAFT_V1` |
+| Results (ranking portability) | `CONTRACT_ONLY` |
+| Sample Complexity | `CONTRACT_ONLY` |
+| Real-System Validation | `CONTRACT_ONLY` |
+| Discussion | `STRUCTURED_V1` (both outcome branches written; numeric content pending) |
+| Threats to Validity | `DRAFT_V1` |
+| Reproducibility / Artifact | `DRAFT_V1` |
+| Conclusion | `STRUCTURED_V1` |
+
+The manuscript compiles cleanly (`paper/main.tex` via `tectonic`, exit 0, 23
+pages, no undefined references/citations, no severe overfull boxes; see
+`docs/CANONICAL_HANDOFF.md`). It is now integrated onto the same
+authoritative branch as the scientific state and literature (unlike the
+prior parallel-track arrangement described in earlier revisions of this
+document).
 
 ## 8. Branch / lineage summary
 
 - `main` remains untouched.
-- `research/lssp-integrated-phase11-20260901` is the current authoritative branch for scientific state through Phase 11.
-- `research/lssp-integrated-phase10-20260901` remains the prior authoritative Phase-10 scientific branch.
-- manuscript/literature work remains parallel and separate.
+- `research/lssp-integrated-phase11-20260901` is the current authoritative branch for scientific state through Phase 11 (unchanged, frozen).
+- `research/lssp-integrated-phase10-20260901` remains the prior authoritative Phase-10 scientific branch (unchanged, frozen).
+- `research/lssp-literature-canonical-20260901` is the Query-2 canonical literature branch (unchanged from Query 2; corrections in Query 3 live on the branch below, not by rewriting this one).
+- `research/lssp-authoritative-pre-phase12-20260901` is the **final authoritative branch**: scientific state (Phase 11 tip) + corrected canonical literature + manuscript foundation. This is the branch a new chat should read.
 
 ## 9. Immediate next action
 
-The next scientific action is Query 2, permanent primary-source literature/citation consolidation, on the new authoritative branch.
-This branch is intentionally not used for Phase-12 execution yet.
+- **Next scientific task:** Phase 12 execution (Pilot-V2 smoke → 18,720-cell campaign → ranking analysis → sample-complexity analysis → real-system validation), starting from `research/lssp-authoritative-pre-phase12-20260901`. Not started by this query, per explicit instruction.
+- **Next manuscript task:** populate `paper/sections/results.tex`, `sample_complexity.tex`, and `real_system.tex`'s `[PENDING RESULT: ...]` contracts once the corresponding Phase-12 analyses exist; firm up `discussion.tex` and `conclusion.tex`'s numeric content accordingly.

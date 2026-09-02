@@ -1,0 +1,88 @@
+\section{Discussion}
+\label{sec:discussion}
+
+% NOTE (Query 3, pre-Phase-12): this section's structure is complete and
+% written to accommodate either direction of the pending Pilot-V2 outcome.
+% Its final numeric content (which branch below actually applies, and by
+% how much) cannot be finalized until Pilot-V2 executes (\S\ref{sec:results}).
+
+Because \S\ref{sec:results}--\S\ref{sec:real-system} report no comparative
+outcome yet, we structure this discussion around both directions the
+pending result may take, so that the discussion below requires no
+rewriting once the outcome is known -- only the removal of whichever branch
+did not occur.
+
+\subsection{If Ranking Portability Is High}
+
+If scheduler rankings prove largely portable across the three independently
+sourced workload families, operating regions, and metrics tested
+(\S\ref{sec:cross-source-rankings}--\S\ref{sec:metric-conditioning}), the
+practical implication is that future scheduler comparisons may not need to
+be repeated across many independently sourced workloads to be trustworthy:
+a smaller, well-chosen evaluation footprint could suffice, reducing the
+evidence burden of scheduler evaluation. A high-portability result would
+also constitute evidence of a kind of robustness for the panel's
+mechanisms themselves -- that their relative strengths and weaknesses are
+not artifacts of any one workload's specific structure. At the same time, a
+high-portability finding on this benchmark's three sources and fixed
+operating-region grid would not license an unconditional claim of
+portability to every workload a practitioner might encounter; the boundary
+conditions under which portability was observed (source identity, load
+range, metric set, and simulator fidelity; \S\ref{sec:threats}) would need
+to be stated precisely, and \S\ref{sec:sample-complexity}'s result would
+still bound how much evidence is required before a specific portability
+claim is statistically warranted.
+
+\subsection{If Ranking Portability Is Low}
+
+If scheduler rankings instead prove fragile -- with practically meaningful,
+statistically supported reversals concentrated in particular sources,
+regions, or metrics (\S\ref{sec:reversals}) -- the practical implication is
+the opposite: single-workload scheduler evaluations risk over-generalizing,
+and a comparative claim of the form ``scheduler $A$ outperforms scheduler
+$B$'' should be read as conditional on the workload, metric, and load
+region it was measured under, unless independently re-verified. This would
+motivate multi-source evaluation as a de facto requirement for
+general-purpose scheduler comparisons going forward, and would sharpen the
+importance of \S\ref{sec:sample-complexity}'s sample-complexity result for
+practitioners who cannot afford to test every candidate workload
+distribution. A low-portability finding would also raise the practical
+question of which workload characteristics predict a reversal
+(RQ4, \S\ref{sec:cross-source-diffs}, \S\ref{sec:telemetry}) -- explanatory,
+not selector-building, in scope (\S\ref{sec:evidence-boundaries}).
+
+\subsection{Mechanism Equivalence and Collapse}
+
+Independent of which branch above applies at the ranking-portability level,
+the mechanism telemetry collected for every cell (\S\ref{sec:telemetry})
+allows a finer-grained discussion of \emph{why} rankings behave as observed
+-- for example, whether policies that appear to tie on a given workload do
+so because their scheduling decisions genuinely converge (as Stage~0's
+historical diagnostic found for several policies on BurstGPT's
+structurally short-prompt traffic; \S\ref{sec:stage0}) or because the
+metric used cannot distinguish otherwise-different decision sequences. This
+discussion is deferred to the post-Pilot-V2 revision of this section, once
+\S\ref{sec:cross-source-rankings}--\S\ref{sec:metric-conditioning} exist to
+anchor it.
+
+\subsection{Workload Descriptor Interpretation}
+
+The workload-separability result (\S\ref{sec:separability}) establishes
+that the three sources are observably different, and that prompt-length
+structure is the primary driver of that separability
+(\S\ref{sec:drivers}). Whatever RQ4's descriptor-to-reversal association
+analysis finds, it should be read against this backdrop: an association
+between a descriptor and a reversal does not by itself establish that the
+descriptor is a genuine \emph{causal} driver of the reversal, only that it
+is a source-separating feature that co-occurs with where reversals were or
+were not observed.
+
+\subsection{Benchmark Construction and Practical Reproducibility}
+
+Regardless of outcome direction, this study's paired design, fixed
+scheduler panel, and preregistered protocol (\S\ref{sec:study-design})
+are intended to make the benchmark itself reusable: a future scheduler
+design can be dropped into the same panel and evaluated against the same
+frozen windows, operating regions, and metric contract, using the planned
+public artifact (\S\ref{sec:artifact}) rather than re-deriving the protocol
+from this manuscript's prose.

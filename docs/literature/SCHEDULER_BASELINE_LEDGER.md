@@ -18,6 +18,13 @@ This ledger maps the scheduler literature relevant as method or baseline context
 | SCORPIO | `SCORPIO: Serving the Right Requests at the Right Time for Heterogeneous SLOs in LLM Inference` | verified | arXiv:2505.23022 | hetero-SLO scheduler context | not a rank-portability benchmark |
 | Efficient LLM Scheduling by Learning to Rank | `Efficient LLM Scheduling by Learning to Rank` | verified | NeurIPS 2024; arXiv:2408.15792 | learning-to-rank scheduler context | relevant to ranking logic but not to cross-source portability |
 | Vidur | `VIDUR: A Large-Scale Simulation Framework for LLM Inference` | verified | MLSys 2024 | closest benchmark infrastructure precedent | still not a rank-portability benchmark |
+| Splitwise | `Splitwise: Efficient Generative LLM Inference Using Phase Splitting` | verified | ISCA 2024; arXiv:2311.18677 | disaggregated prefill/decode architecture; primary paper for Azure 2023 trace | not a portability benchmark |
+| Mooncake | `Mooncake: Trading More Storage for Less Computation — A KVCache-centric Architecture for Serving LLM Chatbot` | verified | USENIX FAST 2025; arXiv:2407.00079 | KV-cache-centric disaggregation | not a portability benchmark |
+| VTC (Virtual Token Counter) | `Fairness in Serving Large Language Models` | verified | USENIX OSDI 2024; arXiv:2401.00588 | token-fairness scheduling objective | not a cross-source ranking-portability benchmark |
+| S^3 | `S^3: Increasing GPU Utilization during Generative Inference for Higher Throughput` | verified | NeurIPS 2023; arXiv:2306.06000 | output-length-prediction admission/memory-packing mechanism | distinct from `Efficient LLM Scheduling by Learning to Rank`; not a portability benchmark |
+| DynamoLLM | `DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency` | verified | HPCA 2025; arXiv:2408.00741 | cluster-level energy-aware scheduling; primary paper for Azure 2024 trace | not a portability benchmark |
+| Apt-Serve | `Apt-Serve: Adaptive Request Scheduling on Hybrid Cache for Scalable LLM Inference Serving` | verified | PACMMOD 2025; arXiv:2504.07494 | hybrid-cache adaptive scheduling | not a portability benchmark |
+| ProServe | `ProServe: Unified Multi-Priority Request Scheduling for LLM Serving` | verified (preprint) | arXiv:2512.12928 | multi-priority scheduling | not a portability benchmark; re-check venue before submission |
 
 ## Panel interpretation rule
 

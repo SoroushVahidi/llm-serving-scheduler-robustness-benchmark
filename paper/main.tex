@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[htt]{hyphenat}
+\usepackage{seqsplit}
+\sloppy
+\emergencystretch=3em
+
+\title{LLM-Serving Scheduler Portability Benchmark (LSSP):\\
+  Does Comparative Scheduler Ranking Generalize Across Workload Sources,\\
+  Operating Regions, and Metrics?}
+\author{Soroush Vahidi}
+\date{Draft V1 --- pre-Phase-12 authoritative consolidation, 2026-09-02}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Large language model (LLM) serving systems increasingly rely on
+sophisticated scheduling mechanisms, and prior work has separately
+established both that these mechanisms are numerous and mechanistically
+diverse, and that the workloads used to evaluate them are themselves
+heterogeneous across source, time, and operating region. We ask a
+second-order question that follows from combining these observations: is
+the \emph{comparative ranking} a scheduler benchmark reports itself
+portable across independently sourced workloads, operating regions, and
+evaluation metrics? We formalize this as the portability of $R(W, M, L)$, a
+comparative scheduler ranking induced by a fixed policy panel under a fixed
+benchmark protocol, as $W$ (workload source/window), $M$ (metric), and $L$
+(operating/load region) vary. We present the LLM-Serving Scheduler
+Portability Benchmark (LSSP): a preregistered, paired, multi-source
+evaluation of 13 scheduling policies across three independently released
+workload sources, a calibrated six-region operating grid, and an explicit
+completion-conditioned metric contract. We establish, as evidence available
+now, that the three workload sources are measurably different and strongly
+separable in their observed descriptor distributions, and, as historical
+pilot evidence, that scheduler differentiation is real but strongly
+source-dependent. LSSP's central ranking-portability, sample-complexity,
+and real-system-validation results are not yet available at the time of
+this manuscript and are stated as explicit, outcome-neutral result
+contracts rather than asserted in either direction.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/study_design}
+\input{sections/workloads}
+\input{sections/methodology}
+\input{sections/results}
+\input{sections/sample_complexity}
+\input{sections/real_system}
+\input{sections/discussion}
+\input{sections/limitations}
+\input{sections/artifact}
+\input{sections/conclusion}
+
+\begin{table}[h]
+\centering
+\caption{Immutable scientific identifiers, re-verified unchanged immediately
+before this manuscript's authoritative branch was committed
+(\texttt{docs/ARTIFACT\_HASH\_LEDGER.md}).}
+\label{tab:hashes}
+\footnotesize
+\begin{tabular}{lp{9cm}}
+\toprule
+Artifact & SHA-256 \\
+\midrule
+Phase-10 scientific window (content hash) & \texttt{\seqsplit{0d1aa06ccbee352207327ea369ae75f12e91c0cda006c813a41b381effd29eef}} \\
+Phase-10 compact index & \texttt{\seqsplit{d78ec1087fedae02174ca093a9860c70468be336ccb1d7e6de756c81ba331e53}} \\
+Phase-11 prelaunch freeze contract & \texttt{\seqsplit{e2564ea9484190832de50f63173c4b73ae054d6ae7008bb4ff6648c8dc917f7b}} \\
+Phase-11 raw FIFO calibration & \texttt{\seqsplit{201caaf04476ad8737ef6079fc0d6cb4e864601711d0b96c88750a717d8b2a6a}} \\
+Phase-11 region-assignment output & \texttt{\seqsplit{9fcb92f9ea1206ce185194527ada35d0e3b91bf4904be7ae23ba9ea997c17574}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

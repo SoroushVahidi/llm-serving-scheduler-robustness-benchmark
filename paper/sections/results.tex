@@ -1,0 +1,83 @@
+\section{Scheduler Ranking Portability}
+\label{sec:results}
+
+Every subsection below is a result contract: an exact specification of what
+will be reported once Pilot-V2 executes (\S\ref{sec:artifact} states current
+execution status), reproduced from
+\texttt{docs/MANUSCRIPT\_RESULT\_CONTRACT.md}, the project's single source of
+truth for contract wording. No subsection below asserts a direction of
+finding. Either a high-portability or a low-portability outcome is a
+complete, reportable result under this design (\S\ref{sec:discussion}).
+
+\subsection{Discriminability}
+\label{sec:discriminability}
+
+\emph{[PENDING PILOT-V2 RESULT: fraction of non-tied (window, load-region)
+conditions per source, per metric, over the full 13-policy / 6-region
+Pilot-V2 matrix, with Wilson 95\% confidence intervals per source (method
+reused from the Stage-0 diagnostic, \S\ref{sec:stage0}). Historical Stage-0
+evidence (3 sources $\times$ 3 regions $\times$ 6-policy subset only) is
+reported separately in \S\ref{sec:stage0} and is not substituted for this
+result.]}
+
+\subsection{Cross-Source Rankings}
+\label{sec:cross-source-rankings}
+
+\emph{[PENDING PILOT-V2 RESULT: Kendall's tau-b and Spearman's rho between
+each pair of the three sources' policy rankings, per metric
+(\S\ref{sec:metrics}), per operating region, with block-bootstrap 95\%
+confidence intervals over windows. Reported alongside top-1/top-3 overlap
+and \texttt{n\_conditions\_excluded\_for\_undefined\_metric} per cell. No
+claim of ``stable'' or ``unstable'' rankings is made before this table
+exists.]}
+
+\subsection{Pairwise Reversals}
+\label{sec:reversals}
+
+\emph{[PENDING PILOT-V2 RESULT: every (policy A, policy B) pair's reversal
+frequency and count of \emph{practically meaningful} reversals only --
+defined as exceeding the preregistered 10\% practical-margin threshold with
+a confidence interval excluding zero -- reported separately from
+microscopic sign changes. No reversal count mixing the two categories is
+reported.]}
+
+\subsection{Temporal/OOD Portability}
+\label{sec:temporal}
+
+\emph{[PENDING PILOT-V2 RESULT: three separately labeled comparisons --
+within-BurstGPT EARLY/MIDDLE/LATE tau, Azure-2024 own-window calendar-split
+tau, and cross-source (provider/domain) tau from
+\S\ref{sec:cross-source-rankings} -- never merged into a single
+``temporal/domain OOD'' number.]}
+
+\subsection{Load Conditioning}
+\label{sec:load-conditioning}
+
+Load-level dependence is a secondary robustness/sensitivity analysis
+(\S\ref{sec:rq}), not a headline claim of cross-source rank instability by
+itself.
+
+\emph{[PENDING PILOT-V2 RESULT: tau and reversal frequency across the six
+frozen operating regions (\S\ref{sec:calibration}), per source, reported as
+a robustness/sensitivity table using this project's own independently
+calibrated load protocol -- never LLM 2026's $\{1,2,4,8,16,32,64,128\}$ grid
+or its 60-window set (\S\ref{sec:evidence-boundaries}).]}
+
+\subsection{Metric Conditioning}
+\label{sec:metric-conditioning}
+
+\emph{[PENDING PILOT-V2 RESULT: tau between every pair of metrics in the
+metric contract (\S\ref{sec:metrics}), per source, reported alongside
+whether any exclusion-driven gap from undefined completion-conditioned
+metrics is concentrated in one source -- a candidate explanatory factor if
+so, reported descriptively, not causally.]}
+
+\subsection{Robustness}
+\label{sec:results-robustness}
+
+\emph{[PENDING PILOT-V2 RESULT: sensitivity of \S\ref{sec:discriminability}
+through \S\ref{sec:metric-conditioning}'s headline statistics to the
+11-policy high-fidelity subset, leave-one-source-out re-estimation, window-
+size choice, the alternate completion-conditioned-metric convention, the
+full six-region load grid, a temporal-split sensitivity check, and
+mechanism-family-exclusion checks (\S\ref{sec:robustness}).]}

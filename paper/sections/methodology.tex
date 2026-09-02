@@ -1,0 +1,194 @@
+\section{Scheduler Benchmark Methodology}
+\label{sec:methodology}
+
+\subsection{Scheduler Panel}
+\label{sec:panel}
+
+The PRIMARY panel comprises 11 policies, executed alongside 2 additional
+\texttt{STYLE\_APPROXIMATION} policies used only for a mandatory robustness
+check (13 policies executed in total): a classical arrival-order baseline
+(\texttt{fifo}, also the load-calibration reference policy), a
+deadline-aware policy (\texttt{edf}), a slack/urgency-aware policy
+(\texttt{least\_laxity\_first}), a service-length-aware policy
+(\texttt{estimated\_service\_time\_first}), a fairness-aware policy
+(\texttt{weighted\_fair\_share}), a KV/memory-pressure-aware policy
+(\texttt{kv\_constrained\_online}), an admission-control/SLO-guard policy
+(\texttt{admission\_control}), and faithful reimplementations of four
+external mechanisms: vLLM-style token-budget continuous batching in both
+its pre-chunked-prefill and chunked-prefill forms
+(\texttt{vllm\_faithful}, \texttt{vllm\_chunked\_prefill\_faithful}),
+Sarathi-style chunked prefill (\texttt{sarathi\_faithful}), and an
+SLO-aware scheduling policy in the SLAI/RAD family
+(\texttt{slai\_faithful}). The two \texttt{STYLE\_APPROXIMATION} robustness
+policies are a token-budget-proxy style approximation
+(\texttt{vllm\_style\_token\_budget}) and an SLO-guard-proxy style
+approximation (\texttt{scorpio\_style\_slo\_guard}); two further faithful
+reimplementations requiring disaggregated/cross-instance simulator
+semantics (\texttt{distserve\_faithful}, \texttt{llumnix\_faithful}) are
+executed only in a secondary stratum, never pooled with the single-GPU
+colocated PRIMARY leaderboard, and one candidate
+(\texttt{apt\_serve\_faithful}) is excluded entirely as
+\texttt{scaffolding\_only} -- not a validated reimplementation at the time
+of this freeze.
+
+A policy enters the PRIMARY panel only if, at the time it was added to the
+comparability audit (frozen the day before Stage 0 executed), it satisfies
+an outcome-independent selection rule: its mechanism predates this
+protocol's freeze, it occupies a mechanism family not already saturated by
+an existing panel member, it has adequate implementation fidelity and
+passes its own unit tests, it is simulator-semantically compatible with the
+single-GPU colocated execution model, and it is independently reproducible
+from a cited reference. No policy was added to or removed from the panel in
+response to any Stage-0 outcome (\S\ref{sec:stage0}); the panel document
+predates Stage-0 execution by a full day, and mechanism families identified
+as under-implemented (preemptive/multilevel scheduling in the FastServe
+sense, JITServe, LMetric) were deliberately left as documented future-work
+candidates rather than fast-tracked into the panel after seeing Stage-0's
+BurstGPT collapse.
+
+\subsection{Fidelity Taxonomy}
+\label{sec:fidelity}
+
+Every executed policy is labeled with one of five fidelity classes:
+\texttt{FAITHFUL\_EXTERNAL} (a validated reimplementation of a specific
+published mechanism), \texttt{REPOSITORY\_NATIVE\_CLASSICAL} (a standard
+scheduling discipline implemented natively in this simulator, not claimed
+as a reproduction of any specific paper), \texttt{SIMULATOR\_PROXY} (a
+mechanism-motivated policy without a single canonical external paper),
+\texttt{STYLE\_APPROXIMATION} (an approximate, style-level proxy for a
+published mechanism, explicitly excluded from the PRIMARY headline panel
+and used only for robustness checks), and \texttt{scaffolding\_only} (an
+unaudited, not-yet-validated implementation, excluded entirely). We do not
+claim that any \texttt{STYLE\_APPROXIMATION} or \texttt{SIMULATOR\_PROXY}
+policy is an official or validated reimplementation of its namesake
+published system.
+
+\subsection{Execution Model}
+\label{sec:execution-model}
+
+Each (window, policy, operating-region) cell is executed as a fully
+deterministic discrete-event simulation: given identical inputs, the
+simulator produces bit-identical outputs, with no consumed randomness
+(verified by a repeated-run determinism test). This determinism is what
+permits the paired design of \S\ref{sec:unit}: two policies' outcomes on
+the same window and region differ only because of the policy's own
+scheduling decisions, not because of independent sampling noise.
+
+\subsection{Stage-0 Discriminability Pilot (Historical)}
+\label{sec:stage0}
+
+Before the Pilot-V2 protocol described in the remainder of this section was
+frozen, a preregistered discriminability pilot (``Stage 0'') executed a
+real, 1,080-cell matrix (array 1213964; three sources, three load regions, a
+six-policy PRIMARY subset) to check, before committing to the full
+protocol, that the panel would yield non-trivial scheduler differentiation
+under a fixed load protocol without post-hoc cherry-picking. \textbf{This
+is historical pilot evidence, not the confirmatory Pilot-V2 result}, and it
+never measured cross-source ranking portability -- that question was and
+remains explicitly out of Stage-0's scope. Stage 0's own five-criterion
+discriminability analyzer returned four passing criteria (77.8\% of
+(source, window, load-region) triples non-tied, 86.7\% of windows
+non-tied, no universal policy collapse, and 100\% of non-tied cells showing
+meaningful metric variation) and one genuine failure: BurstGPT contributed
+only 14.3\% of non-tied conditions, against a 15\% floor, versus
+$\sim$42.9\% each for the other two sources -- a result reported as
+\texttt{STAGE0\_NO\_GO}, robust to the completion-conditioned-metric
+zero-completion convention used. A follow-up diagnostic traced this to a
+mechanism-level explanation: differentiation was strongly source-dependent,
+attributable to a near-total collapse of five of the six Stage-0 policies
+into pairwise bit-identical outcomes on BurstGPT's structurally
+short-prompt, near-constant-output traffic -- not to BurstGPT receiving
+weaker or fewer calibrated load conditions than the other sources. This
+motivated the Pilot-V2 protocol's larger, mechanism-diverse 13-policy panel
+and denser six-region load grid (\S\ref{sec:calibration}), applied
+symmetrically to every source, never to BurstGPT alone. Detailed Stage-0
+mechanism analysis is deferred to an appendix; it is not restated here as a
+ranking-portability finding.
+
+\subsection{Operating-Region Calibration}
+\label{sec:calibration}
+
+A FIFO-only calibration pass establishes six operating regions --
+\texttt{LOW} (load factor 0.5), \texttt{PRE\_KNEE} (0.8), \texttt{KNEE}
+(1.0), \texttt{POST\_KNEE} (1.1), \texttt{OVERLOAD} (1.2), and
+\texttt{HIGH\_PRESSURE} (1.5) -- across all 120 frozen windows (720
+calibration cells total; 720 valid, deterministic, 0 failed/missing/
+duplicated). We report this as calibration provenance, not a comparative
+scheduler result: FIFO is the calibration reference policy, and the
+calibration's role is to fix load-factor-to-region mappings before any
+other policy is executed against them, not to characterize FIFO's relative
+performance. As a calibration characteristic worth preserving, 301 of the
+720 calibration-region records (93 BurstGPT, 101 Bailian/Qwen, 107 Azure)
+recorded zero completions under FIFO at that region's load factor; this is
+a property of the calibration design at those specific (window, region)
+combinations, the frozen calibration validity gate passed regardless
+(\texttt{PHASE11\_CALIBRATION\_VALID = YES}), completion-conditioned metrics
+are simply undefined (not zero) in those records
+(\S\ref{sec:metrics}), and no calibration redesign was performed after
+observing this count.
+
+\subsection{Metrics}
+\label{sec:metrics}
+
+Three metrics are always defined for every completed cell: completion
+fraction, arrival-normalized weighted goodput (ANWG, the primary metric),
+and weighted completion fraction. A second group of metrics is defined
+only conditional on at least one request completing: SLO-violation rate,
+weighted goodput, mean/p95/p99 latency, and request/token throughput are
+each \texttt{NaN} if and only if completion fraction is exactly zero for
+that cell. Mean/p95 time-to-first-token is subject to a stricter,
+separately checked precondition (at least one completed request recorded a
+first-token time), because TTFT can be undefined even when completion
+fraction is positive. No undefined conditional-metric value is ever imputed
+as 0 or 1, in either direction, and never after inspecting which policy or
+source it would affect. Where a policy's value is undefined for a given
+(window, region, metric) condition, that policy is excluded from the
+ranking-derived statistic (Kendall's tau-b, Spearman's rho, top-$k$
+overlap, pairwise reversal detection) for that specific condition and
+metric only -- never scored as a loss or a tie, and never causing the whole
+condition to be dropped for policies that did complete. Every
+ranking-derived table reports its exclusion count
+(\texttt{n\_conditions\_excluded\_for\_undefined\_metric}) alongside the
+statistic itself, since a source-concentrated exclusion rate is itself a
+reportable finding under RQ4, not a footnote.
+
+\subsection{Paired Design and Repetitions}
+\label{sec:paired}
+
+Because the simulator is fully deterministic (\S\ref{sec:execution-model}),
+a single execution per (window, policy, region) cell is sufficient;
+ranking-uncertainty quantification (\S\ref{sec:results}) instead comes from
+resampling over the independent workload windows themselves (block
+bootstrap), not from repeated stochastic runs of the same cell.
+
+\subsection{Mechanism Telemetry}
+\label{sec:telemetry}
+
+Every executed cell additionally records a seven-field mechanism-activation
+telemetry summary: queue-depth (mean/max), batch-saturation (mean/max
+fraction of \texttt{max\_active\_sequences} in use), prefill/decode
+contention fraction, KV-occupancy (mean/max fraction of \texttt{max\_kv\_tokens}
+in use), admission-control activation count, preemption/reorder event
+count, and token-budget saturation fraction. Each field is always defined:
+a value of zero means either that the corresponding mechanism is genuinely
+absent for that policy (for example, preemption count is exactly zero for
+every policy that never issues a preempt/swap/migrate action, which is most
+of the panel) or that the underlying simulator mode does not implement a
+separate prefill/decode phase or token-budget model -- not an
+instrumentation failure. This telemetry is collected for every cell but is
+not used to support any mechanism-level finding in this manuscript; RQ4's
+telemetry-to-reversal association analysis (\S\ref{sec:results}) is
+pre-specified and will only be run once Pilot-V2 outcomes exist.
+
+\subsection{Robustness Analyses}
+\label{sec:robustness}
+
+Every headline ranking-portability result (\S\ref{sec:results}) is
+pre-specified to be checked against a fixed set of robustness analyses: the
+11-policy high-fidelity subset (PRIMARY panel excluding both
+\texttt{STYLE\_APPROXIMATION} policies), leave-one-source-out re-estimation,
+window-size sensitivity, an alternate completion-conditioned-metric
+convention, the full six-region load grid, a temporal-split sensitivity
+check, and mechanism-family-exclusion checks. These robustness analyses are
+part of the frozen protocol; their results are reported alongside
+\S\ref{sec:results} once Pilot-V2 executes (\S\ref{tab:robustness}).

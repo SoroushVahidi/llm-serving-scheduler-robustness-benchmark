@@ -1,0 +1,149 @@
+\section{Workload Corpus and Characterization}
+\label{sec:workloads}
+
+\subsection{Sources}
+\label{sec:sources}
+
+LSSP's primary Pilot-V2 corpus draws from three independently released
+workload sources: BurstGPT \citep{burstgpt2025}, Microsoft's official Azure
+2024 LLM-inference trace \citep{stojkovic2025dynamollm}, and a Bailian/Qwen
+production trace release. Azure's 2023 conversation/code traces
+\citep{patel2024splitwise} and Stage-0's historical windows contribute
+additional context but are not part of the primary Pilot-V2 132-window
+matrix beyond the 10-per-source Stage-0-reused windows described below.
+TraceLab \citep{tracelab2026} is retained as an out-of-distribution,
+coding-agent workload family for future expansion, not as one of the three
+primary sources, because its independence from a prior 512-window public
+sweep cannot be fully verified from public artifacts alone
+(\texttt{docs/TRACELAB\_PROVENANCE\_RESOLUTION.md}).
+
+As established in \S\ref{sec:related-position}, BurstGPT's own reported
+collection methodology logs traffic from a regional customer of Microsoft's
+Azure OpenAI GPT service, and this project's Azure trace is Microsoft's own
+official release of internal Azure LLM-inference-service traffic. Both
+therefore sit on the same underlying cloud provider's infrastructure. We
+describe BurstGPT and Azure as distinct, independently released workload
+sources -- different collection methodology, different customer
+population, different release provenance and version history -- and we do
+not describe them as independent providers. Bailian/Qwen (Alibaba Cloud)
+is a genuinely different underlying platform from both.
+
+\subsection{Representation and Provenance}
+\label{sec:provenance}
+
+Each source is ingested through a dedicated, field-level-audited adapter
+(\texttt{docs/DATA\_FIELD\_PROVENANCE.md}) that maps the source's native
+schema onto a common internal request representation (arrival time, input
+tokens, output tokens, total tokens, session identifier where available,
+model class). No field is fabricated where a source's native schema lacks
+it (for example, BurstGPT's documented schema has no tenant, KV-reuse, SLO,
+or failure-code field, and none is synthesized). License status for each
+source is recorded in \texttt{docs/DATA\_LICENSE\_AUDIT.md} (BurstGPT:
+CC-BY-4.0) and re-verified before any confirmatory use of a real, full-scale
+sample.
+
+\subsection{Window Construction}
+\label{sec:windows}
+
+The Pilot-V2 corpus freezes exactly 120 windows of 200 requests each: 40
+per source (\texttt{azure\_llm\_2024}, \texttt{bailian\_qwen},
+\texttt{burstgpt}), each composed of 10 windows reused verbatim from the
+Stage-0 pilot (\S\ref{sec:stage0}) plus 30 new windows drawn by a
+deterministic, outcome-blind, source-symmetric pinned-extension sampler
+that uses only valid-row index ranges and fixed seeds -- never scheduler
+metrics, policy identities, or Stage-0 tie/non-tie outcomes
+(\texttt{BURSTGPT\_OUTCOME\_TARGETING = NO}, structurally verified). Windows
+are assigned to EARLY/MIDDLE/LATE chronology strata by deterministic
+relative chronology (60/30/30 windows respectively); Stage-0-reused windows
+are all EARLY. The freeze passed a full structural validation gate --
+unique window identities, exact per-source and Stage-0/new counts, fixed
+\texttt{request\_count = 200}, no prohibited overlap, valid chronology, and
+absence of any scheduler/policy/load-calibration outcome field in the
+selection rule -- recorded with a canonical content hash (excluding
+generation timestamp; full value in Table~\ref{tab:hashes}) before any
+Pilot-V2 load calibration or scheduler outcome was generated.
+
+\subsection{Descriptors}
+\label{sec:descriptors}
+
+Each window is described by a 28-feature descriptor vector spanning prompt-
+and output-token-length statistics (mean, p90, long-prompt fraction at the
+512/2048/8192-token thresholds), arrival-timing statistics (mean arrival
+rate, inter-arrival percentiles), and derived load-pressure proxies. Three
+deterministically redundant pressure-proxy features ($R^2=1.0$ against
+other included features) are retained in the underlying dataset but
+excluded from the classifier input used in \S\ref{sec:separability}.
+Prompt-token figures compose differently across sources for architectural
+reasons: TraceLab's and Azure's prompt-token fields are potentially
+multi-turn-cumulative context, while BurstGPT's is a single per-request
+figure. This is a property of how each source's underlying workload is
+architected (a growing agent/conversation session versus a single stateless
+API call), not an adapter artifact, and it is preserved as an explicit
+caveat on every prompt-length-based claim below.
+
+\subsection{Cross-Source Differences}
+\label{sec:cross-source-diffs}
+
+Under a leave-one-time-bucket-out (EARLY/MIDDLE/LATE), grouped,
+chronologically blocked cross-validation over $n=400$ windows (window
+size 200), a random forest classifier distinguishes the four
+descriptor-labeled source classes with pooled balanced accuracy
+$1.000$ (mean $\pm$ std across three folds: $1.000 \pm 0.000$); a
+multinomial logistic regression reaches $0.988$ balanced accuracy
+($0.987 \pm 0.007$ across folds); and a depth-limited (depth $\le 3$)
+decision tree reaches $0.980$ balanced accuracy ($0.980 \pm 0.018$ across
+folds, worst single fold $0.955$ with LATE held out). This grouped,
+chronologically blocked evaluation supersedes an earlier random-split
+result (which agreed at balanced accuracy $1.0$) for any manuscript claim,
+because random splitting is vulnerable to within-window-adjacent-time
+leakage that the grouped evaluation is structurally immune to (regression
+tested; \texttt{tests/test\_separability\_pipeline\_no\_leakage.py}).
+
+\subsection{Source Separability}
+\label{sec:separability}
+
+We report the final characterization result as
+\texttt{SEPARABILITY\_RESULT\_CONFIRMED\_WITH\_CAVEATS}. The safe claim
+supported by this evidence is that the workload sources' observed
+descriptor distributions are measurably different, and that source identity
+is strongly separable under a leakage-resistant, chronologically blocked
+evaluation. This is not evidence that the underlying providers'
+conversations or tasks intrinsically differ in length or structure, only
+that their \emph{observed, request-level} descriptor figures do, for a
+mixture of architectural and possibly-genuine-content reasons that this
+classifier-based analysis cannot separate (\S\ref{sec:descriptors}).
+
+\subsection{Drivers of Differences}
+\label{sec:drivers}
+
+An attribution analysis triangulating held-out permutation importance,
+single-feature balanced accuracy, leave-one-feature-out deltas, and
+feature-group-ablation deltas (all under the same grouped chronological
+cross-validation) identifies two tiers of driving features. Tier 1 --
+incrementally load-bearing, with nonzero permutation importance and a
+measurable accuracy cost when the \texttt{prompt\_length} feature group is
+removed ($-0.0051$) -- consists of \texttt{long\_prompt\_fraction\_512},
+\texttt{long\_prompt\_fraction\_2048}, and \texttt{prompt\_tokens\_mean}.
+Tier 2 -- individually strong single-feature classifiers (balanced accuracy
+up to $0.980$) whose removal, individually or as a whole feature group,
+costs $0.000$ accuracy because their signal is redundant with Tier 1 --
+includes total/prompt-token percentile features, inter-arrival percentiles,
+and mean arrival rate. Prompt-length structure, specifically the fraction
+of long prompts at the 512- and 2048-token thresholds and mean prompt
+length, is therefore the primary, non-redundant driver of source
+separability; arrival-timing structure and output length are individually
+predictive but carry no additional signal once prompt-length features are
+present. A critical-ablation check confirms this separability is broad
+rather than dependent on any single feature: removing the two strongest
+Tier-1 features together changes random-forest balanced accuracy by at
+most $-0.0025$.
+
+\subsection{Window-Size Sensitivity}
+\label{sec:window-size}
+
+The Pilot-V2 corpus uses a fixed window size of 200 requests throughout,
+matching Stage-0 and the LLM~2026 comparison window size for
+methodological consistency. A dedicated window-size sensitivity sweep
+(varying window size and re-checking separability/discriminability) has
+not yet been run; this is noted as an open item in
+\S\ref{sec:threats} rather than a result reported here.
