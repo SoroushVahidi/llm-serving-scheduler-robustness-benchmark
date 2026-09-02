@@ -21,6 +21,10 @@ from robustbench.ranking_portability.phase12_provenance import (
 )
 from robustbench.ranking_portability.schema import validate_cell_result
 
+EXPECTED_PHASE12_SIMULATOR_CONFIG_HASH = (
+    "a7a8920a43d4c1ba90da249f64d60e9929355e66f150aa1afd60f3599f98717b"
+)
+
 
 def _campaign() -> dict:
     return {
@@ -108,7 +112,7 @@ def test_simulator_config_hash_is_deterministic_value_hash_not_source_hash():
     payload2 = phase12_simulator_config_payload()
     assert payload1 == payload2
     assert phase12_simulator_config_hash() == canonical_json_sha256(payload1)
-    assert len(phase12_simulator_config_hash()) == 64
+    assert phase12_simulator_config_hash() == EXPECTED_PHASE12_SIMULATOR_CONFIG_HASH
     assert payload1["simulator_config"]["drain_steps"] == 50_000
     assert payload1["simulator_config"]["max_steps"] is None
     assert payload1["simulator_config"]["warn_on_invalid_action"] is True
