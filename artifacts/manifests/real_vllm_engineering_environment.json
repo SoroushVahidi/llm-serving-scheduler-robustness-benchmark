@@ -1,0 +1,44 @@
+{
+  "manifest_kind": "real_vllm_engineering_environment",
+  "engineering_manifest_only": true,
+  "not_scientific_evidence": true,
+  "repository_sha": "bd641d4902431b821cd7eb4ce9ad236955cec45d",
+  "branch": "engineering/lssp-real-vllm-validation-prep-20260902",
+  "date_recorded": "2026-09-02",
+  "smoke_model": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "why_selected": "Already cached on the local platform (954MB), small enough to fit comfortably on both the local 16GB GPU and Wulver A100/L40 GPUs, instruct-tuned (realistic chat-style smoke prompts), selected without inspecting any Phase-12 comparative output -- purely an availability/size decision.",
+    "model_source": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct",
+    "model_cache_path_local": "~/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct",
+    "not_final_scientific_validation_model": true
+  },
+  "platforms": {
+    "LOCAL": {
+      "role": "DEVELOPMENT_SMOKE",
+      "hostname_class": "single-GPU Linux workstation",
+      "date_recorded": "2026-09-02T18:13:49-04:00",
+      "gpu_model": "NVIDIA GeForce RTX 5060 Ti",
+      "gpu_count": 1,
+      "gpu_vram_mib": 16311,
+      "gpu_driver_version": "580.173.02",
+      "cuda_version_driver_reported": "13.0",
+      "nvcc_available": false,
+      "python_version": "3.12.3",
+      "python_executable": "/home/soroush/modal-venv/bin/python3",
+      "pytorch_version": "2.13.0+cu130",
+      "torch_cuda_available": true,
+      "vllm_version": "0.27.1",
+      "transformers_version": "5.8.1",
+      "tokenizers_version": "0.22.2",
+      "numpy_version": "2.3.5",
+      "environment_reused": true,
+      "environment_notes": "Pre-existing general-purpose venv (/home/soroush/modal-venv), inventoried and reused per Section H instruction to prefer reuse over fresh install; not created for this task.",
+      "known_environment_gap": "No system CUDA toolkit (nvcc) installed; flashinfer's JIT sampler build path fails with 'Could not find nvcc'. Workaround: VLLM_USE_FLASHINFER_SAMPLER=0 env var, which routes vLLM to a non-JIT sampler. Documented as a required launch env var for this platform, not worked around by installing a CUDA toolkit or upgrading the driver (out of scope / not authorized in this task)."
+    },
+    "WULVER": {
+      "role": "PRIMARY_VALIDATION_CANDIDATE",
+      "hostname_class": "HPC cluster; GPU work via Slurm allocation (gpu/debug_gpu partitions, account ikoutis), never on the login node",
+      "note": "Populated after the background torch+vllm install and GPU allocation complete -- see the final report's Wulver GPU inventory / smoke sections for the actual values recorded this task."
+    }
+  }
+}
