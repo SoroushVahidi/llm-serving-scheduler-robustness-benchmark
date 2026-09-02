@@ -132,7 +132,41 @@ benchmark sample complexity -- draws on standard nonparametric statistics
 and comparative-algorithm-ranking methodology (\S\ref{sec:methodology});
 these are general statistical tools, not literature claims specific to LLM
 serving, and are cited here only as the methods this benchmark's analysis
-plan applies to its own, independently generated data.
+plan applies to its own, independently generated data. The closest
+methodological precedent we identified is from the classical parallel-job-
+scheduling literature: \citet{zakay2014resampling} partition a real
+scheduler workload trace into independent per-user subtraces and recombine
+them to resample varied-but-realistic workloads, evaluating how a
+\emph{single} parallel job scheduler's measured performance responds to
+workload resampling. LSSP's sample-complexity question
+(\S\ref{sec:sample-complexity}) is the same evaluation instinct --
+using resampling to ask how much workload evidence a scheduler-performance
+conclusion actually rests on -- applied to a different object: the
+portability of a \emph{comparative} ranking among multiple schedulers
+across independently sourced workloads, rather than one scheduler's
+sensitivity to resampled variants of a single trace.
+
+\subsection{Recent \emph{Journal of Supercomputing} Context}
+\label{sec:related-jsc}
+
+Three recent \emph{Journal of Supercomputing} papers illustrate the
+journal's current engagement with GPU-resident LLM-inference performance
+and portability, at layers adjacent to but distinct from this benchmark's
+request-scheduling focus. \citet{saia2026} address deploying LLM inference
+services on Slurm-managed HPC clusters without compromising existing
+cluster security policy -- a \emph{cluster job-placement} scheduling
+problem, one level above the \emph{intra-server request} scheduling this
+benchmark studies. \citet{carmona2026mlcompilers} and
+\citet{siwinska2026autotuning} each study a different sense of
+``portability'' for LLM/transformer workloads on GPU (and, in the latter
+case, TPU) hardware: compiler-backend selection trade-offs and
+auto-tuning-framework portability across accelerator hardware,
+respectively -- portability of \emph{implementation performance across
+hardware}, not portability of a \emph{comparative ranking across
+workloads} at fixed hardware, which is this benchmark's object of study.
+We cite these three papers to situate LSSP within the journal's live
+interest in LLM-serving and GPU-inference performance, not because they
+address this benchmark's specific research question.
 
 \subsection{Position of LSSP}
 \label{sec:related-position}
@@ -147,7 +181,17 @@ preregistered protocol. To our knowledge, the LSSP benchmark is distinct in
 treating the portability of comparative scheduler rankings itself as the
 primary object of study across independent workload sources, operating
 regimes, and metrics, while explicitly quantifying ranking uncertainty and
-benchmark sample complexity. Vidur is the closest infrastructure precedent
+benchmark sample complexity. A literature search targeting exactly this
+question (scheduler-ranking stability/portability, cross-workload
+scheduler evaluation, benchmark sample complexity and representativeness
+for LLM-serving systems, current through September 2026) did not surface
+prior work that treats comparative scheduler-ranking portability itself as
+its primary object across independent LLM-serving workload sources; the
+closest single-scheduler-focused methodological precedent
+(\citet{zakay2014resampling}, \S\ref{sec:related-methodology}) predates
+the LLM-serving literature entirely and evaluates one scheduler's
+sensitivity to workload resampling, not comparative ranking across
+schedulers. Vidur is the closest infrastructure precedent
 (\S\ref{sec:related-simulators}); LLMServingSim and its successor are
 related but differently scoped simulator infrastructure; the recent
 production-characterization literature

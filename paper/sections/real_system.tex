@@ -19,8 +19,10 @@ frozen set of validation cases -- not a hardware duplication of the full
 \subsection{Planned Design}
 \label{sec:real-system-design}
 
-The following design is prepared and, at the engineering-infrastructure
-level, partially exercised (\S\ref{sec:artifact}); it is not yet run as a
+The following design is prepared, and its supporting harness -- server/
+client request orchestration against a real vLLM deployment, randomized/
+ABBA execution ordering, and per-run provenance capture -- has been
+functionally smoke-tested (\S\ref{sec:artifact}); it is not yet run as a
 scientific validation, because case selection depends on
 \S\ref{sec:cross-source-rankings}/\S\ref{sec:reversals}, which do not yet
 exist.

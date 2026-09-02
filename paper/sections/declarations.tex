@@ -1,0 +1,46 @@
+\section*{Declarations}
+\addcontentsline{toc}{section}{Declarations}
+
+\paragraph{Funding.} The author declares that no funds, grants, or other
+support were received during the preparation of this manuscript.
+\emph{[AUTHOR TO CONFIRM before submission.]}
+
+\paragraph{Competing interests.} The author declares no competing
+interests. \emph{[AUTHOR TO CONFIRM before submission.]}
+
+\paragraph{Author contributions.} This is a sole-authored manuscript;
+Soroush Vahidi is responsible for study design, implementation, analysis,
+and writing.
+
+\paragraph{Ethics approval.} Not applicable. This study evaluates
+scheduling-policy performance on request-level traffic traces (arrival
+times, token counts) and does not involve human subjects, personal data,
+or content requiring ethics review.
+
+\paragraph{Data availability.} This study distinguishes four categories of
+data, consistent with \S\ref{sec:artifact}:
+\begin{itemize}
+  \item \textbf{Externally sourced public traces} (BurstGPT, Azure 2024,
+    Bailian/Qwen) are governed by their original publishers' release terms
+    and license status (\S\ref{sec:provenance}; BurstGPT: CC-BY-4.0) and
+    are not redistributed as part of this project's own release; readers
+    should obtain them from their original sources.
+  \item \textbf{Derived benchmark manifests} -- the frozen window
+    identities, provenance, and content hashes (\S\ref{sec:windows}) -- and
+  \item \textbf{Generated campaign results} -- the full paired policy
+    outcome matrix across windows, regions, and metrics (\S\ref{sec:results})
+    -- and
+  \item \textbf{Analysis artifacts} -- ranking-portability statistics,
+    reversal tables, and reproduction scripts (\S\ref{sec:artifact}) --
+  will be archived at a persistent, publicly accessible repository (the
+  Hugging Face repository slug \texttt{SoroushVahidi/llm-serving-scheduler-portability})
+  upon completion of the study reported here. \textbf{As of this
+  manuscript, that artifact is planned but not yet released}
+  (\S\ref{sec:artifact}); no data availability claim in this statement
+  should be read as an assertion that the release is already live.
+\end{itemize}
+
+\paragraph{Code availability.} The simulator, policy implementations, and
+analysis pipeline underlying this study will be released alongside the
+data described above, under the same repository, once the study
+completes.

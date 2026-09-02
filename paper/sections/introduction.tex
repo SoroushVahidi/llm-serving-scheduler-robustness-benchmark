@@ -1,13 +1,12 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Large language model (LLM) serving systems are high-performance,
-GPU-resident computing systems whose throughput and latency are governed
-as much by request scheduling and resource-management policy as by raw
-accelerator capability. These systems have grown increasingly
-sophisticated in how they schedule and allocate GPU resources to
-concurrent requests. Beyond simple first-come-first-served execution,
-modern serving stacks employ continuous batching and paged key-value (KV)
+Modern LLM serving targets high-performance, GPU-resident inference
+systems whose scheduling decisions govern how requests share costly
+accelerator, memory, and batching resources, and serving stacks have grown
+increasingly sophisticated in how they make those decisions. Beyond simple
+first-come-first-served execution, modern serving stacks employ continuous
+batching and paged key-value (KV)
 cache management
 \citep{kwon2023vllm}, iteration-level scheduling \citep{yu2022orca}, chunked
 prefill to balance prefill and decode work within a batch

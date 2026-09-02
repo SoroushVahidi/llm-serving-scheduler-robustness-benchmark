@@ -10,8 +10,7 @@
 \sloppy
 \emergencystretch=3em
 
-\title{LLM-Serving Scheduler Portability Benchmark (LSSP):\\
-  Does Comparative Scheduler Ranking Generalize Across Workload Sources,\\
+\title{How Portable Are LLM-Serving Scheduler Rankings Across Workloads,\\
   Operating Regions, and Metrics?}
 \author{Soroush Vahidi}
 \date{Draft V1 --- pre-Phase-12 authoritative consolidation, 2026-09-02}
@@ -20,30 +19,28 @@
 \maketitle
 
 \begin{abstract}
-Large language model (LLM) serving systems increasingly rely on
-sophisticated scheduling mechanisms, and prior work has separately
-established both that these mechanisms are numerous and mechanistically
-diverse, and that the workloads used to evaluate them are themselves
+Large language model (LLM) serving systems rely on sophisticated
+scheduling mechanisms, evaluated on workloads that are themselves
 heterogeneous across source, time, and operating region. We ask a
-second-order question that follows from combining these observations: is
-the \emph{comparative ranking} a scheduler benchmark reports itself
-portable across independently sourced workloads, operating regions, and
-evaluation metrics? We formalize this as the portability of $R(W, M, L)$, a
-comparative scheduler ranking induced by a fixed policy panel under a fixed
-benchmark protocol, as $W$ (workload source/window), $M$ (metric), and $L$
-(operating/load region) vary. We present the LLM-Serving Scheduler
-Portability Benchmark (LSSP): a preregistered, paired, multi-source
-evaluation of 13 scheduling policies across three independently released
-workload sources, a calibrated six-region operating grid, and an explicit
-completion-conditioned metric contract. We establish, as evidence available
-now, that the three workload sources are measurably different and strongly
-separable in their observed descriptor distributions, and, as historical
-pilot evidence, that scheduler differentiation is real but strongly
-source-dependent. LSSP's central ranking-portability, sample-complexity,
-and real-system-validation results are not yet available at the time of
-this manuscript and are stated as explicit, outcome-neutral result
-contracts rather than asserted in either direction.
+second-order question: is the \emph{comparative ranking} a scheduler
+benchmark reports portable, formalized as $R(W, M, L)$, a comparative
+scheduler ranking as $W$ (workload source/window), $M$ (metric), and $L$
+(operating/load region) vary? We present the LLM-Serving Scheduler
+Portability Benchmark (LSSP): a preregistered, paired evaluation spanning
+three workload sources, 120 workload windows, a calibrated six-region
+operating grid, an 11-primary/13-total scheduling-policy
+panel, and 18{,}720 completed cells, plus a benchmark sample-complexity
+study and a targeted real-vLLM validation design. We establish, as evidence
+available now, that the three workload sources are measurably different
+and strongly separable in their observed descriptor distributions, and, as
+historical pilot evidence, that scheduler differentiation is real but
+strongly source-dependent. LSSP's central results remain outstanding and
+are stated as explicit, outcome-neutral result contracts.
 \end{abstract}
+
+\noindent\textbf{Keywords:} LLM inference serving; request scheduling;
+ranking portability; performance evaluation; workload characterization;
+benchmark reproducibility
 
 \tableofcontents
 
@@ -59,6 +56,7 @@ contracts rather than asserted in either direction.
 \input{sections/limitations}
 \input{sections/artifact}
 \input{sections/conclusion}
+\input{sections/declarations}
 
 \begin{table}[h]
 \centering
