@@ -13,6 +13,8 @@ data/*.jsonl
 results/
 artifacts/*
 !artifacts/.gitkeep
+!artifacts/manifests/
+!artifacts/manifests/ranking_portability_pilot_v2_windows_index.json
 *.log
 .DS_Store
 .env
