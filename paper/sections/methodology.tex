@@ -180,6 +180,99 @@ not used to support any mechanism-level finding in this manuscript; RQ4's
 telemetry-to-reversal association analysis (\S\ref{sec:results}) is
 pre-specified and will only be run once Pilot-V2 outcomes exist.
 
+\subsection{Ranking-Uncertainty Quantification and Reversal Classification}
+\label{sec:uncertainty}
+
+Because the statistical unit of analysis is the workload window
+(\S\ref{sec:unit}), ranking-uncertainty is quantified by a whole-window
+block bootstrap: windows, not individual requests, are resampled with
+replacement (preserving each window's internal request sequence intact),
+2{,}000 resamples are drawn per condition, and every reported confidence
+interval is a 95\% percentile interval over those resamples, using a
+deterministic, recorded seed so every interval is exactly reproducible from
+the frozen outcome matrix alone. This block structure exists because the
+requests within a window are not independent observations of scheduler
+behavior -- they share one arrival process, one prompt/output-length
+mixture, and one operating region -- so resampling at the request level
+would understate uncertainty; the window is the unit that is actually
+drawn independently by \S\ref{sec:windows}'s sampling design, and it is
+therefore the unit that must be resampled.
+
+Two further tests calibrate the reversal statistics reported in
+\S\ref{sec:reversals} against multiple comparisons. A Friedman rank-sum
+omnibus test is applied per (source, region, metric) condition to ask
+whether the panel's policies differ at all before any pairwise reversal is
+interpreted, so that pairwise reversal claims are read in the context of
+whether an omnibus difference exists in the first place. Because the panel
+and the (source, region, metric) grid together generate many pairwise
+comparisons, every pairwise reversal $p$-value is corrected across that
+condition's family using Benjamini--Hochberg false-discovery-rate control
+at $q = 0.05$ before a reversal is classified as statistically supported;
+an uncorrected pairwise $p$-value alone is never sufficient for the
+\texttt{SUPPORTED\_PRACTICAL\_REVERSAL} class defined below.
+
+A numerical sign change in a point estimate is not, by itself, a meaningful
+scheduler reversal from a systems standpoint: two policies can swap
+point-estimate order by a magnitude far smaller than the benchmark's own
+measurement noise, in which case treating it as a reversal would overstate
+what the benchmark actually supports. Every pairwise (policy A, policy B)
+comparison at a given (source, region, metric) condition is therefore
+classified into exactly one of five preregistered classes, combining the
+practical-margin test with the bootstrap/FDR-corrected statistical test:
+
+\begin{description}
+  \item[\texttt{UNDEFINED\_UNESTIMABLE}] At least one of the two policies'
+    metric values is undefined for this condition (\S\ref{sec:metrics});
+    no direction is estimated or claimed.
+  \item[\texttt{STABLE\_NO\_SIGN\_CHANGE}] The two policies' relative order
+    agrees across the compared conditions; no reversal occurred.
+  \item[\texttt{MICROSCOPIC\_SIGN\_CHANGE}] The point-estimate order
+    reverses, but the winning margin never exceeds 10\% of the losing
+    policy's value in either condition -- a numerically real but
+    practically negligible sign flip, reported separately from, and never
+    pooled with, the classes below.
+  \item[\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}] The point-estimate
+    order reverses with a practically meaningful margin in at least one
+    condition, but the FDR-corrected 95\% bootstrap interval for the
+    difference does not exclude zero in both conditions -- the apparent
+    reversal is not statistically distinguishable from bootstrap noise at
+    the preregistered confidence level.
+  \item[\texttt{SUPPORTED\_PRACTICAL\_REVERSAL}] The point-estimate order
+    reverses \emph{and} the winning margin exceeds 10\% of the losing
+    policy's value in both compared conditions \emph{and} the
+    FDR-corrected 95\% bootstrap interval for the direction excludes zero
+    in both conditions. Only this class is reported as a headline reversal
+    in \S\ref{sec:reversals}; the other four classes are always reported
+    alongside it, never omitted as a residual category.
+\end{description}
+
+\subsection{Temporal Analysis Design}
+\label{sec:temporal-design}
+
+Temporal portability is evaluated separately per source, using each
+source's own native chronology rather than a single shared calendar rule,
+because the three sources differ in what temporal structure they actually
+expose (\S\ref{sec:sources}). BurstGPT windows are assigned to EARLY/MIDDLE/
+LATE chronology terciles by deterministic relative order within the trace
+(\S\ref{sec:windows}; 60/30/30 windows respectively), and a secondary
+EARLY/LATE bisect split is run as a robustness check on whether the
+tercile boundary choice itself drives any temporal finding
+(\S\ref{sec:robustness}). Azure 2024's temporal split instead uses the
+trace's own absolute calendar timestamp, frozen at Unix epoch
+\texttt{1715731200.0} (2024-05-15T00:00:00Z), splitting the trace into
+before/after halves at that boundary; this is a genuine calendar split,
+not a relative-order tercile, because Azure's release exposes an
+absolute timestamp field that BurstGPT's schema does not
+(\S\ref{sec:provenance}). Bailian/Qwen's release does not expose a
+verified absolute timestamp field usable for a calendar split; its
+temporal analysis is therefore restricted to a relative-order
+comparison only, explicitly labeled \texttt{RELATIVE\_CHRONOLOGY\_ONLY}
+in every table it appears in, and is never presented alongside BurstGPT's
+tercile result or Azure's calendar-split result as though the three used
+an equivalent temporal definition (\S\ref{sec:temporal}). No cross-source
+temporal number is computed by pooling these three distinct temporal
+definitions into one figure.
+
 \subsection{Robustness Analyses}
 \label{sec:robustness}
 
@@ -189,6 +282,29 @@ pre-specified to be checked against a fixed set of robustness analyses: the
 \texttt{STYLE\_APPROXIMATION} policies), leave-one-source-out re-estimation,
 window-size sensitivity, an alternate completion-conditioned-metric
 convention, the full six-region load grid, a temporal-split sensitivity
-check, and mechanism-family-exclusion checks. These robustness analyses are
-part of the frozen protocol; their results are reported alongside
-\S\ref{sec:results} once Pilot-V2 executes (\S\ref{tab:robustness}).
+check (\S\ref{sec:temporal-design}'s BurstGPT bisect), and
+mechanism-family-exclusion checks. These robustness analyses are part of
+the frozen protocol; their results are reported alongside
+\S\ref{sec:results-robustness} once Pilot-V2 executes.
+
+\subsection{SLO-Definition Sensitivity: A Disclosed Protocol Gap}
+\label{sec:slo-sensitivity-gap}
+
+An SLO-definition sensitivity check -- re-running the benchmark's
+deadline-dependent policies under an alternative SLO-synthesis rule to
+confirm that any headline reversal is not an artifact of the one
+synthesis choice used to fabricate \texttt{slo\_deadline} where a source
+does not natively carry it (\S\ref{sec:provenance}) -- was planned as part
+of this protocol. We disclose here, as a matter of methodological
+discipline rather than as a result, that no alternative SLO-synthesis rule
+was ever actually frozen before or during Pilot-V2 execution: every
+document that references ``the alternative SLO-synthesis rule'' points to
+another document as the place it is defined, and that chain does not
+terminate in an actual formula, multiplier, or distribution anywhere in
+this project's history. Consequently: no alternative rule was invented
+after Pilot-V2 execution began; no SLO-sensitivity experiment has been run;
+this robustness component is \emph{not} claimed as preregistered evidence
+anywhere in this manuscript; and any future SLO-sensitivity study must be
+explicitly labeled a post-campaign robustness extension, with its own
+freeze and manifest process, unless a genuinely prior external protocol
+specifying the alternative rule is located.

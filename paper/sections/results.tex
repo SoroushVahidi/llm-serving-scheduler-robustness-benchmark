@@ -20,6 +20,23 @@ evidence (3 sources $\times$ 3 regions $\times$ 6-policy subset only) is
 reported separately in \S\ref{sec:stage0} and is not substituted for this
 result.]}
 
+\begin{figure}[h]
+\centering
+\fbox{\parbox{0.85\textwidth}{\centering
+  [SOURCE-PAIR $\times$ LOAD-REGION RANKING-PORTABILITY HEATMAP] \\[4pt]
+  Kendall's tau-b per (source-pair, region) cell, 3 source pairs
+  $\times$ 6 regions
+}}
+\caption{Placeholder: source-pair $\times$ load-region ranking-portability
+heatmap (\S\ref{sec:cross-source-rankings}). Cell color/value is
+Kendall's tau-b between the two sources' policy rankings at that
+operating region, with the block-bootstrap 95\% interval reported in the
+underlying table; cells with an excluded-condition count above a
+reported threshold are marked, not silently colored as if fully defined
+(\S\ref{sec:metrics}).}
+\label{fig:portability-heatmap}
+\end{figure}
+
 \subsection{Cross-Source Rankings}
 \label{sec:cross-source-rankings}
 
@@ -34,12 +51,27 @@ exists.]}
 \subsection{Pairwise Reversals}
 \label{sec:reversals}
 
-\emph{[PENDING PILOT-V2 RESULT: every (policy A, policy B) pair's reversal
-frequency and count of \emph{practically meaningful} reversals only --
-defined as exceeding the preregistered 10\% practical-margin threshold with
-a confidence interval excluding zero -- reported separately from
-microscopic sign changes. No reversal count mixing the two categories is
-reported.]}
+\emph{[PENDING PILOT-V2 RESULT: every (policy A, policy B) pair's count in
+each of the five reversal classes of \S\ref{sec:uncertainty}
+(\texttt{UNDEFINED\_UNESTIMABLE}, \texttt{STABLE\_NO\_SIGN\_CHANGE},
+\texttt{MICROSCOPIC\_SIGN\_CHANGE}, \texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI},
+\texttt{SUPPORTED\_PRACTICAL\_REVERSAL}), reported separately -- never
+pooled into a single ``reversal count'' that mixes microscopic and
+supported-practical classes.]}
+
+\begin{figure}[h]
+\centering
+\fbox{\parbox{0.85\textwidth}{\centering
+  [REVERSAL-CLASS MATRIX] \\[4pt]
+  (policy A, policy B) $\times$ reversal class, counts per class
+}}
+\caption{Placeholder: reversal-class matrix (\S\ref{sec:reversals}). Rows
+are policy pairs, columns are the five classes of
+\S\ref{sec:uncertainty}; only the \texttt{SUPPORTED\_PRACTICAL\_REVERSAL}
+column is reported as a headline finding, with the other four columns
+always shown alongside it.}
+\label{fig:reversal-matrix}
+\end{figure}
 
 \subsection{Temporal/OOD Portability}
 \label{sec:temporal}

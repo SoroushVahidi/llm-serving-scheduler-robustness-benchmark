@@ -1,13 +1,53 @@
 \section{Benchmark Sample Complexity}
 \label{sec:sample-complexity}
 
+\subsection{Motivation}
+\label{sec:sample-complexity-motivation}
+
+Every scheduler-ranking result in this manuscript is itself derived from a
+finite window budget -- 40 windows per source, 120 total
+(\S\ref{sec:windows}). A systems researcher designing a future scheduler
+comparison faces a practical, resource-bound version of the same question
+this benchmark studies at the source/region/metric level: \emph{if only $n$
+workload windows can be afforded, how reliably would the resulting
+scheduler-ordering conclusion reproduce the conclusion obtained from the
+full window collection?} This question is itself a systems-evaluation
+parameter, not a purely statistical afterthought: it bounds the
+experimental cost of a trustworthy scheduler comparison, it affects how
+much confidence a reader should place in a paper that evaluates on a
+handful of trace windows, and it is a precondition for treating this
+benchmark's own frozen 120-window corpus (rather than some larger or
+smaller corpus) as an adequate evidentiary base for the results in
+\S\ref{sec:results}.
+
+\subsection{Design}
+\label{sec:sample-complexity-design}
+
 \emph{[PENDING RESULT: probability of recovering the full $n=40$-window
 ranking at $n \in \{5, 10, 20, 30, 40\}$ windows per source, using at least
-500 draws per $n$, per source and per metric, including a comparison
-between a concentrated (single-source-heavy) and a distributed
-(evenly-spread) window budget. We report the smallest $n$ at which recovery
-probability first exceeds the preregistered $0.9$ threshold; no specific
-value of $n$ is claimed before this analysis exists.]}
+500 draws per $n$ (sampling without replacement from the full window pool),
+per source and per metric, including a comparison between a concentrated
+(single-source-heavy) and a distributed (evenly-spread) window budget.
+Recovery is reported both as exact-order recovery and as top-$k$ ($k \in
+\{1,3\}$) recovery relative to the full-window reference ranking. We report
+the smallest $n$ at which recovery probability first exceeds the
+preregistered $0.9$ threshold; no specific value of $n$ is claimed before
+this analysis exists.]}
+
+\begin{figure}[h]
+\centering
+\fbox{\parbox{0.85\textwidth}{\centering
+  [SAMPLE-COMPLEXITY RECOVERY CURVES] \\[4pt]
+  P(recovery) vs.\ $n \in \{5,10,20,30,40\}$, exact-order and top-$k$,
+  concentrated vs.\ distributed budget
+}}
+\caption{Placeholder: benchmark sample-complexity recovery curves
+(\S\ref{sec:sample-complexity-design}). One curve per (recovery type,
+window-budget strategy) pair, with the preregistered $0.9$ recovery
+threshold marked; no specific $n$ value is asserted until the underlying
+analysis runs.}
+\label{fig:sample-complexity}
+\end{figure}
 
 This analysis directly answers RQ5 (\S\ref{sec:rq}) and depends on the full
 Pilot-V2 outcome matrix (\S\ref{sec:results}); it is not run on Stage-0's

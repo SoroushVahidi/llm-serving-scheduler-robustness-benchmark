@@ -30,14 +30,16 @@ to RQ1--RQ4's findings, not a headline research question
 \subsection{Study Overview}
 \label{sec:overview}
 
-LSSP evaluates a fixed panel of scheduling policies (\S\ref{sec:panel})
-against a frozen corpus of workload windows drawn from independently
-sourced traces (\S\ref{sec:sources}), across a calibrated grid of operating
-regions (\S\ref{sec:calibration}) and a fixed set of primary and
-completion-conditioned metrics (\S\ref{sec:metrics}). Every policy is run
-against every window under every operating region, producing a matrix of
-cells from which per-source, per-region, and per-metric scheduler rankings
-are derived. Ranking-portability statistics (Kendall's tau-b, Spearman's
+LSSP evaluates a fixed panel of 13 scheduling policies (\S\ref{sec:panel})
+against a frozen corpus of 120 workload windows drawn from three
+independently sourced traces (\S\ref{sec:sources}), across a calibrated
+six-region grid of operating regions (\S\ref{sec:calibration}) and a fixed
+set of primary and completion-conditioned metrics (\S\ref{sec:metrics}).
+Every policy is run against every window under every operating region,
+with a deterministic rep0/rep1 verification pass (\S\ref{sec:paired}),
+producing $120 \times 6 \times 13 \times 2 = 18{,}720$ completed,
+independently validated cells, from which per-source, per-region, and
+per-metric scheduler rankings are derived. Ranking-portability statistics (Kendall's tau-b, Spearman's
 rho, top-\emph{k} overlap, and pairwise reversal detection) are then
 computed across pairs of sources, regions, and metrics, using workload
 window as the statistical unit (\S\ref{sec:unit}). This design was frozen
