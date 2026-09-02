@@ -1,12 +1,11 @@
 """Phase-11 FIFO-only calibration harness.
 
-This module defines the contract for a policy-independent, FIFO-referenced
-calibration layer for the 120 frozen Pilot-V2 windows.
-
-Important safety rule:
-- This code intentionally references no non-FIFO scheduler policy.
-- It is a design/serialization harness only; it does not execute a real
-  calibration run against Pilot-V2 windows.
+This module implements the preregistered six-region calibration contract for the
+frozen 120-window Pilot-V2 workload set. The real calibration is intentionally
+policy-independent and FIFO-only: it references the same reference `fifo` policy
+and the same Stage-0 load-calibration logic, but never runs any comparative
+scheduler outcome. The code remains compatible with the synthetic safety tests
+while supporting the real Phase-11 execution path.
 """
 from __future__ import annotations
 
@@ -31,6 +30,11 @@ FORBIDDEN_NON_FIFO_POLICIES = (
     "SLO" + "_" + "AWARE",
     "STYLE" + "_" + "APPROXIMATION",
 )
+PHASE11_REFERENCE_POLICY = "fifo"
+PHASE11_SLO_VIOLATION_THRESHOLD = 0.005
+PHASE11_BISECTION_LOG_LO = -2.0
+PHASE11_BISECTION_LOG_HI = 4.0
+PHASE11_BISECTION_ITERATIONS = 30
 
 
 @dataclass(frozen=True)
@@ -108,9 +112,10 @@ def assign_fifo_regions(
 ) -> list[dict]:
     """Map a frozen FIFO pressure curve onto the fixed six-region grid.
 
-    The function is fully outcome-blind and uses only the FIFO reference
-    pressure values and the predeclared region factors. It does not inspect
-    any comparison scheduler outcome.
+    This is deterministic and policy-independent: each region corresponds to an
+    exact candidate multiplier of the window's `lambda_ref`, and the set of six
+    candidate multipliers is frozen before execution. No comparative scheduler
+    outcome is used.
     """
     if not factor_pressure:
         raise ValueError("No FIFO pressure values were provided for calibration.")
@@ -134,6 +139,60 @@ def assign_fifo_regions(
     return assignments
 
 
+def _slo_violation_rate_at(factor: float, requests: Sequence) -> float:
+    from ..calibration.stage0_load_calibration import STAGE0_REFERENCE_GPU_CONFIG, _rebase_and_scale
+    from ..evaluation.run_policy import run_policy
+    from ..policies.registry import make_policy
+
+    scaled = _rebase_and_scale(requests, factor)
+    policy = make_policy(PHASE11_REFERENCE_POLICY)
+    metrics = run_policy(
+        policy,
+        scaled,
+        [STAGE0_REFERENCE_GPU_CONFIG],
+        workload_tag="phase11_calibration",
+        seed=0,
+    )
+    if metrics.num_completed == 0:
+        return 1.0
+    return float(metrics.slo_violation_rate)
+
+
+def compute_lambda_ref(requests: Sequence) -> float:
+    """Binary-search `lambda_ref` as the FIFO inter-arrival compression factor at
+    which `slo_violation_rate` crosses the fixed 0.5% threshold. This exactly
+    matches the established Stage-0 load-calibration definition and remains
+    frozen before any Phase-11 scheduler result is generated.
+    """
+    lo, hi = PHASE11_BISECTION_LOG_LO, PHASE11_BISECTION_LOG_HI
+    f_lo = _slo_violation_rate_at(10 ** lo, requests)
+    f_hi = _slo_violation_rate_at(10 ** hi, requests)
+
+    if f_lo >= PHASE11_SLO_VIOLATION_THRESHOLD:
+        return float(10 ** lo)
+    if f_hi < PHASE11_SLO_VIOLATION_THRESHOLD:
+        return float(10 ** hi)
+
+    for _ in range(PHASE11_BISECTION_ITERATIONS):
+        mid = (lo + hi) / 2.0
+        f_mid = _slo_violation_rate_at(10 ** mid, requests)
+        if f_mid < PHASE11_SLO_VIOLATION_THRESHOLD:
+            lo = mid
+        else:
+            hi = mid
+    return float(10 ** ((lo + hi) / 2.0))
+
+
+def evaluate_fifo_region_curve(requests: Sequence, *, lambda_ref: float | None = None) -> dict[float, float]:
+    if lambda_ref is None:
+        lambda_ref = compute_lambda_ref(requests)
+    pressure: dict[float, float] = {}
+    for factor in REGION_FACTORS.values():
+        factor_value = float(lambda_ref * factor)
+        pressure[float(factor)] = _slo_violation_rate_at(factor_value, requests)
+    return pressure
+
+
 def build_calibration_records(
     *,
     source: str,
@@ -144,12 +203,7 @@ def build_calibration_records(
     simulator_sha: str,
     region_order: Sequence[str] = REGION_SEQUENCE,
 ) -> list[CalibrationRecord]:
-    """Create the future six-region calibration output for one window.
-
-    The returned records intentionally contain only FIFO calibration fields and
-    the fixed protocol hashes; they do not include any non-FIFO scheduler
-    outcome field.
-    """
+    """Create the six-region calibration output for one window."""
     CalibrationRecord.validate_window_freeze_hash(window_freeze_hash, window_freeze_hash)
     assignments = assign_fifo_regions(factor_pressure, region_order=region_order)
     records: list[CalibrationRecord] = []
@@ -191,10 +245,14 @@ __all__ = [
     "REGION_FACTORS",
     "REGION_SEQUENCE",
     "CALIBRATION_PROTOCOL_VERSION",
+    "PHASE11_REFERENCE_POLICY",
+    "PHASE11_SLO_VIOLATION_THRESHOLD",
     "CalibrationRecord",
     "assign_fifo_regions",
     "build_calibration_records",
+    "compute_lambda_ref",
     "determine_reference_pressure",
+    "evaluate_fifo_region_curve",
     "interpolate_pressure",
     "serialize_calibration_records",
     "validate_policy_independence",
