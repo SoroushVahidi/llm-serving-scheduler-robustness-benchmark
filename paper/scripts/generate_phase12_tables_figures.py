@@ -268,8 +268,27 @@ def build_rq4(sc: dict, repo_root: Path) -> dict:
 # RQ5: temporal + computable robustness families
 # ---------------------------------------------------------------------------
 
-def build_rq5(tr: dict, rc: dict, repo_root: Path) -> dict:
+def build_rq5(tr: dict, rc: dict, te: dict, repo_root: Path) -> dict:
     temporal_rows = [r for r in tr["records"]]
+
+    # LEAVE_ONE_POLICY_FAMILY_OUT: materialized by the sealed launcher inside
+    # telemetry_explanation.json's nested "robustness" object (initially
+    # missed in the first interpretation pass; located and verified during
+    # the robustness-contract reconciliation).
+    canonical_strata = te["robustness"]["strata"]
+
+    def _mean_tau(entries):
+        taus = [e["kendall_tau"] for e in entries if e["kendall_tau"] == e["kendall_tau"]]
+        return ((sum(taus) / len(taus)) if taus else None), len(taus)
+
+    leave_one_family_out = {}
+    for key, entries in canonical_strata.items():
+        if key.startswith("LEAVE_ONE_POLICY_FAMILY_OUT::"):
+            family = key.split("::", 1)[1]
+            mean_tau, n = _mean_tau(entries)
+            leave_one_family_out[family] = {"mean_kendall_tau_excluding_this_family": mean_tau, "n_conditions": n}
+
+    canonical_primary_mean_tau, _ = _mean_tau(canonical_strata["PRIMARY_ONLY"])
 
     # LEAVE_ONE_SOURCE_OUT: for the primary metric, recompute the mean tau
     # across the remaining 2 source-pairs when each source is excluded in
@@ -319,8 +338,12 @@ def build_rq5(tr: dict, rc: dict, repo_root: Path) -> dict:
         },
         "robustness_load_calibration_sensitivity": load_calibration_sensitivity,
         "robustness_window_size_sensitivity_note": "Identical to the RQ4 sample-complexity ladder (per the frozen robustness contract); not separately recomputed here.",
-        "robustness_metric_definition_sensitivity_note": "NOT computable from the six aggregate canonical artifacts alone -- requires per-cell metric values from the full consolidated matrix, which are out of scope for this manuscript-generation pass.",
-        "robustness_leave_one_policy_family_out_note": "NOT computable from the six aggregate canonical artifacts alone for the tau-b/rho ranking statistics (which depend on the joint 11-policy ranking) -- requires per-cell metric values.",
+        "robustness_leave_one_policy_family_out": {
+            "source": "telemetry_explanation.json -> robustness -> strata (sealed launcher output, verified by independent recomputation to match exactly)",
+            "full_panel_mean_kendall_tau": canonical_primary_mean_tau,
+            "per_excluded_family": leave_one_family_out,
+        },
+        "robustness_metric_definition_sensitivity_note": "NOT executed by the sealed analysis code: no implementing function exists in analysis/robustness.py despite the component-status record claiming implemented_as_postprocessing=true. Producing this result would require writing new analysis code after results are known, which is out of scope for this task.",
         "slo_definition_sensitivity": "UNAVAILABLE -- no preregistered alternative SLO-synthesis rule ever existed; not fabricated.",
     }
 
@@ -339,13 +362,14 @@ def main() -> None:
     pr = data["pairwise_reversals.json"]
     sc = data["sample_complexity.json"]
     tr = data["temporal_robustness.json"]
+    te = data["telemetry_explanation.json"]
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
     rq1 = build_rq1(rc, tk, repo_root)
     rq3 = build_rq3(pr, repo_root)
     rq4 = build_rq4(sc, repo_root)
-    rq5 = build_rq5(tr, rc, repo_root)
+    rq5 = build_rq5(tr, rc, te, repo_root)
 
     for name, payload in [("rq1_rq2_portability", rq1), ("rq3_reversals", rq3),
                            ("rq4_sample_complexity", rq4), ("rq5_temporal_robustness", rq5)]:

@@ -284,10 +284,11 @@ window-size sensitivity, an alternate completion-conditioned-metric
 convention, the full six-region load grid, a temporal-split sensitivity
 check (\S\ref{sec:temporal-design}'s BurstGPT bisect), and
 mechanism-family-exclusion checks. These robustness analyses are part of
-the frozen protocol; results for the five directly computable from the six
-canonical Pilot-V2 artifacts are reported in
-\S\ref{sec:results-robustness} (the remaining two require per-cell data
-beyond those six artifacts and are noted there as open items).
+the frozen protocol; results for the six actually executed and
+materialized by the sealed analysis code are reported in
+\S\ref{sec:results-robustness} (one, \texttt{METRIC\_DEFINITION\_SENSITIVITY},
+has no implementing code in the sealed launcher despite its status record
+and is noted there as a disclosed open item).
 
 \subsection{SLO-Definition Sensitivity: A Disclosed Protocol Gap}
 \label{sec:slo-sensitivity-gap}

@@ -190,12 +190,23 @@ identically to the source \texttt{temporal\_robustness.json} artifact.
 \label{sec:results-robustness}
 
 Of the seven preregistered robustness families (\S\ref{sec:robustness}),
-five are directly computable from the six canonical artifacts and are
-reported here; two (\texttt{METRIC\_DEFINITION\_SENSITIVITY} and
-\texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT}) require per-cell metric values
-from the full consolidated matrix beyond what the six aggregate artifacts
-retain, and are left for a follow-up analysis pass rather than
-approximated here.
+six were actually executed by the sealed analysis code and materialized
+into the canonical artifacts (five of them into
+\texttt{ranking\_correlations.json}/\texttt{temporal\_robustness.json}/
+\texttt{sample\_complexity.json}, and, initially overlooked in our first
+interpretation pass, a sixth --
+\texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT} -- inside a nested
+\texttt{robustness} object within \texttt{telemetry\_explanation.json}
+that a subsequent reconciliation pass located and verified). Only
+\texttt{METRIC\_DEFINITION\_SENSITIVITY} has no computation anywhere in
+the sealed analysis code: its status record claims
+\texttt{implemented\_as\_postprocessing = true}, but no corresponding
+comparison function exists in \texttt{analysis/robustness.py} (unlike the
+other six families, each of which has one), so producing this specific
+result would require writing new analysis code after this manuscript's
+results were already known -- exactly the kind of after-the-fact code
+change this study's own discipline prohibits, and it is therefore left as
+a disclosed implementation gap rather than computed here.
 
 \begin{itemize}
   \item \textbf{\texttt{PRIMARY\_ONLY}.} Identical to the headline result
@@ -222,6 +233,15 @@ approximated here.
   \item \textbf{\texttt{WINDOW\_SIZE\_SENSITIVITY}.} Identical to the
     sample-complexity ladder (\S\ref{sec:sample-complexity}) under the
     frozen robustness contract; not separately recomputed here.
+  \item \textbf{\texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT}.} Excluding any
+    single one of the ten frozen mechanism families changes the headline
+    mean tau-b only modestly, from $0.707$ (excluding the classical
+    arrival-order family) to $0.792$ (excluding the SLO-aware family),
+    against the full-panel baseline of $0.733$. No single mechanism
+    family's removal collapses or inflates the headline portability
+    figure -- the source-pair-driven pattern of
+    \S\ref{sec:cross-source-rankings} is not an artifact of any one
+    policy family dominating the panel.
 \end{itemize}
 
 \subsection{SLO-Definition Sensitivity}

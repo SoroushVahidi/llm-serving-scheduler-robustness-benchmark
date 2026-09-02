@@ -1,8 +1,8 @@
 {
   "manifest_kind": "rq5_temporal_robustness_table",
-  "generated_at": "2026-09-02T23:27:37.808242+00:00",
+  "generated_at": "2026-09-02T23:58:32.233222+00:00",
   "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
-  "generation_script_git_sha": "f37c532fffc3e533e70e94cf3defc255c55c928e",
+  "generation_script_git_sha": "e3391beed22fae2e346c4af9cbf499352751f1b0",
   "source_artifact_hashes": {
     "ranking_correlations.json": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff",
     "topk_overlap.json": "585e916acfb32cb02a8f99cdce65a882c5dee7acc6cbdfbad2e86716d0001b37",
@@ -1132,7 +1132,52 @@
     "mean_kendall_tau_full_six_region": 0.7329397320713733
   },
   "robustness_window_size_sensitivity_note": "Identical to the RQ4 sample-complexity ladder (per the frozen robustness contract); not separately recomputed here.",
-  "robustness_metric_definition_sensitivity_note": "NOT computable from the six aggregate canonical artifacts alone -- requires per-cell metric values from the full consolidated matrix, which are out of scope for this manuscript-generation pass.",
-  "robustness_leave_one_policy_family_out_note": "NOT computable from the six aggregate canonical artifacts alone for the tau-b/rho ranking statistics (which depend on the joint 11-policy ranking) -- requires per-cell metric values.",
+  "robustness_leave_one_policy_family_out": {
+    "source": "telemetry_explanation.json -> robustness -> strata (sealed launcher output, verified by independent recomputation to match exactly)",
+    "full_panel_mean_kendall_tau": 0.7329397320713733,
+    "per_excluded_family": {
+      "A_ARRIVAL_ORDER": {
+        "mean_kendall_tau_excluding_this_family": 0.7073574175498002,
+        "n_conditions": 18
+      },
+      "B_DEADLINE_AWARE": {
+        "mean_kendall_tau_excluding_this_family": 0.7200691045799821,
+        "n_conditions": 18
+      },
+      "C_SLACK_URGENCY": {
+        "mean_kendall_tau_excluding_this_family": 0.7304012277479636,
+        "n_conditions": 18
+      },
+      "D_SERVICE_LENGTH": {
+        "mean_kendall_tau_excluding_this_family": 0.7134365225432494,
+        "n_conditions": 18
+      },
+      "E_TOKEN_BUDGET_BATCHING": {
+        "mean_kendall_tau_excluding_this_family": 0.7207879554512291,
+        "n_conditions": 18
+      },
+      "F_CHUNKED_PREFILL": {
+        "mean_kendall_tau_excluding_this_family": 0.7675782819647909,
+        "n_conditions": 18
+      },
+      "G_KV_MEMORY_PRESSURE": {
+        "mean_kendall_tau_excluding_this_family": 0.736496611807898,
+        "n_conditions": 18
+      },
+      "H_ADJACENT_SLO_AWARE": {
+        "mean_kendall_tau_excluding_this_family": 0.7916726780453005,
+        "n_conditions": 18
+      },
+      "H_ADMISSION_SLO_GUARD": {
+        "mean_kendall_tau_excluding_this_family": 0.7370243970004092,
+        "n_conditions": 18
+      },
+      "I_FAIRNESS": {
+        "mean_kendall_tau_excluding_this_family": 0.7134365225432494,
+        "n_conditions": 18
+      }
+    }
+  },
+  "robustness_metric_definition_sensitivity_note": "NOT executed by the sealed analysis code: no implementing function exists in analysis/robustness.py despite the component-status record claiming implemented_as_postprocessing=true. Producing this result would require writing new analysis code after results are known, which is out of scope for this task.",
   "slo_definition_sensitivity": "UNAVAILABLE -- no preregistered alternative SLO-synthesis rule ever existed; not fabricated."
 }
