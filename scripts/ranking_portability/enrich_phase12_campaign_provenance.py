@@ -25,7 +25,7 @@ from robustbench.ranking_portability.phase12_provenance import (  # noqa: E402
     PROVENANCE_CONTRACT_VERSION,
     enrich_row_provenance,
     expected_phase12_provenance,
-    masked_non_provenance_view,
+    masked_non_provenance_hash,
     phase12_simulator_config_payload,
     validate_analysis_admission_row,
 )
@@ -143,8 +143,7 @@ def _verify_existing_raw_ledger(current: dict, ledger_path: Path) -> None:
         return
     with open(ledger_path) as f:
         prior = json.load(f)
-    # Paths may differ if the ledger is copied between Wulver/local worktrees;
-    # immutability is keyed by shard id + SHA + row count + campaign identity.
+
     def stable(doc):
         return {
             "campaign_freeze_sha256": doc.get("campaign_freeze_sha256"),
@@ -160,6 +159,7 @@ def _verify_existing_raw_ledger(current: dict, ledger_path: Path) -> None:
                 for e in doc.get("shards", [])
             ],
         }
+
     if stable(current) != stable(prior):
         raise ValueError("raw shard ledger mismatch: raw campaign files changed after ledger creation")
 
@@ -200,7 +200,6 @@ def main() -> None:
     raw_hash_by_sid = {e["shard_id"]: e["original_sha256"] for e in raw_ledger["shards"]}
 
     for sid, raw_path, expected_ids in _expected_shard_paths(args.raw_dir, shard_plan):
-        # Recheck immediately before reading: the source namespace is immutable input.
         before_sha = _sha256_file(raw_path)
         if before_sha != raw_hash_by_sid[sid]:
             raise ValueError(f"raw shard {sid} changed after raw-ledger freeze")
@@ -211,7 +210,10 @@ def main() -> None:
         for cell_id in expected_ids:
             raw = raw_rows[cell_id]
             spec = expected_cells[cell_id]
-            for field in ("cell_id", "source_family", "window_id", "load_region", "policy_id", "repetition", "synthesis_seed", "scientific_status"):
+            for field in (
+                "cell_id", "source_family", "window_id", "load_region", "policy_id",
+                "repetition", "synthesis_seed", "scientific_status",
+            ):
                 if raw.get(field) != spec.get(field):
                     raise ValueError(
                         f"raw row identity mismatch {cell_id} field {field}: "
@@ -225,7 +227,7 @@ def main() -> None:
                 raise ValueError(f"raw execution schema invalid {cell_id}: {execution_problems}")
 
             enriched = enrich_row_provenance(raw, expected_prov)
-            if masked_non_provenance_view(raw) != masked_non_provenance_view(enriched):
+            if masked_non_provenance_hash(raw) != masked_non_provenance_hash(enriched):
                 non_provenance_differences += 1
                 raise ValueError(f"non-provenance row changed during enrichment: {cell_id}")
             admission_problems = validate_analysis_admission_row(
@@ -248,9 +250,19 @@ def main() -> None:
             "repaired_sha256": _sha256_file(enriched_path),
             "row_count": len(enriched_rows),
             "enriched_fields": list(APPROVED_ENRICHMENT_FIELDS),
-            "old_values": {field: "" for field in APPROVED_ENRICHMENT_FIELDS if field not in ("phase11_raw_fifo_calibration_sha256", "phase11_region_assignments_sha256")},
+            "old_values": {
+                field: ""
+                for field in APPROVED_ENRICHMENT_FIELDS
+                if field not in (
+                    "phase11_raw_fifo_calibration_sha256",
+                    "phase11_region_assignments_sha256",
+                )
+            },
             "new_values": dict(expected_prov),
-            "reconstruction_source": "frozen Phase-12B campaign manifest + exact Phase-12C runtime configuration contract",
+            "reconstruction_source": (
+                "frozen Phase-12B campaign manifest + exact Phase-12C runtime "
+                "configuration contract"
+            ),
         })
 
     if len(consolidated_rows_by_id) != EXPECTED_CELL_COUNT:
