@@ -249,7 +249,7 @@ allowed, explicit `allow_live` override.
 ## K. Synthetic fixture coverage
 
 `tests/ranking_portability_analysis_fixtures.py` +
-`tests/test_ranking_portability_analysis_*.py` (9 files, 93 tests)
+`tests/test_ranking_portability_analysis_*.py` (9 files, 103 tests)
 cover: identical ranking (tau=1), completely reversed (tau=-1), partial
 top-k change, exact ties, partial ties, undefined-policy exclusion,
 bootstrap CI shrinkage, BH FDR (incl. NaN handling), Friedman
@@ -265,10 +265,14 @@ temporal split edge cases (odd counts, single window), sample-complexity
 ladder determinism, concentrated-vs-spread, descriptor signal, null
 descriptor signal, missing-descriptor exclusion, all robustness filters,
 admission refusal on failed validation, output identity stamping, the
-blindness guard itself, and every launcher fail-closed gate (admission
+blindness guard itself, every launcher fail-closed gate (admission
 flags, corrupted admission campaign/full-matrix/consolidated hashes,
 tampered consolidated artifact bytes, analysis-code git-SHA mismatch,
-output-namespace violations, input/output overlap, live-path blocking)
+output-namespace violations, input/output overlap, live-path blocking),
+cells container normalization (dict passthrough, list-to-dict
+conversion, and all fail-closed rejections: non-container, duplicate
+cell_id, missing/empty cell_id (both container forms), non-dict list
+element, non-dict dict value, key/cell_id mismatch),
 plus a full-fabricated-matrix launcher happy path that verifies the six
 canonical artifacts are written, identity-stamped, and that the admitted
 input file's bytes are unchanged. The audit-seal pass additionally
@@ -319,10 +323,40 @@ fb0d15b4bfb41997223ce13f8c442c568d40e2e64e57f613306dae4e509f9404  tests/..._laun
 `src/robustbench/ranking_portability/analysis/`; `tests/..._x.py` =
 `tests/test_ranking_portability_analysis_x.py`.)
 
-Test status at freeze (post-audit seal): targeted analysis tests
-**93 passed**; full repository suite **337 passed** (4 pre-existing
-benign scipy precision-loss RuntimeWarnings in
-`characterization/descriptors.py`, unrelated to the analysis package).
+Test status at freeze (post-audit seal, historical): targeted analysis
+tests 93 passed; full repository suite 337 passed. This historical
+count reflects the code at seal `ff087e8c6bd3047229ddcdb4b5600b9ddf8e3c67`
+and is retained for the record; it is superseded by the post-repair
+ledger below.
+
+### L.1 Post-interface-repair identities and test status
+
+The cells-container-normalization repair (Section N) touches exactly
+two of the files listed above; their post-repair SHA-256 (actual
+rerun, not pytest-cache metadata) are:
+
+```
+03098a8c2b3d91b7f55d7e964104a70efe6d7441e1184405830b38683bb6e061  scripts/.../run_phase12_analysis.py
+33d544546695f04c8adc12b516bd363b81bd0d7fc0fc388ee95eead09f959ad6  tests/..._launcher.py
+```
+
+All other files/hashes in the Section L ledger above are unchanged and
+remain historical (pre-repair, seal `ff087e8c6bd3047229ddcdb4b5600b9ddf8e3c67`).
+
+Test status after the interface repair, from an actual rerun on
+2026-09-02 in this worktree (`robustbench` resolved to
+`/home/soroush/repos/llm-serving-scheduler-lssp-phase12-analysis-prefreeze/src/`,
+logs saved under `logs/phase12-analysis-interface-seal/`): targeted
+analysis tests **103 passed**; full repository suite **347 passed** (4
+warnings — the same pre-existing benign scipy warnings as before: 3
+precision-loss RuntimeWarnings in `characterization/descriptors.py`
+plus 1 ConstantInputWarning in `analysis/stats.py::test_case4_tied_...`,
+none related to the analysis package or this repair). The +2 tests
+versus the original repair (93→101→103, 337→345→347) cover a
+correctness gap found during the seal review: the normalizer rejected
+missing/non-string `cell_id` but not an *empty-string* `cell_id`; this
+was closed in both the dict and list input paths before sealing (see
+Section N).
 
 ## M. Real-analysis launcher (prepared, NOT executed)
 
@@ -393,7 +427,33 @@ This launcher was prepared but NOT executed in the prefreeze task:
 `COMPARATIVE_PILOT_V2_RESULTS = NONE`,
 `RANKING_ANALYSIS = READY_NOT_STARTED`.
 
-## N. Out of scope (unchanged)
+## N. Interface repair: cells container normalization
+
+The admitted consolidated artifact's `cells` field is a **list** of row
+dicts (each carrying its own `cell_id`), but the launcher's downstream
+pipeline (`matrix_validator.validate_completed_campaign`,
+`input_manifest.build_analysis_input_manifest`, and `run_analysis`) all
+expect `cells` as a **dict** mapping `{cell_id: row}`. The repair is a
+single container-only normalization at the admitted-input loading
+boundary (`run_phase12_analysis.py::_normalize_cells_container`):
+
+- **Dict input**: returned as-is after verifying every value is a dict,
+  every row's own `cell_id` is a non-empty string, and every key
+  matches that `cell_id`.
+- **List input**: converted to a dict keyed by each row's `cell_id`,
+  after verifying that `cell_id`.
+- **Fail-closed rejections**: non-dict/non-list container, list element
+  not a dict, list element missing `cell_id`, list/dict `cell_id` that
+  is non-string or the empty string, duplicate `cell_id` in the list,
+  dict value not a dict, dict key not matching the row's `cell_id`.
+
+No statistical method, threshold, or analytic choice is altered. The
+repair is purely a container-shape adapter at the I/O boundary. Ten
+synthetic tests cover: dict passthrough, list-to-dict conversion, and
+every rejection case (including empty-string `cell_id` in both the
+dict and list forms).
+
+## O. Out of scope (unchanged)
 
 Selecting a "winning" scheduler, exploitability/regret, portfolio or
 online-selector construction — see `docs/CLAIM_BOUNDARIES.md` and

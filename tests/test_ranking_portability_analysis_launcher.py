@@ -619,3 +619,70 @@ def test_happy_path_writes_six_stamped_artifacts_and_never_touches_input(
     for rec in sc["per_source_metric"]:
         n40 = [p for p in rec["points"] if p["n"] == WINDOWS_PER_SOURCE]
         assert n40 and n40[0]["p_exact_recovery"] == 1.0
+
+
+# --- Cells container normalization (list <-> dict) ---
+
+def test_normalize_cells_dict_passthrough():
+    d = {"a::b::c": {"cell_id": "a::b::c", "x": 1}}
+    assert launcher._normalize_cells_container(d) is d
+
+
+def test_normalize_cells_list_to_dict():
+    rows = [
+        {"cell_id": "a::b::c", "x": 1},
+        {"cell_id": "d::e::f", "x": 2},
+    ]
+    result = launcher._normalize_cells_container(rows)
+    assert set(result) == {"a::b::c", "d::e::f"}
+    assert result["a::b::c"]["x"] == 1
+    assert result["d::e::f"]["x"] == 2
+
+
+def test_normalize_cells_rejects_non_dict_non_list():
+    with pytest.raises(launcher.GateRefusal, match="neither a dict nor a list"):
+        launcher._normalize_cells_container("not a container")
+    with pytest.raises(launcher.GateRefusal, match="neither a dict nor a list"):
+        launcher._normalize_cells_container(42)
+
+
+def test_normalize_cells_rejects_list_with_duplicate_cell_id():
+    rows = [
+        {"cell_id": "dup", "x": 1},
+        {"cell_id": "dup", "x": 2},
+    ]
+    with pytest.raises(launcher.GateRefusal, match="duplicate cell_id"):
+        launcher._normalize_cells_container(rows)
+
+
+def test_normalize_cells_rejects_list_element_missing_cell_id():
+    rows = [{"cell_id": "ok", "x": 1}, {"x": 2}]
+    with pytest.raises(launcher.GateRefusal, match="no 'cell_id' key"):
+        launcher._normalize_cells_container(rows)
+
+
+def test_normalize_cells_rejects_list_element_not_dict():
+    with pytest.raises(launcher.GateRefusal, match="not a dict"):
+        launcher._normalize_cells_container([{"cell_id": "ok"}, "bad"])
+
+
+def test_normalize_cells_rejects_dict_value_not_dict():
+    with pytest.raises(launcher.GateRefusal, match="is not a dict"):
+        launcher._normalize_cells_container({"k": "not a row"})
+
+
+def test_normalize_cells_rejects_dict_key_cell_id_mismatch():
+    with pytest.raises(launcher.GateRefusal, match="does not match"):
+        launcher._normalize_cells_container(
+            {"wrong_key": {"cell_id": "actual_id", "x": 1}}
+        )
+
+
+def test_normalize_cells_rejects_list_element_empty_cell_id():
+    with pytest.raises(launcher.GateRefusal, match="empty cell_id"):
+        launcher._normalize_cells_container([{"cell_id": "", "x": 1}])
+
+
+def test_normalize_cells_rejects_dict_row_empty_cell_id():
+    with pytest.raises(launcher.GateRefusal, match="missing/empty/non-string"):
+        launcher._normalize_cells_container({"": {"cell_id": "", "x": 1}})

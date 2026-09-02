@@ -210,6 +210,61 @@ def _git_head_sha(repo_root: Path) -> str:
     )
 
 
+def _normalize_cells_container(raw) -> dict:
+    """Accepts the admitted artifact's `cells` in either the canonical
+    dict form ({cell_id: row, ...}) or the list form ([{"cell_id": ...,
+    ...}, ...]) and returns the canonical dict. Fail-closed: rejects
+    duplicates in the list form, missing/empty/non-string `cell_id`
+    values, non-dict list elements, type mismatches between the list's
+    cell_ids and the rows' own `cell_id` fields, and any non-list/non-dict
+    container."""
+    if isinstance(raw, dict):
+        for key, row in raw.items():
+            if not isinstance(row, dict):
+                _refuse(
+                    f"cells dict value for key {key!r} is not a dict "
+                    f"(got {type(row).__name__})"
+                )
+            cid = row.get("cell_id")
+            if not isinstance(cid, str) or cid == "":
+                _refuse(
+                    f"cells dict row for key {key!r} has a missing/empty/"
+                    f"non-string cell_id ({cid!r})"
+                )
+            if cid != key:
+                _refuse(
+                    f"cells dict key {key!r} does not match the row's "
+                    f"own cell_id {cid!r}"
+                )
+        return raw
+    if isinstance(raw, list):
+        out: dict = {}
+        for i, item in enumerate(raw):
+            if not isinstance(item, dict):
+                _refuse(
+                    f"cells list element [{i}] is not a dict "
+                    f"(got {type(item).__name__})"
+                )
+            cid = item.get("cell_id")
+            if cid is None:
+                _refuse(f"cells list element [{i}] has no 'cell_id' key")
+            if not isinstance(cid, str):
+                _refuse(
+                    f"cells list element [{i}] cell_id is not a string "
+                    f"(got {type(cid).__name__})"
+                )
+            if cid == "":
+                _refuse(f"cells list element [{i}] has an empty cell_id")
+            if cid in out:
+                _refuse(f"cells list contains duplicate cell_id {cid!r}")
+            out[cid] = item
+        return out
+    _refuse(
+        f"cells container is neither a dict nor a list "
+        f"(got {type(raw).__name__})"
+    )
+
+
 def verify_launch_gates(
     *,
     admission_manifest_path: Path,
@@ -841,7 +896,7 @@ def main(argv=None) -> int:
     with open(args.compact_window_index) as f:
         compact_index = json.load(f)
 
-    rows = consolidated["cells"]
+    rows = _normalize_cells_container(consolidated["cells"])
     window_ids_by_source = load_campaign_window_ids(compact_index)
 
     # Independent re-validation of the admitted matrix -- the launcher
