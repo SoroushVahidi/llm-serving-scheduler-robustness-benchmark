@@ -1,0 +1,146 @@
+{
+  "audit_date": "2026-09-02",
+  "audit_type": "experiment_reuse_audit",
+  "target_campaign": {
+    "campaign_freeze_sha256": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+    "full_matrix_hash": "832d96d7ff4d5e8843c233a6a4708bbbbc578ef6b65307c37f5ac127c62c1ccf",
+    "branch": "research/lssp-phase12-campaign-freeze-20260902",
+    "freeze_commit": "51256ea12d379d84859a7771635e4d0e98061c8c",
+    "engineering_commit": "2b9a21fb58798292c95980d35d05e53b3c6f14f6",
+    "expected_cells": 18720,
+    "sources": ["burstgpt", "azure_llm_2024", "bailian_qwen"],
+    "windows_per_source": 40,
+    "regions": ["LOW", "PRE_KNEE", "KNEE", "POST_KNEE", "OVERLOAD", "HIGH_PRESSURE"],
+    "policies": 13,
+    "repetitions": 2
+  },
+  "repositories_and_storage_searched": [
+    {"path": "/home/soroush/repos/*", "type": "local_git_repos", "count": 39},
+    {"path": "/home/soroush/llm-serving-heuristic-evolution", "type": "local_git_repo", "note": "LLM 2026 source repo; HEAD=94f4621"},
+    {"path": "/home/soroush/module-intervention-credit-v2-staging", "type": "local_dir_not_git", "note": "zero source/policy-name overlap on grep"},
+    {"path": "hf://datasets/SoroushVahidi/llm-serving-scheduler-baselines", "type": "huggingface_dataset", "note": "read via HF Hub filesystem tool, both configs' cards inspected"},
+    {"path": "wulver:/project/ikoutis/sv96", "type": "remote_hpc_storage", "note": "reachable via ssh wulver; searched for *phase12*/*campaign_result* paths"},
+    {"path": "wulver:/mmfs1/project/ikoutis/sv96", "type": "remote_hpc_storage", "note": "same search, mirrored path"},
+    {"path": "/home/soroush/.bash_history", "type": "local_shell_history", "note": "grepped for sbatch/phase12; no prior launch commands found locally"}
+  ],
+  "scientific_equivalence_dimensions": [
+    "source_family", "exact_source_provenance", "exact_workload_window_request_set",
+    "window_content_hash", "synthesis_transformation_version", "synthesis_seed",
+    "load_calibration_semantics", "lambda_ref", "load_region_or_factor",
+    "absolute_request_rate_scaling", "policy_id", "policy_implementation_version_hash",
+    "simulator_implementation_version_hash", "simulator_configuration",
+    "metric_semantics", "slo_construction", "telemetry_schema_completeness",
+    "completion_conditioned_nan_semantics", "repetition_semantics", "output_schema_version",
+    "scientific_status_tag"
+  ],
+  "candidates_evaluated": [
+    {
+      "candidate": "LLM2026_public_replay_load_scaling_v1_v2",
+      "repo": "llm-serving-heuristic-evolution",
+      "classification": "PRIOR_RESULT_REFERENCE_ONLY",
+      "matching_dimensions": ["source_family_partial(burstgpt,azure-any-year)"],
+      "disqualifying_dimensions": [
+        "window_set_and_sampling_rule", "load_grid_design", "policy_panel_identity",
+        "azure_year(2023_vs_2024)", "simulator_repo_lineage", "telemetry_schema",
+        "scientific_status_tag", "repetition_semantics", "publication_claim_boundary(prohibited_overlap)"
+      ],
+      "exact_reusable_cells": 0
+    },
+    {
+      "candidate": "Stage0_zero_completion_repaired_pilot",
+      "repo": "llm-serving-scheduler-lssp-phase12-freeze (historical branch)",
+      "classification": "SEMANTIC_PARTIAL_OVERLAP",
+      "matching_dimensions": [
+        "source_family(all_3)", "window_id_subset(10_of_40_per_source_by_construction)",
+        "synthesis_rule(stage0_synthesis_v1)", "simulator_determinism"
+      ],
+      "disqualifying_dimensions": [
+        "policy_panel(6_of_13)", "load_region_set(3_of_6, own_calibration_not_phase11)",
+        "telemetry_schema(missing_7_mechanism_fields)", "scientific_status_tag",
+        "preregistration_prohibition_on_relabeling"
+      ],
+      "exact_reusable_cells": 0,
+      "structural_max_overlap_cells": 1080,
+      "note": "Closest candidate found in the entire audit; still 0 exact-reusable cells."
+    },
+    {
+      "candidate": "Phase11_FIFO_calibration",
+      "repo": "llm-serving-scheduler-lssp-phase12-freeze",
+      "classification": "PRIOR_RESULT_REFERENCE_ONLY",
+      "matching_dimensions": ["source_family(all_3)", "windows(all_120)", "regions(all_6)"],
+      "disqualifying_dimensions": ["single_policy_only(fifo)", "not_a_comparative_result"],
+      "exact_reusable_cells": 0
+    },
+    {
+      "candidate": "Phase12A_engineering_smoke",
+      "repo": "llm-serving-scheduler-lssp-phase12-freeze (research/lssp-phase12-pilotv2-smoke-20260902)",
+      "classification": "PRIOR_RESULT_REFERENCE_ONLY",
+      "matching_dimensions": ["schema_version", "simulator_version"],
+      "disqualifying_dimensions": ["explicitly_engineering_only_by_protocol", "small_nonpreregistered_subset"],
+      "exact_reusable_cells": 0
+    },
+    {
+      "candidate": "SIGMETRICS2027_module_intervention_benchmark",
+      "repo": "llm-serving-module-intervention-benchmark (not locally checked out; local staging dir checked)",
+      "classification": "PRIOR_RESULT_REFERENCE_ONLY",
+      "matching_dimensions": [],
+      "disqualifying_dimensions": ["different_research_question", "code_paths_never_ported_per_PROVENANCE.md", "zero_source_or_policy_id_overlap_found"],
+      "exact_reusable_cells": 0
+    },
+    {
+      "candidate": "HF_per_policy_results",
+      "repo": "hf://datasets/SoroushVahidi/llm-serving-scheduler-baselines",
+      "classification": "SEMANTIC_PARTIAL_OVERLAP_POLICY_LEVEL_ONLY",
+      "matching_dimensions": ["policy_id_names_partial"],
+      "disqualifying_dimensions": ["workload_grain(41_synthetic_envelopes_not_real_trace_windows)", "no_window_identity", "record_grain_mismatch"],
+      "exact_reusable_cells": 0
+    },
+    {
+      "candidate": "HF_tracelab_scheduler_ood_policy_sweep",
+      "repo": "hf://datasets/SoroushVahidi/llm-serving-scheduler-baselines",
+      "classification": "NO_EXISTING_RESULT",
+      "matching_dimensions": [],
+      "disqualifying_dimensions": ["different_source_entirely(tracelab_not_lssp_source)", "different_window_construction", "different_policy_library_version"],
+      "exact_reusable_cells": 0
+    },
+    {
+      "candidate": "real_vLLM_runs",
+      "repo": "llm-serving-scheduler-lssp-phase12-freeze",
+      "classification": "REUSABLE_INFRASTRUCTURE_ONLY",
+      "matching_dimensions": [],
+      "disqualifying_dimensions": ["no_executed_results_exist", "different_scientific_object(real_hardware_vs_simulated)"],
+      "exact_reusable_cells": 0
+    }
+  ],
+  "accounting": {
+    "frozen_cells": 18720,
+    "exact_reusable_cells_total": 0,
+    "semantic_partial_overlap_cells_structural_max": 1080,
+    "no_existing_result_cells": 18720,
+    "by_source": {
+      "burstgpt": {"frozen_cells": 6240, "exact_reusable_cells": 0},
+      "azure_llm_2024": {"frozen_cells": 6240, "exact_reusable_cells": 0},
+      "bailian_qwen": {"frozen_cells": 6240, "exact_reusable_cells": 0}
+    }
+  },
+  "out_of_band_finding": {
+    "description": "The frozen campaign itself was found to already be executing (or to have recently executed) on Wulver, discovered incidentally while searching for reusable prior artifacts. Not part of the reuse-audit question (same campaign, not an external one), but material to the launch-gate decision.",
+    "location": "wulver:/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-campaign-run",
+    "sbatch_freeze_sha_embedded": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+    "shard_array": "0-63",
+    "cells_present_at_audit_time": 17882,
+    "cells_expected": 18720,
+    "completion_fraction_observed": 0.955,
+    "nonempty_out_logs": 48,
+    "empty_out_logs": 16,
+    "nonempty_err_logs_with_errors": 0,
+    "sample_shard_summary": {"shard_id": 0, "cell_count": 293, "computed_this_run": 293, "invalid_or_failed_after_run": 0},
+    "limitation": "squeue/sacct/module were not on PATH in the non-interactive ssh shell used; live Slurm queue state (RUNNING vs COMPLETED) was not directly confirmed, only filesystem-level artifact state.",
+    "action_taken": "none (read-only inspection only; no submission, cancellation, or resume attempted)"
+  },
+  "verdict": {
+    "PHASE12_CAMPAIGN_REUSE_AUDIT": "FULL_NEW_EXECUTION_REQUIRED",
+    "PHASE12_CAMPAIGN_LAUNCH_GATE_REUSE_AUDIT": "PASS",
+    "note": "This verdict covers only the reuse-audit gate. It is not, by itself, authorization to submit or resume any Slurm job; see out_of_band_finding, which needs direct parent-conversation attention."
+  }
+}
