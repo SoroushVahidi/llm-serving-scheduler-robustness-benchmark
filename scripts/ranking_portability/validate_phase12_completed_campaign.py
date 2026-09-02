@@ -20,9 +20,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from robustbench.ranking_portability.phase12_provenance import (  # noqa: E402
-    APPROVED_ENRICHMENT_FIELDS,
     expected_phase12_provenance,
-    masked_non_provenance_view,
+    masked_non_provenance_hash,
     validate_analysis_admission_row,
 )
 
@@ -114,7 +113,6 @@ def main() -> None:
     with open(args.consolidated) as f:
         consolidated = json.load(f)
 
-    # Frozen identity checks.
     for key in (
         "campaign_freeze_sha256", "full_matrix_hash", "phase10_window_hash",
         "phase10_compact_index_hash", "phase11_prelaunch_hash",
@@ -141,7 +139,6 @@ def main() -> None:
     if len(campaign.get("region_assignment_index", {})) != EXPECTED["n_assignment_keys"]:
         _problem(problems, "campaign does not contain exactly 720 region assignment keys")
 
-    # Raw/repaired ledger and source immutability.
     if raw_ledger.get("campaign_freeze_sha256") != EXPECTED["campaign_freeze_sha256"]:
         _problem(problems, "raw ledger campaign identity mismatch")
     if repair_ledger.get("campaign_freeze_sha256") != EXPECTED["campaign_freeze_sha256"]:
@@ -186,7 +183,7 @@ def main() -> None:
         for cid in raw_rows:
             raw = raw_rows[cid]
             enriched = enriched_rows[cid]
-            if masked_non_provenance_view(raw) != masked_non_provenance_view(enriched):
+            if masked_non_provenance_hash(raw) != masked_non_provenance_hash(enriched):
                 non_provenance_differences += 1
                 _problem(problems, f"non-provenance difference: {cid}")
             admission = validate_analysis_admission_row(
@@ -201,7 +198,6 @@ def main() -> None:
     actual_ids = set(enriched_rows_by_id)
     missing_ids = expected_ids - actual_ids
     unexpected_ids = actual_ids - expected_ids
-    duplicate_count = EXPECTED["n_cells"] - len(actual_ids) if len(actual_ids) < EXPECTED["n_cells"] else 0
     if missing_ids:
         _problem(problems, f"missing cells: {len(missing_ids)}")
     if unexpected_ids:
@@ -209,18 +205,25 @@ def main() -> None:
     if len(actual_ids) != EXPECTED["n_cells"]:
         _problem(problems, f"actual unique cell count={len(actual_ids)}, expected={EXPECTED['n_cells']}")
 
-    # Exact matrix dimensions and load-assignment agreement.
     sources = {r.get("source_family") for r in enriched_rows_by_id.values()}
     windows = {r.get("window_id") for r in enriched_rows_by_id.values()}
     regions = {r.get("load_region") for r in enriched_rows_by_id.values()}
     policies = {r.get("policy_id") for r in enriched_rows_by_id.values()}
     reps = {r.get("repetition") for r in enriched_rows_by_id.values()}
-    if len(sources) != EXPECTED["n_sources"]: _problem(problems, f"source count={len(sources)}")
-    if len(windows) != EXPECTED["n_windows"]: _problem(problems, f"window count={len(windows)}")
-    if len(regions) != EXPECTED["n_regions"]: _problem(problems, f"region count={len(regions)}")
-    if len(policies) != EXPECTED["n_policies"]: _problem(problems, f"policy count={len(policies)}")
-    if reps != {0, 1}: _problem(problems, f"repetition set={reps}")
-    windows_by_source = Counter((r.get("source_family"), r.get("window_id")) for r in enriched_rows_by_id.values())
+    if len(sources) != EXPECTED["n_sources"]:
+        _problem(problems, f"source count={len(sources)}")
+    if len(windows) != EXPECTED["n_windows"]:
+        _problem(problems, f"window count={len(windows)}")
+    if len(regions) != EXPECTED["n_regions"]:
+        _problem(problems, f"region count={len(regions)}")
+    if len(policies) != EXPECTED["n_policies"]:
+        _problem(problems, f"policy count={len(policies)}")
+    if reps != {0, 1}:
+        _problem(problems, f"repetition set={reps}")
+    windows_by_source = Counter(
+        (r.get("source_family"), r.get("window_id"))
+        for r in enriched_rows_by_id.values()
+    )
     unique_windows_by_source = Counter(source for source, _wid in windows_by_source)
     for source in sources:
         if unique_windows_by_source[source] != EXPECTED["windows_per_source"]:
@@ -241,7 +244,6 @@ def main() -> None:
     if successful != EXPECTED["n_cells"]:
         _problem(problems, f"successful cells={successful}")
 
-    # Rep0/rep1 scientific-input identity only; no metric/output comparison.
     rep_groups = {}
     rep_input_mismatches = 0
     input_fields = (
@@ -252,7 +254,9 @@ def main() -> None:
         "scientific_status",
     )
     for row in enriched_rows_by_id.values():
-        key = (row["source_family"], row["window_id"], row["load_region"], row["policy_id"])
+        key = (
+            row["source_family"], row["window_id"], row["load_region"], row["policy_id"]
+        )
         rep_groups.setdefault(key, {})[row["repetition"]] = row
     if len(rep_groups) != EXPECTED["n_rep_pairs"]:
         _problem(problems, f"rep-pair groups={len(rep_groups)}")
@@ -265,7 +269,6 @@ def main() -> None:
             rep_input_mismatches += 1
             _problem(problems, f"rep scientific-input mismatch: {key}")
 
-    # Consolidated artifact must be exactly the same enriched rows in frozen order.
     if consolidated.get("campaign_freeze_sha256") != EXPECTED["campaign_freeze_sha256"]:
         _problem(problems, "consolidated campaign identity mismatch")
     consolidated_cells = consolidated.get("cells", [])
@@ -274,8 +277,14 @@ def main() -> None:
     else:
         for spec, row in zip(campaign["cells"], consolidated_cells):
             expected_row = enriched_rows_by_id.get(spec["cell_id"])
-            if expected_row != row:
-                _problem(problems, f"consolidated row differs from enriched shard: {spec['cell_id']}")
+            if expected_row is None or masked_non_provenance_hash(expected_row) != masked_non_provenance_hash(row):
+                _problem(problems, f"consolidated scientific row differs from enriched shard: {spec['cell_id']}")
+                break
+            if expected_phase12_provenance(campaign) != {
+                field: row.get(field)
+                for field in expected_phase12_provenance(campaign)
+            }:
+                _problem(problems, f"consolidated provenance differs from expected: {spec['cell_id']}")
                 break
 
     expected_prov = expected_phase12_provenance(campaign)
@@ -290,7 +299,6 @@ def main() -> None:
         "actual_unique_cells": len(actual_ids),
         "missing_cells": len(missing_ids),
         "unexpected_cells": len(unexpected_ids),
-        "duplicate_cells": duplicate_count,
         "successful_cells": successful,
         "unresolved_failures": EXPECTED["n_cells"] - successful,
         "sources": len(sources),
