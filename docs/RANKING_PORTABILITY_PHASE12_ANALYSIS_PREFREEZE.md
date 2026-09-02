@@ -11,6 +11,7 @@ Declarations (required by the analysis-prefreeze task):
 - `PHASE12_ANALYSIS_CODE_FROZEN_BEFORE_RESULTS = YES`
 - `COMPARATIVE_PILOT_V2_RESULTS_INSPECTED = NO`
 - `PHASE12_ANALYSIS_PREFREEZE_RESULT_BLIND = YES`
+- `PHASE12_ANALYSIS_PREFREEZE_STATUS = COMPLETE_READY_TO_RUN`
 
 Every component below was developed and tested exclusively against
 fabricated synthetic fixtures
@@ -206,7 +207,7 @@ allowed, explicit `allow_live` override.
 ## K. Synthetic fixture coverage
 
 `tests/ranking_portability_analysis_fixtures.py` +
-`tests/test_ranking_portability_analysis_*.py` (8 files, 67 tests)
+`tests/test_ranking_portability_analysis_*.py` (9 files, 80 tests)
 cover: identical ranking (tau=1), completely reversed (tau=-1), partial
 top-k change, exact ties, partial ties, undefined-policy exclusion,
 bootstrap CI shrinkage, BH FDR (incl. NaN handling), Friedman
@@ -221,8 +222,15 @@ idempotence, full-scale fabricated 18,720-cell matrix validation,
 temporal split edge cases (odd counts, single window), sample-complexity
 ladder determinism, concentrated-vs-spread, descriptor signal, null
 descriptor signal, missing-descriptor exclusion, all robustness filters,
-admission refusal on failed validation, output identity stamping, and
-the blindness guard itself. **No real campaign row is used anywhere.**
+admission refusal on failed validation, output identity stamping, the
+blindness guard itself, and every launcher fail-closed gate (admission
+flags, corrupted admission campaign/full-matrix/consolidated hashes,
+tampered consolidated artifact bytes, analysis-code git-SHA mismatch,
+output-namespace violations, input/output overlap, live-path blocking)
+plus a full-fabricated-matrix launcher happy path that verifies the six
+canonical artifacts are written, identity-stamped, and that the admitted
+input file's bytes are unchanged. **No real campaign row is used
+anywhere.**
 
 ## L. Frozen code/test identities (SHA-256)
 
@@ -243,6 +251,7 @@ d5f534e6418d0fa93d72c192ed6de35925f87a10dfa697f8527b043464be5a98  analysis/telem
 74b204c32c7358c659ab04ffec64c42a47d78cbafac39d826a48ca427d078aed  analysis/temporal_analysis.py
 bc719ca4c262d199a53fabfbcb87f82190740e6c09854b8bfc1e5505c6f4ca93  scripts/.../consolidate_phase12_campaign.py
 920cd5a355a4ebae42669afd0e483a287e8e43c23cccbf933e3bb7288b9efc11  scripts/.../validate_phase12_completed_campaign.py
+3414161f2e9bcd1e85bd867fcd2dd2558bb1a260eaaa3ae070ec4d58ca6be4fe  scripts/.../run_phase12_analysis.py
 da8825a7cd782364041ddbaaca9ba3c0ce719817212ba889d4598fcc3405c9bd  tests/ranking_portability_analysis_fixtures.py
 30afb645a300355e2d2abee56a59afa59fbedacb8a2ff6a4f94429540ccd0c9a  tests/..._consolidation.py
 bcd6db0bed50a14dc44bba3f9920b933a5a9fd1f803b488de07be9c170111b9f  tests/..._matrix_validator.py
@@ -252,34 +261,73 @@ a19adfd84877ba74a331877a705c037d61497b0a437cd232aa50847895dd6999  tests/..._pref
 98778682e9e1f6aab3b22ba89fc9b8d860a993461073c34c05a54b1e26421d5b  tests/..._sample_complexity.py
 1014baaa3f71c3f267dc27ddb2841f609d9e76e0fcac406342fe0e55ef132446  tests/..._stats.py
 a723f9538663b2bb2d1041b06120196722b75234aab05e6898fb4921e66248a2  tests/..._temporal.py
+1d443a51db652d43e65193920107e929f9ad51fe877b9631b8fae2a20033c28e  tests/..._launcher.py
 ```
 
 (paths abbreviated: `analysis/` =
 `src/robustbench/ranking_portability/analysis/`; `tests/..._x.py` =
 `tests/test_ranking_portability_analysis_x.py`.)
 
-Test status at freeze: targeted analysis tests **67 passed**; full
-repository suite **311 passed** (4 pre-existing benign scipy
+Test status at freeze: targeted analysis tests **80 passed**; full
+repository suite **324 passed** (4 pre-existing benign scipy
 precision-loss RuntimeWarnings in `characterization/descriptors.py`,
 unrelated to the analysis package).
 
-## M. Real-analysis preconditions (fail-closed)
+## M. Real-analysis launcher (prepared, NOT executed)
 
-The frozen analysis will only consume an input that satisfies ALL of:
+The exact launcher is
+`scripts/ranking_portability/run_phase12_analysis.py`. It fails closed
+(exit 2, nothing analyzed) unless ALL of the following hold:
 
-1. a Phase-12D analysis-admission manifest
-   (`artifacts/manifests/ranking_portability_phase12_analysis_input.json`)
-   with `PHASE12_COMPLETED_CAMPAIGN_VALID = true` and
+1. the Phase-12D analysis-admission manifest declares
+   `PHASE12_COMPLETED_CAMPAIGN_VALID = true` and
    `PHASE12_ANALYSIS_INPUT_ADMITTED = true`;
-2. the admitted consolidated artifact's SHA-256 equals the
-   admission-manifest-bound `consolidated_artifact_sha256`
-   (`73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26`
-   for campaign freeze `81fa3d9b48a22410...`);
-3. `campaign_freeze_sha256` and `full_matrix_hash` equal the frozen
-   campaign identities;
-4. analysis runs from this frozen analysis-prefreeze code identity.
+2. its `campaign_freeze_sha256` equals the pinned
+   `81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a`
+   and its `full_matrix_hash` equals the pinned
+   `832d96d7ff4d5e8843c233a6a4708bbbbc578ef6b65307c37f5ac127c62c1ccf`;
+3. the SHA-256 of the consolidated artifact's file bytes equals the
+   pinned admission-bound
+   `73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26`;
+4. `git rev-parse HEAD` equals the caller-pinned
+   `--expected-analysis-git-sha` (the exact analysis-prefreeze branch
+   HEAD at analysis time; the verified SHA is stamped into every
+   output artifact);
+5. the consolidated matrix passes INDEPENDENT re-validation
+   (`matrix_validator.validate_completed_campaign`) before any metric
+   is aggregated.
 
-Any mismatch stops the run before a single metric is aggregated.
+It writes only the six canonical artifacts into a fresh
+`artifacts/analysis/phase12/` namespace (refuses any other location,
+any pre-existing content, and any overlap with the admitted input,
+which is opened read-only and never modified).
+
+Exact command (run on Wulver, from the analysis-prefreeze checkout, in
+the subsequent real-analysis task -- NOT in this prefreeze task):
+
+```
+PYTHONPATH=src python scripts/ranking_portability/run_phase12_analysis.py \
+  --admission-manifest artifacts/manifests/ranking_portability_phase12_analysis_input.json \
+  --consolidated-artifact <admitted consolidated artifact path> \
+  --campaign-manifest artifacts/manifests/ranking_portability_phase12_campaign_freeze.json \
+  --compact-window-index artifacts/manifests/ranking_portability_pilot_v2_windows_index.json \
+  --output-dir artifacts/analysis/phase12 \
+  --expected-analysis-git-sha "$(git rev-parse HEAD)" \
+  --azure-boundary-epoch-seconds <frozen 2024-05 collection-window boundary epoch> \
+  --allow-live
+```
+
+`--expected-analysis-git-sha` binds the run to the exact prefreeze HEAD
+recorded in the completion report / git ref
+`research/lssp-phase12-analysis-prefreeze-20260902` at freeze time; the
+launcher refuses on any mismatch. The telemetry explanatory model's
+window-level reversal-site rule (fixed descriptor set, all primary
+policy pairs x source pairs enumerated, no result-dependent selection)
+is frozen in the launcher's module docstring.
+
+This launcher was prepared but NOT executed in the prefreeze task:
+`COMPARATIVE_PILOT_V2_RESULTS = NONE`,
+`RANKING_ANALYSIS = READY_NOT_STARTED`.
 
 ## N. Out of scope (unchanged)
 
