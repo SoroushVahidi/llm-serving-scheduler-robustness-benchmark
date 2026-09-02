@@ -48,11 +48,16 @@ def test_dry_run_output_path_disjoint_from_smoke_output_path():
     assert "ranking_portability_phase12_smoke_raw.json" not in path
 
 
-def test_execute_flag_raises_not_implemented_and_exits_nonzero():
-    result = _run("--shard-id", "0", "--execute")
+def test_execute_and_dry_run_together_rejected():
+    """`--execute` and `--dry-run` are mutually exclusive; this must be
+    rejected before anything is loaded or executed. (The real `--execute`
+    path itself is tested separately, in
+    test_ranking_portability_phase12_campaign_execute.py, against a tiny
+    synthetic fixture -- never against the real 293-cell shard 0 in a
+    test, which would take tens of minutes.)"""
+    result = _run("--shard-id", "0", "--execute", "--dry-run")
     assert result.returncode != 0
-    assert "NotImplementedError" in result.stderr
-    assert "Phase-12C" in result.stderr
+    assert "mutually exclusive" in (result.stdout + result.stderr)
 
 
 def test_out_of_range_shard_id_rejected():
