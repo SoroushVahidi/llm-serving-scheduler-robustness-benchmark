@@ -1,22 +1,22 @@
 # PROJECT_ROADMAP.md — LLM-Serving Scheduler Portability Benchmark
 
-This roadmap reflects the verified scientific state through Phase 10 and the Phase-11 implementation handoff.
+This roadmap reflects the verified scientific state through Phase 11.
 
 ## Immediate dependency chain
 
-frozen 120 windows
+Phase-10 120-window freeze
   ↓
-Phase-11 six-region, policy-independent calibration
+Phase-11 FIFO calibration run
   ↓
-calibration freeze
+calibration validity gate
   ↓
-Pilot-V2 smoke
+Phase-12 smoke check
   ↓
 prelaunch matrix freeze
   ↓
 18,720-cell campaign
   ↓
-matrix validation
+benchmark matrix validation
   ↓
 ranking portability analysis
   ↓
@@ -28,7 +28,7 @@ LSSP artifact release
   ↓
 manuscript finalization
 
-Manuscript work continues in parallel, but it is a separate track from the scientific execution chain.
+Manuscript work continues in parallel as a separate track and is intentionally not merged into the scientific execution branch.
 
 ## Current status by milestone
 
@@ -40,17 +40,18 @@ Manuscript work continues in parallel, but it is a separate track from the scien
 | temporal-stratum audit | DONE | quality-controlled and audited |
 | Stage-0 / LLM-2026 overlap audit | DONE | unresolved provenance limitation explicitly recorded |
 | deterministic reconstruction | DONE | reproducible selection verified |
-| data-quality validation | DONE | 17 targeted tests passed |
-| storage design for compact manifest | DONE | compact index committed |
+| data-quality validation | DONE | targeted tests passed |
+| compact manifest design | DONE | index hash preserved |
 
-### Phase 11 — six-region calibration prep
+### Phase 11 — FIFO calibration
 
 | Task | Status | Evidence |
 |---|---|---|
-| protocol read and contract freeze | READY | six-region definition fixed, FIFO-only calibration principle fixed |
-| implementation harness | READY | standalone Phase-11 code and tests created in child branch |
-| real calibration execution | NOT STARTED | explicitly deferred |
-| prelaunch freeze template | READY | template created for hashing inputs before execution |
+| protocol freeze | DONE | six-region FIFO-only calibration contract retained |
+| execution | DONE | raw FIFO matrix + region assignment output generated |
+| validity gate | DONE | `PHASE11_CALIBRATION_VALID = YES` |
+| determinism check | DONE | `CALIBRATION_DETERMINISTIC = YES` |
+| interpretation boundary | DONE | calibration provenance preserved without ranking claims |
 
 ### Phase 12+ — execution pipeline
 
@@ -67,23 +68,22 @@ Manuscript work continues in parallel, but it is a separate track from the scien
 
 ## Manuscript parallel track
 
-The manuscript/literature work remains a separate branch and is intentionally not merged into the scientific integration branch.
+The manuscript/literature work remains on a separate branch and is intentionally not merged into the scientific integration branch.
 
 Allowed parallel tasks:
 - primary-source verification
 - literature correction and citation ledger
 - claim boundary review
 - figure/table plan
-- outline and narrative drafting
+- outline + narrative drafting
 
 Not allowed in the scientific execution track:
 - Phase-10 scientific file edits
-- Pilot-V2 result generation
-- real Phase-11 calibration execution
-- scientific branch integration for manuscript drafts
+- new comparative scheduler result claims
+- Phase-12 execution before Query 2 handoff is complete
 
 ## Governance
 
 - `main` remains untouched.
-- The integrated Phase-10 branch is the authoritative scientific branch until a later release decision.
+- `research/lssp-integrated-phase11-20260901` is the current authoritative scientific branch.
 - The manuscript branch continues in parallel and is not considered part of the scientific execution chain.
