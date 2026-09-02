@@ -357,13 +357,19 @@ any pre-existing content, and any overlap with the admitted input,
 which is opened read-only and never modified).
 
 Exact command (run on Wulver in the subsequent real-analysis task --
-NOT in this prefreeze/audit task; `$SEALED` is the sealed analysis-code
-commit named in the audit-seal report and in the git history of this
-branch — the production run must `git checkout` that exact commit and
-pass its literal SHA):
+NOT in this prefreeze/audit task). The sealed analysis-code commit is
+
+**ff087e8c6bd3047229ddcdb4b5600b9ddf8e3c67**
+
+("Seal Phase-12 analysis prefreeze: temporal source isolation, reversal
+BH layer, frozen Azure boundary"). The production run must `git
+checkout` that exact commit and pass its literal SHA — this
+documentation-only follow-up record names it, but the analysis must
+execute the sealed code commit exactly (its tree is identical to this
+record's tree except for this section):
 
 ```
-SEALED=<sealed analysis-code commit; see audit-seal report / branch history>
+SEALED=ff087e8c6bd3047229ddcdb4b5600b9ddf8e3c67
 git -C /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-analysis checkout "$SEALED"
 cd /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-analysis
 PYTHONPATH=src python scripts/ranking_portability/run_phase12_analysis.py \
