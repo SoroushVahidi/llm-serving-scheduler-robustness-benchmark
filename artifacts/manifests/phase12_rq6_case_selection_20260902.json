@@ -1,0 +1,64 @@
+{
+  "manifest_kind": "phase12_rq6_realvllm_case_selection_v1",
+  "manifest_date": "2026-09-02",
+  "status": "CASES_FROZEN_EXECUTION_NOT_YET_READY",
+
+  "predeclared_selection_rule": {
+    "source_document": "docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md §G",
+    "exact_quoted_text": "the objective selection rule is: prefer (a) the pairwise reversal with the largest bootstrap-CI-excluding-zero effect size from §A, and (b) one representative *stable* ordering (largest tau, smallest CI) as a null-result control, so validation isn't confined to testing only positive findings.",
+    "applied_mechanically": true,
+    "selection_performed_after_rq1_rq2_reversal_results_existed": true,
+    "selection_performed_before_any_real_vllm_run": true
+  },
+
+  "source_provenance": {
+    "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+    "campaign_freeze_sha256": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+    "consolidated_input_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "pairwise_reversals_json_sha256": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde",
+    "ranking_correlations_json_sha256": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff",
+    "structural_audit_commit": "2aba8b639177d64288eaed01ba3a4b6c81a0de7c",
+    "structural_audit_branch": "validation/lssp-phase12-structural-audit-20260902",
+    "selection_generation_script": "paper/scripts/generate_phase12_tables_figures.py (manuscript branch manuscript/lssp-jsc-polish-20260902)"
+  },
+
+  "reversal_case": {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "load_region": "HIGH_PRESSURE",
+    "metric": "arrival_normalized_weighted_goodput",
+    "classification": "SUPPORTED_PRACTICAL_REVERSAL",
+    "operationalized_effect_size_min_abs_margin": 1.2816,
+    "bh_fdr_p_pair_iut": 0.0,
+    "selection_reasoning": "Largest operationalized effect size (min(|margin_x|,|margin_y|), the binding constraint under the frozen practical-margin rule) among all 36 SUPPORTED_PRACTICAL_REVERSAL records for the PRIMARY metric.",
+    "tie_disclosure": "Exactly tied (effect size 1.2816, bh_fdr_p 0.0) with the record {policy_a: slai_faithful, policy_b: vllm_faithful, condition_x: bailian_qwen::HIGH_PRESSURE, condition_y: burstgpt::HIGH_PRESSURE, load_region: HIGH_PRESSURE} -- both involve the same policy pair and the same burstgpt::HIGH_PRESSURE side; margin_y (the burstgpt-side margin) is the binding constraint in both and is effectively identical. Tie broken by the simplest available deterministic, non-subjective rule: lexicographic ordering of condition_x ('azure_llm_2024::HIGH_PRESSURE' < 'bailian_qwen::HIGH_PRESSURE'). The untied alternative is disclosed here rather than silently discarded; either choice tests the same scientific question (does the slai_faithful-vs-vllm_faithful ordering reverse between BurstGPT-like and non-BurstGPT-like traffic at HIGH_PRESSURE)."
+  },
+
+  "stable_control": {
+    "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+    "condition_y": "bailian_qwen::HIGH_PRESSURE",
+    "load_region": "HIGH_PRESSURE",
+    "metric": "arrival_normalized_weighted_goodput",
+    "kendall_tau": 1.0,
+    "kendall_tau_ci": [0.9040133315325639, 1.0],
+    "selection_reasoning": "Rule text order ('largest tau, smallest CI') interpreted as primary sort key = tau descending, secondary/tiebreak key = CI width ascending, applied over all 18 source-pair x region conditions for the PRIMARY metric. This condition has the single highest tau-b (1.0, a tie for the ceiling) among all 18 conditions.",
+    "alternative_interpretation_disclosed": "If 'smallest CI' were instead the primary sort key (CI-width first, tau second), azure_llm_2024::POST_KNEE vs bailian_qwen::POST_KNEE and azure_llm_2024::OVERLOAD vs bailian_qwen::OVERLOAD (both tau=0.9583, CI width=0.0417, narrower than the selected condition's CI width of 0.096) would be selected instead. Both alternative conditions are also Azure-2024 vs Bailian/Qwen pairs, consistent with the same source-pair identity as the selected control -- the choice of exact region does not change which source pair is used as the stable control, only which of the six regions."
+  },
+
+  "mechanism_mapping_status": {
+    "vllm_faithful": {
+      "real_vllm_execution_path": "REAL_NATIVE_PATH",
+      "note": "Current vLLM release with chunked prefill disabled (--no-enable-chunked-prefill), per docs/REAL_SYSTEM_MECHANISM_INVENTORY.md. Adapter exists (real_llm/vllm_process.py) and was functionally smoke-tested this session."
+    },
+    "slai_faithful": {
+      "real_vllm_execution_path": "REAL_REIMPLEMENTABLE_PATH -- NOT YET BUILT",
+      "note": "SLAI/RAD is a specific published SLO-aware scheduling algorithm (docs/POLICY_COMPARABILITY_AUDIT.md), not a vLLM-native scheduling mode -- unlike fifo (--scheduling-policy fcfs) or vllm_faithful (chunked-prefill flags), there is no existing --scheduling-policy value for it. vLLM 0.27.1 does expose a pluggable --scheduler-cls flag (confirmed via `vllm serve --help=SchedulerConfig`), so a custom scheduler class implementing the SLAI/RAD algorithm is a technically feasible, but NOT YET IMPLEMENTED, real-execution path. This was not identified as a gap in the earlier docs/REAL_SYSTEM_MECHANISM_INVENTORY.md pass because that pass only audited fifo/vllm_faithful/vllm_chunked_prefill_faithful/sarathi_faithful/weighted_fair_share/admission_control/apt_serve_faithful, not slai_faithful."
+    },
+    "blocker_for_execution": "A custom vLLM --scheduler-cls implementation of the SLAI/RAD algorithm must be built and validated (unit-tested against the simulator's own slai_faithful policy for algorithmic fidelity) before the reversal case above can actually be executed on real hardware. This is a scoped, well-defined engineering task, not a design ambiguity."
+  },
+
+  "case_manifest_frozen_before_any_real_vllm_run": true,
+  "real_vllm_run_launched_in_this_task": false
+}
