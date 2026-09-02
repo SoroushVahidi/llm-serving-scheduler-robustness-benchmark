@@ -1,0 +1,201 @@
+{
+  "audit_kind": "phase12_structural_completion_audit_v1",
+  "audit_date": "2026-09-02",
+  "scientific_interpretation_performed": false,
+  "purpose": "Structural, provenance, and contract validation of the completed real Phase-12 statistical analysis output, prior to any scientific interpretation. Contains no scheduler rankings, correlation values, p-values, reversal counts, recovery rates, or model coefficients.",
+
+  "analysis_execution": {
+    "analysis_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+    "documentation_only_child_sha_correctly_not_used": "bd641d4902431b821cd7eb4ce9ad236955cec45d",
+    "start_ts": "2026-09-02T21:53:08Z",
+    "end_ts": "2026-09-02T22:56:02Z",
+    "exit_code": 0,
+    "single_invocation_confirmed": true,
+    "traceback_count": 0,
+    "duplicate_process_check": "none found",
+    "warning_summary": {"ConstantInputWarning": 1}
+  },
+
+  "admission_revalidation": {
+    "PHASE12_COMPLETED_CAMPAIGN_VALID": true,
+    "PHASE12_ANALYSIS_INPUT_ADMITTED": true,
+    "COMPARATIVE_PILOT_V2_RESULTS_at_admission": "NONE",
+    "cell_count": 18720,
+    "campaign_freeze_sha256": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+    "full_matrix_hash": "832d96d7ff4d5e8843c233a6a4708bbbbc578ef6b65307c37f5ac127c62c1ccf",
+    "consolidated_artifact_sha256_admission_manifest": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "consolidated_artifact_sha256_recomputed_from_bytes": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26"
+  },
+
+  "output_inventory": {
+    "expected_canonical_count": 6,
+    "observed_canonical_count": 6,
+    "missing": [],
+    "unexpected": [],
+    "temp_partial_lock_files": [],
+    "zero_byte_files": [],
+    "all_json_parse_successfully": true
+  },
+
+  "provenance_gate": {
+    "note": "consolidated_result_sha256 (recorded in every output artifact) is a distinct, by-design identity from consolidated_artifact_sha256 (admission manifest's raw-file-bytes hash): it is a canonical-JSON hash over the normalized {cell_id: row} dict actually consumed post-validation, per src/robustbench/ranking_portability/analysis/input_manifest.py::_canonical_sha256. Independently recomputed by loading the exact admitted consolidated.json, applying the sealed launcher's own _normalize_cells_container, and calling the sealed input_manifest._canonical_sha256 -- result matched byte-for-byte, over exactly 18720 normalized rows.",
+    "analysis_code_git_sha_in_all_six_artifacts": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+    "analysis_contract_version_in_all_six_artifacts": "phase12_analysis_prefreeze_v1",
+    "campaign_freeze_sha256_in_all_six_artifacts": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+    "consolidated_result_sha256_in_all_six_artifacts": "09db0f1d285f830e054dfd5f3876eff94caa08ea1ca982828d5e228d1b3350b9",
+    "consolidated_result_sha256_independently_recomputed": "09db0f1d285f830e054dfd5f3876eff94caa08ea1ca982828d5e228d1b3350b9",
+    "consolidated_result_sha256_match": true,
+    "azure_boundary_epoch_seconds": "proven by construction: run_phase12_analysis.py's verify_launch_gates refuses execution unless the CLI value equals the frozen contract.AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS = 1715731200.0; the run completed (exit 0), so this gate passed with the exact frozen value"
+  },
+
+  "primary_robustness_policy_coverage": {
+    "primary_11_policy_panel_in_ranking_correlations": [
+      "admission_control", "edf", "estimated_service_time_first", "fifo",
+      "kv_constrained_online", "least_laxity_first", "sarathi_faithful",
+      "slai_faithful", "vllm_chunked_prefill_faithful", "vllm_faithful",
+      "weighted_fair_share"
+    ],
+    "n_primary_policies": 11,
+    "style_approximation_policies_absent_from_headline_ranking": true,
+    "n_policies_compared_per_headline_comparison": 11
+  },
+
+  "workload_load_region_coverage": {
+    "sources": ["azure_llm_2024", "bailian_qwen", "burstgpt"],
+    "n_sources": 3,
+    "load_regions": ["LOW", "PRE_KNEE", "KNEE", "POST_KNEE", "OVERLOAD", "HIGH_PRESSURE"],
+    "n_load_regions": 6,
+    "n_source_pair_x_region_conditions_headline_metric": 18,
+    "n_pairwise_comparisons_headline_metric": 18
+  },
+
+  "ranking_statistics_contract": {
+    "metrics_present": [
+      "arrival_normalized_weighted_goodput", "completion_fraction",
+      "weighted_completion_fraction", "slo_violation_rate", "weighted_goodput",
+      "mean_latency", "p95_latency", "request_throughput", "token_throughput",
+      "mean_ttft", "p95_ttft"
+    ],
+    "n_metrics": 11,
+    "kendall_tau_b_field_present": true,
+    "spearman_rho_field_present": true,
+    "top_k_values_field": [1, 3],
+    "top_k_matches_frozen_contract": true
+  },
+
+  "bootstrap_contract": {
+    "bootstrap_resamples": 2000,
+    "matches_frozen_contract": true,
+    "block_unit": "whole workload window (per manuscript/contract; CI fields named *_ci present per comparison)"
+  },
+
+  "reversal_contract": {
+    "reversal_contract_pointer": "five-class frozen contract (reversal_analysis.ReversalClass)",
+    "classification_values_used": [
+      "MICROSCOPIC_SIGN_CHANGE", "STABLE_NO_SIGN_CHANGE",
+      "SUPPORTED_PRACTICAL_REVERSAL", "UNDEFINED_UNESTIMABLE",
+      "UNSUPPORTED_SIGN_CHANGE_WIDE_CI"
+    ],
+    "classification_set_equals_expected_five_class_set": true,
+    "n_reversal_records_total_across_metrics": 990,
+    "n_pairs_per_metric": 55,
+    "n_conditions_per_metric": 18,
+    "note_counts_and_directions_intentionally_not_reported": true
+  },
+
+  "friedman_bh_fdr_contract": {
+    "friedman_entries": 66,
+    "friedman_entries_equals_metrics_x_regions": "11 x 6 = 66",
+    "friedman_entry_fields": ["excluded_policies", "load_region", "metric", "n_blocks", "n_treatments", "p_value", "statistic"],
+    "bh_fdr_family_grain": "per (metric, load_region)",
+    "bh_fdr_note_from_artifact": "Benjamini-Hochberg FDR (q=0.05) IS applied to the reversal family per (metric, load_region): family members are the tests that reached the pre-registered statistical-support stage (sign change + both margins pass); per-pair p = max(p_x, p_y) (intersection-union over both conditions) of the frozen block-bootstrap sign-test p-values.",
+    "p_values_intentionally_not_reported": true
+  },
+
+  "sample_complexity_contract": {
+    "ladder_n_values": [5, 10, 20, 30, 40],
+    "draws_per_n": 500,
+    "sampling_without_replacement_confirmed_in_source": true,
+    "n_per_source_metric_entries": 33,
+    "n_per_source_metric_equals_sources_x_metrics": "3 x 11 = 33",
+    "recovery_fields_present": ["p_exact_recovery", "p_topk_recovery", "first_n_meeting_exact_threshold", "first_n_meeting_topk_threshold"],
+    "top_k_alignment": [1, 3],
+    "recovery_values_intentionally_not_reported": true
+  },
+
+  "metric_undefined_value_handling": {
+    "always_defined_metrics": ["arrival_normalized_weighted_goodput", "completion_fraction", "weighted_completion_fraction"],
+    "conditional_metrics": ["slo_violation_rate", "weighted_goodput", "mean_latency", "p95_latency", "request_throughput", "token_throughput"],
+    "ttft_preconditioned_metrics": ["mean_ttft", "p95_ttft"],
+    "zero_imputation_patterns_found_in_source": 0,
+    "nan_null_representation_confirmed": true,
+    "null_count_pairwise_reversals_json": 65222,
+    "friedman_excluded_policies_field_present": true
+  },
+
+  "temporal_contract": {
+    "burstgpt": {"primary": "TERCILE", "sensitivity": "BISECT", "is_sensitivity_split_flag_present": true},
+    "azure_llm_2024": {"split": "CALENDAR_BOUNDARY", "boundary_epoch_seconds": 1715731200.0},
+    "bailian_qwen": {"split": "RELATIVE_CHRONOLOGY_ONLY"},
+    "matches_frozen_temporal_design": true
+  },
+
+  "robustness_family_contract": {
+    "PRIMARY_ONLY": {"implemented_as_postprocessing": true, "new_execution_required": false},
+    "LEAVE_ONE_SOURCE_OUT": {"implemented_as_postprocessing": true, "new_execution_required": false},
+    "WINDOW_SIZE_SENSITIVITY": {"implemented_as_postprocessing": true, "new_execution_required": false},
+    "METRIC_DEFINITION_SENSITIVITY": {"implemented_as_postprocessing": true, "new_execution_required": false},
+    "LOAD_CALIBRATION_SENSITIVITY": {"implemented_as_postprocessing": true, "new_execution_required": false, "four_region_subset": ["LOW", "PRE_KNEE", "KNEE", "OVERLOAD"]},
+    "TEMPORAL_SPLIT_SENSITIVITY": {"implemented_as_postprocessing": true, "new_execution_required": false},
+    "LEAVE_ONE_POLICY_FAMILY_OUT": {"implemented_as_postprocessing": true, "new_execution_required": false},
+    "SLO_DEFINITION_SENSITIVITY": {
+      "implemented_as_postprocessing": false,
+      "new_execution_required": true,
+      "status": "NOT completed, NOT fabricated -- correctly still flagged as requiring new execution",
+      "cross_reference": "matches the result-blind protocol-gap finding from the prior SLO-sensitivity task in this session"
+    }
+  },
+
+  "explanatory_model_contract": {
+    "model_description": "single pre-specified logistic regression, fixed descriptor set",
+    "features": ["burstiness_b", "prompt_tokens_cv", "output_tokens_cv", "long_context_fraction", "concurrency_proxy"],
+    "features_match_frozen_set": true,
+    "explanatory_only_never_a_selector_flag_present": true,
+    "n_records": 990,
+    "coefficients_direction_and_accuracy_intentionally_not_reported": true
+  },
+
+  "canonical_output_hash_ledger": [
+    {"filename": "pairwise_reversals.json", "size_bytes": 8022760, "sha256": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde"},
+    {"filename": "ranking_correlations.json", "size_bytes": 183103, "sha256": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff"},
+    {"filename": "sample_complexity.json", "size_bytes": 57135, "sha256": "cb54afc0e1bb868580b6a8c929d94f4718dbc1eaa01d527b0a2c265c07578dcf"},
+    {"filename": "telemetry_explanation.json", "size_bytes": 850652, "sha256": "b073fa0bbe91efe670151e7250d603f020ed7c0f1a60b90397fa7c18c5d591f6"},
+    {"filename": "temporal_robustness.json", "size_bytes": 31280, "sha256": "c19a3c6400336525beda132386585e9d709782f5e0b05dec36867ee1850675d0"},
+    {"filename": "topk_overlap.json", "size_bytes": 55099, "sha256": "585e916acfb32cb02a8f99cdce65a882c5dee7acc6cbdfbad2e86716d0001b37"}
+  ],
+
+  "gate_outcomes_summary": {
+    "A_immutable_identities": "PASS",
+    "B_checkout_non_mutation": "PASS",
+    "C_completion_log": "PASS",
+    "D_admitted_input_revalidation": "PASS",
+    "E_output_namespace": "PASS",
+    "F_output_provenance": "PASS",
+    "G_policy_workload_region_coverage": "PASS",
+    "H_reversal_contract": "PASS",
+    "I_friedman_bh_fdr_contract": "PASS",
+    "J_sample_complexity_contract": "PASS",
+    "K_metric_undefined_handling": "PASS",
+    "L_temporal_contract": "PASS",
+    "M_robustness_family_contract": "PASS",
+    "N_explanatory_model_contract": "PASS",
+    "O_slo_sensitivity_status": "PASS (correctly not fabricated)"
+  },
+
+  "mutations_made_to_scientific_checkout": "none",
+  "repository_used_for_this_audit_record": {
+    "worktree": "/home/soroush/repos/llm-serving-scheduler-lssp-phase12-result-validation",
+    "branch": "validation/lssp-phase12-structural-audit-20260902",
+    "based_on": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1"
+  }
+}
