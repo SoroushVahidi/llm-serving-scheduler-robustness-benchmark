@@ -135,6 +135,33 @@ def validate_telemetry(t: TelemetrySummary) -> list[str]:
         elif not (0.0 <= v <= 1.0 + 1e-9):
             problems.append(f"{name} out of [0,1]: {v}")
 
+    def _check_kv_occupancy(name: str, v: float) -> None:
+        """`kv_occupancy_{mean,max}` is `kv_used / max_kv_tokens` per step
+        (`compute_telemetry_summary` above). Unlike `batch_saturation`
+        (bounded at 1.0 by every panel policy's shared `max_active_sequences`
+        admission check, `policies/feasibility.py`), `max_kv_tokens` is only
+        enforced as a hard admission constraint by KV-aware policies
+        (`kv_constrained_online`, the `*_faithful` block-manager policies,
+        `vllm_style_token_budget`) -- discovered via the Phase-12A
+        engineering smoke (docs/RANKING_PORTABILITY_PHASE12_SMOKE_FREEZE.md):
+        several PRIMARY-panel policies (fifo, edf, least_laxity_first,
+        estimated_service_time_first, weighted_fair_share, admission_control,
+        slai_faithful) admit purely on concurrency count, so aggregate KV
+        demand from their active requests can genuinely exceed the
+        configured `max_kv_tokens` by a small amount on some (window,
+        region) combinations (observed: up to ~1.3% over, never more). This
+        is real simulator state -- a meaningful "demand exceeded nominal KV
+        capacity" signal for non-KV-aware policies -- not an instrumentation
+        failure, so it must not be rejected as invalid the way the other,
+        genuinely admission-bounded fractions are. A generous upper bound
+        (2.0x) still catches an actual instrumentation bug (e.g. a unit
+        mismatch or an unbounded runaway) without rejecting the small,
+        real, policy-dependent overshoot this smoke found."""
+        if not math.isfinite(v):
+            problems.append(f"{name} is not finite: {v}")
+        elif not (0.0 <= v <= 2.0):
+            problems.append(f"{name} out of [0,2.0] (genuine-overshoot-tolerant bound): {v}")
+
     def _check_nonneg_finite(name: str, v: float) -> None:
         if not math.isfinite(v) or v < 0:
             problems.append(f"{name} invalid (must be finite, >= 0): {v}")
@@ -154,8 +181,8 @@ def validate_telemetry(t: TelemetrySummary) -> list[str]:
     _check_fraction("batch_saturation_mean", t.batch_saturation_mean)
     _check_fraction("batch_saturation_max", t.batch_saturation_max)
     _check_fraction("prefill_decode_contention_fraction", t.prefill_decode_contention_fraction)
-    _check_fraction("kv_occupancy_mean", t.kv_occupancy_mean)
-    _check_fraction("kv_occupancy_max", t.kv_occupancy_max)
+    _check_kv_occupancy("kv_occupancy_mean", t.kv_occupancy_mean)
+    _check_kv_occupancy("kv_occupancy_max", t.kv_occupancy_max)
     _check_fraction("token_budget_saturation_fraction", t.token_budget_saturation_fraction)
     _check_nonneg_int("admission_control_activations", t.admission_control_activations)
     _check_nonneg_int("preemption_or_reorder_events", t.preemption_or_reorder_events)

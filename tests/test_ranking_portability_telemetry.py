@@ -294,3 +294,53 @@ def test_validator_rejects_negative_count():
     )
     problems = validate_telemetry(bad)
     assert any("admission_control_activations" in p for p in problems)
+
+
+def test_validator_tolerates_small_kv_occupancy_overshoot_above_one():
+    """Regression test for the Phase-12A engineering-smoke finding
+    (docs/RANKING_PORTABILITY_PHASE12_SMOKE_FREEZE.md): several PRIMARY-
+    panel policies (fifo, edf, least_laxity_first, estimated_service_time_first,
+    weighted_fair_share, admission_control, slai_faithful) do not enforce
+    `max_kv_tokens` as a hard admission constraint, so real aggregate KV
+    demand can slightly exceed nominal capacity (observed up to ~1.3% over
+    on a real azure_llm_2024 window) -- a genuine simulator state, not an
+    instrumentation failure, and must not be rejected."""
+    ok = TelemetrySummary(
+        schema_version="ranking_portability_telemetry_v1",
+        queue_depth_mean=0.0, queue_depth_max=0, batch_saturation_mean=0.5,
+        batch_saturation_max=0.5, prefill_decode_contention_fraction=0.0,
+        kv_occupancy_mean=0.5, kv_occupancy_max=1.0125503540039062,
+        admission_control_activations=0, preemption_or_reorder_events=0,
+        token_budget_saturation_fraction=0.0, n_steps=5,
+    )
+    assert validate_telemetry(ok) == []
+
+
+def test_validator_still_rejects_wildly_out_of_range_kv_occupancy():
+    """The relaxed bound (2.0x) still catches a genuine instrumentation
+    failure (e.g. a unit mismatch or unbounded runaway), it does not
+    disable the check entirely."""
+    bad = TelemetrySummary(
+        schema_version="ranking_portability_telemetry_v1",
+        queue_depth_mean=0.0, queue_depth_max=0, batch_saturation_mean=0.0,
+        batch_saturation_max=0.0, prefill_decode_contention_fraction=0.0,
+        kv_occupancy_mean=0.0, kv_occupancy_max=5.0,
+        admission_control_activations=0, preemption_or_reorder_events=0,
+        token_budget_saturation_fraction=0.0, n_steps=5,
+    )
+    problems = validate_telemetry(bad)
+    assert any("kv_occupancy_max" in p for p in problems)
+
+
+def test_validator_still_rejects_negative_or_nonfinite_kv_occupancy():
+    bad = TelemetrySummary(
+        schema_version="ranking_portability_telemetry_v1",
+        queue_depth_mean=0.0, queue_depth_max=0, batch_saturation_mean=0.0,
+        batch_saturation_max=0.0, prefill_decode_contention_fraction=0.0,
+        kv_occupancy_mean=-0.1, kv_occupancy_max=float("nan"),
+        admission_control_activations=0, preemption_or_reorder_events=0,
+        token_budget_saturation_fraction=0.0, n_steps=5,
+    )
+    problems = validate_telemetry(bad)
+    assert any("kv_occupancy_mean" in p for p in problems)
+    assert any("kv_occupancy_max" in p for p in problems)
