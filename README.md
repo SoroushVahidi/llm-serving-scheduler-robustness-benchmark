@@ -44,6 +44,17 @@ pip install -e ".[dev]"
 pytest
 ```
 
+## Artifact evaluation
+
+Reviewer-facing, result-blind validation starts at
+`docs/ARTIFACT_EVALUATION_GUIDE.md`.
+
+Quick smoke:
+
+```
+./scripts/artifact/verify_artifact.sh --quick
+```
+
 ## Status
 
 **Project status → `docs/PROJECT_STATUS.md`** (canonical, kept current —
