@@ -85,7 +85,7 @@ noted):
 | `peak_queue_depth` | Max of the above over the run | `ALWAYS_DEFINED` |
 | `batch_saturation_mean` | Mean(active batch size ÷ configured max batch size) | `ALWAYS_DEFINED` |
 | `prefill_decode_contention_fraction` | Fraction of steps with both prefill-pending and decode-pending work simultaneously | `ALWAYS_DEFINED` |
-| `mean_kv_occupancy` | Mean KV-block occupancy fraction (reuses the existing `kv_pressure_proxy` computation at the simulator level, not the workload-descriptor level) | `ALWAYS_DEFINED` |
+| `mean_kv_occupancy` | Mean normalized KV demand relative to configured nominal KV capacity (reuses the existing `kv_pressure_proxy` computation at the simulator level, not the workload-descriptor level). **Not hard-bounded at 1.0** — corrected 2026-09-02 (`docs/RANKING_PORTABILITY_PHASE12_TELEMETRY_SEMANTIC_AMENDMENT.md`): only KV-aware policies enforce `max_kv_tokens` at admission, so this can legitimately exceed 1.0 for policies that do not. | `ALWAYS_DEFINED` |
 | `admission_control_activations` | Count of admission-control rejections/deferrals (0 for policies with no such mechanism) | `ALWAYS_DEFINED` |
 | `preemption_or_reorder_events` | Count of scheduling decisions that changed a previously-set order (0 for strictly-FIFO-committed policies) | `ALWAYS_DEFINED` |
 

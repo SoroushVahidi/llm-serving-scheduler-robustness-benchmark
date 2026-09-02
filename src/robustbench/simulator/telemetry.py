@@ -136,31 +136,37 @@ def validate_telemetry(t: TelemetrySummary) -> list[str]:
             problems.append(f"{name} out of [0,1]: {v}")
 
     def _check_kv_occupancy(name: str, v: float) -> None:
-        """`kv_occupancy_{mean,max}` is `kv_used / max_kv_tokens` per step
-        (`compute_telemetry_summary` above). Unlike `batch_saturation`
-        (bounded at 1.0 by every panel policy's shared `max_active_sequences`
-        admission check, `policies/feasibility.py`), `max_kv_tokens` is only
-        enforced as a hard admission constraint by KV-aware policies
+        """`kv_occupancy_{mean,max}` is normalized KV demand relative to
+        configured nominal KV capacity: `kv_used / max_kv_tokens` per step
+        (`compute_telemetry_summary` above) -- semantics corrected
+        2026-09-02, `docs/RANKING_PORTABILITY_PHASE12_TELEMETRY_SEMANTIC_AMENDMENT.md`.
+        Unlike `batch_saturation` (bounded at 1.0 by every panel policy's
+        shared `max_active_sequences` admission check,
+        `policies/feasibility.py`), `max_kv_tokens` is only enforced as a
+        hard admission constraint by KV-aware policies
         (`kv_constrained_online`, the `*_faithful` block-manager policies,
         `vllm_style_token_budget`) -- discovered via the Phase-12A
         engineering smoke (docs/RANKING_PORTABILITY_PHASE12_SMOKE_FREEZE.md):
         several PRIMARY-panel policies (fifo, edf, least_laxity_first,
         estimated_service_time_first, weighted_fair_share, admission_control,
         slai_faithful) admit purely on concurrency count, so aggregate KV
-        demand from their active requests can genuinely exceed the
-        configured `max_kv_tokens` by a small amount on some (window,
-        region) combinations (observed: up to ~1.3% over, never more). This
-        is real simulator state -- a meaningful "demand exceeded nominal KV
-        capacity" signal for non-KV-aware policies -- not an instrumentation
-        failure, so it must not be rejected as invalid the way the other,
-        genuinely admission-bounded fractions are. A generous upper bound
-        (2.0x) still catches an actual instrumentation bug (e.g. a unit
-        mismatch or an unbounded runaway) without rejecting the small,
-        real, policy-dependent overshoot this smoke found."""
+        demand from their active requests can legitimately and
+        unboundedly exceed the configured `max_kv_tokens` -- there is no
+        simulator/config invariant that caps how far demand can exceed
+        nominal capacity for a policy that never checks it (a large
+        prompt/output mix, denser packing, or higher load could in
+        principle push this further than what one engineering smoke's
+        three windows happened to observe). A value above 1.0 is real,
+        meaningful "demand exceeded nominal KV capacity" state for
+        non-KV-aware policies, not an instrumentation failure, so no
+        arbitrary numeric ceiling is imposed here -- only finiteness and
+        non-negativity are structural invariants; `kv_occupancy_max >=
+        kv_occupancy_mean` is checked separately below, for both this and
+        every other per-step-aggregated field."""
         if not math.isfinite(v):
             problems.append(f"{name} is not finite: {v}")
-        elif not (0.0 <= v <= 2.0):
-            problems.append(f"{name} out of [0,2.0] (genuine-overshoot-tolerant bound): {v}")
+        elif v < 0.0:
+            problems.append(f"{name} is negative: {v}")
 
     def _check_nonneg_finite(name: str, v: float) -> None:
         if not math.isfinite(v) or v < 0:

@@ -52,3 +52,17 @@ no ranking analysis, no scheduler comparison, no direction of finding.
 - Every cell's `scientific_status` = `ENGINEERING_SMOKE`; this report is not comparative evidence.
 
 PHASE12_PILOT_V2_SMOKE_VALID = YES
+
+## Revalidation after telemetry semantic amendment (Phase-12B, 2026-09-02)
+
+The committed 468-cell raw artifact
+(`artifacts/manifests/ranking_portability_phase12_smoke_raw.json`, from the
+Phase-12A post-defect-fix run) was re-validated in place — not
+re-executed — under the corrected `kv_occupancy` semantics
+(`docs/RANKING_PORTABILITY_PHASE12_TELEMETRY_SEMANTIC_AMENDMENT.md`):
+finite, non-negative, `max >= mean`, no arbitrary numeric ceiling. Result:
+identical outcome, 0/468 problems (the smoke's actual observed `kv_occupancy`
+values, max 1.0126, were always within both the old interim `[0,2.0]`
+bound and the new unbounded-above rule, so no cell's validity changed).
+
+`PHASE12A_SMOKE_REVALIDATED_AFTER_TELEMETRY_AMENDMENT = YES`

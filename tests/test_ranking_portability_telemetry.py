@@ -316,20 +316,39 @@ def test_validator_tolerates_small_kv_occupancy_overshoot_above_one():
     assert validate_telemetry(ok) == []
 
 
-def test_validator_still_rejects_wildly_out_of_range_kv_occupancy():
-    """The relaxed bound (2.0x) still catches a genuine instrumentation
-    failure (e.g. a unit mismatch or unbounded runaway), it does not
-    disable the check entirely."""
+def test_validator_accepts_large_kv_occupancy_no_arbitrary_ceiling():
+    """Corrected semantics (docs/RANKING_PORTABILITY_PHASE12_TELEMETRY_SEMANTIC_AMENDMENT.md):
+    `kv_occupancy` is normalized KV demand relative to nominal capacity for
+    policies that never enforce `max_kv_tokens` at admission -- there is no
+    simulator/config invariant bounding how far demand can exceed nominal
+    capacity, so no arbitrary numeric ceiling (e.g. a "2.0x" cutoff) is
+    imposed. A large but finite, non-negative value with max >= mean is
+    valid telemetry, not a rejected one."""
+    ok = TelemetrySummary(
+        schema_version="ranking_portability_telemetry_v1",
+        queue_depth_mean=0.0, queue_depth_max=0, batch_saturation_mean=0.0,
+        batch_saturation_max=0.0, prefill_decode_contention_fraction=0.0,
+        kv_occupancy_mean=1.0, kv_occupancy_max=5.0,
+        admission_control_activations=0, preemption_or_reorder_events=0,
+        token_budget_saturation_fraction=0.0, n_steps=5,
+    )
+    assert validate_telemetry(ok) == []
+
+
+def test_validator_still_rejects_kv_occupancy_max_below_mean():
+    """No numeric ceiling is imposed, but internal self-consistency (max >=
+    mean) is still a structural invariant of any per-step max/mean pair,
+    and is still checked."""
     bad = TelemetrySummary(
         schema_version="ranking_portability_telemetry_v1",
         queue_depth_mean=0.0, queue_depth_max=0, batch_saturation_mean=0.0,
         batch_saturation_max=0.0, prefill_decode_contention_fraction=0.0,
-        kv_occupancy_mean=0.0, kv_occupancy_max=5.0,
+        kv_occupancy_mean=2.0, kv_occupancy_max=1.0,
         admission_control_activations=0, preemption_or_reorder_events=0,
         token_budget_saturation_fraction=0.0, n_steps=5,
     )
     problems = validate_telemetry(bad)
-    assert any("kv_occupancy_max" in p for p in problems)
+    assert any("kv_occupancy_max < kv_occupancy_mean" in p for p in problems)
 
 
 def test_validator_still_rejects_negative_or_nonfinite_kv_occupancy():

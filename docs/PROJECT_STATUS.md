@@ -1,22 +1,25 @@
 # LLM-Serving Scheduler Portability Benchmark — Project Status
 
-Last verified: 2026-09-02 (Query 3 — pre-Phase-12 authoritative consolidation)
+Last verified: 2026-09-02 (Phase-12B — campaign matrix freeze)
 Canonical mutable status for the integrated scientific state through Phase 11,
-plus the corrected canonical literature and the manuscript foundation.
+the corrected canonical literature, the manuscript foundation, the Phase-12A
+engineering smoke, and the Phase-12B campaign-matrix freeze.
 
 PROJECT_STATUS.md is the canonical single source of truth for project-state changes.
 
 ## 1. Executive summary
 
 The repository is now in a verified Phase-11 scientific integration state,
-with a corrected, primary-source-verified literature base and a compileable
-manuscript foundation layered on top on a new authoritative branch.
+with a corrected, primary-source-verified literature base, a compileable
+manuscript foundation, a validated Phase-12A engineering smoke, and a
+frozen, independently-verified Phase-12B campaign matrix — **not yet
+executed**.
 
 - Phase 10: DONE
 - Phase 11: DONE
-- Phase 12: READY (not started)
-- Pilot-V2 smoke: NOT STARTED
-- 18,720-cell campaign: NOT STARTED
+- Phase-12A (Pilot-V2 engineering smoke, 468 cells): DONE, `PHASE12_PILOT_V2_SMOKE_VALID = YES`
+- Phase-12B (18,720-cell campaign matrix freeze): DONE, `PHASE12_CAMPAIGN_FREEZE_VALID = YES`
+- 18,720-cell scientific campaign execution: **READY, NOT STARTED**
 - ranking analysis: NOT STARTED
 - sample-complexity analysis: NOT STARTED
 - real-system validation: NOT STARTED
@@ -31,10 +34,22 @@ The authoritative current scientific branch (unchanged, Phase 11 tip) is:
 The corrected canonical literature branch is:
 `research/lssp-literature-canonical-20260901` @ `7e5230f4aa1ea408a7d9580594135ca471dc3e42`
 
-**The single branch a new chat should read is the final authoritative
-pre-Phase-12 branch**, which descends from both of the above:
-`research/lssp-authoritative-pre-phase12-20260901`
+The final authoritative pre-Phase-12 branch (scientific state + literature +
+manuscript, unchanged since Query 3) is:
+`research/lssp-authoritative-pre-phase12-20260901` @ `ec12af8ede08cf8b6ebb8f60fce85915fc2ef18d`
 (worktree: `/home/soroush/repos/llm-serving-scheduler-lssp-authoritative`).
+
+The Phase-12A engineering-smoke branch (DONE, VALID, unchanged) is:
+`research/lssp-phase12-pilotv2-smoke-20260902` @ `38188eca740c3bfeafa0463c80aaaff34b725e5a`
+(worktree: `/home/soroush/repos/llm-serving-scheduler-lssp-phase12-smoke`).
+
+**The single branch a new chat should read to continue toward campaign
+launch is the Phase-12B campaign-freeze branch**, which descends from all
+of the above:
+`research/lssp-phase12-campaign-freeze-20260902`
+(worktree: `/home/soroush/repos/llm-serving-scheduler-lssp-phase12-freeze`).
+See `docs/RANKING_PORTABILITY_PHASE12_CAMPAIGN_PRELAUNCH_FREEZE.md` and
+`docs/RANKING_PORTABILITY_PHASE12_CAMPAIGN_FREEZE_VALIDATION.md`.
 
 The previous authoritative Phase-10 integration branch remains preserved as:
 `research/lssp-integrated-phase10-20260901` @ `4a545b9ae17ae01312db093e6e350f5822bf0bec`
@@ -61,14 +76,18 @@ verified current tip and the SHA this document's immutable-hash table in
 | 9 | Telemetry implementation | DONE | telemetry schema and implementation |
 | 10 | Pilot-V2 120-window freeze | DONE | canonical phase-10 window hash preserved |
 | 11 | Six-region FIFO calibration | DONE | raw FIFO calibration + assignments retained |
-| 12 | Smoke / campaign / analysis / validation | READY | not started |
+| 12A | Pilot-V2 engineering smoke (468 cells) | DONE | `PHASE12_PILOT_V2_SMOKE_VALID = YES` |
+| 12B | 18,720-cell campaign matrix freeze | DONE | `PHASE12_CAMPAIGN_FREEZE_VALID = YES`, not executed |
+| 12C | 18,720-cell campaign / analysis / validation | READY | not started |
 
 ## 3. Current execution state
 
 - frozen windows = YES
 - six-region FIFO calibration = DONE
-- Pilot-V2 smoke = NOT STARTED
-- 18,720-cell campaign = NOT STARTED
+- Pilot-V2 engineering smoke (Phase-12A, 468 cells) = DONE, VALID
+- telemetry semantic amendment (Phase-12B) = RESOLVED (`docs/RANKING_PORTABILITY_PHASE12_TELEMETRY_SEMANTIC_AMENDMENT.md`)
+- 18,720-cell campaign matrix freeze (Phase-12B) = DONE, VALID, `campaign_freeze_sha256 = 81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a`
+- 18,720-cell campaign execution (Phase-12C) = **READY, NOT STARTED**
 - ranking analysis = NOT STARTED
 - sample-complexity analysis = NOT STARTED
 - real-system validation = NOT STARTED
@@ -138,5 +157,5 @@ document).
 
 ## 9. Immediate next action
 
-- **Next scientific task:** Phase 12 execution (Pilot-V2 smoke → 18,720-cell campaign → ranking analysis → sample-complexity analysis → real-system validation), starting from `research/lssp-authoritative-pre-phase12-20260901`. Not started by this query, per explicit instruction.
+- **Next scientific task:** launch and monitor the frozen 18,720-cell Phase-12 scientific campaign exactly from the Phase-12B campaign-freeze identity (`campaign_freeze_sha256 = 81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a`, branch `research/lssp-phase12-campaign-freeze-20260902`), then ranking analysis → sample-complexity analysis → real-system validation. Not started by this query, per explicit instruction — the shard-runner entrypoint (`scripts/ranking_portability/run_phase12_campaign_shard.py`) currently supports `--dry-run` only; a future query must implement and review its `--execute` path before launch.
 - **Next manuscript task:** populate `paper/sections/results.tex`, `sample_complexity.tex`, and `real_system.tex`'s `[PENDING RESULT: ...]` contracts once the corresponding Phase-12 analyses exist; firm up `discussion.tex` and `conclusion.tex`'s numeric content accordingly.
