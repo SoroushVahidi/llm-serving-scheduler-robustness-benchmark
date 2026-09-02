@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import copy
 import json
+import math
 
 import pytest
 
@@ -16,7 +17,6 @@ from robustbench.ranking_portability.phase12_provenance import (
     enrich_row_provenance,
     expected_phase12_provenance,
     masked_non_provenance_hash,
-    masked_non_provenance_view,
     phase12_simulator_config_hash,
     phase12_simulator_config_payload,
     validate_analysis_admission_row,
@@ -94,6 +94,15 @@ def _raw_row() -> dict:
     }
 
 
+def _field_identity(row: dict, key: str) -> str:
+    return canonical_json_sha256(
+        {
+            "present": key in row,
+            "value": row.get(key),
+        }
+    )
+
+
 def test_calibration_manifest_semantics_are_region_assignment_not_raw_fifo():
     expected = expected_phase12_provenance(_campaign())
     assert expected["calibration_manifest_sha256"] == "c" * 64
@@ -152,7 +161,10 @@ def test_conflicting_nonempty_provenance_is_rejected_not_rewritten():
 def test_only_approved_provenance_fields_can_differ_after_enrichment():
     raw = _raw_row()
     enriched = enrich_row_provenance(raw, expected_phase12_provenance(_campaign()))
-    changed = {k for k in set(raw) | set(enriched) if raw.get(k) != enriched.get(k)}
+    changed = {
+        k for k in set(raw) | set(enriched)
+        if _field_identity(raw, k) != _field_identity(enriched, k)
+    }
     assert changed == set(APPROVED_ENRICHMENT_FIELDS)
 
 
@@ -165,6 +177,9 @@ def test_metric_or_telemetry_change_is_detected_by_masked_invariance_hash():
     bad2 = copy.deepcopy(enriched)
     bad2["telemetry"]["queue_depth_mean"] = 999.0
     assert masked_non_provenance_hash(raw) != masked_non_provenance_hash(bad2)
+    bad3 = copy.deepcopy(enriched)
+    bad3["mean_ttft"] = 123.0
+    assert masked_non_provenance_hash(raw) != masked_non_provenance_hash(bad3)
 
 
 def test_nan_safe_invariance_survives_independent_json_round_trips():
@@ -172,7 +187,8 @@ def test_nan_safe_invariance_survives_independent_json_round_trips():
     enriched = enrich_row_provenance(raw, expected_phase12_provenance(_campaign()))
     raw_reloaded = json.loads(json.dumps(raw, allow_nan=True))
     enriched_reloaded = json.loads(json.dumps(enriched, allow_nan=True))
-    # Ordinary Python equality would be unsafe here because separately parsed
-    # NaN values compare unequal. The canonical masked hashes must still match.
-    assert masked_non_provenance_view(raw_reloaded) != masked_non_provenance_view(enriched_reloaded)
+    assert math.isnan(raw_reloaded["mean_ttft"])
+    assert math.isnan(raw_reloaded["p95_ttft"])
+    assert math.isnan(enriched_reloaded["mean_ttft"])
+    assert math.isnan(enriched_reloaded["p95_ttft"])
     assert masked_non_provenance_hash(raw_reloaded) == masked_non_provenance_hash(enriched_reloaded)
