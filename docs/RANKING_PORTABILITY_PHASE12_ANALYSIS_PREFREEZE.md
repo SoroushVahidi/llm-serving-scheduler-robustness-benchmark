@@ -391,19 +391,36 @@ any pre-existing content, and any overlap with the admitted input,
 which is opened read-only and never modified).
 
 Exact command (run on Wulver in the subsequent real-analysis task --
-NOT in this prefreeze/audit task). The sealed analysis-code commit is
+NOT in this prefreeze/audit task).
+
+**Historical pre-repair seal** (statistical contract freeze; do NOT
+launch the real analysis from this commit — it predates the cells
+list→dict interface repair and fails closed on the admitted artifact's
+list-form `cells`):
 
 **ff087e8c6bd3047229ddcdb4b5600b9ddf8e3c67**
 
 ("Seal Phase-12 analysis prefreeze: temporal source isolation, reversal
-BH layer, frozen Azure boundary"). The production run must `git
-checkout` that exact commit and pass its literal SHA — this
-documentation-only follow-up record names it, but the analysis must
-execute the sealed code commit exactly (its tree is identical to this
-record's tree except for this section):
+BH layer, frozen Azure boundary").
+
+**Post-interface-repair analysis-code seal** (this is the commit the
+real analysis must checkout and run from):
+
+**eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1**
+
+("Seal Phase-12 result-blind analysis interface repair" — adds only
+the result-blind cells container list→dict normalization described in
+Section N on top of the ff087e8 statistical-contract freeze; no
+statistical method, threshold, metric scope, policy set, bootstrap
+rule, temporal rule, seed, or reversal rule differs from ff087e8).
+
+The production run must `git checkout` the post-interface-repair seal
+`eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1` itself — NOT this
+documentation-only child commit that records it — and pass that
+literal SHA as `--expected-analysis-git-sha`:
 
 ```
-SEALED=ff087e8c6bd3047229ddcdb4b5600b9ddf8e3c67
+SEALED=eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1
 git -C /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-analysis checkout "$SEALED"
 cd /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-analysis
 PYTHONPATH=src python scripts/ranking_portability/run_phase12_analysis.py \
