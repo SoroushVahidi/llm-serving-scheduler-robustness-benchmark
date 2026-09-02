@@ -21,7 +21,10 @@ from pathlib import Path
 
 import pytest
 
-from robustbench.ranking_portability.analysis.contract import PRIMARY_METRIC
+from robustbench.ranking_portability.analysis.contract import (
+    AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS,
+    PRIMARY_METRIC,
+)
 from robustbench.ranking_portability.analysis.matrix_validator import (
     IMMUTABLE_HASH_MANIFEST_KEYS,
 )
@@ -161,6 +164,7 @@ def _gate_kwargs(world, tmp_path, **overrides):
         "compact_window_index_path": world["compact_window_index_path"],
         "output_dir": out,
         "expected_analysis_git_sha": _current_head_sha(),
+        "azure_boundary_epoch_seconds": AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS,
         "allow_live": False,
     }
     kwargs.update(overrides)
@@ -279,6 +283,233 @@ def test_gates_pass_on_consistent_synthetic_world(synthetic_world, tmp_path):
     assert admission["PHASE12_ANALYSIS_INPUT_ADMITTED"] is True
 
 
+# --- Gate 7: frozen Azure boundary ---
+
+def test_refuses_on_non_frozen_azure_boundary(synthetic_world, tmp_path):
+    with pytest.raises(launcher.GateRefusal, match="azure boundary epoch"):
+        launcher.verify_launch_gates(
+            **_gate_kwargs(
+                synthetic_world, tmp_path,
+                azure_boundary_epoch_seconds=1715731200.0 + 3600.0,
+            )
+        )
+
+
+def test_frozen_azure_boundary_is_collection_window_midpoint():
+    """The frozen boundary is the exact midpoint of the canonical
+    2024-05-10..2024-05-19 Azure-2024 collection window
+    (docs/EVIDENCE_INDEPENDENCE_PLAN.md): [2024-05-10T00:00Z,
+    2024-05-20T00:00Z) -> 2024-05-15T00:00:00Z = 1715731200.0."""
+    import datetime
+    assert AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS == 1715731200.0
+    as_utc = datetime.datetime.fromtimestamp(
+        AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS, datetime.timezone.utc
+    )
+    assert as_utc == datetime.datetime(2024, 5, 15, 0, 0, 0, tzinfo=datetime.timezone.utc)
+
+
+def test_azure_boundary_semantics_before_vs_at_or_after():
+    from robustbench.ranking_portability.analysis.temporal_analysis import (
+        split_azure_calendar,
+    )
+    b = AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS
+    groups = split_azure_calendar(
+        {"w_before": b - 1.0, "w_at": b, "w_after": b + 1.0},
+        boundary_epoch_seconds=b,
+    )
+    assert groups["BEFORE_BOUNDARY"] == ["w_before"]
+    assert sorted(groups["AT_OR_AFTER_BOUNDARY"]) == ["w_after", "w_at"]
+
+
+# --- Source-specific temporal split isolation (audit section B) ---
+
+def _fabricated_window_meta():
+    meta = {}
+    for source in CAMPAIGN_SOURCES:
+        for i in range(WINDOWS_PER_SOURCE):
+            meta[f"{source}_w{i:03d}"] = {
+                "source_family": source,
+                "arrival_time_s_min": float(i + 1),
+                "relative_order": i,
+                "descriptor": {},
+            }
+    return meta
+
+
+def test_burstgpt_groups_isolated_from_other_sources_timestamps():
+    meta = _fabricated_window_meta()
+    base = launcher._build_temporal_split_specs(meta, 20.5)
+    base_tercile = dict(base["burstgpt"][0][1])
+    base_bisect = dict(base["burstgpt"][1][1])
+    # Wildly perturb every non-BurstGPT timestamp and order value.
+    for w, m in meta.items():
+        if m["source_family"] != "burstgpt":
+            m["arrival_time_s_min"] = 9e9 + hash(w) % 1000
+            m["relative_order"] = 1000 - meta[w]["relative_order"]
+    perturbed = launcher._build_temporal_split_specs(meta, 20.5)
+    assert dict(perturbed["burstgpt"][0][1]) == base_tercile
+    assert dict(perturbed["burstgpt"][1][1]) == base_bisect
+
+
+def test_azure_groups_isolated_from_other_sources_timestamps():
+    meta = _fabricated_window_meta()
+    base = launcher._build_temporal_split_specs(meta, 20.5)
+    base_cal = dict(base["azure_llm_2024"][0][1])
+    for w, m in meta.items():
+        if m["source_family"] != "azure_llm_2024":
+            m["arrival_time_s_min"] = -1e9 - (hash(w) % 1000)
+            m["relative_order"] = 1000 - meta[w]["relative_order"]
+    perturbed = launcher._build_temporal_split_specs(meta, 20.5)
+    assert dict(perturbed["azure_llm_2024"][0][1]) == base_cal
+
+
+def test_bailian_groups_isolated_from_other_sources_order_metadata():
+    meta = _fabricated_window_meta()
+    base = launcher._build_temporal_split_specs(meta, 20.5)
+    base_rel = dict(base["bailian_qwen"][0][1])
+    for w, m in meta.items():
+        if m["source_family"] != "bailian_qwen":
+            m["relative_order"] = 5000 + (hash(w) % 500)
+            m["arrival_time_s_min"] = 3e9 + (hash(w) % 1000)
+    perturbed = launcher._build_temporal_split_specs(meta, 20.5)
+    assert dict(perturbed["bailian_qwen"][0][1]) == base_rel
+
+
+def test_temporal_groups_preserve_40_window_source_membership():
+    meta = _fabricated_window_meta()
+    specs = launcher._build_temporal_split_specs(meta, 20.5)
+    for source, splits in specs.items():
+        for _name, groups, _sens in splits:
+            members = sorted(w for ws in groups.values() for w in ws)
+            assert len(members) == WINDOWS_PER_SOURCE
+            assert all(w.startswith(f"{source}_w") for w in members)
+
+
+# --- Reversal bootstrap p-value + BH family semantics (audit section E) ---
+
+def test_bootstrap_sign_pvalue_extremes():
+    import numpy as np
+    from robustbench.ranking_portability.analysis.reversal_analysis import (
+        _bootstrap_diff_ci,
+    )
+    all_pos = {f"w{i}": {"a": 2.0, "b": 1.0} for i in range(10)}
+    lo, hi, p = _bootstrap_diff_ci(
+        all_pos, "a", "b", n_resamples=500, ci_level=0.95,
+        rng=np.random.default_rng(0),
+    )
+    assert lo > 0 and hi > 0
+    assert p <= 0.05  # a constant positive difference is maximally significant
+
+    symmetric = {
+        "w0": {"a": 2.0, "b": 1.0}, "w1": {"a": 1.0, "b": 2.0},
+        "w2": {"a": 2.0, "b": 1.0}, "w3": {"a": 1.0, "b": 2.0},
+    }
+    lo2, hi2, p2 = _bootstrap_diff_ci(
+        symmetric, "a", "b", n_resamples=500, ci_level=0.95,
+        rng=np.random.default_rng(0),
+    )
+    assert lo2 <= 0 <= hi2
+    assert p2 > 0.5  # zero-mean difference is maximally insignificant
+
+
+def test_reversal_bh_family_membership_and_iut_pvalue():
+    """One clearly reversing pair (10x margins both directions) and one
+    stable pair: only the pair reaching the statistical-support stage is a
+    family member; its IUT p-value max(p_x, p_y) is tiny and BH-rejected;
+    the stable pair carries no reversal hypothesis."""
+    import numpy as np
+    from robustbench.ranking_portability.analysis.omnibus import apply_fdr_family
+    from robustbench.ranking_portability.analysis.reversal_analysis import (
+        ReversalClass,
+        classify_pairwise_reversal,
+    )
+    rows_x, rows_y = [], []
+    for i in range(10):
+        # a beats b 10:1 in source X
+        rows_x.append(make_cell_row(source_family="burstgpt", window_id=f"x{i}",
+                                    policy_id="fifo", repetition=0, anwg=10.0))
+        rows_x.append(make_cell_row(source_family="burstgpt", window_id=f"x{i}",
+                                    policy_id="edf", repetition=0, anwg=1.0))
+        # b beats a 10:1 in source Y (clear supported reversal)
+        rows_y.append(make_cell_row(source_family="azure_llm_2024", window_id=f"y{i}",
+                                    policy_id="fifo", repetition=0, anwg=1.0))
+        rows_y.append(make_cell_row(source_family="azure_llm_2024", window_id=f"y{i}",
+                                    policy_id="edf", repetition=0, anwg=10.0))
+        # a beats c in both (stable)
+        rows_x.append(make_cell_row(source_family="burstgpt", window_id=f"x{i}",
+                                    policy_id="least_laxity_first", repetition=0, anwg=0.5))
+        rows_y.append(make_cell_row(source_family="azure_llm_2024", window_id=f"y{i}",
+                                    policy_id="least_laxity_first", repetition=0, anwg=0.5))
+    rng = np.random.default_rng(0)
+    rev = classify_pairwise_reversal(rows_x, rows_y, policy_a="fifo", policy_b="edf",
+                                     metric=PRIMARY_METRIC, n_resamples=200, rng=rng)
+    assert rev.classification == ReversalClass.SUPPORTED_PRACTICAL_REVERSAL
+    assert rev.p_x is not None and rev.p_y is not None
+    p_pair = max(rev.p_x, rev.p_y)
+    stable = classify_pairwise_reversal(rows_x, rows_y, policy_a="fifo",
+                                        policy_b="least_laxity_first",
+                                        metric=PRIMARY_METRIC, n_resamples=200, rng=rng)
+    assert stable.classification == ReversalClass.STABLE_NO_SIGN_CHANGE
+    assert stable.p_x is None and stable.p_y is None
+    # Family = tests that reached the support stage: only the reversing pair.
+    fdr = apply_fdr_family("anwg::KNEE", [p_pair])
+    assert fdr.rejected == [True]
+
+
+# --- Telemetry reversal-site rule semantics (audit section F) ---
+
+def _site_rows(x_vals, y_vals, *, xa=10.0, xb=1.0, ya=1.0, yb=10.0):
+    rows = []
+    for i, (av, bv) in enumerate(x_vals):
+        rows.append(make_cell_row(source_family="burstgpt", window_id=f"x{i}",
+                                  policy_id="fifo", repetition=0, anwg=av))
+        rows.append(make_cell_row(source_family="burstgpt", window_id=f"x{i}",
+                                  policy_id="edf", repetition=0, anwg=bv))
+    for i, (av, bv) in enumerate(y_vals):
+        rows.append(make_cell_row(source_family="azure_llm_2024", window_id=f"y{i}",
+                                  policy_id="fifo", repetition=0, anwg=av))
+        rows.append(make_cell_row(source_family="azure_llm_2024", window_id=f"y{i}",
+                                  policy_id="edf", repetition=0, anwg=bv))
+    return rows
+
+
+def test_reversal_site_rule_flags_margin_passing_sign_flips():
+    rows = _site_rows([(10.0, 1.0)] * 5, [(1.0, 10.0)] * 5)
+    ind = launcher._window_reversal_sites(
+        rows, region="KNEE", source_x="burstgpt", source_y="azure_llm_2024",
+        policy_a="fifo", policy_b="edf",
+    )
+    assert len(ind) == 10 and all(ind.values())  # every window is a site
+
+
+def test_reversal_site_rule_excludes_microscopic_margins():
+    # Window-level margins ~1% (<= 10% frozen gate): excluded, never sites.
+    rows = _site_rows([(1.0, 0.99)] * 5, [(0.99, 1.0)] * 5)
+    ind = launcher._window_reversal_sites(
+        rows, region="KNEE", source_x="burstgpt", source_y="azure_llm_2024",
+        policy_a="fifo", policy_b="edf",
+    )
+    assert ind == {}
+
+
+def test_reversal_site_rule_excludes_zero_loser_unestimable():
+    rows = _site_rows([(10.0, 0.0)] * 5, [(0.0, 10.0)] * 5)
+    ind = launcher._window_reversal_sites(
+        rows, region="KNEE", source_x="burstgpt", source_y="azure_llm_2024",
+        policy_a="fifo", policy_b="edf",
+    )
+    assert ind == {}
+
+
+def test_reversal_site_rule_no_flip_means_not_sites():
+    rows = _site_rows([(10.0, 1.0)] * 5, [(10.0, 1.0)] * 5)  # same direction
+    ind = launcher._window_reversal_sites(
+        rows, region="KNEE", source_x="burstgpt", source_y="azure_llm_2024",
+        policy_a="fifo", policy_b="edf",
+    )
+    assert len(ind) == 10 and not any(ind.values())
+
+
 # --- Happy path: end-to-end over the full fabricated matrix, toy stats scale ---
 
 def test_happy_path_writes_six_stamped_artifacts_and_never_touches_input(
@@ -365,3 +596,26 @@ def test_happy_path_writes_six_stamped_artifacts_and_never_touches_input(
         r["classification"] for r in reversals["records"][PRIMARY_METRIC]
     }
     assert classes == {"STABLE_NO_SIGN_CHANGE"}
+    # Every reversal record carries the frozen BH-family fields; with no
+    # sign change anywhere, no reversal hypothesis exists, so nothing is
+    # FDR-rejected or supported.
+    for r in reversals["records"][PRIMARY_METRIC]:
+        assert r["bh_fdr_p_pair_iut"] is None
+        assert r["bh_fdr_rejected_within_metric_loadregion_family"] is None
+        assert r["supported_after_fdr"] is False
+        assert r["fdr_family"].startswith(f"{PRIMARY_METRIC}::")
+
+    # Friedman scope (frozen: "across sources, block = window, per metric
+    # x load region"): every omnibus record pools all 3x40 = 120 windows.
+    for rec in ranking["omnibus_friedman"]:
+        assert rec["n_blocks"] == 3 * WINDOWS_PER_SOURCE
+
+    # Sample-complexity scope (frozen: per source x metric; ladder top
+    # n=40 = the per-source window count): exactly one experiment per
+    # source x metric, and at n=40 (all of a source's windows) recovery
+    # is trivially exact.
+    sc = json.loads(Path(written["sample_complexity"]).read_text())
+    assert len(sc["per_source_metric"]) == len(CAMPAIGN_SOURCES)
+    for rec in sc["per_source_metric"]:
+        n40 = [p for p in rec["points"] if p["n"] == WINDOWS_PER_SOURCE]
+        assert n40 and n40[0]["p_exact_recovery"] == 1.0

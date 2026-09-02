@@ -37,7 +37,7 @@ per-constant citations to their canonical source document:
 | Bootstrap replicates | ≥ 2,000 (`BOOTSTRAP_RESAMPLES = 2000`) | §A |
 | Bootstrap CI level | 0.95 | §A |
 | Omnibus test | Friedman rank-sum (block = window, treatment = policy), per metric × load region, run BEFORE any pairwise decomposition; no alternative omnibus selectable | `RANKING_PORTABILITY_ANALYSIS_PLAN.md` §B |
-| Multiple testing | Benjamini-Hochberg FDR, q = 0.05, per family (e.g. all pairwise reversal tests within one load level), never global across sections | `STATISTICAL_ANALYSIS_PLAN.md` "Multiple-testing correction" |
+| Multiple testing | Benjamini-Hochberg FDR, q = 0.05, per family, never global across sections. Applied to: (1) Friedman omnibus p-values within each metric family across load regions; (2) Kendall-tau p-values within each (metric, load-region) cross-source ranking-comparison family; (3) pairwise reversal tests within each (metric, load-region) family — per-pair p = max(p_x, p_y) (intersection-union: BOTH conditions must be supported) of the block-bootstrap sign-test p-values read off the SAME resamples that back the preregistered CI rule (`analysis/reversal_analysis.py::_bootstrap_diff_ci`). Family membership for reversals = exactly the tests that reached the pre-registered statistical-support stage (sign change + both margins pass); the multiplicity-corrected headline flag is `supported_after_fdr` | `STATISTICAL_ANALYSIS_PLAN.md` "Multiple-testing correction" |
 | Sample-complexity ladder | n ∈ {5, 10, 20, 30, 40} (40 = full), ≥ 500 draws per n, without replacement | `RANKING_PORTABILITY_ANALYSIS_PLAN.md` §C |
 | Recovery target | P(recover full-window ranking) ≥ 0.9; recovery = exact-order match AND top-k match, defined before any real output | `STATISTICAL_ANALYSIS_PLAN.md` §F |
 | Reversal practical threshold | winning margin > 10% of the losing policy's value, required in BOTH conditions | `RANKING_PORTABILITY_ANALYSIS_PLAN.md` §A |
@@ -103,6 +103,19 @@ and never pooled into a headline reversal count:
 Criteria were fixed in the plan docs before any Phase-12 outcome
 existed and are not adjustable at analysis time.
 
+Multiplicity layer (frozen): the five-class raw classification above is
+unchanged; ON TOP of it, Benjamini-Hochberg FDR (q = 0.05) is applied
+per (metric, load-region) reversal family, per the plan's own example
+family ("all pairwise reversal tests within one load level"). The
+per-pair test p-value is the intersection-union combination
+max(p_x, p_y) of the two conditions' block-bootstrap sign-test
+p-values, computed from the same frozen resamples as the CI rule — no
+new inferential procedure. Only pairs that reached the
+statistical-support stage (classes 4–5) are reversal hypotheses and
+thus family members; pairs in classes 1–3 carry no p-value and are
+never rejected. The corrected supported-reversal flag is
+`supported_after_fdr`.
+
 ## E. Frozen sample-complexity contract
 
 `analysis/sample_complexity.py::run_sample_complexity`:
@@ -121,13 +134,25 @@ as "expected".
 `analysis/temporal_analysis.py`:
 
 - BurstGPT: native-timestamp EARLY/MIDDLE/LATE terciles (primary) and
-  EARLY/LATE bisect (sensitivity split);
-- Bailian/Qwen: relative-order bisect, every downstream finding labeled
+  EARLY/LATE bisect (sensitivity split), computed over the 40 BurstGPT
+  windows ONLY;
+- Bailian/Qwen: relative-order bisect over the 40 Bailian windows ONLY,
+  every downstream finding labeled
   `RELATIVE_CHRONOLOGY_ONLY`, never calendar-dated;
-- Azure 2024: calendar-anchored split at an explicit caller-supplied
-  boundary epoch (the frozen 2024-05-10..2024-05-19 collection-window
-  boundary from `docs/EVIDENCE_INDEPENDENCE_PLAN.md`); the boundary is a
-  parameter, never invented;
+- Azure 2024: calendar-anchored split over the 40 Azure windows ONLY at
+  the frozen boundary
+  `contract.AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS = 1715731200.0`
+  (2024-05-15T00:00:00Z — the exact midpoint of the canonical
+  2024-05-10..2024-05-19 collection window,
+  `docs/EVIDENCE_INDEPENDENCE_PLAN.md`,
+  `configs/workloads/source_registry.yaml`; on the frozen Phase-10
+  window index it partitions the 40 Azure windows 17 BEFORE / 23
+  AT_OR_AFTER — verified from provenance metadata, never outcomes). The
+  launcher refuses any other boundary value (fail-closed);
+- SOURCE ISOLATION is mandatory: no source's timestamps or order
+  metadata may influence another source's split boundaries or group
+  sizes (enforced by per-source maps in the launcher and covered by
+  synthetic isolation tests);
 - temporal comparisons reuse the cross-source tau/reversal toolkit
   unchanged (source held fixed).
 
@@ -163,6 +188,23 @@ regression of reversal-indicator on the FIXED descriptor set
 model comparison after seeing results; no `predict`/`route`/`select`
 function exists — explanatory association only
 (`docs/CLAIM_BOUNDARIES.md`).
+
+The window-level reversal-site indicator (constructed by the launcher's
+`_window_reversal_sites`) applies the plan's own window-indexed
+meaningful-reversal definition (`RANKING_PORTABILITY_ANALYSIS_PLAN.md`
+§A indexes a reversal "at a given (source-pair, window, load-region,
+metric)"; `STATISTICAL_ANALYSIS_PLAN.md` §G asks whether "a given
+window is a reversal site for a given pair (A, B)"): a window w of
+source X is a reversal site for pair (a, b) at a load region iff
+(i) sign(a_w − b_w) is defined, nonzero, and opposite to the sign of
+source Y's aggregate (a − b) difference at that region, AND (ii) the
+frozen 10% practical margin gate holds in BOTH directions (window side
+and other-source aggregate side). Undefined values, exact ties,
+microscopic margins, and zero-loser (unestimable) margins are EXCLUDED,
+never imputed — mirroring the frozen reversal contract. ALL unordered
+PRIMARY policy pairs × source pairs × load regions are enumerated and
+reported; no pair is selected based on results, and no real outcome was
+consulted in defining the rule.
 
 ## I. Deterministic input/output pipeline
 
@@ -207,7 +249,7 @@ allowed, explicit `allow_live` override.
 ## K. Synthetic fixture coverage
 
 `tests/ranking_portability_analysis_fixtures.py` +
-`tests/test_ranking_portability_analysis_*.py` (9 files, 80 tests)
+`tests/test_ranking_portability_analysis_*.py` (9 files, 93 tests)
 cover: identical ranking (tau=1), completely reversed (tau=-1), partial
 top-k change, exact ties, partial ties, undefined-policy exclusion,
 bootstrap CI shrinkage, BH FDR (incl. NaN handling), Friedman
@@ -229,21 +271,30 @@ tampered consolidated artifact bytes, analysis-code git-SHA mismatch,
 output-namespace violations, input/output overlap, live-path blocking)
 plus a full-fabricated-matrix launcher happy path that verifies the six
 canonical artifacts are written, identity-stamped, and that the admitted
-input file's bytes are unchanged. **No real campaign row is used
-anywhere.**
+input file's bytes are unchanged. The audit-seal pass additionally
+covers: non-frozen Azure boundary refusal, the frozen boundary's exact
+collection-window-midpoint identity and before/at-or-after semantics,
+source-isolation of every temporal split (perturbing other sources'
+timestamps/order metadata cannot change BurstGPT/Azure/Bailian groups;
+40-window membership preserved), bootstrap sign-test p-value extremes,
+reversal BH family membership + intersection-union p-value semantics,
+telemetry reversal-site margin-gate/zero-loser/no-flip semantics,
+Friedman 120-window pooled-block scope, and the per-source × metric
+sample-complexity scope with trivially-exact n=40 recovery. **No real
+campaign row is used anywhere.**
 
 ## L. Frozen code/test identities (SHA-256)
 
 ```
 8fd0c6837ac32a2c5d775ff4b180d54e78b00508379c36829f6d25cce0d46b4c  analysis/consolidation.py
-f8b3d4ec011cc95a27482c6fe4c6e04753c07be89b3309148d09afa87e119106  analysis/contract.py
+3d409050a9011b4378cc481dec51f4a27cdccae89ed58ed0717b81a946ebf0c2  analysis/contract.py
 a4e0deff7871b39c5dd346318663ccf9bddb89584504f0b3d8d996f493e95f3b  analysis/input_manifest.py
 78d74f3e847090c3823daada175b616503e49b8a2ab366bba977130bb3810c7a  analysis/matrix_validator.py
 fb98372d4450e1006bbed5d850d4ea26b0a05e4eec743750bada3ee8d9ea0fd2  analysis/omnibus.py
 f4f3cb6441ab1e7a3af460c7484e5a916fff5379d77945245aace49ac451ce4b  analysis/output_writer.py
 449bce19f2d41143bb502e0cba87cb03f62645f4539c1c8b848a4349e357a243  analysis/ranking_analysis.py
 8227cd9601ec2bd7b7d53534c68ad98c3e2d18bb1262d1abafee831e8475eead  analysis/result_blindness.py
-3114783962685b6583fb2a0a9232c2e094d2fbd98f1e5863885c64ca5e317f4c  analysis/reversal_analysis.py
+cde759b146ba51c3f5cb8674842ced6fc9198612254b00acc739a6c2b4d10b5f  analysis/reversal_analysis.py
 55f4898801f1049c02badfcb8f1f6bc92580d454577f9be40b25221ead1ddd69  analysis/robustness.py
 36b53b1e6c63cfe6329e49ac7d8a08614623c51c6ad2f3ef3f5f7101ef390acf  analysis/sample_complexity.py
 76ecae65f800bebe2ecfed80efb9757428763423e8380203c0b3460e8cf00168  analysis/stats.py
@@ -251,7 +302,7 @@ d5f534e6418d0fa93d72c192ed6de35925f87a10dfa697f8527b043464be5a98  analysis/telem
 74b204c32c7358c659ab04ffec64c42a47d78cbafac39d826a48ca427d078aed  analysis/temporal_analysis.py
 bc719ca4c262d199a53fabfbcb87f82190740e6c09854b8bfc1e5505c6f4ca93  scripts/.../consolidate_phase12_campaign.py
 920cd5a355a4ebae42669afd0e483a287e8e43c23cccbf933e3bb7288b9efc11  scripts/.../validate_phase12_completed_campaign.py
-3414161f2e9bcd1e85bd867fcd2dd2558bb1a260eaaa3ae070ec4d58ca6be4fe  scripts/.../run_phase12_analysis.py
+2cb784563dafffda542364a003c15a4c2f98473ce8d2fbc71a01853fc6d831d9  scripts/.../run_phase12_analysis.py
 da8825a7cd782364041ddbaaca9ba3c0ce719817212ba889d4598fcc3405c9bd  tests/ranking_portability_analysis_fixtures.py
 30afb645a300355e2d2abee56a59afa59fbedacb8a2ff6a4f94429540ccd0c9a  tests/..._consolidation.py
 bcd6db0bed50a14dc44bba3f9920b933a5a9fd1f803b488de07be9c170111b9f  tests/..._matrix_validator.py
@@ -261,17 +312,17 @@ a19adfd84877ba74a331877a705c037d61497b0a437cd232aa50847895dd6999  tests/..._pref
 98778682e9e1f6aab3b22ba89fc9b8d860a993461073c34c05a54b1e26421d5b  tests/..._sample_complexity.py
 1014baaa3f71c3f267dc27ddb2841f609d9e76e0fcac406342fe0e55ef132446  tests/..._stats.py
 a723f9538663b2bb2d1041b06120196722b75234aab05e6898fb4921e66248a2  tests/..._temporal.py
-1d443a51db652d43e65193920107e929f9ad51fe877b9631b8fae2a20033c28e  tests/..._launcher.py
+fb0d15b4bfb41997223ce13f8c442c568d40e2e64e57f613306dae4e509f9404  tests/..._launcher.py
 ```
 
 (paths abbreviated: `analysis/` =
 `src/robustbench/ranking_portability/analysis/`; `tests/..._x.py` =
 `tests/test_ranking_portability_analysis_x.py`.)
 
-Test status at freeze: targeted analysis tests **80 passed**; full
-repository suite **324 passed** (4 pre-existing benign scipy
-precision-loss RuntimeWarnings in `characterization/descriptors.py`,
-unrelated to the analysis package).
+Test status at freeze (post-audit seal): targeted analysis tests
+**93 passed**; full repository suite **337 passed** (4 pre-existing
+benign scipy precision-loss RuntimeWarnings in
+`characterization/descriptors.py`, unrelated to the analysis package).
 
 ## M. Real-analysis launcher (prepared, NOT executed)
 
@@ -289,41 +340,48 @@ The exact launcher is
 3. the SHA-256 of the consolidated artifact's file bytes equals the
    pinned admission-bound
    `73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26`;
-4. `git rev-parse HEAD` equals the caller-pinned
-   `--expected-analysis-git-sha` (the exact analysis-prefreeze branch
-   HEAD at analysis time; the verified SHA is stamped into every
-   output artifact);
+4. `git rev-parse HEAD` equals the caller-pinned LITERAL
+   `--expected-analysis-git-sha` (the sealed analysis-code commit; the
+   verified SHA is stamped into every output artifact) — command
+   substitution like `$(git rev-parse HEAD)` is NOT acceptable here,
+   it must be the externally frozen literal;
 5. the consolidated matrix passes INDEPENDENT re-validation
    (`matrix_validator.validate_completed_campaign`) before any metric
-   is aggregated.
+   is aggregated;
+6. `--azure-boundary-epoch-seconds` equals the frozen canonical
+   boundary `1715731200.0` (2024-05-15T00:00:00Z) exactly.
 
 It writes only the six canonical artifacts into a fresh
 `artifacts/analysis/phase12/` namespace (refuses any other location,
 any pre-existing content, and any overlap with the admitted input,
 which is opened read-only and never modified).
 
-Exact command (run on Wulver, from the analysis-prefreeze checkout, in
-the subsequent real-analysis task -- NOT in this prefreeze task):
+Exact command (run on Wulver in the subsequent real-analysis task --
+NOT in this prefreeze/audit task; `$SEALED` is the sealed analysis-code
+commit named in the audit-seal report and in the git history of this
+branch — the production run must `git checkout` that exact commit and
+pass its literal SHA):
 
 ```
+SEALED=<sealed analysis-code commit; see audit-seal report / branch history>
+git -C /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-analysis checkout "$SEALED"
+cd /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-analysis
 PYTHONPATH=src python scripts/ranking_portability/run_phase12_analysis.py \
-  --admission-manifest artifacts/manifests/ranking_portability_phase12_analysis_input.json \
-  --consolidated-artifact <admitted consolidated artifact path> \
-  --campaign-manifest artifacts/manifests/ranking_portability_phase12_campaign_freeze.json \
-  --compact-window-index artifacts/manifests/ranking_portability_pilot_v2_windows_index.json \
-  --output-dir artifacts/analysis/phase12 \
-  --expected-analysis-git-sha "$(git rev-parse HEAD)" \
-  --azure-boundary-epoch-seconds <frozen 2024-05 collection-window boundary epoch> \
+  --admission-manifest /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-provenance-repair/artifacts/manifests/ranking_portability_phase12_analysis_input.json \
+  --consolidated-artifact /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-provenance-repair/artifacts/campaign_results_enriched/81fa3d9b48a22410/consolidated.json \
+  --campaign-manifest /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-provenance-repair/artifacts/manifests/ranking_portability_phase12_campaign_freeze.json \
+  --compact-window-index /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-provenance-repair/artifacts/manifests/ranking_portability_pilot_v2_windows_index.json \
+  --output-dir /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-analysis/artifacts/analysis/phase12 \
+  --expected-analysis-git-sha "$SEALED" \
+  --azure-boundary-epoch-seconds 1715731200.0 \
   --allow-live
 ```
 
-`--expected-analysis-git-sha` binds the run to the exact prefreeze HEAD
-recorded in the completion report / git ref
-`research/lssp-phase12-analysis-prefreeze-20260902` at freeze time; the
-launcher refuses on any mismatch. The telemetry explanatory model's
-window-level reversal-site rule (fixed descriptor set, all primary
-policy pairs x source pairs enumerated, no result-dependent selection)
-is frozen in the launcher's module docstring.
+The admitted consolidated-artifact path above was resolved
+result-blind: filename + filesystem metadata + SHA-256 identity check
+only (`73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26`,
+37,252,923 bytes — byte-hash matches the admission manifest exactly; no
+scientific row was deserialized).
 
 This launcher was prepared but NOT executed in the prefreeze task:
 `COMPARATIVE_PILOT_V2_RESULTS = NONE`,

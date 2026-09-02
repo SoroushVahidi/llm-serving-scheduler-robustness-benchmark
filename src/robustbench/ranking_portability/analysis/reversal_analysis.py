@@ -42,6 +42,16 @@ class PairwiseReversalResult:
     ci_x: Optional[tuple]
     ci_y: Optional[tuple]
     detail: str
+    # Two-sided block-bootstrap sign-test p-values, computed from the SAME
+    # resamples as ci_x/ci_y (p = 2*min(P(mean diff <= 0), P(mean diff >= 0))
+    # over the resampled mean per-window differences). These are the
+    # pre-specified test statistic the frozen multiple-testing plan applies
+    # Benjamini-Hochberg FDR to within each (metric, load-region) reversal
+    # family (docs/STATISTICAL_ANALYSIS_PLAN.md "Multiple-testing
+    # correction": "e.g. all pairwise reversal tests within one load
+    # level"). None when the CI stage was not reached.
+    p_x: Optional[float] = None
+    p_y: Optional[float] = None
 
 
 def _diff_and_margin(value_a: Optional[float], value_b: Optional[float]) -> tuple:
@@ -70,6 +80,14 @@ def _bootstrap_diff_ci(
     ci_level: float,
     rng: np.random.Generator,
 ) -> Optional[tuple]:
+    """Returns (ci_lo, ci_hi, p_two_sided) from ONE shared set of
+    block-bootstrap resamples of the mean per-window (policy_a - policy_b)
+    difference: the percentile CI at `ci_level` plus the two-sided
+    sign-test p-value 2*min(P(resampled <= 0), P(resampled >= 0)). The
+    p-value is not a new inferential procedure -- it is read off the same
+    frozen resampling distribution that backs the preregistered CI rule,
+    and exists so the frozen per-family Benjamini-Hochberg correction has
+    its pre-specified p-value to adjust."""
     windows = [
         w for w, pw in per_window.items() if policy_a in pw and policy_b in pw
     ]
@@ -82,7 +100,10 @@ def _bootstrap_diff_ci(
         resampled[i] = diffs[idx].mean()
     alpha = 1.0 - ci_level
     lo, hi = np.quantile(resampled, [alpha / 2, 1 - alpha / 2])
-    return float(lo), float(hi)
+    p_two_sided = float(2.0 * min(
+        np.mean(resampled <= 0.0), np.mean(resampled >= 0.0)
+    ))
+    return float(lo), float(hi), min(1.0, p_two_sided)
 
 
 def classify_pairwise_reversal(
@@ -142,8 +163,12 @@ def classify_pairwise_reversal(
                    f"<= practical threshold {margin_fraction}",
         )
 
-    ci_x = _bootstrap_diff_ci(pw_x, policy_a, policy_b, n_resamples=n_resamples, ci_level=ci_level, rng=rng)
-    ci_y = _bootstrap_diff_ci(pw_y, policy_a, policy_b, n_resamples=n_resamples, ci_level=ci_level, rng=rng)
+    boot_x = _bootstrap_diff_ci(pw_x, policy_a, policy_b, n_resamples=n_resamples, ci_level=ci_level, rng=rng)
+    boot_y = _bootstrap_diff_ci(pw_y, policy_a, policy_b, n_resamples=n_resamples, ci_level=ci_level, rng=rng)
+    ci_x = (boot_x[0], boot_x[1]) if boot_x is not None else None
+    ci_y = (boot_y[0], boot_y[1]) if boot_y is not None else None
+    p_x = boot_x[2] if boot_x is not None else None
+    p_y = boot_y[2] if boot_y is not None else None
     ci_x_excludes_zero = ci_x is not None and not (ci_x[0] <= 0 <= ci_x[1])
     ci_y_excludes_zero = ci_y is not None and not (ci_y[0] <= 0 <= ci_y[1])
 
@@ -151,14 +176,14 @@ def classify_pairwise_reversal(
         return PairwiseReversalResult(
             classification=ReversalClass.SUPPORTED_PRACTICAL_REVERSAL,
             diff_x=diff_x, diff_y=diff_y, margin_x=margin_x, margin_y=margin_y,
-            ci_x=ci_x, ci_y=ci_y,
+            ci_x=ci_x, ci_y=ci_y, p_x=p_x, p_y=p_y,
             detail="sign change, both margins > threshold, both bootstrap CIs exclude zero",
         )
 
     return PairwiseReversalResult(
         classification=ReversalClass.UNSUPPORTED_SIGN_CHANGE_WIDE_CI,
         diff_x=diff_x, diff_y=diff_y, margin_x=margin_x, margin_y=margin_y,
-        ci_x=ci_x, ci_y=ci_y,
+        ci_x=ci_x, ci_y=ci_y, p_x=p_x, p_y=p_y,
         detail="sign change with sufficient margin, but at least one condition's "
                "bootstrap CI on the sign of the difference does not exclude zero",
     )

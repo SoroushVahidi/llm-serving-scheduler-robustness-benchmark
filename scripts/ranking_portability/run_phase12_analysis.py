@@ -31,6 +31,12 @@ admitted consolidated artifact is interpreted):
    and must not be the admitted input's directory or one of its
    ancestors -- the admitted input is opened read-only and never
    modified.
+7. Frozen temporal boundary: `--azure-boundary-epoch-seconds` must equal
+   the canonical frozen value
+   `contract.AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS` (1715731200.0 =
+   2024-05-15T00:00:00Z, the exact midpoint of the frozen 2024-05-10..
+   2024-05-19 Azure-2024 collection window) -- the boundary is frozen,
+   not operator-tunable.
 
 After the gates, the admitted matrix is RE-VALIDATED independently
 (`matrix_validator.validate_completed_campaign`, which never trusts the
@@ -48,15 +54,37 @@ parameters the CLI accepts that affect output CONTENT are
 boundary the frozen design requires as a parameter, never invented) and
 the identity arguments above.
 
-The telemetry explanatory model's reversal-site indicator is frozen
-result-blind as follows (no real outcome was consulted to choose it):
-for the primary metric, for each load region, each unordered source
-pair (X, Y), and each unordered PRIMARY policy pair (a, b), a window w
-of source X is a reversal site iff sign(a_w - b_w) is defined, nonzero,
-and opposite to the sign of the aggregate (a - b) difference in source
-Y at that region (and symmetrically for windows of Y against X's
-aggregate). ALL pairs are enumerated and reported; none is selected
-based on results.
+The telemetry explanatory model's reversal-site indicator is the frozen
+plan's window-indexed meaningful-reversal definition
+(docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md S/A indexes a reversal "at a
+given (source-pair, window, load-region, metric)"; S/G of
+docs/STATISTICAL_ANALYSIS_PLAN.md asks whether "a given window is a
+reversal site for a given pair (A, B)"): for the primary metric, for
+each load region, each unordered source pair (X, Y), and each unordered
+PRIMARY policy pair (a, b), a window w of source X is a reversal site
+iff (i) the sign of (a_w - b_w) is defined, nonzero, and opposite to
+the sign of the aggregate (a - b) difference in source Y at that
+region, AND (ii) the frozen practical margin gate (winning margin > 10%
+of the losing policy's value) holds in BOTH directions (window side and
+other-source aggregate side). Windows where any quantity is undefined
+or the margin is unestimable (zero loser) are excluded, never imputed
+-- mirroring the frozen reversal contract. Symmetrically for windows of
+Y against X's aggregate. ALL pairs are enumerated and reported; none is
+selected based on results, and no real outcome was consulted to choose
+this rule (it is the S/A definition applied at window level).
+
+Multiplicity correction (frozen, docs/STATISTICAL_ANALYSIS_PLAN.md
+"Multiple-testing correction"): Benjamini-Hochberg FDR q=0.05 per family
+IS applied to (1) the Friedman omnibus p-values within each metric
+family across load regions, (2) the Kendall-tau p-values within each
+(metric, load-region) cross-source ranking-comparison family, and (3)
+the pairwise reversal tests within each (metric, load-region) family --
+the reversal per-pair p-value being the intersection-union combination
+max(p_x, p_y) (BOTH conditions must be supported) of the frozen
+block-bootstrap sign-test p-values read off the same resamples that
+back the preregistered CI rule (reversal_analysis._bootstrap_diff_ci).
+The frozen five-class classification itself is unchanged; the
+multiplicity-corrected headline flag is `supported_after_fdr`.
 """
 from __future__ import annotations
 
@@ -68,6 +96,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import numpy as np
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
@@ -77,10 +107,12 @@ from robustbench.ranking_portability.analysis import (  # noqa: E402
 from robustbench.ranking_portability.analysis.contract import (  # noqa: E402
     ALL_RANKING_METRICS,
     ANALYSIS_CONTRACT_VERSION,
+    AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS,
     BOOTSTRAP_RESAMPLES,
     CAMPAIGN_SOURCES,
     PRIMARY_METRIC,
     PRIMARY_POLICIES,
+    REVERSAL_PRACTICAL_MARGIN_FRACTION,
     SAMPLE_COMPLEXITY_DRAWS_PER_N,
     SIX_REGION_GRID,
 )
@@ -107,6 +139,8 @@ from robustbench.ranking_portability.analysis.result_blindness import (  # noqa:
     assert_not_live_campaign_path,
 )
 from robustbench.ranking_portability.analysis.reversal_analysis import (  # noqa: E402
+    ReversalClass,
+    _diff_and_margin,
     classify_pairwise_reversal,
 )
 from robustbench.ranking_portability.analysis.robustness import (  # noqa: E402
@@ -184,6 +218,7 @@ def verify_launch_gates(
     compact_window_index_path: Path,
     output_dir: Path,
     expected_analysis_git_sha: str,
+    azure_boundary_epoch_seconds: float,
     allow_live: bool,
     repo_root: Path = REPO_ROOT,
 ) -> dict:
@@ -247,6 +282,15 @@ def verify_launch_gates(
             "analysis-prefreeze code identity."
         )
 
+    if azure_boundary_epoch_seconds != AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS:
+        _refuse(
+            f"azure boundary epoch {azure_boundary_epoch_seconds!r} does not equal the frozen "
+            f"canonical boundary {AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS!r} "
+            "(2024-05-15T00:00:00Z, exact midpoint of the frozen 2024-05-10..2024-05-19 "
+            "Azure-2024 collection window, docs/EVIDENCE_INDEPENDENCE_PLAN.md) -- the "
+            "calendar split boundary is frozen, not operator-tunable."
+        )
+
     resolved_out = output_dir.resolve()
     parts = tuple(p.lower() for p in resolved_out.parts)
     suffix = ANALYSIS_OUTPUT_NAMESPACE_SUFFIX
@@ -275,6 +319,89 @@ def _rows_for(rows, *, source=None, region=None):
     if region is not None:
         out = [r for r in out if r["load_region"] == region]
     return out
+
+
+def _build_temporal_split_specs(window_meta, azure_boundary_epoch_seconds):
+    """Builds the per-source temporal split specifications. SOURCE
+    ISOLATION IS MANDATORY (docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md
+    S/D, "source held fixed"): each source's temporal groups are computed
+    from THAT SOURCE'S windows alone -- BurstGPT terciles/bisect over the
+    40 BurstGPT timestamps only, Azure's calendar split over the 40 Azure
+    timestamps only, Bailian's relative-order bisect over the 40 Bailian
+    windows only. No other source's timestamps or order metadata may
+    influence a source's split boundaries or group sizes."""
+    def _source_map(key, source):
+        return {
+            w: m[key] for w, m in window_meta.items()
+            if m["source_family"] == source
+        }
+
+    burstgpt_timestamps = _source_map("arrival_time_s_min", "burstgpt")
+    azure_timestamps = _source_map("arrival_time_s_min", "azure_llm_2024")
+    bailian_relative_order = _source_map("relative_order", "bailian_qwen")
+    split_specs = {
+        "burstgpt": [
+            ("TERCILE", split_burstgpt_tercile(burstgpt_timestamps), False),
+            ("BISECT", split_burstgpt_bisect(burstgpt_timestamps), True),
+        ],
+        "azure_llm_2024": [
+            ("CALENDAR_BOUNDARY", split_azure_calendar(
+                azure_timestamps, boundary_epoch_seconds=azure_boundary_epoch_seconds,
+            ), False),
+        ],
+        "bailian_qwen": [],
+    }
+    bailian_split = split_bailian_relative(bailian_relative_order)
+    split_specs["bailian_qwen"].append(
+        (bailian_split.chronology_type, bailian_split.groups, False)
+    )
+    return split_specs
+
+
+def _window_reversal_sites(rows, *, region, source_x, source_y, policy_a, policy_b):
+    """The frozen window-level meaningful-reversal-site rule
+    (docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md S/A applied at window level;
+    docs/STATISTICAL_ANALYSIS_PLAN.md S/G). A window w of source X is a
+    reversal site iff (i) the sign of (a_w - b_w) is defined, nonzero, and
+    opposite to the sign of source Y's aggregate (a - b) difference at
+    `region`, AND (ii) the frozen practical margin gate
+    (REVERSAL_PRACTICAL_MARGIN_FRACTION) holds in BOTH directions. Windows
+    with undefined values, zero-loser (unestimable) margins, exact ties,
+    or microscopic margins are EXCLUDED from the indicator entirely
+    (never imputed, never counted as non-sites) -- mirroring the frozen
+    reversal contract's UNDEFINED_UNESTIMABLE / MICROSCOPIC classes."""
+    agg = {}
+    for s in (source_x, source_y):
+        pw = per_window_policy_values(
+            _rows_for(rows, source=s, region=region), PRIMARY_METRIC
+        )
+        pairs = [(d[policy_a], d[policy_b]) for d in pw.values()
+                 if policy_a in d and policy_b in d]
+        mean_a = float(np.mean([p[0] for p in pairs])) if pairs else None
+        mean_b = float(np.mean([p[1] for p in pairs])) if pairs else None
+        agg[s] = _diff_and_margin(mean_a, mean_b)
+    indicator = {}
+    for s, other in ((source_x, source_y), (source_y, source_x)):
+        diff_o, margin_o = agg[other]
+        if (
+            diff_o is None or margin_o is None or diff_o == 0
+            or margin_o <= REVERSAL_PRACTICAL_MARGIN_FRACTION
+        ):
+            continue  # other direction fails the frozen gate: no site estimable
+        pw = per_window_policy_values(
+            _rows_for(rows, source=s, region=region), PRIMARY_METRIC
+        )
+        for w, d in pw.items():
+            if policy_a not in d or policy_b not in d:
+                continue
+            w_diff, w_margin = _diff_and_margin(d[policy_a], d[policy_b])
+            if (
+                w_diff is None or w_margin is None or w_diff == 0
+                or w_margin <= REVERSAL_PRACTICAL_MARGIN_FRACTION
+            ):
+                continue  # unestimable or microscopic: excluded, never imputed
+            indicator[w] = (w_diff > 0) != (diff_o > 0)
+    return indicator
 
 
 def _comparison_payload(res) -> dict:
@@ -312,8 +439,6 @@ def run_analysis(
     "descriptor"}. The `n_resamples`/`draws_per_n`/`metrics` parameters
     exist ONLY so synthetic tests can run the same code at toy scale; the
     CLI never overrides the frozen contract defaults."""
-    import numpy as np
-
     output_dir = Path(output_dir)
     primary_rows = filter_primary_only(rows)
     policies = list(PRIMARY_POLICIES)
@@ -321,7 +446,14 @@ def run_analysis(
     written = {}
 
     # --- 0. Friedman omnibus FIRST (per metric x load region), before any
-    # pairwise decomposition, per the frozen contract. ---
+    # pairwise decomposition, per the frozen contract. Scope frozen by
+    # docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md S/B: "Friedman rank-sum test
+    # ACROSS SOURCES (block = window, treatment = policy) ... per metric and
+    # load region" -- i.e. at a given (metric, load region) the blocks are
+    # ALL 120 windows from all three sources pooled; source is not a
+    # separate Friedman axis. The per-source temporal/heterogeneity
+    # questions are answered by S/D's within-source splits, not by splitting
+    # the omnibus. ---
     omnibus_records = []
     friedman_p_by_metric = {m: [] for m in metrics}
     for metric in metrics:
@@ -391,8 +523,10 @@ def run_analysis(
     # policy pair, classified by the frozen five-class contract (CI-based;
     # never pooled across the microscopic/unsupported classes). ---
     reversal_records = {m: [] for m in metrics}
+    reversal_family_p = {}  # (metric, region) -> list of (record, p_pair)
     for metric in metrics:
         for region in SIX_REGION_GRID:
+            family_members = []
             for sx, sy in _unordered_pairs(CAMPAIGN_SOURCES):
                 rows_x = _rows_for(primary_rows, source=sx, region=region)
                 rows_y = _rows_for(primary_rows, source=sy, region=region)
@@ -401,7 +535,7 @@ def run_analysis(
                         rows_x, rows_y, policy_a=pa, policy_b=pb,
                         metric=metric, n_resamples=n_resamples, rng=rng,
                     )
-                    reversal_records[metric].append({
+                    rec = {
                         "metric": metric, "load_region": region,
                         "condition_x": f"{sx}::{region}", "condition_y": f"{sy}::{region}",
                         "policy_a": pa, "policy_b": pb,
@@ -410,11 +544,64 @@ def run_analysis(
                         "margin_x": res.margin_x, "margin_y": res.margin_y,
                         "ci_x": list(res.ci_x) if res.ci_x else None,
                         "ci_y": list(res.ci_y) if res.ci_y else None,
+                        "p_x": res.p_x, "p_y": res.p_y,
                         "fdr_family": f"{metric}::{region}",
-                    })
+                    }
+                    reversal_records[metric].append(rec)
+                    # BH family membership (docs/STATISTICAL_ANALYSIS_PLAN.md
+                    # "Multiple-testing correction": "all pairwise reversal
+                    # tests within one load level"): exactly the tests that
+                    # REACHED the pre-registered statistical-support stage
+                    # (sign change + both practical margins pass). The
+                    # per-pair p-value is the intersection-union combination
+                    # max(p_x, p_y) -- BOTH conditions must show a
+                    # statistically supported direction -- of the frozen
+                    # block-bootstrap sign-test p-values. Tests that never
+                    # reached the support stage (no sign change, microscopic
+                    # margin, unestimable) are recorded separately by the
+                    # frozen contract and are not reversal hypotheses.
+                    if res.classification in (
+                        ReversalClass.SUPPORTED_PRACTICAL_REVERSAL,
+                        ReversalClass.UNSUPPORTED_SIGN_CHANGE_WIDE_CI,
+                    ):
+                        p_pair = (
+                            max(res.p_x, res.p_y)
+                            if res.p_x is not None and res.p_y is not None
+                            else float("nan")
+                        )
+                        family_members.append((rec, p_pair))
+            reversal_family_p[(metric, region)] = family_members
+    # Apply the frozen per-family BH FDR (q = FDR_Q) to the reversal tests.
+    for (metric, region), members in reversal_family_p.items():
+        fdr = apply_fdr_family(
+            f"{metric}::{region}", [p for _, p in members],
+        )
+        for (rec, p_pair), rejected in zip(members, fdr.rejected):
+            rec["bh_fdr_p_pair_iut"] = p_pair
+            rec["bh_fdr_rejected_within_metric_loadregion_family"] = bool(rejected)
+            rec["supported_after_fdr"] = bool(
+                rejected
+                and rec["classification"] == ReversalClass.SUPPORTED_PRACTICAL_REVERSAL.value
+            )
+    # Tests that never reached the statistical-support stage carry no
+    # reversal hypothesis: no p-value, never rejected, never supported.
+    for metric in metrics:
+        for rec in reversal_records[metric]:
+            if "bh_fdr_p_pair_iut" not in rec:
+                rec["bh_fdr_p_pair_iut"] = None
+                rec["bh_fdr_rejected_within_metric_loadregion_family"] = None
+                rec["supported_after_fdr"] = False
 
     # --- 3. Sample complexity per source x metric (frozen ladder), plus the
-    # purely descriptive concentrated-vs-spread budget comparison. ---
+    # purely descriptive concentrated-vs-spread budget comparison. Scope is
+    # frozen by docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md S/C ("reported per
+    # source and per metric"; ladder top n=40 = "full window count";
+    # concentrated-vs-spread reference = "the full 3x40 cross-source
+    # reference") and docs/STATISTICAL_ANALYSIS_PLAN.md S/F ("per source
+    # family and per metric"): the unit is the 40 frozen WINDOWS of one
+    # source (load regions pooled within a window's per_window aggregate);
+    # it is NOT indexed by load region -- the ladder maximum 40 equals the
+    # per-source window count exactly. ---
     sample_records = []
     for source in CAMPAIGN_SOURCES:
         source_rows = _rows_for(primary_rows, source=source)
@@ -456,30 +643,11 @@ def run_analysis(
 
     # --- 4. Temporal robustness (source held fixed; cross-source toolkit
     # reused unchanged; primary metric). ---
-    timestamps = {w: m["arrival_time_s_min"] for w, m in window_meta.items()}
-    relative_order = {w: m["relative_order"] for w, m in window_meta.items()}
     temporal_records = []
-    split_specs = {
-        "burstgpt": [
-            ("TERCILE", split_burstgpt_tercile(timestamps), False),
-            ("BISECT", split_burstgpt_bisect(timestamps), True),
-        ],
-        "azure_llm_2024": [
-            ("CALENDAR_BOUNDARY", split_azure_calendar(
-                timestamps, boundary_epoch_seconds=azure_boundary_epoch_seconds,
-            ), False),
-        ],
-        "bailian_qwen": [],
-    }
-    bailian_split = split_bailian_relative(relative_order)
-    split_specs["bailian_qwen"].append(
-        (bailian_split.chronology_type, bailian_split.groups, False)
-    )
+    split_specs = _build_temporal_split_specs(window_meta, azure_boundary_epoch_seconds)
     for source, splits in split_specs.items():
         source_rows = _rows_for(primary_rows, source=source)
-        source_windows = {w for w, m in window_meta.items() if m["source_family"] == source}
         for split_name, groups, is_sensitivity in splits:
-            groups = {g: [w for w in ws if w in source_windows] for g, ws in groups.items()}
             for region in SIX_REGION_GRID:
                 for gx, gy in _unordered_pairs(groups):
                     res = compare_conditions(
@@ -495,7 +663,7 @@ def run_analysis(
                     payload["split"] = split_name
                     payload["is_sensitivity_split"] = is_sensitivity
                     if source == "bailian_qwen":
-                        payload["chronology_label"] = bailian_split.chronology_type
+                        payload["chronology_label"] = split_name  # RELATIVE_CHRONOLOGY_ONLY
                     temporal_records.append(payload)
 
     # --- 5. Robustness strata: registry + headline (primary metric)
@@ -547,32 +715,21 @@ def run_analysis(
 
     # --- 6. Telemetry/descriptor explanatory model (never predictive):
     # ALL primary policy pairs x source pairs x regions enumerated, fixed
-    # descriptor set, fixed result-blind reversal-site rule (module docstring). ---
+    # descriptor set, reversal-site rule = the frozen plan's window-indexed
+    # meaningful-reversal definition (see module docstring): sign flip
+    # against the other source's aggregate PLUS the frozen 10% margin gate
+    # satisfied in BOTH directions; windows where the margin is unestimable
+    # (undefined value or zero loser) are excluded, never imputed --
+    # mirroring the frozen reversal contract exactly. ---
     descriptors = {w: m["descriptor"] for w, m in window_meta.items()}
     telemetry_records = []
     for region in SIX_REGION_GRID:
         for sx, sy in _unordered_pairs(CAMPAIGN_SOURCES):
             for pa, pb in _unordered_pairs(policies):
-                agg_sign = {}
-                for s in (sx, sy):
-                    pw = per_window_policy_values(
-                        _rows_for(primary_rows, source=s, region=region), PRIMARY_METRIC
-                    )
-                    diffs = [d[pa] - d[pb] for d in pw.values() if pa in d and pb in d]
-                    mean_diff = float(np.mean(diffs)) if diffs else 0.0
-                    agg_sign[s] = (1 if mean_diff > 0 else (-1 if mean_diff < 0 else 0))
-                indicator = {}
-                for s, other in ((sx, sy), (sy, sx)):
-                    pw = per_window_policy_values(
-                        _rows_for(primary_rows, source=s, region=region), PRIMARY_METRIC
-                    )
-                    for w, d in pw.items():
-                        if pa not in d or pb not in d:
-                            continue
-                        w_sign = 1 if d[pa] - d[pb] > 0 else (-1 if d[pa] - d[pb] < 0 else 0)
-                        if w_sign == 0 or agg_sign[other] == 0:
-                            continue
-                        indicator[w] = w_sign != agg_sign[other]
+                indicator = _window_reversal_sites(
+                    primary_rows, region=region,
+                    source_x=sx, source_y=sy, policy_a=pa, policy_b=pb,
+                )
                 fit = fit_reversal_association(descriptors, indicator)
                 telemetry_records.append({
                     "metric": PRIMARY_METRIC, "load_region": region,
@@ -603,8 +760,13 @@ def run_analysis(
         "topk_overlap": {"top_k_values": [1, 3], "comparisons": topk_records},
         "pairwise_reversals": {
             "reversal_contract": "five-class frozen contract (reversal_analysis.ReversalClass)",
-            "fdr_family_note": "families are per (metric, load_region); reversal decisions use "
-                               "the frozen CI-exclusion rule, never pooled across classes",
+            "fdr_note": "Benjamini-Hochberg FDR (q=0.05) IS applied to the reversal "
+                        "family per (metric, load_region): family members are the tests "
+                        "that reached the pre-registered statistical-support stage "
+                        "(sign change + both margins pass); per-pair p = max(p_x, p_y) "
+                        "(intersection-union over both conditions) of the frozen "
+                        "block-bootstrap sign-test p-values. `supported_after_fdr` is "
+                        "the multiplicity-corrected supported-reversal flag.",
             "records": reversal_records,
         },
         "sample_complexity": {
@@ -648,8 +810,10 @@ def main(argv=None) -> int:
                     help="Exact analysis-prefreeze branch HEAD SHA this run is pinned to; "
                          "the launcher refuses if the checkout differs")
     ap.add_argument("--azure-boundary-epoch-seconds", type=float, required=True,
-                    help="Explicit calendar boundary for the Azure-2024 temporal split "
-                         "(frozen collection-window boundary; never invented by the code)")
+                    help="Calendar boundary for the Azure-2024 temporal split; must equal "
+                         "the frozen canonical value "
+                         f"{AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS} "
+                         "(2024-05-15T00:00:00Z, contract.py) -- verified fail-closed")
     ap.add_argument("--allow-live", action="store_true", default=False,
                     help="Lift the result-blindness path guard for the deliberate "
                          "production run (never used by prefreeze tests)")
@@ -663,6 +827,7 @@ def main(argv=None) -> int:
             compact_window_index_path=args.compact_window_index,
             output_dir=args.output_dir,
             expected_analysis_git_sha=args.expected_analysis_git_sha,
+            azure_boundary_epoch_seconds=args.azure_boundary_epoch_seconds,
             allow_live=args.allow_live,
         )
     except GateRefusal as e:

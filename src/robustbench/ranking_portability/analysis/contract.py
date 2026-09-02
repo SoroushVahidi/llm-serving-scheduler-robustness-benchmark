@@ -135,6 +135,19 @@ BURSTGPT_TEMPORAL_SPLIT_PRIMARY = "TERCILE"  # EARLY / MIDDLE / LATE
 BURSTGPT_TEMPORAL_SPLIT_SENSITIVITY = "BISECT"
 BAILIAN_TEMPORAL_LABEL = "RELATIVE_CHRONOLOGY_ONLY"
 AZURE_CALENDAR_TEMPORAL_SOURCE = "azure_llm_2024"
+# Azure-2024 calendar-anchored split boundary, resolved result-blind from
+# the canonical provenance record (docs/EVIDENCE_INDEPENDENCE_PLAN.md and
+# configs/workloads/source_registry.yaml): the Azure-2024 collection window
+# is 2024-05-10..2024-05-19, i.e. the half-open UTC interval
+# [2024-05-10T00:00:00Z, 2024-05-20T00:00:00Z); the calendar-anchored
+# "earlier vs later slice of its own collection window"
+# (docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md §D) boundary is its exact
+# midpoint, 2024-05-15T00:00:00Z = 1715731200.0 epoch seconds. On the
+# frozen Phase-10 window index (provenance metadata, not outcomes) this
+# splits the 40 Azure windows 17 BEFORE / 23 AT_OR_AFTER -- a valid,
+# nonempty, calendar-anchored partition chosen without any scientific
+# output.
+AZURE_2024_CALENDAR_BOUNDARY_EPOCH_SECONDS = 1715731200.0
 
 # --- Robustness plan (docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md §F) ---
 ROBUSTNESS_COMPONENTS = (
