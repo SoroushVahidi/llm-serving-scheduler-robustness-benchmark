@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: >-
+  If you use this code or the LSSP dataset, please cite the paper below.
+  BibTeX/DOI will be added once the Journal of Supercomputing submission
+  is accepted and a release is tagged (see docs/PROJECT_STATUS.md).
+title: >-
+  How Portable Are LLM-Serving Scheduler Rankings Across Workloads,
+  Operating Regions, and Metrics?
+authors:
+  - family-names: Vahidi
+    given-names: Soroush
+    email: sv96@njit.edu
+type: software
+repository-code: >-
+  https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark
+license: MIT
+date-released: "2026-09-02"
