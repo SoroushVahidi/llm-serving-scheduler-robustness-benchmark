@@ -73,6 +73,7 @@ from .slai_priority import (
     classify_and_order_decodes,
     compute_lst,
     offset_for_utilization,
+    request_class_id,
     select_served_decodes,
 )
 
@@ -110,7 +111,7 @@ class LSSPSlaiVLLMScheduler(VLLMDefaultScheduler):
         # single scalar vLLM's native priority queue expects. See
         # slai_priority.admission_priority_scalar's docstring for the
         # disclosed collapse-to-scalar approximation.
-        class_id = getattr(request, "lssp_class_id", None)
+        class_id = request_class_id(request)
         request.priority = admission_priority_scalar(class_id, request.num_prompt_tokens)
         super().add_request(request)
 
@@ -131,13 +132,13 @@ class LSSPSlaiVLLMScheduler(VLLMDefaultScheduler):
         ]
         for req in decode_ready:
             if req.request_id not in self._lst:
-                class_id = getattr(req, "lssp_class_id", None)
+                class_id = request_class_id(req)
                 self._lst[req.request_id] = compute_lst(now, _tbt_lookup(class_id), offset, self.step_size)
 
         candidates = [
             DecodeCandidate(
                 request_id=req.request_id,
-                class_id=getattr(req, "lssp_class_id", None),
+                class_id=request_class_id(req),
                 lst=self._lst.get(req.request_id),
             )
             for req in decode_ready
@@ -187,7 +188,7 @@ class LSSPSlaiVLLMScheduler(VLLMDefaultScheduler):
         served_set = set(served_ids)
         for req in decode_ready:
             if req.request_id in served_set:
-                class_id = getattr(req, "lssp_class_id", None)
+                class_id = request_class_id(req)
                 self._lst[req.request_id] = compute_lst(now, _tbt_lookup(class_id), offset, self.step_size)
 
         return output

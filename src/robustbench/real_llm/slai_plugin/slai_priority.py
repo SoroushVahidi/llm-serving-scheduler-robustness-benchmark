@@ -197,3 +197,24 @@ def admission_priority_scalar(class_id: Optional[str], prompt_tokens: int, tbt_b
     """
     tbt = tbt_for(class_id, tbt_by_class, default_tbt)
     return tbt + prompt_tokens * prompt_tokens_scale
+
+
+def request_class_id(request) -> Optional[str]:
+    """Return SLAI class metadata from either a direct request attribute or
+    vLLM's generic SamplingParams.extra_args path.
+
+    vLLM's OpenAI-compatible API exposes non-standard scheduler metadata as
+    `vllm_xargs`, which is then copied into `sampling_params.extra_args`.
+    Reading a `lssp_class_id` value from that generic metadata channel does
+    not change the SLAI rule; it only lets the real engine receive the same
+    class_id input the simulator already has.
+    """
+    class_id = getattr(request, "lssp_class_id", None)
+    if class_id is not None:
+        return class_id
+    sampling_params = getattr(request, "sampling_params", None)
+    extra_args = getattr(sampling_params, "extra_args", None)
+    if isinstance(extra_args, dict):
+        value = extra_args.get("lssp_class_id")
+        return value if isinstance(value, str) else None
+    return None

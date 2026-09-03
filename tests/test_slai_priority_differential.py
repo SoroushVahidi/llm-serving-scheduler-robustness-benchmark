@@ -36,7 +36,6 @@ from robustbench.real_llm.slai_plugin.slai_priority import (
     offset_for_utilization,
     select_served_decodes,
 )
-
 LARGE_GPU_KWARGS = dict(
     max_active_sequences=10_000,
     max_batch_tokens=10_000_000,
@@ -368,3 +367,23 @@ def test_differential_lst_classification_1000_synthetic_states():
 
     assert n_mismatch == 0, f"{n_mismatch} mismatches (first 5): {mismatches[:5]}"
     assert n_match == N_STATES
+
+
+def test_vllm_extra_args_lssp_class_id_ingress_is_generic():
+    """The OpenAI API passes scheduler metadata through vllm_xargs into
+    SamplingParams.extra_args. This recovers the same class_id value used by
+    the pure SLAI algorithm without adding a workload- or RQ6-specific branch.
+    """
+    from robustbench.real_llm.slai_plugin.slai_priority import request_class_id
+
+    class Params:
+        extra_args = {"lssp_class_id": "medium"}
+
+    class RequestLike:
+        sampling_params = Params()
+
+    assert request_class_id(RequestLike()) == "medium"
+
+    req = RequestLike()
+    req.lssp_class_id = "tight"
+    assert request_class_id(req) == "tight"
