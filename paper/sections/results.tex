@@ -11,11 +11,15 @@ structurally audited before interpretation
 hash-verified artifacts; no number below was entered by hand. The PRIMARY
 headline metric throughout is arrival-normalized weighted goodput (ANWG,
 \S\ref{sec:metrics}); other metrics are reported as secondary/supporting
-evidence only. Two subsections of the original result contract --
-per-source \emph{discriminability} (fraction of non-tied conditions) and
-cross-\emph{metric} rank agreement -- are not part of this analysis run's
-six canonical artifacts and remain open items, noted where relevant rather
-than populated with placeholder or approximated numbers.
+evidence only. Two subsections of the original result contract were not
+part of this analysis run's six canonical artifacts: per-source
+\emph{discriminability} (fraction of non-tied conditions), which remains
+an open item, noted here rather than populated with placeholder or
+approximated numbers; and cross-\emph{metric} rank agreement, which is
+instead reported in \S\ref{sec:results-cross-metric} as an explicitly
+labeled post-campaign extension using the sealed package's own statistical
+primitives as a library, never modifying or re-running the six canonical
+artifacts themselves.
 
 \subsection{Cross-Source Rankings}
 \label{sec:cross-source-rankings}
@@ -244,9 +248,87 @@ a disclosed implementation gap rather than computed here.
     policy family dominating the panel.
 \end{itemize}
 
+\subsection{Cross-Metric Ranking Portability}
+\label{sec:results-cross-metric}
+
+\S\ref{sec:reversals} and \S\ref{sec:results-robustness} ask whether a
+policy ranking under one fixed metric (ANWG) is portable across sources,
+regions, and windows. A different question -- whether a ranking is
+portable across \emph{metrics}, for the same source and region -- is
+addressed here as an explicitly labeled post-campaign extension
+(\texttt{POST\_PHASE12\_RESULT\_INDEPENDENT\_ANALYSIS\_EXTENSION}) that
+reuses the sealed package's statistical primitives as a library without
+modifying, re-running, or re-deriving any of the six canonical Phase-12
+artifacts. Across all $3$ sources $\times$ $6$ regions $\times$ $55$
+metric pairs among the study's tracked outcome metrics ($990$ conditions),
+rank correlation between metrics is on average moderate (median Kendall's
+$\tau_b = 0.419$, range $[-0.506, 1.000]$; $202/990$, $20\%$, of conditions
+have \emph{negative} $\tau_b$), and the single top-ranked policy agrees
+between the two metrics in only half of conditions (median top-1 agreement
+$=0$, i.e.\ the majority-or-tie split is even). At the level of individual
+pairwise policy comparisons ($54{,}450$ total, one per (metric pair,
+condition, policy pair)), $3{,}207$ ($5.9\%$) show a statistically
+supported (bootstrap CI, BH-FDR-corrected) practical disagreement in which
+policy is preferred depending on which metric is used, versus $45{,}800$
+($84.1\%$) in the same order, $5{,}205$ ($9.6\%$) a sign change too small
+to be practically meaningful, and $201$ ($0.4\%$) an unsupported sign
+change with a wide confidence interval. Scheduler-ranking portability is
+therefore not only source- and region-dependent (\S\ref{sec:results});
+which metric is used to define ``better'' materially changes the ranking
+in a non-trivial minority of conditions, and the median condition shows no
+default expectation that the two metrics' top choices should agree.
+
 \subsection{SLO-Definition Sensitivity}
 \label{sec:results-slo}
 
-\texttt{SLO\_DEFINITION\_SENSITIVITY} remains unavailable, as disclosed in
-\S\ref{sec:slo-sensitivity-gap}: no preregistered alternative SLO-synthesis
-rule ever existed, so no such result is reported or fabricated here.
+\texttt{SLO\_DEFINITION\_SENSITIVITY} was never part of the preregistered
+protocol (\S\ref{sec:slo-sensitivity-gap}: no alternative SLO-synthesis
+rule was ever frozen before or during Pilot-V2 execution). We report here
+a post-campaign sensitivity check, explicitly labeled and executed after
+this study's headline results were already known
+(\texttt{POST\_PHASE12\_RESULT\_INDEPENDENT\_ANALYSIS\_EXTENSION}, per
+\S\ref{sec:slo-sensitivity-gap}'s own requirement that any such study be
+run this way): three alternative SLO-synthesis multipliers
+(\texttt{tight\_10x}, \texttt{primary\_20x} -- this study's own convention
+-- and \texttt{loose\_40x}) applied across the full campaign grid
+($19{,}800$ cells; 0 failed), with every source, region, policy, window,
+and seed held identical to \S\ref{sec:results}.
+
+\textbf{Ranking robustness.} Across the $30$ (source, region, variant)
+conditions compared against the study's primary SLO convention, rank
+correlation stays high under either alternative (median Kendall's
+$\tau_b = 0.872$, range $[0.533, 1.000]$); the single top-ranked policy
+nonetheless changes under an alternative SLO definition in $13/30$ ($43\%$)
+of conditions.
+
+\textbf{Reversal persistence.} Checking each of the 36 PRIMARY-metric
+supported reversals from \S\ref{sec:reversals} against all 3 alternative
+variants ($108$ checks total): $88$ ($81\%$) persist, $6$ ($6\%$) change
+direction, $10$ ($9\%$) remain the same direction but fall below the
+practical-margin threshold under the alternative definition, and $4$
+($4\%$) become statistically indistinguishable from zero. No headline
+reversal from \S\ref{sec:reversals} is contradicted outright, but a
+non-trivial minority ($16/108$, $15\%$) are sensitive to the SLO-definition
+choice -- disclosed here as a caveat on those specific reversals, not
+grounds to discard them.
+
+\subsection{Synthetic-to-Real Ranking Transfer (Pilot, Not Headline Evidence)}
+\label{sec:results-rq3-pilot}
+
+RQ3 (\S\ref{sec:study-design}) is preregistered as a SECONDARY question,
+never a headline result contract item. We report only an engineering-
+validation pilot of the synthetic-to-real transfer pipeline: $176/176$
+pilot cells and $24/24$ analysis records materialized, $0$ schema-validation
+or telemetry failures, across all $4$ synthetic stress families
+(\texttt{burst\_arrival}, \texttt{decode\_length\_skew},
+\texttt{heavy\_tail\_service}, \texttt{priority\_slo\_heterogeneity}), both
+selected load regions, and all $3$ real sources. By design, the pilot uses
+only $2$ synthesis seeds per family, too few for the frozen block-bootstrap
+transfer statistic to be defined in most conditions: Kendall's $\tau_b$ is
+undefined (\texttt{null}, insufficient sign pairs) in $21/24$ ($88\%$)
+pilot conditions. \textbf{We therefore draw no synthetic-to-real transfer
+conclusion, positive or negative, from this pilot}; it establishes only
+that the pipeline executes correctly end-to-end. A full-scale extension
+(targeted, not exhaustive) with sufficient seeds per family to define the
+transfer statistic is left to future work, consistent with RQ3's
+SECONDARY, non-headline status in this study's frozen contract.

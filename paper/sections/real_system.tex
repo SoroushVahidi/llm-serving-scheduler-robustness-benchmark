@@ -25,8 +25,20 @@ ABBA execution ordering, and per-run provenance capture -- has been
 functionally smoke-tested (\S\ref{sec:artifact}). Case selection
 (\S\ref{sec:real-system-case-selection}) has now been frozen from
 \S\ref{sec:cross-source-rankings}/\S\ref{sec:reversals}'s validated
-results; scientific execution has not yet run, pending the mechanism-
-mapping prerequisite disclosed in \S\ref{sec:real-system-case-selection}.
+results. Before the ranking-agreement runs themselves, a real-hardware
+per-window load-calibration step is required (\S\ref{sec:calibration};
+120 independent calibrations, 3 sources $\times$ 40 windows/source, each
+against its own 200 frozen requests, reference policy
+\texttt{vllm\_faithful} throughout) -- distinct from, and a prerequisite
+for, the ranking-agreement result itself, not a substitute for it. As of
+this manuscript, 118/120 calibrations have completed; the one recorded
+failure was traced to a Slurm array port-allocation collision between two
+array indices sharing the same launch script, an engineering defect
+unrelated to any calibration input, and is being recovered without
+altering any frozen scientific input. Scientific execution of the
+ranking-agreement runs themselves has not yet started, pending both this
+calibration step and the mechanism-mapping prerequisite disclosed in
+\S\ref{sec:real-system-case-selection}.
 
 \begin{itemize}
   \item \textbf{Mechanisms.} Approximately four representative
