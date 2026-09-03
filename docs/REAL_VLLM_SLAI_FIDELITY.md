@@ -251,6 +251,66 @@ provenance discipline -- never silently substitute a "close enough"
 version), then repeat this exact forced-contention fixture there for
 Section O's cross-hardware semantic check.
 
+**Superseded 2026-09-02**: a new venv (`.venv-lssp-vllm-0.27.1`, pinned
+to vLLM 0.27.1 / torch 2.13.0+cu130 / Python 3.12, matching the local
+validation exactly) was built for the RQ6 Wulver engineering gate
+(`scripts/real_vllm/wulver_engineering_gate.sbatch`). Its own history is
+three engineering/environment-preflight failures, none of them a
+scientific result and none of them a scheduling-semantic problem:
+
+1. **Job 1218904** (2026-09-02, exit 1, ~51s): crashed inside the
+   gate's `_env_probe` step, immediately on startup, before any server
+   was launched. `nvidia-smi --query-gpu=index,name,driver_version,`
+   `cuda_version,memory.total` exits 2 on this node's driver
+   (580.159.04): `Field "cuda_version" is not a valid field to query.`
+   -- `cuda_version` is simply not a supported per-GPU CSV field on this
+   nvidia-smi version, and the probe used `subprocess.check_output`,
+   which raises on any nonzero exit. Confirmed via a standalone
+   diagnostic (job 1219295): basic `nvidia-smi`, `nvidia-smi -L`, and
+   the reduced query (`index,name,driver_version,memory.total`) all
+   succeed on the same node/driver; only the `cuda_version` field is
+   rejected. `torch.cuda.is_available()` was `True` throughout -- no
+   driver or GPU fault. Fixed in commit `a1f8595`
+   (`engineering/lssp-rq6-wulver-recovery-20260902`): the probe now
+   queries only supported fields via a best-effort runner that never
+   raises, and reads CUDA version from `torch.version.cuda` separately.
+2. **Job 1219300** (2026-09-02, exit 1, ~5m33s): got past `_env_probe`
+   (fix from job 1218904 applied) and both the `forced_hold` and
+   `negative_control` fixture rounds -- both completed cleanly, all 6/6
+   requests each, SLAI_HOLD/SLAI_RELEASE events observed as expected --
+   then crashed in the `calibration_vllm_faithful` round with
+   `ModuleNotFoundError: No module named 'pandas'` inside
+   `calibration_common.aggregate_results`. The venv had `vllm`/`torch`
+   installed directly but was never given the rest of this repo's
+   declared runtime dependencies (`pandas`, `scipy`, and pandas's own
+   `python-dateutil` dependency) -- an incomplete, undocumented,
+   ad-hoc venv, not a code or scheduling defect. `pip check` was clean
+   otherwise (torch/vllm pins untouched).
+3. **Job 1219334** (2026-09-02, exit 0, ~4m21s, node n0111): replacement
+   run from the same SHA (`a1f8595`) after installing `pandas`, `scipy`,
+   and `python-dateutil` into the existing venv (verified via
+   `pip install --dry-run` beforehand that this would not touch
+   `numpy`/`torch`/`vllm`). **`pass_gate: true`** -- all four sub-gates
+   (`forced_hold`, `negative_control`, `calibration_vllm_faithful`,
+   `calibration_slai`) passed; 0 CUDA errors; 0 starved requests; clean
+   shutdown on every round; the only `Traceback` occurrences in any
+   server log are the same pre-existing benign `deep_gemm` optional-
+   import warning and the expected `EngineDeadError` printed when the
+   harness's own `handle.stop()` sends SIGTERM between rounds.
+
+`REAL_VLLM_SCIENTIFIC_VALIDATION` remains `NOT_STARTED` at the time of
+this update -- job 1219334 is
+`STAMP=ENGINEERING_ONLY_NOT_SCIENTIFIC_EVIDENCE` per its own manifest,
+same as every other fixture in this document. The reproducibility gap
+that caused job 1219300 is now closed by
+`requirements-real-vllm.txt` (pinned versions for the whole real-vLLM
+stack, not just vllm/torch) and
+`src/robustbench/real_llm/env_preflight.py`, which
+`wulver_engineering_gate.py` now calls at the top of `main()` --
+before any GPU allocation is used for a server -- so a missing
+dependency now fails in milliseconds with an explicit module list
+instead of after paying for a model load and two server rounds.
+
 ## Calibration-harness readiness (audited, not executed)
 
 `src/robustbench/real_llm/load_calibration_harness.py` (built in an

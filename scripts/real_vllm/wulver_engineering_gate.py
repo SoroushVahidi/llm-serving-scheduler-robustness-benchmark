@@ -24,6 +24,7 @@ from typing import Any
 
 import httpx
 
+from robustbench.real_llm.env_preflight import check_environment
 from robustbench.real_llm.load_calibration_harness import RatePoint, run_rate_ladder
 from robustbench.real_llm.vllm_process import start_vllm_server, wait_for_server_ready
 
@@ -286,6 +287,8 @@ def main() -> int:
     parser.add_argument("--forced-max-tokens", type=int, default=192)
     parser.add_argument("--negative-max-tokens", type=int, default=32)
     args = parser.parse_args()
+
+    check_environment()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = args.out_dir / "wulver_engineering_gate_summary.json"
