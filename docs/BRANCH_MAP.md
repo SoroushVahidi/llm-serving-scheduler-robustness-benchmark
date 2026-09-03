@@ -1,5 +1,13 @@
 # BRANCH_MAP.md — Branch Lineage
 
+> **SUPERSEDED.** This document predates the Phase-12 seal and describes a
+> Phase-10/Phase-11 branch lineage that is no longer current. For the
+> authoritative current-state branch map (Phase-12, cross-metric, RQ3, RQ6,
+> SLO-sensitivity, manuscript), see
+> `docs/LSSP_AUTHORITATIVE_STATE_20260903.md`, which is canonical until
+> superseded by Query 3. Kept below only as historical record of the
+> pre-Phase-12 lineage.
+
 This project now has a current authoritative Phase-11 integrated branch and a separate manuscript/literature branch. The scientific lineage is preserved and explicit.
 
 ## Authoritative scientific lineage

@@ -1,9 +1,68 @@
 # LSSP Authoritative Project State — 2026-09-03
 
-Handoff snapshot for a fresh coding agent / new chat. Produced by read-only
-audit (Query 1 of 3 in a planned 3-query cleanup sequence). Every claim is
-tagged `[VERIFIED_FACT]`, `[INFERENCE]`, or `[PENDING]`. No scientific
-conclusions are drawn — this is state reconciliation only.
+Handoff snapshot for a fresh coding agent / new chat. Originally produced by
+read-only audit (Query 1 of 3 in a planned 3-query cleanup sequence);
+updated after Query 2 (controlled organization/recovery/hygiene). Every
+claim is tagged `[VERIFIED_FACT]`, `[INFERENCE]`, or `[PENDING]`. No
+scientific conclusions are drawn — this is state reconciliation only.
+
+**This file is the canonical current-state/handoff document until
+superseded by Query 3.**
+
+## 0. Query 2 changes (2026-09-03, after this document's initial version)
+
+- **RQ3 preserved**: the entire pilot implementation (protocol doc, config,
+  `src/robustbench/rq3/`, scripts, tests, and the two committed manifests)
+  is now committed at `research/lssp-rq3-synthetic-to-real-prefreeze-20260903`
+  @ `4b9dfe0585062f7d6788502e48d56d3c50579acb` (pushed, remote-verified).
+  34/34 RQ3 tests pass. Raw per-cell pilot outputs remain outside git per
+  existing `artifacts/*` policy (location/hashes recorded in the protocol
+  doc and in the pilot's own `rq3_status.json`). The prior loss risk is
+  resolved.
+- **SLO full-scale analysis executed**: fixed a call-site argument bug in
+  `scripts/analysis/analyze_slo_sensitivity.py` (`reversal_persistence()`
+  was calling the sealed `classify_pairwise_reversal()` with mismatched
+  arguments — never triggered by the sparse pilot data, only by the full
+  19,800-row set). Fix is call-site-only; nothing under
+  `src/robustbench/ranking_portability/analysis/` was touched, and no
+  statistical test/definition/threshold/campaign parameter changed.
+  Committed at `research/lssp-slo-sensitivity-extension-20260903` @
+  `7cddca5cd3949acdb35ac2fc62fdda2935c07603` (pushed, remote-verified).
+  Full-scale result: 19,800 input rows, 30 ranking-robustness records, 108
+  reversal-persistence records (88 persisting, 4 disappearing). Raw output
+  stays local per policy; this commit is the provenance record.
+- **Manuscript reconciled**: `manuscript/lssp-jsc-reviewer-informed-polish-20260903`
+  is now the canonical forward manuscript branch (per explicit Query-2
+  instruction — the older `manuscript/lssp-jsc-polish-20260902` is retained,
+  untouched, as a historical alias/base, not deleted). The previously
+  uncommitted Funding/Acknowledgements/Generative-AI-disclosure text is
+  now committed there, and the Competing-Interests placeholder is resolved
+  to a plain "no competing interests" declaration. Committed at
+  `6ac78d311218d4211537e0d6fef402678d4de58b` (pushed, remote-verified);
+  manuscript rebuilds cleanly via `tectonic` (only pre-existing
+  underfull-hbox warnings, no errors). The duplicate uncommitted diff still
+  sitting in `lssp-manuscript-jsc` (the older worktree) is now redundant —
+  its content is safely preserved on the canonical branch — but was left
+  untouched rather than discarded without explicit instruction.
+- **`lssp-authoritative` worktree registration removed** (branch and all
+  history fully retained, both locally and on remote — only the local
+  worktree checkout directory was removed via `git worktree remove`, since
+  it was clean and fully represented in git). Docs in that branch remain
+  historical/pre-Phase-12 as noted below.
+- **RQ6 task 19 retry deferred**: task 108 remained `RUNNING` (healthy, node
+  n0001) for this query's entire duration (~2h05m of a 4h limit when last
+  checked) — retrying task 19 on the same node while 108 is active was
+  judged unnecessary contention risk, so per Query-1's own recommendation
+  ("retry once task 108 finishes") the retry was deferred rather than
+  forced. This is the one carried-over action for the next checkpoint
+  (Query 3 or a dedicated follow-up) — see updated §9/§15.
+- **Hygiene note**: three additional dirty worktrees were found during the
+  Query-2 audit that are **outside this query's authorized scope**
+  (`lssp-dataset-release-prefreeze`, the base `robustness-benchmark`
+  checkout on `research/bootstrap-cross-workload-benchmark-20260831`, and
+  `robustness-stage0-repair`) — each has untracked/modified files belonging
+  to separate in-flight research threads not named in Query 1 or Query 2's
+  brief. None were touched. Flagged for awareness only.
 
 ## 1. Project objective and frozen RQs
 
@@ -39,7 +98,7 @@ the LSSP RQ3/RQ6/cross-metric/SLO/manuscript thread are listed below.
 | RQ3 | `research/lssp-rq3-synthetic-to-real-prefreeze-20260903` | `bd641d4` (committed tip) | `lssp-rq3-synthetic-to-real` |
 | RQ6 | `research/lssp-rq6-real-vllm-scientific-prefreeze-20260902` | `773982a` | `lssp-rq6-scientific-prefreeze` (mirrored on Wulver, see §9) |
 | SLO | `research/lssp-slo-sensitivity-extension-20260903` | `67f5cad` | `lssp-slo-sensitivity-extension` |
-| MANUSCRIPT | ambiguous — see §11 | `a37e706` (both candidates) | `lssp-manuscript-jsc`, `lssp-jsc-reviewer-polish` |
+| MANUSCRIPT | `manuscript/lssp-jsc-reviewer-informed-polish-20260903` (canonical, resolved Query 2 — see §11) | `6ac78d3` | `lssp-jsc-reviewer-polish` |
 | ARTIFACT_REPRO | `research/lssp-artifact-repro-prefreeze-20260902` | `8a624e4` | `lssp-artifact-repro` |
 | RELEASE_PREP | `release/lssp-jsc-artifact-prep-20260902` | `f46bfb5` | `lssp-release-prep` |
 | (sibling) | `research/lssp-dataset-release-prefreeze-20260902` | `2b9a21f` | `lssp-dataset-release-prefreeze` |
@@ -62,8 +121,16 @@ manuscript and repository foundation") **predates the Phase-12 seal** and is
 now stale. Despite its name it is **not** the current authoritative branch
 for anything. Its `docs/PROJECT_STATUS.md`, `docs/EXPERIMENT_STATUS.md`,
 `docs/DATA_ACQUISITION_STATUS.md` almost certainly describe pre-Phase-12
-state — treat as historical, not current. `[PENDING]` decide in Query 2
-whether to rename/archive this worktree to remove the naming hazard.
+state — treat as historical, not current.
+
+> **RESOLVED IN QUERY 2**: the local worktree *registration* was removed
+> (`git worktree remove`) since it was clean and fully represented in git.
+> The branch `research/lssp-authoritative-pre-phase12-20260901` @ `ec12af8`
+> and all its history are fully retained, locally and on the remote — only
+> the checkout directory is gone. No filesystem rename was performed
+> (worktree removal was judged sufficient to remove the naming hazard
+> without doing both). If a fresh checkout of this branch is needed later,
+> re-add it with `git worktree add`.
 
 ## 3. Phase-12 campaign identifiers/hashes
 
@@ -146,6 +213,12 @@ worktree is **dirty** — the entire RQ3 protocol doc
 the `research/lssp-rq3-synthetic-to-real-prefreeze-20260903` branch (whose
 committed tip is still just `bd641d4`, identical to the sealed base). If
 this worktree were deleted or reset, **all RQ3 pilot work would be lost.**
+
+> **RESOLVED IN QUERY 2**: all of the above is now committed at
+> `4b9dfe0585062f7d6788502e48d56d3c50579acb` (pushed, remote-verified),
+> after running the 34-test suite (all passing) and a secret/size scan.
+> FULL_EXTENSION remains NOT STARTED — that has not changed and was not
+> attempted in Query 2. See §0.
 This is the single highest-priority item for Query 2.
 
 ## 9. RQ6 state
@@ -194,27 +267,45 @@ alone would not hit the same collision. (Note for Query 2/3: the underlying
 per-node port allocator before any future rerun of the full array, in case
 two colliding indices are ever co-scheduled again.)
 
-`RQ6_TASK108_STATE` = RUNNING, healthy, 1:47:49 elapsed / 4:00:00 limit,
-node n0001. Untouched.
+`RQ6_TASK108_STATE` = RUNNING, healthy, node n0001, throughout Query 2
+(last checked 2:06:19 elapsed / 4:00:00 limit). Untouched throughout.
 
 `[VERIFIED_FACT]` **Location risk**: RQ6's actual execution artifacts
-(sbatch logs, per-task JSON outputs, and one **uncommitted** modified file
+(sbatch logs, per-task JSON outputs, and one modified file
 `scripts/ranking_portability/build_phase11_calibration.py`) live only in a
 Wulver-side git worktree at
 `/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-rq6-calibration-20260903`
 (HEAD `773982a`, same commit as the local `lssp-rq6-scientific-prefreeze`
 worktree) — this location is **not mirrored** in the local
-`/home/soroush/repos/` worktree set and was not discovered until this audit
-searched Wulver's `/mmfs1/project/ikoutis/sv96/github/` tree. `[PENDING]`
-inspect and either commit or discard that uncommitted diff in Query 2 —
-do not assume it is unrelated to the task-19 fix without reading it first.
+`/home/soroush/repos/` worktree set. **Inspected in Query 2**: the diff on
+`build_phase11_calibration.py` is a file-permission-mode change only
+(`100755` → `100644`), zero content difference — harmless, unrelated to
+the task-19 port-collision bug, left as-is.
+
+`[PENDING → still pending]` **RQ6 task 19 retry was deferred in Query 2.**
+Task 108 remained `RUNNING` on node n0001 for this query's entire duration;
+retrying task 19 (SAFE_ENGINEERING_RETRY per the root-cause analysis above)
+was deliberately not forced alongside it, per Query 1's own recommendation
+to wait for 108 to finish first and avoid adding scheduling contention on
+the same node. **This is the single carried-over action item** — no launcher
+change is needed (task 119 already completed and released port 8119); the
+next session should check `squeue -j 1220661_108`, and once it is no longer
+running, resubmit array index 19 alone with the existing, unmodified
+`scripts/real_vllm/run_rq6_calibration.sbatch` (e.g.
+`sbatch --array=19 scripts/real_vllm/run_rq6_calibration.sbatch`), then
+verify `ExitCode 0:0` and that its output JSON validates like the other 118
+completed tasks before treating all 120 RQ6 tasks as valid.
 
 ## 10. SLO state
 
 See §4/§6. Raw generation: **COMPLETE** (19,800/19,800, 0 failures).
-Full-scale statistical analysis (correlations/reversals over the full run,
-analogous to the pilot's `slo_sensitivity_status.json`): **NOT YET RUN**
-`[PENDING]`. Worktree clean, branch `67f5cad`.
+
+> **RESOLVED IN QUERY 2**: full-scale statistical analysis now run (fixed a
+> call-site bug first — see §0). Branch `research/lssp-slo-sensitivity-extension-20260903`
+> now at `7cddca5cd3949acdb35ac2fc62fdda2935c07603` (pushed,
+> remote-verified). Result: 19,800 input rows, 30 ranking-robustness
+> records, 108 reversal-persistence records (88 persisting, 4
+> disappearing). Raw output stays local per `artifacts/*` policy.
 
 ## 11. Manuscript state
 
@@ -232,6 +323,11 @@ the newer date suggests intended forward direction but carries no actual
 content difference yet. **This must be resolved by a human/Query-2 decision,
 not inferred.** `[PENDING]`
 
+> **RESOLVED IN QUERY 2**: `manuscript/lssp-jsc-reviewer-informed-polish-20260903`
+> is designated canonical/forward (explicit Query-2 instruction). The older
+> `manuscript/lssp-jsc-polish-20260902` is retained, untouched, as a
+> historical alias/base — not deleted. See §0.
+
 `[VERIFIED_FACT]` **Uncommitted declarations update, wrong worktree**: the
 funding / acknowledgements / generative-AI-disclosure text described in the
 task brief exists **only as an uncommitted `git diff`** in
@@ -241,18 +337,23 @@ the `lssp-jsc-reviewer-polish` worktree's committed content (which still
 shows the placeholder "no funds... `[AUTHOR TO CONFIRM]`" and no
 Acknowledgements/Generative-AI-statement paragraphs at all). If
 `lssp-manuscript-jsc` were reset or the worktree removed, this text would be
-lost.
+lost. **RESOLVED IN QUERY 2** — see §0: this text is now committed to the
+canonical branch at `6ac78d3`, and the Competing Interests placeholder is
+resolved. The below reflects state as observed in Query 1 (kept for the
+audit trail).
 
-- `FUNDING` = present (uncommitted diff only) — CloudRift AI Builder Grant,
-  Cohere Labs Catalyst Grant Program, AMD AI Developer Program /
+- `FUNDING` = now committed on canonical branch — CloudRift AI Builder
+  Grant, Cohere Labs Catalyst Grant Program, AMD AI Developer Program /
   Fireworks AI credits.
-- `ACKNOWLEDGEMENTS` = present (uncommitted diff only) — Professor Ioannis
-  Koutis.
-- `GENERATIVE_AI_USE` = present (uncommitted diff only) — ChatGPT, Codex,
+- `ACKNOWLEDGEMENTS` = now committed on canonical branch — Professor
+  Ioannis Koutis.
+- `GENERATIVE_AI_USE` = now committed on canonical branch — ChatGPT, Codex,
   Claude, Gemini, Cursor, Perplexity AI.
-- `COMPETING_INTERESTS_PLACEHOLDER_REMAINS` = **YES** — the diff does not
-  touch the Competing Interests paragraph; `[AUTHOR TO CONFIRM before
-  submission.]` is still present in both worktrees.
+- `COMPETING_INTERESTS_PLACEHOLDER_REMAINS` = **NO (resolved in Query 2)**
+  — now reads "The author declares no competing interests." on the
+  canonical branch. (Still present, unresolved, on the older
+  `lssp-manuscript-jsc` worktree/branch, which was intentionally left
+  untouched.)
 
 **Result integration into manuscript body** (grepped `paper/sections/*.tex`
 in `lssp-jsc-reviewer-polish`):
@@ -303,22 +404,37 @@ inspected beyond confirming clean working trees.
 
 ## 15. Exact next actions in priority order
 
-1. **Commit the untracked RQ3 pilot work** in `lssp-rq3-synthetic-to-real`
-   (docs/configs/src/scripts/artifacts/manifests) before anything else
-   touches that worktree — it is currently one `git clean`/reset away from
-   being permanently lost.
-2. **Commit or discard** the uncommitted `declarations.tex` edit in
-   `lssp-manuscript-jsc`, after deciding which manuscript branch is
-   authoritative (§11) — do not let it sit uncommitted through a Query-2
-   cleanup pass.
-3. **Inspect** the uncommitted diff in the Wulver-side RQ6 worktree
-   (`build_phase11_calibration.py`) before deciding whether to commit,
-   discard, or fold it into a task-19 retry.
-4. **Retry RQ6 task 19 only**, once task 108 finishes (to avoid adding
-   scheduling contention) — safe per §9's root-cause analysis. Do not
-   touch task 108 before then.
-5. Run the full-scale SLO-sensitivity analysis step now that raw generation
-   is complete.
-6. Decide manuscript-branch consolidation (§11) and rename/archive the
-   misleadingly-named `lssp-authoritative` worktree/branch (§2) to remove
-   the naming hazard for future sessions.
+Items 1, 2, 3, 5, and 6 below were completed in Query 2 (see §0). The one
+carried-over item is:
+
+1. **Retry RQ6 task 19 only**, once task 108 finishes — `squeue -j
+   1220661_108`, and when it's no longer running,
+   `sbatch --array=19 scripts/real_vllm/run_rq6_calibration.sbatch` (unmodified
+   launcher; task 119 already released port 8119, so no launcher change is
+   needed). Verify `ExitCode 0:0` and schema-valid output before treating
+   all 120 RQ6 tasks as valid for downstream use.
+
+Completed in Query 2 (kept here for the audit trail):
+2. ~~Commit the untracked RQ3 pilot work~~ → `4b9dfe0` (pushed).
+3. ~~Commit or discard the uncommitted `declarations.tex` edit~~ → committed
+   on canonical branch at `6ac78d3` (pushed); Competing Interests resolved.
+4. ~~Inspect the uncommitted diff in the Wulver-side RQ6 worktree~~ →
+   confirmed permission-mode-only, harmless, left as-is.
+5. ~~Run the full-scale SLO-sensitivity analysis~~ → `7cddca5` (pushed);
+   108 reversal-persistence records (88 persisting, 4 disappearing).
+6. ~~Decide manuscript-branch consolidation and resolve the misleadingly-named
+   `lssp-authoritative` worktree~~ → reviewer-informed-polish branch
+   designated canonical; stale worktree registration removed (branch/history
+   retained).
+
+Remaining scientific/manuscript integration work for Query 3 (not started,
+not scientific redesign — see §13):
+- Integrate cross-metric, RQ3 (pilot), SLO-sensitivity (now full-scale), and
+  RQ6 (once task 19 is recovered) results into the manuscript body — all
+  four are currently `NOT_INTEGRATED` / `PENDING_RESULT` / stale-text (§11).
+- Decide/launch (or explicitly defer, with rationale) the RQ3 full
+  (440-cell) extension referenced in the RQ3 protocol doc §7 — pilot-only
+  today.
+- Update `results.tex`'s SLO-sensitivity paragraph, which still says the
+  result "remains unavailable" — now false at the raw-data and analysis
+  level.
