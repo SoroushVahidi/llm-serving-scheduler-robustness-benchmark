@@ -108,14 +108,41 @@ Primary metric: `arrival_normalized_weighted_goodput` (ANWG), matching
 `docs/STATISTICAL_ANALYSIS_PLAN.md` §E's naming and
 `docs/REAL_SYSTEM_METRIC_MAPPING.md`'s real-engine mapping.
 
-**Experimental unit — adapted from, not identical to, the simulator plan.**
-`docs/STATISTICAL_ANALYSIS_PLAN.md` resamples over *workload windows*
-because the simulator's Phase-11/12 campaign has many windows per source.
-RQ6 uses exactly one frozen window per source (the specific
-`HIGH_PRESSURE` window named in the case-selection manifest), run for 10
-independent live repetitions instead. The window is therefore not a valid
-resampling axis here (there is only one), so the experimental unit for
-RQ6 is **the repetition**: for each (policy, source) cell, the 10
+**Experimental unit — adapted from, not identical to, the simulator plan,
+and corrected from an earlier draft of this document.** A forensic trace
+of the frozen Phase-12 inputs (2026-09-03) found that
+`<source>::HIGH_PRESSURE` in the case-selection manifest is **not** a
+single window: `ranking_portability_phase12_campaign_freeze.json`'s
+`region_assignment_index` scales all **40** frozen windows per source
+(`{source}_stage0_w00..w09` + `{source}_pilot_v2_w10..w39`) independently
+to `1.5×` each window's own FIFO `lambda_ref`, and `HIGH_PRESSURE` is the
+label for that aggregate region, not one window's identity. An earlier
+draft of this section incorrectly assumed a single frozen window; this is
+the correction.
+
+Running all 40 windows as 40 independent real-vLLM cells (×2 policies
+×10 repetitions = 800 live server rounds per source, 2,400 total) is not
+a defensible use of GPU time for a fidelity check whose stated purpose is
+sign/direction agreement, not per-window precision (`docs/
+REAL_SYSTEM_VALIDATION_PLAN.md`'s "Explicitly not required"). The
+methodologically faithful resolution, decided here before any workload
+manifest is built or any real measurement is taken (so it cannot be an
+outcome-dependent choice): **one real-vLLM workload manifest per source
+concatenates all 40 frozen windows' requests** (each window's arrival
+times still independently rebased/scaled to 1.5× that window's own
+`lambda_ref`, exactly mirroring `region_assignment_index`, then the 40
+rebased sequences concatenated in `window_id`-sorted order into one fixed
+arrival sequence for that source). No window is dropped or subsampled —
+this uses the complete frozen `HIGH_PRESSURE` definition, not a new
+selection. **One repetition = one live execution of that complete
+40-window sequence** against one policy; 10 such repetitions per (policy,
+source) is the experimental unit for bootstrap resampling. This requires
+no change to the already-frozen execution order (§ above) or `N_REPETITIONS
+= 10` — a "run unit" there already meant "one full run of the source's
+fixed manifest," which now simply means the concatenated 40-window
+manifest instead of a single window.
+
+For each (policy, source) cell, the 10
 repetition-level ANWG measurements are the population resampled with
 replacement (bootstrap, ≥2,000 resamples, matching the simulator plan's
 `≥2,000`-resample convention), producing a 95% CI on each cell's ANWG and
@@ -145,14 +172,54 @@ section and applied per-family, not globally.
 
 ## Open items (must be resolved before stage 9 can run)
 
-1. **Workload manifests** (stage 4): forensic trace of the exact frozen
-   Phase-12 `azure_llm_2024::HIGH_PRESSURE` / `burstgpt::HIGH_PRESSURE` /
-   `bailian_qwen::HIGH_PRESSURE` window inputs (source registry entries,
-   adapters, Phase-11 six-region calibration artifacts, Phase-12 campaign
-   window selection, and each source's disclosed `SYNTHESIZED_IMPUTED`
-   overlay parameters per `docs/DATA_FIELD_PROVENANCE.md`) is required
-   before a real-vLLM arrival manifest contract can be written honestly.
-   In progress as a separate investigation at the time of this document.
+1. **Workload manifests** (stage 4) — forensic trace complete
+   (2026-09-03), generator not yet built. Findings that resolve most of
+   the design ambiguity:
+   - No adapter for any of the three sources (`azure_llm.py`,
+     `burstgpt.py`, `bailian.py`) ever captured prompt/response **text**
+     — only timing and token counts. This is true at every stage of the
+     pipeline, including the final simulator `Request`. Per the preferred
+     hierarchy in the original task instructions (exact text > deterministic
+     length-matched reconstruction > another pre-specified rule): exact
+     text is unavailable, so real-vLLM prompts must be **deterministically
+     length-matched synthetic text**, reusing the existing
+     `real_llm/calibration_common.py` length-targeted prompt builder
+     (already used by the engineering gate's calibration rounds) —
+     not a new synthesis mechanism. This is an approximation and must be
+     disclosed as a threat to validity in any eventual results writeup:
+     real token *content* differs from the source trace even though
+     token *counts* match exactly.
+   - `priority`/`class_id`/`predicted_output_tokens`/`slo_deadline` are
+     `SYNTHESIZED_IMPUTED` by `stage0_synthesis_v1`
+     (`priority=1.0` constant, `class_id="stage0_uniform"` constant,
+     `predicted_output_tokens` = log-normal noise at 20% relative error
+     around the real `output_tokens`, `slo_deadline` = a linear proxy ×
+     20.0). Per `docs/DATA_FIELD_PROVENANCE.md`, these must be **carried
+     through unmodified** into the real-vLLM manifest, never
+     resynthesized independently.
+   - `azure_llm_2024::HIGH_PRESSURE` / `burstgpt::HIGH_PRESSURE` /
+     `bailian_qwen::HIGH_PRESSURE` are each an aggregate over 40 frozen
+     windows per source, not one window — resolved above ("Statistics"
+     §Experimental unit): one manifest per source concatenates all 40
+     windows' requests, each independently rebased/scaled to 1.5× its
+     own window's `lambda_ref` (from `region_assignment_index` in
+     `ranking_portability_phase12_campaign_freeze.json`), no
+     subsampling.
+   - Real per-request rows (real `prompt_tokens`/`actual_output_tokens`/
+     `arrival_time_s`, still never prompt text) exist today only as an
+     **un-committed, regenerable local cache**
+     (`pilot_v2_windows_full_cache.json`, hash-verified against
+     `phase10_window_hash`/`content_sha256` already embedded in the
+     committed `campaign_freeze.json`) — reading that cache (or
+     regenerating it deterministically from the committed
+     `source_file_sha256`/`sampling_seed`/`offset_valid_rows`/
+     `start_index_in_valid_rows` plus the Wulver-hosted raw trace) is the
+     concrete next engineering step, not a new investigation.
+   - Stable request identity: use the adapter layer's
+     `derived_record_id`/`source_record_id` (dropped by the simulator's
+     own final `Request.request_id`, which resets to a local per-window
+     loop index) as the real-vLLM manifest's `request_id`, since it is
+     the only identity stable across regeneration.
 2. **SLO-deadline/weight attachment** (blocks stage 6): the real-vLLM
    collection layer (`calibration_common.py`, `vllm_openai_client.py`)
    does not yet attach a per-request `slo_deadline`/`weight` or compute
