@@ -2,12 +2,64 @@
 
 Handoff snapshot for a fresh coding agent / new chat. Originally produced by
 read-only audit (Query 1 of 3 in a planned 3-query cleanup sequence);
-updated after Query 2 (controlled organization/recovery/hygiene). Every
-claim is tagged `[VERIFIED_FACT]`, `[INFERENCE]`, or `[PENDING]`. No
-scientific conclusions are drawn — this is state reconciliation only.
+updated after Query 2 (controlled organization/recovery/hygiene) and Query 3
+(final scientific integration/manuscript reconciliation). Every claim is
+tagged `[VERIFIED_FACT]`, `[INFERENCE]`, or `[PENDING]`. No scientific
+conclusions are drawn beyond what the manuscript itself now states — this
+is state reconciliation only.
 
-**This file is the canonical current-state/handoff document until
-superseded by Query 3.**
+**This file remains the canonical detailed current-state document.** A
+compact companion, `docs/LSSP_NEW_CHAT_HANDOFF_20260903.md`, was added in
+Query 3 specifically for bootstrapping a fresh chat quickly — read that
+one first, and come back here only for the full detail/audit trail.
+
+## Query 3 changes (2026-09-03, final integration pass)
+
+- **Manuscript integration committed**: `manuscript/lssp-jsc-reviewer-informed-polish-20260903`
+  @ `9f2c1efb99998f79bb8928a35ceecb785458167e` (pushed, remote-verified).
+  Added a new "Cross-Metric Ranking Portability" results subsection
+  (headline: 990 conditions, median Kendall τ_b=0.419, 20% negative-τ
+  conditions, median top-1 agreement=0; 54,450 pairwise comparisons, 3,207
+  (5.9%) FDR-supported disagreements). Corrected the SLO-sensitivity
+  results/limitations/methodology text from "remains unavailable" to the
+  completed full-scale finding (108 reversal checks: 88 persist, 6
+  direction-change, 10 become unsupported, 4 disappear; 13/30
+  ranking-robustness conditions show top-1 disagreement). Added a new
+  "Synthetic-to-Real Ranking Transfer (Pilot, Not Headline Evidence)"
+  subsection, explicit that the transfer statistic is undefined in 21/24
+  pilot conditions by design and no transfer conclusion is drawn. Updated
+  `real_system.tex` to clarify the 120-task Slurm array is a real-hardware
+  **calibration prerequisite** (118/120 done), not the RQ6 validation
+  result itself — the "Result Placeholder" is correctly left pending.
+  Manuscript rebuilds cleanly (tectonic; zero undefined references, only
+  pre-existing underfull-hbox warnings).
+- **RQ3 decision**: `DEFER_TO_FUTURE_WORK` for the full 440-cell extension.
+  Rationale: RQ3 is preregistered SECONDARY, never a headline result
+  contract item; its own pilot-gate documentation stamps the pilot
+  `RQ3_PIPELINE_PILOT_NOT_HEADLINE_SCIENTIFIC_EVIDENCE`; the manuscript
+  never currently claims full RQ3 evidence (only poses the question); and
+  launching a new 440-cell campaign would be starting a new experiment,
+  out of scope for a reconciliation/handoff query. Integrated the pilot
+  only with explicit "pilot, not headline evidence" labeling.
+- **RQ6 task 19 retry**: still deferred. Task 108 remained `RUNNING` for
+  Query 3's entire duration too (last checked ~2h22m of 4h limit — an
+  outlier relative to the other 118 tasks' 2–30 min typical runtimes,
+  worth watching but not yet actionable). **This is the one substantive
+  action item carried into the next session** — see
+  `docs/LSSP_NEW_CHAT_HANDOFF_20260903.md` §10 for the exact resume
+  command.
+- **Cross-metric and SLO verified read-only** (no rerun): cross-metric
+  990/990 status OK, 54,450 disagreement records, log clean, input hash
+  matches; SLO 19,800/19,800 raw cells, 30 ranking-robustness + 108
+  reversal-persistence records read and classified exactly (no records
+  inferred).
+- **Hygiene**: redundant declarations.tex diff in the old
+  `lssp-manuscript-jsc` worktree is **not byte-identical** to the
+  canonical branch (the canonical branch has since also resolved
+  Competing Interests, which the old diff never touched) — left
+  untouched, not discarded. The three out-of-scope dirty worktrees flagged
+  in Query 2 (`lssp-dataset-release-prefreeze`, base `robustness-benchmark`
+  checkout, `robustness-stage0-repair`) remain untouched and unchanged.
 
 ## 0. Query 2 changes (2026-09-03, after this document's initial version)
 
