@@ -2,7 +2,7 @@
   "manifest_kind": "rq6_real_vllm_scientific_prefreeze_v1",
   "manifest_date": "2026-09-02",
   "status": "PARTIAL_PREFREEZE",
-  "status_note": "Stages 1/2/3/5/7/8 frozen and validated. Stages 4 (workload manifests) and 6 (calibration execution) are NOT DONE and block stage 9 (comparative measurement). See docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md for the full stage table and open items.",
+  "status_note": "Stages 1/2/3/4/5/7/8 frozen and validated (2026-09-03: stage 4 workload manifests built and validated). Stage 6 (calibration execution) is NOT DONE and blocks stage 9 (comparative measurement): the SLO/weight metric pipeline (scale_request_timing/real_slo_violation_rate, robustbench.real_llm.rq6_slo_metrics) is now implemented and unit-tested, but what request population each bisection candidate-factor measurement should replay against is a genuine open design question, not yet resolved by any frozen document -- deliberately not decided under time pressure. See docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md for the full stage table and open items.",
 
   "case_selection": {
     "manifest_path": "artifacts/manifests/phase12_rq6_case_selection_20260902.json",
@@ -32,10 +32,29 @@
   },
 
   "workload_manifests": {
-    "status": "NOT_DONE",
-    "azure_llm_2024": null,
-    "burstgpt": null,
-    "bailian_qwen": null
+    "status": "DONE",
+    "generator": "scripts/real_vllm/build_rq6_workload_manifests.py",
+    "validator": "scripts/real_vllm/validate_rq6_workload_manifests.py",
+    "validation_report_path": "artifacts/validation/rq6_real_vllm_manifest_validation.json",
+    "window_execution_unit": "40_windows_concatenated_per_source",
+    "azure_llm_2024": {
+      "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_azure_llm_2024_20260903.json",
+      "content_sha256": "689b7fa8df234bacb9e27c936bafafb79279b86bdb8f6996f6ebbecb79a1d887",
+      "window_count": 40,
+      "request_count": 8000
+    },
+    "burstgpt": {
+      "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_burstgpt_20260903.json",
+      "content_sha256": "8d1cf0726f316d37fe5dd8da53414ffa971760af27ce86c17f47686807f70371",
+      "window_count": 40,
+      "request_count": 8000
+    },
+    "bailian_qwen": {
+      "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_bailian_qwen_20260903.json",
+      "content_sha256": "e8d8a227f018e10ffa4c2a363554e8b9bea1d0afec1a3277ac7655b44d3fb9ad",
+      "window_count": 40,
+      "request_count": 8000
+    }
   },
 
   "calibration": {
@@ -43,6 +62,12 @@
     "manifest_path": "configs/real_vllm/rq6_calibration_manifest_20260902.json",
     "manifest_sha256": "417dd8d3d07e770c4629beb59d3116b832516d3f59b7230b9a39b93eb7f65d2d",
     "status": "PROCEDURE_FROZEN_NOT_YET_EXECUTABLE",
+    "slo_weight_metric_pipeline": {
+      "status": "IMPLEMENTED_UNIT_TESTED_NOT_YET_RUN_ON_REAL_HARDWARE",
+      "module": "src/robustbench/real_llm/rq6_slo_metrics.py",
+      "tests": "tests/test_rq6_slo_metrics.py"
+    },
+    "open_blocker": "bisection candidate-factor request population size is undecided (no frozen document specifies whether each of the 30 bisection iterations replays the full 8,000-request per-source manifest or a smaller calibration-only sample) -- must be decided and frozen, outcome-blind, before execution, not invented ad hoc under a deadline",
     "derived_rate_manifest": null
   },
 
@@ -55,7 +80,7 @@
 
   "statistics": {
     "primary_metric": "arrival_normalized_weighted_goodput",
-    "experimental_unit": "repetition (adapted from docs/STATISTICAL_ANALYSIS_PLAN.md's window-level unit; RQ6 has one frozen window per source)",
+    "experimental_unit": "repetition (adapted from docs/STATISTICAL_ANALYSIS_PLAN.md's window-level unit; one repetition = one live execution of a source's complete 40-window concatenated manifest, corrected 2026-09-03 from an earlier draft that assumed one frozen window per source)",
     "ci_method": "bootstrap, >=2000 resamples, 95% CI",
     "multiple_testing_correction": "Benjamini-Hochberg FDR q=0.05 per family (4 pairwise tests)",
     "frozen_before_outcomes": true

@@ -110,6 +110,75 @@ def approx_token_count(text: str) -> int:
 
 
 # ---------------------------------------------------------------------------
+# Exact tokenizer-length-matched prompt construction (RQ6 real-vLLM workload
+# manifests). Audited against build_length_targeted_prompt() above and found
+# unsuitable for this purpose: that function (a) only supports the three
+# discrete PROMPT_BUCKET_TARGET_TOKENS buckets, not an arbitrary continuous
+# target, and (b) controls length via a word-count heuristic on the
+# *instruction* text, which its own docstring documents as approximate, not
+# exact. RQ6's frozen requirement (docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_
+# 20260902.md) is exact token-count equality against each frozen trace
+# request's `input_tokens`, so this is a new function, reusing the same
+# non-copyrighted `_SENTENCE_BANK` for stylistic/audit consistency rather
+# than inventing new source text.
+# ---------------------------------------------------------------------------
+
+def build_exact_length_prompt(tokenizer: Any, target_tokens: int, seed: int) -> str:
+    """Deterministically build prompt text whose tokenizer-encoded length
+    (`len(tokenizer.encode(text, add_special_tokens=False))`) is exactly
+    `target_tokens`, for any `target_tokens >= 1`.
+
+    Method: walk a deterministic, seed-rotated stream of words drawn from
+    `_SENTENCE_BANK`, tokenizing incrementally, until the accumulated token
+    id list reaches at least `target_tokens`; then hard-truncate the id list
+    to exactly `target_tokens` and decode it back to text. This is exact by
+    construction on the *id* axis. The returned *text*, if re-tokenized, is
+    verified by the caller (see `verify_exact_length_prompt`) to round-trip
+    to the same length for the plain-ASCII sentence bank used here; a
+    request where it does not is a real, disclosed approximation, not a
+    silently-accepted one.
+    """
+    if target_tokens < 1:
+        raise ValueError(f"target_tokens must be >= 1, got {target_tokens}")
+
+    start = seed % len(_SENTENCE_BANK)
+
+    def _words_upto(n_sentences: int) -> List[str]:
+        words: List[str] = []
+        for i in range(n_sentences):
+            words.extend(_SENTENCE_BANK[(start + i) % len(_SENTENCE_BANK)].split())
+        return words
+
+    # Coarse jump: estimate the word count needed from this tokenizer's
+    # observed tokens-per-word ratio on the sentence bank itself, then do a
+    # small number of doubling top-ups if the estimate undershoots. This
+    # keeps cost near O(log target_tokens) encode() calls instead of
+    # O(target_tokens) (re-encoding the whole growing string once per word
+    # does not scale to the ~29k-token prompts seen in the frozen traces).
+    bank_words = " ".join(w for s in _SENTENCE_BANK for w in s.split())
+    bank_word_count = len(bank_words.split())
+    bank_token_count = len(tokenizer.encode(bank_words, add_special_tokens=False))
+    tokens_per_word = max(bank_token_count / bank_word_count, 1e-6)
+
+    n_sentences = max(1, int(target_tokens / tokens_per_word / 8) + 1)  # ~8 words/sentence
+    words = _words_upto(n_sentences)
+    ids = tokenizer.encode(" ".join(words), add_special_tokens=False)
+    while len(ids) < target_tokens:
+        n_sentences *= 2
+        words = _words_upto(n_sentences)
+        ids = tokenizer.encode(" ".join(words), add_special_tokens=False)
+
+    truncated_ids = ids[:target_tokens]
+    return tokenizer.decode(truncated_ids)
+
+
+def verify_exact_length_prompt(tokenizer: Any, prompt_text: str, target_tokens: int) -> bool:
+    """Re-encodes `prompt_text` and checks it has exactly `target_tokens`
+    tokens. Used to disclose, not hide, any round-trip mismatch."""
+    return len(tokenizer.encode(prompt_text, add_special_tokens=False)) == target_tokens
+
+
+# ---------------------------------------------------------------------------
 # Proposed v2 workload: length-targeted prompts (NOT wired into any live
 # script — see docs/real_llm_v2_workload_proposal.md). build_prompt() above
 # asks for "one short sentence," so generated output stayed ~22-35 tokens
