@@ -16,7 +16,7 @@ set -euo pipefail
 REPO="${REPO:?set REPO to the checked-out repo path}"
 VENV="${VENV:?set VENV to the validated real-vLLM venv path}"
 MODEL="${MODEL:-Qwen/Qwen2.5-0.5B-Instruct}"
-CALIBRATION_MANIFEST_HASH="${CALIBRATION_MANIFEST_HASH:?set to configs/real_vllm/rq6_calibration_manifest_v2_20260903.json's sha256}"
+CALIBRATION_MANIFEST_HASH="${CALIBRATION_MANIFEST_HASH:?set to the sha256 of configs/real_vllm/rq6_calibration_manifest_v2_20260903.json}"
 OUT_DIR="${OUT_DIR:-${REPO}/artifacts/real_vllm/calibration/rq6/${CALIBRATION_MANIFEST_HASH}}"
 
 cd "$REPO"
