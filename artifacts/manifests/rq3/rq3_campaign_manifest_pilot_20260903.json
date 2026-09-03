@@ -1,0 +1,1899 @@
+{
+  "campaign_manifest_sha256": "8591a009be8c5ef8af7c8654abe06737abbea07a6a49ed9ff39d97060fbce3b6",
+  "cells": [
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__admission_control",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__edf",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__estimated_service_time_first",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__fifo",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__kv_constrained_online",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__least_laxity_first",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__sarathi_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__slai_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__vllm_chunked_prefill_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__vllm_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__HIGH_PRESSURE__weighted_fair_share",
+      "family_id": "burst_arrival",
+      "load_factor": 3.145813241222127,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__admission_control",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__edf",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__estimated_service_time_first",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__fifo",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__kv_constrained_online",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__least_laxity_first",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__sarathi_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__slai_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__vllm_chunked_prefill_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__vllm_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s00__KNEE__weighted_fair_share",
+      "family_id": "burst_arrival",
+      "load_factor": 2.0972088274814182,
+      "load_region": "KNEE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__admission_control",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__edf",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__estimated_service_time_first",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__fifo",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__kv_constrained_online",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__least_laxity_first",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__sarathi_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__slai_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__vllm_chunked_prefill_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__vllm_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__HIGH_PRESSURE__weighted_fair_share",
+      "family_id": "burst_arrival",
+      "load_factor": 2.086495601736595,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__admission_control",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__edf",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__estimated_service_time_first",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__fifo",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__kv_constrained_online",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__least_laxity_first",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__sarathi_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__slai_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__vllm_chunked_prefill_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__vllm_faithful",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_burst_arrival_s01__KNEE__weighted_fair_share",
+      "family_id": "burst_arrival",
+      "load_factor": 1.3909970678243966,
+      "load_region": "KNEE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__admission_control",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__edf",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__estimated_service_time_first",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__fifo",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__kv_constrained_online",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__least_laxity_first",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__sarathi_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__slai_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__vllm_chunked_prefill_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__vllm_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__HIGH_PRESSURE__weighted_fair_share",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.6570469287771487,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__admission_control",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__edf",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__estimated_service_time_first",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__fifo",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__kv_constrained_online",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__least_laxity_first",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__sarathi_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__slai_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__vllm_chunked_prefill_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__vllm_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s00__KNEE__weighted_fair_share",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.4380312858514324,
+      "load_region": "KNEE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__admission_control",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__edf",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__estimated_service_time_first",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__fifo",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__kv_constrained_online",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__least_laxity_first",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__sarathi_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__slai_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__vllm_chunked_prefill_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__vllm_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__HIGH_PRESSURE__weighted_fair_share",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.5305227668591249,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__admission_control",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__edf",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__estimated_service_time_first",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__fifo",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__kv_constrained_online",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__least_laxity_first",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__sarathi_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__slai_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__vllm_chunked_prefill_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__vllm_faithful",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_decode_length_skew_s01__KNEE__weighted_fair_share",
+      "family_id": "decode_length_skew",
+      "load_factor": 0.3536818445727499,
+      "load_region": "KNEE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__admission_control",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__edf",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__estimated_service_time_first",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__fifo",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__kv_constrained_online",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__least_laxity_first",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__sarathi_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__slai_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__vllm_chunked_prefill_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__vllm_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__HIGH_PRESSURE__weighted_fair_share",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.4635251029442167,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__admission_control",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__edf",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__estimated_service_time_first",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__fifo",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__kv_constrained_online",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__least_laxity_first",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__sarathi_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__slai_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__vllm_chunked_prefill_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__vllm_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s00__KNEE__weighted_fair_share",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.9756834019628111,
+      "load_region": "KNEE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__admission_control",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__edf",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__estimated_service_time_first",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__fifo",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__kv_constrained_online",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__least_laxity_first",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__sarathi_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__slai_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__vllm_chunked_prefill_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__vllm_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__HIGH_PRESSURE__weighted_fair_share",
+      "family_id": "heavy_tail_service",
+      "load_factor": 1.463784858304968,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__admission_control",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__edf",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__estimated_service_time_first",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__fifo",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__kv_constrained_online",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__least_laxity_first",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__sarathi_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__slai_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__vllm_chunked_prefill_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__vllm_faithful",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_heavy_tail_service_s01__KNEE__weighted_fair_share",
+      "family_id": "heavy_tail_service",
+      "load_factor": 0.975856572203312,
+      "load_region": "KNEE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__admission_control",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__edf",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__estimated_service_time_first",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__fifo",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__kv_constrained_online",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__least_laxity_first",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__sarathi_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__slai_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__vllm_chunked_prefill_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__vllm_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__HIGH_PRESSURE__weighted_fair_share",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.255957586545891,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__admission_control",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__edf",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__estimated_service_time_first",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__fifo",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__kv_constrained_online",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__least_laxity_first",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__sarathi_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__slai_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__vllm_chunked_prefill_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__vllm_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s00__KNEE__weighted_fair_share",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.8373050576972606,
+      "load_region": "KNEE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__admission_control",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__edf",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__estimated_service_time_first",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__fifo",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__kv_constrained_online",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__least_laxity_first",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__sarathi_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__slai_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__vllm_chunked_prefill_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__vllm_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__HIGH_PRESSURE__weighted_fair_share",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 1.1163444388718267,
+      "load_region": "HIGH_PRESSURE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__admission_control",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "admission_control",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__edf",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "edf",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__estimated_service_time_first",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "estimated_service_time_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__fifo",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "fifo",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__kv_constrained_online",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "kv_constrained_online",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__least_laxity_first",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "least_laxity_first",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__sarathi_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "sarathi_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__slai_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "slai_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__vllm_chunked_prefill_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "vllm_chunked_prefill_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__vllm_faithful",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "vllm_faithful",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    },
+    {
+      "cell_id": "rq3_priority_slo_heterogeneity_s01__KNEE__weighted_fair_share",
+      "family_id": "priority_slo_heterogeneity",
+      "load_factor": 0.7442296259145511,
+      "load_region": "KNEE",
+      "policy_id": "weighted_fair_share",
+      "repetition": 0,
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    }
+  ],
+  "code_sha": "bd641d4902431b821cd7eb4ce9ad236955cec45d",
+  "family_ids": [
+    "burst_arrival",
+    "decode_length_skew",
+    "heavy_tail_service",
+    "priority_slo_heterogeneity"
+  ],
+  "is_pilot": true,
+  "load_regions": [
+    "KNEE",
+    "HIGH_PRESSURE"
+  ],
+  "manifest_kind": "rq3_synthetic_to_real_campaign_manifest_v1",
+  "n_cells": 176,
+  "n_families": 4,
+  "n_policies": 11,
+  "n_regions": 2,
+  "n_seeds_per_family": 2,
+  "n_windows": 8,
+  "policies": [
+    "admission_control",
+    "edf",
+    "estimated_service_time_first",
+    "fifo",
+    "kv_constrained_online",
+    "least_laxity_first",
+    "sarathi_faithful",
+    "slai_faithful",
+    "vllm_chunked_prefill_faithful",
+    "vllm_faithful",
+    "weighted_fair_share"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "windows": [
+    {
+      "family_id": "burst_arrival",
+      "lambda_ref": 2.0972088274814182,
+      "load_factors": {
+        "HIGH_PRESSURE": 3.145813241222127,
+        "KNEE": 2.0972088274814182
+      },
+      "n_requests": 563,
+      "requests_content_sha256": "4c9ed51ea38855e24f4c67d866bffc013e693626f8cde8f33b04879606d8e4a7",
+      "seed": 0,
+      "window_id": "rq3_burst_arrival_s00"
+    },
+    {
+      "family_id": "burst_arrival",
+      "lambda_ref": 1.3909970678243966,
+      "load_factors": {
+        "HIGH_PRESSURE": 2.086495601736595,
+        "KNEE": 1.3909970678243966
+      },
+      "n_requests": 543,
+      "requests_content_sha256": "575f540861375cedc699efd29c077f68eca819c483a1dba18a9cadb9715db881",
+      "seed": 1,
+      "window_id": "rq3_burst_arrival_s01"
+    },
+    {
+      "family_id": "decode_length_skew",
+      "lambda_ref": 0.4380312858514324,
+      "load_factors": {
+        "HIGH_PRESSURE": 0.6570469287771487,
+        "KNEE": 0.4380312858514324
+      },
+      "n_requests": 408,
+      "requests_content_sha256": "c3a9313efa3f5b6dfd73cbcf797d65d091c1b0c6904ae972f2860314f6f5d050",
+      "seed": 0,
+      "window_id": "rq3_decode_length_skew_s00"
+    },
+    {
+      "family_id": "decode_length_skew",
+      "lambda_ref": 0.3536818445727499,
+      "load_factors": {
+        "HIGH_PRESSURE": 0.5305227668591249,
+        "KNEE": 0.3536818445727499
+      },
+      "n_requests": 401,
+      "requests_content_sha256": "0b076d0a5cf407a932aeffccfb222d620485b0092f4076f2ca8c92ec05ec51fa",
+      "seed": 1,
+      "window_id": "rq3_decode_length_skew_s01"
+    },
+    {
+      "family_id": "heavy_tail_service",
+      "lambda_ref": 0.9756834019628111,
+      "load_factors": {
+        "HIGH_PRESSURE": 1.4635251029442167,
+        "KNEE": 0.9756834019628111
+      },
+      "n_requests": 408,
+      "requests_content_sha256": "8e7e28aa7394f03517066a17e0d244d004f4314eabf27aba52f28604cee6825e",
+      "seed": 0,
+      "window_id": "rq3_heavy_tail_service_s00"
+    },
+    {
+      "family_id": "heavy_tail_service",
+      "lambda_ref": 0.975856572203312,
+      "load_factors": {
+        "HIGH_PRESSURE": 1.463784858304968,
+        "KNEE": 0.975856572203312
+      },
+      "n_requests": 401,
+      "requests_content_sha256": "b3b7bc6b583c92d2c95b1f6bbd35066e238a235197ee390d74ec30385ddb0d39",
+      "seed": 1,
+      "window_id": "rq3_heavy_tail_service_s01"
+    },
+    {
+      "family_id": "priority_slo_heterogeneity",
+      "lambda_ref": 0.8373050576972606,
+      "load_factors": {
+        "HIGH_PRESSURE": 1.255957586545891,
+        "KNEE": 0.8373050576972606
+      },
+      "n_requests": 509,
+      "requests_content_sha256": "d3501ea8be002148cba2ec81b865e4e4717ad60263008efe858d8dd7ef49dda8",
+      "seed": 0,
+      "window_id": "rq3_priority_slo_heterogeneity_s00"
+    },
+    {
+      "family_id": "priority_slo_heterogeneity",
+      "lambda_ref": 0.7442296259145511,
+      "load_factors": {
+        "HIGH_PRESSURE": 1.1163444388718267,
+        "KNEE": 0.7442296259145511
+      },
+      "n_requests": 501,
+      "requests_content_sha256": "c4f9f51a32fd43aac0c4c11d39c4f527f8985da1c51f234eee2431e9f817c895",
+      "seed": 1,
+      "window_id": "rq3_priority_slo_heterogeneity_s01"
+    }
+  ]
+}
