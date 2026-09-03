@@ -77,9 +77,11 @@ All branches above are pushed and remote-SHA-verified as of this handoff.
 ## 5. Pending items (exact, unresolved)
 
 1. **RQ6 task 19 retry** — the only substantive open action. Task 108 was
-   still `RUNNING` on node n0001 throughout Queries 2 and 3 (last checked
-   ~2h22m of a 4h limit — an outlier vs. the other 118 tasks' 2–30 min
-   typical runtimes; watch it, don't assume it's stuck). Once it finishes:
+   still `RUNNING` on node n0001 throughout Queries 2 and 3, and through a
+   Query-3 re-verification pass later the same day (last checked **2:29:35
+   elapsed of the 4:00:00 limit**, ~16:10 EDT 2026-09-03 — an outlier vs.
+   the other 118 tasks' 2–30 min typical runtimes; watch it, don't assume
+   it's stuck). Once it finishes:
    see §10 for the exact resume command. Root cause of task 19's failure
    (port collision with task 119, both computing `PORT=8100+idx%100=8119`)
    is fully diagnosed and requires no launcher change — task 119 already

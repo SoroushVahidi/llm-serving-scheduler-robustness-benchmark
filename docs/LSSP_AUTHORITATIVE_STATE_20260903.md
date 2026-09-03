@@ -13,6 +13,51 @@ compact companion, `docs/LSSP_NEW_CHAT_HANDOFF_20260903.md`, was added in
 Query 3 specifically for bootstrapping a fresh chat quickly — read that
 one first, and come back here only for the full detail/audit trail.
 
+## Query 3 re-verification pass (2026-09-03, later same day, ~16:10 EDT)
+
+A second Query-3-scoped pass re-checked every claim below against live
+state rather than assuming the prior pass's record was still accurate.
+Findings: **no drift** — all branch SHAs, remote pushes, manuscript
+integration, and declarations text matched exactly what §0 already
+recorded. Two things worth noting for the next session:
+
+- **RQ6 task 108** is still `RUNNING` on node n0001, now at **2:29:35**
+  elapsed of the 4:00:00 limit (up from ~2:22 at the end of the first
+  Query-3 pass) — still healthy, still an outlier vs. the other 118
+  tasks' 2–30 min typical runtimes, still not actionable. Task 19 retry
+  remains the single carried-over item; see §9/§15 and the handoff doc §10
+  for the exact resume command. Not blocked on in this pass either, per
+  instruction not to wait indefinitely.
+- **New out-of-band human edit found**: the *historical* (non-canonical)
+  `manuscript/lssp-jsc-polish-20260902` branch has a commit on `origin`
+  not present in its local worktree checkout — `21790cc`, "Add funding,
+  acknowledgements, and generative-AI disclosures", authored directly by
+  the user (`sv96@njit.edu`, 2026-09-03 13:25:38 -0400), i.e. pushed
+  outside of any agent session. Diffed against the canonical manuscript's
+  `declarations.tex` (`9f2c1ef`): **not byte-identical** — `21790cc` still
+  contains the unresolved `[AUTHOR TO CONFIRM before submission.]`
+  bracket on Competing Interests and uses slightly different paragraph
+  wrapping/heading text ("Generative AI use." vs. canonical's "Generative
+  AI statement."), whereas the canonical branch already resolved Competing
+  Interests to a plain declaration. Per instructions, this was **left
+  untouched** (not merged, not discarded, remote not force-pushed) — flagged
+  here only. `SAFE_TO_DISCARD_REDUNDANT_DIFF` does **not** apply to this
+  branch/commit; it is human-authored content on a non-canonical branch
+  and should be triaged by the user, not silently reconciled by an agent.
+- Manuscript rebuild reverified independently (`tectonic main.tex`): clean,
+  zero errors, same pre-existing underfull-hbox warnings as before. The
+  resulting `main.pdf` rebuild diff (binary, PDF producer metadata only)
+  was reverted with `git checkout -- paper/main.pdf` to avoid an
+  unnecessary commit — no content changed.
+- Out-of-scope dirty worktrees (`lssp-dataset-release-prefreeze`, base
+  `robustness-benchmark` checkout, `robustness-stage0-repair`) reconfirmed
+  unchanged and untouched.
+
+No commits were needed on any research/manuscript branch this pass — all
+Query-3 deliverables were already complete and pushed. This addendum and a
+small refresh to the handoff doc's task-108 watch numbers are the only
+edits made in this pass, committed on the docs branch.
+
 ## Query 3 changes (2026-09-03, final integration pass)
 
 - **Manuscript integration committed**: `manuscript/lssp-jsc-reviewer-informed-polish-20260903`
