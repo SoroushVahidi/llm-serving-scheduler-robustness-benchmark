@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=lssp-rq6-calibration
 #SBATCH --account=ikoutis
-#SBATCH --partition=debug_gpu
-#SBATCH --qos=debug
+#SBATCH --partition=gpu
+#SBATCH --qos=low
 #SBATCH --gres=gpu:a100_10g:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
-#SBATCH --time=12:00:00
+#SBATCH --time=04:00:00
 #SBATCH --array=0-119%4
 #SBATCH --output=artifacts/real_vllm/calibration/rq6/slurm_logs/slurm-%A_%a.out
 #SBATCH --error=artifacts/real_vllm/calibration/rq6/slurm_logs/slurm-%A_%a.err
