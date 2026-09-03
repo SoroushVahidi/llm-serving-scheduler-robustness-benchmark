@@ -30,7 +30,9 @@ per-window load-calibration step is required (\S\ref{sec:calibration};
 120 independent calibrations, 3 sources $\times$ 40 windows/source, each
 against its own 200 frozen requests, reference policy
 \texttt{vllm\_faithful} throughout) -- distinct from, and a prerequisite
-for, the ranking-agreement result itself, not a substitute for it. As of
+for, the ranking-agreement result itself, not a substitute for it.
+Calibration and real-vLLM execution run on Wulver, a Slurm-managed GPU
+cluster at the New Jersey Institute of Technology. As of
 this manuscript, 118/120 calibrations have completed; the one recorded
 failure was traced to a Slurm array port-allocation collision between two
 array indices sharing the same launch script, an engineering defect

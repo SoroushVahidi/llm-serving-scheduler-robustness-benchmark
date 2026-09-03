@@ -78,6 +78,26 @@ downstream analyses for any policy at that specific region, which is a
 structural constraint on statistical power in the highest-pressure regions
 in particular.
 
+\paragraph{Cross-metric disagreement bounds any single-metric ranking
+claim.} \S\ref{sec:results-cross-metric} finds that a policy ranking under
+one tracked outcome metric is, at median, only moderately correlated with
+the ranking the same conditions produce under a different tracked metric
+($\tau_b = 0.419$; $20\%$ of conditions negative), and the two metrics'
+top-ranked policy agrees in only half of conditions. This is a scope
+statement, not an analysis defect: the study's tracked metrics (ANWG,
+completion fraction, latency percentiles, SLO-violation rate, throughput)
+capture genuinely different deployment objectives, and no single one of
+them is privileged as ``the'' correct measure of scheduler quality beyond
+this study's own choice of ANWG as the PRIMARY headline metric
+(\S\ref{sec:metrics}). Consequently, no ranking-portability claim in
+\S\ref{sec:results} should be read as a claim about scheduler comparisons
+in general; it is a claim about comparisons under the specific metric (or
+metrics) stated. The metric set evaluated here, while broader than a
+single-metric study, is not exhaustive of every metric a practitioner might
+care about, and cross-metric disagreement should itself be read as a
+substantive finding about this benchmark's object of study, not as noise to
+be averaged away.
+
 \paragraph{SLO-definition sensitivity was a post-campaign extension, not
 preregistered evidence.} An SLO-synthesis sensitivity check was planned but
 no alternative SLO-synthesis rule was ever actually preregistered before or

@@ -38,15 +38,22 @@ occasional misprediction-driven preemption for higher achievable batch size
 pairwise ranking model over waiting requests to prioritize decode order --
 a distinct mechanism from $S^3$'s admission-time length prediction, despite
 both papers appearing at NeurIPS in consecutive years and both targeting
-throughput under uncertain output length. FastServe, JITServe, PARS, Libra,
-SLAI/RAD, SCORPIO, LMetric, Apt-Serve, and ProServe extend this space
-further with iteration-level preemption, SLO-aware admission under imprecise
-request information, pairwise learning-to-rank variants, dynamic request
-partitioning, theoretically motivated multi-objective scheduling,
-heterogeneous-SLO-aware admission, lightweight scheduling metrics, adaptive
-hybrid-cache scheduling, and unified multi-priority scheduling, respectively
-\citep{fastserve2024,jitserve2025,pars2025,libra2026,slai2025,scorpio2025,lmetric2026,aptserve2025,proserve2025}.
-Each of these papers reports an improvement over one or more baselines on
+throughput under uncertain output length. A further group of recent systems
+extends this space with additional scheduling mechanisms. FastServe
+introduces iteration-level preemptive scheduling, JITServe targets
+SLO-aware admission under imprecise request-length information, and PARS
+learns a pairwise ranking model to prioritize requests directly
+\citep{fastserve2024,jitserve2025,pars2025}. Libra performs dynamic,
+flexible request partitioning for unbalanced workloads, the SLAI/RAD
+family derives theoretically motivated, multi-objective (throughput- and
+deadline-aware) scheduling rules, and SCORPIO targets admission control
+under heterogeneous per-request SLOs
+\citep{libra2026,slai2025,scorpio2025}. LMetric replaces workload-specific
+tuning with a single lightweight scheduling score, Apt-Serve schedules
+over an adaptive hybrid KV-cache/hidden-state representation, and ProServe
+unifies multi-priority request scheduling across engine- and service-layer
+components \citep{lmetric2026,aptserve2025,proserve2025}. Each of these
+papers reports an improvement over one or more baselines on
 the workload(s) chosen for its own experiments; none of them, individually
 or collectively, asks whether the \emph{relative ordering} they report would
 be preserved under an independently sourced workload, a different metric,

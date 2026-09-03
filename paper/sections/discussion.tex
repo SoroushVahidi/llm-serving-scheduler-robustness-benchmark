@@ -68,6 +68,58 @@ different, much smaller evidence requirement than one who needs the
 complete ordering -- a distinction a single point-estimate benchmark
 result cannot convey on its own.
 
+\subsection{Portability Also Depends on Which Metric and Which SLO
+Definition Is Used}
+
+\S\ref{sec:cross-source-rankings}--\S\ref{sec:reversals} establish that a
+ranking's portability depends on which \emph{workload source} it is checked
+against. \S\ref{sec:results-cross-metric} and \S\ref{sec:results-slo} show
+that portability depends, independently, on which \emph{metric} and which
+\emph{SLO definition} is used to compute the ranking in the first place --
+two further conditioning variables, not a repetition of the source-pair
+finding above.
+
+The cross-metric result is the more consequential of the two. A median
+Kendall's $\tau_b$ of $0.419$ across metric pairs is only a moderate rank
+correspondence -- well below the $0.89$--$1.00$ agreement
+\S\ref{sec:cross-source-rankings} finds between the two most portable
+\emph{sources} -- and $20\%$ of conditions show a \emph{negative}
+correlation, meaning the two metrics do not merely disagree in degree but
+sometimes rank policies in opposite order. That the single top-ranked
+policy agrees between metrics in only half of conditions is the more
+practically legible way to read the same result: for a randomly chosen
+(source, region) condition, asking ``which metric?'' is, on average, as
+consequential to the answer as asking ``which policy?'' This does not mean
+metrics are arbitrary or that any one choice is as good as another -- ANWG,
+completion fraction, and the latency- and SLO-based metrics measure
+genuinely different deployment objectives (\S\ref{sec:metrics}), and a
+practitioner optimizing for tail latency has no reason to expect the same
+ranking as one optimizing for weighted goodput. The finding is instead that
+\emph{which} objective a benchmark reports on is as much a part of the
+ranking-portability question as which workload it was measured on, and a
+scheduler comparison that reports only its primary metric is silent on
+whether that comparison would hold under a deployment's actual objective.
+
+The SLO-definition result is comparatively reassuring but not a clean
+pass. Ranking robustness under three alternative SLO-synthesis conventions
+is high (median $\tau_b = 0.872$) -- closer to the cross-source ceiling
+than to the cross-metric result above -- yet the single top-ranked policy
+still changes in $13/30$ ($43\%$) of conditions, and $16$ of the $36$
+headline reversals from \S\ref{sec:reversals}, checked against all three
+alternatives ($108$ checks), are sensitive to which SLO definition is used
+(\S\ref{sec:results-slo}). The practical reading is narrower than either
+``robust'' or ``fragile'': a scheduler conclusion can remain broadly
+ordered under a nearby SLO definition even while its winning policy, or a
+specific reversal a reader cares about, does not.
+
+Taken together with \S\ref{sec:cross-source-rankings}'s source-pair finding
+and \S\ref{sec:reversals}'s load-concentration finding, this study's central
+conclusion is that a comparative scheduler claim is conditional on at least
+four axes -- workload source, operating region, evaluation metric, and (for
+deadline-dependent policies) SLO definition -- and reporting a ranking
+without stating which values of each axis produced it risks the ranking
+being read as more general than the evidence supports.
+
 \subsection{Explanatory Telemetry: A Preliminary, Heavily Qualified Read}
 
 The frozen, pre-specified explanatory model (\S\ref{sec:telemetry},

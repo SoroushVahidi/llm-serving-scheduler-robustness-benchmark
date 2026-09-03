@@ -102,19 +102,28 @@ def fig2_reversal_matrix():
 
 
 def fig3_sample_complexity():
+    # Visual-only legibility pass (no data values changed): azure_llm_2024
+    # and bailian_qwen recovery curves both approach 1.0 in the top-1 panel
+    # and were hard to tell apart there, so markers are now differentiated
+    # by fill (solid vs. hollow) in addition to shape/linestyle, and sized
+    # up slightly.
     rq4 = json.load(open(TABLE_DIR / "rq4_sample_complexity.json"))
     fig, axes = plt.subplots(1, 2, figsize=(8.5, 3.2), sharey=True)
     markers = {"azure_llm_2024": "o", "bailian_qwen": "s", "burstgpt": "^"}
+    facecolors = {"azure_llm_2024": "black", "bailian_qwen": "white", "burstgpt": "black"}
+    linestyles = {"azure_llm_2024": "-", "bailian_qwen": "--", "burstgpt": ":"}
     for row in rq4["primary_metric_rows"]:
+        src = row["source"]
         ns = [p["n"] for p in row["points"]]
         exact = [p["p_exact_recovery"] for p in row["points"]]
         top1 = [p["p_topk_recovery"]["1"] for p in row["points"]]
-        axes[0].plot(ns, exact, marker=markers[row["source"]], color="black",
-                     linestyle={"azure_llm_2024": "-", "bailian_qwen": "--", "burstgpt": ":"}[row["source"]],
-                     label=SOURCE_LABELS[row["source"]])
-        axes[1].plot(ns, top1, marker=markers[row["source"]], color="black",
-                     linestyle={"azure_llm_2024": "-", "bailian_qwen": "--", "burstgpt": ":"}[row["source"]],
-                     label=SOURCE_LABELS[row["source"]])
+        plot_kwargs = dict(
+            marker=markers[src], color="black", linestyle=linestyles[src],
+            markersize=7, markerfacecolor=facecolors[src], markeredgecolor="black",
+            markeredgewidth=1.1, linewidth=1.3,
+        )
+        axes[0].plot(ns, exact, label=SOURCE_LABELS[src], **plot_kwargs)
+        axes[1].plot(ns, top1, label=SOURCE_LABELS[src], **plot_kwargs)
     for ax, title in zip(axes, ["Exact-order recovery", "Top-1 recovery"]):
         ax.axhline(0.9, color="gray", linewidth=0.8, linestyle="-.")
         ax.set_xlabel("n (workload windows)")

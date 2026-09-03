@@ -10,34 +10,32 @@
 \usepackage{seqsplit}
 \sloppy
 \emergencystretch=3em
+\renewcommand{\arraystretch}{1.15}
 
 \title{How Portable Are LLM-Serving Scheduler Rankings Across Workloads,\\
   Operating Regions, and Metrics?}
 \author{Soroush Vahidi}
-\date{Draft V2 --- Phase-12 RQ1--RQ5 results populated, RQ6 (real-vLLM)
-pending, 2026-09-02}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Large language model (LLM) serving systems rely on sophisticated
-scheduling mechanisms, evaluated on workloads that are themselves
-heterogeneous across source, time, and operating region. We ask a
-second-order question: is the \emph{comparative ranking} a scheduler
-benchmark reports portable across workload source, metric, and operating
-region? We present the LLM-Serving Scheduler Portability Benchmark
-(LSSP): a preregistered, paired evaluation spanning three workload
-sources, 120 windows, a calibrated six-region operating grid, an
-11-primary/13-total scheduling-policy panel, and 18{,}720 completed
-cells, plus a benchmark sample-complexity study and a targeted real-vLLM
-validation design. Comparative rankings agree strongly between two of the
-three sources (Kendall's $\tau$ up to $1.0$) but are measurably less
-portable wherever the third source is involved ($\tau$ as low as
-$0.55$); $3.6\%$ of pairwise comparisons show practically and
-statistically supported reversals, concentrated at higher operating load.
-Real-vLLM validation of the strongest reversal is frozen but not yet
-executed.
+Large language model (LLM) serving systems are typically compared on
+one workload, operating region, and metric, but how portable is that
+comparison? We present the LLM-Serving Scheduler Portability Benchmark
+(LSSP), a preregistered evaluation of scheduling policies across three
+independently sourced workloads and six calibrated operating regions
+($18{,}720$ comparisons). Rankings agree strongly between two of three
+sources (Kendall's $\tau$ up to $1.0$) but are less portable when the
+third is involved (as low as $0.55$); $3.6\%$ of comparisons show
+statistically supported reversals. Portability is even more sensitive
+to the evaluation metric: median rank correlation across metrics is
+only moderate ($\tau_b=0.419$), and the top policy agrees between
+metrics in only half of conditions. Rankings are more stable, though
+not invariant, under alternative service-level-objective definitions.
+Real-system validation remains planned. Scheduler comparisons should
+therefore be read as conditional on the workload, region, and metric
+that produced them.
 \end{abstract}
 
 \noindent\textbf{Keywords:} LLM inference serving; request scheduling;
