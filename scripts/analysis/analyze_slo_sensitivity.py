@@ -38,7 +38,6 @@ from robustbench.ranking_portability.analysis.ranking_analysis import compare_co
 from robustbench.ranking_portability.analysis.reversal_analysis import (  # noqa: E402
     ReversalClass,
     classify_pairwise_reversal,
-    per_window_policy_values,
 )
 
 DEFAULT_REFERENCE = REPO_ROOT / "configs/analysis/phase12_primary_reversals_reference.json"
@@ -111,10 +110,9 @@ def reversal_persistence(all_rows: List[dict], reference_path: Path, variants: L
                     "variant": variant, "persistence": "UNDEFINED_INSUFFICIENT_DATA",
                 })
                 continue
-            pw_x = per_window_policy_values(rows_x, PRIMARY_METRIC)
-            pw_y = per_window_policy_values(rows_y, PRIMARY_METRIC)
             result = classify_pairwise_reversal(
-                pw_x, pw_y, policy_a, policy_b,
+                rows_x, rows_y,
+                policy_a=policy_a, policy_b=policy_b, metric=PRIMARY_METRIC,
                 n_resamples=BOOTSTRAP_RESAMPLES, ci_level=BOOTSTRAP_CI_LEVEL,
             )
             if result.classification == ReversalClass.SUPPORTED_PRACTICAL_REVERSAL:

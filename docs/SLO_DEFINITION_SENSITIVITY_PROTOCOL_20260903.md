@@ -216,3 +216,45 @@ subdirectory. Nothing under this extension modifies:
 `src/robustbench/workloads/external/benchmark_synthesis.py`,
 `src/robustbench/ranking_portability/execute_cell.py`, or any file under
 `src/robustbench/ranking_portability/analysis/`.
+
+## 12. Post-freeze engineering repair (2026-09-03, after full campaign)
+
+Raw full-scale campaign generation completed 2026-09-03
+(`artifacts/analysis/slo_sensitivity/full_run_20260903.log`:
+`DONE mode=full n_total=19800 n_success=19800 n_failed=0
+n_validation_failures=0`). Running the already-frozen
+`scripts/analysis/analyze_slo_sensitivity.py` against the full
+`results.json` (sha256
+`b67d4721fecbf6e36e6cfae08c6dafb727d7b7e68867f771cb607b7320f3ea9b`)
+surfaced a pre-existing call-site bug in `reversal_persistence()`: it
+called the sealed `classify_pairwise_reversal(rows_x, rows_y, *,
+policy_a, policy_b, metric, ...)` with the wrong positional arguments
+(pre-transformed `per_window_policy_values(...)` output instead of raw
+rows, and `policy_a`/`policy_b` positional instead of keyword, with no
+`metric`). This was never triggered during the pilot because the pilot's
+36-row dataset caused every reference condition to hit the
+`UNDEFINED_INSUFFICIENT_DATA` short-circuit before reaching this call.
+
+Fix: corrected the call to pass `rows_x, rows_y` (raw) and
+`policy_a=`, `policy_b=`, `metric=PRIMARY_METRIC` as documented by the
+sealed function's own signature, and removed the now-unused
+`per_window_policy_values` pre-computation/import. **This is a call-site
+plumbing fix only** — `classify_pairwise_reversal` itself, and every
+other file under `src/robustbench/ranking_portability/analysis/`, is
+byte-for-byte unmodified. No statistical test, reversal definition,
+threshold, variant, source, region, policy panel, window, or seed was
+altered. `tests/test_slo_variant.py` and
+`tests/test_ranking_portability_analysis_reversal.py` (20 tests) pass
+unchanged before and after.
+
+Full-scale analysis result (`artifacts/analysis/slo_sensitivity/<manifest_sha>/full/`,
+not committed to git per `artifacts/*` policy — raw outputs stay local,
+only this provenance record is committed):
+
+```
+n_input_rows: 19800
+n_ranking_robustness_records: 30
+n_reversal_persistence_records: 108
+n_reversals_persisting: 88
+n_reversals_disappearing: 4
+```
