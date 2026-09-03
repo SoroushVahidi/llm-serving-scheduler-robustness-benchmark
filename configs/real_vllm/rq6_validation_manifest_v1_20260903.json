@@ -1,0 +1,151 @@
+{
+  "manifest_kind": "rq6_real_vllm_scientific_validation_manifest_v1",
+  "manifest_date": "2026-09-03",
+  "status": "PREFROZEN_NOT_LAUNCHED",
+  "stamp": "RQ6_REAL_VLLM_SCIENTIFIC_VALIDATION",
+  "result_blind": true,
+  "no_observed_result_values_embedded": true,
+
+  "frozen_code_sha": "773982a280be7a2e6dc812174f6c90c8ca0dc18b",
+  "frozen_worktree": "llm-serving-scheduler-lssp-rq6-scientific-prefreeze",
+  "frozen_branch": "research/lssp-rq6-real-vllm-scientific-prefreeze-20260902",
+
+  "case_selection": {
+    "manifest_path": "artifacts/manifests/phase12_rq6_case_selection_20260902.json",
+    "manifest_sha256": "f34e1c6a9f8d4c695720d14f7929741594ac8f7818a427db832933554e909e5a",
+    "reversal_case": {
+      "policy_a": "slai_faithful",
+      "policy_b": "vllm_faithful",
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+      "condition_y": "burstgpt::HIGH_PRESSURE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "simulator_selected_winner_x": "UNRESOLVED_NOT_AVAILABLE_IN_THIS_WORKTREE",
+      "simulator_selected_winner_y": "UNRESOLVED_NOT_AVAILABLE_IN_THIS_WORKTREE",
+      "simulator_selected_winner_status_note": "artifacts/manifests/phase12_rq6_case_selection_20260902.json records only an UNSIGNED effect-size magnitude (operationalized_effect_size_min_abs_margin=1.2816) and classification=SUPPORTED_PRACTICAL_REVERSAL -- it does NOT record which policy (slai_faithful vs vllm_faithful) wins in condition_x vs condition_y. The signed per-condition diff (robustbench.ranking_portability.analysis.reversal_analysis._diff_and_margin: diff = value(policy_a=slai_faithful) - value(policy_b=vllm_faithful)) lives only in the generated, gitignored pairwise_reversals_json artifact (source_provenance.pairwise_reversals_json_sha256=c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde in the case-selection manifest), which is not present in this worktree. This was corrected during prefreeze after an earlier draft of this manifest incorrectly asserted a specific winner pair without source support -- see docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md 'Simulator-selected winner direction'. rq6_validation_analysis.reversal_analysis() takes these two labels as required caller-supplied arguments (never hardcoded/defaulted inside the analysis module) specifically so this gap cannot silently resolve to a guess -- the analysis operator must regenerate or locate the hash-c90619e8-pinned pairwise_reversals_json and read diff_x/diff_y's sign from it before agreement-checking can run; agrees_with_simulator_selected_direction is None (not computed) until then."
+    },
+    "stable_control": {
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+      "condition_y": "bailian_qwen::HIGH_PRESSURE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "simulator_kendall_tau": 1.0
+    }
+  },
+
+  "calibration_dependency": {
+    "calibration_manifest_path": "configs/real_vllm/rq6_calibration_manifest_v2_20260903.json",
+    "calibration_manifest_sha256": "839f1ea99982cbfd198aa12c801a5e2e90ee47699b2b75e7b1c67da3878a8d00",
+    "output_namespace": "artifacts/real_vllm/calibration/rq6/<calibration_manifest_sha256>/<source>/<window_id>.json",
+    "n_expected_outputs": 120,
+    "gate_status_at_manifest_freeze": "RQ6_CALIBRATION_GATE = PASS_120_OF_120 (120/120 present, 120 unique task ids, 0 missing, 0 malformed, 0 duplicates; terminal-status distribution CONVERGED=43, LOWER_BOUND_ALREADY_VIOLATING=77, all repo_sha=773982a280be7a2e6dc812174f6c90c8ca0dc18b, verified independently against Wulver job history (1220661 array + retry job 1221379_19) and the output JSONs themselves at manifest-freeze time, not merely asserted)",
+    "aggregate_output_content_hash": {
+      "value": "d3a875524aaf1faa424864f69a601267fe9f54ea3c39cedfb052c92c006e8ddf",
+      "formula": "sha256( sort_by_relative_path( \"sha256sum(relative_path_file)  relative_path\" for every *.json under the output_namespace directory ) joined by newline, then sha256 of that joined text )",
+      "shell_equivalent": "find . -name '*.json' | sed 's|^\\./||' | sort | xargs sha256sum | sort -k2 | sha256sum",
+      "purpose": "Pins the identity of the 120 calibration outputs this manifest depends on, WITHOUT embedding any observed real_lambda_ref/derived_high_pressure value -- a validation run recomputes this over its own local artifacts/real_vllm/calibration/rq6/<hash>/ directory and refuses to proceed on mismatch (scripts/real_vllm/run_rq6_validation.py's --skip-calibration-aggregate-check is engineering-only, for local dry-run/smoke use, never for a scientific launch)."
+    },
+    "per_cell_check": "Each of the 240 validation cells additionally verifies its own window's calibration_manifest_sha256 and window_content_sha256 individually at load time (robustbench.real_llm.rq6_validation.load_calibrated_scale) -- the aggregate hash above is a whole-dependency freshness gate, not a substitute for the per-cell check."
+  },
+
+  "workload_manifests": {
+    "azure_llm_2024": {
+      "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_azure_llm_2024_20260903.json",
+      "content_sha256": "dc51e154798d31ee780ad9f7e1a0655c0f25787b0e881fbf9ec1807f47f72ffc",
+      "window_count": 40
+    },
+    "burstgpt": {
+      "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_burstgpt_20260903.json",
+      "content_sha256": "45aac8de3f9329af07b9e457f3e603900e34c03974fab2fbd919fa391e81d4e2",
+      "window_count": 40
+    },
+    "bailian_qwen": {
+      "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_bailian_qwen_20260903.json",
+      "content_sha256": "4cd96da756d2362083944f9b2a1315e2efdcd7b2b4995c3be338914f1d4b8614",
+      "window_count": 40
+    }
+  },
+
+  "environment": {
+    "environment_spec_path": "requirements-real-vllm.txt",
+    "environment_spec_sha256": "de46e1134fbd2aff7d2ad378dc4e516e18bd4795137d1c96a6e75729b421e3f0",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "vllm_version_pin": "vllm==0.27.1",
+    "torch_version_pin": "torch==2.13.0",
+    "gpu": "NVIDIA A100-SXM4-80GB (Wulver gres gpu:a100_10g:1 -- unchanged from the validated calibration campaign)"
+  },
+
+  "task_matrix": {
+    "generator": "robustbench.real_llm.rq6_validation.enumerate_validation_cells",
+    "dimensions": {
+      "policy": ["slai_faithful", "vllm_faithful"],
+      "source": ["azure_llm_2024", "bailian_qwen", "burstgpt"],
+      "window": "40 per source, all frozen HIGH_PRESSURE windows, no subsampling"
+    },
+    "region": "HIGH_PRESSURE",
+    "n_cells": 240,
+    "n_cells_formula": "2 policies x 3 sources x 40 windows/source",
+    "replicates_per_cell": 1,
+    "replicates_per_cell_status": "UNRESOLVED_SCIENTIFIC_DECISION -- see docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md 'Replicates per cell' for the full disclosed inference chain. Best-supported reading of docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md's frozen Statistics section (uncertainty comes from window-level bootstrap over the 40-window population per condition, mirroring Phase-12's own methodology, not from repeated stochastic measurement of one cell) -- but no frozen document states a per-cell replicate count in those exact words, so this is recorded as an inference requiring explicit human confirmation before actual launch, not a silently-invented value.",
+    "candidate_scale_source": "Per cell, candidate_scale = the (source, window)'s calibration output's own derived_high_pressure field (already = 1.5 x real_lambda_ref, matching the HIGH_PRESSURE region factor) -- never re-derived, never assumed.",
+    "array_index_mapping": "enumerate_validation_cells returns cells sorted by (source, window_id, policy); array index i always names the same cell across resubmissions given unchanged workload manifests."
+  },
+
+  "scheduler_mapping": {
+    "vllm_faithful": {
+      "scheduling_policy": "fcfs",
+      "scheduler_cls": null,
+      "engine_flags": ["--no-enable-chunked-prefill", "--no-enable-prefix-caching"]
+    },
+    "slai_faithful": {
+      "scheduling_policy": "priority",
+      "scheduler_cls": "robustbench.real_llm.slai_plugin.slai_vllm_scheduler.LSSPSlaiVLLMScheduler",
+      "engine_flags": ["--no-enable-chunked-prefill", "--no-enable-prefix-caching"],
+      "note": "Engine flags held identical to vllm_faithful (only the scheduler differs) so the comparison isolates the policy, not incidental engine configuration -- an engineering decision, not a scientific parameter (docs/REAL_VLLM_SLAI_FIDELITY.md does not specify chunked-prefill/prefix-caching status for slai_faithful; holding them constant across both arms is the conservative, disclosed choice)."
+    }
+  },
+
+  "output_token_execution_contract": {
+    "max_tokens": "output_tokens_target (=frozen actual_output_tokens)",
+    "ignore_eos": true,
+    "note": "Unchanged from the calibration protocol (configs/real_vllm/rq6_calibration_manifest_v2_20260903.json's output_token_execution_contract) -- reused, not re-derived."
+  },
+
+  "timing_transformation": {
+    "formula": "real_arrival_i = base_relative_arrival_i / s;  real_slo_deadline_i = real_arrival_i + (base_slo_deadline_i - base_relative_arrival_i) / s",
+    "s": "this cell's candidate_scale (see task_matrix.candidate_scale_source)",
+    "implementation": "robustbench.real_llm.rq6_slo_metrics.scale_request_timing (unchanged, reused from calibration)"
+  },
+
+  "episode_reset_contract": {
+    "note": "Unchanged from calibration (configs/real_vllm/rq6_calibration_manifest_v2_20260903.json's episode_reset_contract) -- sequential wait-for-all-responses replay, reset barrier via /metrics, --no-enable-prefix-caching. One window per cell, one cell per Slurm array task, one server start per task (never reused across cells, unlike calibration's 120-windows-per-task-run design -- each validation cell is its own Slurm array task, see run_rq6_validation.sbatch)."
+  },
+
+  "port_strategy": {
+    "mechanism": "robustbench.real_llm.port_alloc.allocate_port -- OS-assigned free ephemeral port via bind((host, 0)), not the calibration launcher's buggy PORT=8100+task_id%100 arithmetic (root-caused port collision, task 19 vs 119, docs/LSSP_NEW_CHAT_HANDOFF_20260903.md).",
+    "collision_safety": "OS guarantees the assigned port is free at bind time, for any number of concurrently-scheduled array tasks on one node -- not bounded by a fixed modulus like the calibration scheme.",
+    "logged_in_provenance": true
+  },
+
+  "timeout_and_retry": {
+    "server_ready_timeout_s": 600,
+    "per_request_timeout_s": 280,
+    "server_start_retry_on_bind_failure": 3,
+    "note": "server_ready_timeout_s/per_request_timeout_s unchanged from the validated calibration runner defaults (scripts/real_vllm/run_rq6_calibration.py) -- engineering parameters, not scientific ones; a validation cell that fails after retries is written as a FAILED-status output (never silently dropped), per the output contract."
+  },
+
+  "output_contract": {
+    "runner": "scripts/real_vllm/run_rq6_validation.py",
+    "sbatch": "scripts/real_vllm/run_rq6_validation.sbatch",
+    "validator": "scripts/real_vllm/validate_rq6_validation_outputs.py",
+    "output_namespace": "artifacts/real_vllm/validation/rq6/<this_manifest's_own_sha256>/<policy>/<source>/<window_id>.json",
+    "schema_module": "robustbench.real_llm.rq6_validation.WindowValidationResult (plus provenance fields -- see docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md 'Output schema')"
+  },
+
+  "statistics": {
+    "primary_metric": "arrival_normalized_weighted_goodput",
+    "experimental_unit": "window (40 per source, block-bootstrapped, matching Phase-12's own window-level resampling)",
+    "ci_method": "block bootstrap, >=2000 resamples, 95% CI (robustbench.ranking_portability.analysis.stats.block_bootstrap_ci, reused)",
+    "multiple_testing_correction": "Benjamini-Hochberg FDR q=0.05 over the 4-test family (2 reversal-condition + 2 stable-control-condition tests) (robustbench.ranking_portability.analysis.stats.benjamini_hochberg, reused)",
+    "analysis_module": "robustbench.real_llm.rq6_validation_analysis",
+    "frozen_before_outcomes": true
+  }
+}
