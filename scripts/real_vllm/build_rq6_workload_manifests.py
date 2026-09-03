@@ -8,11 +8,15 @@ For each source: reads the verified authoritative Phase-12 window cache
 Stage-0 synthesis overlay (`stage0_synthesis_v1`) and the exact same
 per-window HIGH_PRESSURE rebase/scale (`_rebase_and_scale` at each window's
 own `1.5 x lambda_ref`) already used to produce the frozen Phase-12
-campaign result that RQ6's case selection is drawn from -- then
-concatenates all 40 rebased windows in window_id-sorted order into one
-fixed arrival sequence (no window dropped, no subsampling; see the
-protocol doc's "Statistics" section for why concatenation, not 40
-independent episodes, was the frozen resolution).
+campaign result that RQ6's case selection is drawn from. Each window is
+kept as an INDEPENDENT episode, never concatenated with any other window:
+Phase-12's own `execute_cell.py` constructs a fresh `Simulator` + calls
+`policy.reset()` per (source, window, region, policy, repetition) cell, and
+`ranking_portability/analysis/ranking_analysis.py` bootstrap-resamples over
+windows as the independent experimental unit -- so the real-vLLM manifest
+mirrors that: all 40 windows are retained (no window dropped, no
+subsampling), each with its own local arrival timeline starting at its own
+t=0.
 
 Every synthesized field (priority/class_id/predicted_output_tokens/
 slo_deadline) is carried through from the exact frozen synthesis contract,
@@ -244,7 +248,6 @@ def build_source_manifest(
     region_assignment_index = campaign_freeze["region_assignment_index"]
 
     windows_out: List[Dict[str, Any]] = []
-    cumulative_offset = 0.0
     n_exact_match = 0
     n_total = 0
 
@@ -275,8 +278,15 @@ def build_source_manifest(
 
         requests_out = []
         for i, (rec, req) in enumerate(zip(sorted_records, scaled)):
-            arrival = req.arrival_time + cumulative_offset
-            deadline = req.slo_deadline + cumulative_offset
+            # Each window is an INDEPENDENT episode (Phase-12's own
+            # execute_cell.py constructs a fresh Simulator + policy.reset()
+            # per (source, window, region, policy, repetition) cell -- see
+            # docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md's
+            # "Execution unit -- corrected 2026-09-03"). No cross-window
+            # arrival offset: every window's own arrival timeline starts at
+            # its own t=0, exactly mirroring the frozen simulator campaign.
+            arrival = req.arrival_time
+            deadline = req.slo_deadline
             prompt_seed = _prompt_seed_for_request(rec.derived_record_id)
             exact_match = None
             if verify_prompts:
@@ -299,9 +309,6 @@ def build_source_manifest(
                 "prompt_generation_seed": prompt_seed,
                 "source_record_id": rec.source_record_id,
             })
-
-        if requests_out:
-            cumulative_offset = requests_out[-1]["base_relative_arrival_s"]
 
         windows_out.append({
             "window_id": wid,
@@ -330,20 +337,37 @@ def build_source_manifest(
         "repo_sha": _git_sha(),
         "generation_code_sha": generation_code_sha,
         "synthesis_version": SYNTHESIS_VERSION,
-        "window_execution_unit": "40_windows_concatenated_per_source",
+        "window_execution_unit": "40_independent_window_episodes_per_source",
+        "window_execution_unit_note": (
+            "Corrected 2026-09-03 from an earlier draft that concatenated all "
+            "40 windows into one continuous 8000-request trace per source. "
+            "Forensic inspection of Phase-12's own execution code "
+            "(src/robustbench/ranking_portability/execute_cell.py) found each "
+            "(source, window, load_region, policy, repetition) cell "
+            "constructs a FRESH Simulator instance and calls policy.reset() "
+            "before running -- i.e. each of the 40 frozen windows per source "
+            "was executed as an independent episode with fresh scheduler/KV "
+            "state, never concatenated. The analysis layer "
+            "(ranking_portability/analysis/ranking_analysis.py) confirms this: "
+            "'(policy,window) rows treated as independent', with bootstrap "
+            "resampling performed OVER WINDOWS as the experimental unit. The "
+            "real-vLLM manifest now mirrors this exactly: each window's "
+            "requests are an independent episode, timed from its own local "
+            "t=0, never offset by any other window."
+        ),
         "timing_transform_formula": (
             "base_relative_arrival_s: per-window arrival rebased to window-local "
             "t=0, scaled by _rebase_and_scale(requests, absolute_load_factor) "
             "(absolute_load_factor = 1.5 x that window's own lambda_ref, from "
-            "region_assignment_index), then all 40 windows concatenated in "
-            "window_id-sorted order (window j+1's t=0 anchored at window j's "
-            "last scaled arrival). This is the frozen HIGH_PRESSURE trace "
-            "SHAPE, not a real-engine rate -- the calibration runner applies "
-            "a further real_arrival_i = base_relative_arrival_i / s and "
-            "real_slo_deadline_i = real_arrival_i + (base_slo_deadline_i - "
-            "base_relative_arrival_i) / s for its own hardware-measured "
-            "candidate scale s, never reusing the simulator's absolute "
-            "lambda_ref as a real-engine rate."
+            "region_assignment_index). Each window is independent -- there is "
+            "no concatenation offset. This is the frozen per-window "
+            "HIGH_PRESSURE trace SHAPE, not a real-engine rate -- the "
+            "calibration runner applies a further real_arrival_i = "
+            "base_relative_arrival_i / s and real_slo_deadline_i = "
+            "real_arrival_i + (base_slo_deadline_i - base_relative_arrival_i) "
+            "/ s for its own hardware-measured per-window candidate scale s, "
+            "never reusing the simulator's absolute lambda_ref as a "
+            "real-engine rate."
         ),
         "prompt_reconstruction_contract": {
             "method": "deterministic tokenizer-exact-length-matched synthetic text",
@@ -432,7 +456,7 @@ def main() -> None:
 
     manifest_hashes = {}
     for source in SOURCES:
-        print(f"[{source}] synthesizing + scaling + concatenating 40 windows...", file=sys.stderr)
+        print(f"[{source}] synthesizing + scaling 40 independent window episodes...", file=sys.stderr)
         manifest = build_source_manifest(
             source,
             cache=verified["cache"],

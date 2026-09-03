@@ -2,7 +2,7 @@
   "manifest_kind": "rq6_real_vllm_scientific_prefreeze_v1",
   "manifest_date": "2026-09-02",
   "status": "PARTIAL_PREFREEZE",
-  "status_note": "Stages 1/2/3/4/5/7/8 frozen and validated (2026-09-03: stage 4 workload manifests built and validated). Stage 6 (calibration execution) is NOT DONE and blocks stage 9 (comparative measurement): the SLO/weight metric pipeline (scale_request_timing/real_slo_violation_rate, robustbench.real_llm.rq6_slo_metrics) is now implemented and unit-tested, but what request population each bisection candidate-factor measurement should replay against is a genuine open design question, not yet resolved by any frozen document -- deliberately not decided under time pressure. See docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md for the full stage table and open items.",
+  "status_note": "Stages 1/2/3/4/5/7/8 frozen and validated (2026-09-03: stage 4 workload manifests corrected to per-window independent episodes and re-validated; stage 5 calibration population resolved to per-window, SLO/weight pipeline implemented, live bisection runner built/tested end-to-end against a real local vLLM server). Stage 6 (calibration execution) is READY TO LAUNCH as of this commit: 120 independent per-window calibrations, to run as a Slurm array against this exact pushed commit. Stage 7 (execution order) needs a follow-on revision before stage 9 (it has no window_id dimension, built under the now-corrected concatenation assumption) -- tracked as an open item, does not block calibration. See docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md for the full stage table and open items.",
 
   "case_selection": {
     "manifest_path": "artifacts/manifests/phase12_rq6_case_selection_20260902.json",
@@ -36,22 +36,23 @@
     "generator": "scripts/real_vllm/build_rq6_workload_manifests.py",
     "validator": "scripts/real_vllm/validate_rq6_workload_manifests.py",
     "validation_report_path": "artifacts/validation/rq6_real_vllm_manifest_validation.json",
-    "window_execution_unit": "40_windows_concatenated_per_source",
+    "window_execution_unit": "40_independent_window_episodes_per_source",
+    "window_execution_unit_note": "Corrected 2026-09-03 from an earlier same-day freeze that concatenated all 40 windows into one continuous trace -- forensic inspection of Phase-12's own execute_cell.py (fresh Simulator + policy.reset() per cell) and ranking_analysis.py (bootstrap over windows) found each window is an independent unit in Phase-12's own methodology.",
     "azure_llm_2024": {
       "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_azure_llm_2024_20260903.json",
-      "content_sha256": "689b7fa8df234bacb9e27c936bafafb79279b86bdb8f6996f6ebbecb79a1d887",
+      "content_sha256": "dc51e154798d31ee780ad9f7e1a0655c0f25787b0e881fbf9ec1807f47f72ffc",
       "window_count": 40,
       "request_count": 8000
     },
     "burstgpt": {
       "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_burstgpt_20260903.json",
-      "content_sha256": "8d1cf0726f316d37fe5dd8da53414ffa971760af27ce86c17f47686807f70371",
+      "content_sha256": "45aac8de3f9329af07b9e457f3e603900e34c03974fab2fbd919fa391e81d4e2",
       "window_count": 40,
       "request_count": 8000
     },
     "bailian_qwen": {
       "path": "artifacts/manifests/rq6_real_vllm/rq6_workload_bailian_qwen_20260903.json",
-      "content_sha256": "e8d8a227f018e10ffa4c2a363554e8b9bea1d0afec1a3277ac7655b44d3fb9ad",
+      "content_sha256": "4cd96da756d2362083944f9b2a1315e2efdcd7b2b4995c3be338914f1d4b8614",
       "window_count": 40,
       "request_count": 8000
     }
@@ -59,15 +60,27 @@
 
   "calibration": {
     "protocol_doc": "docs/RQ6_REAL_VLLM_CALIBRATION_PROTOCOL_20260902.md",
-    "manifest_path": "configs/real_vllm/rq6_calibration_manifest_20260902.json",
-    "manifest_sha256": "417dd8d3d07e770c4629beb59d3116b832516d3f59b7230b9a39b93eb7f65d2d",
-    "status": "PROCEDURE_FROZEN_NOT_YET_EXECUTABLE",
+    "manifest_path": "configs/real_vllm/rq6_calibration_manifest_v2_20260903.json",
+    "manifest_sha256": "839f1ea99982cbfd198aa12c801a5e2e90ee47699b2b75e7b1c67da3878a8d00",
+    "supersedes_manifest_path": "configs/real_vllm/rq6_calibration_manifest_20260902.json",
+    "supersedes_manifest_sha256": "417dd8d3d07e770c4629beb59d3116b832516d3f59b7230b9a39b93eb7f65d2d",
+    "status": "PROCEDURE_FROZEN_EXECUTABLE_READY_TO_LAUNCH",
+    "calibration_unit": "ONE_FROZEN_WINDOW",
+    "n_calibration_units": 120,
+    "requests_per_calibration_unit": 200,
     "slo_weight_metric_pipeline": {
-      "status": "IMPLEMENTED_UNIT_TESTED_NOT_YET_RUN_ON_REAL_HARDWARE",
+      "status": "IMPLEMENTED_UNIT_TESTED_VALIDATED_ON_REAL_HARDWARE",
       "module": "src/robustbench/real_llm/rq6_slo_metrics.py",
       "tests": "tests/test_rq6_slo_metrics.py"
     },
-    "open_blocker": "bisection candidate-factor request population size is undecided (no frozen document specifies whether each of the 30 bisection iterations replays the full 8,000-request per-source manifest or a smaller calibration-only sample) -- must be decided and frozen, outcome-blind, before execution, not invented ad hoc under a deadline",
+    "runner": {
+      "status": "IMPLEMENTED_UNIT_TESTED_VALIDATED_ON_REAL_HARDWARE",
+      "module": "src/robustbench/real_llm/rq6_calibration.py",
+      "cli": "scripts/real_vllm/run_rq6_calibration.py",
+      "sbatch": "scripts/real_vllm/run_rq6_calibration.sbatch",
+      "tests": "tests/test_rq6_calibration.py",
+      "engineering_validation": "ENGINEERING_ONLY_NOT_SCIENTIFIC_EVIDENCE local smoke, 2026-09-03: 32-candidate bisection against a live local vLLM server (RTX 5060 Ti, Qwen/Qwen2.5-0.5B-Instruct) converged cleanly, reset barrier passed 32/32 candidates"
+    },
     "derived_rate_manifest": null
   },
 
@@ -75,12 +88,14 @@
     "path": "artifacts/manifests/rq6_execution_order_20260902.json",
     "sha256": "885143cebc0dbd773c1f4b23291a906552886446d6aba6a19b9481c0236e9fd3",
     "n_repetitions": 10,
-    "total_run_units": 60
+    "total_run_units": 60,
+    "status": "STALE_FOR_STAGE_9",
+    "note": "Built under the now-corrected concatenation assumption (no window_id dimension, 'one run unit = one full run of the source manifest'). Does not block calibration (stage 6). Must be revised before stage 9 (comparative measurement) to include a per-window dimension."
   },
 
   "statistics": {
     "primary_metric": "arrival_normalized_weighted_goodput",
-    "experimental_unit": "repetition (adapted from docs/STATISTICAL_ANALYSIS_PLAN.md's window-level unit; one repetition = one live execution of a source's complete 40-window concatenated manifest, corrected 2026-09-03 from an earlier draft that assumed one frozen window per source)",
+    "experimental_unit": "window (corrected 2026-09-03, twice: first from 'one frozen window per source' to a 40-window-per-source concatenation, then from that concatenation to the window itself -- matching Phase-12's own independent per-window execution and window-level bootstrap resampling)",
     "ci_method": "bootstrap, >=2000 resamples, 95% CI",
     "multiple_testing_correction": "Benjamini-Hochberg FDR q=0.05 per family (4 pairwise tests)",
     "frozen_before_outcomes": true

@@ -1,0 +1,126 @@
+{
+  "manifest_kind": "rq6_real_vllm_calibration_protocol_v2",
+  "manifest_date": "2026-09-03",
+  "status": "PROCEDURE_FROZEN_EXECUTABLE",
+  "supersedes": "configs/real_vllm/rq6_calibration_manifest_20260902.json",
+  "supersedes_sha256": "417dd8d3d07e770c4629beb59d3116b832516d3f59b7230b9a39b93eb7f65d2d",
+  "reason": "Calibration population/granularity was unspecified in v1 (status: PROCEDURE_FROZEN_NOT_YET_EXECUTABLE) and, separately, the workload-manifest design that preceded this file assumed a per-source 40-window concatenation. Forensic inspection of Phase-12's own execution code (src/robustbench/ranking_portability/execute_cell.py: fresh Simulator + policy.reset() per (source,window,region,policy,repetition) cell; ranking_portability/analysis/ranking_analysis.py: bootstrap resampling performed over windows, '(policy,window) rows treated as independent') found each of the 120 frozen windows is Phase-12's own independent unit, each with its own lambda_ref. Resolved outcome-blind, before any real calibration measurement: calibration runs per window, never per concatenated source trace. v1 is left in place, unmodified, as an immutable historical record -- not deleted, not silently overwritten.",
+
+  "calibration_population": {
+    "calibration_unit": "ONE_FROZEN_WINDOW",
+    "requests_per_calibration_unit": 200,
+    "n_calibration_units": 120,
+    "n_calibration_units_formula": "3 sources x 40 windows/source",
+    "not_used": [
+      "the full 8,000-request per-source concatenation as one calibration unit",
+      "a subset of windows",
+      "separate SLAI calibration",
+      "averaging lambda_ref across windows before defining HIGH_PRESSURE"
+    ],
+    "source_of_decision": "docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md, 'Calibration population' section, frozen 2026-09-03 before any real calibration measurement"
+  },
+
+  "reference_policy": "vllm_faithful",
+  "reference_policy_rationale": "Unchanged from v1: mirrors the simulator's fifo reference (docs/LOAD_CALIBRATION_PROTOCOL.md): simplest mechanism, no priority/deadline synthesis dependency. Already built and validated (Wulver job 1219334, pass_gate=true, --scheduling-policy fcfs, no --scheduler-cls).",
+  "policy_under_study_excluded_from_calibration": ["slai_faithful"],
+
+  "region_grid": {
+    "source_of_definition": "src/robustbench/ranking_portability/calibration.py::REGION_FACTORS (Phase-11, frozen)",
+    "factors": {
+      "LOW": 0.5,
+      "PRE_KNEE": 0.8,
+      "KNEE": 1.0,
+      "POST_KNEE": 1.1,
+      "OVERLOAD": 1.2,
+      "HIGH_PRESSURE": 1.5
+    },
+    "region_used_by_rq6_case_selection": "HIGH_PRESSURE",
+    "granularity": "one lambda_ref per (source, window) -- unchanged from Phase-12's own region_assignment_index, which has 120 distinct lambda_ref values (verified 2026-09-03: all 120 HIGH_PRESSURE entries have absolute_load_factor == 1.5 x lambda_ref exactly)"
+  },
+
+  "knee_search": {
+    "criterion": "slo_violation_rate_real(factor) crosses fixed threshold, measured against exactly one window's 200 requests per candidate",
+    "threshold": 0.005,
+    "search_space": "log10(factor)",
+    "bounds_log10": [-2.0, 4.0],
+    "iterations": 30,
+    "source_of_definition": "src/robustbench/ranking_portability/calibration.py::compute_lambda_ref (Phase-11, frozen); reused as a search-shape definition only, never its numeric lambda_ref result. Mirrored exactly (unchanged from v1) in src/robustbench/real_llm/rq6_calibration.py::bisect_lambda_ref_real.",
+    "lambda_ref_is_measured_not_assumed": true,
+    "lambda_ref_reused_from_simulator": false,
+    "output": "real_lambda_ref(source, window); real_HIGH_PRESSURE(source, window) = 1.5 x real_lambda_ref(source, window)"
+  },
+
+  "timing_transformation": {
+    "formula": "real_arrival_i = base_relative_arrival_i / s;  real_slo_deadline_i = real_arrival_i + (base_slo_deadline_i - base_relative_arrival_i) / s",
+    "s": "the bisection candidate factor for this window",
+    "base_relative_arrival_i_source": "workload manifest's per-window base_relative_arrival_s (already independently rebased to window-local t=0 and scaled by that window's own 1.5x lambda_ref, per the workload manifest's own frozen contract -- never a cross-window concatenation offset)",
+    "unchanged_by_candidate_scale": [
+      "request ordering", "prompt (prompt_generation_seed + tokenizer contract)", "input_tokens",
+      "output_tokens_target", "priority", "class_id", "weight", "predicted_output_tokens", "SLO rule (formula)"
+    ],
+    "implementation": "src/robustbench/real_llm/rq6_slo_metrics.py::scale_request_timing (unit-tested, unchanged from v1)",
+    "policy_specific_variants": false
+  },
+
+  "episode_reset_contract": {
+    "server_restart_per_window": false,
+    "model_reload_per_window": false,
+    "logical_engine_episode_reset": true,
+    "mechanism": "Sequential wait-for-all-responses replay: a window episode (and each bisection candidate within it) only returns after every one of its dispatched requests has already received an HTTP response from vLLM, so running/waiting queue depth is 0 by construction before the next candidate or window begins. Verified as a defense-in-depth check via vLLM's /metrics (vllm:num_requests_running, vllm:num_requests_waiting) before every candidate measurement (src/robustbench/real_llm/rq6_calibration.py::check_reset_barrier).",
+    "prefix_cache_rule": "--no-enable-prefix-caching passed explicitly at server start (scripts/real_vllm/run_rq6_calibration.py), so no KV-block reuse can leak across requests or windows regardless of prompt content overlap.",
+    "kv_release": "By the same sequential design: a request's KV blocks are released by vLLM once its response is returned, and no next request/candidate/window is dispatched until every prior one has returned.",
+    "held_requests": "None by construction -- no admission-control/priority-hold mechanism runs during calibration (only vllm_faithful's native FCFS).",
+    "plugin_state": "N/A for calibration -- vllm_faithful uses vLLM's native scheduler, no custom --scheduler-cls / plugin state to reset.",
+    "request_id_isolation": "Each candidate's requests are freshly constructed from the frozen manifest each time (src/robustbench/real_llm/rq6_calibration.py::replay_window_once) -- no counter or ID state persists across candidates/windows.",
+    "engineering_validation": "ENGINEERING_ONLY_NOT_SCIENTIFIC_EVIDENCE local smoke (2026-09-03, local RTX 5060 Ti, Qwen/Qwen2.5-0.5B-Instruct): 32-candidate bisection against a live vLLM server, reset barrier passed 32/32 candidates (running=0, waiting=0 every time), converged cleanly (CONVERGED, slo_violation_rate transitioned 0.0 -> 1.0 across candidates as expected)."
+  },
+
+  "slo_violation_rate_real_definition": {
+    "formula": "1 - (sum(weight_i for i in completed if t_done_i <= slo_deadline_i) / sum(weight_i for i in completed))",
+    "t_done_source": "vllm_openai_client.call_non_streaming, monotonic clock relative to this window-candidate's own dispatch start",
+    "slo_deadline_source": "carried through unmodified from the frozen Phase-12 window's SYNTHESIZED_IMPUTED overlay (docs/DATA_FIELD_PROVENANCE.md), then time-scaled per this window's own candidate factor -- never resynthesized for the real run",
+    "implemented": true,
+    "implementation": "src/robustbench/real_llm/rq6_slo_metrics.py::real_slo_violation_rate (unit-tested, unchanged from v1)"
+  },
+
+  "output_token_execution_contract": {
+    "max_tokens": "output_tokens_target (= frozen actual_output_tokens, ground truth)",
+    "ignore_eos": true,
+    "rationale": "Reproduces the frozen trace's decode-length footprint exactly rather than stopping at a natural EOS. predicted_output_tokens is never used as the execution cap."
+  },
+
+  "failure_handling": {
+    "rule": "a candidate factor whose measurement run has zero completed requests (crash, timeout) is treated as slo_violation_rate = 1.0 for that factor",
+    "source_of_definition": "src/robustbench/ranking_portability/calibration.py::_slo_violation_rate_at (num_completed == 0 -> return 1.0); mirrored unchanged in rq6_slo_metrics.real_slo_violation_rate"
+  },
+
+  "warmup": {
+    "rule": "one untimed warmup request per server start (i.e. once per window's calibration task, not once per candidate factor), discarded from all statistics",
+    "source_of_definition": "scripts/real_vllm/wulver_engineering_gate.py::_calibration (existing engineering-validated pattern)"
+  },
+
+  "applies_identically_to_sources": ["azure_llm_2024", "burstgpt", "bailian_qwen"],
+  "no_per_source_retuning": true,
+  "no_per_policy_retuning": true,
+  "no_per_window_retuning_of_the_procedure_itself": true,
+
+  "workload_manifest_hashes": {
+    "azure_llm_2024": "dc51e154798d31ee780ad9f7e1a0655c0f25787b0e881fbf9ec1807f47f72ffc",
+    "burstgpt": "45aac8de3f9329af07b9e457f3e603900e34c03974fab2fbd919fa391e81d4e2",
+    "bailian_qwen": "4cd96da756d2362083944f9b2a1315e2efdcd7b2b4995c3be338914f1d4b8614",
+    "hash_field": "content_sha256 (canonical, excludes generated_at_utc)"
+  },
+
+  "runner": {
+    "module": "src/robustbench/real_llm/rq6_calibration.py",
+    "cli": "scripts/real_vllm/run_rq6_calibration.py",
+    "sbatch": "scripts/real_vllm/run_rq6_calibration.sbatch",
+    "array_index_mapping": "deterministic sorted (source, window_id) enumeration across the three workload manifests (run_rq6_calibration.enumerate_calibration_units); array index i always names the same window across resubmissions given unchanged manifests",
+    "output_namespace": "artifacts/real_vllm/calibration/rq6/<this_manifest's_own_sha256>/<source>/<window_id>.json"
+  },
+
+  "environment_spec_sha256": "de46e1134fbd2aff7d2ad378dc4e516e18bd4795137d1c96a6e75729b421e3f0",
+  "environment_spec_path": "requirements-real-vllm.txt",
+  "engineering_recovery_commit": "52ef9fff1dcb49ca729f91d24e1aed077c72a6b0",
+  "case_selection_manifest_sha256": "f34e1c6a9f8d4c695720d14f7929741594ac8f7818a427db832933554e909e5a"
+}

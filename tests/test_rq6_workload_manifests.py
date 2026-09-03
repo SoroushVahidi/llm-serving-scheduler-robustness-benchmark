@@ -206,11 +206,13 @@ def test_request_order_matches_arrival_order():
 
 
 # ---------------------------------------------------------------------------
-# 5. Window boundary / concatenation semantics: window j+1 starts exactly at
-#    window j's last (scaled) arrival -- no artificial gap or overlap.
+# 5. Window independence: each window is its own episode (Phase-12's
+#    execute_cell.py constructs a fresh Simulator + policy.reset() per
+#    cell) -- every window's own timeline starts at its own t=0, and one
+#    window's timing must not depend on any other window's.
 # ---------------------------------------------------------------------------
 
-def test_window_boundary_continuity():
+def test_windows_are_independent_episodes_not_concatenated():
     source = "fake_source"
     cache = _fake_cache(source, n_windows=FAKE_N_WINDOWS)
     campaign_freeze = _fake_campaign_freeze(source, cache["windows"])
@@ -218,12 +220,21 @@ def test_window_boundary_continuity():
         source, cache=cache, campaign_freeze=campaign_freeze, tokenizer=_FakeTokenizer(),
         tokenizer_name="fake", generation_code_sha="fixed", verify_prompts=False,
     )
-    for prev_w, next_w in zip(m["windows"], m["windows"][1:]):
-        assert next_w["requests"][0]["base_relative_arrival_s"] == pytest.approx(
-            prev_w["requests"][-1]["base_relative_arrival_s"]
-        )
-    all_arrivals = [r["base_relative_arrival_s"] for w in m["windows"] for r in w["requests"]]
-    assert all(a <= b + 1e-12 for a, b in zip(all_arrivals, all_arrivals[1:]))
+    for w in m["windows"]:
+        assert w["requests"][0]["base_relative_arrival_s"] == pytest.approx(0.0)
+
+    # Reordering/removing windows must not change any other window's request
+    # timing -- proof there is no cross-window coupling (e.g. a cumulative
+    # offset) left in the generator.
+    m_reordered = build_mod.build_source_manifest(
+        source, cache={"manifest_kind": "fake", "windows": list(reversed(cache["windows"]))},
+        campaign_freeze=campaign_freeze, tokenizer=_FakeTokenizer(),
+        tokenizer_name="fake", generation_code_sha="fixed", verify_prompts=False,
+    )
+    by_id_original = {w["window_id"]: w for w in m["windows"]}
+    by_id_reordered = {w["window_id"]: w for w in m_reordered["windows"]}
+    for wid, w in by_id_original.items():
+        assert w["requests"] == by_id_reordered[wid]["requests"]
 
 
 # ---------------------------------------------------------------------------

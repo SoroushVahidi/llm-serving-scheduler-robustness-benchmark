@@ -4,6 +4,21 @@
 real-engine load-calibration *procedure* only. It does not report, and must
 not be edited after, any real calibration measurement.
 
+**2026-09-03 update: see `configs/real_vllm/rq6_calibration_manifest_v2_20260903.json`.**
+The machine-readable manifest originally referenced from this document
+(`rq6_calibration_manifest_20260902.json`) is superseded (left in place,
+unmodified, as an immutable record) by a v2 manifest that resolves the
+calibration-population question left open here and implements the
+SLO/weight prerequisite in "What is frozen now vs. what remains open"
+below: calibration runs per frozen window (`CALIBRATION_UNIT =
+ONE_FROZEN_WINDOW`, 120 independent calibrations = 3 sources x 40
+windows/source), never per concatenated source trace -- see
+`docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md`'s "Calibration
+population" section for the forensic evidence and reasoning. The procedure
+described in this document (region grid, knee-detection criterion,
+bisection shape, failure handling, warmup) is otherwise **unchanged** —
+only the population it's applied *to* was previously unspecified.
+
 ## Why this is not a new methodology
 
 `docs/LOAD_CALIBRATION_PROTOCOL.md` and
@@ -88,10 +103,14 @@ step (see the workload-manifest contract's open item).
 
 ## What is frozen now vs. what remains open
 
-| Frozen now | Not yet frozen (blocked on the above prerequisite) |
+**2026-09-03: all rows below are now frozen and implemented** (see the v2
+manifest note above) — this table is kept for its historical record of
+what was still open as of 2026-09-02.
+
+| Frozen now | Was not yet frozen as of 2026-09-02 — resolved 2026-09-03 |
 |---|---|
-| Reference policy (`vllm_faithful`) | Exact per-source `slo_deadline`/`weight` overlay values to carry through (needs the frozen Phase-12 window's overlay parameters, once located) |
-| Region grid + multipliers (reused from Phase-11) | `lambda_ref_real` per source (a measurement, not a design choice — must not be produced before the manifest+SLO-attachment work lands) |
+| Reference policy (`vllm_faithful`) | Exact per-source `slo_deadline`/`weight` overlay values carried through — implemented in `robustbench.real_llm.rq6_slo_metrics`, sourced unmodified from each workload manifest's `base_slo_deadline_s`/`weight` fields |
+| Region grid + multipliers (reused from Phase-11) | `real_lambda_ref` per **window** (not per source — see "Calibration population" in the scientific protocol doc), a measurement produced by `rq6_calibration.bisect_lambda_ref_real` against a live vLLM server |
 | Bisection search shape (bounds, iteration count, threshold) | — |
 | Rule: one reference policy for all three sources, no per-source or per-policy retuning | — |
 | Timeout/failure handling: identical to the simulator's fail-closed posture — a candidate factor that cannot be measured (server crash, timeout) is treated as `slo_violation_rate = 1.0` for that factor, mirroring `_slo_violation_rate_at`'s `num_completed == 0 -> return 1.0` fallback | — |

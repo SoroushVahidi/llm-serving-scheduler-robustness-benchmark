@@ -12,13 +12,17 @@ attaches those fields and computes the metric -- reusing the exact frozen
 each RQ6 workload manifest request (`stage0_synthesis_v1`,
 docs/DATA_FIELD_PROVENANCE.md), never resynthesizing them.
 
-Deliberately does NOT decide what request population a calibration
-bisection candidate measurement should replay against (a full 8,000-request
-per-source manifest replayed at each of 30 bisection iterations is not
-obviously the intended scale, and no frozen document resolves this) -- that
-remains an open design question, tracked in
-docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md's open items, not decided
-here under time pressure.
+Calibration population (2026-09-03, frozen): forensic inspection of
+Phase-12's own `execute_cell.py` (fresh `Simulator` + `policy.reset()` per
+cell) and `ranking_portability/analysis/ranking_analysis.py` ("(policy,
+window) rows treated as independent", bootstrap-resampled over windows)
+established that each of the 120 frozen windows (40/source x 3 sources) is
+an independent unit in Phase-12's own methodology, each with its own
+`lambda_ref`. The real-vLLM calibration bisection therefore runs per
+window (200 requests/candidate, 120 independent calibrations total), never
+against a concatenated per-source trace -- see
+docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md's "Execution unit"
+section.
 """
 from __future__ import annotations
 
@@ -30,7 +34,7 @@ def scale_request_timing(
     base_relative_arrival_s: float, base_slo_deadline_s: float, candidate_scale: float,
 ) -> tuple[float, float]:
     """Applies the real-engine candidate timing scale `s` to one request's
-    frozen (already 1.5x-lambda_ref-scaled, window-concatenated) trace-shape
+    frozen (already 1.5x-that-window's-own-lambda_ref-scaled) trace-shape
     arrival/deadline, per docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md
     and the workload manifest's own `timing_transform_formula` field:
 

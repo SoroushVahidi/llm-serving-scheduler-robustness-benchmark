@@ -73,7 +73,6 @@ def validate_source_manifest(
     region_assignment_index = campaign_freeze["region_assignment_index"]
 
     all_request_ids: List[str] = []
-    prev_last_arrival = None
     for w in manifest["windows"]:
         wid = w["window_id"]
         cache_w = cache_windows.get(wid)
@@ -119,10 +118,11 @@ def validate_source_manifest(
             if r["priority"] != 1.0 or r["weight"] != 1.0 or r["class_id"] != "stage0_uniform":
                 problems.append(f"{wid}[{i}]: overlay field deviates from stage0_synthesis_v1 constants")
 
-        first_arrival = reqs[0]["base_relative_arrival_s"]
-        if prev_last_arrival is not None and abs(first_arrival - prev_last_arrival) > 1e-9:
-            problems.append(f"{wid}: window boundary discontinuity (expected first arrival == prior window's last arrival)")
-        prev_last_arrival = reqs[-1]["base_relative_arrival_s"]
+        # Each window is an INDEPENDENT episode (execute_cell.py: fresh
+        # Simulator + policy.reset() per cell) -- its own arrival timeline
+        # must start at its own t=0, never offset by any other window.
+        if reqs and abs(reqs[0]["base_relative_arrival_s"] - 0.0) > 1e-9:
+            problems.append(f"{wid}: first request does not start at window-local t=0 (independent-episode violation)")
 
     checks["no_duplicate_request_ids"] = len(all_request_ids) == len(set(all_request_ids))
     checks["request_ids_match_cache_derived_record_ids"] = set(all_request_ids) == {

@@ -24,17 +24,19 @@ def make_client(base_url: str, timeout_s: float = 120.0) -> httpx.Client:
     return httpx.Client(base_url=base_url, timeout=timeout_s)
 
 
-def call_non_streaming(client: httpx.Client, planned: PlannedRequest, timeout_s: int) -> Dict[str, Any]:
-    resp = client.post(
-        "/v1/completions",
-        json={
-            "model": planned.model,
-            "prompt": planned.prompt_text,
-            "max_tokens": planned.max_tokens,
-            "temperature": 0.0,
-        },
-        timeout=timeout_s,
-    )
+def call_non_streaming(
+    client: httpx.Client, planned: PlannedRequest, timeout_s: int,
+    extra_body: Dict[str, Any] | None = None,
+) -> Dict[str, Any]:
+    payload = {
+        "model": planned.model,
+        "prompt": planned.prompt_text,
+        "max_tokens": planned.max_tokens,
+        "temperature": 0.0,
+    }
+    if extra_body:
+        payload.update(extra_body)
+    resp = client.post("/v1/completions", json=payload, timeout=timeout_s)
     resp.raise_for_status()
     data = resp.json()
     choice = data["choices"][0]
