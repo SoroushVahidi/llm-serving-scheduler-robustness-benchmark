@@ -37,9 +37,35 @@ workload or RQ6 case a server using this scheduler happens to serve.
 """
 from __future__ import annotations
 
+import logging
 from typing import TYPE_CHECKING, Dict, List
 
 from vllm.v1.core.sched.scheduler import Scheduler as VLLMDefaultScheduler
+
+# Engineering-only structured observability. Purely observational: every
+# call site below is a log statement AFTER the scheduling decision is
+# already made, never an input to it -- instrumentation cannot change
+# algorithmic behavior. Never used for scientific metric computation.
+#
+# Gated behind LSSP_SLAI_LOG_EVENTS=1 (unset/0 by default -- no handler
+# attached, no level change, fully inert) rather than always-on, so a
+# real scientific RQ6 run is not silently carrying extra log volume this
+# engineering task did not ask for. When enabled, attaches its own
+# dedicated StreamHandler(sys.stderr) directly to this named logger only
+# (not the root logger, so vLLM's own logging setup/propagation is
+# untouched either way) -- this makes visibility independent of whatever
+# level vLLM's own root logger happens to be configured at.
+import os as _os
+import sys as _sys
+
+_slai_log = logging.getLogger("lssp.slai_plugin")
+if _os.environ.get("LSSP_SLAI_LOG_EVENTS") == "1":
+    _slai_log.setLevel(logging.INFO)
+    _handler = logging.StreamHandler(_sys.stderr)
+    _handler.setFormatter(logging.Formatter("%(message)s"))
+    _slai_log.addHandler(_handler)
+    _slai_log.propagate = False
+del _os, _sys
 
 from .slai_priority import (
     DecodeCandidate,
@@ -65,12 +91,19 @@ class LSSPSlaiVLLMScheduler(VLLMDefaultScheduler):
     """
 
     #: Deterministic, disclosed defaults -- identical to slai_faithful.py.
-    decode_limit = 128
+    #: LSSP_SLAI_DECODE_LIMIT is an engineering-only override for forcing
+    #: contention in fidelity smoke tests (docs/REAL_VLLM_SLAI_FIDELITY.md
+    #: "Local real-vLLM contention test"); it is never set based on which
+    #: workload/case is being served, only to exercise the hold branch.
+    import os as _os
+    decode_limit = int(_os.environ.get("LSSP_SLAI_DECODE_LIMIT", "128"))
+    del _os
     step_size = 0.001
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self._lst: Dict[str, float] = {}
+        self._previously_held: set = set()  # engineering-only, for SLAI_RELEASE detection
 
     def add_request(self, request: "Request") -> None:
         # Admission-ordering hook: SLAI's TBT-tiered SPF, collapsed to the
@@ -120,6 +153,28 @@ class LSSPSlaiVLLMScheduler(VLLMDefaultScheduler):
             critical, non_critical, self.decode_limit, remaining_budget,
         )
         held_set = set(held_ids)
+
+        # Engineering-only observability (logged AFTER the decision above;
+        # cannot influence it). SLAI_HOLD / SLAI_RELEASE / SLAI_SCHEDULE.
+        if _slai_log.isEnabledFor(logging.INFO):
+            for rid in held_set:
+                _slai_log.info(
+                    "SLAI_HOLD step=%d request_id=%s lst=%s now=%.6f decode_limit=%d reason=%s",
+                    self.current_step, rid, self._lst.get(rid), now, self.decode_limit,
+                    "non_critical_no_capacity" if rid in {c.request_id for c in non_critical} else "critical_exceeds_decode_limit",
+                )
+            released = self._previously_held - held_set
+            for rid in released:
+                _slai_log.info(
+                    "SLAI_RELEASE step=%d request_id=%s lst=%s now=%.6f",
+                    self.current_step, rid, self._lst.get(rid), now,
+                )
+            for rid in served_ids:
+                _slai_log.info(
+                    "SLAI_SCHEDULE step=%d request_id=%s lst=%s now=%.6f",
+                    self.current_step, rid, self._lst.get(rid), now,
+                )
+        self._previously_held = held_set
 
         held_requests: List["Request"] = [r for r in self.running if r.request_id in held_set]
         for r in held_requests:

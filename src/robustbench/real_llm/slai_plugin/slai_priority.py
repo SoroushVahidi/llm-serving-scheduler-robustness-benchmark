@@ -22,6 +22,42 @@ can be:
 This module makes NO decision based on which workload (Azure/BurstGPT/
 Bailian) or which RQ6 case is running -- it is pure algorithm, identical
 regardless of caller.
+
+FROZEN DECODE-HOLD SEMANTICS (restated from slai_faithful.py, not
+redefined -- see docs/REAL_VLLM_SLAI_FIDELITY.md "Frozen decode-hold
+invariants" for the corresponding pass/fail test invariants):
+
+1. TRIGGER CONDITION: a decode-ready request is held (not served this
+   step) iff it is not among the first `decode_limit` requests in
+   ascending-LST order among {critical requests} ++ {non-critical
+   requests}, where critical = (now >= lst) [inclusive] and non-critical
+   = (now < lst). Equivalently: excess-critical requests beyond
+   decode_limit are held first-priority-lost; if capacity remains after
+   all critical requests, non-critical requests fill it in ascending-LST
+   (soonest-due-first) order, and any non-critical request that still
+   doesn't fit (decode_limit or token budget exhausted) is held.
+2. REQUIRED STATE: the request must already be decode-ready (finished
+   prefill) and have an LST assigned (assigned the instant it becomes
+   decode-ready, before this same step's classification -- see
+   slai_faithful.py's "Deliberately done BEFORE this step's own
+   critical/non-critical classification" comment).
+3. HOLD DURATION: re-evaluated every step; a held request's LST is NOT
+   refreshed (only served requests get their LST refreshed), so its
+   `now - lst` gap only grows as `now` advances -- there is no
+   "several-step" hold state, only a fresh per-step decision that
+   naturally tends toward becoming critical over time.
+4. RE-ELIGIBILITY: automatic, not an explicit action -- once `now >=
+   lst` for a previously-held request (its fixed LST, as `now` advances
+   past it), it reclassifies as critical and is prioritized
+   (ascending-LST, i.e. most-overdue-first) among critical requests.
+5. STATE EFFECT OF HOLDING: none on request/KV state -- a held request
+   stays in the decode-ready set with its existing KV blocks/state
+   untouched; the only difference is it is not given a decode step this
+   round.
+6. TIE-BREAKING: `(lst, request_id)` ascending for decode ordering
+   (a request with no LST recorded sorts as `-inf`, i.e. always
+   critical -- mirrors `_lst_key`'s `float("-inf")` default);
+   `(tbt, prompt_tokens, request_id)` ascending for admission ordering.
 """
 from __future__ import annotations
 
