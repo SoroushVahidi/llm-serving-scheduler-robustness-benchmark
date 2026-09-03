@@ -1,0 +1,88 @@
+{
+  "manifest_kind": "POST_PHASE12_SLO_DEFINITION_SENSITIVITY_EXTENSION_CONTRACT",
+  "label": "POST_PHASE12_SLO_DEFINITION_SENSITIVITY_EXTENSION",
+  "not_preregistered": true,
+  "frozen_at_utc": "2026-09-03T00:00:00Z",
+  "protocol_doc": "docs/SLO_DEFINITION_SENSITIVITY_PROTOCOL_20260903.md",
+  "primary_slo_rule": {
+    "synthesis_version": "stage0_synthesis_v1",
+    "source_module": "src/robustbench/workloads/external/benchmark_synthesis.py",
+    "formula": "slo_deadline = arrival_time + slo_multiplier * (PREFILL_TOKEN_COST_S * prompt_tokens + DECODE_TOKEN_COST_S * predicted_output_tokens)",
+    "primary_multiplier": 20.0,
+    "prefill_token_cost_s": 0.0004,
+    "decode_token_cost_s": 0.02,
+    "per_request_or_global": "PER_REQUEST",
+    "weight_interaction": "ANWG/weighted_goodput weight = request.priority; Stage-0 synthesis sets priority=1.0 uniformly, so weighting is a no-op for every Phase-12 cell regardless of SLO rule",
+    "priority_interaction": "none: priority is not an input to the SLO-deadline formula"
+  },
+  "variant_panel": {
+    "selection_rule": "symmetric halve/double bracket around the primary multiplier, chosen from the sealed formula's structure alone, before any scheduler-ranking outcome under any variant was computed",
+    "variants": {
+      "tight_10x": 10.0,
+      "primary_20x": 20.0,
+      "loose_40x": 40.0
+    },
+    "transform": "src/robustbench/analysis/slo_variant.py::apply_slo_variant -- rescales only slo_deadline via the exact identity variant_deadline = arrival_time + (primary_deadline - arrival_time) * (variant_multiplier / primary_multiplier); all other Request fields byte-identical by construction"
+  },
+  "held_fixed_across_variants": [
+    "source_family", "window_id", "request_id", "arrival_time", "prompt_tokens",
+    "predicted_output_tokens", "actual_output_tokens", "priority", "class_id",
+    "policy_id", "load_region", "absolute_load_factor", "synthesis_seed"
+  ],
+  "scope": {
+    "sources": ["burstgpt", "azure_llm_2024", "bailian_qwen"],
+    "n_sources": 3,
+    "windows_per_source": 40,
+    "regions": ["PRE_KNEE", "KNEE", "POST_KNEE", "OVERLOAD", "HIGH_PRESSURE"],
+    "n_regions": 5,
+    "region_exclusion_rationale": "LOW excluded: sealed primary campaign (paper/generated/table_data/rq3_reversals.json, primary_metric_by_region_class_counts) shows 0/36 supported practical reversals in LOW; the other 5 regions each contribute reversals (PRE_KNEE=6, KNEE=6, POST_KNEE=6, OVERLOAD=10, HIGH_PRESSURE=8) so all 5 are retained -- excluding PRE_KNEE/POST_KNEE would have discarded 12/36 (33%) of the reversal evidence base this extension exists to stress-test",
+    "policies": [
+      "fifo", "edf", "least_laxity_first", "estimated_service_time_first",
+      "weighted_fair_share", "kv_constrained_online", "vllm_faithful",
+      "vllm_chunked_prefill_faithful", "sarathi_faithful", "slai_faithful",
+      "admission_control"
+    ],
+    "n_policies": 11,
+    "policy_panel_source": "src/robustbench/ranking_portability/analysis/contract.py::PRIMARY_POLICIES (unchanged -- no style-approximation policies)",
+    "repetitions": "none: the simulator is deterministic given identical Requests (docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md SEED_SENSITIVITY_APPLICABLE=false); the sealed campaign's synthesis_seed per window is reused unchanged, only the SLO variant differs"
+  },
+  "expected_cells": 19800,
+  "expected_cells_formula": "3 slo_rules x 3 sources x 5 regions x 11 policies x 40 windows",
+  "primary_metric": "arrival_normalized_weighted_goodput",
+  "primary_metric_source": "src/robustbench/ranking_portability/analysis/contract.py::PRIMARY_METRIC",
+  "slo_aware_policy_audit": {
+    "edf": "PRIMARY sort key is slo_deadline ascending -- fully SLO-deadline-driven",
+    "least_laxity_first": "sorts by laxity = slo_deadline - now - service_estimate, tie-break slo_deadline -- fully SLO-deadline-driven",
+    "admission_control": "admission/eviction laxity = slo_deadline - now - service_estimate; ordering also uses slo_deadline ascending -- fully SLO-deadline-driven",
+    "estimated_service_time_first": "primary sort key is estimated service time (SJF); slo_deadline used only as a tie-breaker",
+    "scorpio_style_slo_guard": "(STYLE_APPROXIMATION, not in PRIMARY panel) laxity-based like admission_control -- SLO-deadline-driven",
+    "slai_faithful": "does NOT read request.slo_deadline at all -- its own deadline concept (last_schedulable_time) is derived from a class_id-keyed time_between_tokens table (DEFAULT_TBT_BY_CLASS), independent of the synthesized SLO field; since Stage-0 synthesis sets class_id='stage0_uniform' uniformly, slai_faithful's own scheduling decisions are structurally UNCHANGED by this extension's variants -- but its realized slo_violation_rate/ANWG still moves, because SLO-violation is judged post hoc against request.slo_deadline for every policy uniformly, regardless of whether that policy's scheduling logic consulted it",
+    "fifo": "no SLO/deadline use of any kind",
+    "vllm_faithful": "no SLO/deadline use of any kind",
+    "vllm_chunked_prefill_faithful": "no SLO/deadline use of any kind",
+    "sarathi_faithful": "no SLO/deadline use of any kind",
+    "weighted_fair_share": "no SLO/deadline use of any kind (uses priority as fairness weight only)",
+    "kv_constrained_online": "no SLO/deadline use of any kind"
+  },
+  "transfer_statistics": {
+    "primary_ranking_robustness": "for each (source, region), compare_conditions(primary_rows, variant_rows, metric=arrival_normalized_weighted_goodput) using the sealed src/robustbench/ranking_portability/analysis/ranking_analysis.py::compare_conditions machinery unmodified -- Kendall tau-b, Spearman rho, top-1 agreement, top-3 overlap, block-bootstrap CIs over the 40 frozen windows as the resample unit",
+    "reversal_persistence": "for every SUPPORTED_PRACTICAL_REVERSAL recorded in the sealed primary campaign's canonical reversal output (frozen reference copy: configs/analysis/phase12_primary_reversals_reference.json), re-run src/robustbench/ranking_portability/analysis/reversal_analysis.py::classify_pairwise_reversal unmodified on the SAME source-pair/region/policy-pair using each variant's recomputed per-window ANWG values; classify as PERSISTS / DISAPPEARS / DIRECTION_CHANGE / BECOMES_UNSUPPORTED",
+    "secondary": "policy-pair sign agreement (sign of ANWG(policy_a)-ANWG(policy_b) under primary vs variant, same source/region) is reported as a by-product of the reversal-persistence check, not computed independently",
+    "bootstrap_resamples": 2000,
+    "bootstrap_resamples_source": "src/robustbench/ranking_portability/analysis/contract.py::BOOTSTRAP_RESAMPLES (reused unchanged -- not reselected for this extension)",
+    "ci_level": 0.95,
+    "ci_level_source": "src/robustbench/ranking_portability/analysis/contract.py::BOOTSTRAP_CI_LEVEL (reused unchanged)",
+    "practical_margin_fraction": 0.10,
+    "practical_margin_fraction_source": "src/robustbench/ranking_portability/analysis/contract.py::REVERSAL_PRACTICAL_MARGIN_FRACTION (reused unchanged -- dimensionally valid here because every comparison in this extension is ANWG-vs-ANWG under different SLO rules, the same dimensionless [0,1] metric the threshold was frozen for; no cross-metric unit mismatch arises, unlike a cross-metric extension would)",
+    "multiple_testing": "Benjamini-Hochberg FDR at q=0.05 (src/robustbench/ranking_portability/analysis/contract.py::FDR_Q), applied per (variant, region) family, matching the sealed campaign's own family definition"
+  },
+  "output_namespace": "artifacts/analysis/slo_sensitivity/<campaign_manifest_sha256>/",
+  "pilot_stamp": "SLO_SENSITIVITY_PIPELINE_PILOT_NOT_HEADLINE_EVIDENCE",
+  "sealed_outputs_never_modified": [
+    "artifacts/manifests/ranking_portability_phase12_campaign_freeze.json",
+    "artifacts/manifests/ranking_portability_phase12_shard_plan.json",
+    "src/robustbench/workloads/external/benchmark_synthesis.py",
+    "src/robustbench/ranking_portability/execute_cell.py",
+    "src/robustbench/ranking_portability/analysis/*"
+  ]
+}
