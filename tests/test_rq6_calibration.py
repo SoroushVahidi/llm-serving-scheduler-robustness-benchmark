@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import time
 from pathlib import Path
 
@@ -270,3 +271,70 @@ def test_reference_policy_is_always_vllm_faithful_never_slai():
     import inspect
     assert "policy" not in inspect.signature(replay_window_once).parameters
     assert "policy" not in inspect.signature(bisect_lambda_ref_real).parameters
+
+
+# ---------------------------------------------------------------------------
+# 17. CLI-level end-to-end: run_rq6_calibration.py main() invoked exactly as
+#     run_rq6_calibration.sbatch invokes it -- from the repo root, with a
+#     relative --calibration-manifest path -- must not raise and must write
+#     the output file. Regression test for the relative_to(REPO_ROOT) crash
+#     that made every array task in job 1220428 fail after a full bisection
+#     run, right before writing output.
+# ---------------------------------------------------------------------------
+
+@pytest.mark.skipif(
+    not run_calibration_mod.DEFAULT_MANIFEST_DIR.exists(), reason="RQ6 workload manifests not yet built",
+)
+def test_main_cli_with_relative_calibration_manifest_path(tmp_path, monkeypatch):
+    # Reproduces exactly how run_rq6_calibration.sbatch invokes this script:
+    # `cd "$REPO"`, the real (default) --manifest-dir, and a *relative*
+    # --calibration-manifest path. Uses the real frozen workload manifests
+    # and calibration manifest so both relative_to(REPO_ROOT) call sites in
+    # main() run against real absolute paths, not a synthetic stand-in repo.
+    units = run_calibration_mod.enumerate_calibration_units(run_calibration_mod.DEFAULT_MANIFEST_DIR)
+    source, window_id, _ = units[0]
+
+    calibration_manifest_rel = Path("configs/real_vllm/rq6_calibration_manifest_v2_20260903.json")
+    assert (REPO_ROOT / calibration_manifest_rel).exists()
+
+    out_dir = tmp_path / "artifacts" / "real_vllm" / "calibration" / "rq6" / "fake_hash"
+
+    class _FakeHandle:
+        base_url = "http://127.0.0.1:1"
+        def stop(self, timeout_s: float = 20.0) -> int:
+            return 0
+
+    def _fake_bisect(*args, **kwargs):
+        from robustbench.real_llm.rq6_calibration import BisectionCandidateRecord, WindowCalibrationResult
+        return WindowCalibrationResult(
+            source=source, window_id=window_id, reference_policy=REFERENCE_POLICY,
+            real_lambda_ref=1.0, derived_high_pressure=1.5,
+            convergence_status="converged",
+            candidate_history=[BisectionCandidateRecord(
+                iteration=0, factor=1.0, slo_violation_rate=0.0, n_completed=2, n_total=2,
+                reset_barrier_passed=True,
+            )],
+        )
+
+    monkeypatch.setattr(run_calibration_mod, "start_vllm_server", lambda **kwargs: _FakeHandle())
+    monkeypatch.setattr(run_calibration_mod, "wait_for_server_ready", lambda handle, timeout_s=600.0: True)
+    monkeypatch.setattr(run_calibration_mod, "bisect_lambda_ref_real", _fake_bisect)
+    monkeypatch.setattr(run_calibration_mod, "_load_tokenizer", lambda model: _FakeTokenizer())
+    monkeypatch.chdir(REPO_ROOT)  # matches the sbatch script's `cd "$REPO"`
+
+    argv = [
+        "run_rq6_calibration.py",
+        "--array-index", "0",
+        "--model", "fake-model",
+        "--out-dir", str(out_dir),
+        "--calibration-manifest", str(calibration_manifest_rel),  # relative, like the sbatch script
+    ]
+    monkeypatch.setattr("sys.argv", argv)
+
+    run_calibration_mod.main()  # must not raise ValueError from Path.relative_to
+
+    out_path = out_dir / source / f"{window_id}.json"
+    assert out_path.exists()
+    written = json.loads(out_path.read_text())
+    assert written["calibration_manifest_path"] == str(calibration_manifest_rel)
+    assert written["real_lambda_ref"] == 1.0

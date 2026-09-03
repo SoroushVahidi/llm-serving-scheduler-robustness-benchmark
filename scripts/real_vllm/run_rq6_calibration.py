@@ -93,6 +93,7 @@ def main() -> None:
     ap.add_argument("--out-dir", type=Path, required=True)
     ap.add_argument("--server-ready-timeout-s", type=float, default=600.0)
     args = ap.parse_args()
+    args.calibration_manifest = args.calibration_manifest.resolve()
 
     array_index = args.array_index
     if array_index is None:
