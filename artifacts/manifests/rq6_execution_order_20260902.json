@@ -1,0 +1,500 @@
+{
+  "load_region": "HIGH_PRESSURE",
+  "manifest_date": "2026-09-02",
+  "manifest_kind": "rq6_real_vllm_execution_order_v1",
+  "n_repetitions": 10,
+  "order": [
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 0,
+      "repetition": 5,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep5",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 1,
+      "repetition": 5,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep5",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 2,
+      "repetition": 2,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep2",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 3,
+      "repetition": 2,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep2",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 4,
+      "repetition": 1,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep1",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 5,
+      "repetition": 1,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep1",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 6,
+      "repetition": 0,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep0",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 7,
+      "repetition": 0,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep0",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 8,
+      "repetition": 0,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep0",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 9,
+      "repetition": 0,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep0",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 10,
+      "repetition": 6,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep6",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 11,
+      "repetition": 6,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep6",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 12,
+      "repetition": 7,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep7",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 13,
+      "repetition": 7,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep7",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 14,
+      "repetition": 1,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep1",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 15,
+      "repetition": 1,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep1",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 16,
+      "repetition": 2,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep2",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 17,
+      "repetition": 2,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep2",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 18,
+      "repetition": 9,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep9",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 19,
+      "repetition": 9,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep9",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 20,
+      "repetition": 7,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep7",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 21,
+      "repetition": 7,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep7",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 22,
+      "repetition": 3,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep3",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 23,
+      "repetition": 3,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep3",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 24,
+      "repetition": 8,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep8",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 25,
+      "repetition": 8,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep8",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 26,
+      "repetition": 4,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep4",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 27,
+      "repetition": 4,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep4",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 28,
+      "repetition": 3,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep3",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 29,
+      "repetition": 3,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep3",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 30,
+      "repetition": 6,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep6",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 31,
+      "repetition": 6,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep6",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 32,
+      "repetition": 9,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep9",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 33,
+      "repetition": 9,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep9",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 34,
+      "repetition": 5,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep5",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 35,
+      "repetition": 5,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep5",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 36,
+      "repetition": 4,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep4",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 37,
+      "repetition": 4,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep4",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 38,
+      "repetition": 4,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep4",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 39,
+      "repetition": 4,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep4",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 40,
+      "repetition": 5,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep5",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 41,
+      "repetition": 5,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep5",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 42,
+      "repetition": 7,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep7",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 43,
+      "repetition": 7,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep7",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 44,
+      "repetition": 2,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep2",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 45,
+      "repetition": 2,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep2",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 46,
+      "repetition": 8,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep8",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 47,
+      "repetition": 8,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep8",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 48,
+      "repetition": 0,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep0",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 49,
+      "repetition": 0,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep0",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 50,
+      "repetition": 1,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep1",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 51,
+      "repetition": 1,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep1",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 52,
+      "repetition": 3,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep3",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 53,
+      "repetition": 3,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep3",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 54,
+      "repetition": 9,
+      "run_id": "vllm_faithful::bailian_qwen::HIGH_PRESSURE::rep9",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 55,
+      "repetition": 9,
+      "run_id": "slai_faithful::bailian_qwen::HIGH_PRESSURE::rep9",
+      "source": "bailian_qwen"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 56,
+      "repetition": 8,
+      "run_id": "slai_faithful::azure_llm_2024::HIGH_PRESSURE::rep8",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 57,
+      "repetition": 8,
+      "run_id": "vllm_faithful::azure_llm_2024::HIGH_PRESSURE::rep8",
+      "source": "azure_llm_2024"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "slai_faithful",
+      "position": 58,
+      "repetition": 6,
+      "run_id": "slai_faithful::burstgpt::HIGH_PRESSURE::rep6",
+      "source": "burstgpt"
+    },
+    {
+      "load_region": "HIGH_PRESSURE",
+      "policy": "vllm_faithful",
+      "position": 59,
+      "repetition": 6,
+      "run_id": "vllm_faithful::burstgpt::HIGH_PRESSURE::rep6",
+      "source": "burstgpt"
+    }
+  ],
+  "ordering_method": "robustbench.real_llm.cell_orchestration.abba_order (policy order alternates by repetition parity within each source/repetition group), then a fixed-seed shuffle of the resulting ABBA pairs (pair contents never reordered)",
+  "policies": [
+    "slai_faithful",
+    "vllm_faithful"
+  ],
+  "seed": 20260902,
+  "sources": [
+    "azure_llm_2024",
+    "burstgpt",
+    "bailian_qwen"
+  ],
+  "total_run_units": 60
+}

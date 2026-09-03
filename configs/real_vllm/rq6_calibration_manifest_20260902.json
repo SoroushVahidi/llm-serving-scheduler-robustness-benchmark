@@ -1,0 +1,68 @@
+{
+  "manifest_kind": "rq6_real_vllm_calibration_protocol_v1",
+  "manifest_date": "2026-09-02",
+  "status": "PROCEDURE_FROZEN_NOT_YET_EXECUTABLE",
+  "status_reason": "Reuses docs/LOAD_CALIBRATION_PROTOCOL.md's six-region grid and knee criterion definition for the real engine, but the SLO/goodput input (per-request slo_deadline/weight overlay, needed to compute slo_violation_rate_real) is not yet attached by the real-vLLM collection layer (docs/REAL_SYSTEM_METRIC_MAPPING.md marks ANWG UNAVAILABLE today). Do not execute this calibration until that attachment lands and the workload manifests in Section D exist.",
+
+  "reference_policy": "vllm_faithful",
+  "reference_policy_rationale": "Mirrors the simulator's fifo reference (docs/LOAD_CALIBRATION_PROTOCOL.md): simplest mechanism, no priority/deadline synthesis dependency. Already built and validated (Wulver job 1219334, pass_gate=true, --scheduling-policy fcfs, no --scheduler-cls).",
+  "policy_under_study_excluded_from_calibration": ["slai_faithful"],
+
+  "region_grid": {
+    "source_of_definition": "src/robustbench/ranking_portability/calibration.py::REGION_FACTORS (Phase-11, frozen)",
+    "factors": {
+      "LOW": 0.5,
+      "PRE_KNEE": 0.8,
+      "KNEE": 1.0,
+      "POST_KNEE": 1.1,
+      "OVERLOAD": 1.2,
+      "HIGH_PRESSURE": 1.5
+    },
+    "region_used_by_rq6_case_selection": "HIGH_PRESSURE"
+  },
+
+  "knee_search": {
+    "criterion": "slo_violation_rate_real(factor) crosses fixed threshold",
+    "threshold": 0.005,
+    "search_space": "log10(factor)",
+    "bounds_log10": [-2.0, 4.0],
+    "iterations": 30,
+    "source_of_definition": "src/robustbench/ranking_portability/calibration.py::compute_lambda_ref (Phase-11, frozen); reused as a search-shape definition only, never its numeric lambda_ref result",
+    "lambda_ref_is_measured_not_assumed": true,
+    "lambda_ref_reused_from_simulator": false
+  },
+
+  "slo_violation_rate_real_definition": {
+    "formula": "1 - (sum(weight_i for i in completed if t_done_i <= slo_deadline_i) / sum(weight_i for i in completed))",
+    "t_done_source": "vllm_openai_client streaming call, per docs/REAL_SYSTEM_METRIC_MAPPING.md",
+    "slo_deadline_source": "carried through unmodified from the frozen Phase-12 window's SYNTHESIZED_IMPUTED overlay (docs/DATA_FIELD_PROVENANCE.md) -- never resynthesized for the real run",
+    "implemented": false,
+    "blocking_prerequisite": "attach per-request slo_deadline/weight to real-vLLM requests and compute t_done-vs-slo_deadline client-side; not yet built in calibration_common.py / vllm_openai_client.py"
+  },
+
+  "failure_handling": {
+    "rule": "a candidate factor whose measurement run has zero completed requests (crash, timeout) is treated as slo_violation_rate = 1.0 for that factor",
+    "source_of_definition": "src/robustbench/ranking_portability/calibration.py::_slo_violation_rate_at (num_completed == 0 -> return 1.0)"
+  },
+
+  "warmup": {
+    "rule": "one untimed warmup request per server start before any measured candidate factor; discarded from all statistics",
+    "source_of_definition": "scripts/real_vllm/wulver_engineering_gate.py::_calibration (existing engineering-validated pattern)"
+  },
+
+  "applies_identically_to_sources": ["azure_llm_2024", "burstgpt", "bailian_qwen"],
+  "no_per_source_retuning": true,
+  "no_per_policy_retuning": true,
+
+  "workload_manifest_hashes": {
+    "azure_llm_2024": null,
+    "burstgpt": null,
+    "bailian_qwen": null,
+    "note": "populated once docs/RQ6_REAL_VLLM_WORKLOAD_MANIFEST_CONTRACT_20260902.md's generator exists and produces frozen manifests"
+  },
+
+  "environment_spec_sha256": "de46e1134fbd2aff7d2ad378dc4e516e18bd4795137d1c96a6e75729b421e3f0",
+  "environment_spec_path": "requirements-real-vllm.txt",
+  "engineering_recovery_commit": "52ef9fff1dcb49ca729f91d24e1aed077c72a6b0",
+  "case_selection_manifest_sha256": "f34e1c6a9f8d4c695720d14f7929741594ac8f7818a427db832933554e909e5a"
+}

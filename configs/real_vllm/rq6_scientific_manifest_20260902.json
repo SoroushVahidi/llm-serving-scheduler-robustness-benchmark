@@ -1,0 +1,65 @@
+{
+  "manifest_kind": "rq6_real_vllm_scientific_prefreeze_v1",
+  "manifest_date": "2026-09-02",
+  "status": "PARTIAL_PREFREEZE",
+  "status_note": "Stages 1/2/3/5/7/8 frozen and validated. Stages 4 (workload manifests) and 6 (calibration execution) are NOT DONE and block stage 9 (comparative measurement). See docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md for the full stage table and open items.",
+
+  "case_selection": {
+    "manifest_path": "artifacts/manifests/phase12_rq6_case_selection_20260902.json",
+    "manifest_sha256": "f34e1c6a9f8d4c695720d14f7929741594ac8f7818a427db832933554e909e5a",
+    "source_consolidated_input_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "reversal_case": {
+      "policy_a": "slai_faithful",
+      "policy_b": "vllm_faithful",
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+      "condition_y": "burstgpt::HIGH_PRESSURE",
+      "metric": "arrival_normalized_weighted_goodput"
+    },
+    "stable_control": {
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+      "condition_y": "bailian_qwen::HIGH_PRESSURE",
+      "metric": "arrival_normalized_weighted_goodput"
+    }
+  },
+
+  "engineering": {
+    "recovery_branch": "engineering/lssp-rq6-wulver-recovery-20260902",
+    "recovery_sha": "52ef9fff1dcb49ca729f91d24e1aed077c72a6b0",
+    "wulver_gate_job_id": "1219334",
+    "wulver_gate_pass_gate": true,
+    "environment_spec_path": "requirements-real-vllm.txt",
+    "environment_spec_sha256": "de46e1134fbd2aff7d2ad378dc4e516e18bd4795137d1c96a6e75729b421e3f0"
+  },
+
+  "workload_manifests": {
+    "status": "NOT_DONE",
+    "azure_llm_2024": null,
+    "burstgpt": null,
+    "bailian_qwen": null
+  },
+
+  "calibration": {
+    "protocol_doc": "docs/RQ6_REAL_VLLM_CALIBRATION_PROTOCOL_20260902.md",
+    "manifest_path": "configs/real_vllm/rq6_calibration_manifest_20260902.json",
+    "manifest_sha256": "417dd8d3d07e770c4629beb59d3116b832516d3f59b7230b9a39b93eb7f65d2d",
+    "status": "PROCEDURE_FROZEN_NOT_YET_EXECUTABLE",
+    "derived_rate_manifest": null
+  },
+
+  "execution_order": {
+    "path": "artifacts/manifests/rq6_execution_order_20260902.json",
+    "sha256": "885143cebc0dbd773c1f4b23291a906552886446d6aba6a19b9481c0236e9fd3",
+    "n_repetitions": 10,
+    "total_run_units": 60
+  },
+
+  "statistics": {
+    "primary_metric": "arrival_normalized_weighted_goodput",
+    "experimental_unit": "repetition (adapted from docs/STATISTICAL_ANALYSIS_PLAN.md's window-level unit; RQ6 has one frozen window per source)",
+    "ci_method": "bootstrap, >=2000 resamples, 95% CI",
+    "multiple_testing_correction": "Benjamini-Hochberg FDR q=0.05 per family (4 pairwise tests)",
+    "frozen_before_outcomes": true
+  },
+
+  "protocol_doc": "docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md"
+}
