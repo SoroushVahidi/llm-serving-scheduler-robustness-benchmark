@@ -144,11 +144,8 @@ retroactively relabeling the pilot data.
 ## RQ6 status
 
 The 120-task real-vLLM calibration campaign (a *prerequisite* for RQ6,
-not the RQ6 result itself) is in progress; as of this draft, 119/120
-calibration tasks are valid and the last is being recovered from a
-known, disclosed engineering defect (a Slurm array port-allocation
-collision, unrelated to any scientific input). Even once calibration
-reaches 120/120, the actual ranking-agreement validation runs against
+not the RQ6 result itself) is complete (120/120 terminal states: 43 converged, 77 lower-bound already violating).
+However, the actual scientific ranking-agreement validation runs against
 the two frozen cases have not started, and no data from them exists in
 this dataset. **This dataset ships zero RQ6 scientific rows.** If and
 when RQ6 validation completes, its output will be added in a
