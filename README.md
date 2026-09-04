@@ -11,6 +11,8 @@ Companion repository to the manuscript *"How Portable Are LLM-Serving
 Scheduler Rankings Across Workloads, Operating Regions, and Metrics?"*
 (Soroush Vahidi, submitted to the *Journal of Supercomputing*).
 
+**Paper:** [How Portable Are LLM-Serving Scheduler Rankings Across Workloads, Operating Regions, and Metrics?](./How_Portable_Are_LLM-Serving_Scheduler_Rankings_Across_Workloads_Operating_Regions_and_Metrics.pdf)
+
 ## What's here
 
 - **Simulator + policy library** (`src/robustbench/`): 13 scheduling
