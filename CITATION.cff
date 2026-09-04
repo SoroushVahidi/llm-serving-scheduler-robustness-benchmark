@@ -1,8 +1,10 @@
 cff-version: 1.2.0
 message: >-
   If you use this code or the LSSP dataset, please cite the paper below.
-  BibTeX/DOI will be added once the Journal of Supercomputing submission
-  is accepted and a release is tagged (see docs/PROJECT_STATUS.md).
+  This citation covers the archived v1.0.0 research artifact (code,
+  manuscript source, and manifests); the manuscript's own citation will
+  be added once the Journal of Supercomputing submission is accepted
+  (see docs/PROJECT_STATUS.md).
 title: >-
   How Portable Are LLM-Serving Scheduler Rankings Across Workloads,
   Operating Regions, and Metrics?
@@ -16,3 +18,11 @@ repository-code: >-
 license: MIT
 version: 1.0.0
 date-released: "2026-09-04"
+doi: 10.5281/zenodo.22306798
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22306798
+    description: Archived Zenodo snapshot of GitHub release v1.0.0 (commit 18128a8cf4d449c333c6db4d31788dd5eae180bd).
+  - type: url
+    value: https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability
+    description: Companion Hugging Face dataset (v1.0.0, initial partial release).
