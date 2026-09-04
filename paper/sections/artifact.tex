@@ -1,31 +1,47 @@
 \section{Reproducibility and the LSSP Artifact}
 \label{sec:artifact}
 
-We plan to release the LLM-Serving Scheduler Portability Benchmark (LSSP)
-as two linked artifacts: a GitHub repository (source code, simulator,
-analysis pipeline, validation scripts, the reproduction workflow, and
-figure/table-generation code including
-\texttt{paper/scripts/generate\_phase12\_tables\_figures.py}, at
-\texttt{SoroushVahidi/llm-serving-scheduler-robustness-benchmark}) and a
-Hugging Face dataset (released benchmark manifests, legally redistributable
-processed workload artifacts, validated campaign outputs, analysis-ready
-data, provenance/checksums, and a dataset card, at the repository slug
-\texttt{SoroushVahidi/llm-serving-scheduler-portability}). \textbf{As of
-this manuscript, neither release is yet public.} Upstream workload traces
-(\S\ref{sec:provenance}) remain governed by their original publishers'
-licenses and will not be republished where redistribution is not
-permitted; the release documents provenance and, where license terms
-allow, redistributes processed derivatives, not a copy of every source
-trace. The Pilot-V2 comparative outcome (\S\ref{sec:results}) has now been
-generated and structurally validated (six canonical analysis artifacts,
-hash ledger below) prior to any scientific interpretation
-(\S\ref{sec:artifact-hashes}); the planned release will include: the
-frozen workload window identities and their provenance
-(\S\ref{sec:windows}); the scheduler panel and its configuration
-(\S\ref{sec:panel}); the six-region calibration protocol and its outputs
-(\S\ref{sec:calibration}); the full set of paired policy outcomes across
-windows, regions, and metrics (\S\ref{sec:results}); the mechanism
-telemetry collected for every cell (\S\ref{sec:telemetry}); the
+LSSP is released as two linked, publicly accessible artifacts. The GitHub
+repository -- \url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}
+-- carries the source code, simulator, policy implementations, analysis
+pipeline, validation scripts, the reproduction workflow, figure/table
+generation code (including
+\texttt{paper/scripts/generate\_phase12\_tables\_figures.py}), the manuscript
+source, and the frozen Phase-10/11/12 provenance manifests. The Hugging
+Face dataset -- \url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}
+-- carries a companion, analysis-ready subset: the canonical
+ranking-portability analysis outputs, the manuscript's per-RQ table data,
+the reduced RQ6 result with full computational provenance
+(\S\ref{sec:real-system-result}), and a dataset card documenting exact
+scope and licensing. An immutable snapshot of the GitHub release is
+additionally archived with a persistent identifier via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}
+(see Data availability in the Declarations).
+
+Upstream workload traces (\S\ref{sec:provenance}) remain governed by their
+original publishers' licenses and are not republished where redistribution
+is not permitted; the release documents provenance and, where license
+terms allow, redistributes processed derivatives, not a copy of every
+source trace. Two categories of already-generated evidence are
+represented through provenance pointers to the GitHub repository rather
+than duplicated in full on Hugging Face: the exploded per-cell
+18{,}720-row campaign matrix underlying \S\ref{sec:results} (the
+canonical analysis outputs and per-RQ table data needed to regenerate
+every reported number are on Hugging Face; the exploded matrix itself is
+a candidate for a future dataset revision), and the 240 raw per-cell RQ6
+physical-execution records (\S\ref{sec:real-system}), for which the
+reduced result already published on Hugging Face carries every value
+needed to independently verify the reported RQ6 claims.
+
+The Pilot-V2 comparative outcome (\S\ref{sec:results}) was generated and
+structurally validated (six canonical analysis artifacts, hash ledger
+below) prior to any scientific interpretation (\S\ref{sec:artifact-hashes});
+the release includes: the frozen workload window identities and their
+provenance (\S\ref{sec:windows}); the scheduler panel and its
+configuration (\S\ref{sec:panel}); the six-region calibration protocol and
+its outputs (\S\ref{sec:calibration}); the full set of paired policy
+outcomes across windows, regions, and metrics (\S\ref{sec:results}); the
+mechanism telemetry collected for every cell (\S\ref{sec:telemetry}); the
 ranking-portability analysis outputs (Kendall/Spearman statistics, reversal
 tables, block-bootstrap confidence intervals); and the reproduction
 scripts used to regenerate every table and figure in this manuscript from
@@ -45,11 +61,11 @@ artifact, exact five-class reversal taxonomy, exact frozen statistical
 contract) before this manuscript's Results and Sample Complexity sections
 were populated. The full audit record and per-artifact ledger are
 committed on the isolated
-\texttt{validation/lssp-phase12-structural-audit-20260902} branch and are part of the planned artifact release
-rather than reproduced in full in the main text.
+\texttt{validation/lssp-phase12-structural-audit-20260902} branch of the
+GitHub repository rather than reproduced in full in the main text.
 
-Every generated artifact in the planned release is designed to carry, or
-link via a provenance manifest, its generating repository commit SHA,
+Every generated artifact carries, or links via a provenance manifest, its
+generating repository commit SHA,
 resolved experiment-config hash, workload-manifest hash, policy-registry
 version, dataset-source checksums, environment version, and (where
 relevant) per-cell seed, so that any released row can be regenerated from

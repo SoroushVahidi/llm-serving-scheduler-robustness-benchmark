@@ -51,8 +51,8 @@ per source (\texttt{azure\_llm\_2024}, \texttt{bailian\_qwen},
 Stage-0 pilot (\S\ref{sec:stage0}) plus 30 new windows drawn by a
 deterministic, outcome-blind, source-symmetric pinned-extension sampler
 that uses only valid-row index ranges and fixed seeds -- never scheduler
-metrics, policy identities, or Stage-0 tie/non-tie outcomes
-(\texttt{BURSTGPT\_OUTCOME\_TARGETING = NO}, structurally verified). Windows
+metrics, policy identities, or Stage-0 tie/non-tie outcomes (verified by
+structural audit to contain no BurstGPT-outcome-targeting signal). Windows
 are assigned to EARLY/MIDDLE/LATE chronology strata by deterministic
 relative chronology (60/30/30 windows respectively); Stage-0-reused windows
 are all EARLY. The freeze passed a full structural validation gate --
@@ -102,8 +102,8 @@ tested; \texttt{tests/test\_separability\_pipeline\_no\_leakage.py}).
 \subsection{Source Separability}
 \label{sec:separability}
 
-We report the final characterization result as
-\texttt{SEPARABILITY\_RESULT\_CONFIRMED\_WITH\_CAVEATS}. The safe claim
+The workload sources are confirmed measurably separable, with the caveats
+below. The safe claim
 supported by this evidence is that the workload sources' observed
 descriptor distributions are measurably different, and that source identity
 is strongly separable under a leakage-resistant, chronologically blocked

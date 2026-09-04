@@ -112,56 +112,50 @@ research question in its own right, to avoid duplicating a closely related
 prior load-scaling study on an overlapping window set
 (\S\ref{sec:study-design}).
 
-\paragraph{Contributions.} Because LSSP's comparative scheduler outcomes had
-not yet been generated at the time this manuscript was prepared
-(\S\ref{sec:study-design}), we state our contributions in a form that does
-not depend on, and is not falsified by, either possible direction of that
-future result:
+\paragraph{Contributions.} The research questions above were fixed under a
+preregistered protocol before any comparative outcome was generated
+(\S\ref{sec:study-design}); this study executes that protocol and reports
+its structurally validated results. This work contributes:
 
 \begin{itemize}
-  \item We formulate the portability of a comparative scheduler ranking,
-    $R(W, M, L)$, as a benchmark object in its own right, distinct from
-    both workload characterization and single-scheduler evaluation.
-  \item We design a paired, multi-source evaluation protocol that holds a
-    fixed panel of scheduling policies constant across independently
-    sourced workload windows, operating regions, and metrics, so that
+  \item a formulation of the portability of a comparative scheduler
+    ranking, $R(W, M, L)$, as a benchmark object in its own right, distinct
+    from both workload characterization and single-scheduler evaluation;
+  \item a paired, multi-source evaluation protocol that holds a fixed
+    panel of scheduling policies constant across independently sourced
+    workload windows, operating regions, and metrics, so that
     ranking-portability statistics are computed on genuinely paired
-    observations rather than on separately tuned, per-source experiments.
-  \item We assemble a mechanism-diverse, fixed scheduler panel spanning
-    classical, fairness-aware, KV-aware, deadline-aware, and
-    faithfully reimplemented external policies, selected under an
-    outcome-independent selection rule fixed before any pilot result was
-    observed (\S\ref{sec:methodology}).
-  \item We define an uncertainty and reversal-detection methodology that
+    observations rather than on separately tuned, per-source experiments;
+  \item a mechanism-diverse, fixed scheduler panel spanning classical,
+    fairness-aware, KV-aware, deadline-aware, and faithfully reimplemented
+    external policies, selected under an outcome-independent selection
+    rule fixed before any pilot result was observed
+    (\S\ref{sec:methodology});
+  \item an uncertainty and reversal-detection methodology that
     distinguishes practically meaningful rank reversals from microscopic
     sign changes, using preregistered practical-margin and
-    confidence-interval criteria, and that treats every completion-conditioned
-    metric's undefined cases explicitly rather than by imputation
-    (\S\ref{sec:methodology}).
-  \item We define a benchmark sample-complexity methodology that asks how
-    many independent workload windows are required before a reported
-    ranking is likely to reproduce, rather than assuming a conventionally
-    sized window set is sufficient.
-  \item We characterize the workload corpus underlying the benchmark,
-    establishing that the workload sources used are measurably different in
-    observed descriptor distributions and strongly separable under a
-    leakage-resistant, chronologically blocked evaluation
-    (\S\ref{sec:workloads}).
-  \item We plan a paired public artifact release of the benchmark's frozen
-    workload identities, policy panel, protocol, and (once generated)
-    outcome and analysis artifacts, to support independent reproduction
-    (\S\ref{sec:artifact}).
+    confidence-interval criteria, and that treats every
+    completion-conditioned metric's undefined cases explicitly rather than
+    by imputation (\S\ref{sec:methodology});
+  \item a benchmark sample-complexity analysis quantifying how many
+    independent workload windows are required before a reported ranking
+    reproduces, applied to this study's own frozen 120-window corpus
+    (\S\ref{sec:sample-complexity});
+  \item a characterization of the workload corpus underlying the
+    benchmark, establishing that the three sources are measurably
+    different in observed descriptor distributions and strongly separable
+    under a leakage-resistant, chronologically blocked evaluation
+    (\S\ref{sec:workloads});
+  \item a selected-case physical validation on real vLLM/GPU hardware
+    (RQ6, \S\ref{sec:real-system}) of the benchmark's largest identified
+    simulated reversal and a paired stable-control comparison; and
+  \item a public artifact release of the benchmark's frozen workload
+    identities, policy panel, protocol, and outcome and analysis
+    artifacts, to support independent reproduction (\S\ref{sec:artifact}).
 \end{itemize}
 
-The frozen Pilot-V2 protocol has since executed (\S\ref{sec:artifact}), and
-Sections~\ref{sec:results}--\ref{sec:sample-complexity} report its
-structurally validated results: comparative rankings are neither uniformly
-stable nor uniformly unstable, but source-pair- and load-region-dependent
-in a specific, legible pattern (\S\ref{sec:discussion}). This manuscript
-does not claim that any scheduler in the panel wins in general. RQ6
-(\S\ref{sec:real-system}) tests whether the strongest identified simulated
-reversal reproduces on real vLLM/GPU execution: the selected physical
-validation did not reproduce that reversal, while a paired stable-control
-comparison retained the same qualitative ordering on physical hardware --
-further evidence that comparative scheduler conclusions are conditional
-rather than assumable.
+Comparative rankings prove neither uniformly stable nor uniformly
+unstable, but source-pair- and load-region-dependent in a specific,
+legible pattern; this manuscript does not claim that any scheduler in the
+panel wins in general (\S\ref{sec:discussion}). Sections~\ref{sec:results}--\ref{sec:real-system}
+report these results in full.

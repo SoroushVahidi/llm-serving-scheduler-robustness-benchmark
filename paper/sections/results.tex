@@ -40,7 +40,7 @@ best-performing PRIMARY-panel policy) and top-3 agreement follow the same
 source-pair pattern in the underlying evaluation data; we do not
 tabulate top-1/top-3 separately in the main text to avoid restating the
 same qualitative pattern three times, but the full table is part of the
-planned artifact release (\S\ref{sec:artifact}).
+public artifact release (\S\ref{sec:artifact}).
 
 \begin{table}[h]
 \centering
@@ -247,8 +247,7 @@ a disclosed implementation gap rather than computed here.
 policy ranking under one fixed metric (ANWG) is portable across sources,
 regions, and windows. A different question -- whether a ranking is
 portable across \emph{metrics}, for the same source and region -- is
-addressed here as an explicitly labeled post-campaign extension
-(\texttt{POST\_PHASE12\_RESULT\_INDEPENDENT\_ANALYSIS\_EXTENSION}) that
+addressed here as an explicitly labeled post-campaign extension that
 reuses the sealed package's statistical primitives as a library without
 modifying, re-running, or re-deriving any of the six canonical Phase-12
 artifacts. Across all $3$ sources $\times$ $6$ regions $\times$ $55$
@@ -273,14 +272,13 @@ default expectation that the two metrics' top choices should agree.
 \subsection{SLO-Definition Sensitivity}
 \label{sec:results-slo}
 
-\texttt{SLO\_DEFINITION\_SENSITIVITY} was never part of the preregistered
+SLO-definition sensitivity was never part of the preregistered
 protocol (\S\ref{sec:slo-sensitivity-gap}: no alternative SLO-synthesis
 rule was ever frozen before or during Pilot-V2 execution). We report here
 a post-campaign sensitivity check, explicitly labeled and executed after
-this study's headline results were already known
-(\texttt{POST\_PHASE12\_RESULT\_INDEPENDENT\_ANALYSIS\_EXTENSION}, per
+this study's headline results were already known, per
 \S\ref{sec:slo-sensitivity-gap}'s own requirement that any such study be
-run this way): three alternative SLO-synthesis multipliers
+run this way: three alternative SLO-synthesis multipliers
 (\texttt{tight\_10x}, \texttt{primary\_20x} -- this study's own convention
 -- and \texttt{loose\_40x}) applied across the full campaign grid
 ($19{,}800$ cells; 0 failed), with every source, region, policy, window,

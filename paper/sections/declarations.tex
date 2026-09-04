@@ -1,5 +1,4 @@
 \section*{Declarations}
-\addcontentsline{toc}{section}{Declarations}
 
 \paragraph{Funding.}
 This work was supported in part by the CloudRift AI Builder Grant and the
@@ -45,29 +44,35 @@ no physical or biological materials; all study outputs are software and
 data, covered under Code availability and Data availability below.
 
 \paragraph{Data availability.} This study distinguishes four categories of
-data, consistent with \S\ref{sec:artifact}:
-\begin{itemize}
-  \item \textbf{Externally sourced public traces} (BurstGPT, Azure 2024,
-    Bailian/Qwen) are governed by their original publishers' release terms
-    and license status (\S\ref{sec:provenance}; BurstGPT: CC-BY-4.0) and
-    are not redistributed as part of this project's own release; readers
-    should obtain them from their original sources.
-  \item \textbf{Derived benchmark manifests} -- the frozen window
-    identities, provenance, and content hashes (\S\ref{sec:windows}) -- and
-  \item \textbf{Generated campaign results} -- the full paired policy
-    outcome matrix across windows, regions, and metrics (\S\ref{sec:results})
-    -- and
-  \item \textbf{Analysis artifacts} -- ranking-portability statistics,
-    reversal tables, and reproduction scripts (\S\ref{sec:artifact}) --
-  will be archived at a persistent, publicly accessible repository (the
-  Hugging Face repository slug \texttt{SoroushVahidi/llm-serving-scheduler-portability})
-  upon completion of the study reported here. \textbf{As of this
-  manuscript, that artifact is planned but not yet released}
-  (\S\ref{sec:artifact}); no data availability claim in this statement
-  should be read as an assertion that the release is already live.
-\end{itemize}
+data, consistent with \S\ref{sec:artifact}. \textbf{Externally sourced
+public traces} (BurstGPT, Azure 2024, Bailian/Qwen) are governed by their
+original publishers' release terms and license status
+(\S\ref{sec:provenance}; BurstGPT: CC-BY-4.0) and are not redistributed as
+part of this project's release; readers should obtain them from their
+original sources. \textbf{Derived benchmark manifests} (the frozen window
+identities, provenance, and content hashes, \S\ref{sec:windows}),
+\textbf{generated campaign results} (the paired policy outcome matrix
+across windows, regions, and metrics, \S\ref{sec:results}), and
+\textbf{analysis artifacts} (ranking-portability statistics, reversal
+tables, and reproduction scripts) are publicly available at the Hugging
+Face dataset repository
+\url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability},
+with frozen manifests and code additionally available at the GitHub
+repository
+\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}.
+An immutable snapshot of the code repository at the version reported here
+is archived with a persistent identifier via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
+The Hugging Face release is an initial, dataset-card-scoped publication
+(\S\ref{sec:artifact}); it does not yet include the exploded per-cell
+campaign matrix or the raw per-cell RQ6 execution records, both of which
+are candidates for a future dataset revision, and both of which are
+represented in the current release by the canonical analysis outputs and
+reduced RQ6 result sufficient to verify every number reported in this
+manuscript.
 
 \paragraph{Code availability.} The simulator, policy implementations, and
-analysis pipeline underlying this study will be released alongside the
-data described above, under the same repository, once the study
-completes.
+analysis pipeline underlying this study are publicly available at
+\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark},
+with an immutable archived snapshot via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.

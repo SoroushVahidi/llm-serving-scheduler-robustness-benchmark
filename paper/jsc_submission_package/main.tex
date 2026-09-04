@@ -1,0 +1,2110 @@
+\documentclass[sn-basic,Numbered,pdflatex]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{manyfoot}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[htt]{hyphenat}
+\usepackage{seqsplit}
+\sloppy
+\emergencystretch=3em
+\renewcommand{\arraystretch}{1.15}
+
+
+\begin{document}
+
+\title[Portability of LLM-Serving Scheduler Rankings]{How Portable Are LLM-Serving Scheduler Rankings Across Workloads, Operating Regions, and Metrics?}
+
+\author*[1]{\fnm{Soroush} \sur{Vahidi}}\email{sv96@njit.edu}
+
+\affil*[1]{\orgdiv{Department of Computer Science, Ying Wu College of Computing}, \orgname{New Jersey Institute of Technology}, \orgaddress{\street{University Heights, GITC Suite 5700}, \city{Newark}, \postcode{07102}, \state{NJ}, \country{USA}}}
+
+\abstract{Large language model (LLM) serving systems are typically compared on one
+workload, operating region, and metric. We present the LLM-Serving Scheduler
+Portability Benchmark (LSSP), a preregistered evaluation of scheduling
+policies across three independently sourced workloads and six calibrated
+operating regions ($18{,}720$ evaluations). Rankings agree strongly between
+two of three sources (Kendall's $\tau$ up to $1.0$) but are less portable
+when the third is involved (as low as $0.55$), with $3.6\%$ of comparisons
+showing statistically supported reversals. Portability is even more
+sensitive to the evaluation metric: median rank correlation across metrics
+is only moderate ($\tau_b=0.419$), and the top policy agrees between metrics
+in only half of conditions. Rankings are more stable, though not invariant,
+under alternative service-level-objective definitions. A selected
+physical-vLLM validation preserved a stable control but not a
+simulator-predicted reversal. Scheduler comparisons should be read as
+conditional on the workload, region, and metric that produced them.}
+
+\maketitle
+
+\par\addvspace{10pt}{\keywordfont{\bfseries Keywords:} LLM inference serving, request scheduling, ranking portability, performance evaluation, workload characterization, benchmark reproducibility\par}
+\addvspace{10pt}
+
+% ===== begin introduction.tex =====
+\section{Introduction}
+\label{sec:introduction}
+
+Modern LLM serving targets high-performance, GPU-resident inference
+systems whose scheduling decisions govern how requests share costly
+accelerator, memory, and batching resources, and serving stacks have grown
+increasingly sophisticated in how they make those decisions. Beyond simple
+first-come-first-served execution, modern serving stacks employ continuous
+batching and paged key-value (KV)
+cache management
+\citep{kwon2023vllm}, iteration-level scheduling \citep{yu2022orca}, chunked
+prefill to balance prefill and decode work within a batch
+\citep{agrawal2024sarathi}, disaggregated prefill/decode execution across
+dedicated hardware pools \citep{zhong2024distserve,patel2024splitwise},
+KV-cache-centric disaggregated architectures \citep{qin2025mooncake},
+dynamic instance-level rebalancing \citep{sun2024llumnix}, explicit
+fairness objectives \citep{sheng2024vtc}, output-length-aware admission and
+memory packing \citep{jin2023s3}, and learning-to-rank decode-priority
+policies \citep{efficientllmscheduling2024}. Each of these mechanisms was
+introduced, and evaluated, against a particular choice of workload: a
+specific trace, a specific arrival process, a specific mix of prompt and
+output lengths, and a specific operating load.
+
+A separate line of work has documented that these workloads are themselves
+far from uniform. Public production traces from different services and time
+periods differ substantially in burstiness, request concurrency, prompt and
+output length distributions, and failure characteristics
+\citep{burstgpt2025,patel2024splitwise,stojkovic2025dynamollm}; large-scale
+characterization studies of KV-cache reuse and of year-long production
+traffic report further axes of heterogeneity across clients, models, and
+time \citep{kvcache_wild2025,ayearinllmserving2026}; and dedicated
+workload-generation frameworks exist precisely because no single fixed trace
+is thought to be representative of production traffic in general
+\citep{servegen2026}. Individually, prior work has therefore already
+established two things: that LLM-serving mechanisms are numerous and
+mechanistically diverse, and that the workloads used to evaluate them are
+themselves heterogeneous and shift across source, time, and operating
+region.
+
+What has not been directly asked is a second-order question that follows
+from combining these two observations. While new scheduler papers
+appropriately establish policy effectiveness or superiority under specific
+workload traces and targeted objectives, and separate workload characterization
+studies show that production traffic is highly heterogeneous and evolving,
+the transferability of these comparative scheduler conclusions across contexts is
+not automatic. LSSP is designed to directly measure this transferability.
+The typical evaluation question in
+this literature is: \emph{how well does scheduler $A$ perform, relative to
+scheduler $B$, on the workload(s) chosen for this paper's experiments?} Given
+that workloads are heterogeneous, and that a paper's experiments necessarily
+use only a finite, chosen set of workloads, a comparative claim of this form
+is only as useful as its \emph{portability}: does the same comparative
+ordering of schedulers hold if the workload distribution, the operating
+load, or the evaluation metric is changed to another one a practitioner
+might reasonably care about? This is a different question from workload
+heterogeneity itself, and a different question from any single scheduler's
+sensitivity to load or SLO. It is a question about the reliability of the
+\emph{comparison}, not about any individual system.
+
+We formalize this as the portability of a comparative scheduler ranking
+$R(W, M, L)$, where $W$ denotes a workload distribution, window, or source;
+$M$ denotes an evaluation metric; and $L$ denotes an operating or load
+region. $R(W, M, L)$ is the ordering (full or partial) that a fixed panel of
+scheduling policies induces under a fixed benchmark protocol, holding $W$,
+$M$, and $L$ at specified values. Ranking portability asks how $R$ behaves as
+$W$, $M$, or $L$ is varied: whether the ordering of policies is preserved,
+where and how it reverses, and how much evidence (how many independent
+workload windows, drawn from how many sources) is required before a
+reported ranking can be trusted to generalize beyond the exact windows used
+to produce it.
+
+This question matters because a scheduler comparison is scientifically and
+practically useful only insofar as its comparative conclusion transfers to
+the workload distributions a reader actually cares about. A benchmark result
+of the form ``scheduler $A$ outperforms scheduler $B$'' is not a claim about
+$A$ and $B$ in the abstract; it is implicitly a claim about $A$ and $B$
+\emph{under the workload, metric, and load conditions the benchmark used}.
+If that comparative ordering is fragile under source, metric, or
+load-region substitution, then benchmark results risk being read as more
+general than they are, and evaluation effort risks being spent on a single
+workload family when the resulting conclusion may not transfer. Conversely,
+if comparative orderings are portable across independent sources, metrics,
+and load regions, that is itself a useful, non-obvious finding: it would
+mean a leaner benchmark protocol is sufficient for future scheduler
+comparisons, and it would give scheduler designers a much stronger warrant
+for claims of general improvement.
+
+We refer to the benchmark built around this question as the LLM-Serving
+Scheduler Portability Benchmark (LSSP). LSSP asks the following research
+questions, fixed under a preregistered protocol before any comparative
+outcome was generated (\S\ref{sec:study-design}):
+
+\begin{description}
+  \item[RQ1.] How stable are scheduler rankings across independent
+    workload sources?
+  \item[RQ2.] How stable are scheduler rankings under temporal, provider,
+    and domain shifts?
+  \item[RQ3.] To what extent do rankings obtained on synthetic stress
+    workloads transfer to rankings on independent real-trace-derived
+    workloads?
+  \item[RQ4.] Which source-native observable workload characteristics are
+    associated with cross-distribution scheduler rank reversals?
+  \item[RQ5.] How many independent workload windows are required before a
+    comparative scheduler ranking becomes statistically stable?
+  \item[RQ6.] Do representative simulated scheduler rankings and
+    cross-workload rank reversals reproduce on a real serving engine?
+\end{description}
+
+Load-level dependence is deliberately treated as a secondary
+robustness/sensitivity axis applied to RQ1--RQ4, rather than as a headline
+research question in its own right, to avoid duplicating a closely related
+prior load-scaling study on an overlapping window set
+(\S\ref{sec:study-design}).
+
+\paragraph{Contributions.} The research questions above were fixed under a
+preregistered protocol before any comparative outcome was generated
+(\S\ref{sec:study-design}); this study executes that protocol and reports
+its structurally validated results. This work contributes:
+
+\begin{itemize}
+  \item a formulation of the portability of a comparative scheduler
+    ranking, $R(W, M, L)$, as a benchmark object in its own right, distinct
+    from both workload characterization and single-scheduler evaluation;
+  \item a paired, multi-source evaluation protocol that holds a fixed
+    panel of scheduling policies constant across independently sourced
+    workload windows, operating regions, and metrics, so that
+    ranking-portability statistics are computed on genuinely paired
+    observations rather than on separately tuned, per-source experiments;
+  \item a mechanism-diverse, fixed scheduler panel spanning classical,
+    fairness-aware, KV-aware, deadline-aware, and faithfully reimplemented
+    external policies, selected under an outcome-independent selection
+    rule fixed before any pilot result was observed
+    (\S\ref{sec:methodology});
+  \item an uncertainty and reversal-detection methodology that
+    distinguishes practically meaningful rank reversals from microscopic
+    sign changes, using preregistered practical-margin and
+    confidence-interval criteria, and that treats every
+    completion-conditioned metric's undefined cases explicitly rather than
+    by imputation (\S\ref{sec:methodology});
+  \item a benchmark sample-complexity analysis quantifying how many
+    independent workload windows are required before a reported ranking
+    reproduces, applied to this study's own frozen 120-window corpus
+    (\S\ref{sec:sample-complexity});
+  \item a characterization of the workload corpus underlying the
+    benchmark, establishing that the three sources are measurably
+    different in observed descriptor distributions and strongly separable
+    under a leakage-resistant, chronologically blocked evaluation
+    (\S\ref{sec:workloads});
+  \item a selected-case physical validation on real vLLM/GPU hardware
+    (RQ6, \S\ref{sec:real-system}) of the benchmark's largest identified
+    simulated reversal and a paired stable-control comparison; and
+  \item a public artifact release of the benchmark's frozen workload
+    identities, policy panel, protocol, and outcome and analysis
+    artifacts, to support independent reproduction (\S\ref{sec:artifact}).
+\end{itemize}
+
+Comparative rankings prove neither uniformly stable nor uniformly
+unstable, but source-pair- and load-region-dependent in a specific,
+legible pattern; this manuscript does not claim that any scheduler in the
+panel wins in general (\S\ref{sec:discussion}). Sections~\ref{sec:results}--\ref{sec:real-system}
+report these results in full.
+% ===== end introduction.tex =====
+
+% ===== begin related_work.tex =====
+\section{Related Work}
+\label{sec:related-work}
+
+\subsection{Serving Architectures and Scheduling Mechanisms}
+\label{sec:related-serving}
+
+A substantial body of systems work has improved LLM inference throughput and
+latency through scheduling and memory-management mechanisms. Orca introduced
+iteration-level scheduling, interleaving requests at the granularity of
+individual decoding steps rather than whole requests
+\citep{yu2022orca}. vLLM introduced PagedAttention, a paged
+virtual-memory-style KV-cache allocator that substantially raised achievable
+batch sizes and became a widely adopted serving-system reference point
+\citep{kwon2023vllm}. Sarathi-Serve introduced chunked prefill, splitting
+long prefill computations across multiple decode-interleaved steps to reduce
+head-of-line blocking under continuous batching \citep{agrawal2024sarathi}.
+Splitwise and DistServe independently proposed disaggregating the
+compute-bound prefill phase and the memory-bound decode phase onto separate
+hardware pools connected by fast interconnects, each showing throughput or
+cost improvements from phase-specific resource allocation
+\citep{patel2024splitwise,zhong2024distserve}; Mooncake extends this
+direction with a KV-cache-centric disaggregated architecture that treats a
+shared, elastic KV cache -- rather than the compute engines themselves -- as
+the central resource to schedule around \citep{qin2025mooncake}. Llumnix
+adds dynamic, cross-instance request migration and rebalancing on top of a
+serving cluster \citep{sun2024llumnix}. DynamoLLM addresses cluster-level
+energy and cost efficiency by dynamically reconfiguring an inference
+cluster's resource allocation under latency SLOs \citep{stojkovic2025dynamollm}.
+
+A second cluster of work targets scheduling \emph{policy} design more
+specifically. VTC (Virtual Token Counter) defines an explicit token-level
+fairness objective for continuous-batching schedulers and proves a bound on
+the resulting service-difference guarantee \citep{sheng2024vtc}. $S^3$
+predicts each request's output length ahead of generation and uses that
+prediction to pack KV-cache memory more tightly at admission time, trading
+occasional misprediction-driven preemption for higher achievable batch size
+\citep{jin2023s3}. \citet{efficientllmscheduling2024} instead learns a
+pairwise ranking model over waiting requests to prioritize decode order --
+a distinct mechanism from $S^3$'s admission-time length prediction, despite
+both papers appearing at NeurIPS in consecutive years and both targeting
+throughput under uncertain output length. A further group of recent systems
+extends this space with additional scheduling mechanisms. FastServe
+introduces iteration-level preemptive scheduling, JITServe targets
+SLO-aware admission under imprecise request-length information, and PARS
+learns a pairwise ranking model to prioritize requests directly
+\citep{fastserve2024,jitserve2025,pars2025}. Libra performs dynamic,
+flexible request partitioning for unbalanced workloads, the SLAI/RAD
+family derives theoretically motivated, multi-objective (throughput- and
+deadline-aware) scheduling rules, and SCORPIO targets admission control
+under heterogeneous per-request SLOs
+\citep{libra2026,slai2025,scorpio2025}. LMetric replaces workload-specific
+tuning with a single lightweight scheduling score, Apt-Serve schedules
+over an adaptive hybrid KV-cache/hidden-state representation, and ProServe
+unifies multi-priority request scheduling across engine- and service-layer
+components \citep{lmetric2026,aptserve2025,proserve2025}. Furthermore, very
+recent 2026 systems continue to explore novel scheduling paradigms:
+\citet{li2026beyond} targets P99 tail latency using UniBoost---a prediction-free
+interpolation between first-come-first-served and shortest-job-first---coupled
+with MemGuard cache-aware preemption; \citet{liu2026hmas} addresses workload
+non-stationarity and multi-tenant quality-of-service drift through
+hierarchical multi-agent scheduling; and \citet{wang2026smetric} optimizes the
+fundamental load-balancing versus cache-locality trade-off for multi-step
+agentic workloads using session-centric routing. Each of these
+papers reports an improvement over one or more baselines on
+the workload(s) chosen for its own experiments; none of them, individually
+or collectively, asks whether the \emph{relative ordering} they report would
+be preserved under an independently sourced workload, a different metric,
+or a different operating load -- the question this benchmark is built
+around (\S\ref{sec:related-position}).
+
+\subsection{Production Workloads and Characterization}
+\label{sec:related-workloads}
+
+A parallel literature documents that LLM-serving workloads observed in
+production are themselves heterogeneous. BurstGPT releases 10.31 million
+traces collected from a regional deployment of Microsoft's Azure OpenAI GPT
+service over 213 days, characterizing request burstiness, conversation
+structure, and response-length behavior, and is now published as a full
+KDD~2025 paper rather than only as a preprint \citep{burstgpt2025}. Two
+official Microsoft releases document Azure's own internal LLM-inference
+traffic: Splitwise analyzes production conversation and code-completion
+traces collected on Azure in November 2023 \citep{patel2024splitwise}, and
+DynamoLLM analyzes a longer, one-week Azure trace collected in May 2024
+\citep{stojkovic2025dynamollm}. \citet{kvcache_wild2025} characterizes
+KV-cache reuse patterns at a large cloud provider, finding that reuse
+probability and lifespan are workload-category-dependent in ways that
+synthetic workload studies had not captured. \citet{ayearinllmserving2026}
+reports a one-year longitudinal characterization of production traffic
+spanning workload evolution, caching behavior, and load balancing (a recent
+preprint at the time of writing; \S\ref{sec:related-position}).
+ServeGen instead characterizes a worldwide production inference service in
+order to build a principled per-client workload \emph{generator}, motivated
+explicitly by the position that no single fixed trace is representative
+enough on its own \citep{servegen2026}; because it characterizes the same
+underlying Alibaba Cloud platform as this project's Bailian/Qwen source, we
+do not count it as an independent workload provider (\S\ref{sec:workloads}).
+TraceLab characterizes a distinct workload family entirely -- coding-agent
+sessions rather than single-turn or short-multi-turn chat requests -- and is
+used here only as out-of-distribution context, not as one of this project's
+primary Pilot-V2 sources.
+
+\subsection{Simulators and Benchmark Frameworks}
+\label{sec:related-simulators}
+
+Vidur is the closest existing infrastructure precedent to LSSP: a
+large-scale simulation framework purpose-built for exploring LLM-inference
+system configurations at a fidelity and speed unavailable from
+running full experiments on real hardware \citep{vidur2024}. LLMServingSim
+and its successor LLMServingSim~2.0 provide a related but architecturally
+different hardware/software co-simulation infrastructure, adding
+iteration-granularity simulation with algorithmic-redundancy reuse and,
+in the 2.0 revision, explicit support for heterogeneous accelerators and
+disaggregated serving techniques \citep{llmservingsim2024,llmservingsim2_2025}.
+Two recent 2026 benchmarking frameworks expand this domain: CCL-Bench 1.0
+\citep{ding2026cclbench} introduces a diagnostic, trace-based evaluation
+of LLM training and serving infrastructure to record fine-grained execution
+evidence of kernels and communication events, while XPerf \citep{wang2026xperf}
+benchmarks serving systems under agentic workloads by employing fine-grained
+trace replay and full-stack profiling to handle agentic nondeterminism.
+These simulators and benchmarking frameworks are built to let researchers
+explore serving-system design points cheaply or load-test systems under
+agentic dependencies; none of them is built around, or reports, a systematic
+benchmark of \emph{comparative scheduler ranking portability} across
+independently sourced workloads, operating regions, and metrics in the sense
+this paper defines. LSSP's own simulator (\S\ref{sec:methodology}) is
+project-local infrastructure, not a contribution positioned against this
+literature; we make no claim that its output is equivalent to production
+hardware latency or throughput, only that it supports a fixed, controlled
+benchmark protocol for relative comparisons (\S\ref{sec:methodology}).
+
+\subsection{Workload Dependence and Benchmark Sensitivity}
+\label{sec:related-dependence}
+
+Prior work has already established, individually, that LLM-serving
+workloads are heterogeneous (\S\ref{sec:related-workloads}) and that
+individual serving mechanisms and schedulers are sensitive to batching
+structure, prefill/decode balance, load level, and service-level
+objectives (\S\ref{sec:related-serving}). We treat both of these as accepted
+background, not as a novel contribution of this work. What we do not find
+in the literature reviewed here is a direct study of whether a
+\emph{comparative ordering} among a fixed panel of schedulers is itself
+portable across independently sourced workloads, operating regions, and
+metrics -- the distinction this paper's Introduction develops between
+single-system sensitivity and comparative-ranking portability.
+
+\subsection{Ranking Portability and Benchmark Methodology}
+\label{sec:related-methodology}
+
+The statistical methodology this benchmark uses -- Kendall's tau-b and
+Spearman's rho for pairwise ranking agreement, paired comparison and
+block-bootstrap confidence intervals for ranking-uncertainty
+quantification, and a probability-of-correct-selection framing for
+benchmark sample complexity -- draws on standard nonparametric statistics
+and comparative-algorithm-ranking methodology (\S\ref{sec:methodology});
+these are general statistical tools, not literature claims specific to LLM
+serving, and are cited here only as the methods this benchmark's analysis
+plan applies to its own, independently generated data. The closest
+methodological precedent we identified is from the classical parallel-job-
+scheduling literature: \citet{zakay2014resampling} partition a real
+scheduler workload trace into independent per-user subtraces and recombine
+them to resample varied-but-realistic workloads, evaluating how a
+\emph{single} parallel job scheduler's measured performance responds to
+workload resampling. LSSP's sample-complexity question
+(\S\ref{sec:sample-complexity}) is the same evaluation instinct --
+using resampling to ask how much workload evidence a scheduler-performance
+conclusion actually rests on -- applied to a different object: the
+portability of a \emph{comparative} ranking among multiple schedulers
+across independently sourced workloads, rather than one scheduler's
+sensitivity to resampled variants of a single trace.
+
+\subsection{Recent \emph{Journal of Supercomputing} Context}
+\label{sec:related-jsc}
+
+Three recent \emph{Journal of Supercomputing} papers illustrate the
+journal's current engagement with GPU-resident LLM-inference performance
+and portability, at layers adjacent to but distinct from this benchmark's
+request-scheduling focus. \citet{saia2026} address deploying LLM inference
+services on Slurm-managed HPC clusters without compromising existing
+cluster security policy -- a \emph{cluster job-placement} scheduling
+problem, one level above the \emph{intra-server request} scheduling this
+benchmark studies. \citet{carmona2026mlcompilers} and
+\citet{siwinska2026autotuning} each study a different sense of
+``portability'' for LLM/transformer workloads on GPU (and, in the latter
+case, TPU) hardware: compiler-backend selection trade-offs and
+auto-tuning-framework portability across accelerator hardware,
+respectively -- portability of \emph{implementation performance across
+hardware}, not portability of a \emph{comparative ranking across
+workloads} at fixed hardware, which is this benchmark's object of study.
+We cite these three papers to situate LSSP within the journal's live
+interest in LLM-serving and GPU-inference performance, not because they
+address this benchmark's specific research question.
+
+\subsection{Position of LSSP}
+\label{sec:related-position}
+
+LSSP asks a different question than the majority of the prior work surveyed
+above. Prior work generally studies a scheduler, a serving system, a
+simulation environment, or a workload generator/characterization in its own
+right. LSSP instead studies the portability of \emph{comparative} scheduler
+rankings across independently sourced workload families, operating regimes,
+and metrics, using a fixed, mechanism-diverse scheduler panel and a
+preregistered protocol. To our knowledge, the LSSP benchmark is distinct in
+treating the portability of comparative scheduler rankings itself as the
+primary object of study across independent workload sources, operating
+regimes, and metrics, while explicitly quantifying ranking uncertainty and
+benchmark sample complexity. A literature search targeting exactly this
+question (scheduler-ranking stability/portability, cross-workload
+scheduler evaluation, benchmark sample complexity and representativeness
+for LLM-serving systems, current through September 2026) did not surface
+prior work that treats comparative scheduler-ranking portability itself as
+its primary object across independent LLM-serving workload sources; the
+closest single-scheduler-focused methodological precedent
+(\citet{zakay2014resampling}, \S\ref{sec:related-methodology}) predates
+the LLM-serving literature entirely and evaluates one scheduler's
+sensitivity to workload resampling, not comparative ranking across
+schedulers. Vidur is the closest infrastructure precedent
+(\S\ref{sec:related-simulators}); LLMServingSim and its successor are
+related but differently scoped simulator infrastructure; the recent
+production-characterization literature
+(\S\ref{sec:related-workloads}) establishes the workload heterogeneity this
+benchmark's design responds to, but does not itself study cross-source
+ranking portability. This wording is intentionally narrower than an
+unconditional claim of priority; we do not claim to be the first to study
+LLM-serving workload dependence or scheduler sensitivity, only that we did
+not identify a prior benchmark treating cross-source, cross-metric,
+cross-load-region scheduler-ranking portability as its primary object of
+study under the primary-source review conducted for this manuscript.
+
+A note on provider independence is warranted here because it bears directly
+on how several of the sources above should be read together
+(\S\ref{sec:workloads} gives the full treatment). BurstGPT's own reported
+methodology collects its traces from a regional customer's use of
+Microsoft's Azure OpenAI GPT service \citep{burstgpt2025}; this project's
+own Azure-sourced traces are Microsoft's own official releases of internal
+Azure LLM-inference-service traffic \citep{patel2024splitwise,stojkovic2025dynamollm}.
+Both therefore sit on the same underlying cloud provider's infrastructure,
+even though they are collected by different teams through different
+mechanisms and released as distinct, independently versioned artifacts. We
+describe BurstGPT and this project's Azure traces as distinct,
+independently released workload sources throughout this manuscript, and we
+do not describe them as independent providers.
+% ===== end related_work.tex =====
+
+% ===== begin study_design.tex =====
+\section{Study Design}
+\label{sec:study-design}
+
+\subsection{Research Questions}
+\label{sec:rq}
+
+We reproduce the project's frozen research questions verbatim (see
+\texttt{docs/RESEARCH\_QUESTIONS.md} for the full changelog):
+
+\begin{description}
+  \item[RQ1.] How stable are scheduler rankings across independent
+    workload sources?
+  \item[RQ2.] How stable are scheduler rankings under temporal, provider,
+    and domain shifts?
+  \item[RQ3.] To what extent do rankings obtained on synthetic stress
+    workloads transfer to rankings on independent real-trace-derived
+    workloads?
+  \item[RQ4.] Which source-native observable workload characteristics are
+    associated with cross-distribution scheduler rank reversals?
+  \item[RQ5.] How many independent workload windows are required before a
+    comparative scheduler ranking becomes statistically stable?
+  \item[RQ6.] Do representative simulated scheduler rankings and
+    cross-workload rank reversals reproduce on a real serving engine?
+\end{description}
+
+Load-level dependence is a secondary robustness/sensitivity analysis applied
+to RQ1--RQ4's findings, not a headline research question
+(\S\ref{sec:evidence-boundaries}).
+
+\subsection{Study Overview}
+\label{sec:overview}
+
+LSSP evaluates a fixed panel of 13 scheduling policies (\S\ref{sec:panel})
+against a frozen corpus of 120 workload windows drawn from three
+independently sourced traces (\S\ref{sec:sources}), across a calibrated
+six-region grid of operating regions (\S\ref{sec:calibration}) and a fixed
+set of primary and completion-conditioned metrics (\S\ref{sec:metrics}).
+Every policy is run against every window under every operating region,
+with a deterministic rep0/rep1 verification pass (\S\ref{sec:paired}),
+producing $120 \times 6 \times 13 \times 2 = 18{,}720$ completed,
+independently validated cells, from which per-source, per-region, and
+per-metric scheduler rankings are derived. Ranking-portability statistics (Kendall's tau-b, Spearman's
+rho, top-\emph{k} overlap, and pairwise reversal detection) are then
+computed across pairs of sources, regions, and metrics, using workload
+window as the statistical unit (\S\ref{sec:unit}). This design was frozen
+(\S\ref{sec:prereg}) before any comparative scheduler outcome existed.
+
+\subsection{Evidence Independence / Publication Boundaries}
+\label{sec:evidence-boundaries}
+
+This project shares a lineage and a simulator codebase with two other,
+separately scoped manuscripts, and its design was explicitly audited for
+overlap against both before this study's protocol was frozen
+(\texttt{docs/OVERLAP\_LEDGER.md}, \texttt{docs/GO\_NO\_GO\_GATES.md} Gate A,
+\texttt{docs/EVIDENCE\_INDEPENDENCE\_PLAN.md}):
+
+\begin{itemize}
+  \item \textbf{``The Exploitability Gap in LLM-Serving Scheduler
+    Portfolios'' (LLM 2026).} That manuscript's
+    \texttt{public\_replay\_load\_scaling\_v1/v2} experiment used a fixed set
+    of 60 canonical public-trace windows (20 BurstGPT + 20 Azure-2023
+    conversation + 20 Azure-2023 code), a load-factor grid
+    $\{1,2,4,8,16,32,64,128\}$, an 8-policy portfolio, and ANWG/SBS-VBS
+    exploitability diagnostics. That result is treated here strictly as
+    prior motivation, citable but never restated as this project's own
+    evidence. This project's own window
+    sampling is independently constructed (\S\ref{sec:windows}) and
+    verified non-identical to that 60-window set; load-level dependence is
+    accordingly demoted to a secondary analysis (\S\ref{sec:rq}) using this
+    project's own calibration protocol (\S\ref{sec:calibration}), never that
+    load grid.
+  \item \textbf{``Module Counterfactuals for Attributing LLM Serving
+    Scheduler Effects'' (a separate module-intervention manuscript).} This
+    study makes no module-counterfactual or module-attribution claim; RQ4's
+    workload-descriptor analysis (\S\ref{sec:methodology}) is an offline,
+    descriptive association analysis, not a deployed selector or an
+    intervention-based attribution method.
+  \item Other project lineage (an unrelated database/systems research
+    thread) is unconnected to this manuscript's content and is not
+    referenced here.
+\end{itemize}
+
+\subsection{Experimental Unit and Paired Design}
+\label{sec:unit}
+
+The statistical unit of analysis is the workload window: a fixed-size
+(200-request) contiguous slice of a source trace, uniquely identified and
+frozen before any scheduler outcome existed (\S\ref{sec:windows}). Every
+policy in the panel (\S\ref{sec:panel}) is run against every window under
+every calibrated operating region (\S\ref{sec:calibration}), so that
+ranking-portability statistics are computed on genuinely paired
+observations -- the same window, region, and metric definition, varying
+only the policy -- rather than on separately tuned per-source experiments.
+Source, operating region, and metric are treated as factors of interest;
+policy identity is the object whose relative ordering is measured.
+
+\subsection{Preregistration}
+\label{sec:prereg}
+
+The workload window set (120 windows: 40 per source, 10 Stage-0-reused +
+30 Pilot-V2-new per source; \S\ref{sec:windows}), the scheduler panel and
+its selection rule (\S\ref{sec:panel}), the metric contract
+(\S\ref{sec:metrics}), the six-region operating-load calibration
+(\S\ref{sec:calibration}), and the ranking-portability analysis plan
+(reversal-detection thresholds, bootstrap procedure, sample-complexity
+design) were each frozen, and cross-checked against a structural validation
+gate, before any Pilot-V2 comparative scheduler outcome was generated.
+\texttt{docs/RANKING\_PORTABILITY\_PILOT\_V2\_PROTOCOL.md},
+\texttt{docs/RANKING\_PORTABILITY\_ANALYSIS\_PLAN.md}, and
+\texttt{docs/RANKING\_PORTABILITY\_WINDOW\_FREEZE.md} record the exact frozen
+content and the gate checks each passed.
+% ===== end study_design.tex =====
+
+% ===== begin workloads.tex =====
+\section{Workload Corpus and Characterization}
+\label{sec:workloads}
+
+\subsection{Sources}
+\label{sec:sources}
+
+LSSP's primary Pilot-V2 corpus draws from three independently released
+workload sources: BurstGPT \citep{burstgpt2025}, Microsoft's official Azure
+2024 LLM-inference trace \citep{azure2024trace,stojkovic2025dynamollm}, and a Bailian/Qwen
+production trace release. Azure's 2023 conversation/code traces
+\citep{patel2024splitwise} and Stage-0's historical windows contribute
+additional context but are not part of the primary Pilot-V2 120-window
+matrix beyond the 10-per-source Stage-0-reused windows described below.
+TraceLab \citep{tracelab2026} is retained as an out-of-distribution,
+coding-agent workload family for future expansion, not as one of the three
+primary sources, because its independence from a prior 512-window public
+sweep cannot be fully verified from public artifacts alone
+(\texttt{docs/TRACELAB\_PROVENANCE\_RESOLUTION.md}).
+
+As established in \S\ref{sec:related-position}, BurstGPT's own reported
+collection methodology logs traffic from a regional customer of Microsoft's
+Azure OpenAI GPT service, and this project's Azure trace is Microsoft's own
+official release of internal Azure LLM-inference-service traffic. Both
+therefore sit on the same underlying cloud provider's infrastructure. We
+describe BurstGPT and Azure as distinct, independently released workload
+sources -- different collection methodology, different customer
+population, different release provenance and version history -- and we do
+not describe them as independent providers. Bailian/Qwen (Alibaba Cloud)
+is a genuinely different underlying platform from both.
+
+\subsection{Representation and Provenance}
+\label{sec:provenance}
+
+Each source is ingested through a dedicated, field-level-audited adapter
+(\texttt{docs/DATA\_FIELD\_PROVENANCE.md}) that maps the source's native
+schema onto a common internal request representation (arrival time, input
+tokens, output tokens, total tokens, session identifier where available,
+model class). No field is fabricated where a source's native schema lacks
+it (for example, BurstGPT's documented schema has no tenant, KV-reuse, SLO,
+or failure-code field, and none is synthesized). License status for each
+source is recorded in \texttt{docs/DATA\_LICENSE\_AUDIT.md} (BurstGPT:
+CC-BY-4.0) and re-verified before any confirmatory use of a real, full-scale
+sample.
+
+\subsection{Window Construction}
+\label{sec:windows}
+
+The Pilot-V2 corpus freezes exactly 120 windows of 200 requests each: 40
+per source (\texttt{azure\_llm\_2024}, \texttt{bailian\_qwen},
+\texttt{burstgpt}), each composed of 10 windows reused verbatim from the
+Stage-0 pilot (\S\ref{sec:stage0}) plus 30 new windows drawn by a
+deterministic, outcome-blind, source-symmetric pinned-extension sampler
+that uses only valid-row index ranges and fixed seeds -- never scheduler
+metrics, policy identities, or Stage-0 tie/non-tie outcomes (verified by
+structural audit to contain no BurstGPT-outcome-targeting signal). Windows
+are assigned to EARLY/MIDDLE/LATE chronology strata by deterministic
+relative chronology (60/30/30 windows respectively); Stage-0-reused windows
+are all EARLY. The freeze passed a full structural validation gate --
+unique window identities, exact per-source and Stage-0/new counts, fixed
+\texttt{request\_count = 200}, no prohibited overlap, valid chronology, and
+absence of any scheduler/policy/load-calibration outcome field in the
+selection rule -- recorded with a canonical content hash (excluding
+generation timestamp; full value in Table~\ref{tab:hashes}) before any
+Pilot-V2 load calibration or scheduler outcome was generated.
+
+\subsection{Descriptors}
+\label{sec:descriptors}
+
+Each window is described by a 28-feature descriptor vector spanning prompt-
+and output-token-length statistics (mean, p90, long-prompt fraction at the
+512/2048/8192-token thresholds), arrival-timing statistics (mean arrival
+rate, inter-arrival percentiles), and derived load-pressure proxies. Three
+deterministically redundant pressure-proxy features ($R^2=1.0$ against
+other included features) are retained in the underlying dataset but
+excluded from the classifier input used in \S\ref{sec:separability}.
+Prompt-token figures compose differently across sources for architectural
+reasons: TraceLab's and Azure's prompt-token fields are potentially
+multi-turn-cumulative context, while BurstGPT's is a single per-request
+figure. This is a property of how each source's underlying workload is
+architected (a growing agent/conversation session versus a single stateless
+API call), not an adapter artifact, and it is preserved as an explicit
+caveat on every prompt-length-based claim below.
+
+\subsection{Cross-Source Differences}
+\label{sec:cross-source-diffs}
+
+Under a leave-one-time-bucket-out (EARLY/MIDDLE/LATE), grouped,
+chronologically blocked cross-validation over $n=400$ windows (window
+size 200), a random forest classifier distinguishes the four
+descriptor-labeled source classes with pooled balanced accuracy
+$1.000$ (mean $\pm$ std across three folds: $1.000 \pm 0.000$); a
+multinomial logistic regression reaches $0.988$ balanced accuracy
+($0.987 \pm 0.007$ across folds); and a depth-limited (depth $\le 3$)
+decision tree reaches $0.980$ balanced accuracy ($0.980 \pm 0.018$ across
+folds, worst single fold $0.955$ with LATE held out). This grouped,
+chronologically blocked evaluation supersedes an earlier random-split
+result (which agreed at balanced accuracy $1.0$) for any manuscript claim,
+because random splitting is vulnerable to within-window-adjacent-time
+leakage that the grouped evaluation is structurally immune to (regression
+tested; \texttt{tests/test\_separability\_pipeline\_no\_leakage.py}).
+
+\subsection{Source Separability}
+\label{sec:separability}
+
+The workload sources are confirmed measurably separable, with the caveats
+below. The safe claim
+supported by this evidence is that the workload sources' observed
+descriptor distributions are measurably different, and that source identity
+is strongly separable under a leakage-resistant, chronologically blocked
+evaluation. This is not evidence that the underlying providers'
+conversations or tasks intrinsically differ in length or structure, only
+that their \emph{observed, request-level} descriptor figures do, for a
+mixture of architectural and possibly-genuine-content reasons that this
+classifier-based analysis cannot separate (\S\ref{sec:descriptors}).
+
+\subsection{Drivers of Differences}
+\label{sec:drivers}
+
+An attribution analysis triangulating held-out permutation importance,
+single-feature balanced accuracy, leave-one-feature-out deltas, and
+feature-group-ablation deltas (all under the same grouped chronological
+cross-validation) identifies two tiers of driving features. Tier 1 --
+incrementally load-bearing, with nonzero permutation importance and a
+measurable accuracy cost when the \texttt{prompt\_length} feature group is
+removed ($-0.0051$) -- consists of \texttt{long\_prompt\_fraction\_512},
+\texttt{long\_prompt\_fraction\_2048}, and \texttt{prompt\_tokens\_mean}.
+Tier 2 -- individually strong single-feature classifiers (balanced accuracy
+up to $0.980$) whose removal, individually or as a whole feature group,
+costs $0.000$ accuracy because their signal is redundant with Tier 1 --
+includes total/prompt-token percentile features, inter-arrival percentiles,
+and mean arrival rate. Prompt-length structure, specifically the fraction
+of long prompts at the 512- and 2048-token thresholds and mean prompt
+length, is therefore the primary, non-redundant driver of source
+separability; arrival-timing structure and output length are individually
+predictive but carry no additional signal once prompt-length features are
+present. A critical-ablation check confirms this separability is broad
+rather than dependent on any single feature: removing the two strongest
+Tier-1 features together changes random-forest balanced accuracy by at
+most $-0.0025$.
+
+\subsection{Window-Size Sensitivity}
+\label{sec:window-size}
+
+The Pilot-V2 corpus uses a fixed window size of 200 requests throughout,
+matching Stage-0 and the LLM~2026 comparison window size for
+methodological consistency. A dedicated window-size sensitivity sweep
+(varying window size and re-checking separability/discriminability) has
+not yet been run; this is noted as an open item in
+\S\ref{sec:threats} rather than a result reported here.
+% ===== end workloads.tex =====
+
+% ===== begin methodology.tex =====
+\section{Scheduler Benchmark Methodology}
+\label{sec:methodology}
+
+\subsection{Scheduler Panel}
+\label{sec:panel}
+
+The PRIMARY panel comprises 11 policies, executed alongside 2 additional
+\texttt{STYLE\_APPROXIMATION} policies used only for a mandatory robustness
+check (13 policies executed in total): a classical arrival-order baseline
+(\texttt{fifo}, also the load-calibration reference policy), a
+deadline-aware policy (\texttt{edf}), a slack/urgency-aware policy
+(\texttt{least\_laxity\_first}), a service-length-aware policy
+(\texttt{estimated\_service\_time\_first}), a fairness-aware policy
+(\texttt{weighted\_fair\_share}), a KV/memory-pressure-aware policy
+(\texttt{kv\_constrained\_online}), an admission-control/SLO-guard policy
+(\texttt{admission\_control}), and faithful reimplementations of four
+external mechanisms: vLLM-style token-budget continuous batching in both
+its pre-chunked-prefill and chunked-prefill forms
+(\texttt{vllm\_faithful}, \texttt{vllm\_chunked\_prefill\_faithful}),
+Sarathi-style chunked prefill (\texttt{sarathi\_faithful}), and an
+SLO-aware scheduling policy in the SLAI/RAD family
+(\texttt{slai\_faithful}). The two \texttt{STYLE\_APPROXIMATION} robustness
+policies are a token-budget-proxy style approximation
+(\texttt{vllm\_style\_token\_budget}) and an SLO-guard-proxy style
+approximation (\texttt{scorpio\_style\_slo\_guard}); two further faithful
+reimplementations requiring disaggregated/cross-instance simulator
+semantics (\texttt{distserve\_faithful}, \texttt{llumnix\_faithful}) are
+executed only in a secondary stratum, never pooled with the single-GPU
+colocated PRIMARY leaderboard, and one candidate
+(\texttt{apt\_serve\_faithful}) is excluded entirely as
+\texttt{scaffolding\_only} -- not a validated reimplementation at the time
+of this freeze.
+
+A policy enters the PRIMARY panel only if, at the time it was added to the
+comparability audit (frozen the day before Stage 0 executed), it satisfies
+an outcome-independent selection rule: its mechanism predates this
+protocol's freeze, it occupies a mechanism family not already saturated by
+an existing panel member, it has adequate implementation fidelity and
+passes its own unit tests, it is simulator-semantically compatible with the
+single-GPU colocated execution model, and it is independently reproducible
+from a cited reference. No policy was added to or removed from the panel in
+response to any Stage-0 outcome (\S\ref{sec:stage0}); the panel document
+predates Stage-0 execution by a full day, and mechanism families identified
+as under-implemented (preemptive/multilevel scheduling in the FastServe
+sense, JITServe, LMetric) were deliberately left as documented future-work
+candidates rather than fast-tracked into the panel after seeing Stage-0's
+BurstGPT collapse.
+
+\subsection{Fidelity Taxonomy}
+\label{sec:fidelity}
+
+Every executed policy is labeled with one of five fidelity classes:
+\texttt{FAITHFUL\_EXTERNAL} (a validated reimplementation of a specific
+published mechanism), \texttt{REPOSITORY\_NATIVE\_CLASSICAL} (a standard
+scheduling discipline implemented natively in this simulator, not claimed
+as a reproduction of any specific paper), \texttt{SIMULATOR\_PROXY} (a
+mechanism-motivated policy without a single canonical external paper),
+\texttt{STYLE\_APPROXIMATION} (an approximate, style-level proxy for a
+published mechanism, explicitly excluded from the PRIMARY headline panel
+and used only for robustness checks), and \texttt{scaffolding\_only} (an
+unaudited, not-yet-validated implementation, excluded entirely). We do not
+claim that any \texttt{STYLE\_APPROXIMATION} or \texttt{SIMULATOR\_PROXY}
+policy is an official or validated reimplementation of its namesake
+published system.
+
+\subsection{Execution Model}
+\label{sec:execution-model}
+
+Each (window, policy, operating-region) cell is executed as a fully
+deterministic discrete-event simulation: given identical inputs, the
+simulator produces bit-identical outputs, with no consumed randomness
+(verified by a repeated-run determinism test). This determinism is what
+permits the paired design of \S\ref{sec:unit}: two policies' outcomes on
+the same window and region differ only because of the policy's own
+scheduling decisions, not because of independent sampling noise.
+
+\subsection{Stage-0 Discriminability Pilot (Historical)}
+\label{sec:stage0}
+
+Before the Pilot-V2 protocol described in the remainder of this section was
+frozen, a preregistered discriminability pilot (``Stage 0'') executed a
+real, 1,080-cell matrix (array 1213964; three sources, three load regions, a
+six-policy PRIMARY subset) to check, before committing to the full
+protocol, that the panel would yield non-trivial scheduler differentiation
+under a fixed load protocol without post-hoc cherry-picking. \textbf{This
+is historical pilot evidence, not the confirmatory Pilot-V2 result}, and it
+never measured cross-source ranking portability -- that question was and
+remains explicitly out of Stage-0's scope. Stage 0's own five-criterion
+discriminability analyzer returned four passing criteria (77.8\% of
+(source, window, load-region) triples non-tied, 86.7\% of windows
+non-tied, no universal policy collapse, and 100\% of non-tied cells showing
+meaningful metric variation) and one genuine failure: BurstGPT contributed
+only 14.3\% of non-tied conditions, against a 15\% floor, versus
+$\sim$42.9\% each for the other two sources -- a failing criterion, robust
+to the completion-conditioned-metric zero-completion convention used, that
+was reported at the time as a preregistered no-go on the Stage-0 panel. A
+follow-up diagnostic traced this to a
+mechanism-level explanation: differentiation was strongly source-dependent,
+attributable to a near-total collapse of five of the six Stage-0 policies
+into pairwise bit-identical outcomes on BurstGPT's structurally
+short-prompt, near-constant-output traffic -- not to BurstGPT receiving
+weaker or fewer calibrated load conditions than the other sources. This
+motivated the Pilot-V2 protocol's larger, mechanism-diverse 13-policy panel
+and denser six-region load grid (\S\ref{sec:calibration}), applied
+symmetrically to every source, never to BurstGPT alone. Detailed Stage-0
+mechanism analysis is reported in the reproducibility artifact
+(\S\ref{sec:artifact}) rather than in the main text; it is not restated
+here as a ranking-portability finding.
+
+\subsection{Operating-Region Calibration}
+\label{sec:calibration}
+
+A FIFO-only calibration pass establishes six operating regions --
+\texttt{LOW} (load factor 0.5), \texttt{PRE\_KNEE} (0.8), \texttt{KNEE}
+(1.0), \texttt{POST\_KNEE} (1.1), \texttt{OVERLOAD} (1.2), and
+\texttt{HIGH\_PRESSURE} (1.5) -- across all 120 frozen windows (720
+calibration cells total; 720 valid, deterministic, 0 failed/missing/
+duplicated). We report this as calibration provenance, not a comparative
+scheduler result: FIFO is the calibration reference policy, and the
+calibration's role is to fix load-factor-to-region mappings before any
+other policy is executed against them, not to characterize FIFO's relative
+performance. As a calibration characteristic worth preserving, 301 of the
+720 calibration-region records (93 BurstGPT, 101 Bailian/Qwen, 107 Azure)
+recorded zero completions under FIFO at that region's load factor; this is
+a property of the calibration design at those specific (window, region)
+combinations, the frozen calibration validity gate passed regardless
+(\texttt{PHASE11\_CALIBRATION\_VALID = YES}), completion-conditioned metrics
+are simply undefined (not zero) in those records
+(\S\ref{sec:metrics}), and no calibration redesign was performed after
+observing this count.
+
+\subsection{Metrics}
+\label{sec:metrics}
+
+Three metrics are always defined for every completed cell: completion
+fraction, arrival-normalized weighted goodput (ANWG, the primary metric),
+and weighted completion fraction. A second group of metrics is defined
+only conditional on at least one request completing: SLO-violation rate,
+weighted goodput, mean/p95/p99 latency, and request/token throughput are
+each \texttt{NaN} if and only if completion fraction is exactly zero for
+that cell. Mean/p95 time-to-first-token is subject to a stricter,
+separately checked precondition (at least one completed request recorded a
+first-token time), because TTFT can be undefined even when completion
+fraction is positive. No undefined conditional-metric value is ever imputed
+as 0 or 1, in either direction, and never after inspecting which policy or
+source it would affect. Where a policy's value is undefined for a given
+(window, region, metric) condition, that policy is excluded from the
+ranking-derived statistic (Kendall's tau-b, Spearman's rho, top-$k$
+overlap, pairwise reversal detection) for that specific condition and
+metric only -- never scored as a loss or a tie, and never causing the whole
+condition to be dropped for policies that did complete. Every
+ranking-derived table reports its exclusion count
+(\texttt{n\_conditions\_excluded\_for\_undefined\_metric}) alongside the
+statistic itself, since a source-concentrated exclusion rate is itself a
+reportable finding under RQ4, not a footnote.
+
+\subsection{Paired Design and Repetitions}
+\label{sec:paired}
+
+Because the simulator is fully deterministic (\S\ref{sec:execution-model}),
+a single execution per (window, policy, region) cell is sufficient;
+ranking-uncertainty quantification (\S\ref{sec:results}) instead comes from
+resampling over the independent workload windows themselves (block
+bootstrap), not from repeated stochastic runs of the same cell.
+
+\subsection{Mechanism Telemetry}
+\label{sec:telemetry}
+
+Every executed cell additionally records a seven-field mechanism-activation
+telemetry summary: queue-depth (mean/max), batch-saturation (mean/max
+fraction of \texttt{max\_active\_sequences} in use), prefill/decode
+contention fraction, KV-occupancy (mean/max fraction of \texttt{max\_kv\_tokens}
+in use), admission-control activation count, preemption/reorder event
+count, and token-budget saturation fraction. Each field is always defined:
+a value of zero means either that the corresponding mechanism is genuinely
+absent for that policy (for example, preemption count is exactly zero for
+every policy that never issues a preempt/swap/migrate action, which is most
+of the panel) or that the underlying simulator mode does not implement a
+separate prefill/decode phase or token-budget model -- not an
+instrumentation failure. This telemetry is collected for every cell but is
+not used to support any mechanism-level finding in this manuscript; RQ4's
+pre-specified telemetry-to-reversal association analysis is reported, with
+its sparsity and significance caveats, in \S\ref{sec:telemetry-explanation}.
+
+\subsection{Ranking-Uncertainty Quantification and Reversal Classification}
+\label{sec:uncertainty}
+
+Because the statistical unit of analysis is the workload window
+(\S\ref{sec:unit}), ranking-uncertainty is quantified by a whole-window
+block bootstrap: windows, not individual requests, are resampled with
+replacement (preserving each window's internal request sequence intact),
+2{,}000 resamples are drawn per condition, and every reported confidence
+interval is a 95\% percentile interval over those resamples, using a
+deterministic, recorded seed so every interval is exactly reproducible from
+the frozen outcome matrix alone. This block structure exists because the
+requests within a window are not independent observations of scheduler
+behavior -- they share one arrival process, one prompt/output-length
+mixture, and one operating region -- so resampling at the request level
+would understate uncertainty; the window is the unit that is actually
+drawn independently by \S\ref{sec:windows}'s sampling design, and it is
+therefore the unit that must be resampled.
+
+Two further tests calibrate the reversal statistics reported in
+\S\ref{sec:reversals} against multiple comparisons. A Friedman rank-sum
+omnibus test is applied per (source, region, metric) condition to ask
+whether the panel's policies differ at all before any pairwise reversal is
+interpreted, so that pairwise reversal claims are read in the context of
+whether an omnibus difference exists in the first place. Because the panel
+and the (source, region, metric) grid together generate many pairwise
+comparisons, every pairwise reversal $p$-value is corrected across that
+condition's family using Benjamini--Hochberg false-discovery-rate control
+at $q = 0.05$ before a reversal is classified as statistically supported;
+an uncorrected pairwise $p$-value alone is never sufficient for the
+\texttt{SUPPORTED\_PRACTICAL\_REVERSAL} class defined below.
+
+A numerical sign change in a point estimate is not, by itself, a meaningful
+scheduler reversal from a systems standpoint: two policies can swap
+point-estimate order by a magnitude far smaller than the benchmark's own
+measurement noise, in which case treating it as a reversal would overstate
+what the benchmark actually supports. Every pairwise (policy A, policy B)
+comparison at a given (source, region, metric) condition is therefore
+classified into exactly one of five preregistered classes, combining the
+practical-margin test with the bootstrap/FDR-corrected statistical test:
+
+\begin{description}
+  \item[\texttt{UNDEFINED\_UNESTIMABLE}] At least one of the two policies'
+    metric values is undefined for this condition (\S\ref{sec:metrics});
+    no direction is estimated or claimed.
+  \item[\texttt{STABLE\_NO\_SIGN\_CHANGE}] The two policies' relative order
+    agrees across the compared conditions; no reversal occurred.
+  \item[\texttt{MICROSCOPIC\_SIGN\_CHANGE}] The point-estimate order
+    reverses, but the winning margin never exceeds 10\% of the losing
+    policy's value in either condition -- a numerically real but
+    practically negligible sign flip, reported separately from, and never
+    pooled with, the classes below.
+  \item[\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}] The point-estimate
+    order reverses with a practically meaningful margin in at least one
+    condition, but the FDR-corrected 95\% bootstrap interval for the
+    difference does not exclude zero in both conditions -- the apparent
+    reversal is not statistically distinguishable from bootstrap noise at
+    the preregistered confidence level.
+  \item[\texttt{SUPPORTED\_PRACTICAL\_REVERSAL}] The point-estimate order
+    reverses \emph{and} the winning margin exceeds 10\% of the losing
+    policy's value in both compared conditions \emph{and} the
+    FDR-corrected 95\% bootstrap interval for the direction excludes zero
+    in both conditions. Only this class is reported as a headline reversal
+    in \S\ref{sec:reversals}; the other four classes are always reported
+    alongside it, never omitted as a residual category.
+\end{description}
+
+\subsection{Temporal Analysis Design}
+\label{sec:temporal-design}
+
+Temporal portability is evaluated separately per source, using each
+source's own native chronology rather than a single shared calendar rule,
+because the three sources differ in what temporal structure they actually
+expose (\S\ref{sec:sources}). BurstGPT windows are assigned to EARLY/MIDDLE/
+LATE chronology terciles by deterministic relative order within the trace
+(\S\ref{sec:windows}; 60/30/30 windows respectively), and a secondary
+EARLY/LATE bisect split is run as a robustness check on whether the
+tercile boundary choice itself drives any temporal finding
+(\S\ref{sec:robustness}). Azure 2024's temporal split instead uses the
+trace's own absolute calendar timestamp, frozen at Unix epoch
+\texttt{1715731200.0} (2024-05-15T00:00:00Z), splitting the trace into
+before/after halves at that boundary; this is a genuine calendar split,
+not a relative-order tercile, because Azure's release exposes an
+absolute timestamp field that BurstGPT's schema does not
+(\S\ref{sec:provenance}). Bailian/Qwen's release does not expose a
+verified absolute timestamp field usable for a calendar split; its
+temporal analysis is therefore restricted to a relative-order
+comparison only, explicitly labeled \texttt{RELATIVE\_CHRONOLOGY\_ONLY}
+in every table it appears in, and is never presented alongside BurstGPT's
+tercile result or Azure's calendar-split result as though the three used
+an equivalent temporal definition (\S\ref{sec:temporal}). No cross-source
+temporal number is computed by pooling these three distinct temporal
+definitions into one figure.
+
+\subsection{Robustness Analyses}
+\label{sec:robustness}
+
+Every headline ranking-portability result (\S\ref{sec:results}) is
+pre-specified to be checked against a fixed set of robustness analyses: the
+11-policy high-fidelity subset (PRIMARY panel excluding both
+\texttt{STYLE\_APPROXIMATION} policies), leave-one-source-out re-estimation,
+window-size sensitivity, an alternate completion-conditioned-metric
+convention, the full six-region load grid, a temporal-split sensitivity
+check (\S\ref{sec:temporal-design}'s BurstGPT bisect), and
+mechanism-family-exclusion checks. These robustness analyses are part of
+the frozen protocol; results for the six actually executed and
+materialized by the sealed analysis code are reported in
+\S\ref{sec:results-robustness} (one, \texttt{METRIC\_DEFINITION\_SENSITIVITY},
+has no implementing code in the sealed launcher despite its status record
+and is noted there as a disclosed open item).
+
+\subsection{SLO-Definition Sensitivity: A Disclosed Protocol Gap}
+\label{sec:slo-sensitivity-gap}
+
+An SLO-definition sensitivity check -- re-running the benchmark's
+deadline-dependent policies under an alternative SLO-synthesis rule to
+confirm that any headline reversal is not an artifact of the one
+synthesis choice used to fabricate \texttt{slo\_deadline} where a source
+does not natively carry it (\S\ref{sec:provenance}) -- was planned as part
+of this protocol. We disclose here, as a matter of methodological
+discipline rather than as a result, that no alternative SLO-synthesis rule
+was ever actually frozen before or during Pilot-V2 execution: every
+document that references ``the alternative SLO-synthesis rule'' points to
+another document as the place it is defined, and that chain does not
+terminate in an actual formula, multiplier, or distribution anywhere in
+this project's history. Consequently: no alternative rule was invented after Pilot-V2 execution
+began, and no SLO-sensitivity experiment was run as part of Pilot-V2; this
+robustness component is \emph{not} claimed as preregistered evidence
+anywhere in this manuscript. As required by this disclosure, an SLO-
+sensitivity check was subsequently run as an explicitly labeled
+post-campaign extension, with its own freeze and manifest process, after
+Pilot-V2's headline results were already known; its results are reported
+in \S\ref{sec:results-slo} and \S\ref{sec:threats}, never retrofitted
+into this study's preregistered evidence.
+% ===== end methodology.tex =====
+
+% ===== begin results.tex =====
+\section{Scheduler Ranking Portability}
+\label{sec:results}
+
+The results below are computed from the six canonical Phase-12 analysis
+artifacts, generated by the sealed analysis code
+(\texttt{eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1}) against the admitted,
+independently re-validated 18{,}720-cell consolidated matrix, and
+structurally audited before interpretation
+(\S\ref{sec:artifact}). Reported values are computed deterministically by
+\texttt{paper/scripts/generate\_phase12\_tables\_figures.py} from those six
+hash-verified artifacts; no number below was entered by hand. The PRIMARY
+headline metric throughout is arrival-normalized weighted goodput (ANWG,
+\S\ref{sec:metrics}); other metrics are reported as secondary/supporting
+evidence only. Two subsections of the original result contract were not
+part of this analysis run's six canonical artifacts: per-source
+\emph{discriminability} (fraction of non-tied conditions), which remains
+an open item, noted here rather than populated with placeholder or
+approximated numbers; and cross-\emph{metric} rank agreement, which is
+instead reported in \S\ref{sec:results-cross-metric} as an explicitly
+labeled post-campaign extension using the sealed package's own statistical
+primitives as a library, never modifying or re-running the six canonical
+artifacts themselves.
+
+\subsection{Cross-Source Rankings}
+\label{sec:cross-source-rankings}
+
+Across the 3 source pairs $\times$ 6 operating regions (18 conditions),
+Kendall's tau-b for the PRIMARY metric ranges from $0.55$ to $1.00$, with a
+per-region mean between $0.69$ and $0.77$ (Table~\ref{tab:rq1-by-region},
+Figure~\ref{fig:portability-heatmap}). Every one of the 18 conditions has a
+positive, non-trivial tau-b: comparative scheduler rankings are never
+uncorrelated or inverted \emph{in aggregate} between any two sources at any
+region. Portability is, however, visibly uneven across source \emph{pairs}
+rather than uniform: Azure-2024 and Bailian/Qwen agree very strongly with
+each other at every region ($\tau = 0.89$--$1.00$), while every
+comparison involving BurstGPT is substantially lower ($\tau =
+0.55$--$0.71$) -- a gap of roughly $0.2$--$0.4$ in Kendall's tau-b that
+holds at all six regions, not just one. Top-1 agreement (the single
+best-performing PRIMARY-panel policy) and top-3 agreement follow the same
+source-pair pattern in the underlying evaluation data; we do not
+tabulate top-1/top-3 separately in the main text to avoid restating the
+same qualitative pattern three times, but the full table is part of the
+public artifact release (\S\ref{sec:artifact}).
+
+\begin{table}[h]
+\centering
+\caption{Primary-metric (ANWG) Kendall's tau-b, mean across the three
+source pairs, per operating region.}
+\label{tab:rq1-by-region}
+\begin{tabular}{lcccccc}
+\toprule
+ & LOW & PRE\_KNEE & KNEE & POST\_KNEE & OVERLOAD & HIGH\_PRESSURE \\
+\midrule
+mean $\tau$ & 0.69 & 0.77 & 0.74 & 0.74 & 0.72 & 0.75 \\
+min $\tau$  & 0.55 & 0.70 & 0.60 & 0.61 & 0.58 & 0.62 \\
+max $\tau$  & 0.92 & 0.89 & 0.96 & 0.96 & 0.96 & 1.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{fig1_portability_heatmap.pdf}
+\caption{Source-pair $\times$ load-region ranking-portability: Kendall's
+tau-b between each pair of sources' PRIMARY-panel (11-policy) rankings on
+the ANWG metric, at each of the six frozen operating regions
+(\S\ref{sec:calibration}). Computed from the frozen ranking correlations artifact.}
+\label{fig:portability-heatmap}
+\end{figure}
+
+The min/max range in Table~\ref{tab:rq1-by-region} makes clear that
+portability is not homogeneous even within a region: the range at LOW
+($0.55$--$0.92$) is nearly as wide as at any other region, and the range is
+driven entirely by which source pair is compared, not by which region is
+compared (\S\ref{sec:load-conditioning} tests region dependence
+explicitly). No region shows uniformly low or uniformly high agreement
+across all three source pairs simultaneously.
+
+\subsection{Load Conditioning}
+\label{sec:load-conditioning}
+
+Load-level dependence is a secondary robustness/sensitivity analysis
+(\S\ref{sec:rq}), reported here as a direct read of the same
+\S\ref{sec:cross-source-rankings} table rather than a separate headline
+claim of cross-source rank instability by itself. Table~\ref{tab:rq1-by-region}'s
+per-region mean tau-b is close to flat across the six regions ($0.69$ at
+LOW, rising to $0.72$--$0.77$ elsewhere, no monotonic trend with load
+factor); a leave-one-region-out comparison between the full six-region
+grid and the four-region \texttt{LOW}/\texttt{PRE\_KNEE}/\texttt{KNEE}/
+\texttt{OVERLOAD} subset used by \texttt{LOAD\_CALIBRATION\_SENSITIVITY}
+(\S\ref{sec:robustness}) changes the mean tau-b by less than $0.01$
+($0.728$ on the four-region subset versus $0.733$ on the full six-region
+grid) -- the headline cross-source portability conclusion is not sensitive
+to the choice of four-region versus six-region calibration grid. Load
+regime does, however, materially affect \emph{where practically supported
+reversals occur} (\S\ref{sec:reversals}): reversal counts are concentrated
+at PRE\_KNEE and above, essentially absent at LOW.
+
+\subsection{Pairwise Reversals}
+\label{sec:reversals}
+
+Of the 990 (policy pair) $\times$ (source pair, region) PRIMARY-metric
+records (55 policy pairs among the 11 PRIMARY policies $\times$ 18
+conditions), the
+five-class breakdown (\S\ref{sec:uncertainty}) is: $906$
+\texttt{STABLE\_NO\_SIGN\_CHANGE} ($91.5\%$), $48$
+\texttt{MICROSCOPIC\_SIGN\_CHANGE} ($4.8\%$), $36$
+\texttt{SUPPORTED\_PRACTICAL\_REVERSAL} ($3.6\%$), and zero records in
+either \texttt{UNDEFINED\_UNESTIMABLE} or
+\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}. The large majority of
+pairwise comparisons are stable; a small but non-trivial minority (about 1
+in 28) are both practically and statistically supported reversals -- never
+a majority, and never absent. That zero records fall into
+\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI} indicates the bootstrap
+(2{,}000 resamples per condition, \S\ref{sec:uncertainty}) was decisive at
+this sample size: every sign change with a practically meaningful margin
+also had a statistically supported direction, and vice versa -- the
+practical-margin and statistical-support criteria did not disagree with
+each other on this data.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{fig2_reversal_class_matrix.pdf}
+\caption{Reversal-class counts by operating region, PRIMARY metric (165
+pairwise records per region: 55 policy pairs $\times$ 3 source pairs).
+Computed from the frozen pairwise reversals artifact.}
+\label{fig:reversal-matrix}
+\end{figure}
+
+Reversal counts are load-dependent: zero \texttt{SUPPORTED\_PRACTICAL\_REVERSAL}
+records at \texttt{LOW}, rising to 6 at each of \texttt{PRE\_KNEE},
+\texttt{KNEE}, and \texttt{POST\_KNEE}, 10 at \texttt{OVERLOAD}, and 8 at
+\texttt{HIGH\_PRESSURE} (Figure~\ref{fig:reversal-matrix}). Every one of
+the 36 PRIMARY-metric supported reversals that we manually inspected in
+the underlying record set involves the same two policies,
+\texttt{slai\_faithful} and \texttt{vllm\_faithful}, and every one is a
+\emph{cross-source} reversal in which one side of the comparison is a
+BurstGPT condition -- consistent with \S\ref{sec:cross-source-rankings}'s
+finding that BurstGPT is the source pair member most associated with lower
+agreement. The single largest-effect-size supported reversal (operationalized
+as the smaller-magnitude of the two conditions' practical margins, the
+binding constraint under the frozen practical-margin rule,
+\S\ref{sec:uncertainty}) is \texttt{slai\_faithful} vs.\
+\texttt{vllm\_faithful} at \texttt{HIGH\_PRESSURE}, comparing Azure-2024
+(or, at an effectively tied effect size, Bailian/Qwen) against BurstGPT --
+this is the case selected for real-system validation under the frozen
+selection rule (\S\ref{sec:real-system}).
+
+A representative stable comparison, used as a null-result control alongside
+the reversal case in the real-system validation design
+(\S\ref{sec:real-system}), is the source pair with both the highest tau-b
+and (among the highest-tau conditions) the narrowest bootstrap interval:
+Azure-2024 vs.\ Bailian/Qwen at \texttt{HIGH\_PRESSURE} ($\tau = 1.00$,
+95\% CI $[0.90, 1.00]$).
+
+\subsection{Temporal Portability}
+\label{sec:temporal}
+
+Three separately labeled temporal comparisons are reported, per the frozen
+temporal design (\S\ref{sec:temporal-design}), and are not merged into a
+single ``temporal/domain OOD'' number:
+
+\begin{itemize}
+  \item \textbf{BurstGPT (EARLY/MIDDLE/LATE tercile, primary).} Computed
+    directly from the temporal robustness artifact's
+    \texttt{TERCILE}-labeled records for the PRIMARY metric.
+  \item \textbf{BurstGPT (EARLY/LATE bisect, sensitivity).} The
+    \texttt{BISECT}-labeled records, checking whether the tercile boundary
+    choice itself drives the tercile finding.
+  \item \textbf{Azure-2024 (calendar split at Unix epoch
+    \texttt{1715731200.0}).} The \texttt{CALENDAR\_BOUNDARY}-labeled
+    records -- a genuine absolute-calendar split, not a relative-order
+    tercile.
+\end{itemize}
+
+Bailian/Qwen's temporal record is labeled
+\texttt{RELATIVE\_CHRONOLOGY\_ONLY} in the underlying artifact and is
+reported as such: Bailian/Qwen's release does not expose a verified
+absolute timestamp usable for a calendar split (\S\ref{sec:temporal-design}),
+so no calendar-based temporal claim is made for this source, and its
+relative-order result is never presented alongside BurstGPT's tercile
+result or Azure's calendar-split result as though the three used an
+equivalent temporal definition. The full per-comparison values for all
+four temporal record types are keyed identically to the source temporal robustness artifact.
+
+\subsection{Robustness}
+\label{sec:results-robustness}
+
+Of the seven preregistered robustness families (\S\ref{sec:robustness}),
+six were actually executed by the sealed analysis code and materialized
+into the canonical artifacts (five of them into the ranking correlations,
+temporal robustness, and sample complexity outputs, and, initially
+overlooked in our first interpretation pass, a sixth --
+\texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT} -- inside a nested
+\texttt{robustness} object within the telemetry explanation output
+that a subsequent reconciliation pass located and verified). Only
+\texttt{METRIC\_DEFINITION\_SENSITIVITY} has no computation anywhere in
+the sealed analysis code: its status record claims
+\texttt{implemented\_as\_postprocessing = true}, but no corresponding
+comparison function exists in \texttt{analysis/robustness.py} (unlike the
+other six families, each of which has one), so producing this specific
+result would require writing new analysis code after this manuscript's
+results were already known -- exactly the kind of after-the-fact code
+change this study's own discipline prohibits, and it is therefore left as
+a disclosed implementation gap rather than computed here.
+
+\begin{itemize}
+  \item \textbf{\texttt{PRIMARY\_ONLY}.} Identical to the headline result
+    by construction: the ranking correlations artifact already restricts
+    every comparison to the 11-policy PRIMARY panel
+    (\S\ref{sec:cross-source-rankings}), never mixing in the two
+    \texttt{STYLE\_APPROXIMATION} robustness policies.
+  \item \textbf{\texttt{LEAVE\_ONE\_SOURCE\_OUT}.} Excluding BurstGPT
+    leaves only the Azure-2024/Bailian-Qwen pair, whose mean tau-b is
+    $0.948$ -- close to the ceiling. Excluding Azure-2024 or Bailian/Qwen
+    each leaves a BurstGPT-involving pair, with mean tau-b $0.633$ and
+    $0.618$ respectively. This is the same asymmetry as
+    \S\ref{sec:cross-source-rankings}, now stated per excluded source: the
+    headline portability figure is high specifically because two of the
+    three sources agree strongly, and is pulled down specifically by
+    BurstGPT, not uniformly by all three sources.
+  \item \textbf{\texttt{LOAD\_CALIBRATION\_SENSITIVITY}.} Reported in
+    \S\ref{sec:load-conditioning}: mean tau-b changes by less than $0.01$
+    between the four- and six-region grids.
+  \item \textbf{\texttt{TEMPORAL\_SPLIT\_SENSITIVITY}.} The BurstGPT
+    bisect-vs-tercile comparison from \S\ref{sec:temporal}; both split
+    definitions are reported side by side in the released table rather
+    than collapsed into one number.
+  \item \textbf{\texttt{WINDOW\_SIZE\_SENSITIVITY}.} Identical to the
+    sample-complexity ladder (\S\ref{sec:sample-complexity}) under the
+    frozen robustness contract; not separately recomputed here.
+  \item \textbf{\texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT}.} Excluding any
+    single one of the ten frozen mechanism families changes the headline
+    mean tau-b only modestly, from $0.707$ (excluding the classical
+    arrival-order family) to $0.792$ (excluding the SLO-aware family),
+    against the full-panel baseline of $0.733$. No single mechanism
+    family's removal collapses or inflates the headline portability
+    figure -- the source-pair-driven pattern of
+    \S\ref{sec:cross-source-rankings} is not an artifact of any one
+    policy family dominating the panel.
+\end{itemize}
+
+\subsection{Cross-Metric Ranking Portability}
+\label{sec:results-cross-metric}
+
+\S\ref{sec:reversals} and \S\ref{sec:results-robustness} ask whether a
+policy ranking under one fixed metric (ANWG) is portable across sources,
+regions, and windows. A different question -- whether a ranking is
+portable across \emph{metrics}, for the same source and region -- is
+addressed here as an explicitly labeled post-campaign extension that
+reuses the sealed package's statistical primitives as a library without
+modifying, re-running, or re-deriving any of the six canonical Phase-12
+artifacts. Across all $3$ sources $\times$ $6$ regions $\times$ $55$
+metric pairs among the study's tracked outcome metrics ($990$ conditions),
+rank correlation between metrics is on average moderate (median Kendall's
+$\tau_b = 0.419$, range $[-0.506, 1.000]$; $202/990$, $20\%$, of conditions
+have \emph{negative} $\tau_b$), and the single top-ranked policy agrees
+between the two metrics in only half of conditions (median top-1 agreement
+$=0$, i.e.\ the majority-or-tie split is even). At the level of individual
+pairwise policy comparisons ($54{,}450$ total, one per (metric pair,
+condition, policy pair)), $3{,}207$ ($5.9\%$) show a statistically
+supported (bootstrap CI, BH-FDR-corrected) practical disagreement in which
+policy is preferred depending on which metric is used, versus $45{,}800$
+($84.1\%$) in the same order, $5{,}205$ ($9.6\%$) a sign change too small
+to be practically meaningful, and $201$ ($0.4\%$) an unsupported sign
+change with a wide confidence interval. Scheduler-ranking portability is
+therefore not only source- and region-dependent (\S\ref{sec:results});
+which metric is used to define ``better'' materially changes the ranking
+in a non-trivial minority of conditions, and the median condition shows no
+default expectation that the two metrics' top choices should agree.
+
+\subsection{SLO-Definition Sensitivity}
+\label{sec:results-slo}
+
+SLO-definition sensitivity was never part of the preregistered
+protocol (\S\ref{sec:slo-sensitivity-gap}: no alternative SLO-synthesis
+rule was ever frozen before or during Pilot-V2 execution). We report here
+a post-campaign sensitivity check, explicitly labeled and executed after
+this study's headline results were already known, per
+\S\ref{sec:slo-sensitivity-gap}'s own requirement that any such study be
+run this way: three alternative SLO-synthesis multipliers
+(\texttt{tight\_10x}, \texttt{primary\_20x} -- this study's own convention
+-- and \texttt{loose\_40x}) applied across the full campaign grid
+($19{,}800$ cells; 0 failed), with every source, region, policy, window,
+and seed held identical to \S\ref{sec:results}.
+
+\textbf{Ranking robustness.} Across the $30$ (source, region, variant)
+conditions compared against the study's primary SLO convention, rank
+correlation stays high under either alternative (median Kendall's
+$\tau_b = 0.872$, range $[0.533, 1.000]$); the single top-ranked policy
+nonetheless changes under an alternative SLO definition in $13/30$ ($43\%$)
+of conditions.
+
+\textbf{Reversal persistence.} Checking each of the 36 PRIMARY-metric
+supported reversals from \S\ref{sec:reversals} against all 3 alternative
+variants ($108$ checks total): $88$ ($81\%$) persist, $6$ ($6\%$) change
+direction, $10$ ($9\%$) remain the same direction but fall below the
+practical-margin threshold under the alternative definition, and $4$
+($4\%$) become statistically indistinguishable from zero. No headline
+reversal from \S\ref{sec:reversals} is contradicted outright, but a
+non-trivial minority ($20/108$, $19\%$) are sensitive to the SLO-definition
+choice -- disclosed here as a caveat on those specific reversals, not
+grounds to discard them.
+
+\subsection{Synthetic-to-Real Ranking Transfer (Pilot, Not Headline Evidence)}
+\label{sec:results-rq3-pilot}
+
+RQ3 (\S\ref{sec:study-design}) is preregistered as a SECONDARY question,
+never a headline result contract item. We report only an engineering-
+validation pilot of the synthetic-to-real transfer pipeline: $176/176$
+pilot cells and $24/24$ analysis records materialized, $0$ schema-validation
+or telemetry failures, across all $4$ synthetic stress families
+(\texttt{burst\_arrival}, \texttt{decode\_length\_skew},
+\texttt{heavy\_tail\_service}, \texttt{priority\_slo\_heterogeneity}), both
+selected load regions, and all $3$ real sources. By design, the pilot uses
+only $2$ synthesis seeds per family, too few for the frozen block-bootstrap
+transfer statistic to be defined in most conditions: Kendall's $\tau_b$ is
+undefined (\texttt{null}, insufficient sign pairs) in $21/24$ ($88\%$)
+pilot conditions. \textbf{We therefore draw no synthetic-to-real transfer
+conclusion, positive or negative, from this pilot}; it establishes only
+that the pipeline executes correctly end-to-end. A full-scale extension
+(targeted, not exhaustive) with sufficient seeds per family to define the
+transfer statistic is left to future work, consistent with RQ3's
+SECONDARY, non-headline status in this study's frozen contract.
+% ===== end results.tex =====
+
+% ===== begin sample_complexity.tex =====
+\section{Benchmark Sample Complexity}
+\label{sec:sample-complexity}
+
+\subsection{Motivation}
+\label{sec:sample-complexity-motivation}
+
+Every scheduler-ranking result in this manuscript is itself derived from a
+finite window budget -- 40 windows per source, 120 total
+(\S\ref{sec:windows}). A systems researcher designing a future scheduler
+comparison faces a practical, resource-bound version of the same question
+this benchmark studies at the source/region/metric level: \emph{if only $n$
+workload windows can be afforded, how reliably would the resulting
+scheduler-ordering conclusion reproduce the conclusion obtained from the
+full window collection?} This question is itself a systems-evaluation
+parameter, not a purely statistical afterthought: it bounds the
+experimental cost of a trustworthy scheduler comparison, it affects how
+much confidence a reader should place in a paper that evaluates on a
+handful of trace windows, and it is a precondition for treating this
+benchmark's own frozen 120-window corpus (rather than some larger or
+smaller corpus) as an adequate evidentiary base for the results in
+\S\ref{sec:results}.
+
+\subsection{Design}
+\label{sec:sample-complexity-design}
+
+For the PRIMARY metric, recovery of the exact $n=40$ reference ranking is
+slow and strongly source-dependent (Figure~\ref{fig:sample-complexity},
+Table~\ref{tab:rq4-first-n}): BurstGPT never reaches the preregistered
+$0.9$ exact-order recovery threshold below the full window budget ($0.2\%$
+at $n=5$, rising only to $56.6\%$ at $n=30$), Bailian/Qwen similarly does
+not cross $0.9$ before $n=40$ ($64.0\%$ at $n=30$), while Azure-2024
+crosses the threshold already at $n=30$ ($98.8\%$). None of the three
+sources reaches $0.9$ exact-order recovery at $n \in \{5,10,20\}$. Because
+$n=40$ is the size of the full reference pool itself, exact recovery at
+$n=40$ is $1.0$ by construction (sampling all 40 windows without
+replacement reproduces the reference exactly) and is not an informative
+data point on its own; the informative content is in how slowly each
+source's curve rises toward that trivial ceiling.
+
+Top-1 recovery (does the resampled subset identify the single
+best-performing PRIMARY-panel policy correctly) is a materially easier
+question than exact-order recovery for two of the three sources: Azure-2024
+and Bailian/Qwen both exceed $0.9$ top-1 recovery already at $n=5$
+($96.6\%$ and essentially $100\%$ respectively), even though their
+\emph{exact}-order recovery at $n=5$ is only $35.0\%$ and $14.6\%$. For
+these two sources, identifying the single best policy requires far less
+evidence than reconstructing the complete 11-policy ordering. BurstGPT
+shows no such gap: its top-1 recovery is comparably slow to its
+exact-order recovery ($13.0\%$ at $n=5$, $74.2\%$ at $n=30$, not reaching
+$0.9$ within the tested ladder either) -- consistent with
+\S\ref{sec:cross-source-rankings}'s finding that BurstGPT is the source
+whose relative ordering is hardest to pin down. Comparing a concentrated
+(single-source-heavy) against a distributed (evenly-spread-across-sources)
+window budget of equal total size, the distributed budget achieves higher
+mean Kendall's tau-b against the reference ranking ($0.986$) than the
+concentrated budget ($0.940$) for the primary metric -- spreading a fixed
+evaluation budget across sources recovers the reference ranking more
+reliably than concentrating it in one source.
+
+\begin{table}[h]
+\centering
+\caption{Smallest $n$ at which PRIMARY-metric recovery probability first
+exceeds $0.9$ (blank = not reached within the tested ladder,
+$n \in \{5,10,20,30,40\}$).}
+\label{tab:rq4-first-n}
+\begin{tabular}{lcc}
+\toprule
+Source & first $n$, exact-order $\geq 0.9$ & first $n$, top-1 $\geq 0.9$ \\
+\midrule
+Azure-2024    & 30 & 5 \\
+Bailian/Qwen  & 40 & 5 \\
+BurstGPT      & 40 (not reached below 40) & not reached \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig3_sample_complexity_curves.pdf}
+\caption{Benchmark sample-complexity recovery curves, PRIMARY metric, 500
+draws per $n$, sampling without replacement. Left: exact-order recovery of
+the full $n=40$ reference ranking. Right: top-1 recovery. The $0.9$
+threshold is marked. Computed from the frozen sample complexity artifact.}
+\label{fig:sample-complexity}
+\end{figure}
+
+This analysis directly answers RQ5 (\S\ref{sec:rq}) and depends on the full
+Pilot-V2 outcome matrix (\S\ref{sec:results}); it is not run on Stage-0's
+historical, smaller pilot (\S\ref{sec:stage0}).
+% ===== end sample_complexity.tex =====
+
+% ===== begin real_system.tex =====
+\section{Real-System Validation}
+\label{sec:real-system}
+
+\subsection{Objective}
+\label{sec:real-system-objective}
+
+This analysis addresses RQ6 (\S\ref{sec:rq}). We do not claim that simulated absolute latency or throughput values match real-hardware values; simulator latency is not assumed to transfer directly to real-engine latency, nor is the simulator's own load-calibration reference $\lambda_{\mathrm{ref}}$ (\S\ref{sec:calibration}) expected to transfer to a physical engine's saturation point. The sole objective of this validation is to test agreement in \emph{relative policy ordering} and \emph{reversal direction} between the simulator and a real vLLM deployment on a targeted set of validation cases.
+
+\subsection{Experimental Design}
+\label{sec:real-system-design}
+
+The real-system validation follows a preregistered, window-resampled evaluation design structured to mirror the simulated campaign without requiring exhaustive duplication. The evaluation protocol is defined as follows:
+
+\begin{itemize}
+  \item \textbf{Inferential Unit:} The statistical unit of analysis is the workload window, preserving the methodology established in \S\ref{sec:methodology}.
+  \item \textbf{Scale and Execution:} The design evaluates $40$ independent workload windows per source, each containing $200$ requests. Exactly one scientific execution is performed per (policy, source, window) cell, yielding $240$ total scientific tasks ($2$ policies $\times$ $3$ sources $\times$ $40$ windows).
+  \item \textbf{Uncertainty Quantification:} Uncertainty is quantified via window-level bootstrap resampling ($\ge 2{,}000$ resamples) over the $40$ independent windows per source.
+  \item \textbf{Operating Regions:} Workloads are calibrated against the real engine's observed saturation point to define load regions independently of the simulator's calibration.
+  \item \textbf{Ordering and Provenance:} Each (policy, source, window) cell is executed exactly once; with one execution per cell there is no repeated-measures ordering to alternate. Cells are assigned deterministically to Slurm array indices by a fixed (source, window, policy) sort, with execution concurrency limited to four simultaneous array tasks. Every execution records its exact git commit, hardware environment (per-task GPU query), software versions, and workload/calibration-manifest hash identity to ensure reproducibility.
+\end{itemize}
+
+\subsection{Case Selection}
+\label{sec:real-system-case-selection}
+
+Validation cases were selected mechanically from the validated results presented in \S\ref{sec:reversals}, applying a preregistered rule that prefers the pairwise reversal with the largest effect size and a representative stable-ordering control.
+
+\begin{itemize}
+  \item \textbf{Reversal Case:} \texttt{slai\_faithful} versus \texttt{vllm\_faithful}, comparing the Azure and BurstGPT sources at high load. This case exhibited the largest-effect-size statistically supported practical reversal in simulation (a simulator difference of $+0.520$ for Azure favoring \texttt{slai\_faithful}, and $-0.348$ for BurstGPT favoring \texttt{vllm\_faithful}).
+  \item \textbf{Stable Control:} Azure versus Bailian/Qwen at high load, chosen for exhibiting perfect rank agreement in simulation.
+\end{itemize}
+
+Evaluating this selection on physical hardware requires mapping the simulated mechanisms to their real-engine equivalents. While \texttt{vllm\_faithful} maps directly to native vLLM execution paths, the SLO-aware SLAI/RAD mechanism requires a custom vLLM scheduling plugin to realize its semantics on real hardware.
+
+\subsection{Results}
+\label{sec:real-system-result}
+
+The physical-hardware load-calibration prerequisite for these validation cases has been executed (120/120 terminal outcomes: 43 converged, 77 lower-bound-already-violating), establishing the necessary injection rates for the deployment environment. All $240$ scientific evaluation tasks ($2$ policies $\times$ $3$ sources $\times$ $40$ windows) subsequently completed on vLLM~0.27.1 against a $10\,\mathrm{GB}$ A100 GPU allocation (Slurm \texttt{gres=gpu:a100\_10g}), with zero failed, timed-out, or partial cells.
+
+Table~\ref{tab:rq6-results} reports the \texttt{slai\_faithful}-minus-\texttt{vllm\_faithful} arrival-normalized-weighted-goodput (ANWG) effect for each source, using the same window-level paired bootstrap as \S\ref{sec:uncertainty} ($2{,}000$ resamples over the $40$ independent windows/source, 95\% CI). All three effects are statistically supported (CI excludes zero) and favor \texttt{vllm\_faithful}.
+
+\begin{table}[t]
+\centering
+\caption{Real-vLLM RQ6 outcomes against the simulator-selected cases (\texttt{HIGH\_PRESSURE}, 40 paired windows/source, 95\% window-level bootstrap CI, $2{,}000$ resamples). Effect is \texttt{slai\_faithful}$-$\texttt{vllm\_faithful} ANWG.}
+\label{tab:rq6-results}
+\small
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{lccccl}
+\toprule
+Source & Sim.\ winner & Effect & 95\% CI & Real winner & Agreement \\
+\midrule
+Azure (rev.) & SLAI ($+0.520$) & $-0.024$ & $[-0.027,-0.020]$ & vLLM & Disagrees \\
+BurstGPT (rev.) & vLLM ($-0.348$) & $-0.200$ & $[-0.264,-0.144]$ & vLLM & Agrees \\
+Bailian (ctrl.) & n/a$^{*}$ & $-0.026$ & $[-0.030,-0.022]$ & vLLM & Consistent \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+
+{\footnotesize $^{*}$The simulator's stable-control quantity ($\tau_b = 1.00$) is an
+11-policy full-ranking correlation, not a two-policy \texttt{slai\_faithful}-vs-\texttt{vllm\_faithful}
+winner; no directly comparable simulator winner is defined for this row. The
+relevant real-system check is instead whether the two-policy ordering agrees
+between the Azure and Bailian/Qwen conditions, which it does (both favor
+\texttt{vllm\_faithful}).}
+\end{table}
+
+The simulator-predicted Azure/BurstGPT reversal did not reproduce: \texttt{vllm\_faithful} won both conditions on real hardware, so the predicted sign flip between Azure and BurstGPT was not observed. BurstGPT's real winner matches the simulator's selection; Azure's does not -- the physical Azure comparison changed from a simulated \texttt{slai\_faithful} advantage to a small but statistically supported \texttt{vllm\_faithful} advantage. In contrast, the Azure/Bailian-Qwen stable-control comparison retained a consistent \texttt{vllm\_faithful}-favoring ordering across both real-system conditions (effect magnitudes $-0.0235$ and $-0.0256$), reproducing the qualitative stability that comparison was selected to test, independent of which specific policy wins.
+
+This selected-case result is informative in both directions: the comparative-stability relationship the control was designed to probe transferred to physical execution, while an individual simulator-derived sign prediction did not. Read together with \S\ref{sec:results}--\S\ref{sec:results-slo}, this is additional, complementary physical evidence for this benchmark's central claim -- that comparative scheduler conclusions are conditional and should not be assumed portable -- rather than a standalone validation of the simulator in general, or of either scheduler's absolute merit (\S\ref{sec:threats}).
+% ===== end real_system.tex =====
+
+% ===== begin discussion.tex =====
+\section{Discussion}
+\label{sec:discussion}
+
+The result (\S\ref{sec:results}) is neither cleanly ``portable'' nor
+cleanly ``fragile'' -- it is source-pair-dependent in a specific,
+mechanistically legible way, and that dependence itself is the finding.
+
+\subsection{Portability Is Real but Source-Pair-Dependent, Not Uniform}
+
+Comparative scheduler rankings are never uncorrelated between any two
+sources at any region ($\tau \geq 0.55$ everywhere,
+\S\ref{sec:cross-source-rankings}): a scheduler comparison performed on
+one of this study's three sources is never scientifically meaningless
+evidence about the others. At the same time, the degree of portability is
+far from uniform, and the source of the non-uniformity is legible rather
+than diffuse: Azure-2024 and Bailian/Qwen agree with each other almost
+perfectly at every operating region ($\tau = 0.89$--$1.00$), while every
+comparison involving BurstGPT sits $0.2$--$0.4$ lower in Kendall's tau-b,
+consistently across all six regions (\S\ref{sec:cross-source-rankings},
+\S\ref{sec:results-robustness}'s leave-one-source-out breakdown). The
+practical implication is neither ``a small, well-chosen evaluation
+footprint always suffices'' nor ``every scheduler comparison must be
+re-verified on every workload'': it is that \emph{which} second source a
+comparison is checked against matters more than \emph{whether} a second
+source is checked at all. A comparison validated only on Azure-2024-like
+traffic transfers with high confidence to Bailian/Qwen-like traffic under
+this study's panel and metric, but the same transfer to BurstGPT-like
+traffic is measurably less reliable, and that reliability gap holds at
+every load level tested, not only under stress.
+
+\subsection{Practically Supported Reversals Are Real, Uncommon, and
+Load-Concentrated}
+
+Of 990 pairwise (policy pair $\times$ condition) comparisons on the
+PRIMARY metric, $3.6\%$ are practically and statistically supported
+reversals (\S\ref{sec:reversals}) -- a small minority, but not zero, and
+therefore not dismissible as measurement noise: the same bootstrap
+procedure that supports these 36 reversals also classified 906 comparisons
+as stable and produced zero comparisons in the ambiguous
+\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI} class. Every supported
+reversal we examined is the same policy pair
+(\texttt{slai\_faithful} vs.\ \texttt{vllm\_faithful}) and involves
+BurstGPT on one side, and reversal counts rise from zero at \texttt{LOW}
+to a peak at \texttt{OVERLOAD} (\S\ref{sec:reversals}) -- reversals are not
+spread evenly across the operating envelope; they concentrate at and above
+\texttt{PRE\_KNEE}. A scheduler comparison performed only at low load,
+even on a source pair that is otherwise highly portable, would have missed
+every reversal this benchmark found. This motivates evaluating scheduler
+comparisons across an operating curve, not at a single convenient load
+point, as this benchmark's design already does
+(\S\ref{sec:calibration}).
+
+\subsection{Practical Implications for Benchmark Design}
+
+Two implications follow directly and are not deployment recommendations
+about which scheduler to use, only about how to evaluate schedulers
+credibly. First, a comparison checked against only one additional workload
+source cannot be assumed representative of ``other workloads'' in
+general -- which specific source is used as the check matters, and
+BurstGPT-like traffic in particular is where this study's evidence
+concentrates its cross-source disagreement. Second, benchmark sample
+complexity is itself load- and metric-behavior-relevant evidence:
+\S\ref{sec:sample-complexity}'s finding that exact-order recovery requires
+the full window budget for two of three sources, while top-1 recovery is
+achievable from very few windows for those same two sources, means a
+researcher who only needs to know ``which scheduler is best'' faces a
+different, much smaller evidence requirement than one who needs the
+complete ordering -- a distinction a single point-estimate benchmark
+result cannot convey on its own.
+
+\subsection{Portability Also Depends on Which Metric and Which SLO
+Definition Is Used}
+
+\S\ref{sec:cross-source-rankings}--\S\ref{sec:reversals} establish that a
+ranking's portability depends on which \emph{workload source} it is checked
+against. \S\ref{sec:results-cross-metric} and \S\ref{sec:results-slo} show
+that portability depends, independently, on which \emph{metric} and which
+\emph{SLO definition} is used to compute the ranking in the first place --
+two further conditioning variables, not a repetition of the source-pair
+finding above.
+
+The cross-metric result is the more consequential of the two. A median
+Kendall's $\tau_b$ of $0.419$ across metric pairs is only a moderate rank
+correspondence -- well below the $0.89$--$1.00$ agreement
+\S\ref{sec:cross-source-rankings} finds between the two most portable
+\emph{sources} -- and $20\%$ of conditions show a \emph{negative}
+correlation, meaning the two metrics do not merely disagree in degree but
+sometimes rank policies in opposite order. That the single top-ranked
+policy agrees between metrics in only half of conditions is the more
+practically legible way to read the same result: for a randomly chosen
+(source, region) condition, asking ``which metric?'' is, on average, as
+consequential to the answer as asking ``which policy?'' This does not mean
+metrics are arbitrary or that any one choice is as good as another -- ANWG,
+completion fraction, and the latency- and SLO-based metrics measure
+genuinely different deployment objectives (\S\ref{sec:metrics}), and a
+practitioner optimizing for tail latency has no reason to expect the same
+ranking as one optimizing for weighted goodput. The finding is instead that
+\emph{which} objective a benchmark reports on is as much a part of the
+ranking-portability question as which workload it was measured on, and a
+scheduler comparison that reports only its primary metric is silent on
+whether that comparison would hold under a deployment's actual objective.
+
+The SLO-definition result is comparatively reassuring but not a clean
+pass. Ranking robustness under three alternative SLO-synthesis conventions
+is high (median $\tau_b = 0.872$) -- closer to the cross-source ceiling
+than to the cross-metric result above -- yet the single top-ranked policy
+still changes in $13/30$ ($43\%$) of conditions, and $20$ of the $108$
+reversal checks against the three alternative definitions
+are sensitive to which SLO definition is used
+(\S\ref{sec:results-slo}). The practical reading is narrower than either
+``robust'' or ``fragile'': a scheduler conclusion can remain broadly
+ordered under a nearby SLO definition even while its winning policy, or a
+specific reversal a reader cares about, does not.
+
+Taken together with \S\ref{sec:cross-source-rankings}'s source-pair finding
+and \S\ref{sec:reversals}'s load-concentration finding, this study's central
+conclusion is that a comparative scheduler claim is conditional on at least
+four axes -- workload source, operating region, evaluation metric, and (for
+deadline-dependent policies) SLO definition -- and reporting a ranking
+without stating which values of each axis produced it risks the ranking
+being read as more general than the evidence supports.
+
+\subsection{Explanatory Telemetry: A Preliminary, Heavily Qualified Read}
+\label{sec:telemetry-explanation}
+
+The frozen, pre-specified explanatory model (\S\ref{sec:telemetry})
+associates the five workload
+descriptors with reversal sites at each (policy pair, condition) cell, but
+converges with a usable sample size ($\geq 20$ observations) for only 42 of
+990 cells -- most reversal sites are too sparse for this per-cell model to
+fit reliably, and the frozen output records point coefficients only, with
+no standard errors or significance test. Any reading of this evidence must
+therefore be provisional. Within that small, non-significance-tested set,
+\texttt{prompt\_tokens\_cv} has a negative coefficient in 39 of 42 cells --
+the most consistent single direction among the five descriptors -- which
+is at least \emph{consistent with} (not confirmatory of) prompt-length
+variability being associated with where reversals occur, echoing
+\S\ref{sec:drivers}'s finding that prompt-length structure is the primary
+driver of source separability itself. The other four descriptors show
+weaker, closer-to-even sign splits across the interpretable cells and do
+not support a directional claim. We do not read this as evidence that any
+descriptor \emph{causes} a reversal, only as a candidate association worth
+a properly powered, purpose-built follow-up study; consistent with
+\S\ref{sec:evidence-boundaries}, this model is explanatory only and is
+never used to select, route, or recommend a scheduler.
+
+\subsection{Workload Descriptor Interpretation}
+
+The workload-separability result (\S\ref{sec:separability}) establishes
+that the three sources are observably different, and that prompt-length
+structure is the primary driver of that separability
+(\S\ref{sec:drivers}). Whatever RQ4's descriptor-to-reversal association
+analysis finds, it should be read against this backdrop: an association
+between a descriptor and a reversal does not by itself establish that the
+descriptor is a genuine \emph{causal} driver of the reversal, only that it
+is a source-separating feature that co-occurs with where reversals were or
+were not observed.
+
+\subsection{Physical-Execution Evidence}
+
+\S\ref{sec:real-system}'s selected-case physical validation is a
+second, independent kind of evidence for this manuscript's central claim,
+not merely a check on the simulator. That a simulator-predicted reversal
+did not reproduce on real vLLM/GPU execution, while a paired
+stable-control comparison did retain its ordering, is itself an instance
+of the same phenomenon documented throughout \S\ref{sec:results}: which
+comparative conclusions transfer and which do not is case-dependent
+rather than uniform, this time across the simulator-to-hardware boundary
+rather than across workload source, operating region, or metric. We do
+not treat the non-reproduced reversal as evidence that the simulator is
+unreliable in general -- only two policies, three sources, and one
+operating region were physically evaluated (\S\ref{sec:threats}) -- nor
+do we treat the reproduced stable control as validating simulator
+fidelity broadly. Taken together with \S\ref{sec:results}--\S\ref{sec:results-slo},
+RQ6 reinforces rather than resolves this benchmark's motivating
+observation: portability, whether across workload, metric, or now
+simulation-to-hardware boundary, must be checked rather than assumed.
+
+\subsection{Benchmark Construction and Practical Reproducibility}
+
+Regardless of outcome direction, this study's paired design, fixed
+scheduler panel, and preregistered protocol (\S\ref{sec:study-design})
+are intended to make the benchmark itself reusable: a future scheduler
+design can be dropped into the same panel and evaluated against the same
+frozen windows, operating regions, and metric contract, using the public
+artifact (\S\ref{sec:artifact}) rather than re-deriving the protocol
+from this manuscript's prose.
+% ===== end discussion.tex =====
+
+% ===== begin limitations.tex =====
+\section{Threats to Validity}
+\label{sec:threats}
+
+\paragraph{Simulator abstraction.} All results in this manuscript, except
+\S\ref{sec:real-system}, are produced by a discrete-event simulator, not a
+real serving engine (\S\ref{sec:execution-model}). We do not claim that
+simulated absolute latency or throughput values match real-hardware
+values; only relative ranking and reversal direction were tested for
+transfer, and only for the frozen validation cases in
+\S\ref{sec:real-system}. That test found transfer for the selected
+stable-control comparison but not for the selected reversal case --
+evidence that transfer is case-dependent, not a general property of the
+simulator.
+
+\paragraph{Fidelity of reimplemented policies.} \texttt{FAITHFUL\_EXTERNAL}
+policies are validated reimplementations, not the original authors' code;
+residual implementation gaps relative to the original published systems
+are possible despite unit-test validation (\S\ref{sec:fidelity}).
+
+\paragraph{\texttt{STYLE\_APPROXIMATION} baselines.} The two style-level
+approximation policies are explicitly excluded from the PRIMARY headline
+panel and used only for a robustness check; they must not be read as
+official or validated reimplementations of their namesake systems
+(\S\ref{sec:fidelity}).
+
+\paragraph{Three primary workload families.} The Pilot-V2 corpus draws from
+three primary sources (\S\ref{sec:sources}); a fourth candidate source
+(TraceLab) is retained only as out-of-distribution context because its
+independence from a prior public window sweep cannot be fully verified.
+Any portability finding in \S\ref{sec:results} is scoped to these three
+sources plus whatever out-of-distribution evidence TraceLab can
+responsibly contribute, not to LLM-serving workloads in general.
+
+\paragraph{Dataset/provider dependence.} As established in
+\S\ref{sec:sources}, BurstGPT and this project's Azure traces are not
+established to come from independent underlying providers -- both trace
+back to Microsoft Azure infrastructure, collected through different
+mechanisms. Any cross-source finding involving BurstGPT and Azure should be
+read with this in mind; Bailian/Qwen remains a genuinely independent
+platform.
+
+\paragraph{Prompt-token semantic differences.} Prompt-token fields compose
+differently across sources (single-request figure for BurstGPT versus
+potentially multi-turn-cumulative context for Azure and TraceLab;
+\S\ref{sec:descriptors}). Any prompt-length-based claim in this manuscript
+carries this caveat and should not be read as evidence that the sources'
+underlying conversations differ in length, only that their observed,
+request-level prompt-token figures do.
+
+\paragraph{Unresolved historical byte-level overlap.} An exact,
+byte-level reconstruction of a prior related project's specific 60-window
+public-trace replay set could not be independently re-derived from this
+project's available checkout; that project's own recorded parameters and
+final verdict are taken on the strength of direct manuscript inspection,
+not independently re-derived from local artifacts. This project's own
+window construction is independently verified as non-identical
+(\S\ref{sec:windows}, \S\ref{sec:evidence-boundaries}), but the historical
+byte-level reconstruction gap itself remains an open item.
+
+\paragraph{Homogeneous hardware / execution assumptions.} The simulator
+executes every cell under a fixed, single-GPU-colocated execution model for
+the PRIMARY panel; two disaggregation-requiring policies are confined to a
+secondary stratum and never pooled with the PRIMARY leaderboard
+(\S\ref{sec:panel}).
+
+\paragraph{Completion-conditioned undefined metrics.} Several metrics are
+undefined, not zero, when a cell records zero completions
+(\S\ref{sec:metrics}); this is a real methodological choice with a
+real cost -- an undefined-metric policy is excluded from that specific
+condition's ranking-derived statistics, which lowers effective sample size
+for those conditions and must be read alongside every ranking-derived
+table's reported exclusion count.
+
+\paragraph{Phase-11 zero-completion prevalence.} 301 of 720 FIFO-only
+calibration-region records recorded zero completions
+(\S\ref{sec:calibration}). This is disclosed as a calibration
+characteristic, not a headline finding; it does, however, mean that a
+non-trivial share of (window, region) combinations will contribute no
+completion-conditioned-metric observation to \S\ref{sec:results}'s
+downstream analyses for any policy at that specific region, which is a
+structural constraint on statistical power in the highest-pressure regions
+in particular.
+
+\paragraph{Cross-metric disagreement bounds any single-metric ranking
+claim.} \S\ref{sec:results-cross-metric} finds that a policy ranking under
+one tracked outcome metric is, at median, only moderately correlated with
+the ranking the same conditions produce under a different tracked metric
+($\tau_b = 0.419$; $20\%$ of conditions negative), and the two metrics'
+top-ranked policy agrees in only half of conditions. This is a scope
+statement, not an analysis defect: the study's tracked metrics (ANWG,
+completion fraction, latency percentiles, SLO-violation rate, throughput)
+capture genuinely different deployment objectives, and no single one of
+them is privileged as ``the'' correct measure of scheduler quality beyond
+this study's own choice of ANWG as the PRIMARY headline metric
+(\S\ref{sec:metrics}). Consequently, no ranking-portability claim in
+\S\ref{sec:results} should be read as a claim about scheduler comparisons
+in general; it is a claim about comparisons under the specific metric (or
+metrics) stated. The metric set evaluated here, while broader than a
+single-metric study, is not exhaustive of every metric a practitioner might
+care about, and cross-metric disagreement should itself be read as a
+substantive finding about this benchmark's object of study, not as noise to
+be averaged away.
+
+\paragraph{SLO-definition sensitivity was a post-campaign extension, not
+preregistered evidence.} An SLO-synthesis sensitivity check was planned but
+no alternative SLO-synthesis rule was ever actually preregistered before or
+during Pilot-V2 execution (\S\ref{sec:slo-sensitivity-gap}); no alternative
+rule was invented after the fact to retrofit this study's preregistered
+evidence. It was instead run, as disclosed process required, as an
+explicitly labeled post-campaign extension with its own frozen protocol,
+after headline results were already known (\S\ref{sec:results-slo}). That
+check found $20$ of $108$ ($19\%$) preregistered reversal checks sensitive
+to the SLO-definition choice ($6$ direction changes, $10$ falling below the
+practical-margin threshold, $4$ becoming statistically indistinguishable
+from zero) and the single top-ranked policy changing in $13/30$ ($43\%$)
+of ranking-robustness conditions -- a genuine, disclosed sensitivity, not a
+contradiction of any headline reversal, but a caveat that should temper
+confidence in the most SLO-definition-dependent individual comparisons.
+
+\paragraph{Scope of real-system validation.} \S\ref{sec:real-system}'s
+validation is limited by design to a small, frozen set of case-selected
+conditions (largest-effect-size reversal plus one stable-ordering control),
+not a full re-execution of the Pilot-V2 matrix on real hardware; agreement
+or disagreement on those specific cases should not be over-generalized to
+every cell in \S\ref{sec:results}. Concretely, the physical evaluation
+covers only $2$ of the panel's $13$ policies (\texttt{slai\_faithful} and
+\texttt{vllm\_faithful}), $3$ of the workload sources, and a single
+operating region (\texttt{HIGH\_PRESSURE}), on one fixed
+hardware/software environment (vLLM~0.27.1, a single A100 GPU
+allocation). Uncertainty is quantified via window-level bootstrap
+resampling over $40$ independent workload windows per source, using one
+physical execution per (policy, source, window) cell -- the workload
+window, not repeated identical-hardware execution, is the unit over which
+statistical inference is drawn (\S\ref{sec:real-system-design}). This
+result should not be read as a comprehensive validation of simulator
+fidelity, of every scheduler in the panel, or of every workload/region
+combination in \S\ref{sec:results}.
+% ===== end limitations.tex =====
+
+% ===== begin artifact.tex =====
+\section{Reproducibility and the LSSP Artifact}
+\label{sec:artifact}
+
+LSSP is released as two linked, publicly accessible artifacts. The GitHub
+repository -- \url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}
+-- carries the source code, simulator, policy implementations, analysis
+pipeline, validation scripts, the reproduction workflow, figure/table
+generation code (including
+\texttt{paper/scripts/generate\_phase12\_tables\_figures.py}), the manuscript
+source, and the frozen Phase-10/11/12 provenance manifests. The Hugging
+Face dataset -- \url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}
+-- carries a companion, analysis-ready subset: the canonical
+ranking-portability analysis outputs, the manuscript's per-RQ table data,
+the reduced RQ6 result with full computational provenance
+(\S\ref{sec:real-system-result}), and a dataset card documenting exact
+scope and licensing. An immutable snapshot of the GitHub release is
+additionally archived with a persistent identifier via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}
+(see Data availability in the Declarations).
+
+Upstream workload traces (\S\ref{sec:provenance}) remain governed by their
+original publishers' licenses and are not republished where redistribution
+is not permitted; the release documents provenance and, where license
+terms allow, redistributes processed derivatives, not a copy of every
+source trace. Two categories of already-generated evidence are
+represented through provenance pointers to the GitHub repository rather
+than duplicated in full on Hugging Face: the exploded per-cell
+18{,}720-row campaign matrix underlying \S\ref{sec:results} (the
+canonical analysis outputs and per-RQ table data needed to regenerate
+every reported number are on Hugging Face; the exploded matrix itself is
+a candidate for a future dataset revision), and the 240 raw per-cell RQ6
+physical-execution records (\S\ref{sec:real-system}), for which the
+reduced result already published on Hugging Face carries every value
+needed to independently verify the reported RQ6 claims.
+
+The Pilot-V2 comparative outcome (\S\ref{sec:results}) was generated and
+structurally validated (six canonical analysis artifacts, hash ledger
+below) prior to any scientific interpretation (\S\ref{sec:artifact-hashes});
+the release includes: the frozen workload window identities and their
+provenance (\S\ref{sec:windows}); the scheduler panel and its
+configuration (\S\ref{sec:panel}); the six-region calibration protocol and
+its outputs (\S\ref{sec:calibration}); the full set of paired policy
+outcomes across windows, regions, and metrics (\S\ref{sec:results}); the
+mechanism telemetry collected for every cell (\S\ref{sec:telemetry}); the
+ranking-portability analysis outputs (Kendall/Spearman statistics, reversal
+tables, block-bootstrap confidence intervals); and the reproduction
+scripts used to regenerate every table and figure in this manuscript from
+those frozen inputs.
+
+\subsection{Phase-12 Analysis Identities}
+\label{sec:artifact-hashes}
+
+The Pilot-V2 statistical analysis was executed from sealed analysis code
+against the admitted, independently
+re-validated 18{,}720-cell consolidated matrix, producing exactly six canonical output
+artifacts, each stamped with the analysis code identity, the frozen analysis
+contract version, and the
+campaign freeze identity, and each independently structurally audited
+(consistent provenance across all six, no missing/extra/malformed
+artifact, exact five-class reversal taxonomy, exact frozen statistical
+contract) before this manuscript's Results and Sample Complexity sections
+were populated. The full audit record and per-artifact ledger are
+committed on the isolated
+\texttt{validation/lssp-phase12-structural-audit-20260902} branch of the
+GitHub repository rather than reproduced in full in the main text.
+
+Every generated artifact carries, or links via a provenance manifest, its
+generating repository commit SHA,
+resolved experiment-config hash, workload-manifest hash, policy-registry
+version, dataset-source checksums, environment version, and (where
+relevant) per-cell seed, so that any released row can be regenerated from
+this project's own commit history alone rather than depending on an
+external, possibly-rewritten historical commit.
+
+The immutable scientific identifiers already fixed at the time of this
+manuscript are recorded in Table~\ref{tab:hashes} and in
+\texttt{docs/ARTIFACT\_HASH\_LEDGER.md}: the Phase-10 workload-window freeze
+content hash, the Phase-10 compact index hash, the Phase-11 prelaunch
+freeze contract hash, the Phase-11 raw FIFO calibration output hash, and
+the Phase-11 region-assignment output hash. These five identifiers were
+independently re-verified as unchanged, and consistent across every
+cross-referencing project document, immediately before this manuscript's
+authoritative branch was committed (\S\ref{sec:conclusion}).
+
+\begin{table}[t]
+\centering
+\caption{Immutable scientific-freeze identifiers fixed before any Pilot-V2
+scheduler outcome was generated. Hashes are abbreviated to the first 12
+hexadecimal characters here; full SHA-256 values are recorded in
+\texttt{docs/ARTIFACT\_HASH\_LEDGER.md} and, where independently
+re-verifiable from the released repository state, were re-derived from the
+cited artifact for this table (four of five; the prelaunch-freeze contract
+hash is a previously frozen aggregate over multiple sub-artifacts and is
+reported as recorded).}
+\label{tab:hashes}
+\begin{tabular}{llc}
+\toprule
+Artifact & Scientific role & SHA-256 (abbrev.) \\
+\midrule
+Phase-10 window freeze & authoritative 120-window freeze identity & \texttt{0d1aa06ccbee\ldots} \\
+Phase-10 compact index & compact freeze index & \texttt{d78ec1087fed\ldots} \\
+Phase-11 prelaunch freeze & pre-execution calibration contract & \texttt{e2564ea94841\ldots} \\
+Phase-11 raw FIFO calibration & raw calibration matrix & \texttt{201caaf04476\ldots} \\
+Phase-11 region assignment & deterministic region-assignment map & \texttt{9fcb92f9ea12\ldots} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% ===== end artifact.tex =====
+
+% ===== begin conclusion.tex =====
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have formulated the portability of a comparative scheduler ranking,
+$R(W, M, L)$, as a benchmark object distinct from both workload
+characterization and single-scheduler evaluation, and designed, froze, and
+executed a paired, multi-source evaluation protocol -- a mechanism-diverse
+fixed 13-policy scheduler panel, a calibrated six-region operating grid, an
+explicit metric contract, and an uncertainty/reversal-detection
+methodology -- against 18{,}720 structurally validated cells, before
+interpreting any comparative outcome. The three primary workload sources
+are measurably different and strongly separable in their observed
+descriptor distributions (\S\ref{sec:workloads}). Comparative scheduler
+rankings are portable in aggregate (Kendall's tau-b never below $0.55$
+across 18 source-pair $\times$ region conditions) but source-pair-dependent
+rather than uniform: two of the three sources agree almost perfectly with
+each other, while the third is measurably and consistently less portable
+against either, and this gap holds at every operating region tested
+(\S\ref{sec:results}). A small ($3.6\%$) but non-zero share of pairwise
+comparisons are practically and statistically supported reversals,
+concentrated at and above the pre-knee operating region rather than spread
+evenly across the load curve (\S\ref{sec:reversals}). Exact-order recovery
+of the full-corpus ranking requires most or all of the 40-window budget
+for two of three sources, while identifying only the single best policy is
+achievable from far fewer windows for those same two sources
+(\S\ref{sec:sample-complexity}).
+
+Portability is not only source- and region-dependent: which
+\emph{evaluation metric} is used changes the comparative ranking in a
+non-trivial share of conditions (median Kendall's $\tau_b = 0.419$ across
+metric pairs, top-1 agreement in only half of conditions), a substantially
+larger effect than any source-pair disagreement observed under a single
+fixed metric (\S\ref{sec:results-cross-metric}). Ranking robustness to
+alternative SLO-definition conventions is comparatively high but still
+imperfect (median $\tau_b = 0.872$; the top-ranked policy changes in
+$13/30$ conditions), so a headline reversal can persist under one
+reasonable SLO definition while not persisting under another
+(\S\ref{sec:results-slo}). We report only a pilot-scale, engineering
+validation of the synthetic-to-real transfer pipeline for RQ3, not a
+transfer conclusion (\S\ref{sec:results-rq3-pilot}). A selected physical
+vLLM/GPU validation (RQ6) of this benchmark's largest identified reversal
+did not reproduce that reversal, while a paired stable-control comparison
+retained the same qualitative ordering on real hardware
+(\S\ref{sec:real-system}).
+
+Ranking portability, in this benchmark, is therefore neither universal nor
+uniformly fragile: it is real, but conditional on the workload source,
+operating region, evaluation metric, and SLO definition under which a
+comparison was established, and a scheduler-selection claim should state
+those conditions explicitly rather than being read as general. LSSP is
+released as a public, independently reproducible artifact
+(\S\ref{sec:artifact}), covering all six research questions, including
+the selected physical-system validation (RQ6).
+% ===== end conclusion.tex =====
+
+% ===== begin declarations.tex =====
+\section*{Declarations}
+
+\paragraph{Funding.}
+This work was supported in part by the CloudRift AI Builder Grant and the
+Cohere Labs Catalyst Grant Program, which provided cloud-computing and API
+credits, and by the AMD AI Developer Program, which provided Fireworks AI
+credits used to support software development for this study.
+
+\paragraph{Acknowledgements.} The author gratefully acknowledges Professor
+Ioannis Koutis for his research guidance, continued support, and provision
+of computational resources that facilitated this work. Computational
+resources for this work were provided by Wulver, the high-performance
+computing cluster managed by Academic and Research Computing Systems
+(ARCS) in the Department of Information Services and Technology (IST) at
+the New Jersey Institute of Technology.
+
+\paragraph{Competing interests.} The author declares no competing
+interests.
+
+\paragraph{Generative AI statement.} During the preparation of this work,
+the author used ChatGPT and Codex (OpenAI), Claude (Anthropic), Gemini
+(Google), Cursor, and Perplexity AI to assist with software development,
+debugging, experimental infrastructure, literature and research support,
+and manuscript drafting and editing. All AI-assisted outputs, including
+code, analyses, references, and manuscript text, were reviewed, verified,
+and revised by the author, who takes full responsibility for the content
+of the work.
+
+\paragraph{Author contributions.} This is a sole-authored manuscript;
+Soroush Vahidi is responsible for study design, implementation, analysis,
+and writing.
+
+\paragraph{Ethics approval.} Not applicable. This study evaluates
+scheduling-policy performance on request-level traffic traces (arrival
+times, token counts) and does not involve human subjects, personal data,
+or content requiring ethics review.
+
+\paragraph{Consent for publication.} Not applicable. This manuscript
+contains no identifiable individual data, case reports, or images
+requiring participant consent.
+
+\paragraph{Materials availability.} Not applicable. This study produces
+no physical or biological materials; all study outputs are software and
+data, covered under Code availability and Data availability below.
+
+\paragraph{Data availability.} This study distinguishes four categories of
+data, consistent with \S\ref{sec:artifact}. \textbf{Externally sourced
+public traces} (BurstGPT, Azure 2024, Bailian/Qwen) are governed by their
+original publishers' release terms and license status
+(\S\ref{sec:provenance}; BurstGPT: CC-BY-4.0) and are not redistributed as
+part of this project's release; readers should obtain them from their
+original sources. \textbf{Derived benchmark manifests} (the frozen window
+identities, provenance, and content hashes, \S\ref{sec:windows}),
+\textbf{generated campaign results} (the paired policy outcome matrix
+across windows, regions, and metrics, \S\ref{sec:results}), and
+\textbf{analysis artifacts} (ranking-portability statistics, reversal
+tables, and reproduction scripts) are publicly available at the Hugging
+Face dataset repository
+\url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability},
+with frozen manifests and code additionally available at the GitHub
+repository
+\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}.
+An immutable snapshot of the code repository at the version reported here
+is archived with a persistent identifier via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
+The Hugging Face release is an initial, dataset-card-scoped publication
+(\S\ref{sec:artifact}); it does not yet include the exploded per-cell
+campaign matrix or the raw per-cell RQ6 execution records, both of which
+are candidates for a future dataset revision, and both of which are
+represented in the current release by the canonical analysis outputs and
+reduced RQ6 result sufficient to verify every number reported in this
+manuscript.
+
+\paragraph{Code availability.} The simulator, policy implementations, and
+analysis pipeline underlying this study are publicly available at
+\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark},
+with an immutable archived snapshot via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
+% ===== end declarations.tex =====
+
+
+\bibliography{references}
+
+\end{document}

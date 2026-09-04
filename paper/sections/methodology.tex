@@ -91,9 +91,10 @@ discriminability analyzer returned four passing criteria (77.8\% of
 non-tied, no universal policy collapse, and 100\% of non-tied cells showing
 meaningful metric variation) and one genuine failure: BurstGPT contributed
 only 14.3\% of non-tied conditions, against a 15\% floor, versus
-$\sim$42.9\% each for the other two sources -- a result reported as
-\texttt{STAGE0\_NO\_GO}, robust to the completion-conditioned-metric
-zero-completion convention used. A follow-up diagnostic traced this to a
+$\sim$42.9\% each for the other two sources -- a failing criterion, robust
+to the completion-conditioned-metric zero-completion convention used, that
+was reported at the time as a preregistered no-go on the Stage-0 panel. A
+follow-up diagnostic traced this to a
 mechanism-level explanation: differentiation was strongly source-dependent,
 attributable to a near-total collapse of five of the six Stage-0 policies
 into pairwise bit-identical outcomes on BurstGPT's structurally
@@ -102,7 +103,7 @@ weaker or fewer calibrated load conditions than the other sources. This
 motivated the Pilot-V2 protocol's larger, mechanism-diverse 13-policy panel
 and denser six-region load grid (\S\ref{sec:calibration}), applied
 symmetrically to every source, never to BurstGPT alone. Detailed Stage-0
-mechanism analysis is reported in the planned reproducibility artifact
+mechanism analysis is reported in the reproducibility artifact
 (\S\ref{sec:artifact}) rather than in the main text; it is not restated
 here as a ranking-portability finding.
 
@@ -178,8 +179,8 @@ of the panel) or that the underlying simulator mode does not implement a
 separate prefill/decode phase or token-budget model -- not an
 instrumentation failure. This telemetry is collected for every cell but is
 not used to support any mechanism-level finding in this manuscript; RQ4's
-telemetry-to-reversal association analysis (\S\ref{sec:results}) is
-pre-specified and will only be run once Pilot-V2 outcomes exist.
+pre-specified telemetry-to-reversal association analysis is reported, with
+its sparsity and significance caveats, in \S\ref{sec:telemetry-explanation}.
 
 \subsection{Ranking-Uncertainty Quantification and Reversal Classification}
 \label{sec:uncertainty}
