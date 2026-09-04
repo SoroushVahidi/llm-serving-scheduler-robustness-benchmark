@@ -161,20 +161,21 @@ were not observed.
 
 \subsection{Physical-Execution Evidence}
 
-\S\ref{sec:real-system}'s selected-case physical validation is a
-second, independent kind of evidence for this manuscript's central claim,
-not merely a check on the simulator (scope limits: \S\ref{sec:threats}).
-That a simulator-predicted reversal did not reproduce on real vLLM/GPU
-execution, while a paired stable-control comparison did retain its
-ordering, is itself an instance of the same phenomenon documented
-throughout \S\ref{sec:results}: which comparative conclusions transfer
-and which do not is case-dependent rather than uniform, this time across
-the simulator-to-hardware boundary rather than across workload source,
-operating region, or metric. Taken together with
-\S\ref{sec:results}--\S\ref{sec:results-slo}, RQ6 reinforces rather than
-resolves this benchmark's motivating observation: portability, whether
-across workload, metric, or now simulation-to-hardware boundary, must be
-checked rather than assumed.
+\S\ref{sec:real-system}'s selected-case physical validation is informative
+primarily about a boundary of simulator fidelity, not as an independent
+statistical estimate of how often this benchmark's simulated findings
+would hold on real hardware in general (scope limits:
+\S\ref{sec:threats}). The simulator-predicted Azure/BurstGPT reversal did
+not reproduce on real vLLM/GPU execution, exposing a fidelity limitation
+specific to that selected comparison; the paired stable-control comparison
+did retain its qualitative ordering, consistent with, but not a
+confirmation of, the simulator's broader findings. Read together, the two
+outcomes illustrate the same case-dependence documented throughout
+\S\ref{sec:results} -- which comparative conclusions transfer and which do
+not is case-dependent rather than uniform -- now observed at the
+simulator-to-hardware boundary rather than across workload source,
+operating region, or metric, without themselves adding statistical weight
+to those earlier findings.
 
 \subsection{Benchmark Construction and Practical Reproducibility}
 

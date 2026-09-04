@@ -150,7 +150,11 @@ most $-0.0025$.
 
 The Pilot-V2 corpus uses a fixed window size of 200 requests throughout,
 matching Stage-0 and the LLM~2026 comparison window size for
-methodological consistency. A dedicated window-size sensitivity sweep
-(varying window size and re-checking separability/discriminability) has
-not yet been run; this is noted as an open item in
-\S\ref{sec:threats} rather than a result reported here.
+methodological consistency. A dedicated window-size sensitivity sweep --
+varying the number of requests per window and re-checking
+separability/discriminability, distinct from the frozen
+\texttt{WINDOW\_SIZE\_SENSITIVITY} robustness-contract item
+(\S\ref{sec:results-robustness}), which despite the shared name concerns
+how many \emph{windows} are subsampled, not requests per window -- has not
+yet been run; this is noted as an open item in \S\ref{sec:threats} rather
+than a result reported here.

@@ -181,7 +181,7 @@ so no calendar-based temporal claim is made for this source, and its
 relative-order result is never presented alongside BurstGPT's tercile
 result or Azure's calendar-split result as though the three used an
 equivalent temporal definition. The full per-comparison values for all
-four temporal record types are keyed identically to the source temporal robustness artifact. The canonical results reveal high rank stability across time: BurstGPT's tercile split shows strong agreement between EARLY and LATE chunks across non-LOW load regions ($\tau_b \in [0.81, 1.0]$), while the BISECT sensitivity check yields similarly stable correlations ($\tau_b \in [0.72, 0.80]$). Azure's calendar split produces near-perfect correlation ($\tau_b \in [0.90, 1.0]$), and Bailian's relative-chronology split likewise exhibits minimal rank change ($\tau_b \in [0.94, 1.0]$). Although the frozen protocol for this research question specified an analysis of temporal, provider, and domain shifts, a standalone domain-shift component was not separately operationalized in the final artifacts. The evidence reported here addresses the temporal and provider components directly, while domain shift is addressed only implicitly through the cross-source comparisons (\S\ref{sec:cross-source-rankings}).
+four temporal record types are keyed identically to the source temporal robustness artifact. The canonical results reveal high rank stability across time: BurstGPT's tercile split shows strong agreement between EARLY and LATE chunks across non-LOW load regions ($\tau_b \in [0.81, 1.0]$), while the BISECT sensitivity check yields similarly stable correlations ($\tau_b \in [0.72, 0.80]$). Azure's calendar split produces near-perfect correlation ($\tau_b \in [0.90, 1.0]$), and Bailian's relative-chronology split likewise exhibits minimal rank change ($\tau_b \in [0.94, 1.0]$). Although the frozen protocol for this research question specified an analysis of temporal, provider, and domain shifts, a standalone domain-shift component was not separately operationalized in the final artifacts. The evidence reported here addresses the temporal component directly. The frozen cross-source comparisons (\S\ref{sec:cross-source-rankings}) include the one genuine provider boundary in this corpus (Bailian/Qwen on Alibaba Cloud versus the two Microsoft-infrastructure sources, \S\ref{sec:sources}), but the design does not isolate a causal provider effect from ordinary cross-source variation -- BurstGPT-vs-Azure is a cross-source, not cross-provider, comparison; domain shift, like the provider component, is addressed only implicitly through these same cross-source comparisons and was not separately operationalized.
 
 \subsection{Robustness}
 \label{sec:results-robustness}
@@ -210,9 +210,15 @@ Of the seven preregistered robustness families (\S\ref{sec:robustness}), six wer
     bisect-vs-tercile comparison from \S\ref{sec:temporal}; both split
     definitions are reported side by side in the released table rather
     than collapsed into one number.
-  \item \textbf{\texttt{WINDOW\_SIZE\_SENSITIVITY}.} Identical to the
-    sample-complexity ladder (\S\ref{sec:sample-complexity}) under the
-    frozen robustness contract; not separately recomputed here.
+  \item \textbf{\texttt{WINDOW\_SIZE\_SENSITIVITY}.} Despite its name,
+    this frozen contract label denotes the sample-complexity window-\emph{count}
+    subsampling ladder (\S\ref{sec:sample-complexity}: how the
+    ranking-portability estimate varies as fewer of the 40 windows per
+    source are used), not the number of requests per window; not
+    separately recomputed here. The number of requests per window (window
+    \emph{size} in the sense of \S\ref{sec:window-size}) has not been
+    swept and is a disclosed open item (\S\ref{sec:threats}), unrelated to
+    this frozen contract item despite the shared name.
   \item \textbf{\texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT}.} Excluding any
     single one of the ten frozen mechanism families changes the headline
     mean tau-b only modestly, from $0.707$ (excluding the classical

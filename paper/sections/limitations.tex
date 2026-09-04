@@ -31,6 +31,14 @@ Any portability finding in \S\ref{sec:results} is scoped to these three
 sources plus whatever out-of-distribution evidence TraceLab can
 responsibly contribute, not to LLM-serving workloads in general.
 
+\paragraph{Window-size sensitivity.} The Pilot-V2 corpus fixes window size
+at 200 requests throughout (\S\ref{sec:window-size}); how the reported
+results would change under a different requests-per-window choice has not
+been swept and is an open item, distinct from the frozen
+\texttt{WINDOW\_SIZE\_SENSITIVITY} robustness-contract item
+(\S\ref{sec:results-robustness}), which despite the shared name concerns
+the number of windows subsampled, not requests per window.
+
 \paragraph{Dataset/provider dependence.} As established in
 \S\ref{sec:sources}, BurstGPT and this project's Azure traces are not
 established to come from independent underlying providers -- both trace
