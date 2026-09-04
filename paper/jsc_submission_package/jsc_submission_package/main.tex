@@ -452,8 +452,7 @@ sources rather than as independent providers
 \subsection{Research Questions}
 \label{sec:rq}
 
-We reproduce the project's frozen research questions verbatim (see
-\texttt{docs/RESEARCH\_QUESTIONS.md} for the full changelog):
+The research questions were frozen before outcome generation and are reproduced below:
 
 \begin{description}
   \item[RQ1.] How stable are scheduler rankings across independent
@@ -497,10 +496,7 @@ window as the statistical unit (\S\ref{sec:unit}). This design was frozen
 \label{sec:evidence-boundaries}
 
 This project shares a lineage and a simulator codebase with two other,
-separately scoped manuscripts, and its design was explicitly audited for
-overlap against both before this study's protocol was frozen
-(\texttt{docs/OVERLAP\_LEDGER.md}, \texttt{docs/GO\_NO\_GO\_GATES.md} Gate A,
-\texttt{docs/EVIDENCE\_INDEPENDENCE\_PLAN.md}):
+separately scoped manuscripts, and its design was explicitly audited for overlap against both under the project's evidence-independence plan before the protocol was frozen:
 
 \begin{itemize}
   \item \textbf{``The Exploitability Gap in LLM-Serving Scheduler
@@ -553,10 +549,7 @@ its selection rule (\S\ref{sec:panel}), the metric contract
 (reversal-detection thresholds, bootstrap procedure, sample-complexity
 design) were each frozen, and cross-checked against a structural validation
 gate, before any Pilot-V2 comparative scheduler outcome was generated.
-\texttt{docs/RANKING\_PORTABILITY\_PILOT\_V2\_PROTOCOL.md},
-\texttt{docs/RANKING\_PORTABILITY\_ANALYSIS\_PLAN.md}, and
-\texttt{docs/RANKING\_PORTABILITY\_WINDOW\_FREEZE.md} record the exact frozen
-content and the gate checks each passed.
+The exact frozen content and the corresponding gate checks are recorded in the project's protocol and freeze specifications.
 % ===== end study_design.tex =====
 
 % ===== begin workloads.tex =====
@@ -575,9 +568,7 @@ additional context but are not part of the primary Pilot-V2 120-window
 matrix beyond the 10-per-source Stage-0-reused windows described below.
 TraceLab \citep{tracelab2026} is retained as an out-of-distribution,
 coding-agent workload family for future expansion, not as one of the three
-primary sources, because its independence from a prior 512-window public
-sweep cannot be fully verified from public artifacts alone
-(\texttt{docs/TRACELAB\_PROVENANCE\_RESOLUTION.md}).
+primary sources, because its independence from a prior 512-window public sweep cannot be fully verified from public artifacts alone, as detailed in the project's provenance records.
 
 As established in \S\ref{sec:related-position}, BurstGPT's own reported
 collection methodology logs traffic from a regional customer of Microsoft's
@@ -593,16 +584,12 @@ is a genuinely different underlying platform from both.
 \subsection{Representation and Provenance}
 \label{sec:provenance}
 
-Each source is ingested through a dedicated, field-level-audited adapter
-(\texttt{docs/DATA\_FIELD\_PROVENANCE.md}) that maps the source's native
+Each source is ingested through a dedicated, field-level-audited adapter that maps the source's native
 schema onto a common internal request representation (arrival time, input
 tokens, output tokens, total tokens, session identifier where available,
 model class). No field is fabricated where a source's native schema lacks
 it (for example, BurstGPT's documented schema has no tenant, KV-reuse, SLO,
-or failure-code field, and none is synthesized). License status for each
-source is recorded in \texttt{docs/DATA\_LICENSE\_AUDIT.md} (BurstGPT:
-CC-BY-4.0) and re-verified before any confirmatory use of a real, full-scale
-sample.
+or failure-code field, and none is synthesized). License status for each source was verified before any confirmatory use of a real, full-scale sample (for example, BurstGPT is under CC-BY-4.0).
 
 \subsection{Window Construction}
 \label{sec:windows}
@@ -657,9 +644,7 @@ decision tree reaches $0.980$ balanced accuracy ($0.980 \pm 0.018$ across
 folds, worst single fold $0.955$ with LATE held out). This grouped,
 chronologically blocked evaluation supersedes an earlier random-split
 result (which agreed at balanced accuracy $1.0$) for any manuscript claim,
-because random splitting is vulnerable to within-window-adjacent-time
-leakage that the grouped evaluation is structurally immune to (regression
-tested; \texttt{tests/test\_separability\_pipeline\_no\_leakage.py}).
+because random splitting is vulnerable to within-window-adjacent-time leakage that the grouped evaluation is structurally immune to (and was verified to prevent data leakage across the separability pipeline).
 
 \subsection{Source Separability}
 \label{sec:separability}
@@ -1213,23 +1198,7 @@ four temporal record types are keyed identically to the source temporal robustne
 \subsection{Robustness}
 \label{sec:results-robustness}
 
-Of the seven preregistered robustness families (\S\ref{sec:robustness}),
-six were actually executed by the sealed analysis code and materialized
-into the canonical artifacts (five of them into the ranking correlations,
-temporal robustness, and sample complexity outputs, and, initially
-overlooked in our first interpretation pass, a sixth --
-\texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT} -- inside a nested
-\texttt{robustness} object within the telemetry explanation output
-that a subsequent reconciliation pass located and verified). Only
-\texttt{METRIC\_DEFINITION\_SENSITIVITY} has no computation anywhere in
-the sealed analysis code: its status record claims
-\texttt{implemented\_as\_postprocessing = true}, but no corresponding
-comparison function exists in \texttt{analysis/robustness.py} (unlike the
-other six families, each of which has one), so producing this specific
-result would require writing new analysis code after this manuscript's
-results were already known -- exactly the kind of after-the-fact code
-change this study's own discipline prohibits, and it is therefore left as
-a disclosed implementation gap rather than computed here.
+Of the seven preregistered robustness families (\S\ref{sec:robustness}), six were actually executed by the sealed analysis code and materialized into the canonical artifacts (five of them in the ranking correlations, temporal robustness, and sample complexity outputs, and a sixth, \texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT}, within the telemetry explanation output). Only \texttt{METRIC\_DEFINITION\_SENSITIVITY} has no computation anywhere in the sealed analysis code. Although the frozen protocol listed this robustness check, the sealed analysis implementation did not contain a corresponding computation; we therefore report it as a disclosed implementation gap rather than performing a post hoc analysis after the results were already known.
 
 \begin{itemize}
   \item \textbf{\texttt{PRIMARY\_ONLY}.} Identical to the headline result

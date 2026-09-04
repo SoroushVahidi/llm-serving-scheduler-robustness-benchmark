@@ -6,18 +6,20 @@
 \providecommand{\eprint}[2][]{\url{#2}}
  \bibcommenthead
 
-\bibitem[{Agrawal et~al.(2024{\natexlab{a}})Agrawal, Kedia, Kwatra, Sarda,
-  Tumanov et~al.}]{agrawal2024sarathi}
-Agrawal A, Kedia N, Kwatra N, et~al (2024{\natexlab{a}}) Sarathi-serve:
-  Efficient llm serving with chunked prefills and continuous batching. arXiv
-  preprint \urlprefix\url{https://arxiv.org/abs/2403.00050}
-
-\bibitem[{Agrawal et~al.(2024{\natexlab{b}})Agrawal, Kedia, Mohan, Panwar,
+\bibitem[{Agrawal et~al.(2024{\natexlab{a}})Agrawal, Kedia, Mohan, Panwar,
   Kwatra, Gulavani, Ramjee, and Tumanov}]{vidur2024}
-Agrawal A, Kedia N, Mohan J, et~al (2024{\natexlab{b}}) Vidur: A large-scale
+Agrawal A, Kedia N, Mohan J, et~al (2024{\natexlab{a}}) Vidur: A large-scale
   simulation framework for llm inference. In: Proceedings of Machine Learning
   and Systems (MLSys '24). MLSys,
   \urlprefix\url{https://arxiv.org/abs/2405.05465}
+
+\bibitem[{Agrawal et~al.(2024{\natexlab{b}})Agrawal, Kedia, Panwar, Mohan,
+  Kwatra, Gulavani, Tumanov, and Ramjee}]{agrawal2024sarathi}
+Agrawal A, Kedia N, Panwar A, et~al (2024{\natexlab{b}}) Taming
+  throughput-latency tradeoff in llm inference with sarathi-serve. In:
+  Proceedings of the 18th USENIX Symposium on Operating Systems Design and
+  Implementation (OSDI '24). USENIX Association,
+  \urlprefix\url{https://www.usenix.org/conference/osdi24/presentation/agrawal}
 
 \bibitem[{Bari et~al.(2025)Bari, Hegde, and de~Veciana}]{slai2025}
 Bari A, Hegde P, de~Veciana G (2025) Optimal scheduling algorithms for llm
@@ -28,7 +30,7 @@ Bari A, Hegde P, de~Veciana G (2025) Optimal scheduling algorithms for llm
   and Garc{\'\i}a}]{carmona2026mlcompilers}
 Carmona-Mart{\'\i}nez A, Bernab{\'e} G, Garc{\'\i}a JM (2026) Characterization
   of machine learning compilers for llm inference on nvidia gpus. The Journal
-  of Supercomputing 82. \doi{10.1007/s11227-026-08559-6}
+  of Supercomputing 82(7):420. \doi{10.1007/s11227-026-08559-6}
 
 \bibitem[{Cho et~al.(2024)Cho, Kim, Choi, Heo et~al.}]{llmservingsim2024}
 Cho J, Kim M, Choi H, et~al (2024) Llmservingsim: A hw/sw co-simulation
@@ -40,22 +42,18 @@ Cho J, Kim M, Choi H, et~al (2024) Llmservingsim: A hw/sw co-simulation
 Cho J, Choi H, Park J (2025) Llmservingsim2.0: A unified simulator for
   heterogeneous hardware and serving techniques in llm infrastructure. IEEE
   Computer Architecture Letters 24(2).
-  \urlprefix\url{https://arxiv.org/abs/2511.07229}, successor to
-  llmservingsim2024, same research group.
+  \urlprefix\url{https://arxiv.org/abs/2511.07229}
 
 \bibitem[{Ding et~al.(2026)Ding, Oh, Kataria, Guo, Gvero, Kumar, Devraj, Bowen,
   Sonwane, Manzoor, and Singh}]{ding2026cclbench}
 Ding E, Oh B, Kataria B, et~al (2026) Ccl-bench 1.0: A trace-based benchmark
   for llm infrastructure. arXiv preprint arXiv:260506544
-  \urlprefix\url{https://arxiv.org/abs/2605.06544}, develops a diagnostic
-  trace-based benchmarking framework for LLM infrastructure to record
-  fine-grained execution evidence of kernels, communication events, and
-  operators.
+  \urlprefix\url{https://arxiv.org/abs/2605.06544}
 
 \bibitem[{Doosthosseini et~al.(2026)Doosthosseini, Decker, Nolte, and
   Kunkel}]{saia2026}
 Doosthosseini A, Decker J, Nolte H, et~al (2026) Saia: a seamless slurm-native
-  solution for hpc-based services. The Journal of Supercomputing 82.
+  solution for hpc-based services. The Journal of Supercomputing 82(7):403.
   \doi{10.1007/s11227-026-08508-3}
 
 \bibitem[{Fu et~al.(2024)Fu, Zhu, Su, Qiao, Stoica, and
@@ -80,10 +78,7 @@ Jin Y, Wu CF, Brooks D, et~al (2023) S\textsuperscript{3}: Increasing gpu
   utilization during generative inference for higher throughput. In: Advances
   in Neural Information Processing Systems 36 (NeurIPS '23),
   \doi{10.5555/3666122.3666913},
-  \urlprefix\url{https://arxiv.org/abs/2306.06000}, distinct from
-  efficientllmscheduling2024 (NeurIPS '24). S\textsuperscript{3} predicts
-  output-length to pack KV-cache memory at admission time; it does not define a
-  learning-to-rank decode-order policy.
+  \urlprefix\url{https://arxiv.org/abs/2306.06000}
 
 \bibitem[{Kwon et~al.(2023)Kwon, Li, Zhuang, Sheng, Zheng, Yu, Gonzalez, Zhang,
   and Stoica}]{kwon2023vllm}
@@ -97,9 +92,7 @@ Kwon W, Li Z, Zhuang S, et~al (2023) vllm: Easy, fast, and cheap llm serving
 Li Y, Chen Y, Chen J, et~al (2026) Beyond prediction: Tail-aware scheduling for
   llm inference. In: Proceedings of the 43rd International Conference on
   Machine Learning (ICML '26). PMLR,
-  \urlprefix\url{https://arxiv.org/abs/2606.18431}, introduces the UniBoost
-  scheduling framework and MemGuard cache-aware preemption to minimize tail
-  latency (P99) without relying on length predictions.
+  \urlprefix\url{https://arxiv.org/abs/2606.18431}
 
 \bibitem[{Liu et~al.(2026)Liu, Xu, Jia, Wang, Chen, Jin, Liu, Zhao, Ding, and
   Li}]{liu2026hmas}
@@ -107,24 +100,17 @@ Liu Y, Xu C, Jia Q, et~al (2026) H-mas: Hierarchical multi-agent scheduling for
   multi-tenant llm serving. In: Findings of the Association for Computational
   Linguistics (ACL '26). Association for Computational Linguistics, pp
   39051--39071,
-  \urlprefix\url{https://aclanthology.org/2026.findings-acl.1946/}, proposes a
-  hierarchical multi-agent scheduling framework designed to maintain QoS
-  guarantees in multi-tenant Model-as-a-Service environments under
-  non-stationary traffic.
+  \urlprefix\url{https://aclanthology.org/2026.findings-acl.1946/}
 
 \bibitem[{{Microsoft Azure}(2024)}]{azure2024trace}
 {Microsoft Azure} (2024) AzureLLMInferenceDataset2024.
-  \urlprefix\url{https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md},
-  official dataset release (one-week sample, 2024-05-10 to 2024-05-19, two
-  Azure LLM inference services). Primary analysis paper: stojkovic2025dynamollm
-  (HPCA 2025).
+  \urlprefix\url{https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md}
 
 \bibitem[{Nixon et~al.(2026)Nixon, Durbin, Standhartinger, Gunawi, and
   Yang}]{ayearinllmserving2026}
 Nixon W, Durbin J, Standhartinger F, et~al (2026) A year in llm serving:
   Workload evolution, caching and load-balancing. arXiv preprint
-  \urlprefix\url{https://arxiv.org/abs/2608.13573}, arXiv preprint (2026-07),
-  one-year production trace from the Chutes platform.
+  \urlprefix\url{https://arxiv.org/abs/2608.13573}
 
 \bibitem[{Patel et~al.(2024)Patel, Choukse, Zhang, Shah, Íñigo Goiri, Maleki,
   and Bianchini}]{patel2024splitwise}
@@ -132,9 +118,7 @@ Patel P, Choukse E, Zhang C, et~al (2024) Splitwise: Efficient generative llm
   inference using phase splitting. In: Proceedings of the 51st Annual
   International Symposium on Computer Architecture (ISCA '24). IEEE/ACM,
   \doi{10.1109/ISCA59077.2024.00019},
-  \urlprefix\url{https://arxiv.org/abs/2311.18677}, primary analysis paper and
-  release mechanism for AzureLLMInferenceDataset2023 (conversation and code
-  splits, collected 2023-11-11), used by this project as azure2023trace.
+  \urlprefix\url{https://arxiv.org/abs/2311.18677}
 
 \bibitem[{Qin et~al.(2025)Qin, Li, He, Cui, Ren, Zhang, Wu, Zheng, and
   Xu}]{qin2025mooncake}
@@ -156,14 +140,13 @@ Ruan C, Chen Y, Tian D, et~al (2026) Libra: Flexible request partitioning and
 Sheng Y, Cao S, Li D, et~al (2024) Fairness in serving large language models.
   In: Proceedings of the 18th USENIX Symposium on Operating Systems Design and
   Implementation (OSDI '24). USENIX Association,
-  \urlprefix\url{https://arxiv.org/abs/2401.00588}, introduces the Virtual
-  Token Counter (VTC) fair scheduling algorithm.
+  \urlprefix\url{https://arxiv.org/abs/2401.00588}
 
 \bibitem[{Siwinska et~al.(2026)Siwinska, Lei, Castell{\'o}, Alonso-Jord{\'a},
   and Quintana-Ort{\'i}}]{siwinska2026autotuning}
 Siwinska P, Lei J, Castell{\'o} A, et~al (2026) Enhancing transformer
   performance and portability through auto-tuning frameworks. The Journal of
-  Supercomputing 82. \doi{10.1007/s11227-026-08327-6}
+  Supercomputing 82(4):206. \doi{10.1007/s11227-026-08327-6}
 
 \bibitem[{Stojkovic et~al.(2025)Stojkovic, Zhang, Íñigo Goiri, Torrellas, and
   Choukse}]{stojkovic2025dynamollm}
@@ -171,9 +154,7 @@ Stojkovic J, Zhang C, Íñigo Goiri, et~al (2025) Dynamollm: Designing llm
   inference clusters for performance and energy efficiency. In: Proceedings of
   the 2025 IEEE International Symposium on High-Performance Computer
   Architecture (HPCA '25). IEEE,
-  \urlprefix\url{https://arxiv.org/abs/2408.00741}, primary analysis paper and
-  release mechanism for AzureLLMInferenceDataset2024, used by this project as
-  azure2024trace.
+  \urlprefix\url{https://arxiv.org/abs/2408.00741}
 
 \bibitem[{Sun et~al.(2024)Sun, Huang, Zhao, Xiao, Zhang, Li, and
   Lin}]{sun2024llumnix}
@@ -197,26 +178,19 @@ Tao Y, Zhang Y, Dearing MT, et~al (2025) Pars: Low-latency llm serving via
 Wang J, Han J, Wei X, et~al (2025{\natexlab{a}}) Kvcache cache in the wild:
   Characterizing and optimizing kvcache cache at a large cloud provider.
   Proceedings of the 2025 USENIX Annual Technical Conference (ATC '25)
-  \urlprefix\url{https://arxiv.org/abs/2506.02634}, characterizes KV-cache
-  reuse patterns at a large cloud provider (Alibaba Cloud);
-  workload-characterization context only.
+  \urlprefix\url{https://arxiv.org/abs/2506.02634}
 
 \bibitem[{Wang et~al.(2026{\natexlab{a}})Wang, Lin, Zhang, Han, Wei, Shen,
   Fang, Yu, and Chen}]{wang2026smetric}
 Wang J, Lin K, Zhang K, et~al (2026{\natexlab{a}}) Smetric: Rethink llm
   scheduling for serving agents with balanced session-centric scheduling. arXiv
-  preprint arXiv:260708565 \urlprefix\url{https://arxiv.org/abs/2607.08565},
-  introduces a session-centric scheduling framework for agentic serving
-  workloads, optimizing the trade-off between load balancing and KV cache
-  locality.
+  preprint arXiv:260708565 \urlprefix\url{https://arxiv.org/abs/2607.08565}
 
 \bibitem[{Wang et~al.(2026{\natexlab{b}})Wang, Yue, Li, Zhou, Wang, and
   Huang}]{wang2026xperf}
 Wang M, Yue Y, Li S, et~al (2026{\natexlab{b}}) Xperf: Benchmarking llm serving
   systems for agentic ai workloads. arXiv preprint arXiv:260820370
-  \urlprefix\url{https://arxiv.org/abs/2608.20370}, develops an open-source
-  benchmarking framework featuring trace-based replay and hardware-level
-  profiling to evaluate LLM serving under agentic, multi-step workloads.
+  \urlprefix\url{https://arxiv.org/abs/2608.20370}
 
 \bibitem[{Wang et~al.(2025{\natexlab{b}})Wang, Chen, Li, Kang, Fang, Zhou,
   Zheng, Tang, He, Guo, Wang, Wang, Zhou, and Chu}]{burstgpt2025}
@@ -224,10 +198,7 @@ Wang Y, Chen Y, Li Z, et~al (2025{\natexlab{b}}) Burstgpt: A real-world
   workload dataset to optimize llm serving systems. In: Proceedings of the 31st
   ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '25),
   Volume 2. ACM, \doi{10.1145/3711896.3737413},
-  \urlprefix\url{https://arxiv.org/abs/2401.17644}, final published version.
-  arXiv:2401.17644 first released 2024-01-31 (v1); the KDD 2025 camera-ready
-  corresponds to arXiv v4/v5 (2025-05-21 / 2025-05-26). Dataset release:
-  github.com/HPMLL/BurstGPT, tag v2.0.
+  \urlprefix\url{https://arxiv.org/abs/2401.17644}
 
 \bibitem[{Wu et~al.(2026)Wu, Zhong, Zhang, Liu, Liu, Sun, Huang, Liu, and
   Jin}]{fastserve2024}

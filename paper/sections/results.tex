@@ -186,23 +186,7 @@ four temporal record types are keyed identically to the source temporal robustne
 \subsection{Robustness}
 \label{sec:results-robustness}
 
-Of the seven preregistered robustness families (\S\ref{sec:robustness}),
-six were actually executed by the sealed analysis code and materialized
-into the canonical artifacts (five of them into the ranking correlations,
-temporal robustness, and sample complexity outputs, and, initially
-overlooked in our first interpretation pass, a sixth --
-\texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT} -- inside a nested
-\texttt{robustness} object within the telemetry explanation output
-that a subsequent reconciliation pass located and verified). Only
-\texttt{METRIC\_DEFINITION\_SENSITIVITY} has no computation anywhere in
-the sealed analysis code: its status record claims
-\texttt{implemented\_as\_postprocessing = true}, but no corresponding
-comparison function exists in \texttt{analysis/robustness.py} (unlike the
-other six families, each of which has one), so producing this specific
-result would require writing new analysis code after this manuscript's
-results were already known -- exactly the kind of after-the-fact code
-change this study's own discipline prohibits, and it is therefore left as
-a disclosed implementation gap rather than computed here.
+Of the seven preregistered robustness families (\S\ref{sec:robustness}), six were actually executed by the sealed analysis code and materialized into the canonical artifacts (five of them in the ranking correlations, temporal robustness, and sample complexity outputs, and a sixth, \texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT}, within the telemetry explanation output). Only \texttt{METRIC\_DEFINITION\_SENSITIVITY} has no computation anywhere in the sealed analysis code. Although the frozen protocol listed this robustness check, the sealed analysis implementation did not contain a corresponding computation; we therefore report it as a disclosed implementation gap rather than performing a post hoc analysis after the results were already known.
 
 \begin{itemize}
   \item \textbf{\texttt{PRIMARY\_ONLY}.} Identical to the headline result
