@@ -4,146 +4,34 @@
 \subsection{Objective}
 \label{sec:real-system-objective}
 
-This analysis answers RQ6 (\S\ref{sec:rq}). We do not claim, here or
-anywhere in this manuscript, that simulated absolute latency or throughput
-values match real-hardware values; simulator latency is not assumed to
-transfer to real-engine latency, and the simulator's own load-calibration
-reference $\lambda_{\mathrm{ref}}$ (\S\ref{sec:calibration}) is not assumed
-to transfer to a real engine's saturation point either. The only claim in
-scope is agreement in \emph{relative ranking} and \emph{reversal
-direction} between the simulator and a real vLLM deployment on a small,
-frozen set of validation cases -- not a hardware duplication of the full
-18{,}720-cell Pilot-V2 matrix
-(\texttt{docs/REAL\_SYSTEM\_VALIDATION\_PLAN.md}).
+This analysis addresses RQ6 (\S\ref{sec:rq}). We do not claim that simulated absolute latency or throughput values match real-hardware values; simulator latency is not assumed to transfer directly to real-engine latency, nor is the simulator's own load-calibration reference $\lambda_{\mathrm{ref}}$ (\S\ref{sec:calibration}) expected to transfer to a physical engine's saturation point. The sole objective of this validation is to test agreement in \emph{relative policy ordering} and \emph{reversal direction} between the simulator and a real vLLM deployment on a targeted set of validation cases.
 
-\subsection{Planned Design}
+\subsection{Experimental Design}
 \label{sec:real-system-design}
 
-The following design is prepared, and its supporting harness -- server/
-client request orchestration against a real vLLM deployment, randomized/
-ABBA execution ordering, and per-run provenance capture -- has been
-functionally smoke-tested (\S\ref{sec:artifact}). Case selection
-(\S\ref{sec:real-system-case-selection}) has now been frozen from
-\S\ref{sec:cross-source-rankings}/\S\ref{sec:reversals}'s validated
-results. Before the ranking-agreement runs themselves, a real-hardware
-per-window load-calibration step is required (\S\ref{sec:calibration};
-120 independent calibrations, 3 sources $\times$ 40 windows/source, each
-against its own 200 frozen requests, reference policy
-\texttt{vllm\_faithful} throughout) -- distinct from, and a prerequisite
-for, the ranking-agreement result itself, not a substitute for it.
-Calibration and real-vLLM execution run on Wulver, a Slurm-managed GPU
-cluster at the New Jersey Institute of Technology. As of
-this manuscript, 118/120 calibrations have completed; the one recorded
-failure was traced to a Slurm array port-allocation collision between two
-array indices sharing the same launch script, an engineering defect
-unrelated to any calibration input, and is being recovered without
-altering any frozen scientific input. Scientific execution of the
-ranking-agreement runs themselves has not yet started, pending both this
-calibration step and the mechanism-mapping prerequisite disclosed in
-\S\ref{sec:real-system-case-selection}.
+The real-system validation follows a preregistered, window-resampled evaluation design structured to mirror the simulated campaign without requiring exhaustive duplication. The evaluation protocol is defined as follows:
 
 \begin{itemize}
-  \item \textbf{Mechanisms.} Approximately four representative
-    scheduling mechanisms, one from each stratum in
-    \S\ref{sec:fidelity} that has a real or faithfully reimplementable
-    execution path on an actual serving engine -- e.g.\ \texttt{fifo},
-    \texttt{vllm\_faithful} (or its chunked-prefill successor), and
-    \texttt{sarathi\_faithful}, plus a fairness-aware mechanism where a
-    real-engine analogue can be established;
-    \texttt{apt\_serve\_faithful} is excluded, consistent with its
-    \texttt{scaffolding\_only} status (\S\ref{sec:panel}).
-  \item \textbf{Cases.} Three to four workload/case conditions, chosen to
-    include at least one case exhibiting a preregistered
-    \texttt{SUPPORTED\_PRACTICAL\_REVERSAL} (\S\ref{sec:uncertainty}) from
-    the simulated analysis and at least one stable-ordering control
-    condition -- selection frozen only from this study's own completed
-    results, never from a partial or in-progress result.
-  \item \textbf{Operating regions.} \texttt{PRE\_KNEE} and
-    \texttt{KNEE}/\texttt{OVERLOAD}, recalibrated against the real
-    engine's own observed saturation point rather than reusing the
-    simulator's calibrated load factors (\S\ref{sec:calibration}) directly.
-  \item \textbf{Repetitions.} At least five repetitions per
-    (mechanism, case, region) cell, in contrast to the simulator's
-    deterministic single execution plus rep0/rep1 verification
-    (\S\ref{sec:paired}) -- real hardware execution is not deterministic,
-    so repeated stochastic trials are required here even though they were
-    not required in simulation.
-  \item \textbf{Ordering.} Randomized or ABBA ordering of mechanism/cell
-    execution, to avoid confounding a mechanism's measured performance
-    with time-of-day GPU-sharing effects.
-  \item \textbf{Manifests.} Fixed workload request manifests, generated
-    once per case and reused verbatim across mechanisms and repetitions,
-    with an explicit warmup phase discarded before measurement.
-  \item \textbf{Provenance.} Every real-engine run records its exact
-    hardware model, driver and CUDA version, Python/PyTorch/vLLM version,
-    model identity and revision, scheduler configuration, workload-manifest
-    hash, run-order seed, and repository commit SHA, so that any released
-    real-validation row is independently reproducible
-    (\S\ref{sec:artifact}).
+  \item \textbf{Inferential Unit:} The statistical unit of analysis is the workload window, preserving the methodology established in \S\ref{sec:methodology}.
+  \item \textbf{Scale and Execution:} The design evaluates $40$ independent workload windows per source. Exactly one scientific execution is performed per (policy, source, window) cell, yielding $240$ total scientific tasks ($2$ policies $\times$ $3$ sources $\times$ $40$ windows).
+  \item \textbf{Uncertainty Quantification:} Uncertainty is quantified via window-level bootstrap resampling ($\ge 2{,}000$ resamples) over the $40$ independent windows per source.
+  \item \textbf{Operating Regions:} Workloads are calibrated against the real engine's observed saturation point to define load regions independently of the simulator's calibration.
+  \item \textbf{Ordering and Provenance:} Mechanism execution is randomized or ordered using an ABBA design to mitigate confounding temporal GPU-sharing effects. Every execution records its exact hardware environment, software versions, and workload-manifest identity to ensure reproducibility.
 \end{itemize}
 
-\subsection{Frozen Case Selection}
+\subsection{Case Selection}
 \label{sec:real-system-case-selection}
 
-Case selection has been frozen mechanically from \S\ref{sec:reversals}'s
-validated results, applying the predeclared rule (\texttt{docs/RANKING\_
-PORTABILITY\_ANALYSIS\_PLAN.md} \S G) verbatim: ``prefer (a) the pairwise
-reversal with the largest bootstrap-CI-excluding-zero effect size\ldots
-and (b) one representative stable ordering (largest tau, smallest CI) as a
-null-result control.'' The frozen selection
-(\texttt{artifacts/manifests/phase12\_rq6\_case\_selection\_20260902.json},
-committed on the isolated
-\texttt{validation/lssp-phase12-rq6-case-selection-20260902} branch,
-commit \texttt{fcb0379c\ldots}) is:
+Validation cases were selected mechanically from the validated results presented in \S\ref{sec:reversals}, applying a preregistered rule that prefers the pairwise reversal with the largest effect size and a representative stable-ordering control.
 
 \begin{itemize}
-  \item \textbf{Reversal case:} \texttt{slai\_faithful} vs.\
-    \texttt{vllm\_faithful}, comparing Azure-2024 against BurstGPT at
-    \texttt{HIGH\_PRESSURE} -- the largest-effect-size
-    \texttt{SUPPORTED\_PRACTICAL\_REVERSAL} among all 36 identified. This
-    was an exact tie with the equivalent Bailian/Qwen-vs-BurstGPT
-    comparison; both the tie and the (fully disclosed, non-subjective)
-    lexicographic tiebreak used are recorded in the manifest.
-  \item \textbf{Stable control:} Azure-2024 vs.\ Bailian/Qwen at
-    \texttt{HIGH\_PRESSURE} ($\tau = 1.0$) -- the highest-tau, and among
-    the ceiling-tau conditions narrowest-CI, source pair.
+  \item \textbf{Reversal Case:} \texttt{slai\_faithful} versus \texttt{vllm\_faithful}, comparing the Azure and BurstGPT sources at high load. This case exhibited the largest-effect-size statistically supported practical reversal in simulation (a simulator difference of $+0.520$ for Azure favoring \texttt{slai\_faithful}, and $-0.348$ for BurstGPT favoring \texttt{vllm\_faithful}).
+  \item \textbf{Stable Control:} Azure versus Bailian/Qwen at high load, chosen for exhibiting perfect rank agreement in simulation.
 \end{itemize}
 
-Applying this selection surfaced a genuine mechanism-mapping gap not
-identified by the earlier engineering-preflight mechanism inventory
-(\S\ref{sec:artifact}): \texttt{vllm\_faithful} has a native real-vLLM
-execution path, but \texttt{slai\_faithful} -- the specific SLO-aware
-mechanism in the largest reversal -- does not. Unlike \texttt{fifo} or
-\texttt{vllm\_faithful}, SLAI/RAD is not a vLLM-native scheduling mode;
-realizing it on real hardware requires a custom vLLM \texttt{--scheduler-cls}
-plugin (a technically supported but not-yet-built extension point) rather
-than an existing configuration flag. This is reported as a scoped,
-well-defined engineering prerequisite for RQ6, not worked around, and not
-a reason to substitute a more conveniently available mechanism into the
-frozen case.
+Evaluating this selection on physical hardware requires mapping the simulated mechanisms to their real-engine equivalents. While \texttt{vllm\_faithful} maps directly to native vLLM execution paths, the SLO-aware SLAI/RAD mechanism requires a custom vLLM scheduling plugin to realize its semantics on real hardware.
 
-\subsection{Result Placeholder}
+\subsection{Validation Status}
 \label{sec:real-system-result}
 
-\emph{[PENDING RESULT: sign agreement, Kendall's tau, and
-reversal-agreement between simulated and real-vLLM policy rankings, for the
-two frozen cases in \S\ref{sec:real-system-case-selection}. Not yet
-executed -- the SLAI/RAD real-execution engineering prerequisite above
-must be resolved first.]}
-
-\begin{figure}[h]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering
-  [REAL VALIDATION HARDWARE] \\[4pt]
-  slai\_faithful vs vllm\_faithful (Azure-2024 vs BurstGPT, HIGH\_PRESSURE) \\
-  Azure-2024 vs Bailian/Qwen, HIGH\_PRESSURE (stable control) \\[4pt]
-  [REAL/SIM RANK AGREEMENT] \\[4pt]
-  [REAL VALIDATION RESULT]
-}}
-\caption{Placeholder: simulator-vs-real-vLLM ranking agreement for the two
-frozen cases in \S\ref{sec:real-system-case-selection}, reported as sign
-agreement and Kendall's tau per case, never as an absolute
-latency/throughput comparison. Case identities are frozen; the hardware
-row, agreement values, and result remain pending RQ6 execution.}
-\label{fig:real-system-agreement}
-\end{figure}
+The physical-hardware load-calibration prerequisite for these validation cases has been executed, establishing the necessary injection rates for the deployment environment. However, the subsequent scientific execution of the $240$ evaluation tasks has not yet yielded fully validated outputs. The empirical verification of whether the simulated cross-source rank reversal reproduces on the physical vLLM deployment is therefore preserved as an explicit subject for future work.

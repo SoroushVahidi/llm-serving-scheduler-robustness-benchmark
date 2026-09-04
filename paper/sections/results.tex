@@ -37,8 +37,7 @@ comparison involving BurstGPT is substantially lower ($\tau =
 0.55$--$0.71$) -- a gap of roughly $0.2$--$0.4$ in Kendall's tau-b that
 holds at all six regions, not just one. Top-1 agreement (the single
 best-performing PRIMARY-panel policy) and top-3 agreement follow the same
-source-pair pattern in the underlying comparisons table
-(\texttt{paper/generated/table\_data/rq1\_rq2\_portability.json}); we do not
+source-pair pattern in the underlying evaluation data; we do not
 tabulate top-1/top-3 separately in the main text to avoid restating the
 same qualitative pattern three times, but the full table is part of the
 planned artifact release (\S\ref{sec:artifact}).
@@ -65,10 +64,7 @@ max $\tau$  & 0.92 & 0.89 & 0.96 & 0.96 & 0.96 & 1.00 \\
 \caption{Source-pair $\times$ load-region ranking-portability: Kendall's
 tau-b between each pair of sources' PRIMARY-panel (11-policy) rankings on
 the ANWG metric, at each of the six frozen operating regions
-(\S\ref{sec:calibration}). Computed from
-\texttt{ranking\_correlations.json} (SHA-256
-\texttt{d77d5e97\ldots}, full value in
-\texttt{paper/generated/table\_data/rq1\_rq2\_portability.json}).}
+(\S\ref{sec:calibration}). Computed from the frozen ranking correlations artifact.}
 \label{fig:portability-heatmap}
 \end{figure}
 
@@ -127,8 +123,7 @@ each other on this data.
 \includegraphics[width=0.85\textwidth]{generated/figures/fig2_reversal_class_matrix.pdf}
 \caption{Reversal-class counts by operating region, PRIMARY metric (165
 pairwise records per region: 55 policy pairs $\times$ 3 source pairs).
-Computed from \texttt{pairwise\_reversals.json} (SHA-256
-\texttt{c90619e8\ldots}).}
+Computed from the frozen pairwise reversals artifact.}
 \label{fig:reversal-matrix}
 \end{figure}
 
@@ -167,7 +162,7 @@ single ``temporal/domain OOD'' number:
 
 \begin{itemize}
   \item \textbf{BurstGPT (EARLY/MIDDLE/LATE tercile, primary).} Computed
-    directly from \texttt{temporal\_robustness.json}'s
+    directly from the temporal robustness artifact's
     \texttt{TERCILE}-labeled records for the PRIMARY metric.
   \item \textbf{BurstGPT (EARLY/LATE bisect, sensitivity).} The
     \texttt{BISECT}-labeled records, checking whether the tercile boundary
@@ -186,21 +181,18 @@ so no calendar-based temporal claim is made for this source, and its
 relative-order result is never presented alongside BurstGPT's tercile
 result or Azure's calendar-split result as though the three used an
 equivalent temporal definition. The full per-comparison values for all
-four temporal record types are in
-\texttt{paper/generated/table\_data/rq5\_temporal\_robustness.json}, keyed
-identically to the source \texttt{temporal\_robustness.json} artifact.
+four temporal record types are keyed identically to the source temporal robustness artifact.
 
 \subsection{Robustness}
 \label{sec:results-robustness}
 
 Of the seven preregistered robustness families (\S\ref{sec:robustness}),
 six were actually executed by the sealed analysis code and materialized
-into the canonical artifacts (five of them into
-\texttt{ranking\_correlations.json}/\texttt{temporal\_robustness.json}/
-\texttt{sample\_complexity.json}, and, initially overlooked in our first
-interpretation pass, a sixth --
+into the canonical artifacts (five of them into the ranking correlations,
+temporal robustness, and sample complexity outputs, and, initially
+overlooked in our first interpretation pass, a sixth --
 \texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT} -- inside a nested
-\texttt{robustness} object within \texttt{telemetry\_explanation.json}
+\texttt{robustness} object within the telemetry explanation output
 that a subsequent reconciliation pass located and verified). Only
 \texttt{METRIC\_DEFINITION\_SENSITIVITY} has no computation anywhere in
 the sealed analysis code: its status record claims
@@ -214,7 +206,7 @@ a disclosed implementation gap rather than computed here.
 
 \begin{itemize}
   \item \textbf{\texttt{PRIMARY\_ONLY}.} Identical to the headline result
-    by construction: \texttt{ranking\_correlations.json} already restricts
+    by construction: the ranking correlations artifact already restricts
     every comparison to the 11-policy PRIMARY panel
     (\S\ref{sec:cross-source-rankings}), never mixing in the two
     \texttt{STYLE\_APPROXIMATION} robustness policies.
@@ -308,7 +300,7 @@ direction, $10$ ($9\%$) remain the same direction but fall below the
 practical-margin threshold under the alternative definition, and $4$
 ($4\%$) become statistically indistinguishable from zero. No headline
 reversal from \S\ref{sec:reversals} is contradicted outright, but a
-non-trivial minority ($16/108$, $15\%$) are sensitive to the SLO-definition
+non-trivial minority ($20/108$, $19\%$) are sensitive to the SLO-definition
 choice -- disclosed here as a caveat on those specific reversals, not
 grounds to discard them.
 

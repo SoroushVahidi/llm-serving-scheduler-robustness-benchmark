@@ -24,8 +24,7 @@ Large language model (LLM) serving systems are typically compared on
 one workload, operating region, and metric, but how portable is that
 comparison? We present the LLM-Serving Scheduler Portability Benchmark
 (LSSP), a preregistered evaluation of scheduling policies across three
-independently sourced workloads and six calibrated operating regions
-($18{,}720$ comparisons). Rankings agree strongly between two of three
+independently sourced workloads and six calibrated operating regions ($18{,}720$ evaluations). Rankings agree strongly between two of three
 sources (Kendall's $\tau$ up to $1.0$) but are less portable when the
 third is involved (as low as $0.55$); $3.6\%$ of comparisons show
 statistically supported reversals. Portability is even more sensitive
@@ -57,26 +56,6 @@ benchmark reproducibility
 \input{sections/artifact}
 \input{sections/conclusion}
 \input{sections/declarations}
-
-\begin{table}[h]
-\centering
-\caption{Immutable scientific identifiers, re-verified unchanged immediately
-before this manuscript's authoritative branch was committed
-(\texttt{docs/ARTIFACT\_HASH\_LEDGER.md}).}
-\label{tab:hashes}
-\footnotesize
-\begin{tabular}{lp{9cm}}
-\toprule
-Artifact & SHA-256 \\
-\midrule
-Phase-10 scientific window (content hash) & \texttt{\seqsplit{0d1aa06ccbee352207327ea369ae75f12e91c0cda006c813a41b381effd29eef}} \\
-Phase-10 compact index & \texttt{\seqsplit{d78ec1087fedae02174ca093a9860c70468be336ccb1d7e6de756c81ba331e53}} \\
-Phase-11 prelaunch freeze contract & \texttt{\seqsplit{e2564ea9484190832de50f63173c4b73ae054d6ae7008bb4ff6648c8dc917f7b}} \\
-Phase-11 raw FIFO calibration & \texttt{\seqsplit{201caaf04476ad8737ef6079fc0d6cb4e864601711d0b96c88750a717d8b2a6a}} \\
-Phase-11 region-assignment output & \texttt{\seqsplit{9fcb92f9ea1206ce185194527ada35d0e3b91bf4904be7ae23ba9ea997c17574}} \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 \bibliographystyle{plainnat}
 \bibliography{references}

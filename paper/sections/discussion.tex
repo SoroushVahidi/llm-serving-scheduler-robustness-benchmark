@@ -104,9 +104,9 @@ The SLO-definition result is comparatively reassuring but not a clean
 pass. Ranking robustness under three alternative SLO-synthesis conventions
 is high (median $\tau_b = 0.872$) -- closer to the cross-source ceiling
 than to the cross-metric result above -- yet the single top-ranked policy
-still changes in $13/30$ ($43\%$) of conditions, and $16$ of the $36$
-headline reversals from \S\ref{sec:reversals}, checked against all three
-alternatives ($108$ checks), are sensitive to which SLO definition is used
+still changes in $13/30$ ($43\%$) of conditions, and $20$ of the $108$
+reversal checks against the three alternative definitions
+are sensitive to which SLO definition is used
 (\S\ref{sec:results-slo}). The practical reading is narrower than either
 ``robust'' or ``fragile'': a scheduler conclusion can remain broadly
 ordered under a nearby SLO definition even while its winning policy, or a
@@ -122,8 +122,8 @@ being read as more general than the evidence supports.
 
 \subsection{Explanatory Telemetry: A Preliminary, Heavily Qualified Read}
 
-The frozen, pre-specified explanatory model (\S\ref{sec:telemetry},
-\texttt{telemetry\_explanation.json}) associates the five workload
+The frozen, pre-specified explanatory model (\S\ref{sec:telemetry})
+associates the five workload
 descriptors with reversal sites at each (policy pair, condition) cell, but
 converges with a usable sample size ($\geq 20$ observations) for only 42 of
 990 cells -- most reversal sites are too sparse for this per-cell model to
