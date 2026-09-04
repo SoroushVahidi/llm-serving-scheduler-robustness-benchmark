@@ -15,16 +15,18 @@ entry point.
 
 - `../README.md` — top-level project overview.
 - `ARTIFACT_EVALUATION_GUIDE.md` — reviewer-facing reproduction path.
-- `LSSP_DATASET_RELEASE_SCHEMA.md` — planned Hugging Face dataset structure.
-- `LSSP_HF_DATASET_CARD_DRAFT.md` — draft dataset card (not yet published).
+- `LSSP_DATASET_RELEASE_SCHEMA.md` — the actual v1.0.0 Hugging Face
+  release scope: what is and isn't published, and why.
+- `LSSP_HF_DATASET_CARD.md` — mirrors the published Hugging Face dataset
+  card (`SoroushVahidi/llm-serving-scheduler-portability`'s `README.md`).
 - `LSSP_THIRD_PARTY_SOURCE_LICENSES.md` — license/redistribution status for
   BurstGPT, Azure-2024, Bailian/Qwen.
-- `REAL_VLLM_SLAI_FIDELITY.md` — current status of the real-vLLM SLAI
-  scheduler plugin (algorithm-validated; scientific RQ6 run not started).
-- `PROJECT_STATUS.md` — day-to-day state as of its own last-updated date
-  (see the "current status" caveat below — read the top-level README's
-  Status table for the state as of this release-prep pass instead if the
-  two disagree).
+- `RQ6_PUBLIC_RESULT_PROVENANCE.md` — the completed RQ6 result and its
+  full computational provenance, independent of the private cluster it
+  was executed on.
+- `PROJECT_STATUS.md` — day-to-day internal state as of its own
+  last-updated date; superseded by the top-level `README.md` for the
+  current public summary if the two disagree.
 
 ## Scientific freeze records (historical, preserve as-written)
 
@@ -103,8 +105,8 @@ DEFINITIONS.md`, `RANKING_PORTABILITY_TELEMETRY_IMPLEMENTATION.md`,
 
 **Note on staleness**: a handful of internal-process docs (`PROJECT_
 STATUS.md`, `GO_NO_GO_GATES.md`, `EXPERIMENT_STATUS.md`) predate the
-Phase-12 completion this release-prep pass confirms and were written for
+completion of the campaign this release confirms and were written for
 in-session continuity, not as a public status page — they are not
 rewritten here to avoid corrupting their own point-in-time record (would
 turn a real freeze record into a fabricated one); the top-level `README.md`
-Status table is the current, authoritative summary as of 2026-09-02.
+is the current, authoritative public summary.

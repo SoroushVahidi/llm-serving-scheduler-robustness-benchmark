@@ -1,11 +1,38 @@
-# LSSP Dataset Release Schema
+# LSSP Dataset Release Schema and Scope — v1.0.0
 
-Design for the eventual `SoroushVahidi/llm-serving-scheduler-portability`
-Hugging Face dataset. **Not published yet** — this document and the
-`robustbench.dataset.lssp_release_contract` module define the target
-structure; the actual `hf_fs_write`/upload step is Query-3 scope.
+## 0. Actual v1.0.0 release (what is live now)
 
-## 1. Why a separate release from GitHub
+`SoroushVahidi/llm-serving-scheduler-portability` on Hugging Face is
+**published**. Its actual v1.0.0 contents, verified directly against the
+live repository, are:
+
+```
+llm-serving-scheduler-portability/
+  README.md                              # dataset card (mirrored at docs/LSSP_HF_DATASET_CARD.md)
+  checksums.json                         # SHA-256 for byte-identical files
+  LSSP_THIRD_PARTY_SOURCE_LICENSES.md    # byte-identical to GitHub source
+  rq6/RQ6_ANALYSIS_RESULT.json           # reduced RQ6 result, complete on all reported numbers
+  table_data/rq1_rq2_portability.json    # RQ1/RQ2 headline table, complete, minified
+  table_data/rq4_sample_complexity.json  # RQ4/RQ5 headline table, complete on headline numbers, minified
+```
+
+This is deliberately smaller than the target schema in §1–§8 below: the
+six intermediate canonical analysis artifacts, the frozen campaign
+manifests, `table_data/rq3_reversals.json`, `table_data/rq5_temporal_robustness.json`,
+and all raw per-cell campaign/RQ6 records are **not** part of this
+revision (see `docs/LSSP_HF_DATASET_CARD.md`'s "What's in this release"
+table for the exact list and rationale for each omission). A practical
+consequence: `paper/scripts/generate_phase12_tables_figures.py`, which
+consumes the six canonical artifacts as input, cannot currently be run
+against a v1.0.0 download — the released `table_data/*.json` files are
+already that script's *output*.
+
+Sections §1–§8 below describe the originally planned, larger target
+schema. They are retained as the design rationale and as a roadmap for a
+future dataset revision; they do not describe what is on Hugging Face
+today. Where they conflict with §0, §0 is authoritative.
+
+## 1. Why a separate release from GitHub (target-schema rationale)
 
 The GitHub repository (this one) carries code, tests, docs, and the paper
 source. It deliberately does **not** carry the bulk scientific dataset: the
@@ -26,11 +53,11 @@ Two categories, never mixed in one directory:
   sources (window samples, region assignments, the 18,720-cell campaign
   matrix, analysis outputs). This is the actual release payload.
 
-## 3. Directory structure
+## 3. Target directory structure (planned, not current -- see §0)
 
 ```
 llm-serving-scheduler-portability/
-  README.md                          # dataset card (docs/LSSP_HF_DATASET_CARD_DRAFT.md)
+  README.md                          # dataset card (docs/LSSP_HF_DATASET_CARD.md)
   manifests/
     phase10/  ranking_portability_pilot_v2_windows_index.json
     phase11/  ranking_portability_phase11_raw_fifo_calibration.json
@@ -120,34 +147,23 @@ recomputes or normalizes them.
 
 ## 8. Versioning and archival strategy
 
-Recommended, not yet executed:
+Executed for v1.0.0; retained here as the design rationale for future
+revisions:
 
-- **GitHub.** Cut a semantic or paper-specific tag (e.g. `v1.0.0` or
-  `paper-v1`) at the exact commit the manuscript's Data/Code Availability
-  statement will cite, and publish it as an immutable GitHub Release
-  (source archive + release notes naming the exact commit SHA). Do not
-  reuse or move a tag after publication; a corrected release becomes
+- **GitHub.** `v1.0.0` is cut and published as an immutable GitHub
+  Release (source archive + release notes naming the exact commit SHA).
+  Do not reuse or move the tag; a corrected release becomes
   `v1.0.1`/`v1.1.0`, never a rewritten `v1.0.0`.
-- **Hugging Face.** Use HF's built-in dataset revision/commit mechanism
-  to pin a specific, citable snapshot at release time (a tag or the
-  release commit's hash), paired one-to-one with the GitHub tag above.
-  A later RQ6 addition is a new revision (e.g. `v1.1`), never an in-place
-  rewrite of the `v1.0` files a reader may have already cited or hashed.
-  Every release revision ships its own `checksums/release_checksums.json`
-  so a specific past revision remains independently verifiable even after
-  a newer one is published.
-- **Persistent identifier (Zenodo or equivalent archival DOI).** Recommended
-  sequence once content is final: (1) cut the GitHub release tag; (2) use
-  Zenodo's GitHub integration (or an equivalent institutional archive) to
-  mint a DOI against that exact tagged release, which also archives a copy
-  independent of GitHub's own availability; (3) update `CITATION.cff` and
-  the manuscript's Code/Data Availability statement to cite the DOI, not
-  the mutable repository URL, as the primary citation target; (4) a
-  Hugging-Face-side persistent identifier (e.g. via a DOI-issuing
-  integration, if HF offers one at publication time) should be minted the
-  same way for the dataset half. **No DOI has been minted for this
-  project; this section documents the intended sequence only and is not
-  authorization to mint one.**
+- **Hugging Face.** The `v1.0.0` dataset revision is live (§0), paired
+  with the GitHub tag above. A later, larger data addition (e.g. the six
+  canonical analysis artifacts, or RQ6 raw records) is a new revision,
+  never an in-place rewrite of the `v1.0.0` files a reader may have
+  already cited or hashed.
+- **Persistent identifier.** A Zenodo DOI archiving the GitHub `v1.0.0`
+  release is live: [10.5281/zenodo.22306798](https://doi.org/10.5281/zenodo.22306798).
+  `CITATION.cff` and the manuscript's Data/Code Availability statement
+  cite this DOI as the primary identifier. A Hugging-Face-side persistent
+  identifier for the dataset half has not been separately minted.
 - **What the manuscript should ultimately cite.** Once available, the
   manuscript's Data/Code Availability statement (`paper/sections/
   declarations.tex`) should cite the persistent archival DOI(s) as the
