@@ -16,12 +16,13 @@
   url = {https://arxiv.org/abs/2207.00032}
 }
 
-@article{agrawal2024sarathi,
-  title = {Sarathi-Serve: Efficient LLM Serving with Chunked Prefills and Continuous Batching},
-  author = {Amey Agrawal and Nitin Kedia and Nipun Kwatra and Nikhil Sarda and Alexey Tumanov and others},
-  journal = {arXiv preprint},
+@inproceedings{agrawal2024sarathi,
+  title = {Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve},
+  author = {Amey Agrawal and Nitin Kedia and Ashish Panwar and Jayashree Mohan and Nipun Kwatra and Bhargav S. Gulavani and Alexey Tumanov and Ramachandran Ramjee},
+  booktitle = {Proceedings of the 18th USENIX Symposium on Operating Systems Design and Implementation (OSDI '24)},
   year = {2024},
-  url = {https://arxiv.org/abs/2403.00050}
+  publisher = {USENIX Association},
+  url = {https://www.usenix.org/conference/osdi24/presentation/agrawal}
 }
 
 @inproceedings{zhong2024distserve,
@@ -50,7 +51,6 @@
   publisher = {ACM},
   doi = {10.1145/3711896.3737413},
   url = {https://arxiv.org/abs/2401.17644},
-  note = {Final published version. arXiv:2401.17644 first released 2024-01-31 (v1); the KDD 2025 camera-ready corresponds to arXiv v4/v5 (2025-05-21 / 2025-05-26). Dataset release: github.com/HPMLL/BurstGPT, tag v2.0.}
 }
 
 @manual{azure2024trace,
@@ -58,7 +58,6 @@
   author = {{Microsoft Azure}},
   year = {2024},
   url = {https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md},
-  note = {Official dataset release (one-week sample, 2024-05-10 to 2024-05-19, two Azure LLM inference services). Primary analysis paper: stojkovic2025dynamollm (HPCA 2025).}
 }
 
 @inproceedings{patel2024splitwise,
@@ -69,7 +68,6 @@
   publisher = {IEEE/ACM},
   doi = {10.1109/ISCA59077.2024.00019},
   url = {https://arxiv.org/abs/2311.18677},
-  note = {Primary analysis paper and release mechanism for AzureLLMInferenceDataset2023 (conversation and code splits, collected 2023-11-11), used by this project as azure2023trace.}
 }
 
 @inproceedings{stojkovic2025dynamollm,
@@ -79,7 +77,6 @@
   year = {2025},
   publisher = {IEEE},
   url = {https://arxiv.org/abs/2408.00741},
-  note = {Primary analysis paper and release mechanism for AzureLLMInferenceDataset2024, used by this project as azure2024trace.}
 }
 
 @inproceedings{jin2023s3,
@@ -89,7 +86,6 @@
   year = {2023},
   doi = {10.5555/3666122.3666913},
   url = {https://arxiv.org/abs/2306.06000},
-  note = {Distinct from efficientllmscheduling2024 (NeurIPS '24). S\textsuperscript{3} predicts output-length to pack KV-cache memory at admission time; it does not define a learning-to-rank decode-order policy.}
 }
 
 @inproceedings{qin2025mooncake,
@@ -108,7 +104,6 @@
   year = {2024},
   publisher = {USENIX Association},
   url = {https://arxiv.org/abs/2401.00588},
-  note = {Introduces the Virtual Token Counter (VTC) fair scheduling algorithm.}
 }
 
 @article{kvcache_wild2025,
@@ -117,7 +112,6 @@
   journal = {Proceedings of the 2025 USENIX Annual Technical Conference (ATC '25)},
   year = {2025},
   url = {https://arxiv.org/abs/2506.02634},
-  note = {Characterizes KV-cache reuse patterns at a large cloud provider (Alibaba Cloud); workload-characterization context only.}
 }
 
 @article{ayearinllmserving2026,
@@ -126,7 +120,6 @@
   journal = {arXiv preprint},
   year = {2026},
   url = {https://arxiv.org/abs/2608.13573},
-  note = {arXiv preprint (2026-07), one-year production trace from the Chutes platform.}
 }
 
 @article{proserve2025,
@@ -153,7 +146,6 @@
   number = {2},
   year = {2025},
   url = {https://arxiv.org/abs/2511.07229},
-  note = {Successor to llmservingsim2024, same research group.}
 }
 
 @article{tracelab2026,
@@ -276,6 +268,8 @@
   author = {Ali Doosthosseini and Jonathan Decker and Hendrik Nolte and Julian Kunkel},
   journal = {The Journal of Supercomputing},
   volume = {82},
+  number = {7},
+  pages = {403},
   year = {2026},
   publisher = {Springer},
   doi = {10.1007/s11227-026-08508-3}
@@ -286,6 +280,8 @@
   author = {Alejandro Carmona-Mart{\'\i}nez and Gregorio Bernab{\'e} and Jos{\'e} M. Garc{\'\i}a},
   journal = {The Journal of Supercomputing},
   volume = {82},
+  number = {7},
+  pages = {420},
   year = {2026},
   publisher = {Springer},
   doi = {10.1007/s11227-026-08559-6}
@@ -296,6 +292,8 @@
   author = {Patricia Siwinska and Jie Lei and Adri{\'a}n Castell{\'o} and Pedro Alonso-Jord{\'a} and Enrique S. Quintana-Ort{\'i}},
   journal = {The Journal of Supercomputing},
   volume = {82},
+  number = {4},
+  pages = {206},
   year = {2026},
   publisher = {Springer},
   doi = {10.1007/s11227-026-08327-6}
@@ -308,7 +306,6 @@
   year = {2026},
   publisher = {PMLR},
   url = {https://arxiv.org/abs/2606.18431},
-  note = {Introduces the UniBoost scheduling framework and MemGuard cache-aware preemption to minimize tail latency (P99) without relying on length predictions.}
 }
 
 @inproceedings{liu2026hmas,
@@ -319,7 +316,6 @@
   pages = {39051--39071},
   publisher = {Association for Computational Linguistics},
   url = {https://aclanthology.org/2026.findings-acl.1946/},
-  note = {Proposes a hierarchical multi-agent scheduling framework designed to maintain QoS guarantees in multi-tenant Model-as-a-Service environments under non-stationary traffic.}
 }
 
 @article{wang2026smetric,
@@ -328,7 +324,6 @@
   journal = {arXiv preprint arXiv:2607.08565},
   year = {2026},
   url = {https://arxiv.org/abs/2607.08565},
-  note = {Introduces a session-centric scheduling framework for agentic serving workloads, optimizing the trade-off between load balancing and KV cache locality.}
 }
 
 @article{wang2026xperf,
@@ -337,7 +332,6 @@
   journal = {arXiv preprint arXiv:2608.20370},
   year = {2026},
   url = {https://arxiv.org/abs/2608.20370},
-  note = {Develops an open-source benchmarking framework featuring trace-based replay and hardware-level profiling to evaluate LLM serving under agentic, multi-step workloads.}
 }
 
 @article{ding2026cclbench,
@@ -346,5 +340,4 @@
   journal = {arXiv preprint arXiv:2605.06544},
   year = {2026},
   url = {https://arxiv.org/abs/2605.06544},
-  note = {Develops a diagnostic trace-based benchmarking framework for LLM infrastructure to record fine-grained execution evidence of kernels, communication events, and operators.}
 }

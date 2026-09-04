@@ -13,9 +13,7 @@ additional context but are not part of the primary Pilot-V2 120-window
 matrix beyond the 10-per-source Stage-0-reused windows described below.
 TraceLab \citep{tracelab2026} is retained as an out-of-distribution,
 coding-agent workload family for future expansion, not as one of the three
-primary sources, because its independence from a prior 512-window public
-sweep cannot be fully verified from public artifacts alone
-(\texttt{docs/TRACELAB\_PROVENANCE\_RESOLUTION.md}).
+primary sources, because its independence from a prior 512-window public sweep cannot be fully verified from public artifacts alone, as detailed in the project's provenance records.
 
 As established in \S\ref{sec:related-position}, BurstGPT's own reported
 collection methodology logs traffic from a regional customer of Microsoft's
@@ -31,16 +29,12 @@ is a genuinely different underlying platform from both.
 \subsection{Representation and Provenance}
 \label{sec:provenance}
 
-Each source is ingested through a dedicated, field-level-audited adapter
-(\texttt{docs/DATA\_FIELD\_PROVENANCE.md}) that maps the source's native
+Each source is ingested through a dedicated, field-level-audited adapter that maps the source's native
 schema onto a common internal request representation (arrival time, input
 tokens, output tokens, total tokens, session identifier where available,
 model class). No field is fabricated where a source's native schema lacks
 it (for example, BurstGPT's documented schema has no tenant, KV-reuse, SLO,
-or failure-code field, and none is synthesized). License status for each
-source is recorded in \texttt{docs/DATA\_LICENSE\_AUDIT.md} (BurstGPT:
-CC-BY-4.0) and re-verified before any confirmatory use of a real, full-scale
-sample.
+or failure-code field, and none is synthesized). License status for each source was verified before any confirmatory use of a real, full-scale sample (for example, BurstGPT is under CC-BY-4.0).
 
 \subsection{Window Construction}
 \label{sec:windows}
@@ -95,9 +89,7 @@ decision tree reaches $0.980$ balanced accuracy ($0.980 \pm 0.018$ across
 folds, worst single fold $0.955$ with LATE held out). This grouped,
 chronologically blocked evaluation supersedes an earlier random-split
 result (which agreed at balanced accuracy $1.0$) for any manuscript claim,
-because random splitting is vulnerable to within-window-adjacent-time
-leakage that the grouped evaluation is structurally immune to (regression
-tested; \texttt{tests/test\_separability\_pipeline\_no\_leakage.py}).
+because random splitting is vulnerable to within-window-adjacent-time leakage that the grouped evaluation is structurally immune to (and was verified to prevent data leakage across the separability pipeline).
 
 \subsection{Source Separability}
 \label{sec:separability}
