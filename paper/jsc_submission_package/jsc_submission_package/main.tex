@@ -43,6 +43,7 @@ conditional on the workload, region, and metric that produced them.}
 \par\addvspace{10pt}{\keywordfont{\bfseries Keywords:} LLM inference serving, request scheduling, ranking portability, performance evaluation, workload characterization, benchmark reproducibility\par}
 \addvspace{10pt}
 
+% ===== begin introduction.tex =====
 \section{Introduction}
 \label{sec:introduction}
 
@@ -204,7 +205,9 @@ unstable, but source-pair- and load-region-dependent in a specific,
 legible pattern; this manuscript does not claim that any scheduler in the
 panel wins in general (\S\ref{sec:discussion}). Sections~\ref{sec:results}--\ref{sec:real-system}
 report these results in full.
+% ===== end introduction.tex =====
 
+% ===== begin related_work.tex =====
 \section{Related Work}
 \label{sec:related-work}
 
@@ -440,7 +443,9 @@ Azure infrastructure, collected by different teams through different
 mechanisms, so we treat them as distinct, independently released workload
 sources rather than as independent providers
 (\S\ref{sec:sources} gives the full treatment, including citations).
+% ===== end related_work.tex =====
 
+% ===== begin study_design.tex =====
 \section{Study Design}
 \label{sec:study-design}
 
@@ -552,7 +557,9 @@ gate, before any Pilot-V2 comparative scheduler outcome was generated.
 \texttt{docs/RANKING\_PORTABILITY\_ANALYSIS\_PLAN.md}, and
 \texttt{docs/RANKING\_PORTABILITY\_WINDOW\_FREEZE.md} record the exact frozen
 content and the gate checks each passed.
+% ===== end study_design.tex =====
 
+% ===== begin workloads.tex =====
 \section{Workload Corpus and Characterization}
 \label{sec:workloads}
 
@@ -702,7 +709,9 @@ methodological consistency. A dedicated window-size sensitivity sweep
 (varying window size and re-checking separability/discriminability) has
 not yet been run; this is noted as an open item in
 \S\ref{sec:threats} rather than a result reported here.
+% ===== end workloads.tex =====
 
+% ===== begin methodology.tex =====
 \section{Scheduler Benchmark Methodology}
 \label{sec:methodology}
 
@@ -1013,7 +1022,9 @@ this manuscript. It was instead run afterward as an explicitly labeled
 post-campaign extension, with its own freeze and manifest process, after
 Pilot-V2's headline results were already known; its results are reported
 in \S\ref{sec:results-slo} and \S\ref{sec:threats}.
+% ===== end methodology.tex =====
 
+% ===== begin results.tex =====
 \section{Scheduler Ranking Portability}
 \label{sec:results}
 
@@ -1334,7 +1345,9 @@ that the pipeline executes correctly end-to-end. A full-scale extension
 (targeted, not exhaustive) with sufficient seeds per family to define the
 transfer statistic is left to future work, consistent with RQ3's
 SECONDARY, non-headline status in this study's frozen contract.
+% ===== end results.tex =====
 
+% ===== begin sample_complexity.tex =====
 \section{Benchmark Sample Complexity}
 \label{sec:sample-complexity}
 
@@ -1365,7 +1378,7 @@ slow and strongly source-dependent (Figure~\ref{fig:sample-complexity},
 Table~\ref{tab:rq4-first-n}): BurstGPT never reaches the preregistered
 $0.9$ exact-order recovery threshold below the full window budget ($0.2\%$
 at $n=5$, rising only to $56.6\%$ at $n=30$), Bailian/Qwen similarly does
-not cross $0.9$ before the $n=40$ ceiling ($64.0\%$ at $n=30$), while Azure-2024
+not cross $0.9$ before $n=40$ ($64.0\%$ at $n=30$), while Azure-2024
 crosses the threshold already at $n=30$ ($98.8\%$). None of the three
 sources reaches $0.9$ exact-order recovery at $n \in \{5,10,20\}$. Because
 $n=40$ is the size of the full reference pool itself, exact recovery at
@@ -1383,8 +1396,8 @@ and Bailian/Qwen both exceed $0.9$ top-1 recovery already at $n=5$
 these two sources, identifying the single best policy requires far less
 evidence than reconstructing the complete 11-policy ordering. BurstGPT
 shows no such gap: its top-1 recovery is comparably slow to its
-exact-order recovery ($13.0\%$ at $n=5$, $74.2\%$ at $n=30$), remaining below
-$0.9$ until the trivial $n=40$ ceiling -- consistent with
+exact-order recovery ($13.0\%$ at $n=5$, $74.2\%$ at $n=30$, not reaching
+$0.9$ within the tested ladder either) -- consistent with
 \S\ref{sec:cross-source-rankings}'s finding that BurstGPT is the source
 whose relative ordering is hardest to pin down. Comparing a concentrated
 (single-source-heavy) against a distributed (evenly-spread-across-sources)
@@ -1397,17 +1410,16 @@ reliably than concentrating it in one source.
 \begin{table}[h]
 \centering
 \caption{Smallest $n$ at which PRIMARY-metric recovery probability first
-exceeds $0.9$ ($n \in \{5,10,20,30,40\}$). Recovery at $n=40$ is 1.0 by
-construction as the entire 40-window reference pool is sampled without
-replacement.}
+exceeds $0.9$ (blank = not reached within the tested ladder,
+$n \in \{5,10,20,30,40\}$).}
 \label{tab:rq4-first-n}
 \begin{tabular}{lcc}
 \toprule
 Source & first $n$, exact-order $\geq 0.9$ & first $n$, top-1 $\geq 0.9$ \\
 \midrule
 Azure-2024    & 30 & 5 \\
-Bailian/Qwen  & 40 (not reached below 40) & 5 \\
-BurstGPT      & 40 (not reached below 40) & 40 (not reached below 40) \\
+Bailian/Qwen  & 40 & 5 \\
+BurstGPT      & 40 (not reached below 40) & not reached \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1425,7 +1437,9 @@ threshold is marked. Computed from the frozen sample complexity artifact.}
 This analysis directly answers RQ5 (\S\ref{sec:rq}) and depends on the full
 Pilot-V2 outcome matrix (\S\ref{sec:results}); it is not run on Stage-0's
 historical, smaller pilot (\S\ref{sec:stage0}).
+% ===== end sample_complexity.tex =====
 
+% ===== begin real_system.tex =====
 \section{Real-System Validation}
 \label{sec:real-system}
 
@@ -1494,7 +1508,9 @@ between the Azure and Bailian/Qwen conditions, which it does (both favor
 The simulator-predicted Azure/BurstGPT reversal did not reproduce: \texttt{vllm\_faithful} won both conditions on real hardware, so the predicted sign flip between Azure and BurstGPT was not observed. BurstGPT's real winner matches the simulator's selection; Azure's does not -- the physical Azure comparison changed from a simulated \texttt{slai\_faithful} advantage to a small but statistically supported \texttt{vllm\_faithful} advantage. In contrast, the Azure/Bailian-Qwen stable-control comparison retained a consistent \texttt{vllm\_faithful}-favoring ordering across both real-system conditions (effect magnitudes $-0.0235$ and $-0.0256$), reproducing the qualitative stability that comparison was selected to test, independent of which specific policy wins.
 
 This selected-case result is informative in both directions: the comparative-stability relationship the control was designed to probe transferred to physical execution, while an individual simulator-derived sign prediction did not. Read together with \S\ref{sec:results}--\S\ref{sec:results-slo}, this is additional, complementary physical evidence for this benchmark's central claim -- that comparative scheduler conclusions are conditional and should not be assumed portable -- rather than a standalone validation of the simulator in general, or of either scheduler's absolute merit (\S\ref{sec:threats}).
+% ===== end real_system.tex =====
 
+% ===== begin discussion.tex =====
 \section{Discussion}
 \label{sec:discussion}
 
@@ -1679,7 +1695,9 @@ design can be dropped into the same panel and evaluated against the same
 frozen windows, operating regions, and metric contract, using the public
 artifact (\S\ref{sec:artifact}) rather than re-deriving the protocol
 from this manuscript's prose.
+% ===== end discussion.tex =====
 
+% ===== begin limitations.tex =====
 \section{Threats to Validity}
 \label{sec:threats}
 
@@ -1815,7 +1833,9 @@ statistical inference is drawn (\S\ref{sec:real-system-design}). This
 result should not be read as a comprehensive validation of simulator
 fidelity, of every scheduler in the panel, or of every workload/region
 combination in \S\ref{sec:results}.
+% ===== end limitations.tex =====
 
+% ===== begin artifact.tex =====
 \section{Reproducibility and the LSSP Artifact}
 \label{sec:artifact}
 
@@ -1914,7 +1934,9 @@ Phase-11 region assignment & deterministic region-assignment map & \texttt{9fcb9
 \bottomrule
 \end{tabular}
 \end{table}
+% ===== end artifact.tex =====
 
+% ===== begin conclusion.tex =====
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -1968,16 +1990,16 @@ those conditions explicitly rather than being read as general. LSSP is
 released as a public, independently reproducible artifact
 (\S\ref{sec:artifact}), covering all six research questions, including
 the selected physical-system validation (RQ6).
+% ===== end conclusion.tex =====
 
+% ===== begin declarations.tex =====
 \section*{Declarations}
 
 \paragraph{Funding.}
-This work was supported in part by the Google Cloud Research Credits
-Program, which provided cloud credits used to support software development
-for this study; the CloudRift AI Builder Grant and the Cohere Labs Catalyst
-Grant Program, which provided cloud-computing and API credits; and the AMD AI
-Developer Program, which provided Fireworks AI credits used to support software
-development.
+This work was supported in part by the CloudRift AI Builder Grant and the
+Cohere Labs Catalyst Grant Program, which provided cloud-computing and API
+credits, and by the AMD AI Developer Program, which provided Fireworks AI
+credits used to support software development for this study.
 
 \paragraph{Acknowledgements.} The author gratefully acknowledges Professor
 Ioannis Koutis for his research guidance, continued support, and provision
@@ -2049,6 +2071,7 @@ analysis pipeline underlying this study are publicly available at
 \url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark},
 with an immutable archived snapshot via Zenodo, DOI
 \href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
+% ===== end declarations.tex =====
 
 
 \bibliography{references}

@@ -1,8 +1,8 @@
 {
   "manifest_kind": "rq4_sample_complexity_table",
-  "generated_at": "2026-09-02T23:58:32.232016+00:00",
+  "generated_at": "2026-09-04T16:36:46.821285+00:00",
   "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
-  "generation_script_git_sha": "e3391beed22fae2e346c4af9cbf499352751f1b0",
+  "generation_script_git_sha": "452e7cc758d00e32e94afffbf5d48f90cdb11520",
   "source_artifact_hashes": {
     "ranking_correlations.json": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff",
     "topk_overlap.json": "585e916acfb32cb02a8f99cdce65a882c5dee7acc6cbdfbad2e86716d0001b37",

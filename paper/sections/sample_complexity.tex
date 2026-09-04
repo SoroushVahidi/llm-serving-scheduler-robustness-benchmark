@@ -28,7 +28,7 @@ slow and strongly source-dependent (Figure~\ref{fig:sample-complexity},
 Table~\ref{tab:rq4-first-n}): BurstGPT never reaches the preregistered
 $0.9$ exact-order recovery threshold below the full window budget ($0.2\%$
 at $n=5$, rising only to $56.6\%$ at $n=30$), Bailian/Qwen similarly does
-not cross $0.9$ before $n=40$ ($64.0\%$ at $n=30$), while Azure-2024
+not cross $0.9$ before the $n=40$ ceiling ($64.0\%$ at $n=30$), while Azure-2024
 crosses the threshold already at $n=30$ ($98.8\%$). None of the three
 sources reaches $0.9$ exact-order recovery at $n \in \{5,10,20\}$. Because
 $n=40$ is the size of the full reference pool itself, exact recovery at
@@ -46,8 +46,8 @@ and Bailian/Qwen both exceed $0.9$ top-1 recovery already at $n=5$
 these two sources, identifying the single best policy requires far less
 evidence than reconstructing the complete 11-policy ordering. BurstGPT
 shows no such gap: its top-1 recovery is comparably slow to its
-exact-order recovery ($13.0\%$ at $n=5$, $74.2\%$ at $n=30$, not reaching
-$0.9$ within the tested ladder either) -- consistent with
+exact-order recovery ($13.0\%$ at $n=5$, $74.2\%$ at $n=30$), remaining below
+$0.9$ until the trivial $n=40$ ceiling -- consistent with
 \S\ref{sec:cross-source-rankings}'s finding that BurstGPT is the source
 whose relative ordering is hardest to pin down. Comparing a concentrated
 (single-source-heavy) against a distributed (evenly-spread-across-sources)
@@ -60,16 +60,17 @@ reliably than concentrating it in one source.
 \begin{table}[h]
 \centering
 \caption{Smallest $n$ at which PRIMARY-metric recovery probability first
-exceeds $0.9$ (blank = not reached within the tested ladder,
-$n \in \{5,10,20,30,40\}$).}
+exceeds $0.9$ ($n \in \{5,10,20,30,40\}$). Recovery at $n=40$ is 1.0 by
+construction as the entire 40-window reference pool is sampled without
+replacement.}
 \label{tab:rq4-first-n}
 \begin{tabular}{lcc}
 \toprule
 Source & first $n$, exact-order $\geq 0.9$ & first $n$, top-1 $\geq 0.9$ \\
 \midrule
 Azure-2024    & 30 & 5 \\
-Bailian/Qwen  & 40 & 5 \\
-BurstGPT      & 40 (not reached below 40) & not reached \\
+Bailian/Qwen  & 40 (not reached below 40) & 5 \\
+BurstGPT      & 40 (not reached below 40) & 40 (not reached below 40) \\
 \bottomrule
 \end{tabular}
 \end{table}
