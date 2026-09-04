@@ -25,24 +25,20 @@
 \abstract{Large language model (LLM) serving systems are typically compared on one
 workload, operating region, and metric. We present the LLM-Serving Scheduler
 Portability Benchmark (LSSP), a preregistered evaluation of scheduling
-policies across three independently sourced workloads and six calibrated
-operating regions ($9{,}360$ unique configurations executed in duplicate). On
-this primary, frozen analysis, rankings agree strongly between two of three
-sources (Kendall's $\tau$ up to $1.0$) but are less portable when the third
-is involved (as low as $0.55$), with $3.6\%$ of pairwise comparisons
-($36/990$) showing statistically supported reversals -- a simulated-benchmark
-result concentrated entirely in one policy pair (\texttt{slai\_faithful} vs.\
-\texttt{vllm\_faithful}) with BurstGPT on one side of every case. A
-post-campaign extension shows portability is even more sensitive to the
-evaluation metric: median rank correlation across metrics is only moderate
-($\tau_b=0.419$), and the top policy agrees between metrics in only $31.9\%$
-of conditions. Rankings are more stable, though not invariant, under
-alternative service-level-objective definitions. A selected physical-vLLM
-validation retained the qualitative ordering of the simulator's
-stable-comparison control but did not reproduce its predicted reversal,
-exposing a simulator-fidelity limitation for that selected case rather
-than a general estimate of reversal prevalence on real hardware. Scheduler comparisons should be read as conditional on the
-workload, region, and metric that produced them.}
+policies across three independently released workload sources and six
+calibrated operating regions ($9{,}360$ unique configurations, each
+executed twice). Cross-source rank agreement is strong
+between two sources (Kendall's $\tau_b$ up to $1.0$) but lower when the
+third, BurstGPT, is involved (as low as $0.55$); $3.6\%$ of pairwise
+comparisons ($36/990$) show statistically supported reversals, all
+concentrated in a single policy pair with BurstGPT on one side. A
+post-campaign analysis finds portability across evaluation metrics more
+limited: moderate median rank correlation ($\tau_b=0.419$) and
+low top-policy agreement ($31.9\%$). A selected physical-hardware
+validation did not reproduce a simulator-predicted reversal, while a
+stable-control comparison retained its qualitative ordering.
+Scheduler comparisons should be read as conditional on the workload,
+region, and metric that produced them.}
 
 \maketitle
 

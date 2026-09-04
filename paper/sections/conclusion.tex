@@ -17,31 +17,32 @@ rather than uniform: two of the three sources agree almost perfectly with
 each other, while the third is measurably and consistently less portable
 against either, and this gap holds at every operating region tested
 (\S\ref{sec:results}). A small ($3.6\%$) but non-zero share of pairwise
-comparisons are practically and statistically supported reversals,
-concentrated at and above the pre-knee operating region rather than spread
-evenly across the load curve (\S\ref{sec:reversals}). Exact-order recovery
+comparisons are practically and statistically supported reversals; all
+$36$ involve the same policy pair, with BurstGPT on one side in every
+case, concentrated at and above the pre-knee operating region rather than
+spread evenly across the load curve (\S\ref{sec:reversals}). Exact-order recovery
 of the full-corpus ranking requires most or all of the 40-window budget
 for two of three sources, while identifying only the single best policy is
 achievable from far fewer windows for those same two sources
 (\S\ref{sec:sample-complexity}).
 
-Portability is not only source- and region-dependent: which
-\emph{evaluation metric} is used changes the comparative ranking in a
-non-trivial share of conditions (median Kendall's $\tau_b = 0.419$ across
-metric pairs, top-1 agreement in only $31.9\%$ of conditions), a substantially
-larger effect than any source-pair disagreement observed under a single
-fixed metric (\S\ref{sec:results-cross-metric}). Ranking robustness to
-alternative SLO-definition conventions is comparatively high but still
-imperfect (median $\tau_b = 0.872$; the top-ranked policy changes in
-$13/30$ conditions), so a headline reversal can persist under one
-reasonable SLO definition while not persisting under another
+Two post-campaign extensions probe portability further. Across
+evaluation metrics, which metric is used changes the comparative ranking
+in a non-trivial share of conditions (median Kendall's $\tau_b = 0.419$,
+top-1 agreement in only $31.9\%$ of conditions) -- a substantially larger
+effect than any source-pair disagreement observed under a single fixed
+metric (\S\ref{sec:results-cross-metric}). Across alternative
+SLO-synthesis conventions, ranking robustness is comparatively high but
+still imperfect, so a headline reversal can persist under one reasonable
+SLO definition while not persisting under another
 (\S\ref{sec:results-slo}). We report only a pilot-scale, engineering
 validation of the synthetic-to-real transfer pipeline for RQ3, not a
 transfer conclusion (\S\ref{sec:results-rq3-pilot}). A selected physical
 vLLM/GPU validation (RQ6) of this benchmark's largest identified reversal
 did not reproduce that reversal, while a paired stable-control comparison
-retained the same qualitative ordering on real hardware
-(\S\ref{sec:real-system}).
+retained the same qualitative ordering on real hardware -- a selected-case
+simulator-fidelity limitation, not a general estimate of hardware
+reversal prevalence (\S\ref{sec:real-system}).
 
 Ranking portability, in this benchmark, is therefore neither universal nor
 uniformly fragile: it is real, but conditional on the workload source,
@@ -49,5 +50,7 @@ operating region, evaluation metric, and SLO definition under which a
 comparison was established, and a scheduler-selection claim should state
 those conditions explicitly rather than being read as general. LSSP is
 released as a public, independently reproducible artifact
-(\S\ref{sec:artifact}), covering all six research questions, including
-the selected physical-system validation (RQ6).
+(\S\ref{sec:artifact}) spanning all six research questions at their
+differing levels of completeness -- from the frozen primary analysis
+through the pilot-scale RQ3 result and the selected RQ6 physical
+validation -- so that each can be independently verified and extended.

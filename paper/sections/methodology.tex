@@ -141,7 +141,7 @@ Because the denominator is the sum over all \emph{arrivals} rather than completi
 only conditional on at least one request completing: SLO-violation rate,
 weighted goodput, mean/p95/p99 latency, and request/token throughput are
 each \texttt{NaN} if and only if completion fraction is exactly zero for
-that cell. Mean/p95 time-to-first-token is subject to a stricter,
+that cell. Mean/p95 time-to-first-token (TTFT) is subject to a stricter,
 separately checked precondition (at least one completed request recorded a
 first-token time), because TTFT can be undefined even when completion
 fraction is positive. No undefined conditional-metric value is ever imputed
@@ -215,7 +215,7 @@ test's two-sided bootstrap sign-test $p$-value -- the intersection-union
 combination $\max(p_x, p_y)$ of the two compared conditions' sign-test
 $p$-values, read off the same resamples that back the ordinary CI rule
 below -- is additionally checked against a Benjamini--Hochberg
-false-discovery-rate correction at $q = 0.05$, applied per family, where a
+false-discovery-rate (FDR) correction at $q = 0.05$, applied per family, where a
 family is all pairwise policy comparisons within a single (metric,
 load-region) combination. This produces a separate, multiplicity-corrected
 \texttt{supported\_after\_fdr} flag on every record. In the frozen
@@ -230,7 +230,16 @@ A numerical sign change in a point estimate is not, by itself, a meaningful
 scheduler reversal from a systems standpoint: two policies can swap
 point-estimate order by a magnitude far smaller than the benchmark's own
 measurement noise, in which case treating it as a reversal would overstate
-what the benchmark actually supports. Every pairwise (policy A, policy B)
+what the benchmark actually supports. The 10\% winning-margin threshold
+used throughout this test was fixed prospectively, before any Pilot-V2
+reversal was observed, by reusing this project's own earlier Stage-0
+discriminability criterion (\texttt{\_relative\_range\_qualifies},
+\S\ref{sec:stage0}) rather than adopting a threshold chosen after seeing
+these results or asserted as a domain-standard cutoff; it is an
+operational convention for separating materially sized ordering changes
+from microscopic sign changes, not a claim that 10\% is a universal
+practical-significance threshold for LLM serving, and every count labeled
+``practical'' in this manuscript is conditional on it. Every pairwise (policy A, policy B)
 comparison at a given (source, region, metric) condition is therefore
 classified into exactly one of five preregistered classes, combining the
 practical-margin test with the \emph{ordinary} (not FDR-adjusted) 95\%

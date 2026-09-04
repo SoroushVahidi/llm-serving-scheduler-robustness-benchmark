@@ -11,9 +11,10 @@ individual decoding steps rather than whole requests
 \citep{yu2022orca}. vLLM introduced PagedAttention, a paged
 virtual-memory-style KV-cache allocator that substantially raised achievable
 batch sizes and became a widely adopted serving-system reference point
-\citep{kwon2023vllm}. Sarathi-Serve introduced chunked prefill, splitting
-long prefill computations across multiple decode-interleaved steps to reduce
-head-of-line blocking under continuous batching \citep{agrawal2024sarathi}.
+\citep{kwon2023vllm}. Sarathi-Serve introduces a stall-free batching
+schedule that interleaves chunked-prefill computation with ongoing decode
+steps to reduce head-of-line blocking under continuous batching
+\citep{agrawal2024sarathi}.
 Splitwise and DistServe independently proposed disaggregating the
 compute-bound prefill phase and the memory-bound decode phase onto separate
 hardware pools connected by fast interconnects, each showing throughput or
