@@ -1,0 +1,82 @@
+\section*{Declarations}
+
+\paragraph{Funding.}
+This work was supported in part by the Google Cloud Research Credits
+Program, which provided cloud credits used to support software development
+for this study; the CloudRift AI Builder Grant and the Cohere Labs Catalyst
+Grant Program, which provided cloud-computing and API credits; and the AMD AI
+Developer Program, which provided Fireworks AI credits used to support software
+development.
+
+\paragraph{Acknowledgements.} The author gratefully acknowledges Professor
+Ioannis Koutis for his research guidance, continued support, and provision
+of computational resources that facilitated this work. Computational
+resources for this work were provided by Wulver, the high-performance
+computing cluster managed by Academic and Research Computing Systems
+(ARCS) in the Department of Information Services and Technology (IST) at
+the New Jersey Institute of Technology.
+
+\paragraph{Competing interests.} The author declares no competing
+interests.
+
+\paragraph{Generative AI statement.} During the preparation of this work,
+the author used ChatGPT and Codex (OpenAI), Claude (Anthropic), Gemini
+(Google), Cursor, and Perplexity AI to assist with software development,
+debugging, experimental infrastructure, literature and research support,
+and manuscript drafting and editing. All AI-assisted outputs, including
+code, analyses, references, and manuscript text, were reviewed, verified,
+and revised by the author, who takes full responsibility for the content
+of the work.
+
+\paragraph{Author contributions.} This is a sole-authored manuscript;
+Soroush Vahidi is responsible for study design, implementation, analysis,
+and writing.
+
+\paragraph{Ethics approval.} Not applicable. This study evaluates
+scheduling-policy performance on request-level traffic traces (arrival
+times, token counts) and does not involve human subjects, personal data,
+or content requiring ethics review.
+
+\paragraph{Consent for publication.} Not applicable. This manuscript
+contains no identifiable individual data, case reports, or images
+requiring participant consent.
+
+\paragraph{Materials availability.} Not applicable. This study produces
+no physical or biological materials; all study outputs are software and
+data, covered under Code availability and Data availability below.
+
+\paragraph{Data availability.} This study distinguishes four categories of
+data, consistent with \S\ref{sec:artifact}. \textbf{Externally sourced
+public traces} (BurstGPT, Azure 2024, Bailian/Qwen) are governed by their
+original publishers' release terms and license status
+(\S\ref{sec:provenance}; BurstGPT: CC-BY-4.0) and are not redistributed as
+part of this project's release; readers should obtain them from their
+original sources. \textbf{Derived benchmark manifests} (the frozen window
+identities, provenance, and content hashes, \S\ref{sec:windows}),
+\textbf{canonical campaign analysis outputs} (the per-RQ table data and
+ranking-portability statistics, reversal tables, and block-bootstrap
+confidence intervals derived from the campaign across windows, regions,
+and metrics, \S\ref{sec:results}, sufficient to independently verify every
+number reported in this manuscript), and \textbf{reproduction scripts} are
+publicly available at the Hugging Face dataset repository
+\url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability},
+with frozen manifests and code additionally available at the GitHub
+repository
+\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}.
+An immutable snapshot of the code repository at the version reported here
+is archived with a persistent identifier via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
+The Hugging Face release is an initial, dataset-card-scoped publication
+(\S\ref{sec:artifact}); it does \emph{not} include the exploded per-cell
+campaign matrix (all $18{,}720$ individual executions and their per-cell
+mechanism telemetry) or the raw $240$ per-cell RQ6 physical-execution
+records, both of which are candidates for a future dataset revision and
+are, in the meantime, represented only by the canonical analysis outputs
+and reduced RQ6 result described above -- not by the raw records
+themselves.
+
+\paragraph{Code availability.} The simulator, policy implementations, and
+analysis pipeline underlying this study are publicly available at
+\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark},
+with an immutable archived snapshot via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
