@@ -32,19 +32,19 @@ colocated PRIMARY leaderboard, and one candidate
 of this freeze.
 
 A policy enters the PRIMARY panel only if, at the time it was added to the
-comparability audit (frozen the day before Stage 0 executed), it satisfies
-an outcome-independent selection rule: its mechanism predates this
-protocol's freeze, it occupies a mechanism family not already saturated by
-an existing panel member, it has adequate implementation fidelity and
-passes its own unit tests, it is simulator-semantically compatible with the
-single-GPU colocated execution model, and it is independently reproducible
-from a cited reference. No policy was added to or removed from the panel in
-response to any Stage-0 outcome (\S\ref{sec:stage0}); the panel document
-predates Stage-0 execution by a full day, and mechanism families identified
-as under-implemented (preemptive/multilevel scheduling in the FastServe
+comparability audit (frozen a full day before the discriminability pilot
+of \S\ref{sec:stage0} executed), it satisfies an outcome-independent
+selection rule: its mechanism predates this protocol's freeze, it
+occupies a mechanism family not already saturated by an existing panel
+member, it has adequate implementation fidelity and passes its own unit
+tests, it is simulator-semantically compatible with the single-GPU
+colocated execution model, and it is independently reproducible from a
+cited reference. No policy was added to or removed from the panel in
+response to the pilot's outcome, and mechanism families it identified as
+under-implemented (preemptive/multilevel scheduling in the FastServe
 sense, JITServe, LMetric) were deliberately left as documented future-work
-candidates rather than fast-tracked into the panel after seeing Stage-0's
-BurstGPT collapse.
+candidates rather than fast-tracked into the panel after seeing the
+pilot's BurstGPT collapse.
 
 \subsection{Fidelity Taxonomy}
 \label{sec:fidelity}
@@ -74,18 +74,19 @@ permits the paired design of \S\ref{sec:unit}: two policies' outcomes on
 the same window and region differ only because of the policy's own
 scheduling decisions, not because of independent sampling noise.
 
-\subsection{Stage-0 Discriminability Pilot (Historical)}
+\subsection{Discriminability Pilot (Historical)}
 \label{sec:stage0}
 
-Before the Pilot-V2 protocol described in the remainder of this section was
-frozen, a preregistered discriminability pilot (``Stage 0'') executed a
-real, 1,080-cell matrix (three sources, three load regions, a six-policy
-PRIMARY subset) to check, before committing to the full protocol, that the
-panel would yield non-trivial scheduler differentiation under a fixed load
-protocol without post-hoc cherry-picking. \textbf{This
-is historical pilot evidence, not the confirmatory Pilot-V2 result}, and it
-never measured cross-source ranking portability -- that question was and
-remains explicitly out of Stage-0's scope. Stage 0's own five-criterion
+Before the benchmark protocol described in the remainder of this section
+was frozen, a preregistered discriminability pilot (internally labeled
+Stage 0) executed a real, 1,080-cell matrix (three sources, three load
+regions, a six-policy PRIMARY subset) to check, before committing to the
+full protocol, that the panel would yield non-trivial scheduler
+differentiation under a fixed load protocol without post-hoc
+cherry-picking. \textbf{This is historical pilot evidence, not the
+confirmatory benchmark-campaign result}, and it never measured
+cross-source ranking portability -- that question was and remains
+explicitly out of the pilot's scope. Its own five-criterion
 discriminability analyzer returned four passing criteria (77.8\% of
 (source, window, load-region) triples non-tied, 86.7\% of windows
 non-tied, no universal policy collapse, and 100\% of non-tied cells showing
@@ -93,16 +94,16 @@ meaningful metric variation) and one genuine failure: BurstGPT contributed
 only 14.3\% of non-tied conditions, against a 15\% floor, versus
 $\sim$42.9\% each for the other two sources -- a failing criterion, robust
 to the completion-conditioned-metric zero-completion convention used, that
-was reported at the time as a preregistered no-go on the Stage-0 panel. A
+was reported at the time as a preregistered no-go on the pilot panel. A
 follow-up diagnostic traced this to a
 mechanism-level explanation: differentiation was strongly source-dependent,
-attributable to a near-total collapse of five of the six Stage-0 policies
+attributable to a near-total collapse of five of the six pilot policies
 into pairwise bit-identical outcomes on BurstGPT's structurally
 short-prompt, near-constant-output traffic -- not to BurstGPT receiving
 weaker or fewer calibrated load conditions than the other sources. This
-motivated the Pilot-V2 protocol's larger, mechanism-diverse 13-policy panel
-and denser six-region load grid (\S\ref{sec:calibration}), applied
-symmetrically to every source, never to BurstGPT alone. Detailed Stage-0
+motivated the benchmark protocol's larger, mechanism-diverse 13-policy
+panel and denser six-region load grid (\S\ref{sec:calibration}), applied
+symmetrically to every source, never to BurstGPT alone. Detailed pilot
 mechanism analysis is reported in the reproducibility artifact
 (\S\ref{sec:artifact}) rather than in the main text; it is not restated
 here as a ranking-portability finding.
@@ -123,8 +124,8 @@ performance. As a calibration characteristic worth preserving, 301 of the
 720 calibration-region records (93 BurstGPT, 101 Bailian/Qwen, 107 Azure)
 recorded zero completions under FIFO at that region's load factor; this is
 a property of the calibration design at those specific (window, region)
-combinations, the frozen calibration validity gate passed regardless
-(\texttt{PHASE11\_CALIBRATION\_VALID = YES}), completion-conditioned metrics
+combinations, the frozen calibration nonetheless passed its validity
+check, completion-conditioned metrics
 are simply undefined (not zero) in those records
 (\S\ref{sec:metrics}), and no calibration redesign was performed after
 observing this count.
@@ -206,9 +207,9 @@ therefore the unit that must be resampled.
 Two further checks calibrate how the pairwise reversal statistics reported
 in \S\ref{sec:reversals} are interpreted, and it is important not to
 conflate them. Although a Friedman rank-sum omnibus test was originally
-specified in the protocol to test for global differences, it was not
-materialized in the canonical artifacts; we disclose this as an
-implementation gap and proceed directly to the pairwise tests below.
+specified in the protocol to test for global differences, it was never
+implemented; we disclose this as a protocol gap and proceed directly to
+the pairwise tests below.
 Separately, because the panel and the (source, region, metric) grid
 together generate many pairwise comparisons, every pairwise reversal
 test's two-sided bootstrap sign-test $p$-value -- the intersection-union
@@ -219,7 +220,7 @@ false-discovery-rate (FDR) correction at $q = 0.05$, applied per family, where a
 family is all pairwise policy comparisons within a single (metric,
 load-region) combination. This produces a separate, multiplicity-corrected
 \texttt{supported\_after\_fdr} flag on every record. In the frozen
-Pilot-V2 artifact, all $36$ records that the five-class taxonomy below
+benchmark artifact, all $36$ records that the five-class taxonomy below
 independently classifies as \texttt{SUPPORTED\_PRACTICAL\_REVERSAL} also
 satisfy \texttt{supported\_after\_fdr} -- the FDR check removes no headline
 reversal in this dataset -- but the two criteria are computed
@@ -231,9 +232,9 @@ scheduler reversal from a systems standpoint: two policies can swap
 point-estimate order by a magnitude far smaller than the benchmark's own
 measurement noise, in which case treating it as a reversal would overstate
 what the benchmark actually supports. The 10\% winning-margin threshold
-used throughout this test was fixed prospectively, before any Pilot-V2
-reversal was observed, by reusing this project's own earlier Stage-0
-discriminability criterion (\texttt{\_relative\_range\_qualifies},
+used throughout this test was fixed prospectively, before any
+reversal was observed, by reusing this project's own earlier
+discriminability-pilot criterion (\texttt{\_relative\_range\_qualifies},
 \S\ref{sec:stage0}) rather than adopting a threshold chosen after seeing
 these results or asserted as a domain-standard cutoff; it is an
 operational convention for separating materially sized ordering changes
@@ -281,18 +282,17 @@ not an input the classification itself depends on:
     alongside it, never omitted as a residual category. Every record in
     this class additionally satisfies the separate FDR-corrected
     \texttt{supported\_after\_fdr} check described above in the frozen
-    Pilot-V2 artifact.
+    benchmark artifact.
 \end{description}
 
 These five classes are mutually exclusive and exhaustive by construction:
-\texttt{classify\_pairwise\_reversal} in the sealed analysis code evaluates
+\texttt{classify\_pairwise\_reversal} in the frozen analysis code evaluates
 undefined-value, sign-change, margin, and confidence-interval conditions as
 a strict if/elif/else chain with an unconditional final branch, so every
 possible (policy A, policy B, condition) input reaches exactly one class,
 including the asymmetric-margin and single-sided-wide-CI cases described
-above. This was re-audited against the code during manuscript
-reconciliation; no already-computed reversal record is at risk of being
-silently dropped or misclassified by a gap in this taxonomy.
+above; no already-computed reversal record is at risk of being silently
+dropped or misclassified by a gap in this taxonomy.
 
 \subsection{Temporal Analysis Design}
 \label{sec:temporal-design}
@@ -331,12 +331,10 @@ pre-specified to be checked against a fixed set of robustness analyses: the
 window-size sensitivity, an alternate completion-conditioned-metric
 convention, the full six-region load grid, a temporal-split sensitivity
 check (\S\ref{sec:temporal-design}'s BurstGPT bisect), and
-mechanism-family-exclusion checks. These robustness analyses are part of
-the frozen protocol; results for the six actually executed and
-materialized by the sealed analysis code are reported in
-\S\ref{sec:results-robustness} (one, \texttt{METRIC\_DEFINITION\_SENSITIVITY},
-has no implementing code in the sealed launcher despite its status record
-and is noted there as a disclosed open item).
+mechanism-family-exclusion checks. Six of these seven were implemented and
+are reported in \S\ref{sec:results-robustness}; the seventh,
+\texttt{METRIC\_DEFINITION\_SENSITIVITY}, was never implemented and is
+disclosed there as an open item rather than a result.
 
 \subsection{SLO-Definition Sensitivity: A Disclosed Protocol Gap}
 \label{sec:slo-sensitivity-gap}
@@ -347,10 +345,10 @@ confirm that any headline reversal is not an artifact of the one
 synthesis choice used to fabricate \texttt{slo\_deadline} where a source
 does not natively carry it (\S\ref{sec:provenance}) -- was planned as part
 of this protocol, but no alternative SLO-synthesis rule was ever actually
-frozen before or during Pilot-V2 execution. We disclose this as a matter
+frozen before or during the benchmark campaign. We disclose this as a matter
 of methodological discipline rather than as a result: this robustness
 component is \emph{not} claimed as preregistered evidence anywhere in
 this manuscript. It was instead run afterward as an explicitly labeled
-post-campaign extension, with its own freeze and manifest process, after
-Pilot-V2's headline results were already known; its results are reported
+post-campaign extension, with its own frozen protocol, after
+the campaign's headline results were already known; its results are reported
 in \S\ref{sec:results-slo} and \S\ref{sec:threats}.

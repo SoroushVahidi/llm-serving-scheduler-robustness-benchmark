@@ -6,11 +6,8 @@
 real serving engine (\S\ref{sec:execution-model}). We do not claim that
 simulated absolute latency or throughput values match real-hardware
 values; only relative ranking and reversal direction were tested for
-transfer, and only for the frozen validation cases in
-\S\ref{sec:real-system}. That test found transfer for the selected
-stable-control comparison but not for the selected reversal case --
-evidence that transfer is case-dependent, not a general property of the
-simulator.
+transfer, on a small set of selected cases whose scope and outcome are
+detailed below (``Scope of real-system validation'').
 
 \paragraph{Fidelity of reimplemented policies.} \texttt{FAITHFUL\_EXTERNAL}
 policies are validated reimplementations, not the original authors' code;
@@ -23,7 +20,7 @@ panel and used only for a robustness check; they must not be read as
 official or validated reimplementations of their namesake systems
 (\S\ref{sec:fidelity}).
 
-\paragraph{Three primary workload families.} The Pilot-V2 corpus draws from
+\paragraph{Three primary workload families.} The benchmark corpus draws from
 three primary sources (\S\ref{sec:sources}); a fourth candidate source
 (TraceLab) is retained only as out-of-distribution context because its
 independence from a prior public window sweep cannot be fully verified.
@@ -31,7 +28,7 @@ Any portability finding in \S\ref{sec:results} is scoped to these three
 sources plus whatever out-of-distribution evidence TraceLab can
 responsibly contribute, not to LLM-serving workloads in general.
 
-\paragraph{Window-size sensitivity.} The Pilot-V2 corpus fixes window size
+\paragraph{Window-size sensitivity.} The benchmark corpus fixes window size
 at 200 requests throughout (\S\ref{sec:window-size}); how the reported
 results would change under a different requests-per-window choice has not
 been swept and is an open item, distinct from the frozen
@@ -71,23 +68,19 @@ the PRIMARY panel; two disaggregation-requiring policies are confined to a
 secondary stratum and never pooled with the PRIMARY leaderboard
 (\S\ref{sec:panel}).
 
-\paragraph{Completion-conditioned undefined metrics.} Several metrics are
-undefined, not zero, when a cell records zero completions
-(\S\ref{sec:metrics}); this is a real methodological choice with a
-real cost -- an undefined-metric policy is excluded from that specific
-condition's ranking-derived statistics, which lowers effective sample size
-for those conditions and must be read alongside every ranking-derived
-table's reported exclusion count.
-
-\paragraph{Phase-11 zero-completion prevalence.} 301 of 720 FIFO-only
-calibration-region records recorded zero completions
-(\S\ref{sec:calibration}). This is disclosed as a calibration
-characteristic, not a headline finding; it does, however, mean that a
-non-trivial share of (window, region) combinations will contribute no
-completion-conditioned-metric observation to \S\ref{sec:results}'s
-downstream analyses for any policy at that specific region, which is a
-structural constraint on statistical power in the highest-pressure regions
-in particular.
+\paragraph{Zero completions and undefined completion-conditioned
+metrics.} Several metrics (\S\ref{sec:metrics}) are undefined, not zero,
+for any cell recording zero completions -- a real methodological choice
+with a real cost: an undefined-metric policy is excluded from that
+specific condition's ranking-derived statistics, lowering effective
+sample size, and must be read alongside every ranking-derived table's
+reported exclusion count. This is not a rare edge case: 301 of 720
+FIFO-only calibration-region records (\S\ref{sec:calibration}) recorded
+zero completions, so a non-trivial share of (window, region) combinations
+contribute no completion-conditioned observation to \S\ref{sec:results}'s
+downstream analyses at that region for any policy -- a structural
+constraint on statistical power, particularly in the highest-pressure
+regions.
 
 \paragraph{Fixed thresholds are conventions, not universal standards.} The
 $10\%$ practical-margin (\S\ref{sec:uncertainty}) and $0.9$ recovery-probability
@@ -99,47 +92,36 @@ convention adopted, and a different reasonable choice could shift these
 counts without changing the underlying effect estimates.
 
 \paragraph{Cross-metric disagreement bounds any single-metric ranking
-claim.} \S\ref{sec:results-cross-metric} finds that a policy ranking under
-one tracked outcome metric is, at median, only moderately correlated with
-the ranking the same conditions produce under a different tracked metric
-($\tau_b = 0.419$; $20\%$ of conditions negative), and the two metrics'
-top-ranked policy agrees in only $31.9\%$ of conditions (disagreeing in the
-majority, $68.1\%$). This is a scope
-statement, not an analysis defect: the study's tracked metrics (ANWG,
-completion fraction, latency percentiles, SLO-violation rate, throughput)
-capture genuinely different deployment objectives, and no single one of
-them is privileged as ``the'' correct measure of scheduler quality beyond
-this study's own choice of ANWG as the PRIMARY headline metric
-(\S\ref{sec:metrics}). Consequently, no ranking-portability claim in
-\S\ref{sec:results} should be read as a claim about scheduler comparisons
-in general; it is a claim about comparisons under the specific metric (or
-metrics) stated. The metric set evaluated here, while broader than a
-single-metric study, is not exhaustive of every metric a practitioner might
-care about, and cross-metric disagreement should itself be read as a
-substantive finding about this benchmark's object of study, not as noise to
-be averaged away.
+claim.} \S\ref{sec:results-cross-metric}'s only-moderate cross-metric rank
+correlation and low top-policy agreement are a scope statement, not an
+analysis defect: the study's tracked metrics (ANWG, completion fraction,
+latency percentiles, SLO-violation rate, throughput) capture genuinely
+different deployment objectives, and no single one of them is privileged
+as ``the'' correct measure of scheduler quality beyond this study's own
+choice of ANWG as the PRIMARY headline metric (\S\ref{sec:metrics}).
+Consequently, no ranking-portability claim in \S\ref{sec:results} should
+be read as a claim about scheduler comparisons in general; it is a claim
+about comparisons under the specific metric (or metrics) stated. The
+metric set evaluated here, while broader than a single-metric study, is
+not exhaustive of every metric a practitioner might care about, and
+cross-metric disagreement should itself be read as a substantive finding,
+not as noise to be averaged away.
 
 \paragraph{SLO-definition sensitivity was a post-campaign extension, not
 preregistered evidence.} An SLO-synthesis sensitivity check was planned but
-never actually preregistered before or during Pilot-V2 execution
+never actually preregistered before or during the benchmark campaign
 (\S\ref{sec:slo-sensitivity-gap}); it was instead run afterward as an
-explicitly labeled post-campaign extension with its own frozen protocol,
-after headline results were already known (\S\ref{sec:results-slo}). That
-check found $20$ of $72$ ($28\%$) non-trivial post-campaign
-SLO-sensitivity comparisons sensitive to the SLO-definition choice (the
-artifact's persistence matrix has $108$ total mathematical comparisons,
-but $36$ of those are trivial self-comparisons against the primary
-definition and are excluded from this denominator; $6$ direction changes, $10$ falling below the
-practical-margin threshold, $4$ becoming statistically indistinguishable
-from zero) and the single top-ranked policy changing in $13/30$ ($43\%$)
-of ranking-robustness conditions -- a genuine, disclosed sensitivity, not a
-contradiction of any headline reversal, but a caveat that should temper
-confidence in the most SLO-definition-dependent individual comparisons.
+explicitly labeled post-campaign extension, after headline results were
+already known (\S\ref{sec:results-slo}). \S\ref{sec:results-slo}'s
+non-trivial minority of SLO-sensitive reversals is a genuine, disclosed
+sensitivity, not a contradiction of any headline reversal, but a caveat
+that should temper confidence in the most SLO-definition-dependent
+individual comparisons.
 
 \paragraph{Scope of real-system validation.} \S\ref{sec:real-system}'s
 validation is limited by design to a small, frozen set of case-selected
 conditions (largest-effect-size reversal plus one stable-ordering control),
-not a full re-execution of the Pilot-V2 matrix on real hardware; agreement
+not a full re-execution of the primary outcome matrix on real hardware; agreement
 or disagreement on those specific cases should not be over-generalized to
 every cell in \S\ref{sec:results}. Concretely, the physical evaluation
 covers only $2$ of the panel's $13$ policies (\texttt{slai\_faithful} and

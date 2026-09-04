@@ -4,17 +4,19 @@
 \subsection{Sources}
 \label{sec:sources}
 
-LSSP's primary Pilot-V2 corpus draws from three independently released
+LSSP's primary benchmark corpus draws from three independently released
 workload sources: BurstGPT \citep{burstgpt2025}, Microsoft's official Azure
 2024 LLM-inference trace \citep{azure2024trace,stojkovic2025dynamollm}, and
 Alibaba Cloud's Bailian/Qwen anonymized usage-trace
 release \citep{bailianqwen2026}. Azure's 2023 conversation/code traces
-\citep{patel2024splitwise} and Stage-0's historical windows contribute
-additional context but are not part of the primary Pilot-V2 120-window
-matrix beyond the 10-per-source Stage-0-reused windows described below.
-TraceLab \citep{tracelab2026} is retained as an out-of-distribution,
-coding-agent workload family for future expansion, not as one of the three
-primary sources, because its independence from a prior 512-window public sweep cannot be fully verified from public artifacts alone, as detailed in the project's provenance records.
+\citep{patel2024splitwise} and windows from an earlier discriminability
+pilot (\S\ref{sec:stage0}) contribute additional context but are not part
+of the primary 120-window matrix beyond the 10-per-source pilot windows
+reused as described below. TraceLab \citep{tracelab2026} is retained as an
+out-of-distribution, coding-agent workload family for future expansion,
+not as one of the three primary sources, because its independence from a
+prior 512-window public sweep cannot be fully verified from public
+artifacts alone.
 
 As established in \S\ref{sec:related-position}, BurstGPT's own reported
 collection methodology logs traffic from a regional customer of Microsoft's
@@ -40,23 +42,23 @@ or failure-code field, and none is synthesized). License status for each source 
 \subsection{Window Construction}
 \label{sec:windows}
 
-The Pilot-V2 corpus freezes exactly 120 windows of 200 requests each: 40
+The benchmark corpus freezes exactly 120 windows of 200 requests each: 40
 per source (\texttt{azure\_llm\_2024}, \texttt{bailian\_qwen},
 \texttt{burstgpt}), each composed of 10 windows reused verbatim from the
-Stage-0 pilot (\S\ref{sec:stage0}) plus 30 new windows drawn by a
+discriminability pilot (\S\ref{sec:stage0}) plus 30 new windows drawn by a
 deterministic, outcome-blind, source-symmetric pinned-extension sampler
 that uses only valid-row index ranges and fixed seeds -- never scheduler
-metrics, policy identities, or Stage-0 tie/non-tie outcomes (verified by
-structural audit to contain no BurstGPT-outcome-targeting signal). Windows
-are assigned to EARLY/MIDDLE/LATE chronology strata by deterministic
-relative chronology (60/30/30 windows respectively); Stage-0-reused windows
-are all EARLY. The freeze passed a full structural validation gate --
-unique window identities, exact per-source and Stage-0/new counts, fixed
-\texttt{request\_count = 200}, no prohibited overlap, valid chronology, and
-absence of any scheduler/policy/load-calibration outcome field in the
-selection rule -- recorded with a canonical content hash (excluding
-generation timestamp; full value in Table~\ref{tab:hashes}) before any
-Pilot-V2 load calibration or scheduler outcome was generated.
+metrics, policy identities, or the pilot's tie/non-tie outcomes (verified
+by structural audit to contain no BurstGPT-outcome-targeting signal).
+Windows are assigned to EARLY/MIDDLE/LATE chronology strata by
+deterministic relative chronology (60/30/30 windows respectively); the
+reused pilot windows are all EARLY. The freeze was independently
+validated -- unique window identities, exact per-source and reused/new
+counts, fixed \texttt{request\_count = 200}, no prohibited overlap, valid
+chronology, and absence of any scheduler/policy/load-calibration outcome
+field in the selection rule -- and recorded with a canonical content hash
+(excluding generation timestamp; full value in Table~\ref{tab:hashes})
+before any load calibration or scheduler outcome was generated.
 
 \subsection{Descriptors}
 \label{sec:descriptors}
@@ -86,7 +88,7 @@ from each of \emph{four} source classes -- \texttt{azure\_llm\_2024},
 (\S\ref{sec:sources}) -- for $n=400$ windows total. TraceLab is included
 here only as a fourth descriptor class to stress-test the classifier
 against a maximally distinct, out-of-distribution workload family; it is
-not one of the three primary Pilot-V2 ranking-portability sources and
+not one of the three primary ranking-portability sources and
 contributes no windows to the 120-window corpus used in
 \S\ref{sec:results}--\S\ref{sec:results-slo}. Under a leave-one-time-bucket-out (EARLY/MIDDLE/LATE), grouped,
 chronologically blocked cross-validation over these $n=400$ windows, a
@@ -148,8 +150,8 @@ most $-0.0025$.
 \subsection{Window-Size Sensitivity}
 \label{sec:window-size}
 
-The Pilot-V2 corpus uses a fixed window size of 200 requests throughout,
-matching Stage-0 and the LLM~2026 comparison window size for
+The benchmark corpus uses a fixed window size of 200 requests throughout,
+matching the discriminability pilot and the LLM~2026 comparison window size for
 methodological consistency. A dedicated window-size sensitivity sweep --
 varying the number of requests per window and re-checking
 separability/discriminability, distinct from the frozen

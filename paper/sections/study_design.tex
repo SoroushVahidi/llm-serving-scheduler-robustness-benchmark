@@ -46,33 +46,28 @@ window as the statistical unit (\S\ref{sec:unit}). This design was frozen
 \subsection{Evidence Independence / Publication Boundaries}
 \label{sec:evidence-boundaries}
 
-This project shares a lineage and a simulator codebase with two other,
-separately scoped manuscripts, and its design was explicitly audited for overlap against both under the project's evidence-independence plan before the protocol was frozen:
+This project shares a lineage and a simulator codebase with a related
+manuscript that could otherwise appear to overlap in evidence, and its
+design was explicitly checked against it for overlap before the protocol
+was frozen:
 
 \begin{itemize}
   \item \textbf{``The Exploitability Gap in LLM-Serving Scheduler
-    Portfolios'' (LLM 2026).} That manuscript's
-    \texttt{public\_replay\_load\_scaling\_v1/v2} experiment used a fixed set
-    of 60 canonical public-trace windows (20 BurstGPT + 20 Azure-2023
-    conversation + 20 Azure-2023 code), a load-factor grid
-    $\{1,2,4,8,16,32,64,128\}$, an 8-policy portfolio, and ANWG/SBS-VBS
-    exploitability diagnostics. That result is treated here strictly as
-    prior motivation, citable but never restated as this project's own
-    evidence. This project's own window
-    sampling is independently constructed (\S\ref{sec:windows}) and
-    verified non-identical to that 60-window set; load-level dependence is
-    accordingly demoted to a secondary analysis (\S\ref{sec:rq}) using this
-    project's own calibration protocol (\S\ref{sec:calibration}), never that
-    load grid.
-  \item \textbf{``Module Counterfactuals for Attributing LLM Serving
-    Scheduler Effects'' (a separate module-intervention manuscript).} This
-    study makes no module-counterfactual or module-attribution claim; RQ4's
-    workload-descriptor analysis (\S\ref{sec:methodology}) is an offline,
-    descriptive association analysis, not a deployed selector or an
-    intervention-based attribution method.
-  \item Other project lineage (an unrelated database/systems research
-    thread) is unconnected to this manuscript's content and is not
-    referenced here.
+    Portfolios'' (LLM 2026).} That manuscript's own experiment used a
+    fixed 60-window subset of public BurstGPT and Azure-2023 traces, a
+    different load-factor grid, and an 8-policy portfolio; it is cited
+    here strictly as prior motivation and never restated as this
+    project's own evidence. This project's window sampling
+    (\S\ref{sec:windows}) was independently constructed and verified
+    non-identical to that 60-window set, and its load-level dependence
+    analysis (\S\ref{sec:rq}) uses this project's own calibration
+    protocol (\S\ref{sec:calibration}), never that load grid.
+  \item \textbf{A separate module-intervention manuscript (``Module
+    Counterfactuals for Attributing LLM Serving Scheduler Effects'').}
+    This study makes no module-counterfactual or module-attribution
+    claim; RQ4's workload-descriptor analysis (\S\ref{sec:methodology})
+    is an offline, descriptive association analysis, not a deployed
+    selector or an intervention-based attribution method.
 \end{itemize}
 
 \subsection{Experimental Unit and Paired Design}
@@ -92,12 +87,14 @@ policy identity is the object whose relative ordering is measured.
 \subsection{Preregistration}
 \label{sec:prereg}
 
-The workload window set (120 windows: 40 per source, 10 Stage-0-reused +
-30 Pilot-V2-new per source; \S\ref{sec:windows}), the scheduler panel and
+The workload window set (120 windows: 40 per source, 10 reused from the
+earlier discriminability pilot plus 30 newly sampled per source;
+\S\ref{sec:windows}), the scheduler panel and
 its selection rule (\S\ref{sec:panel}), the metric contract
 (\S\ref{sec:metrics}), the six-region operating-load calibration
 (\S\ref{sec:calibration}), and the ranking-portability analysis plan
 (reversal-detection thresholds, bootstrap procedure, sample-complexity
-design) were each frozen, and cross-checked against a structural validation
-gate, before any Pilot-V2 comparative scheduler outcome was generated.
-The exact frozen content and the corresponding gate checks are recorded in the project's protocol and freeze specifications.
+design) were each frozen, and structurally validated, before any
+comparative scheduler outcome was generated. The exact frozen content is
+recorded in the public artifact's protocol documentation
+(\S\ref{sec:artifact}).

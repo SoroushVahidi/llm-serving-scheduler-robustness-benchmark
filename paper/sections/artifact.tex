@@ -7,7 +7,7 @@ repository -- \url{https://github.com/SoroushVahidi/llm-serving-scheduler-robust
 pipeline, validation scripts, the reproduction workflow, figure/table
 generation code (including
 \texttt{paper/scripts/generate\_phase12\_tables\_figures.py}), the manuscript
-source, and the frozen Phase-10/11/12 provenance manifests. The Hugging
+source, and the frozen provenance manifests for every campaign stage. The Hugging
 Face dataset -- \url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}
 -- carries a companion, analysis-ready subset: the canonical
 ranking-portability analysis outputs, the manuscript's per-RQ table data,
@@ -33,12 +33,11 @@ physical-execution records (\S\ref{sec:real-system}), for which the
 reduced result already published on Hugging Face carries every value
 needed to independently verify the reported RQ6 claims.
 
-The Pilot-V2 comparative outcome (\S\ref{sec:results}) was generated from,
+The primary comparative outcome (\S\ref{sec:results}) was generated from,
 and structurally validated against, the full paired policy-outcome matrix
 across windows, regions, and metrics (\S\ref{sec:results}) -- including
 the per-cell mechanism telemetry (\S\ref{sec:telemetry}) -- prior to any
-scientific interpretation (six canonical analysis artifacts, hash ledger
-below, \S\ref{sec:artifact-hashes}). Consistent with the scoping above,
+scientific interpretation (\S\ref{sec:artifact-hashes}). Consistent with the scoping above,
 what is publicly released is not that exploded per-cell matrix itself, but
 everything needed to independently verify every number reported from it:
 the frozen workload window identities and their provenance
@@ -53,40 +52,33 @@ itself is not separately used to support any finding in this manuscript
 (\S\ref{sec:telemetry}) and is not duplicated in the current public
 release for the same reason as the exploded matrix it is part of.
 
-\subsection{Phase-12 Analysis Identities}
+\subsection{Analysis Provenance}
 \label{sec:artifact-hashes}
 
-As established in \S\ref{sec:results}, the Pilot-V2 statistical analysis
-(six canonical output artifacts, each independently structurally audited
-before this manuscript's Results and Sample Complexity sections were
-populated) was executed from sealed analysis code against the admitted,
-independently re-validated consolidated matrix of $9{,}360$ unique configurations. The full
-audit record and per-artifact ledger are committed on the public GitHub
-repository rather than reproduced in full in the main text.
+The primary statistical analysis was executed once, deterministically,
+against the frozen $9{,}360$-configuration matrix, and was independently
+structurally validated before any number in \S\ref{sec:results} or
+\S\ref{sec:sample-complexity} was populated. The full validation record is
+committed to the public GitHub repository rather than reproduced in the
+main text.
 
-Every generated artifact carries, or links via a provenance manifest, its
-generating repository commit SHA,
-resolved experiment-config hash, workload-manifest hash, policy-registry
-version, dataset-source checksums, environment version, and (where
-relevant) per-cell seed, so that any released row can be regenerated from
-this project's own commit history alone rather than depending on an
-external, possibly-rewritten historical commit.
-
-The immutable scientific identifiers already fixed at the time of this
-manuscript are recorded in Table~\ref{tab:hashes} and in
-\texttt{docs/ARTIFACT\_HASH\_LEDGER.md}. These five identifiers were
-independently re-verified as unchanged, and consistent across every
-cross-referencing project document, immediately before this manuscript's
-authoritative branch was committed (\S\ref{sec:conclusion}).
+Every generated artifact carries, or links to, sufficient provenance --
+the generating commit identity, configuration and workload-manifest
+hashes, and per-cell seed where relevant -- that any released row can be
+regenerated from this project's own commit history alone. Table~\ref{tab:hashes}
+records five scientific-freeze identifiers fixed before any scheduler
+outcome was generated; each was independently re-verified as unchanged
+immediately before this manuscript's release (full SHA-256 values in the
+public repository's \texttt{docs/ARTIFACT\_HASH\_LEDGER.md}).
 
 \begin{table}[t]
 \centering
-\caption{Immutable scientific-freeze identifiers fixed before any Pilot-V2
-scheduler outcome was generated. Hashes are abbreviated to the first 12
-hexadecimal characters here; full SHA-256 values are recorded in
-\texttt{docs/ARTIFACT\_HASH\_LEDGER.md} and, where independently
-re-verifiable from the released repository state, were re-derived from the
-cited artifact for this table (four of five; the prelaunch-freeze contract
+\caption{Scientific-freeze identifiers fixed before any scheduler outcome
+was generated. Hashes are abbreviated to the first 12 hexadecimal
+characters here; full SHA-256 values are recorded in the public
+repository's \texttt{docs/ARTIFACT\_HASH\_LEDGER.md} and, where independently re-verifiable
+from the released repository state, were re-derived from the cited
+artifact for this table (four of five; the calibration prelaunch-freeze
 hash is a previously frozen aggregate over multiple sub-artifacts and is
 reported as recorded).}
 \label{tab:hashes}
@@ -94,11 +86,11 @@ reported as recorded).}
 \toprule
 Artifact & Scientific role & SHA-256 (abbrev.) \\
 \midrule
-Phase-10 window freeze & authoritative 120-window freeze identity & \texttt{0d1aa06ccbee\ldots} \\
-Phase-10 compact index & compact freeze index & \texttt{d78ec1087fed\ldots} \\
-Phase-11 prelaunch freeze & pre-execution calibration contract & \texttt{e2564ea94841\ldots} \\
-Phase-11 raw FIFO calibration & raw calibration matrix & \texttt{201caaf04476\ldots} \\
-Phase-11 region assignment & deterministic region-assignment map & \texttt{9fcb92f9ea12\ldots} \\
+Window-corpus freeze & authoritative 120-window freeze identity & \texttt{0d1aa06ccbee\ldots} \\
+Window-corpus compact index & compact freeze index & \texttt{d78ec1087fed\ldots} \\
+Calibration prelaunch freeze & pre-execution calibration contract & \texttt{e2564ea94841\ldots} \\
+FIFO calibration matrix & raw calibration matrix & \texttt{201caaf04476\ldots} \\
+Region-assignment map & deterministic region-assignment map & \texttt{9fcb92f9ea12\ldots} \\
 \bottomrule
 \end{tabular}
 \end{table}
