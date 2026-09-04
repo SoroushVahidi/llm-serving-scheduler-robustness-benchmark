@@ -52,7 +52,15 @@ under heterogeneous per-request SLOs
 tuning with a single lightweight scheduling score, Apt-Serve schedules
 over an adaptive hybrid KV-cache/hidden-state representation, and ProServe
 unifies multi-priority request scheduling across engine- and service-layer
-components \citep{lmetric2026,aptserve2025,proserve2025}. Each of these
+components \citep{lmetric2026,aptserve2025,proserve2025}. Furthermore, very
+recent 2026 systems continue to explore novel scheduling paradigms:
+\citet{li2026beyond} targets P99 tail latency using UniBoost---a prediction-free
+interpolation between first-come-first-served and shortest-job-first---coupled
+with MemGuard cache-aware preemption; \citet{liu2026hmas} addresses workload
+non-stationarity and multi-tenant quality-of-service drift through
+hierarchical multi-agent scheduling; and \citet{wang2026smetric} optimizes the
+fundamental load-balancing versus cache-locality trade-off for multi-step
+agentic workloads using session-centric routing. Each of these
 papers reports an improvement over one or more baselines on
 the workload(s) chosen for its own experiments; none of them, individually
 or collectively, asks whether the \emph{relative ordering} they report would
@@ -103,15 +111,22 @@ different hardware/software co-simulation infrastructure, adding
 iteration-granularity simulation with algorithmic-redundancy reuse and,
 in the 2.0 revision, explicit support for heterogeneous accelerators and
 disaggregated serving techniques \citep{llmservingsim2024,llmservingsim2_2025}.
-These simulators are built to let researchers explore serving-system design
-points cheaply; none of them is built around, or reports, a benchmark of
-\emph{comparative scheduler ranking portability} across independently
-sourced workloads in the sense this paper defines. LSSP's own simulator
-(\S\ref{sec:methodology}) is project-local infrastructure, not a
-contribution positioned against this literature; we make no claim that its
-output is equivalent to production hardware latency or throughput, only
-that it supports a fixed, controlled benchmark protocol for relative
-comparisons (\S\ref{sec:methodology}).
+Two recent 2026 benchmarking frameworks expand this domain: CCL-Bench 1.0
+\citep{ding2026cclbench} introduces a diagnostic, trace-based evaluation
+of LLM training and serving infrastructure to record fine-grained execution
+evidence of kernels and communication events, while XPerf \citep{wang2026xperf}
+benchmarks serving systems under agentic workloads by employing fine-grained
+trace replay and full-stack profiling to handle agentic nondeterminism.
+These simulators and benchmarking frameworks are built to let researchers
+explore serving-system design points cheaply or load-test systems under
+agentic dependencies; none of them is built around, or reports, a systematic
+benchmark of \emph{comparative scheduler ranking portability} across
+independently sourced workloads, operating regions, and metrics in the sense
+this paper defines. LSSP's own simulator (\S\ref{sec:methodology}) is
+project-local infrastructure, not a contribution positioned against this
+literature; we make no claim that its output is equivalent to production
+hardware latency or throughput, only that it supports a fixed, controlled
+benchmark protocol for relative comparisons (\S\ref{sec:methodology}).
 
 \subsection{Workload Dependence and Benchmark Sensitivity}
 \label{sec:related-dependence}

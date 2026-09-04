@@ -38,7 +38,13 @@ themselves heterogeneous and shift across source, time, and operating
 region.
 
 What has not been directly asked is a second-order question that follows
-from combining these two observations. The typical evaluation question in
+from combining these two observations. While new scheduler papers
+appropriately establish policy effectiveness or superiority under specific
+workload traces and targeted objectives, and separate workload characterization
+studies show that production traffic is highly heterogeneous and evolving,
+the transferability of these comparative scheduler conclusions across contexts is
+not automatic. LSSP is designed to directly measure this transferability.
+The typical evaluation question in
 this literature is: \emph{how well does scheduler $A$ perform, relative to
 scheduler $B$, on the workload(s) chosen for this paper's experiments?} Given
 that workloads are heterogeneous, and that a paper's experiments necessarily
