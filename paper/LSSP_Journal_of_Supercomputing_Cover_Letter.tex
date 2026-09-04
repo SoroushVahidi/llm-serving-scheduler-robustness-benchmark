@@ -1,0 +1,58 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper, margin=0.85in]{geometry}
+\usepackage{hyperref}
+\usepackage{parskip} % For clean paragraph spacing without indentation
+\usepackage{times}    % Standard professional font
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=black
+}
+
+\pagestyle{empty} % No header or footer, no page numbers
+
+\begin{document}
+
+\begin{flushleft}
+September 4, 2026
+\end{flushleft}
+
+\vspace{0.2cm}
+
+\begin{flushleft}
+To the Editorial Board,\\
+\textit{The Journal of Supercomputing},\\
+Springer Nature
+\end{flushleft}
+
+\vspace{0.2cm}
+
+Dear Editor,
+
+I am submitting our manuscript, titled ``How Portable Are LLM-Serving Scheduler Rankings Across Workloads, Operating Regions, and Metrics?'', for publication as an original research article in \textit{The Journal of Supercomputing}. Large language model (LLM) serving systems have emerged as critical, highly complex, and GPU-resident computing infrastructures whose scheduling decisions govern how requests share costly accelerator memory and batching resources. While scheduling policies are typically evaluated and compared under a single selected workload, load level, or metric, it is not generally known whether their relative rankings remain portable when these evaluation conditions shift. To address this fundamental question, we present the LLM-Serving Scheduler Portability Benchmark (LSSP) to measure this ranking portability across independent evaluation contexts.
+
+Rather than proposing another individual scheduling policy, LSSP treats comparative ranking portability itself as the benchmark object to establish rigorous evaluation standards. Under a preregistered paired evaluation protocol, we execute 13 diverse scheduling policies (including an 11-policy primary panel of established systems like vLLM, Sarathi, and SLAI) across three independently released production workload sources (Microsoft Azure 2024, BurstGPT, and Alibaba Bailian/Qwen) and six calibrated operating regions. Utilizing the individual workload window as the inferential unit over a corpus of 120 windows, the benchmark evaluates 9,360 unique simulator configurations, with each configuration executed across two deterministic verification passes to ensure absolute reproducibility.
+
+The campaign yields key findings of immediate interest to the systems performance evaluation and supercomputing communities: (1) cross-source rank correlation is positive but strongly source-pair dependent, with Kendall's rank agreement ranging between 0.55 and 1.00; (2) only 3.6\% of all pairwise comparisons (36 of 990) are practically and statistically supported rank reversals, concentrating in a single policy pair under high load; (3) portability is significantly lower across different evaluation metrics (such as tail latency, throughput, and arrival-normalized weighted goodput) than across workload sources; and (4) a selected physical GPU validation on real hardware (vLLM on an NVIDIA A100 GPU) did not reproduce a simulator-predicted reversal, exposing a case-specific simulator-to-hardware fidelity boundary.
+
+These findings provide empirical boundaries on when scheduler comparisons are robust and when they are conditional on workload source, operating region, metric, or service-level objective definition. This work aligns directly with the core scope of \textit{The Journal of Supercomputing}, specifically in its focus on systems performance evaluation, parallel and GPU-resident scheduling, resource management, and reproducible systems benchmarking.
+
+To support verification and extension, our research artifact is publicly available. This includes the simulator, raw configuration manifests, analysis pipelines, and verification scripts via GitHub (\href{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}{GitHub}), with companion analysis-ready dataset snapshots on Hugging Face (\href{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}{Hugging Face}) and Zenodo (\href{https://doi.org/10.5281/zenodo.22306798}{Zenodo}).
+
+Thank you for considering this manuscript. I appreciate the opportunity to have the work evaluated for publication in \textit{The Journal of Supercomputing}.
+
+\vspace{0.4cm}
+
+Sincerely,
+
+\vspace{0.4cm}
+
+Soroush Vahidi\\
+Department of Computer Science\\
+Ying Wu College of Computing\\
+New Jersey Institute of Technology\\
+Newark, New Jersey, USA\\
+\href{mailto:sv96@njit.edu}{sv96@njit.edu}
+
+\end{document}
