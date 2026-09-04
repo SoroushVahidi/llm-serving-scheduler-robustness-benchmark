@@ -27,13 +27,14 @@ authoritative reference for "which manuscript state does this dataset
 match" is the **exact commit SHA and, once cut, the GitHub release
 tag** the dataset card is republished alongside at actual publication
 time — not a mutable branch name, which can move. As of this draft, the
-paper's active manuscript branch is `manuscript/lssp-jsc-reviewer-informed-polish-20260903`.
+paper's active manuscript branch is `manuscript/lssp-jsc-final-post-rq6-polish-20260904`.
 RQ1–RQ5, the cross-metric extension, and the SLO-definition-sensitivity
 extension in the paper are computed directly from `analysis/canonical/`
 and `analysis/extensions/` in this dataset (see "Cross-metric and
 SLO-definition sensitivity extensions" below). **RQ6 (real-vLLM
-validation) has no scientific data in this release yet** — see "RQ6
-status" below.
+validation) is now complete** — see "RQ6 status" below and
+`docs/RQ6_PUBLIC_RESULT_PROVENANCE.md` in the code repository for the
+full result and computational provenance.
 
 ## Dataset structure
 
@@ -121,7 +122,7 @@ was checked as part of provenance repair.
 | RQ3 | Synthetic-stress → real-trace ranking transfer | **Pilot only** — see "RQ3 pilot boundary" below |
 | RQ4 | Workload descriptors associated with reversals | `analysis/canonical/` (telemetry-conditioned explanation) |
 | RQ5 | Sample complexity (how many windows needed) | `analysis/canonical/` (sample-complexity) |
-| RQ6 | Simulated rankings/reversals vs. a real serving engine | **No scientific data in this release** — see "RQ6 status" below |
+| RQ6 | Simulated rankings/reversals vs. a real serving engine | **Complete** (result: `docs/RQ6_PUBLIC_RESULT_PROVENANCE.md`); raw per-cell rows not yet bundled in a tagged dataset revision — see "RQ6 status" below |
 | — | Cross-metric ranking portability (post-campaign extension, not a numbered RQ) | `analysis/extensions/cross_metric/` |
 | — | SLO-definition sensitivity (post-campaign extension, not a numbered RQ) | `analysis/extensions/slo_sensitivity/` |
 
@@ -144,13 +145,24 @@ retroactively relabeling the pilot data.
 ## RQ6 status
 
 The 120-task real-vLLM calibration campaign (a *prerequisite* for RQ6,
-not the RQ6 result itself) is complete (120/120 terminal states: 43 converged, 77 lower-bound already violating).
-However, the actual scientific ranking-agreement validation runs against
-the two frozen cases have not started, and no data from them exists in
-this dataset. **This dataset ships zero RQ6 scientific rows.** If and
-when RQ6 validation completes, its output will be added in a
-subsequent, explicitly versioned dataset release (see "Versioning"
-below) — never silently backfilled into an existing release's files.
+not the RQ6 result itself) is complete (120/120 terminal states: 43
+converged, 77 lower-bound already violating). The RQ6 scientific
+ranking-agreement validation itself is now also complete: Slurm array job
+`1222413` (240/240 cells, 2 policies x 3 sources x 40 windows/source)
+completed, was independently validated (identity, completeness, schema,
+provenance; 0 missing/duplicate/corrupt), and was analyzed with the
+frozen `robustbench.real_llm.rq6_validation_analysis` implementation. The
+result — the Azure/BurstGPT simulator-predicted reversal did not
+reproduce; the Azure/Bailian-Qwen stable control did — is reported in the
+manuscript's Real-System Validation section and in
+`docs/RQ6_PUBLIC_RESULT_PROVENANCE.md` in the code repository (full
+provenance: execution SHA, manifest hashes, analysis settings, complete
+result JSON), independent of this dataset. **The 240 raw per-cell RQ6
+outputs are not yet bundled into a tagged dataset revision here** — as
+originally planned, they are a candidate for a separately tagged revision
+(e.g. `v1.1`) rather than a silent addition to an existing release's
+files (see "Versioning" below); that inclusion decision is made at actual
+publication time, not by this draft.
 
 ## Fields / schema
 
@@ -192,8 +204,10 @@ finalized at publication, consistent with the code repository's LICENSE].
 
 ## Limitations
 
-- RQ6 (real-vLLM scheduler validation) has **no scientific data** in this
-  release — engineering/fidelity validation only, disclosed separately.
+- RQ6 (real-vLLM scheduler validation) is complete and its result/provenance
+  is documented (`docs/RQ6_PUBLIC_RESULT_PROVENANCE.md`), but its 240 raw
+  per-cell outputs are **not yet bundled as rows in this dataset release** —
+  see "RQ6 status" above.
 - `METRIC_DEFINITION_SENSITIVITY` and `SLO_DEFINITION_SENSITIVITY`
   robustness families have no implementing artifact; disclosed as a gap,
   not populated with an invented result.
@@ -226,8 +240,8 @@ real deployment.
   windows, descriptors, and outcomes for the specific policy panel and
   protocol described here.
 - **Not** confirmatory synthetic-to-real transfer evidence for RQ3 (pilot
-  only — see above) or real-vLLM validation evidence for RQ6 (none yet —
-  see above).
+  only — see above). RQ6 real-vLLM validation evidence exists (see "RQ6
+  status" above) but its raw rows are not part of this dataset release.
 
 ## Versioning
 

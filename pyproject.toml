@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "robustbench"
-version = "0.0.1"
+version = "1.0.0"
 description = "Cross-workload / OOD robustness benchmark for LLM-serving scheduler evaluations"
 requires-python = ">=3.10"
 dependencies = [

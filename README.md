@@ -58,8 +58,8 @@ In addition to RQ1-RQ6, the benchmark extends its core portability question to e
 | RQ1–RQ5 & sensitivity axes | Complete, interpreted, populated in the manuscript |
 | RQ6 case selection | Complete, frozen |
 | RQ6 real-vLLM scientific execution | **Complete** — 240/240 cells (Slurm job `1222413`), all validated, exit `0:0` |
-| RQ6 statistical analysis | **Complete** — reversal not reproduced, stable control reproduced (see manuscript §Real-System Validation) |
-| Manuscript | RQ6 integrated; pending final publication/release gate |
+| RQ6 statistical analysis | **Complete** — reversal not reproduced, stable control reproduced (see manuscript §Real-System Validation and `docs/RQ6_PUBLIC_RESULT_PROVENANCE.md`) |
+| Manuscript | RQ6 integrated; build verified (38 pages, 0 undefined refs/citations); publication/release gate in progress |
 
 Nothing above is provisional language left over from an earlier draft —
 every "complete" here is backed by a hash-identified, independently
@@ -142,4 +142,6 @@ See `CITATION.cff`.
 
 `docs/README.md` — current guides vs. scientific freeze records vs.
 internal engineering notes, organized so you don't have to guess which
-`docs/*.md` file is still authoritative.
+`docs/*.md` file is still authoritative. `docs/RQ6_PUBLIC_RESULT_PROVENANCE.md`
+carries the full completed-RQ6 result and computational provenance
+independently of the private cluster it was executed on.
