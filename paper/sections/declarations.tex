@@ -53,11 +53,12 @@ original publishers' release terms and license status
 part of this project's release; readers should obtain them from their
 original sources. \textbf{Derived benchmark manifests} (the frozen window
 identities, provenance, and content hashes, \S\ref{sec:windows}),
-\textbf{generated campaign results} (the paired policy outcome matrix
-across windows, regions, and metrics, \S\ref{sec:results}), and
-\textbf{analysis artifacts} (ranking-portability statistics, reversal
-tables, and reproduction scripts) are publicly available at the Hugging
-Face dataset repository
+\textbf{canonical campaign analysis outputs} (the per-RQ table data and
+ranking-portability statistics, reversal tables, and block-bootstrap
+confidence intervals derived from the campaign across windows, regions,
+and metrics, \S\ref{sec:results}, sufficient to independently verify every
+number reported in this manuscript), and \textbf{reproduction scripts} are
+publicly available at the Hugging Face dataset repository
 \url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability},
 with frozen manifests and code additionally available at the GitHub
 repository
@@ -66,12 +67,13 @@ An immutable snapshot of the code repository at the version reported here
 is archived with a persistent identifier via Zenodo, DOI
 \href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
 The Hugging Face release is an initial, dataset-card-scoped publication
-(\S\ref{sec:artifact}); it does not yet include the exploded per-cell
-campaign matrix or the raw per-cell RQ6 execution records, both of which
-are candidates for a future dataset revision, and both of which are
-represented in the current release by the canonical analysis outputs and
-reduced RQ6 result sufficient to verify every number reported in this
-manuscript.
+(\S\ref{sec:artifact}); it does \emph{not} include the exploded per-cell
+campaign matrix (all $18{,}720$ individual executions and their per-cell
+mechanism telemetry) or the raw $240$ per-cell RQ6 physical-execution
+records, both of which are candidates for a future dataset revision and
+are, in the meantime, represented only by the canonical analysis outputs
+and reduced RQ6 result described above -- not by the raw records
+themselves.
 
 \paragraph{Code availability.} The simulator, policy implementations, and
 analysis pipeline underlying this study are publicly available at

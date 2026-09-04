@@ -203,26 +203,41 @@ would understate uncertainty; the window is the unit that is actually
 drawn independently by \S\ref{sec:windows}'s sampling design, and it is
 therefore the unit that must be resampled.
 
-A multiple-testing correction calibrates the pairwise reversal statistics reported in
-\S\ref{sec:reversals}. Although a Friedman rank-sum omnibus test
-was originally specified in the protocol to test for global differences, it was not materialized in the
-canonical artifacts; we disclose this as an implementation gap and proceed directly
-to the pairwise tests. Because the panel
-and the (source, region, metric) grid together generate many pairwise
-comparisons, every pairwise reversal $p$-value is corrected across that
-condition's family using Benjamini--Hochberg false-discovery-rate control
-at $q = 0.05$ before a reversal is classified as statistically supported;
-an uncorrected pairwise $p$-value alone is never sufficient for the
-\texttt{SUPPORTED\_PRACTICAL\_REVERSAL} class defined below.
+Two further checks calibrate how the pairwise reversal statistics reported
+in \S\ref{sec:reversals} are interpreted, and it is important not to
+conflate them. Although a Friedman rank-sum omnibus test was originally
+specified in the protocol to test for global differences, it was not
+materialized in the canonical artifacts; we disclose this as an
+implementation gap and proceed directly to the pairwise tests below.
+Separately, because the panel and the (source, region, metric) grid
+together generate many pairwise comparisons, every pairwise reversal
+test's two-sided bootstrap sign-test $p$-value -- the intersection-union
+combination $\max(p_x, p_y)$ of the two compared conditions' sign-test
+$p$-values, read off the same resamples that back the ordinary CI rule
+below -- is additionally checked against a Benjamini--Hochberg
+false-discovery-rate correction at $q = 0.05$, applied per family, where a
+family is all pairwise policy comparisons within a single (metric,
+load-region) combination. This produces a separate, multiplicity-corrected
+\texttt{supported\_after\_fdr} flag on every record. In the frozen
+Pilot-V2 artifact, all $36$ records that the five-class taxonomy below
+independently classifies as \texttt{SUPPORTED\_PRACTICAL\_REVERSAL} also
+satisfy \texttt{supported\_after\_fdr} -- the FDR check removes no headline
+reversal in this dataset -- but the two criteria are computed
+independently from each other and are not guaranteed to coincide in
+general.
 
 A numerical sign change in a point estimate is not, by itself, a meaningful
 scheduler reversal from a systems standpoint: two policies can swap
 point-estimate order by a magnitude far smaller than the benchmark's own
 measurement noise, in which case treating it as a reversal would overstate
-what the benchmark actually supports. The multiple-testing procedure applies the Benjamini-Hochberg False Discovery Rate (FDR) control at $q=0.05$ to the two-sided bootstrap sign-test $p$-values. The FDR correction is applied per family, where a family is defined as all pairwise policy comparisons within a single (metric, load-region) combination. Every pairwise (policy A, policy B)
+what the benchmark actually supports. Every pairwise (policy A, policy B)
 comparison at a given (source, region, metric) condition is therefore
 classified into exactly one of five preregistered classes, combining the
-practical-margin test with the bootstrap/FDR-corrected statistical test:
+practical-margin test with the \emph{ordinary} (not FDR-adjusted) 95\%
+percentile bootstrap-CI test defined above; the
+FDR check described above is a separate, additional multiplicity
+safeguard applied on top of this classification for headline reporting,
+not an input the classification itself depends on:
 
 \begin{description}
   \item[\texttt{UNDEFINED\_UNESTIMABLE}] At least one of the two policies'
@@ -241,7 +256,8 @@ practical-margin test with the bootstrap/FDR-corrected statistical test:
   \item[\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}] The point-estimate
     order reverses and the winning margin exceeds 10\% of the losing
     policy's value in \emph{both} compared conditions, but the
-    FDR-corrected 95\% bootstrap interval for the difference fails to
+    \emph{ordinary} (not FDR-adjusted) 95\% bootstrap interval for the
+    difference fails to
     exclude zero in \emph{at least one} of the two conditions -- the
     apparent reversal is not statistically distinguishable from bootstrap
     noise, at the preregistered confidence level, in at least one of the
@@ -249,10 +265,14 @@ practical-margin test with the bootstrap/FDR-corrected statistical test:
   \item[\texttt{SUPPORTED\_PRACTICAL\_REVERSAL}] The point-estimate order
     reverses \emph{and} the winning margin exceeds 10\% of the losing
     policy's value in both compared conditions \emph{and} the
-    FDR-corrected 95\% bootstrap interval for the direction excludes zero
+    \emph{ordinary} (not FDR-adjusted) 95\% bootstrap interval for the
+    direction excludes zero
     in both conditions. Only this class is reported as a headline reversal
     in \S\ref{sec:reversals}; the other four classes are always reported
-    alongside it, never omitted as a residual category.
+    alongside it, never omitted as a residual category. Every record in
+    this class additionally satisfies the separate FDR-corrected
+    \texttt{supported\_after\_fdr} check described above in the frozen
+    Pilot-V2 artifact.
 \end{description}
 
 These five classes are mutually exclusive and exhaustive by construction:

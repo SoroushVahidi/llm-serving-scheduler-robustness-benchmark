@@ -241,13 +241,21 @@ $\tau_b = 0.419$, range $[-0.506, 1.000]$; $202/990$, $20\%$, of conditions
 have \emph{negative} $\tau_b$), and the single top-ranked policy agrees
 between the two metrics in only $316/990$ ($31.9\%$) of conditions
 (disagreeing in the remaining $68.1\%$). At the level of individual
-pairwise policy comparisons ($54{,}450$ total, one per (metric pair, condition, policy pair), generated from the 55 unique pairs among the 11 eligible tracked metrics: ANWG, completion fraction, weighted completion fraction, SLO-violation rate, weighted goodput, mean latency, p95 latency, request throughput, token throughput, mean TTFT, and p95 TTFT; p99 latency was ineligible and excluded), $3{,}244$ ($6.0\%$) show a statistically
-supported (bootstrap CI, BH-FDR-corrected) practical disagreement in which
+pairwise policy comparisons ($54{,}450$ total, one per (metric pair, condition, policy pair), generated from the 55 unique pairs among the 11 eligible tracked metrics: ANWG, completion fraction, weighted completion fraction, SLO-violation rate, weighted goodput, mean latency, p95 latency, request throughput, token throughput, mean TTFT, and p95 TTFT; p99 latency was ineligible and excluded), the same four-class taxonomy as \S\ref{sec:reversals} (ordinary, not
+FDR-adjusted, bootstrap-CI classification; \S\ref{sec:uncertainty}) finds $3{,}244$ ($6.0\%$) show a statistically
+supported practical disagreement in which
 policy is preferred depending on which metric is used, versus $45{,}800$
 ($84.1\%$) in the same order, $5{,}205$ ($9.6\%$) a sign change too small
 to be practically meaningful, and $201$ ($0.4\%$) an unsupported sign
 change with a wide confidence interval; no comparison in this policy panel
-was undefined or unestimable. Scheduler-ranking portability is
+was undefined or unestimable. Unlike \S\ref{sec:reversals}'s primary
+reversal check, the separate BH-FDR correction removes some of these
+cross-metric disagreements: of the $3{,}244$ raw-CI-supported records,
+$3{,}207$ ($98.9\%$) also survive the family-wise BH-FDR check, while
+$37$ ($1.1\%$) do not, meaning the multiplicity-corrected count of
+cross-metric disagreements is $3{,}207$ rather than $3{,}244$ -- a genuine,
+disclosed sensitivity to the multiplicity correction, not an error in
+either figure. Scheduler-ranking portability is
 therefore not only source- and region-dependent (\S\ref{sec:results});
 which metric is used to define ``better'' materially changes the ranking
 in a non-trivial minority of conditions, and the median condition shows no

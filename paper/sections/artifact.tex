@@ -33,19 +33,25 @@ physical-execution records (\S\ref{sec:real-system}), for which the
 reduced result already published on Hugging Face carries every value
 needed to independently verify the reported RQ6 claims.
 
-The Pilot-V2 comparative outcome (\S\ref{sec:results}) was generated and
-structurally validated (six canonical analysis artifacts, hash ledger
-below) prior to any scientific interpretation (\S\ref{sec:artifact-hashes});
-the release includes: the frozen workload window identities and their
-provenance (\S\ref{sec:windows}); the scheduler panel and its
-configuration (\S\ref{sec:panel}); the six-region calibration protocol and
-its outputs (\S\ref{sec:calibration}); the full set of paired policy
-outcomes across windows, regions, and metrics (\S\ref{sec:results}); the
-mechanism telemetry collected for every cell (\S\ref{sec:telemetry}); the
-ranking-portability analysis outputs (Kendall/Spearman statistics, reversal
-tables, block-bootstrap confidence intervals); and the reproduction
-scripts used to regenerate every table and figure in this manuscript from
-those frozen inputs.
+The Pilot-V2 comparative outcome (\S\ref{sec:results}) was generated from,
+and structurally validated against, the full paired policy-outcome matrix
+across windows, regions, and metrics (\S\ref{sec:results}) -- including
+the per-cell mechanism telemetry (\S\ref{sec:telemetry}) -- prior to any
+scientific interpretation (six canonical analysis artifacts, hash ledger
+below, \S\ref{sec:artifact-hashes}). Consistent with the scoping above,
+what is publicly released is not that exploded per-cell matrix itself, but
+everything needed to independently verify every number reported from it:
+the frozen workload window identities and their provenance
+(\S\ref{sec:windows}); the scheduler panel and its configuration
+(\S\ref{sec:panel}); the six-region calibration protocol and its outputs
+(\S\ref{sec:calibration}); the canonical, per-RQ ranking-portability
+analysis outputs derived from that matrix (Kendall/Spearman statistics,
+reversal tables, block-bootstrap confidence intervals); and the
+reproduction scripts used to regenerate every table and figure in this
+manuscript from those released, canonical inputs. The mechanism telemetry
+itself is not separately used to support any finding in this manuscript
+(\S\ref{sec:telemetry}) and is not duplicated in the current public
+release for the same reason as the exploded matrix it is part of.
 
 \subsection{Phase-12 Analysis Identities}
 \label{sec:artifact-hashes}
