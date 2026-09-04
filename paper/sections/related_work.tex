@@ -226,16 +226,10 @@ not identify a prior benchmark treating cross-source, cross-metric,
 cross-load-region scheduler-ranking portability as its primary object of
 study under the primary-source review conducted for this manuscript.
 
-A note on provider independence is warranted here because it bears directly
-on how several of the sources above should be read together
-(\S\ref{sec:workloads} gives the full treatment). BurstGPT's own reported
-methodology collects its traces from a regional customer's use of
-Microsoft's Azure OpenAI GPT service \citep{burstgpt2025}; this project's
-own Azure-sourced traces are Microsoft's own official releases of internal
-Azure LLM-inference-service traffic \citep{patel2024splitwise,stojkovic2025dynamollm}.
-Both therefore sit on the same underlying cloud provider's infrastructure,
-even though they are collected by different teams through different
-mechanisms and released as distinct, independently versioned artifacts. We
-describe BurstGPT and this project's Azure traces as distinct,
-independently released workload sources throughout this manuscript, and we
-do not describe them as independent providers.
+A note on provider independence is warranted here because it bears
+directly on how several of the sources above should be read together:
+BurstGPT and this project's Azure trace both ultimately sit on Microsoft's
+Azure infrastructure, collected by different teams through different
+mechanisms, so we treat them as distinct, independently released workload
+sources rather than as independent providers
+(\S\ref{sec:sources} gives the full treatment, including citations).

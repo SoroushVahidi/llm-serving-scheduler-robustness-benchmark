@@ -79,10 +79,10 @@ scheduling decisions, not because of independent sampling noise.
 
 Before the Pilot-V2 protocol described in the remainder of this section was
 frozen, a preregistered discriminability pilot (``Stage 0'') executed a
-real, 1,080-cell matrix (array 1213964; three sources, three load regions, a
-six-policy PRIMARY subset) to check, before committing to the full
-protocol, that the panel would yield non-trivial scheduler differentiation
-under a fixed load protocol without post-hoc cherry-picking. \textbf{This
+real, 1,080-cell matrix (three sources, three load regions, a six-policy
+PRIMARY subset) to check, before committing to the full protocol, that the
+panel would yield non-trivial scheduler differentiation under a fixed load
+protocol without post-hoc cherry-picking. \textbf{This
 is historical pilot evidence, not the confirmatory Pilot-V2 result}, and it
 never measured cross-source ranking portability -- that question was and
 remains explicitly out of Stage-0's scope. Stage 0's own five-criterion
@@ -300,18 +300,11 @@ deadline-dependent policies under an alternative SLO-synthesis rule to
 confirm that any headline reversal is not an artifact of the one
 synthesis choice used to fabricate \texttt{slo\_deadline} where a source
 does not natively carry it (\S\ref{sec:provenance}) -- was planned as part
-of this protocol. We disclose here, as a matter of methodological
-discipline rather than as a result, that no alternative SLO-synthesis rule
-was ever actually frozen before or during Pilot-V2 execution: every
-document that references ``the alternative SLO-synthesis rule'' points to
-another document as the place it is defined, and that chain does not
-terminate in an actual formula, multiplier, or distribution anywhere in
-this project's history. Consequently: no alternative rule was invented after Pilot-V2 execution
-began, and no SLO-sensitivity experiment was run as part of Pilot-V2; this
-robustness component is \emph{not} claimed as preregistered evidence
-anywhere in this manuscript. As required by this disclosure, an SLO-
-sensitivity check was subsequently run as an explicitly labeled
+of this protocol, but no alternative SLO-synthesis rule was ever actually
+frozen before or during Pilot-V2 execution. We disclose this as a matter
+of methodological discipline rather than as a result: this robustness
+component is \emph{not} claimed as preregistered evidence anywhere in
+this manuscript. It was instead run afterward as an explicitly labeled
 post-campaign extension, with its own freeze and manifest process, after
 Pilot-V2's headline results were already known; its results are reported
-in \S\ref{sec:results-slo} and \S\ref{sec:threats}, never retrofitted
-into this study's preregistered evidence.
+in \S\ref{sec:results-slo} and \S\ref{sec:threats}.

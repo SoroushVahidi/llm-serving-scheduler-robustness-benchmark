@@ -436,19 +436,13 @@ not identify a prior benchmark treating cross-source, cross-metric,
 cross-load-region scheduler-ranking portability as its primary object of
 study under the primary-source review conducted for this manuscript.
 
-A note on provider independence is warranted here because it bears directly
-on how several of the sources above should be read together
-(\S\ref{sec:workloads} gives the full treatment). BurstGPT's own reported
-methodology collects its traces from a regional customer's use of
-Microsoft's Azure OpenAI GPT service \citep{burstgpt2025}; this project's
-own Azure-sourced traces are Microsoft's own official releases of internal
-Azure LLM-inference-service traffic \citep{patel2024splitwise,stojkovic2025dynamollm}.
-Both therefore sit on the same underlying cloud provider's infrastructure,
-even though they are collected by different teams through different
-mechanisms and released as distinct, independently versioned artifacts. We
-describe BurstGPT and this project's Azure traces as distinct,
-independently released workload sources throughout this manuscript, and we
-do not describe them as independent providers.
+A note on provider independence is warranted here because it bears
+directly on how several of the sources above should be read together:
+BurstGPT and this project's Azure trace both ultimately sit on Microsoft's
+Azure infrastructure, collected by different teams through different
+mechanisms, so we treat them as distinct, independently released workload
+sources rather than as independent providers
+(\S\ref{sec:sources} gives the full treatment, including citations).
 % ===== end related_work.tex =====
 
 % ===== begin study_design.tex =====
@@ -799,10 +793,10 @@ scheduling decisions, not because of independent sampling noise.
 
 Before the Pilot-V2 protocol described in the remainder of this section was
 frozen, a preregistered discriminability pilot (``Stage 0'') executed a
-real, 1,080-cell matrix (array 1213964; three sources, three load regions, a
-six-policy PRIMARY subset) to check, before committing to the full
-protocol, that the panel would yield non-trivial scheduler differentiation
-under a fixed load protocol without post-hoc cherry-picking. \textbf{This
+real, 1,080-cell matrix (three sources, three load regions, a six-policy
+PRIMARY subset) to check, before committing to the full protocol, that the
+panel would yield non-trivial scheduler differentiation under a fixed load
+protocol without post-hoc cherry-picking. \textbf{This
 is historical pilot evidence, not the confirmatory Pilot-V2 result}, and it
 never measured cross-source ranking portability -- that question was and
 remains explicitly out of Stage-0's scope. Stage 0's own five-criterion
@@ -1020,21 +1014,14 @@ deadline-dependent policies under an alternative SLO-synthesis rule to
 confirm that any headline reversal is not an artifact of the one
 synthesis choice used to fabricate \texttt{slo\_deadline} where a source
 does not natively carry it (\S\ref{sec:provenance}) -- was planned as part
-of this protocol. We disclose here, as a matter of methodological
-discipline rather than as a result, that no alternative SLO-synthesis rule
-was ever actually frozen before or during Pilot-V2 execution: every
-document that references ``the alternative SLO-synthesis rule'' points to
-another document as the place it is defined, and that chain does not
-terminate in an actual formula, multiplier, or distribution anywhere in
-this project's history. Consequently: no alternative rule was invented after Pilot-V2 execution
-began, and no SLO-sensitivity experiment was run as part of Pilot-V2; this
-robustness component is \emph{not} claimed as preregistered evidence
-anywhere in this manuscript. As required by this disclosure, an SLO-
-sensitivity check was subsequently run as an explicitly labeled
+of this protocol, but no alternative SLO-synthesis rule was ever actually
+frozen before or during Pilot-V2 execution. We disclose this as a matter
+of methodological discipline rather than as a result: this robustness
+component is \emph{not} claimed as preregistered evidence anywhere in
+this manuscript. It was instead run afterward as an explicitly labeled
 post-campaign extension, with its own freeze and manifest process, after
 Pilot-V2's headline results were already known; its results are reported
-in \S\ref{sec:results-slo} and \S\ref{sec:threats}, never retrofitted
-into this study's preregistered evidence.
+in \S\ref{sec:results-slo} and \S\ref{sec:threats}.
 % ===== end methodology.tex =====
 
 % ===== begin results.tex =====
@@ -1312,17 +1299,13 @@ default expectation that the two metrics' top choices should agree.
 \subsection{SLO-Definition Sensitivity}
 \label{sec:results-slo}
 
-SLO-definition sensitivity was never part of the preregistered
-protocol (\S\ref{sec:slo-sensitivity-gap}: no alternative SLO-synthesis
-rule was ever frozen before or during Pilot-V2 execution). We report here
-a post-campaign sensitivity check, explicitly labeled and executed after
-this study's headline results were already known, per
-\S\ref{sec:slo-sensitivity-gap}'s own requirement that any such study be
-run this way: three alternative SLO-synthesis multipliers
-(\texttt{tight\_10x}, \texttt{primary\_20x} -- this study's own convention
--- and \texttt{loose\_40x}) applied across the full campaign grid
-($19{,}800$ cells; 0 failed), with every source, region, policy, window,
-and seed held identical to \S\ref{sec:results}.
+As disclosed in \S\ref{sec:slo-sensitivity-gap}, this check was never part
+of the preregistered protocol; we report it here as the post-campaign
+extension it was actually run as: three alternative SLO-synthesis
+multipliers (\texttt{tight\_10x}, \texttt{primary\_20x} -- this study's own
+convention -- and \texttt{loose\_40x}) applied across the full campaign
+grid ($19{,}800$ cells; 0 failed), with every source, region, policy,
+window, and seed held identical to \S\ref{sec:results}.
 
 \textbf{Ranking robustness.} Across the $30$ (source, region, variant)
 conditions compared against the study's primary SLO convention, rank
@@ -1690,21 +1673,18 @@ were not observed.
 
 \S\ref{sec:real-system}'s selected-case physical validation is a
 second, independent kind of evidence for this manuscript's central claim,
-not merely a check on the simulator. That a simulator-predicted reversal
-did not reproduce on real vLLM/GPU execution, while a paired
-stable-control comparison did retain its ordering, is itself an instance
-of the same phenomenon documented throughout \S\ref{sec:results}: which
-comparative conclusions transfer and which do not is case-dependent
-rather than uniform, this time across the simulator-to-hardware boundary
-rather than across workload source, operating region, or metric. We do
-not treat the non-reproduced reversal as evidence that the simulator is
-unreliable in general -- only two policies, three sources, and one
-operating region were physically evaluated (\S\ref{sec:threats}) -- nor
-do we treat the reproduced stable control as validating simulator
-fidelity broadly. Taken together with \S\ref{sec:results}--\S\ref{sec:results-slo},
-RQ6 reinforces rather than resolves this benchmark's motivating
-observation: portability, whether across workload, metric, or now
-simulation-to-hardware boundary, must be checked rather than assumed.
+not merely a check on the simulator (scope limits: \S\ref{sec:threats}).
+That a simulator-predicted reversal did not reproduce on real vLLM/GPU
+execution, while a paired stable-control comparison did retain its
+ordering, is itself an instance of the same phenomenon documented
+throughout \S\ref{sec:results}: which comparative conclusions transfer
+and which do not is case-dependent rather than uniform, this time across
+the simulator-to-hardware boundary rather than across workload source,
+operating region, or metric. Taken together with
+\S\ref{sec:results}--\S\ref{sec:results-slo}, RQ6 reinforces rather than
+resolves this benchmark's motivating observation: portability, whether
+across workload, metric, or now simulation-to-hardware boundary, must be
+checked rather than assumed.
 
 \subsection{Benchmark Construction and Practical Reproducibility}
 
@@ -1823,10 +1803,8 @@ be averaged away.
 
 \paragraph{SLO-definition sensitivity was a post-campaign extension, not
 preregistered evidence.} An SLO-synthesis sensitivity check was planned but
-no alternative SLO-synthesis rule was ever actually preregistered before or
-during Pilot-V2 execution (\S\ref{sec:slo-sensitivity-gap}); no alternative
-rule was invented after the fact to retrofit this study's preregistered
-evidence. It was instead run, as disclosed process required, as an
+never actually preregistered before or during Pilot-V2 execution
+(\S\ref{sec:slo-sensitivity-gap}); it was instead run afterward as an
 explicitly labeled post-campaign extension with its own frozen protocol,
 after headline results were already known (\S\ref{sec:results-slo}). That
 check found $20$ of $108$ ($19\%$) preregistered reversal checks sensitive
@@ -1910,19 +1888,13 @@ those frozen inputs.
 \subsection{Phase-12 Analysis Identities}
 \label{sec:artifact-hashes}
 
-The Pilot-V2 statistical analysis was executed from sealed analysis code
-against the admitted, independently
-re-validated 18{,}720-cell consolidated matrix, producing exactly six canonical output
-artifacts, each stamped with the analysis code identity, the frozen analysis
-contract version, and the
-campaign freeze identity, and each independently structurally audited
-(consistent provenance across all six, no missing/extra/malformed
-artifact, exact five-class reversal taxonomy, exact frozen statistical
-contract) before this manuscript's Results and Sample Complexity sections
-were populated. The full audit record and per-artifact ledger are
-committed on the isolated
-\texttt{validation/lssp-phase12-structural-audit-20260902} branch of the
-GitHub repository rather than reproduced in full in the main text.
+As established in \S\ref{sec:results}, the Pilot-V2 statistical analysis
+(six canonical output artifacts, each independently structurally audited
+before this manuscript's Results and Sample Complexity sections were
+populated) was executed from sealed analysis code against the admitted,
+independently re-validated 18{,}720-cell consolidated matrix. The full
+audit record and per-artifact ledger are committed on the public GitHub
+repository rather than reproduced in full in the main text.
 
 Every generated artifact carries, or links via a provenance manifest, its
 generating repository commit SHA,
@@ -1934,10 +1906,7 @@ external, possibly-rewritten historical commit.
 
 The immutable scientific identifiers already fixed at the time of this
 manuscript are recorded in Table~\ref{tab:hashes} and in
-\texttt{docs/ARTIFACT\_HASH\_LEDGER.md}: the Phase-10 workload-window freeze
-content hash, the Phase-10 compact index hash, the Phase-11 prelaunch
-freeze contract hash, the Phase-11 raw FIFO calibration output hash, and
-the Phase-11 region-assignment output hash. These five identifiers were
+\texttt{docs/ARTIFACT\_HASH\_LEDGER.md}. These five identifiers were
 independently re-verified as unchanged, and consistent across every
 cross-referencing project document, immediately before this manuscript's
 authoritative branch was committed (\S\ref{sec:conclusion}).
