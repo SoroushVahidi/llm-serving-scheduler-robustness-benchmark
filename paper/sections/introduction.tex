@@ -158,7 +158,10 @@ Sections~\ref{sec:results}--\ref{sec:sample-complexity} report its
 structurally validated results: comparative rankings are neither uniformly
 stable nor uniformly unstable, but source-pair- and load-region-dependent
 in a specific, legible pattern (\S\ref{sec:discussion}). This manuscript
-does not claim that any scheduler in the panel wins in general, and RQ6
-(\S\ref{sec:real-system}) -- whether the strongest identified reversal
-reproduces on real vLLM/GPU execution -- remains a frozen, not-yet-executed
-result contract, stated without asserting its direction in advance.
+does not claim that any scheduler in the panel wins in general. RQ6
+(\S\ref{sec:real-system}) tests whether the strongest identified simulated
+reversal reproduces on real vLLM/GPU execution: the selected physical
+validation did not reproduce that reversal, while a paired stable-control
+comparison retained the same qualitative ordering on physical hardware --
+further evidence that comparative scheduler conclusions are conditional
+rather than assumable.

@@ -37,9 +37,10 @@ $13/30$ conditions), so a headline reversal can persist under one
 reasonable SLO definition while not persisting under another
 (\S\ref{sec:results-slo}). We report only a pilot-scale, engineering
 validation of the synthetic-to-real transfer pipeline for RQ3, not a
-transfer conclusion (\S\ref{sec:results-rq3-pilot}). Whether this
-benchmark's largest identified reversal reproduces on real vLLM/GPU
-execution (RQ6) remains a frozen, not-yet-executed result contract
+transfer conclusion (\S\ref{sec:results-rq3-pilot}). A selected physical
+vLLM/GPU validation (RQ6) of this benchmark's largest identified reversal
+did not reproduce that reversal, while a paired stable-control comparison
+retained the same qualitative ordering on real hardware
 (\S\ref{sec:real-system}).
 
 Ranking portability, in this benchmark, is therefore neither universal nor
@@ -48,4 +49,5 @@ operating region, evaluation metric, and SLO definition under which a
 comparison was established, and a scheduler-selection claim should state
 those conditions explicitly rather than being read as general. We plan to
 release LSSP as a public, independently reproducible artifact
-(\S\ref{sec:artifact}) once RQ6 completes.
+(\S\ref{sec:artifact}), now that all six research questions, including
+the selected physical-system validation (RQ6), have been executed.

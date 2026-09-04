@@ -155,6 +155,26 @@ descriptor is a genuine \emph{causal} driver of the reversal, only that it
 is a source-separating feature that co-occurs with where reversals were or
 were not observed.
 
+\subsection{Physical-Execution Evidence}
+
+\S\ref{sec:real-system}'s selected-case physical validation is a
+second, independent kind of evidence for this manuscript's central claim,
+not merely a check on the simulator. That a simulator-predicted reversal
+did not reproduce on real vLLM/GPU execution, while a paired
+stable-control comparison did retain its ordering, is itself an instance
+of the same phenomenon documented throughout \S\ref{sec:results}: which
+comparative conclusions transfer and which do not is case-dependent
+rather than uniform, this time across the simulator-to-hardware boundary
+rather than across workload source, operating region, or metric. We do
+not treat the non-reproduced reversal as evidence that the simulator is
+unreliable in general -- only two policies, three sources, and one
+operating region were physically evaluated (\S\ref{sec:threats}) -- nor
+do we treat the reproduced stable control as validating simulator
+fidelity broadly. Taken together with \S\ref{sec:results}--\S\ref{sec:results-slo},
+RQ6 reinforces rather than resolves this benchmark's motivating
+observation: portability, whether across workload, metric, or now
+simulation-to-hardware boundary, must be checked rather than assumed.
+
 \subsection{Benchmark Construction and Practical Reproducibility}
 
 Regardless of outcome direction, this study's paired design, fixed

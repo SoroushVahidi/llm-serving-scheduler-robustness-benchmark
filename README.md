@@ -28,7 +28,9 @@ Scheduler Rankings Across Workloads, Operating Regions, and Metrics?"*
 - **Real-vLLM engineering infrastructure** (`src/robustbench/real_llm/`):
   a `--scheduler-cls` plugin reproducing the SLAI/RAD policy inside actual
   vLLM 0.27.1, algorithm-fidelity-tested against the simulator, plus
-  server/orchestration/provenance tooling for RQ6.
+  server/orchestration/provenance tooling for RQ6, now used to execute the
+  240-cell RQ6 scientific campaign itself (Slurm job `1222413`,
+  240/240 completed, validated 240/240).
 - **The manuscript source** (`paper/`), built from the same hash-pinned
   analysis artifacts this repo ships.
 
@@ -55,16 +57,24 @@ In addition to RQ1-RQ6, the benchmark extends its core portability question to e
 | Phase 12 statistical analysis | Complete, validated |
 | RQ1–RQ5 & sensitivity axes | Complete, interpreted, populated in the manuscript |
 | RQ6 case selection | Complete, frozen |
-| RQ6 real-vLLM scheduler plugin | Engineering-validated; **not yet run as scientific evidence** |
-| Manuscript | Ready pending RQ6 |
+| RQ6 real-vLLM scientific execution | **Complete** — 240/240 cells (Slurm job `1222413`), all validated, exit `0:0` |
+| RQ6 statistical analysis | **Complete** — reversal not reproduced, stable control reproduced (see manuscript §Real-System Validation) |
+| Manuscript | RQ6 integrated; pending final publication/release gate |
 
 Nothing above is provisional language left over from an earlier draft —
 every "complete" here is backed by a hash-identified, independently
 re-verified artifact (see `docs/LSSP_DATASET_RELEASE_SCHEMA.md` for the
-identity chain). RQ6 is explicitly the one open item: the plugin is
-validated as *engineering*, but no real-vLLM run has yet produced
-scientific evidence, and the manuscript's RQ6 section says so rather than
-reporting one.
+identity chain). RQ6 is no longer an open item: the real-vLLM scheduler
+plugin was used to execute all 240 frozen (policy, source, window) cells,
+every output was independently validated against the frozen task-matrix
+enumeration (identity, completeness, schema, provenance, no duplicates/
+overwrites), and the frozen, unmodified analysis implementation
+(`robustbench.real_llm.rq6_validation_analysis`) was run against that
+validated dataset. Result: all three real-system SLAI-vs-vLLM effects are
+statistically supported and favor `vllm_faithful`; the simulator-predicted
+Azure/BurstGPT reversal did not reproduce, while the Azure/Bailian-Qwen
+stable control did. The manuscript's RQ6 section reports this result, not
+a pending contract.
 
 ## Install
 
@@ -115,7 +125,11 @@ smoke above and needs the raw source traces acquired separately (see
 
 ## Limitations
 
-- RQ6 has no real-vLLM scientific data yet (see Status above).
+- RQ6 is a selected-case physical validation (2 of 13 policies, 3 sources,
+  one operating region, one hardware/software environment, one physical
+  execution per policy/window) — not a comprehensive real-hardware
+  re-execution of the full Pilot-V2 matrix (see Status above and
+  `paper/sections/limitations.tex`).
 - One preregistered robustness-family gap (`METRIC_DEFINITION_SENSITIVITY`) has no implementing artifact — reported as a disclosed gap in the manuscript, not filled with an invented result.
 - Full details: `paper/sections/limitations.tex`.
 

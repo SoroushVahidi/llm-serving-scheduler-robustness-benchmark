@@ -1,13 +1,16 @@
 \section{Threats to Validity}
 \label{sec:threats}
 
-\paragraph{Simulator abstraction.} All results in this manuscript are
-produced by a discrete-event simulator, not a real serving engine
-(\S\ref{sec:execution-model}). We do not claim that simulated absolute
-latency or throughput values match real-hardware values; only relative
-ranking and reversal direction are claimed to transfer, and only for the
-frozen validation cases in \S\ref{sec:real-system}, once that section's
-result exists.
+\paragraph{Simulator abstraction.} All results in this manuscript, except
+\S\ref{sec:real-system}, are produced by a discrete-event simulator, not a
+real serving engine (\S\ref{sec:execution-model}). We do not claim that
+simulated absolute latency or throughput values match real-hardware
+values; only relative ranking and reversal direction were tested for
+transfer, and only for the frozen validation cases in
+\S\ref{sec:real-system}. That test found transfer for the selected
+stable-control comparison but not for the selected reversal case --
+evidence that transfer is case-dependent, not a general property of the
+simulator.
 
 \paragraph{Fidelity of reimplemented policies.} \texttt{FAITHFUL\_EXTERNAL}
 policies are validated reimplementations, not the original authors' code;
@@ -119,4 +122,16 @@ validation is limited by design to a small, frozen set of case-selected
 conditions (largest-effect-size reversal plus one stable-ordering control),
 not a full re-execution of the Pilot-V2 matrix on real hardware; agreement
 or disagreement on those specific cases should not be over-generalized to
-every cell in \S\ref{sec:results}.
+every cell in \S\ref{sec:results}. Concretely, the physical evaluation
+covers only $2$ of the panel's $13$ policies (\texttt{slai\_faithful} and
+\texttt{vllm\_faithful}), $3$ of the workload sources, and a single
+operating region (\texttt{HIGH\_PRESSURE}), on one fixed
+hardware/software environment (vLLM~0.27.1, a single A100 GPU
+allocation). Uncertainty is quantified via window-level bootstrap
+resampling over $40$ independent workload windows per source, using one
+physical execution per (policy, source, window) cell -- the workload
+window, not repeated identical-hardware execution, is the unit over which
+statistical inference is drawn (\S\ref{sec:real-system-design}). This
+result should not be read as a comprehensive validation of simulator
+fidelity, of every scheduler in the panel, or of every workload/region
+combination in \S\ref{sec:results}.
