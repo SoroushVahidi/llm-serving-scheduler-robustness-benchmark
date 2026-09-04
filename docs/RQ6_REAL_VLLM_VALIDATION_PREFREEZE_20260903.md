@@ -1,11 +1,52 @@
 # RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md
 
-`RQ6_REAL_VLLM_SCIENTIFIC_VALIDATION = NOT_STARTED`. This document is the
+`RQ6_REAL_VLLM_SCIENTIFIC_VALIDATION = NOT_STARTED` **as of this document's
+original authorship (2026-09-03, prefreeze).** This document is the
 authoritative launch checklist for the RQ6 real-vLLM scientific-validation
 campaign (stage 9 of `docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md`).
 Everything below was implemented and tested across two sessions; **no
-scientific run was submitted**. `scripts/real_vllm/run_rq6_validation.sbatch`
-exists but was never `sbatch`'d.
+scientific run was submitted at the time this document was written.**
+`scripts/real_vllm/run_rq6_validation.sbatch` existed but had not yet been
+`sbatch`'d as of this document's original text (§0-§15 below, unchanged
+from the prefreeze session and left as an accurate historical record of
+that moment).
+
+## -1. Session 3 addendum: RQ6 scientific execution complete (2026-09-04)
+
+**`RQ6_REAL_VLLM_SCIENTIFIC_VALIDATION = COMPLETE`.** The launch checklist
+below was followed as written: `scripts/real_vllm/run_rq6_validation.sbatch`
+was submitted as Slurm array job **`1222413`** (240 tasks, indices 0-239,
+concurrency 4) against the exact frozen identity this document recorded --
+worktree HEAD `703a752762348bd911c9d93f17731fa5244b38f9`, validation
+manifest sha256 `172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670`
+(§6), calibration manifest sha256
+`839f1ea99982cbfd198aa12c801a5e2e90ee47699b2b75e7b1c67da3878a8d00`. Result:
+240/240 tasks `COMPLETED`, `ExitCode 0:0`, zero failures/timeouts/OOM/
+duplicates; all 240 raw outputs independently validated against the frozen
+task-matrix enumeration (identity, schema, provenance, calibration
+linkage, no duplicate/overwritten cells). The frozen, unmodified analysis
+in `robustbench.real_llm.rq6_validation_analysis` was then run against
+that validated dataset: all three real-system `slai_faithful`-vs-
+`vllm_faithful` ANWG effects are 95%-CI-supported and favor
+`vllm_faithful`; the Azure/BurstGPT reversal recorded in §4 below did
+**not** reproduce on physical hardware, while the Azure/Bailian-Qwen
+stable control **did** retain its ordering. See
+`llm-serving-scheduler-robustness-benchmark` (manuscript repo)
+`paper/sections/real_system.tex` §Results for the full reported result and
+`artifacts/real_vllm/analysis/rq6/172efb13.../rq6_analysis_result_
+20260904T130641Z.json` (this repo, gitignored generated data) for the raw
+analysis provenance record.
+
+Everything in §0-§15 below describes the state **as it stood at prefreeze
+time** (2026-09-03) and is retained unedited as a historical record, with
+one exception: §5's file-listing table below has been corrected in place
+(this addendum) because it named a stale, never-actually-current
+validation-manifest hash (`8892ec9b...`) that did not match this same
+document's own §6, which has stated the correct hash
+(`172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670`) since
+before Session 2. That was a same-document internal inconsistency in a
+descriptive table cell, not a claim about a different manifest state --
+§6 was always authoritative and is unchanged.
 
 ## 0. Session 2 addendum: protocol-ambiguity resolution pass (2026-09-03)
 
@@ -237,7 +278,7 @@ flips the computed agreement), not a constant.
 | `src/robustbench/real_llm/rq6_validation.py` | Task-matrix enumeration (240 cells), calibration-output lookup with hash/status verification, real-side ANWG metric. |
 | `src/robustbench/real_llm/port_alloc.py` | OS-assigned free-port allocation (`bind((host,0))`), replacing calibration's buggy modulo scheme. |
 | `src/robustbench/real_llm/rq6_validation_analysis.py` | Result-blind analysis: per-condition SLAI-minus-vLLM bootstrap effect, reversal/stable-control tests, BH-FDR — reuses `ranking_portability.analysis.stats`. |
-| `configs/real_vllm/rq6_validation_manifest_v1_20260903.json` | The frozen, result-blind validation manifest (sha256 `8892ec9b299aced31f74785e9f7aa896b83641fe799863c70aacee119c0b1222`). |
+| `configs/real_vllm/rq6_validation_manifest_v1_20260903.json` | The frozen, result-blind validation manifest (sha256 `172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670` -- see §6; corrected in the Session 3 addendum above, this table cell previously named a stale, never-current hash). |
 | `scripts/real_vllm/run_rq6_validation.py` | Scientific runner: verifies hash chain, dry-run mode, dynamic port allocation with retry, atomic writes, overwrite refusal. |
 | `scripts/real_vllm/run_rq6_validation.sbatch` | Slurm array launcher, 240 tasks, fail-closed on required env vars, no scientific parameter duplicated outside the frozen manifest. |
 | `scripts/real_vllm/validate_rq6_validation_outputs.py` | Post-hoc output validator — identity/completeness/schema/provenance only, never judges the hypothesis. |
