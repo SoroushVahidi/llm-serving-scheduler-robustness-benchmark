@@ -86,7 +86,8 @@ claim.} \S\ref{sec:results-cross-metric} finds that a policy ranking under
 one tracked outcome metric is, at median, only moderately correlated with
 the ranking the same conditions produce under a different tracked metric
 ($\tau_b = 0.419$; $20\%$ of conditions negative), and the two metrics'
-top-ranked policy agrees in only half of conditions. This is a scope
+top-ranked policy agrees in only $31.9\%$ of conditions (disagreeing in the
+majority, $68.1\%$). This is a scope
 statement, not an analysis defect: the study's tracked metrics (ANWG,
 completion fraction, latency percentiles, SLO-violation rate, throughput)
 capture genuinely different deployment objectives, and no single one of
@@ -129,7 +130,13 @@ allocation). Uncertainty is quantified via window-level bootstrap
 resampling over $40$ independent workload windows per source, using one
 physical execution per (policy, source, window) cell -- the workload
 window, not repeated identical-hardware execution, is the unit over which
-statistical inference is drawn (\S\ref{sec:real-system-design}). This
-result should not be read as a comprehensive validation of simulator
-fidelity, of every scheduler in the panel, or of every workload/region
-combination in \S\ref{sec:results}.
+statistical inference is drawn (\S\ref{sec:real-system-design}). Concretely,
+Table~\ref{tab:rq6-results}'s confidence intervals capture
+\emph{cross-window sampling uncertainty} -- how much the effect would vary
+if a different set of 40 windows had been drawn -- and not
+\emph{repeat-run hardware variability}, since each (policy, source, window)
+cell was executed exactly once; no claim is made about how much a given
+cell's outcome would vary if that same cell were re-run on the same
+hardware. This result should not be read as a comprehensive validation of
+simulator fidelity, of every scheduler in the panel, or of every
+workload/region combination in \S\ref{sec:results}.

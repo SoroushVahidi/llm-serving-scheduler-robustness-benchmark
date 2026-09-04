@@ -86,10 +86,11 @@ correspondence -- well below the $0.89$--$1.00$ agreement
 \emph{sources} -- and $20\%$ of conditions show a \emph{negative}
 correlation, meaning the two metrics do not merely disagree in degree but
 sometimes rank policies in opposite order. That the single top-ranked
-policy agrees between metrics in only half of conditions is the more
-practically legible way to read the same result: for a randomly chosen
-(source, region) condition, asking ``which metric?'' is, on average, as
-consequential to the answer as asking ``which policy?'' This does not mean
+policy agrees between metrics in only $31.9\%$ of conditions -- disagreeing
+in the majority, $68.1\%$ -- is the more practically legible way to read
+the same result: for a randomly chosen (source, region) condition, which
+metric is used changes which policy comes out on top more often than not.
+This does not mean
 metrics are arbitrary or that any one choice is as good as another -- ANWG,
 completion fraction, and the latency- and SLO-based metrics measure
 genuinely different deployment objectives (\S\ref{sec:metrics}), and a
@@ -135,8 +136,9 @@ therefore be provisional. Within that small, non-significance-tested set,
 the most consistent single direction among the five descriptors -- which
 is at least \emph{consistent with} (not confirmatory of) prompt-length
 variability being associated with where reversals occur, echoing
-\S\ref{sec:drivers}'s finding that prompt-length structure is the primary
-driver of source separability itself. The other four descriptors show
+\S\ref{sec:drivers}'s finding that prompt-length structure is the
+classifier's most predictive, non-redundant feature for source
+separability itself. The other four descriptors show
 weaker, closer-to-even sign splits across the interpretable cells and do
 not support a directional claim. We do not read this as evidence that any
 descriptor \emph{causes} a reversal, only as a candidate association worth
@@ -148,7 +150,7 @@ never used to select, route, or recommend a scheduler.
 
 The workload-separability result (\S\ref{sec:separability}) establishes
 that the three sources are observably different, and that prompt-length
-structure is the primary driver of that separability
+structure is the classifier's most predictive feature for that separability
 (\S\ref{sec:drivers}). Whatever RQ4's descriptor-to-reversal association
 analysis finds, it should be read against this backdrop: an association
 between a descriptor and a reversal does not by itself establish that the

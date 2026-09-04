@@ -133,8 +133,11 @@ observing this count.
 \label{sec:metrics}
 
 Three metrics are always defined for every completed cell: completion
-fraction, arrival-normalized weighted goodput (ANWG, the primary metric),
-and weighted completion fraction. A second group of metrics is defined
+fraction, weighted completion fraction, and Arrival-Normalized Weighted Goodput (ANWG, the primary metric). We formally define ANWG here because it is this benchmark's headline measure of system-level utility. For a set of arriving requests $R$, let $w_i \ge 1$ denote the priority weight assigned to request $i \in R$. Let $C \subseteq R$ be the subset of requests that successfully complete execution, and let $S \subseteq C$ be the subset of completed requests that also strictly meet their latency deadline (SLO). ANWG is defined as the priority-weighted sum of successfully attained deadlines divided by the total priority weight of all arrivals:
+\begin{equation}
+\text{ANWG} = \frac{\sum_{i \in S} w_i}{\sum_{i \in R} w_i}
+\end{equation}
+Because the denominator is the sum over all \emph{arrivals} rather than completions, rejected, dropped, unfinished, and SLO-missed requests all receive zero numerator credit while remaining in the denominator penalty. ANWG is always defined (the denominator is zero only if a workload window has no arrivals, which is prevented by construction); therefore, undefined-metric exclusions for ANWG are always exactly zero. A second group of metrics is defined
 only conditional on at least one request completing: SLO-violation rate,
 weighted goodput, mean/p95/p99 latency, and request/token throughput are
 each \texttt{NaN} if and only if completion fraction is exactly zero for
@@ -200,12 +203,11 @@ would understate uncertainty; the window is the unit that is actually
 drawn independently by \S\ref{sec:windows}'s sampling design, and it is
 therefore the unit that must be resampled.
 
-Two further tests calibrate the reversal statistics reported in
-\S\ref{sec:reversals} against multiple comparisons. A Friedman rank-sum
-omnibus test is applied per (source, region, metric) condition to ask
-whether the panel's policies differ at all before any pairwise reversal is
-interpreted, so that pairwise reversal claims are read in the context of
-whether an omnibus difference exists in the first place. Because the panel
+A multiple-testing correction calibrates the pairwise reversal statistics reported in
+\S\ref{sec:reversals}. Although a Friedman rank-sum omnibus test
+was originally specified in the protocol to test for global differences, it was not materialized in the
+canonical artifacts; we disclose this as an implementation gap and proceed directly
+to the pairwise tests. Because the panel
 and the (source, region, metric) grid together generate many pairwise
 comparisons, every pairwise reversal $p$-value is corrected across that
 condition's family using Benjamini--Hochberg false-discovery-rate control
@@ -217,7 +219,7 @@ A numerical sign change in a point estimate is not, by itself, a meaningful
 scheduler reversal from a systems standpoint: two policies can swap
 point-estimate order by a magnitude far smaller than the benchmark's own
 measurement noise, in which case treating it as a reversal would overstate
-what the benchmark actually supports. Every pairwise (policy A, policy B)
+what the benchmark actually supports. The multiple-testing procedure applies the Benjamini-Hochberg False Discovery Rate (FDR) control at $q=0.05$ to the two-sided bootstrap sign-test $p$-values. The FDR correction is applied per family, where a family is defined as all pairwise policy comparisons within a single (metric, load-region) combination. Every pairwise (policy A, policy B)
 comparison at a given (source, region, metric) condition is therefore
 classified into exactly one of five preregistered classes, combining the
 practical-margin test with the bootstrap/FDR-corrected statistical test:
@@ -229,16 +231,21 @@ practical-margin test with the bootstrap/FDR-corrected statistical test:
   \item[\texttt{STABLE\_NO\_SIGN\_CHANGE}] The two policies' relative order
     agrees across the compared conditions; no reversal occurred.
   \item[\texttt{MICROSCOPIC\_SIGN\_CHANGE}] The point-estimate order
-    reverses, but the winning margin never exceeds 10\% of the losing
-    policy's value in either condition -- a numerically real but
-    practically negligible sign flip, reported separately from, and never
-    pooled with, the classes below.
+    reverses, but the winning margin fails to exceed 10\% of the losing
+    policy's value in \emph{at least one} of the two compared conditions --
+    this includes both the case where the margin is negligible on both
+    sides and the asymmetric case where it exceeds 10\% on one side but not
+    the other. Either way the sign flip is reported here as numerically
+    real but practically negligible or unreliable, never pooled with the
+    classes below.
   \item[\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}] The point-estimate
-    order reverses with a practically meaningful margin in at least one
-    condition, but the FDR-corrected 95\% bootstrap interval for the
-    difference does not exclude zero in both conditions -- the apparent
-    reversal is not statistically distinguishable from bootstrap noise at
-    the preregistered confidence level.
+    order reverses and the winning margin exceeds 10\% of the losing
+    policy's value in \emph{both} compared conditions, but the
+    FDR-corrected 95\% bootstrap interval for the difference fails to
+    exclude zero in \emph{at least one} of the two conditions -- the
+    apparent reversal is not statistically distinguishable from bootstrap
+    noise, at the preregistered confidence level, in at least one of the
+    two conditions being compared.
   \item[\texttt{SUPPORTED\_PRACTICAL\_REVERSAL}] The point-estimate order
     reverses \emph{and} the winning margin exceeds 10\% of the losing
     policy's value in both compared conditions \emph{and} the
@@ -247,6 +254,16 @@ practical-margin test with the bootstrap/FDR-corrected statistical test:
     in \S\ref{sec:reversals}; the other four classes are always reported
     alongside it, never omitted as a residual category.
 \end{description}
+
+These five classes are mutually exclusive and exhaustive by construction:
+\texttt{classify\_pairwise\_reversal} in the sealed analysis code evaluates
+undefined-value, sign-change, margin, and confidence-interval conditions as
+a strict if/elif/else chain with an unconditional final branch, so every
+possible (policy A, policy B, condition) input reaches exactly one class,
+including the asymmetric-margin and single-sided-wide-CI cases described
+above. This was re-audited against the code during manuscript
+reconciliation; no already-computed reversal record is at risk of being
+silently dropped or misclassified by a gap in this taxonomy.
 
 \subsection{Temporal Analysis Design}
 \label{sec:temporal-design}

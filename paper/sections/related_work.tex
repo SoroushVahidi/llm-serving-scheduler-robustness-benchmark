@@ -136,8 +136,14 @@ workloads are heterogeneous (\S\ref{sec:related-workloads}) and that
 individual serving mechanisms and schedulers are sensitive to batching
 structure, prefill/decode balance, load level, and service-level
 objectives (\S\ref{sec:related-serving}). We treat both of these as accepted
-background, not as a novel contribution of this work. What we do not find
-in the literature reviewed here is a direct study of whether a
+background, not as a novel contribution of this work. Closest to this
+paper's motivation, \citet{papaioannou2024workload} show that a serving
+system's measured performance and the relative standing of design choices
+can themselves shift depending on which workload is used to evaluate them,
+arguing for workload-choice awareness as a first-class methodological
+concern; that result is stated for single-system evaluation. What we do not
+find in the literature reviewed here, including that result, is a direct
+study of whether a
 \emph{comparative ordering} among a fixed panel of schedulers is itself
 portable across independently sourced workloads, operating regions, and
 metrics -- the distinction this paper's Introduction develops between

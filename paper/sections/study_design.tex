@@ -36,8 +36,7 @@ six-region grid of operating regions (\S\ref{sec:calibration}) and a fixed
 set of primary and completion-conditioned metrics (\S\ref{sec:metrics}).
 Every policy is run against every window under every operating region,
 with a deterministic rep0/rep1 verification pass (\S\ref{sec:paired}),
-producing $120 \times 6 \times 13 \times 2 = 18{,}720$ completed,
-independently validated cells, from which per-source, per-region, and
+producing $9{,}360$ unique policy--window--region configurations, each executed in two deterministic verification passes ($18{,}720$ total executions), from which per-source, per-region, and
 per-metric scheduler rankings are derived. Ranking-portability statistics (Kendall's tau-b, Spearman's
 rho, top-\emph{k} overlap, and pairwise reversal detection) are then
 computed across pairs of sources, regions, and metrics, using workload

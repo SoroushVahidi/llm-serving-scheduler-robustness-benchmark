@@ -26,17 +26,23 @@
 workload, operating region, and metric. We present the LLM-Serving Scheduler
 Portability Benchmark (LSSP), a preregistered evaluation of scheduling
 policies across three independently sourced workloads and six calibrated
-operating regions ($18{,}720$ evaluations). Rankings agree strongly between
-two of three sources (Kendall's $\tau$ up to $1.0$) but are less portable
-when the third is involved (as low as $0.55$), with $3.6\%$ of comparisons
-showing statistically supported reversals. Portability is even more
-sensitive to the evaluation metric: median rank correlation across metrics
-is only moderate ($\tau_b=0.419$), and the top policy agrees between metrics
-in only half of conditions. Rankings are more stable, though not invariant,
-under alternative service-level-objective definitions. A selected
-physical-vLLM validation preserved a stable control but not a
-simulator-predicted reversal. Scheduler comparisons should be read as
-conditional on the workload, region, and metric that produced them.}
+operating regions ($9{,}360$ unique configurations executed in duplicate). On
+this primary, frozen analysis, rankings agree strongly between two of three
+sources (Kendall's $\tau$ up to $1.0$) but are less portable when the third
+is involved (as low as $0.55$), with $3.6\%$ of pairwise comparisons
+($36/990$) showing statistically supported reversals -- a simulated-benchmark
+result concentrated entirely in one policy pair (\texttt{slai\_faithful} vs.\
+\texttt{vllm\_faithful}) with BurstGPT on one side of every case. A
+post-campaign extension shows portability is even more sensitive to the
+evaluation metric: median rank correlation across metrics is only moderate
+($\tau_b=0.419$), and the top policy agrees between metrics in only $31.9\%$
+of conditions. Rankings are more stable, though not invariant, under
+alternative service-level-objective definitions. A selected physical-vLLM
+validation reproduced the simulator's stable-policy ranking but did not
+reproduce its predicted reversal, exposing a simulator-fidelity limitation
+for that selected case rather than a general estimate of reversal prevalence
+on real hardware. Scheduler comparisons should be read as conditional on the
+workload, region, and metric that produced them.}
 
 \maketitle
 

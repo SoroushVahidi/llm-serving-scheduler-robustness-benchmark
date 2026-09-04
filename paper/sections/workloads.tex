@@ -6,8 +6,9 @@
 
 LSSP's primary Pilot-V2 corpus draws from three independently released
 workload sources: BurstGPT \citep{burstgpt2025}, Microsoft's official Azure
-2024 LLM-inference trace \citep{azure2024trace,stojkovic2025dynamollm}, and a Bailian/Qwen
-production trace release. Azure's 2023 conversation/code traces
+2024 LLM-inference trace \citep{azure2024trace,stojkovic2025dynamollm}, and
+Alibaba Cloud's Bailian/Qwen anonymized usage-trace
+release \citep{bailianqwen2026}. Azure's 2023 conversation/code traces
 \citep{patel2024splitwise} and Stage-0's historical windows contribute
 additional context but are not part of the primary Pilot-V2 120-window
 matrix beyond the 10-per-source Stage-0-reused windows described below.
@@ -78,9 +79,18 @@ caveat on every prompt-length-based claim below.
 \subsection{Cross-Source Differences}
 \label{sec:cross-source-diffs}
 
-Under a leave-one-time-bucket-out (EARLY/MIDDLE/LATE), grouped,
-chronologically blocked cross-validation over $n=400$ windows (window
-size 200), a random forest classifier distinguishes the four
+This characterization analysis uses a separate, larger population than the
+primary 120-window ranking corpus: $100$ windows (window size 200) drawn
+from each of \emph{four} source classes -- \texttt{azure\_llm\_2024},
+\texttt{bailian\_qwen}, \texttt{burstgpt}, and \texttt{tracelab}
+(\S\ref{sec:sources}) -- for $n=400$ windows total. TraceLab is included
+here only as a fourth descriptor class to stress-test the classifier
+against a maximally distinct, out-of-distribution workload family; it is
+not one of the three primary Pilot-V2 ranking-portability sources and
+contributes no windows to the 120-window corpus used in
+\S\ref{sec:results}--\S\ref{sec:results-slo}. Under a leave-one-time-bucket-out (EARLY/MIDDLE/LATE), grouped,
+chronologically blocked cross-validation over these $n=400$ windows, a
+random forest classifier distinguishes the four
 descriptor-labeled source classes with pooled balanced accuracy
 $1.000$ (mean $\pm$ std across three folds: $1.000 \pm 0.000$); a
 multinomial logistic regression reaches $0.988$ balanced accuracy
@@ -122,8 +132,13 @@ costs $0.000$ accuracy because their signal is redundant with Tier 1 --
 includes total/prompt-token percentile features, inter-arrival percentiles,
 and mean arrival rate. Prompt-length structure, specifically the fraction
 of long prompts at the 512- and 2048-token thresholds and mean prompt
-length, is therefore the primary, non-redundant driver of source
-separability; arrival-timing structure and output length are individually
+length, is therefore the classifier's primary, non-redundant predictive
+feature for source separability, in the ablation sense defined above
+(largest classifier accuracy cost when removed) -- not
+a claim that prompt length is the true underlying cause of the sources'
+differences, which may also reflect the multi-turn-cumulative-vs-single-request
+token-accounting confound already noted in \S\ref{sec:descriptors};
+arrival-timing structure and output length are individually
 predictive but carry no additional signal once prompt-length features are
 present. A critical-ablation check confirms this separability is broad
 rather than dependent on any single feature: removing the two strongest
