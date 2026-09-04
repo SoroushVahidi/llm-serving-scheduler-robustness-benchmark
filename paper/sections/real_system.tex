@@ -13,7 +13,7 @@ The real-system validation follows a preregistered, window-resampled evaluation 
 
 \begin{itemize}
   \item \textbf{Inferential Unit:} The statistical unit of analysis is the workload window, preserving the methodology established in \S\ref{sec:methodology}.
-  \item \textbf{Scale and Execution:} The design evaluates $40$ independent workload windows per source. Exactly one scientific execution is performed per (policy, source, window) cell, yielding $240$ total scientific tasks ($2$ policies $\times$ $3$ sources $\times$ $40$ windows).
+  \item \textbf{Scale and Execution:} The design evaluates $40$ independent workload windows per source, each containing $200$ requests. Exactly one scientific execution is performed per (policy, source, window) cell, yielding $240$ total scientific tasks ($2$ policies $\times$ $3$ sources $\times$ $40$ windows).
   \item \textbf{Uncertainty Quantification:} Uncertainty is quantified via window-level bootstrap resampling ($\ge 2{,}000$ resamples) over the $40$ independent windows per source.
   \item \textbf{Operating Regions:} Workloads are calibrated against the real engine's observed saturation point to define load regions independently of the simulator's calibration.
   \item \textbf{Ordering and Provenance:} Each (policy, source, window) cell is executed exactly once; with one execution per cell there is no repeated-measures ordering to alternate. Cells are assigned deterministically to Slurm array indices by a fixed (source, window, policy) sort, with execution concurrency limited to four simultaneous array tasks. Every execution records its exact git commit, hardware environment (per-task GPU query), software versions, and workload/calibration-manifest hash identity to ensure reproducibility.
@@ -40,15 +40,17 @@ Table~\ref{tab:rq6-results} reports the \texttt{slai\_faithful}-minus-\texttt{vl
 
 \begin{table}[t]
 \centering
-\caption{Real-vLLM RQ6 outcomes against the simulator-selected cases (\texttt{HIGH\_PRESSURE}, 40 paired windows/source, 95\% window-level bootstrap CI, $2{,}000$ resamples).}
+\caption{Real-vLLM RQ6 outcomes against the simulator-selected cases (\texttt{HIGH\_PRESSURE}, 40 paired windows/source, 95\% window-level bootstrap CI, $2{,}000$ resamples). Effect is \texttt{slai\_faithful}$-$\texttt{vllm\_faithful} ANWG.}
 \label{tab:rq6-results}
+\small
+\setlength{\tabcolsep}{4.5pt}
 \begin{tabular}{lccccl}
 \toprule
-Source & Simulator winner & Real effect (SLAI$-$vLLM) & 95\% CI & Real winner & Agreement \\
+Source & Sim.\ winner & Effect & 95\% CI & Real winner & Agreement \\
 \midrule
-Azure-2024 (reversal) & SLAI ($+0.520$) & $-0.0235$ & $[-0.0266,-0.0204]$ & vLLM & Disagrees \\
-BurstGPT (reversal) & vLLM ($-0.348$) & $-0.2003$ & $[-0.2638,-0.1444]$ & vLLM & Agrees \\
-Bailian/Qwen (control) & n/a$^{*}$ & $-0.0256$ & $[-0.0299,-0.0219]$ & vLLM & Consistent w/ Azure \\
+Azure (rev.) & SLAI ($+0.520$) & $-0.024$ & $[-0.027,-0.020]$ & vLLM & Disagrees \\
+BurstGPT (rev.) & vLLM ($-0.348$) & $-0.200$ & $[-0.264,-0.144]$ & vLLM & Agrees \\
+Bailian (ctrl.) & n/a$^{*}$ & $-0.026$ & $[-0.030,-0.022]$ & vLLM & Consistent \\
 \bottomrule
 \end{tabular}
 \\[2pt]
@@ -56,7 +58,8 @@ Bailian/Qwen (control) & n/a$^{*}$ & $-0.0256$ & $[-0.0299,-0.0219]$ & vLLM & Co
 11-policy full-ranking correlation, not a two-policy \texttt{slai\_faithful}-vs-\texttt{vllm\_faithful}
 winner; no directly comparable simulator winner is defined for this row. The
 relevant real-system check is instead whether the two-policy ordering agrees
-between the Azure and Bailian/Qwen conditions, which it does.}
+between the Azure and Bailian/Qwen conditions, which it does (both favor
+\texttt{vllm\_faithful}).}
 \end{table}
 
 The simulator-predicted Azure/BurstGPT reversal did not reproduce: \texttt{vllm\_faithful} won both conditions on real hardware, so the predicted sign flip between Azure and BurstGPT was not observed. BurstGPT's real winner matches the simulator's selection; Azure's does not -- the physical Azure comparison changed from a simulated \texttt{slai\_faithful} advantage to a small but statistically supported \texttt{vllm\_faithful} advantage. In contrast, the Azure/Bailian-Qwen stable-control comparison retained a consistent \texttt{vllm\_faithful}-favoring ordering across both real-system conditions (effect magnitudes $-0.0235$ and $-0.0256$), reproducing the qualitative stability that comparison was selected to test, independent of which specific policy wins.

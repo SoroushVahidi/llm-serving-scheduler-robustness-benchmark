@@ -65,3 +65,27 @@ the Phase-11 region-assignment output hash. These five identifiers were
 independently re-verified as unchanged, and consistent across every
 cross-referencing project document, immediately before this manuscript's
 authoritative branch was committed (\S\ref{sec:conclusion}).
+
+\begin{table}[t]
+\centering
+\caption{Immutable scientific-freeze identifiers fixed before any Pilot-V2
+scheduler outcome was generated. Hashes are abbreviated to the first 12
+hexadecimal characters here; full SHA-256 values are recorded in
+\texttt{docs/ARTIFACT\_HASH\_LEDGER.md} and, where independently
+re-verifiable from the released repository state, were re-derived from the
+cited artifact for this table (four of five; the prelaunch-freeze contract
+hash is a previously frozen aggregate over multiple sub-artifacts and is
+reported as recorded).}
+\label{tab:hashes}
+\begin{tabular}{llc}
+\toprule
+Artifact & Scientific role & SHA-256 (abbrev.) \\
+\midrule
+Phase-10 window freeze & authoritative 120-window freeze identity & \texttt{0d1aa06ccbee\ldots} \\
+Phase-10 compact index & compact freeze index & \texttt{d78ec1087fed\ldots} \\
+Phase-11 prelaunch freeze & pre-execution calibration contract & \texttt{e2564ea94841\ldots} \\
+Phase-11 raw FIFO calibration & raw calibration matrix & \texttt{201caaf04476\ldots} \\
+Phase-11 region assignment & deterministic region-assignment map & \texttt{9fcb92f9ea12\ldots} \\
+\bottomrule
+\end{tabular}
+\end{table}
