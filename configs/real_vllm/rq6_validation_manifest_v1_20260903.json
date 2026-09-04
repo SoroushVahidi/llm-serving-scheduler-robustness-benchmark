@@ -19,15 +19,28 @@
       "condition_x": "azure_llm_2024::HIGH_PRESSURE",
       "condition_y": "burstgpt::HIGH_PRESSURE",
       "metric": "arrival_normalized_weighted_goodput",
-      "simulator_selected_winner_x": "UNRESOLVED_NOT_AVAILABLE_IN_THIS_WORKTREE",
-      "simulator_selected_winner_y": "UNRESOLVED_NOT_AVAILABLE_IN_THIS_WORKTREE",
-      "simulator_selected_winner_status_note": "artifacts/manifests/phase12_rq6_case_selection_20260902.json records only an UNSIGNED effect-size magnitude (operationalized_effect_size_min_abs_margin=1.2816) and classification=SUPPORTED_PRACTICAL_REVERSAL -- it does NOT record which policy (slai_faithful vs vllm_faithful) wins in condition_x vs condition_y. The signed per-condition diff (robustbench.ranking_portability.analysis.reversal_analysis._diff_and_margin: diff = value(policy_a=slai_faithful) - value(policy_b=vllm_faithful)) lives only in the generated, gitignored pairwise_reversals_json artifact (source_provenance.pairwise_reversals_json_sha256=c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde in the case-selection manifest), which is not present in this worktree. This was corrected during prefreeze after an earlier draft of this manifest incorrectly asserted a specific winner pair without source support -- see docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md 'Simulator-selected winner direction'. rq6_validation_analysis.reversal_analysis() takes these two labels as required caller-supplied arguments (never hardcoded/defaulted inside the analysis module) specifically so this gap cannot silently resolve to a guess -- the analysis operator must regenerate or locate the hash-c90619e8-pinned pairwise_reversals_json and read diff_x/diff_y's sign from it before agreement-checking can run; agrees_with_simulator_selected_direction is None (not computed) until then."
+      "simulator_selected_winner_x": "slai_faithful",
+      "simulator_selected_winner_y": "vllm_faithful",
+      "simulator_diff_x": 0.5203749999999999,
+      "simulator_diff_y": -0.3476250000000001,
+      "simulator_ci_x": [0.451603125, 0.58775625],
+      "simulator_ci_y": [-0.43225625000000006, -0.26036875],
+      "simulator_winner_recovery": {
+        "status": "RECOVERED_AND_HASH_VERIFIED",
+        "method": "Exact historical committed artifact (not a rerun, not a reselection): paper/generated/table_data/rq3_reversals.json on branch manuscript/lssp-jsc-reviewer-informed-polish-20260903 @ e6766c954feaf6bdc2ecfa24ee4e30385d1d335c, key supported_practical_reversals_primary_metric_sorted_by_effect_size[0]. This file's own embedded source_artifact_hashes.pairwise_reversals.json (c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde) and analysis_code_git_sha (eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1) both match this case-selection manifest's own recorded provenance exactly -- proving this record was generated from the identical frozen pairwise_reversals.json this case selection cites, not a different or re-run analysis. The record's own operationalized_effect_size_min_abs_margin (1.281566820276498) and bh_fdr_p_pair_iut (0.0) also match the case-selection manifest's recorded values exactly (1.2816 rounded, 0.0). diff = value(policy_a=slai_faithful) - value(policy_b=vllm_faithful), per robustbench.ranking_portability.analysis.reversal_analysis._diff_and_margin's frozen convention: diff_x>0 means slai_faithful wins condition_x; diff_y<0 means vllm_faithful wins condition_y -- both CIs (ci_x, ci_y) exclude zero, confirming SUPPORTED_PRACTICAL_REVERSAL is well-grounded, not a borderline call. Also independently re-verified: the exactly-tied alternative record (bailian_qwen::HIGH_PRESSURE vs burstgpt::HIGH_PRESSURE, same operationalized_effect_size_min_abs_margin=1.281566820276498) is present in the same sorted list with the same sign pattern (diff_x>0, diff_y<0), consistent with the case-selection manifest's disclosed tie.",
+        "no_simulator_rerun": true,
+        "no_real_vllm_result_embedded": true,
+        "recovered_in_session": "RQ6 protocol-ambiguity resolution pass, 2026-09-03 (session 2)"
+      },
+      "simulator_selected_winner_status_note": "RESOLVED (see simulator_winner_recovery). An earlier draft of this manifest asserted this same winner pair without source support and was corrected to a pending-recovery placeholder until the authoritative artifact was located — see docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md 'Simulator-selected winner direction'. That the guess and the recovered value happen to coincide is not evidence either way about the guess; the guess was correctly flagged and replaced regardless, and this field is now backed by an independent, hash-verified source, not by inference from policy names or from the earlier guess."
     },
     "stable_control": {
       "condition_x": "azure_llm_2024::HIGH_PRESSURE",
       "condition_y": "bailian_qwen::HIGH_PRESSURE",
       "metric": "arrival_normalized_weighted_goodput",
-      "simulator_kendall_tau": 1.0
+      "simulator_kendall_tau": 1.0,
+      "simulator_kendall_tau_ci": [0.9040133315325639, 1.0],
+      "verification": "Independently reconfirmed byte-identical against paper/generated/table_data/rq1_rq2_portability.json (same manuscript branch/commit as the reversal-direction recovery above), primary_metric_source_pair_x_region_table entry for this exact condition pair -- kendall_tau=1.0 and kendall_tau_ci=[0.9040133315325639, 1.0] match the case-selection manifest's own recorded values exactly. Verification only; the stable control was not reselected."
     }
   },
 
@@ -84,7 +97,7 @@
     "n_cells": 240,
     "n_cells_formula": "2 policies x 3 sources x 40 windows/source",
     "replicates_per_cell": 1,
-    "replicates_per_cell_status": "UNRESOLVED_SCIENTIFIC_DECISION -- see docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md 'Replicates per cell' for the full disclosed inference chain. Best-supported reading of docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md's frozen Statistics section (uncertainty comes from window-level bootstrap over the 40-window population per condition, mirroring Phase-12's own methodology, not from repeated stochastic measurement of one cell) -- but no frozen document states a per-cell replicate count in those exact words, so this is recorded as an inference requiring explicit human confirmation before actual launch, not a silently-invented value.",
+    "replicates_per_cell_status": "EXPLICITLY_FROZEN_FOR_RQ6_BY_AUTHOR_DECISION (2026-09-03): 1 execution per (policy, source, window) cell; inferential resampling unit = WINDOW (40 per source). This RQ6-specific decision supersedes earlier generic guidance (\u22655 repetitions per cell; repetition-level bootstrap) only for the final RQ6 protocol. Rationale: the experimental unit for RQ6 is the workload window; uncertainty is estimated by resampling across the 40 independent windows per source (mirroring Phase-12); repeating an identical window predominantly samples transient engine jitter rather than additional workload-level uncertainty; the RQ6 estimand is sign/rank/reversal portability across windows, not a separate stochastic-engine variance component. Decision frozen before any real-system RQ6 result exists.",
     "candidate_scale_source": "Per cell, candidate_scale = the (source, window)'s calibration output's own derived_high_pressure field (already = 1.5 x real_lambda_ref, matching the HIGH_PRESSURE region factor) -- never re-derived, never assumed.",
     "array_index_mapping": "enumerate_validation_cells returns cells sorted by (source, window_id, policy); array index i always names the same cell across resubmissions given unchanged workload manifests."
   },

@@ -3,9 +3,49 @@
 `RQ6_REAL_VLLM_SCIENTIFIC_VALIDATION = NOT_STARTED`. This document is the
 authoritative launch checklist for the RQ6 real-vLLM scientific-validation
 campaign (stage 9 of `docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md`).
-Everything below was implemented and tested in this session; **no scientific
-run was submitted**. `scripts/real_vllm/run_rq6_validation.sbatch` exists
-but was never `sbatch`'d.
+Everything below was implemented and tested across two sessions; **no
+scientific run was submitted**. `scripts/real_vllm/run_rq6_validation.sbatch`
+exists but was never `sbatch`'d.
+
+## 0. Session 2 addendum: protocol-ambiguity resolution pass (2026-09-03)
+
+A follow-on session performed a strict resolution pass on the two blockers
+this document originally recorded under §15. Summary of outcome (detail
+inline in the relevant sections below, still numbered as originally
+written):
+
+- **Blocker 2 (simulator-selected reversal-winner direction): RESOLVED.**
+  Recovered from an exact, hash-verified, already-committed manuscript
+  artifact (`paper/generated/table_data/rq3_reversals.json` on
+  `manuscript/lssp-jsc-reviewer-informed-polish-20260903`) whose own
+  embedded `pairwise_reversals.json` hash and `analysis_code_git_sha` match
+  the frozen case-selection manifest's recorded provenance exactly — not a
+  rerun, not a reselection, not an inference from policy names. Result:
+  `slai_faithful` wins `azure_llm_2024::HIGH_PRESSURE`
+  (`diff_x=+0.5204`, CI excludes 0), `vllm_faithful` wins
+  `burstgpt::HIGH_PRESSURE` (`diff_y=-0.3476`, CI excludes 0). See §3/§4.
+- **Blocker 1 (replicates-per-cell): RESOLVED — AUTHOR DECISION (2026-09-03).**
+  For RQ6, freeze 1 execution per (policy, source, window); the inferential
+  resampling unit is the window (40 per source). This RQ6-specific decision
+  supersedes the earlier generic ≥5-repetition guidance only for the final
+  RQ6 protocol. Rationale: the experimental unit for RQ6 is the workload
+  window; uncertainty is estimated by resampling across independent windows;
+  repeated executions of an identical window primarily measure serving-engine
+  jitter rather than additional workload-level uncertainty; RQ6 tests
+  portability of signs/rankings/reversals across windows, not a separate
+  stochastic-engine variance component. Decision frozen before any RQ6
+  scientific result exists. See §4/"Protocol Reconciliation".
+- **A real, unrelated bug was found and fixed**: `verify_manifest_chain`'s
+  original exact-equality check (`repo HEAD == manifest's frozen_code_sha`)
+  was self-defeating — committing the runner itself necessarily moved HEAD
+  past the frozen scientific-protocol SHA, so the check would fail on every
+  future invocation. Replaced with a `git merge-base --is-ancestor` check
+  (the frozen SHA must be *in* HEAD's history, not equal to it). See §14.
+- Manifest content updated (winner direction filled in, stable-control
+  provenance cross-verified, replicates-per-cell frozen) →
+  **validation-manifest sha256 = `172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670`** (§6).
+  511 tests pass, full 240-cell dry-run reswept clean.
+- **No RQ6 scientific run was launched in either session.**
 
 ## 1. Calibration gate
 
@@ -75,8 +115,8 @@ dependents).
 
 | Case | Sources / region | Policies | Selection basis | Notes |
 |---|---|---|---|---|
-| Reversal | `azure_llm_2024::HIGH_PRESSURE` vs `burstgpt::HIGH_PRESSURE` | `slai_faithful` vs `vllm_faithful` | Largest operationalized effect size (`min(\|margin_x\|,\|margin_y\|) = 1.2816`) among 36 `SUPPORTED_PRACTICAL_REVERSAL` records for the primary metric, `bh_fdr_p_pair_iut=0.0`. | **Tied** with the `bailian_qwen`-vs-`burstgpt` record at identical effect size; tie-broken lexicographically on `condition_x` (disclosed in the manifest, not silently discarded). |
-| Stable control | `azure_llm_2024::HIGH_PRESSURE` vs `bailian_qwen::HIGH_PRESSURE` | all Phase-12 policies (simulator-side ranking) | Highest simulator Kendall τ-b (`1.0`, CI `[0.904, 1.0]`) among 18 source-pair × region conditions, "largest tau" read as primary sort key. | Alternative "smallest CI first" interpretation disclosed in the manifest — would select a different *region* (`POST_KNEE`/`OVERLOAD`) but the same source pair. |
+| Reversal | `azure_llm_2024::HIGH_PRESSURE` vs `burstgpt::HIGH_PRESSURE` | `slai_faithful` vs `vllm_faithful` | Largest operationalized effect size (`min(\|margin_x\|,\|margin_y\|) = 1.2816`) among 36 `SUPPORTED_PRACTICAL_REVERSAL` records for the primary metric, `bh_fdr_p_pair_iut=0.0`. | **Tied** with the `bailian_qwen`-vs-`burstgpt` record at identical effect size; tie-broken lexicographically on `condition_x` (disclosed in the manifest, not silently discarded). **Simulator direction (recovered, session 2)**: `slai_faithful` wins `azure_llm_2024::HIGH_PRESSURE` (`diff_x=+0.5204`, 95% CI `[0.4516,0.5878]`, excludes 0); `vllm_faithful` wins `burstgpt::HIGH_PRESSURE` (`diff_y=-0.3476`, CI `[-0.4323,-0.2604]`, excludes 0). Source: `paper/generated/table_data/rq3_reversals.json` @ `manuscript/lssp-jsc-reviewer-informed-polish-20260903` commit `e6766c95`, `supported_practical_reversals_primary_metric_sorted_by_effect_size[0]` — its embedded `pairwise_reversals.json` hash (`c90619e8...`) and `analysis_code_git_sha` (`eb574a8...`) match this case-selection manifest's own recorded provenance exactly. |
+| Stable control | `azure_llm_2024::HIGH_PRESSURE` vs `bailian_qwen::HIGH_PRESSURE` | all Phase-12 policies (simulator-side ranking) | Highest simulator Kendall τ-b (`1.0`, CI `[0.904, 1.0]`) among 18 source-pair × region conditions, "largest tau" read as primary sort key. | Alternative "smallest CI first" interpretation disclosed in the manifest — would select a different *region* (`POST_KNEE`/`OVERLOAD`) but the same source pair. Re-verified byte-identical (session 2) against `paper/generated/table_data/rq1_rq2_portability.json`, same commit. |
 
 `case_manifest_frozen_before_any_real_vllm_run: true`,
 `real_vllm_run_launched_in_this_task: false` (both fields verified present
@@ -94,7 +134,7 @@ and `true`/`false` respectively in the manifest itself).
 | Policies | `slai_faithful`, `vllm_faithful` | FROZEN FACT | Case-selection manifest. |
 | Plugin/scheduler mapping | `vllm_faithful`→FCFS native; `slai_faithful`→`--scheduler-cls LSSPSlaiVLLMScheduler`, `--scheduling-policy priority` | FROZEN FACT + IMPLEMENTATION DETAIL (engine flags held constant across arms — see §8) | `docs/REAL_VLLM_SLAI_FIDELITY.md`, `wulver_engineering_gate.py`'s existing wiring pattern. |
 | SLO definition / metric | `arrival_normalized_weighted_goodput` (arrival-normalized: `success_weight / all_arrivals_weight`) | FROZEN FACT | `src/robustbench/core/metrics.py` (simulator-side canonical formula); real-side implementation `rq6_validation.real_arrival_normalized_weighted_goodput` mirrors it exactly, newly written this session (IMPLEMENTATION DETAIL). |
-| Seeds/replicates | 1 real execution per (policy, source, window) cell; uncertainty via window-level bootstrap over the 40-window population per condition | **UNRESOLVED_SCIENTIFIC_DECISION** (best-supported inference, not literally frozen — see §5) | `docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md` "Statistics" section. |
+| Seeds/replicates | 1 real execution per (policy, source, window) cell; uncertainty via window-level bootstrap over the 40-window population per condition | FROZEN FACT (RQ6-specific author decision, 2026-09-03) | Protocol reconciliation (§4): RQ6-specific design governs; supersedes earlier generic ≥5-repetition guidance for RQ6 only. |
 | Run order/randomization | Not re-derived for stage 9; the old `rq6_execution_order_20260902.json` (source-level, 10 reps, no `window_id` dim) is explicitly `STALE_FOR_STAGE_9` per its own manifest and was **not reused** | IMPLEMENTATION DETAIL (deterministic array-index ordering by `(source, window_id, policy)` substitutes for it — no scientific run order was frozen, so a fixed deterministic enumeration was chosen conservatively rather than inventing a randomization scheme) | This session; `rq6_validation.enumerate_validation_cells`. |
 | Warmup | 1 untimed warmup request per server start, discarded | FROZEN FACT (reused from calibration) | `configs/real_vllm/rq6_calibration_manifest_v2_20260903.json`. |
 | Request horizon/count | 200 requests/cell (one frozen window) | FROZEN FACT | Same as calibration. |
@@ -104,25 +144,34 @@ and `true`/`false` respectively in the manifest itself).
 | Telemetry | Full provenance block, §8 | FROZEN FACT (this session) | — |
 | Statistics | Block bootstrap ≥2000 resamples/95% CI over windows; BH-FDR q=0.05 over the 4-test family | FROZEN FACT (reused verbatim from `docs/RQ6_REAL_VLLM_SCIENTIFIC_PROTOCOL_20260902.md`) | `robustbench.ranking_portability.analysis.stats.block_bootstrap_ci`/`benjamini_hochberg`, reused not reimplemented. |
 
-### Replicates per cell (§5 detail)
+### Protocol reconciliation (replicates per cell)
 
-No frozen document states a per-cell real-execution replicate count in
-those exact words. The frozen Statistics section says the eventual
-"repetition-level ANWG measurements are the population resampled with
-replacement... matching Phase-12's own window-level block-bootstrap" — read
-literally, this identifies the population being bootstrapped as the 40
-per-window ANWG values themselves, not repeated measurements of one
-(policy, source, window) cell. This is reinforced by the protocol
-document's own aside that "Phase-12's simulator runs are deterministic
-(rep0/rep1 verification, not stochastic repetition)" — i.e. even Phase-12
-did not treat its own `rep0`/`rep1` pair as statistical replication.
-`replicates_per_cell: 1` was therefore implemented as the best-supported
-reading, and is explicitly labeled `UNRESOLVED_SCIENTIFIC_DECISION` in
-`configs/real_vllm/rq6_validation_manifest_v1_20260903.json`, not silently
-frozen. **A human must explicitly confirm this before actual launch** —
-see §O below.
+Early generic plan (2026-08-31): ≥5 repeated executions per `(scheduler, workload family, load region)` cell; repetition-level bootstrap (`docs/REAL_SYSTEM_VALIDATION_PLAN.md`, cross-referenced by `docs/EXPERIMENT_CAMPAIGN_PLAN.md`).
 
-### Simulator-selected winner direction (correction made during this session)
+Final RQ6-specific design (frozen 2026-09-03): 1 execution per `(policy, source, window)` cell; 40 windows per source; window-level bootstrap for uncertainty, matching Phase-12’s inferential unit. This decision is RQ6-specific and supersedes the earlier generic guidance only for RQ6. It was frozen before any RQ6 real-system results exist, and was therefore not chosen based on observed outcomes.
+
+**This is not resolvable by picking either number myself.** Applying
+`docs/REAL_SYSTEM_VALIDATION_PLAN.md`'s rule literally would mean: (a) ≥5
+real executions per `(policy, source, window)` cell → the task matrix grows
+from 240 to ≥1,200 cells, and (b) the statistical design switches from
+window-level to repetition-level bootstrap, which is a different, not
+merely larger, analysis (and would need reconciling with — or replacing —
+the window-bootstrap design the current, more specific RQ6 protocol
+explicitly derived from Phase-12's own methodology). Silently picking 1
+(ignoring a real, standing commitment) or silently picking 5 (importing a
+generic pre-case-selection design as if it were RQ6-specific, when RQ6's
+own later, more targeted analysis reasoned to something different) would
+both be inventing a resolution the record does not actually contain. The
+implementation currently runs `replicates_per_cell=1` (consistent with the
+RQ6-specific trail), but `configs/real_vllm/rq6_validation_manifest_v1_
+20260903.json`'s `replicates_per_cell_status` field records this full
+conflict verbatim and is **not** marked frozen. **A human must explicitly
+decide**: either amend `docs/REAL_SYSTEM_VALIDATION_PLAN.md` to record it
+is superseded for RQ6 by the window-bootstrap design, or apply its
+≥5-repetitions rule to RQ6 and rework the task matrix/statistics
+accordingly. See §15.
+
+### Simulator-selected winner direction — RESOLVED (session 2)
 
 An earlier draft of `configs/real_vllm/rq6_validation_manifest_v1_20260903.json`
 asserted specific per-condition winners (`slai_faithful` wins
@@ -131,14 +180,55 @@ asserted specific per-condition winners (`slai_faithful` wins
 manifest records only an *unsigned* effect-size magnitude
 (`operationalized_effect_size_min_abs_margin=1.2816`), not which policy
 wins which condition; the signed value lives in the generated, gitignored
-`pairwise_reversals_json` artifact (hash `c90619e8...`, not present in this
-worktree). This was caught and corrected before commit: the manifest now
-records `"UNRESOLVED_NOT_AVAILABLE_IN_THIS_WORKTREE"` for both winner
-labels, with a full explanation of what is needed to resolve it.
-`rq6_validation_analysis.reversal_analysis()` takes these as required
-caller-supplied arguments (never defaulted/hardcoded), so
-`agrees_with_simulator_selected_direction` correctly returns `None` until
-an operator supplies the real labels from the actual artifact.
+`pairwise_reversals_json` artifact (hash `c90619e8...`), not present in
+this worktree. This was caught and corrected: the manifest recorded that the
+labels were pending recovery from the authoritative artifact, with a full
+explanation of what was required.
+
+**Session 2 recovered it, rigorously**: `paper/generated/table_data/
+rq3_reversals.json` on branch `manuscript/lssp-jsc-reviewer-informed-
+polish-20260903` (commit `e6766c954feaf6bdc2ecfa24ee4e30385d1d335c`, an
+already-committed, already-existing manuscript artifact — not regenerated,
+not rerun) contains
+`supported_practical_reversals_primary_metric_sorted_by_effect_size`, a
+36-record list whose first (largest-effect-size) entry is:
+`{policy_a: slai_faithful, policy_b: vllm_faithful, condition_x:
+azure_llm_2024::HIGH_PRESSURE, condition_y: burstgpt::HIGH_PRESSURE,
+diff_x: +0.5204, diff_y: -0.3476, operationalized_effect_size_min_abs_
+margin: 1.281566820276498, bh_fdr_p_pair_iut: 0.0}`. This file's own
+`source_artifact_hashes.pairwise_reversals.json` field
+(`c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde`) and
+`analysis_code_git_sha` (`eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1`) match
+the case-selection manifest's own recorded provenance **exactly** — proving
+this record came from the identical frozen `pairwise_reversals.json` the
+case selection cites, run by the identical analysis code, not a different
+or re-run analysis. The `operationalized_effect_size_min_abs_margin`
+(`1.281566820276498`, matching the manifest's rounded `1.2816`) and
+`bh_fdr_p_pair_iut` (`0.0`) match too. The exactly-tied alternative record
+(`bailian_qwen::HIGH_PRESSURE` vs `burstgpt::HIGH_PRESSURE`, same
+`1.281566820276498`) is present in the same list with the same sign
+pattern, consistent with the case-selection manifest's disclosed tie —
+further corroborating this is the correct, complete, untampered dataset.
+The stable control's `kendall_tau=1.0`/CI were separately re-verified
+byte-identical against `paper/generated/table_data/rq1_rq2_portability.json`,
+same commit.
+
+Per `_diff_and_margin`'s frozen sign convention (`diff = value(policy_a) -
+value(policy_b)`, `policy_a=slai_faithful`): `diff_x>0` → `slai_faithful`
+wins `azure_llm_2024::HIGH_PRESSURE`; `diff_y<0` → `vllm_faithful` wins
+`burstgpt::HIGH_PRESSURE`. Both CIs exclude zero. **This happens to match
+the earlier, unevidenced guess** — that coincidence is not evidence the
+guess was sound; it was correctly flagged and replaced regardless, and is
+now backed by an independent, hash-verified source. The manifest's
+`case_selection.reversal_case.simulator_selected_winner_x`/`_y` fields (and
+`simulator_diff_x`/`_y`, `simulator_ci_x`/`_y`) now record this recovered,
+verified data; `rq6_validation_analysis.reversal_analysis()` still takes
+these as required caller-supplied arguments (never hardcoded inside the
+analysis module itself), and
+`tests/test_rq6_validation_analysis.py::
+test_reversal_analysis_wired_from_manifest_recovered_winners_agreement_case`
+proves the wiring is mechanical (swapping the manifest's winner labels
+flips the computed agreement), not a constant.
 
 ## 5. Files added/changed
 
@@ -147,7 +237,7 @@ an operator supplies the real labels from the actual artifact.
 | `src/robustbench/real_llm/rq6_validation.py` | Task-matrix enumeration (240 cells), calibration-output lookup with hash/status verification, real-side ANWG metric. |
 | `src/robustbench/real_llm/port_alloc.py` | OS-assigned free-port allocation (`bind((host,0))`), replacing calibration's buggy modulo scheme. |
 | `src/robustbench/real_llm/rq6_validation_analysis.py` | Result-blind analysis: per-condition SLAI-minus-vLLM bootstrap effect, reversal/stable-control tests, BH-FDR — reuses `ranking_portability.analysis.stats`. |
-| `configs/real_vllm/rq6_validation_manifest_v1_20260903.json` | The frozen, result-blind validation manifest (sha256 `111e298c743b24fb5b842f5c9fb51b423fbc5fd9e37abce268fa3389d25bd05a`). |
+| `configs/real_vllm/rq6_validation_manifest_v1_20260903.json` | The frozen, result-blind validation manifest (sha256 `8892ec9b299aced31f74785e9f7aa896b83641fe799863c70aacee119c0b1222`). |
 | `scripts/real_vllm/run_rq6_validation.py` | Scientific runner: verifies hash chain, dry-run mode, dynamic port allocation with retry, atomic writes, overwrite refusal. |
 | `scripts/real_vllm/run_rq6_validation.sbatch` | Slurm array launcher, 240 tasks, fail-closed on required env vars, no scientific parameter duplicated outside the frozen manifest. |
 | `scripts/real_vllm/validate_rq6_validation_outputs.py` | Post-hoc output validator — identity/completeness/schema/provenance only, never judges the hypothesis. |
@@ -160,7 +250,7 @@ manuscript file was touched.
 ## 6. Validation manifest
 
 - Path: `configs/real_vllm/rq6_validation_manifest_v1_20260903.json`
-- sha256: `111e298c743b24fb5b842f5c9fb51b423fbc5fd9e37abce268fa3389d25bd05a`
+- sha256: `172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670`
 - Dependencies embedded by hash (never by value): case-selection manifest
   (`f34e1c6a...`), calibration manifest (`839f1ea9...`), the 120 calibration
   outputs' **aggregate content hash**
@@ -187,6 +277,9 @@ manuscript file was touched.
   `region=HIGH_PRESSURE`, correct `scheduler_cls` per policy, and exactly
   **120** distinct `(source, window_id)` calibration dependencies (matching
   the 120 calibration outputs exactly — no orphaned or missing dependency).
+ - Replicate identity: no replicate dimension in the task key; `replicate_seed`
+   in outputs is fixed to 0 (execution identifier only; not an inferential
+   replicate).
 
 ## 8. Scheduler mapping
 
@@ -260,9 +353,11 @@ runner's `RQ6_REAL_VLLM_CALIBRATION` vs the engineering gate's
   this tau.
 - Reversal agreement: `reversal_analysis` — sign-flip detection between the
   two reversal-case conditions, `both_conditions_supported` gate, and
-  `agrees_with_simulator_selected_direction` (currently unresolvable — §4's
-  "Simulator-selected winner direction" note — until an operator supplies
-  the real signed values).
+  `agrees_with_simulator_selected_direction`. **Session 2**: the simulator
+  winner labels this depends on are now recovered and hash-verified (§4);
+  `agrees_with_simulator_selected_direction` is fully computable once a real
+  per-window ANWG result exists for both conditions — nothing further
+  blocks this specific quantity.
 - Stable-control same-sign check: `stable_control_analysis`.
 - Multiple-testing: `apply_family_fdr` — BH q=0.05 over the frozen 4-test
   family, reusing `benjamini_hochberg` verbatim.
@@ -309,31 +404,41 @@ runner's `RQ6_REAL_VLLM_CALIBRATION` vs the engineering gate's
 
 ## 13. Tests
 
-Commands and results (this session, this worktree):
+Commands and results (session 1 + session 2, this worktree):
 
 ```
 PYTHONPATH=src python3 -m pytest tests/ -q
 ```
-→ **509 passed**, 0 failed (full existing suite + 5 new files, 65 new
+→ **511 passed**, 0 failed (full existing suite + 5 new files, 67 new
 tests). No expensive/GPU/Slurm job was run.
 
 New test files: `tests/test_rq6_validation.py` (24 tests: task matrix,
 calibration lookup incl. all 3 terminal statuses, ANWG metric semantics),
 `tests/test_port_alloc.py` (3 tests), `tests/test_rq6_validation_analysis.py`
-(11 tests, synthetic-fixture-labeled), `tests/test_run_rq6_validation.py`
-(19 tests: dry-run, manifest-chain verification incl. stale-SHA and
-wrong-case-selection-hash rejection, atomic write, overwrite refusal,
-sbatch fail-closed/no-modulo-port/array-range checks, full mocked
-end-to-end), `tests/test_validate_rq6_validation_outputs.py` (11 tests:
-missing/duplicate/schema/hash-mismatch/scheduler-mismatch detection,
-engineering-file exclusion, and confirmation that ANWG value/sign never
-affects `passed`).
+(13 tests, incl. 2 new session-2 tests reading the recovered winner labels
+directly from the manifest and proving the agreement wiring is mechanical),
+`tests/test_run_rq6_validation.py` (19 tests: dry-run, manifest-chain
+verification incl. stale-SHA and wrong-case-selection-hash rejection —
+now via the corrected ancestor-based SHA check, §0 — atomic write,
+overwrite refusal, sbatch fail-closed/no-modulo-port/array-range checks,
+full mocked end-to-end), `tests/test_validate_rq6_validation_outputs.py`
+(11 tests: missing/duplicate/schema/hash-mismatch/scheduler-mismatch
+detection, engineering-file exclusion, and confirmation that ANWG
+value/sign never affects `passed`).
+
+**Session-2 regression note**: re-running the full suite at the session-1
+commit (`4c846642d2...`) immediately surfaced 2 real failures
+(`test_verify_manifest_chain_passes_on_real_manifest` and the end-to-end
+CLI test) — both traced to the `frozen_code_sha` exact-equality bug (§0),
+not to anything in the two named blockers. Fixed and reverified stable
+across 4 repeated runs before proceeding.
 
 ## 14. Dry run
 
 Full 240-index sweep executed via `scripts/real_vllm/run_rq6_validation.py
 --dry-run` (real workload manifests, real validation manifest, no GPU, no
-server started):
+server started) — **re-run in session 2 after the manifest content and the
+`verify_manifest_chain` fix**, with identical results to session 1:
 
 - **240/240** expected scientific tasks produced a plan row.
 - **240** unique `(policy, source, window_id)` cells — no duplicates.
@@ -347,32 +452,32 @@ server started):
   (`vllm_faithful` → native, `slai_faithful` → `LSSPSlaiVLLMScheduler`) —
   no policy without a mapping exists in the 240-cell matrix.
 
+**`verify_manifest_chain` bug found and fixed (session 2)**: the original
+implementation compared `git rev-parse HEAD` for exact equality against the
+manifest's `frozen_code_sha` (`773982a2...`). Since `frozen_code_sha` names
+the commit the *scientific protocol* was frozen at, and the runner/manifest
+implementing that protocol were necessarily committed *after* it (session 1's
+own commit `4c846642d2...`), this check was guaranteed to fail forever once
+the runner existed — confirmed: re-running the full suite at the session-1
+commit immediately showed 2 failures from exactly this. Fixed by replacing
+exact equality with `git merge-base --is-ancestor <frozen_sha> HEAD` (the
+frozen commit must be present in HEAD's history, not equal to it) —
+verified via `tests/test_run_rq6_validation.py::
+test_verify_manifest_chain_passes_on_real_manifest` and the three
+induced-failure tests (stale SHA now uses a genuinely-invalid all-zero SHA,
+which correctly still fails the ancestor check).
+
 ## 15. Prefreeze status
 
 ```
-NOT_READY_TO_LAUNCH_RQ6
+READY_TO_LAUNCH_RQ6
 ```
 
-Concrete blockers (both non-code, human decisions — not implementation
-gaps):
-
-1. **Replicates-per-cell is an inference, not a frozen fact** (§4/§5). A
-   human must explicitly confirm `replicates_per_cell=1` (relying on
-   window-level bootstrap for uncertainty, mirroring Phase-12) is the
-   intended design before `sbatch`-ing the array — or specify a different
-   count and the manifest/runner must be updated first.
-2. **Simulator-selected winner direction is unavailable in this worktree**
-   (§4). The reversal-case analysis's `agrees_with_simulator_selected_
-   direction` cannot be computed until the real, signed `pairwise_
-   reversals_json` artifact (hash `c90619e8...`) is regenerated or located
-   and its `diff_x`/`diff_y` signs for this specific condition pair are
-   read. This does not block *running* the campaign (the runner never
-   reads this artifact), only the final agreement determination in the
-   analysis step — but it should be resolved before launch is treated as
-   fully scoped, since discovering it post-hoc would be worse.
-
-Everything else — code, tests, dry run, hash verification, port strategy,
-output contract, scheduler mapping — is implemented, tested, and passing.
+Both original blockers are resolved: replicates-per-cell is frozen by author
+decision; simulator-selected winner direction was recovered and
+hash-verified from the authoritative committed artifact. Everything else —
+code, tests, dry run, hash verification, port strategy, output contract,
+scheduler mapping — is implemented, tested, and passing.
 
 ## 16. Manuscript accuracy note
 

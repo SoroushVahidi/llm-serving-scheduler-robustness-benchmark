@@ -96,10 +96,28 @@ def verify_manifest_chain(manifest: Dict[str, Any], *, repo_root: Path) -> None:
     verification failure is not evidence."""
     problems = []
 
+    # frozen_code_sha names the commit the SCIENTIFIC PROTOCOL (calibration,
+    # case selection) was frozen at -- it is necessarily an ANCESTOR of
+    # whatever commit later added this runner/manifest, never equal to it
+    # (committing the runner itself always advances HEAD past that SHA).
+    # The correct check is therefore "is frozen_code_sha still present in
+    # this branch's history" (protects against a rebase/revert that
+    # silently dropped the frozen protocol commit), not exact equality --
+    # an earlier version of this function used exact equality, which made
+    # verification permanently fail the moment this runner was committed
+    # (caught and fixed during the RQ6 protocol-ambiguity resolution pass,
+    # docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md).
     frozen_sha = manifest["frozen_code_sha"]
-    actual_sha = _git_sha()
-    if actual_sha != frozen_sha:
-        problems.append(f"repo HEAD {actual_sha} != manifest's frozen_code_sha {frozen_sha}")
+    is_ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", frozen_sha, "HEAD"], cwd=repo_root,
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    ).returncode == 0
+    if not is_ancestor:
+        actual_sha = _git_sha()
+        problems.append(
+            f"manifest's frozen_code_sha {frozen_sha} is not an ancestor of repo HEAD {actual_sha} "
+            "(the frozen scientific-protocol commit is missing from this branch's history)"
+        )
 
     case_sel = manifest["case_selection"]["manifest_path"]
     case_sel_expected = manifest["case_selection"]["manifest_sha256"]

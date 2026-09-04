@@ -26,11 +26,11 @@ artifacts/manifests/phase12_rq6_case_selection_20260902.json): 2 policies x
 cell -- uncertainty quantification is the window-level block-bootstrap over
 the 40 windows/source (mirroring Phase-12's own methodology), not repeated
 stochastic replicates of one cell. See
-docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md's "UNRESOLVED_SCIENTIFIC_
-DECISION: replicates-per-cell" note for the disclosed inference chain behind
-"one real execution per cell" -- this is the best-supported reading of the
-frozen statistics section, not a value any frozen document states in those
-exact words.
+docs/RQ6_REAL_VLLM_VALIDATION_PREFREEZE_20260903.md's protocol reconciliation
+for the final RQ6-specific replicate decision: one real execution per cell,
+uncertainty via window-level bootstrap over the 40-window population. This
+decision is RQ6-specific and was frozen before any RQ6 real-system outcomes
+exist.
 """
 from __future__ import annotations
 

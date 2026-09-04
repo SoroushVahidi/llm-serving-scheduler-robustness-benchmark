@@ -7,6 +7,9 @@ is read here.
 """
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import numpy as np
 import pytest
 
@@ -18,6 +21,9 @@ from robustbench.real_llm.rq6_validation_analysis import (
 )
 
 SYNTHETIC_FIXTURE_NOT_SCIENTIFIC_EVIDENCE = True
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+VALIDATION_MANIFEST_PATH = REPO_ROOT / "configs/real_vllm/rq6_validation_manifest_v1_20260903.json"
 
 
 def _rng():
@@ -157,3 +163,65 @@ def test_apply_family_fdr_default_q_is_0_05():
     p_values = [0.5, 0.6, 0.7, 0.8]
     rejected = apply_family_fdr(p_values)
     assert all(r is False for r in rejected)
+
+
+# ---------------------------------------------------------------------------
+# Simulator-direction wiring: `agrees_with_simulator_selected_direction`
+# must be mechanically derivable from the manifest's recovered, hash-
+# verified FROZEN_SIMULATOR_EVIDENCE (Phase-12 pairwise-reversal record,
+# not a real-vLLM result) plus a (synthetic, labeled) real-side effect --
+# never manually entered. This test reads the actual recovered labels from
+# the validation manifest (not a hardcoded duplicate), so a future edit to
+# the manifest's winner fields is caught here if the wiring silently
+# breaks.
+# ---------------------------------------------------------------------------
+
+@pytest.mark.skipif(not VALIDATION_MANIFEST_PATH.exists(), reason="validation manifest not present")
+def test_simulator_winner_labels_are_resolved_not_unresolved_in_manifest():
+    with open(VALIDATION_MANIFEST_PATH) as f:
+        manifest = json.load(f)
+    reversal = manifest["case_selection"]["reversal_case"]
+    assert reversal["simulator_selected_winner_x"] == "slai_faithful"
+    assert reversal["simulator_selected_winner_y"] == "vllm_faithful"
+    assert reversal["simulator_winner_recovery"]["status"] == "RECOVERED_AND_HASH_VERIFIED"
+    # FROZEN_SIMULATOR_EVIDENCE, not a real-vLLM result: sign convention
+    # sanity check on the recovered diff values themselves.
+    assert reversal["simulator_diff_x"] > 0  # slai_faithful wins condition_x
+    assert reversal["simulator_diff_y"] < 0  # vllm_faithful wins condition_y
+
+
+@pytest.mark.skipif(not VALIDATION_MANIFEST_PATH.exists(), reason="validation manifest not present")
+def test_reversal_analysis_wired_from_manifest_recovered_winners_agreement_case():
+    """FROZEN_SIMULATOR_EVIDENCE for the winner labels (read from the
+    manifest, real Phase-12 data); the per-window real-side diffs below are
+    SYNTHETIC_FIXTURE_NOT_SCIENTIFIC_EVIDENCE (no real-vLLM RQ6 result
+    exists yet) -- this only checks that agreement is computed mechanically
+    from whatever winners the manifest names, not hand-entered."""
+    with open(VALIDATION_MANIFEST_PATH) as f:
+        manifest = json.load(f)
+    reversal = manifest["case_selection"]["reversal_case"]
+
+    # Synthetic real-side data that happens to agree with the (real,
+    # recovered) simulator direction.
+    per_window_diff_x = {f"w{i:02d}": 0.3 for i in range(40)}
+    per_window_diff_y = {f"w{i:02d}": -0.3 for i in range(40)}
+    result = reversal_analysis(
+        per_window_diff_x, per_window_diff_y,
+        condition_x_label=reversal["condition_x"], condition_y_label=reversal["condition_y"],
+        simulator_selected_x_winner=reversal["simulator_selected_winner_x"],
+        simulator_selected_y_winner=reversal["simulator_selected_winner_y"],
+        rng=_rng(),
+    )
+    assert result.agrees_with_simulator_selected_direction is True
+
+    # Same synthetic real-side data, but simulator winners swapped (as if
+    # the recovery had gone the other way) -- agreement must flip to False,
+    # proving this is mechanically derived, not a constant.
+    result_swapped = reversal_analysis(
+        per_window_diff_x, per_window_diff_y,
+        condition_x_label=reversal["condition_x"], condition_y_label=reversal["condition_y"],
+        simulator_selected_x_winner=reversal["simulator_selected_winner_y"],
+        simulator_selected_y_winner=reversal["simulator_selected_winner_x"],
+        rng=_rng(),
+    )
+    assert result_swapped.agrees_with_simulator_selected_direction is False
