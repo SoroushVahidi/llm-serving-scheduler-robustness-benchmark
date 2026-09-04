@@ -1,0 +1,12 @@
+# Reviewer-facing artifact environment.
+#
+# These are the direct packages required for Tier-1 artifact validation and
+# Tier-2 CPU simulation. The exact transitive package set is captured by
+# scripts/artifact/write_provenance_snapshot.py at validation time; avoid
+# pinning unrelated transitive packages here because distro/Python micro
+# releases vary across laptops and clusters.
+numpy>=1.24,<3
+pandas>=2.0,<3
+pyyaml>=6.0,<7
+scipy>=1.10,<2
+pytest>=7.4,<9

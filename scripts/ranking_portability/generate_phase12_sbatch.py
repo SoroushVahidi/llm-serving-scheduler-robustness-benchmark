@@ -54,7 +54,11 @@ def main() -> None:
     ap.add_argument("--shard-plan", type=Path, default=DEFAULT_SHARD_PLAN)
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     ap.add_argument("--module-load", default="slurm/wulver")
-    ap.add_argument("--python-bin", default="/home/soroush/repos/llm-serving-scheduler-robustness-benchmark/.venv/bin/python")
+    ap.add_argument(
+        "--python-bin", default="python3",
+        help="Interpreter to invoke in the generated sbatch script "
+             "(point this at your own cluster venv, e.g. .venv/bin/python)",
+    )
     args = ap.parse_args()
 
     with open(args.shard_plan) as f:

@@ -1,11 +1,13 @@
 # LLM-Serving Scheduler Portability Benchmark — Project Status
 
+**[HISTORICAL PROVENANCE: This document represents the state of the project as of 2026-09-02 (Phase-12B campaign matrix freeze) and is preserved as an unmodified historical record. For the final, current status of the completed campaign and manuscript, see the top-level `README.md`.]**
+
 Last verified: 2026-09-02 (Phase-12B — campaign matrix freeze)
 Canonical mutable status for the integrated scientific state through Phase 11,
 the corrected canonical literature, the manuscript foundation, the Phase-12A
 engineering smoke, and the Phase-12B campaign-matrix freeze.
 
-PROJECT_STATUS.md is the canonical single source of truth for project-state changes.
+PROJECT_STATUS.md was the canonical single source of truth for project-state changes during active execution.
 
 ## 1. Executive summary
 

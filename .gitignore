@@ -4,7 +4,11 @@ __pycache__/
 .coverage
 *.egg-info/
 .venv/
+.venv*/
 venv/
+.ipynb_checkpoints/
+*.bak
+*~
 data/raw/
 data/external/
 data/*.parquet

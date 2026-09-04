@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -40,7 +41,10 @@ from robustbench.workloads.external.benchmark_synthesis import (  # noqa: E402
 )
 from robustbench.workloads.external.schema import ExternalWorkloadRecord  # noqa: E402
 
-DEFAULT_MANIFEST = "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-ranking-portability-windows/artifacts/manifests/ranking_portability_pilot_v2_windows.json"
+#: Historical run used a sibling worktree's manifest at a cluster-specific
+#: absolute path; that file is not shipped in this repo. Public runs must
+#: pass --manifest explicitly or set LSSP_WINDOWS_MANIFEST.
+DEFAULT_MANIFEST = os.environ.get("LSSP_WINDOWS_MANIFEST")
 DEFAULT_RAW_OUT = REPO_ROOT / "artifacts" / "manifests" / "ranking_portability_phase11_raw_fifo_calibration.json"
 DEFAULT_ASSIGN_OUT = REPO_ROOT / "artifacts" / "manifests" / "ranking_portability_phase11_region_assignments.json"
 
@@ -212,7 +216,12 @@ def _build_window_calibration(window: dict, *, window_hash: str, compact_index_h
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--manifest", type=Path, default=Path(DEFAULT_MANIFEST), help="Frozen 120-window manifest path")
+    ap.add_argument(
+        "--manifest", type=Path,
+        default=Path(DEFAULT_MANIFEST) if DEFAULT_MANIFEST else None,
+        required=DEFAULT_MANIFEST is None,
+        help="Frozen 120-window manifest path (or set LSSP_WINDOWS_MANIFEST)",
+    )
     ap.add_argument("--out", type=Path, default=DEFAULT_RAW_OUT, help="Output path for the raw FIFO calibration manifest")
     ap.add_argument("--assignments-out", type=Path, default=DEFAULT_ASSIGN_OUT, help="Output path for derived region assignments")
     args = ap.parse_args()
