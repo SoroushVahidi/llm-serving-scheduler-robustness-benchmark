@@ -1,7 +1,7 @@
 \section{Threats to Validity}
 \label{sec:threats}
 
-\paragraph{Simulator abstraction.} All results in this manuscript, except
+\paragraph{Simulator abstraction} All results in this manuscript, except
 \S\ref{sec:real-system}, are produced by a discrete-event simulator, not a
 real serving engine (\S\ref{sec:execution-model}). We do not claim that
 simulated absolute latency or throughput values match real-hardware
@@ -9,18 +9,18 @@ values; only relative ranking and reversal direction were tested for
 transfer, on a small set of selected cases whose scope and outcome are
 detailed below (``Scope of real-system validation'').
 
-\paragraph{Fidelity of reimplemented policies.} \texttt{FAITHFUL\_EXTERNAL}
+\paragraph{Fidelity of reimplemented policies} \texttt{FAITHFUL\_EXTERNAL}
 policies are validated reimplementations, not the original authors' code;
 residual implementation gaps relative to the original published systems
 are possible despite unit-test validation (\S\ref{sec:fidelity}).
 
-\paragraph{\texttt{STYLE\_APPROXIMATION} baselines.} The two style-level
+\paragraph{\texttt{STYLE\_APPROXIMATION} baselines} The two style-level
 approximation policies are explicitly excluded from the PRIMARY headline
 panel and used only for a robustness check; they must not be read as
 official or validated reimplementations of their namesake systems
 (\S\ref{sec:fidelity}).
 
-\paragraph{Three primary workload families.} The benchmark corpus draws from
+\paragraph{Three primary workload families} The benchmark corpus draws from
 three primary sources (\S\ref{sec:sources}); a fourth candidate source
 (TraceLab) is retained only as out-of-distribution context because its
 independence from a prior public window sweep cannot be fully verified.
@@ -30,13 +30,13 @@ out-of-distribution characterization context (\S\ref{sec:cross-source-diffs})
 but no ranking-portability windows -- and is not a claim about LLM-serving
 workloads in general.
 
-\paragraph{Window-size sensitivity.} The benchmark corpus fixes window size
+\paragraph{Window-size sensitivity} The benchmark corpus fixes window size
 at 200 requests throughout; how the reported results would change under a
 different requests-per-window choice has not been swept and remains an open
 item (\S\ref{sec:window-size} distinguishes this from the window-count
 analysis).
 
-\paragraph{Dataset/provider dependence.} As established in
+\paragraph{Dataset/provider dependence} As established in
 \S\ref{sec:sources}, BurstGPT and this project's Azure traces are not
 established to come from independent underlying providers -- both trace
 back to Microsoft Azure infrastructure, collected through different
@@ -44,7 +44,7 @@ mechanisms. Any cross-source finding involving BurstGPT and Azure should be
 read with this in mind; Bailian/Qwen remains a genuinely independent
 platform.
 
-\paragraph{Prompt-token semantic differences.} Prompt-token fields compose
+\paragraph{Prompt-token semantic differences} Prompt-token fields compose
 differently across sources (single-request figure for BurstGPT versus
 potentially multi-turn-cumulative context for Azure and TraceLab;
 \S\ref{sec:descriptors}). Any prompt-length-based claim in this manuscript
@@ -52,7 +52,7 @@ carries this caveat and should not be read as evidence that the sources'
 underlying conversations differ in length, only that their observed,
 request-level prompt-token figures do.
 
-\paragraph{Unresolved historical byte-level overlap.} An exact,
+\paragraph{Unresolved historical byte-level overlap} An exact,
 byte-level reconstruction of a prior related project's specific 60-window
 public-trace replay set could not be independently re-derived from this
 project's available checkout; that project's own recorded parameters and
@@ -62,14 +62,14 @@ window construction is independently verified as non-identical
 (\S\ref{sec:windows}, \S\ref{sec:evidence-boundaries}), but the historical
 byte-level reconstruction gap itself remains an open item.
 
-\paragraph{Homogeneous hardware / execution assumptions.} The simulator
+\paragraph{Homogeneous hardware / execution assumptions} The simulator
 executes every cell under a fixed, single-GPU-colocated execution model for
 the PRIMARY panel; two disaggregation-requiring policies are confined to a
 secondary stratum and never pooled with the PRIMARY leaderboard
 (\S\ref{sec:panel}).
 
 \paragraph{Zero completions and undefined completion-conditioned
-metrics.} Several metrics (\S\ref{sec:metrics}) are undefined, not zero,
+metrics} Several metrics (\S\ref{sec:metrics}) are undefined, not zero,
 for any cell recording zero completions -- a real methodological choice
 with a real cost: an undefined-metric policy is excluded from that
 specific condition's ranking-derived statistics, lowering effective
@@ -82,7 +82,7 @@ downstream analyses at that region for any policy -- a structural
 constraint on statistical power, particularly in the highest-pressure
 regions.
 
-\paragraph{Fixed thresholds are conventions, not universal standards.} The
+\paragraph{Fixed thresholds are conventions, not universal standards} The
 $10\%$ practical-margin (\S\ref{sec:uncertainty}) and $0.9$ recovery-probability
 (\S\ref{sec:sample-complexity-design}) thresholds used throughout this
 manuscript were both fixed prospectively, but neither is asserted to be a
@@ -92,7 +92,7 @@ convention adopted, and a different reasonable choice could shift these
 counts without changing the underlying effect estimates.
 
 \paragraph{Cross-metric disagreement bounds any single-metric ranking
-claim.} \S\ref{sec:results-cross-metric}'s only-moderate cross-metric rank
+claim} \S\ref{sec:results-cross-metric}'s only-moderate cross-metric rank
 correlation and low top-policy agreement are a scope statement, not an
 analysis defect: the study's tracked metrics (ANWG, completion fraction,
 latency percentiles, SLO-violation rate, throughput) capture genuinely
@@ -108,7 +108,7 @@ cross-metric disagreement should itself be read as a substantive finding,
 not as noise to be averaged away.
 
 \paragraph{SLO-definition sensitivity was a post-campaign extension, not
-preregistered evidence.} An SLO-synthesis sensitivity check was planned but
+preregistered evidence} An SLO-synthesis sensitivity check was planned but
 never actually preregistered before or during the benchmark campaign
 (\S\ref{sec:slo-sensitivity-gap}); it was instead run afterward as an
 explicitly labeled post-campaign extension, after headline results were
@@ -118,7 +118,7 @@ sensitivity, not a contradiction of any headline reversal, but a caveat
 that should temper confidence in the most SLO-definition-dependent
 individual comparisons.
 
-\paragraph{Scope of real-system validation.} \S\ref{sec:real-system}'s
+\paragraph{Scope of real-system validation} \S\ref{sec:real-system}'s
 validation is limited by design to a small, frozen set of case-selected
 conditions (largest-effect-size reversal plus one stable-ordering control),
 not a full re-execution of the primary outcome matrix on real hardware; agreement

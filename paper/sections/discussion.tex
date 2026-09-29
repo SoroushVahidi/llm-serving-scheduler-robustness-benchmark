@@ -9,8 +9,8 @@ mechanistically legible way, and that dependence itself is the finding.
 
 Comparative scheduler rankings are never uncorrelated between any two
 sources at any region (\S\ref{sec:cross-source-rankings}): a scheduler
-comparison performed on one of this study's three sources is never
-scientifically meaningless evidence about the others. At the same time,
+comparison performed on one of this study's three sources retains
+positive aggregate ranking agreement with the others. At the same time,
 portability is far from uniform, and the non-uniformity is legible rather
 than diffuse: Azure-2024 and Bailian/Qwen agree almost perfectly at every
 operating region, while every comparison involving BurstGPT is consistently
@@ -21,7 +21,7 @@ footprint always suffices'' nor ``every scheduler comparison must be
 re-verified on every workload'': it is that \emph{which} second source a
 comparison is checked against matters more than \emph{whether} a second
 source is checked at all. A comparison validated only on Azure-2024-like
-traffic transfers with high confidence to Bailian/Qwen-like traffic under
+traffic shows strong agreement with Bailian/Qwen-like traffic under
 this study's panel and metric, but the same transfer to BurstGPT-like
 traffic is measurably less reliable, and that reliability gap holds at
 every load level tested, not only under stress.
@@ -75,9 +75,9 @@ The cross-metric result is the more consequential of the two. Rank
 correspondence across metric pairs is only moderate (median
 $\tau_b = 0.419$) -- well below the agreement between the two most portable
 \emph{sources} -- and metrics sometimes rank policies in opposite order
-rather than merely disagreeing in degree. For a randomly chosen (source,
-region) condition, which metric is used changes which policy comes out on
-top more often than not (\S\ref{sec:results-cross-metric}).
+rather than merely disagreeing in degree. Across the evaluated metric pairs
+within source-region conditions, the top-ranked policy differs more often
+than it agrees (\S\ref{sec:results-cross-metric}).
 This does not mean
 metrics are arbitrary or that any one choice is as good as another -- ANWG,
 completion fraction, and the latency- and SLO-based metrics measure
