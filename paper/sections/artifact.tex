@@ -1,35 +1,21 @@
 \section{Reproducibility and the LSSP Artifact}
 \label{sec:artifact}
 
-LSSP is released through linked public artifacts. The GitHub
-repository -- \url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}
--- carries the source code, simulator, policy implementations, analysis
-pipeline, validation scripts, the reproduction workflow, figure/table
-generation code (including
-\texttt{paper/scripts/generate\_phase12\_tables\_figures.py}), the manuscript
-source, and the frozen provenance manifests for every campaign stage. The Hugging
-Face dataset -- \url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}
--- carries the current analysis-ready public subset: source-license
-documentation, release checksums, the RQ1/RQ2 portability table, the RQ4/RQ5
-sample-complexity table, and the reduced RQ6 result with full computational
-provenance (\S\ref{sec:real-system-result}). Its dataset card documents the
-exact release scope and the files intentionally deferred. An immutable
-snapshot of the GitHub release is
-additionally archived with a persistent identifier via Zenodo, DOI
-\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}
-(see Data availability in the Declarations).
-
-Upstream workload traces (\S\ref{sec:provenance}) remain governed by their
-original publishers' licenses and are not republished where redistribution
-is not permitted; the release documents provenance and, where license
-terms allow, redistributes processed derivatives rather than raw source
-traces. The current public release does \emph{not} include the exploded
-per-cell $18{,}720$-execution campaign matrix, the complete per-cell
-mechanism telemetry, the raw 240 per-cell RQ6 physical-execution records,
-or the unpublished intermediate canonical-analysis files consumed by the
-figure/table generation script. Those files remain represented by the
-published reduced tables, provenance records, and code, and are candidates
-for a future dataset revision.
+LSSP is released to support independent reproduction through linked
+public artifacts: a GitHub repository
+(\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark})
+carrying the simulator, policy implementations, analysis and validation
+pipeline, figure/table generation code, manuscript source, and frozen
+provenance manifests for every campaign stage; a Hugging Face dataset
+(\url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability})
+carrying the analysis-ready principal result tables and the reduced RQ6
+result with computational provenance (\S\ref{sec:real-system-result}); and a
+Zenodo snapshot, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
+Upstream traces (\S\ref{sec:provenance}) remain governed by their
+publishers' licenses, and several per-cell campaign records are not yet
+public; the full public/non-public release boundary is stated under Data
+Availability in the Declarations.
 
 The primary comparative outcome (\S\ref{sec:results}) was generated from,
 and structurally validated against, the full paired policy-outcome matrix

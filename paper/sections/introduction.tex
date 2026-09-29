@@ -39,25 +39,20 @@ region.
 
 What has not been directly asked for LLM-serving scheduler comparisons is
 a second-order performance-evaluation question that follows from combining
-these two observations. While new
-scheduler papers appropriately establish policy effectiveness or superiority
-under specific workload traces and targeted objectives, and separate workload
-characterization studies show that production traffic is highly heterogeneous
-and evolving, the transferability of these comparative scheduler conclusions
-across contexts is not automatic. LSSP is designed to directly measure this
-transferability.
-The typical evaluation question in
+these two observations: whether comparative scheduler conclusions transfer
+across contexts. The typical evaluation question in
 this literature is: \emph{how well does scheduler $A$ perform, relative to
-scheduler $B$, on the workload(s) chosen for this paper's experiments?} Given
-that workloads are heterogeneous, and that a paper's experiments necessarily
-use only a finite, chosen set of workloads, a comparative claim of this form
+scheduler $B$, on the workload(s) chosen for this paper's experiments?}
+Because a paper's experiments necessarily use only a finite, chosen set of
+heterogeneous workloads, a comparative claim of this form
 is only as useful as its \emph{portability}: does the same comparative
 ordering of schedulers hold if the workload distribution, the operating
 load, or the evaluation metric is changed to another one a practitioner
-might reasonably care about? This is a different question from workload
-heterogeneity itself, and a different question from any single scheduler's
-sensitivity to load or service-level objectives (SLOs). It is a question about the reliability of the
-\emph{comparison}, not about any individual system.
+might reasonably care about? This question differs both from workload
+heterogeneity itself and from any single scheduler's
+sensitivity to load or service-level objectives (SLOs): it concerns the
+reliability of the \emph{comparison}, not of any individual system. LSSP is
+designed to measure this transferability directly.
 
 We formalize this as the portability of a comparative scheduler ranking
 $R(W, M, L)$, where $W$ denotes a workload distribution, window, or source;
@@ -114,10 +109,8 @@ research question in its own right, to avoid duplicating a closely related
 prior load-scaling study on an overlapping window set
 (\S\ref{sec:study-design}).
 
-\paragraph{Contributions} The research questions above were fixed under a
-preregistered protocol before any comparative outcome was generated
-(\S\ref{sec:study-design}); this study executes that protocol and reports
-its structurally validated results. This work contributes:
+\paragraph{Contributions} This study executes that preregistered protocol
+and reports its structurally validated results. This work contributes:
 
 \begin{itemize}
   \item a formulation of the portability of a comparative scheduler
@@ -158,7 +151,6 @@ its structurally validated results. This work contributes:
 \end{itemize}
 
 Comparative rankings prove neither uniformly stable nor uniformly
-unstable, but source-pair- and load-region-dependent in a specific,
-legible pattern; this manuscript does not claim that any scheduler in the
-panel wins in general (\S\ref{sec:discussion}). Sections~\ref{sec:results}--\ref{sec:real-system}
-report these results in full.
+unstable, but source-pair- and load-region-dependent
+(Sections~\ref{sec:results}--\ref{sec:real-system}); we do not claim that
+any scheduler in the panel wins in general (\S\ref{sec:discussion}).

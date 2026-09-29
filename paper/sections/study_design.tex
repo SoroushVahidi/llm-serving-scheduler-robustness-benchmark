@@ -4,25 +4,8 @@
 \subsection{Research Questions}
 \label{sec:rq}
 
-The research questions were frozen before outcome generation and are reproduced below:
-
-\begin{description}
-  \item[RQ1.] How stable are scheduler rankings across independent
-    workload sources?
-  \item[RQ2.] How stable are scheduler rankings under temporal, provider,
-    and domain shifts?
-  \item[RQ3.] To what extent do rankings obtained on synthetic stress
-    workloads transfer to rankings on independent real-trace-derived
-    workloads?
-  \item[RQ4.] Which source-native observable workload characteristics are
-    associated with cross-distribution scheduler rank reversals?
-  \item[RQ5.] How many independent workload windows are required before a
-    comparative scheduler ranking becomes statistically stable?
-  \item[RQ6.] Do representative simulated scheduler rankings and
-    cross-workload rank reversals reproduce on a real serving engine?
-\end{description}
-
-The primary confirmatory evidence is RQ1/RQ2 cross-source and temporal
+The six research questions defined in \S\ref{sec:introduction} were frozen
+before outcome generation. The primary confirmatory evidence is RQ1/RQ2 cross-source and temporal
 ranking portability on the frozen real-trace corpus. Provider and domain
 variation are not clean causal isolations: BurstGPT and Azure ultimately
 share Microsoft/Azure infrastructure (\S\ref{sec:sources}), and domain
@@ -30,10 +13,8 @@ shift is addressed only through the cross-source contrasts reported in
 \S\ref{sec:results}. RQ3 is secondary and represented here by an
 engineering-validation pilot of the synthetic-to-real transfer pipeline,
 not by a full confirmatory transfer result on the same footing as RQ1/RQ2.
-
-Load-level dependence is a secondary robustness/sensitivity analysis applied
-to RQ1--RQ4's findings, not a headline research question
-(\S\ref{sec:evidence-boundaries}).
+Load-level dependence is likewise a secondary sensitivity analysis applied
+to RQ1--RQ4 (\S\ref{sec:evidence-boundaries}).
 
 \subsection{Study Overview}
 \label{sec:overview}

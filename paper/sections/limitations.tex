@@ -24,17 +24,17 @@ official or validated reimplementations of their namesake systems
 three primary sources (\S\ref{sec:sources}); a fourth candidate source
 (TraceLab) is retained only as out-of-distribution context because its
 independence from a prior public window sweep cannot be fully verified.
-Any portability finding in \S\ref{sec:results} is scoped to these three
-sources plus whatever out-of-distribution evidence TraceLab can
-responsibly contribute, not to LLM-serving workloads in general.
+Every ranking-portability finding in \S\ref{sec:results} rests on these
+three sources alone -- TraceLab contributes descriptor-level,
+out-of-distribution characterization context (\S\ref{sec:cross-source-diffs})
+but no ranking-portability windows -- and is not a claim about LLM-serving
+workloads in general.
 
 \paragraph{Window-size sensitivity.} The benchmark corpus fixes window size
-at 200 requests throughout (\S\ref{sec:window-size}); how the reported
-results would change under a different requests-per-window choice has not
-been swept and is an open item, distinct from the frozen
-\texttt{WINDOW\_SIZE\_SENSITIVITY} robustness-contract item
-(\S\ref{sec:results-robustness}), which despite the shared name concerns
-the number of windows subsampled, not requests per window.
+at 200 requests throughout; how the reported results would change under a
+different requests-per-window choice has not been swept and remains an open
+item (\S\ref{sec:window-size} distinguishes this from the window-count
+analysis).
 
 \paragraph{Dataset/provider dependence.} As established in
 \S\ref{sec:sources}, BurstGPT and this project's Azure traces are not
