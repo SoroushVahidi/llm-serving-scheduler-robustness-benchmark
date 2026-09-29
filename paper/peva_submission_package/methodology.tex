@@ -162,8 +162,11 @@ reportable finding under RQ4, not a footnote.
 \label{sec:paired}
 
 Because the simulator is fully deterministic (\S\ref{sec:execution-model}),
-a single execution per (window, policy, region) cell is sufficient;
-ranking-uncertainty quantification (\S\ref{sec:results}) instead comes from
+a single execution per (window, policy, region) cell is sufficient: each of
+the $9{,}360$ configurations yields one scientific outcome, and its rep0/rep1
+pair ($18{,}720$ executions in total) is a deterministic verification pass
+confirming bit-identical output, not an independent stochastic replicate.
+Ranking-uncertainty quantification (\S\ref{sec:results}) instead comes from
 resampling over the independent workload windows themselves (block
 bootstrap), not from repeated stochastic runs of the same cell.
 

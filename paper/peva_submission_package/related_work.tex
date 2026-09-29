@@ -6,27 +6,21 @@
 
 A substantial body of systems work has improved LLM inference throughput and
 latency through scheduling and memory-management mechanisms. Orca introduced
-iteration-level scheduling, interleaving requests at the granularity of
-individual decoding steps rather than whole requests
+iteration-level scheduling at the granularity of individual decoding steps
 \citep{yu2022orca}. vLLM introduced PagedAttention, a paged
-virtual-memory-style KV-cache allocator that substantially raised achievable
-batch sizes and became a widely adopted serving-system reference point
-\citep{kwon2023vllm}. Sarathi-Serve introduces a stall-free batching
-schedule that interleaves chunked-prefill computation with ongoing decode
-steps to reduce head-of-line blocking under continuous batching
-\citep{agrawal2024sarathi}.
-Splitwise and DistServe independently proposed disaggregating the
-compute-bound prefill phase and the memory-bound decode phase onto separate
-hardware pools connected by fast interconnects, each showing throughput or
-cost improvements from phase-specific resource allocation
+KV-cache allocator that raised achievable batch sizes and became a widely
+adopted serving-system reference point \citep{kwon2023vllm}. Sarathi-Serve
+interleaves chunked-prefill computation with ongoing decode steps to reduce
+head-of-line blocking under continuous batching \citep{agrawal2024sarathi}.
+Splitwise and DistServe disaggregate the compute-bound prefill phase and the
+memory-bound decode phase onto separate hardware pools
 \citep{patel2024splitwise,zhong2024distserve}; Mooncake extends this
-direction with a KV-cache-centric disaggregated architecture that treats a
-shared, elastic KV cache -- rather than the compute engines themselves -- as
-the central resource to schedule around \citep{qin2025mooncake}. Llumnix
-adds dynamic, cross-instance request migration and rebalancing on top of a
-serving cluster \citep{sun2024llumnix}. DynamoLLM addresses cluster-level
-energy and cost efficiency by dynamically reconfiguring an inference
-cluster's resource allocation under latency SLOs \citep{stojkovic2025dynamollm}.
+direction with a KV-cache-centric disaggregated architecture that schedules
+around a shared, elastic KV cache \citep{qin2025mooncake}. Llumnix
+adds dynamic cross-instance request migration and rebalancing
+\citep{sun2024llumnix}, and DynamoLLM reconfigures an inference cluster's
+resources for energy and cost efficiency under latency SLOs
+\citep{stojkovic2025dynamollm}.
 For geographically distributed LLM inference, \citet{sun2025geodistributed}
 study block placement and request routing over heterogeneous GPU servers,
 combining experimentally validated performance models with optimization
@@ -38,41 +32,30 @@ independent workloads and metrics.
 
 A second cluster of work targets scheduling \emph{policy} design more
 specifically. VTC (Virtual Token Counter) defines an explicit token-level
-fairness objective for continuous-batching schedulers and proves a bound on
-the resulting service-difference guarantee \citep{sheng2024vtc}. $S^3$
-predicts each request's output length ahead of generation and uses that
-prediction to pack KV-cache memory more tightly at admission time, trading
-occasional misprediction-driven preemption for higher achievable batch size
-\citep{jin2023s3}. \citet{efficientllmscheduling2024} instead learns a
-pairwise ranking model over waiting requests to prioritize decode order --
-a distinct mechanism from $S^3$'s admission-time length prediction, despite
-both papers appearing at NeurIPS in consecutive years and both targeting
-throughput under uncertain output length. A further group of recent systems
-extends this space with additional scheduling mechanisms. FastServe
-introduces iteration-level preemptive scheduling, JITServe targets
-SLO-aware admission under imprecise request-length information, and PARS
-learns a pairwise ranking model to prioritize requests directly
-\citep{fastserve2024,jitserve2025,pars2025}. Libra performs dynamic,
-flexible request partitioning for unbalanced workloads, the SLAI/RAD
-family derives theoretically motivated, multi-objective (throughput- and
-deadline-aware) scheduling rules, and SCORPIO targets admission control
-under heterogeneous per-request SLOs
-\citep{libra2026,slai2025,scorpio2025}. LMetric replaces workload-specific
-tuning with a single lightweight scheduling score, Apt-Serve schedules
-over an adaptive hybrid KV-cache/hidden-state representation, and ProServe
-unifies multi-priority request scheduling across engine- and service-layer
-components \citep{lmetric2026,aptserve2025,proserve2025}. Furthermore, very
-recent 2026 systems continue to explore novel scheduling paradigms:
-\citet{li2026beyond} targets P99 tail latency using UniBoost---a prediction-free
-interpolation between first-come-first-served and shortest-job-first---coupled
-with MemGuard cache-aware preemption; \citet{liu2026hmas} addresses workload
-non-stationarity and multi-tenant quality-of-service drift through
-hierarchical multi-agent scheduling; and \citet{wang2026smetric} optimizes the
-fundamental load-balancing versus cache-locality trade-off for multi-step
-agentic workloads using session-centric routing. Each of these
+fairness objective for continuous-batching schedulers with a provable
+service-difference bound \citep{sheng2024vtc}. $S^3$
+predicts each request's output length to pack KV-cache memory more tightly
+at admission time \citep{jin2023s3}, whereas
+\citet{efficientllmscheduling2024} learns a pairwise ranking model over
+waiting requests to prioritize decode order. Recent systems diversify the
+mechanism space further along four lines: preemptive, admission-control,
+and SLO-aware scheduling under imprecise length information or
+heterogeneous per-request SLOs, as in FastServe, JITServe, and SCORPIO
+\citep{fastserve2024,jitserve2025,scorpio2025}; learned-ranking,
+multi-objective, and single-score policies, as in PARS, the SLAI/RAD family,
+and LMetric \citep{pars2025,slai2025,lmetric2026}; request partitioning,
+hybrid KV-cache/hidden-state representations, and multi-priority
+engine/service-layer scheduling, as in Libra, Apt-Serve, and ProServe
+\citep{libra2026,aptserve2025,proserve2025}; and tail-latency,
+multi-tenant, and agentic scheduling, including prediction-free
+interpolation between first-come-first-served and shortest-job-first with
+cache-aware preemption \citep{li2026beyond},
+hierarchical multi-agent scheduling under non-stationary multi-tenant load
+\citep{liu2026hmas}, and session-centric routing that trades load balance
+against cache locality \citep{wang2026smetric}. Each of these
 papers reports an improvement over one or more baselines on
-the workload(s) chosen for its own experiments; none of them, individually
-or collectively, asks whether the \emph{relative ordering} they report would
+the workload(s) chosen for its own experiments; none asks whether the
+\emph{relative ordering} it reports would
 be preserved under an independently sourced workload, a different metric,
 or a different operating load -- the question this benchmark is built
 around (\S\ref{sec:related-position}).
@@ -205,49 +188,32 @@ sensitivity to resampled variants of a single trace.
 \subsection{Position of LSSP}
 \label{sec:related-position}
 
-LSSP asks a different question than the majority of the prior work surveyed
-above. Prior work generally studies a scheduler, a serving system, a
+Prior work generally studies a scheduler, a serving system, a
 simulation environment, or a workload generator/characterization in its own
-right. LSSP instead studies the portability of \emph{comparative} scheduler
-rankings across independently sourced workload families, operating regimes,
-and metrics, using a fixed, mechanism-diverse scheduler panel and a
-preregistered protocol. To our knowledge, the LSSP benchmark is distinct in
-treating the portability of comparative scheduler rankings itself as the
-primary object of study across independent workload sources, operating
-regimes, and metrics, while explicitly quantifying ranking uncertainty and
-benchmark sample complexity. A literature search targeting exactly this
+right. LSSP instead treats the portability of \emph{comparative} scheduler
+rankings as the primary object of study across independently sourced
+LLM-serving workload sources, operating regimes, and metrics, using a
+fixed, mechanism-diverse scheduler panel and a preregistered protocol, while
+explicitly quantifying ranking uncertainty and benchmark sample complexity.
+A primary-source literature search targeting exactly this
 question (scheduler-ranking stability/portability, cross-workload
 scheduler evaluation, benchmark sample complexity and representativeness
 for LLM-serving systems, current through September 2026) did not surface
-prior work that treats comparative scheduler-ranking portability itself as
-its primary object across independent LLM-serving workload sources. The
-closest workload-sensitive dispatching precedent we identified is
-\citet{yildiz2026dispatching}, which shows on Google and Alibaba
+prior work with this primary object. The closest precedents differ in
+object: \citet{yildiz2026dispatching} show on Google and Alibaba
 data-center traces that workload structure and trace granularity can affect
-dispatcher behavior and policy ordering, but does not study LLM-serving
+dispatcher behavior and policy ordering, but do not study LLM-serving
 schedulers, cross-metric ranking portability, supported reversal analysis,
-or benchmark sample complexity. The closest single-scheduler-focused
-methodological precedent
-(\citet{zakay2014resampling}, \S\ref{sec:related-methodology}) predates
-the LLM-serving literature entirely and evaluates one scheduler's
+or benchmark sample complexity; \citet{zakay2014resampling}
+(\S\ref{sec:related-methodology}) evaluate one scheduler's
 sensitivity to workload resampling, not comparative ranking across
-schedulers. Vidur is the closest infrastructure precedent
-(\S\ref{sec:related-simulators}); LLMServingSim and its successor are
-related but differently scoped simulator infrastructure; the recent
-production-characterization literature
-(\S\ref{sec:related-workloads}) establishes the workload heterogeneity this
-benchmark's design responds to, but does not itself study cross-source
+schedulers; Vidur and LLMServingSim are simulation infrastructure
+(\S\ref{sec:related-simulators}); and the production-characterization
+literature (\S\ref{sec:related-workloads}) establishes the workload
+heterogeneity this design responds to without studying cross-source
 ranking portability. This wording is intentionally narrower than an
-unconditional claim of priority; we do not claim to be the first to study
+unconditional claim of priority: we do not claim to be the first to study
 LLM-serving workload dependence or scheduler sensitivity, only that we did
 not identify a prior benchmark treating cross-source, cross-metric,
 cross-load-region scheduler-ranking portability as its primary object of
-study under the primary-source review conducted for this manuscript.
-
-A note on provider independence is warranted here because it bears
-directly on how several of the sources above should be read together:
-BurstGPT and this project's Azure trace both ultimately sit on Microsoft's
-Azure infrastructure, collected by different teams through different
-mechanisms, so we treat them as distinct, independently released workload
-sources rather than as independent providers
-(\S\ref{sec:sources} gives the full treatment, including citations).
+study.
