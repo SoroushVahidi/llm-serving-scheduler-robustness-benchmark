@@ -27,6 +27,14 @@ adds dynamic, cross-instance request migration and rebalancing on top of a
 serving cluster \citep{sun2024llumnix}. DynamoLLM addresses cluster-level
 energy and cost efficiency by dynamically reconfiguring an inference
 cluster's resource allocation under latency SLOs \citep{stojkovic2025dynamollm}.
+For geographically distributed LLM inference, \citet{sun2025geodistributed}
+study block placement and request routing over heterogeneous GPU servers,
+combining experimentally validated performance models with optimization
+and simulation. That work is directly adjacent to LSSP in treating LLM
+inference as a resource-allocation performance problem, but its object is
+placement and routing optimization for one distributed serving
+architecture rather than the portability of scheduler rankings across
+independent workloads and metrics.
 
 A second cluster of work targets scheduling \emph{policy} design more
 specifically. VTC (Virtual Token Counter) defines an explicit token-level
@@ -68,6 +76,16 @@ or collectively, asks whether the \emph{relative ordering} they report would
 be preserved under an independently sourced workload, a different metric,
 or a different operating load -- the question this benchmark is built
 around (\S\ref{sec:related-position}).
+
+Classical and data-center scheduling work offers useful context for the
+distinction between designing a scheduling policy and evaluating the
+robustness of scheduler conclusions. For example,
+\citet{chen2026quickswap} design and analyze non-preemptive policies for
+multiserver jobs and evaluate them on data-center traces, addressing the
+mean-response-time consequences of high-utilization scheduling decisions.
+LSSP does not propose a new scheduler in that line; it asks whether
+comparative scheduler-performance conclusions remain stable when the
+workload source, operating region, or metric changes.
 
 \subsection{Production Workloads and Characterization}
 \label{sec:related-workloads}
@@ -174,28 +192,6 @@ conclusion actually rests on -- applied to a different object: the
 portability of a \emph{comparative} ranking among multiple schedulers
 across independently sourced workloads, rather than one scheduler's
 sensitivity to resampled variants of a single trace.
-
-\subsection{Recent \emph{Journal of Supercomputing} Context}
-\label{sec:related-jsc}
-
-Three recent \emph{Journal of Supercomputing} papers illustrate the
-journal's current engagement with GPU-resident LLM-inference performance
-and portability, at layers adjacent to but distinct from this benchmark's
-request-scheduling focus. \citet{saia2026} address deploying LLM inference
-services on Slurm-managed HPC clusters without compromising existing
-cluster security policy -- a \emph{cluster job-placement} scheduling
-problem, one level above the \emph{intra-server request} scheduling this
-benchmark studies. \citet{carmona2026mlcompilers} and
-\citet{siwinska2026autotuning} each study a different sense of
-``portability'' for LLM/transformer workloads on GPU (and, in the latter
-case, TPU) hardware: compiler-backend selection trade-offs and
-auto-tuning-framework portability across accelerator hardware,
-respectively -- portability of \emph{implementation performance across
-hardware}, not portability of a \emph{comparative ranking across
-workloads} at fixed hardware, which is this benchmark's object of study.
-We cite these three papers to situate LSSP within the journal's live
-interest in LLM-serving and GPU-inference performance, not because they
-address this benchmark's specific research question.
 
 \subsection{Position of LSSP}
 \label{sec:related-position}

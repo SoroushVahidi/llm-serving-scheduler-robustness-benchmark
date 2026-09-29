@@ -9,8 +9,7 @@ to another's.
 
 Companion artifact for the manuscript *"How Portable Are LLM-Serving
 Scheduler Rankings Across Workloads, Operating Regions, and Metrics?"*
-(Soroush Vahidi), prepared for submission to *The Journal of
-Supercomputing*.
+(Soroush Vahidi).
 
 ## Paper and archival resources
 

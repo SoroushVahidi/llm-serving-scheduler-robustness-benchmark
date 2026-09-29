@@ -3,8 +3,7 @@ message: >-
   If you use this code or the LSSP dataset, please cite the paper below.
   This citation covers the archived v1.0.0 research artifact (code,
   manuscript source, and manifests); the manuscript's own citation will
-  be added once the Journal of Supercomputing submission is accepted
-  (see docs/PROJECT_STATUS.md).
+  be added once a final journal publication record/DOI is available.
 title: >-
   How Portable Are LLM-Serving Scheduler Rankings Across Workloads,
   Operating Regions, and Metrics?

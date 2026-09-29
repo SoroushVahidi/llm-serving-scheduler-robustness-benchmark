@@ -1,4 +1,4 @@
-\documentclass[sn-basic,Numbered,pdflatex]{sn-jnl}
+\documentclass[preprint,12pt]{elsarticle}
 
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -9,6 +9,7 @@
 \usepackage{enumitem}
 \usepackage[htt]{hyphenat}
 \usepackage{seqsplit}
+\usepackage{hyperref}
 \sloppy
 \emergencystretch=3em
 \renewcommand{\arraystretch}{1.15}
@@ -16,13 +17,24 @@
 
 \begin{document}
 
-\title[Portability of LLM-Serving Scheduler Rankings]{How Portable Are LLM-Serving Scheduler Rankings Across Workloads, Operating Regions, and Metrics?}
+\begin{frontmatter}
 
-\author*[1]{\fnm{Soroush} \sur{Vahidi}}\email{sv96@njit.edu}
+\journal{Performance Evaluation}
 
-\affil*[1]{\orgdiv{Department of Computer Science, Ying Wu College of Computing}, \orgname{New Jersey Institute of Technology}, \orgaddress{\street{University Heights, GITC Suite 5700}, \city{Newark}, \postcode{07102}, \state{NJ}, \country{USA}}}
+\title{How Portable Are LLM-Serving Scheduler Rankings Across Workloads, Operating Regions, and Metrics?}
 
-\abstract{Large language model (LLM) serving systems are typically compared on one
+\author[inst1]{Soroush Vahidi\corref{cor1}}
+\cortext[cor1]{Corresponding author.}
+\ead{sv96@njit.edu}
+
+\affiliation[inst1]{organization={Department of Computer Science, Ying Wu College of Computing, New Jersey Institute of Technology},
+            city={Newark},
+            postcode={07102},
+            state={NJ},
+            country={USA}}
+
+\begin{abstract}
+Large language model (LLM) serving systems are typically compared on one
 workload, operating region, and metric. We present the LLM-Serving Scheduler
 Portability Benchmark (LSSP), a preregistered evaluation of scheduling
 policies across three independently released workload sources and six
@@ -38,12 +50,14 @@ low top-policy agreement ($31.9\%$). A selected physical-hardware
 validation did not reproduce a simulator-predicted reversal, while a
 stable-control comparison retained its qualitative ordering.
 Scheduler comparisons should be read as conditional on the workload,
-region, and metric that produced them.}
+region, and metric that produced them.
+\end{abstract}
 
-\maketitle
+\begin{keyword}
+LLM inference serving \sep request scheduling \sep ranking portability \sep performance evaluation \sep workload characterization \sep benchmark reproducibility
+\end{keyword}
 
-\par\addvspace{10pt}{\keywordfont{\bfseries Keywords:} LLM inference serving, request scheduling, ranking portability, performance evaluation, workload characterization, benchmark reproducibility\par}
-\addvspace{10pt}
+\end{frontmatter}
 
 \input{sections/introduction}
 \input{sections/related_work}
@@ -59,6 +73,7 @@ region, and metric that produced them.}
 \input{sections/conclusion}
 \input{sections/declarations}
 
+\bibliographystyle{elsarticle-num-names}
 \bibliography{references}
 
 \end{document}
