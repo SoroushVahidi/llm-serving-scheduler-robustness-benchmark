@@ -160,13 +160,22 @@ paper's motivation, \citet{papaioannou2024workload} show that a serving
 system's measured performance and the relative standing of design choices
 can themselves shift depending on which workload is used to evaluate them,
 arguing for workload-choice awareness as a first-class methodological
-concern; that result is stated for single-system evaluation. What we do not
-find in the literature reviewed here, including that result, is a direct
-study of whether a
-\emph{comparative ordering} among a fixed panel of schedulers is itself
-portable across independently sourced workloads, operating regions, and
-metrics -- the distinction this paper's Introduction develops between
-single-system sensitivity and comparative-ranking portability.
+concern; that result is stated for single-system evaluation. In classical
+data-center dispatching, \citet{yildiz2026dispatching} compare Round Robin,
+Join-Idle-Queue, and Least-Work-Left on Google ClusterData v3 and Alibaba
+Cluster Trace v2018 using analytical models and trace-driven simulation.
+Their results show that production workload structure and the job-level
+versus task-level trace representation can change dispatching-policy
+behavior and, in some production-trace cases, the policy ordering. This is
+the closest non-LLM precedent for the evaluation concern LSSP studies. The
+distinction is that Yildiz et al.\ diagnose model--trace discrepancies and
+dispatcher behavior for data-center workloads, whereas LSSP makes the
+portability of a \emph{comparative ordering} among a fixed panel of
+schedulers the primary benchmark object, asking whether that ordering is
+preserved across independently sourced workloads, operating regions, and
+metrics in LLM serving -- the distinction this paper's Introduction
+develops between single-system sensitivity and comparative-ranking
+portability.
 
 \subsection{Ranking Portability and Benchmark Methodology}
 \label{sec:related-methodology}
@@ -211,8 +220,14 @@ question (scheduler-ranking stability/portability, cross-workload
 scheduler evaluation, benchmark sample complexity and representativeness
 for LLM-serving systems, current through September 2026) did not surface
 prior work that treats comparative scheduler-ranking portability itself as
-its primary object across independent LLM-serving workload sources; the
-closest single-scheduler-focused methodological precedent
+its primary object across independent LLM-serving workload sources. The
+closest workload-sensitive dispatching precedent we identified is
+\citet{yildiz2026dispatching}, which shows on Google and Alibaba
+data-center traces that workload structure and trace granularity can affect
+dispatcher behavior and policy ordering, but does not study LLM-serving
+schedulers, cross-metric ranking portability, supported reversal analysis,
+or benchmark sample complexity. The closest single-scheduler-focused
+methodological precedent
 (\citet{zakay2014resampling}, \S\ref{sec:related-methodology}) predates
 the LLM-serving literature entirely and evaluates one scheduler's
 sensitivity to workload resampling, not comparative ranking across
