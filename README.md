@@ -15,7 +15,7 @@ Scheduler Rankings Across Workloads, Operating Regions, and Metrics?"*
 
 | | |
 |---|---|
-| Manuscript (PDF, in this repository) | [`How_Portable_Are_LLM-Serving_Scheduler_Rankings_Across_Workloads_Operating_Regions_and_Metrics.pdf`](./How_Portable_Are_LLM-Serving_Scheduler_Rankings_Across_Workloads_Operating_Regions_and_Metrics.pdf) |
+| Manuscript (PDF, in this repository) | [`LLM_Scheduler_Ranking_Portability.pdf`](./LLM_Scheduler_Ranking_Portability.pdf) |
 | GitHub release | [`v1.0.0`](https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/releases/tag/v1.0.0) |
 | Archived snapshot (Zenodo) | [10.5281/zenodo.22306798](https://doi.org/10.5281/zenodo.22306798) |
 | Derived dataset (Hugging Face) | [`SoroushVahidi/llm-serving-scheduler-portability`](https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability) |
