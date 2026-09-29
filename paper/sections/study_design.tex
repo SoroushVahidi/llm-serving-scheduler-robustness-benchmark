@@ -22,6 +22,15 @@ The research questions were frozen before outcome generation and are reproduced 
     cross-workload rank reversals reproduce on a real serving engine?
 \end{description}
 
+The primary confirmatory evidence is RQ1/RQ2 cross-source and temporal
+ranking portability on the frozen real-trace corpus. Provider and domain
+variation are not clean causal isolations: BurstGPT and Azure ultimately
+share Microsoft/Azure infrastructure (\S\ref{sec:sources}), and domain
+shift is addressed only through the cross-source contrasts reported in
+\S\ref{sec:results}. RQ3 is secondary and represented here by an
+engineering-validation pilot of the synthetic-to-real transfer pipeline,
+not by a full confirmatory transfer result on the same footing as RQ1/RQ2.
+
 Load-level dependence is a secondary robustness/sensitivity analysis applied
 to RQ1--RQ4's findings, not a headline research question
 (\S\ref{sec:evidence-boundaries}).

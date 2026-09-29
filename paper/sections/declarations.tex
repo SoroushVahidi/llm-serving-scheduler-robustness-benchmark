@@ -33,29 +33,27 @@ This study distinguishes four categories of data, consistent with
 Azure 2024, Bailian/Qwen) are governed by their original publishers' release
 terms and license status (\S\ref{sec:provenance}; BurstGPT: CC-BY-4.0) and
 are not redistributed as part of this project's release; readers should
-obtain them from their original sources. \textbf{Derived benchmark manifests}
-(the frozen window identities, provenance, and content hashes,
-\S\ref{sec:windows}), \textbf{canonical campaign analysis outputs} (the
-per-RQ table data and ranking-portability statistics, reversal tables, and
-block-bootstrap confidence intervals derived from the campaign across
-windows, regions, and metrics, \S\ref{sec:results}, sufficient to
-independently verify every number reported in this manuscript), and
-\textbf{reproduction scripts} are publicly available at the Hugging Face
-dataset repository
-\url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability},
-with frozen manifests and code additionally available at the GitHub
-repository
+obtain them from their original sources. \textbf{Derived benchmark manifests},
+\textbf{reproduction scripts}, simulator code, policy implementations, and
+analysis code are available in the GitHub repository
 \url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}.
+The companion Hugging Face dataset repository
+\url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}
+contains the current public, analysis-ready subset: source-license
+documentation, checksums, selected canonical result tables for the principal
+portability and sample-complexity results, and the reduced RQ6 analysis
+result with computational provenance.
 An immutable snapshot of the code repository at the version reported here is
 archived with a persistent identifier via Zenodo, DOI
 \href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}.
 The Hugging Face release is an initial, dataset-card-scoped publication
 (\S\ref{sec:artifact}); it does \emph{not} include the exploded per-cell
-campaign matrix (all $18{,}720$ individual executions and their per-cell
-mechanism telemetry) or the raw $240$ per-cell RQ6 physical-execution
-records, both of which are candidates for a future dataset revision and are,
-in the meantime, represented only by the canonical analysis outputs and
-reduced RQ6 result described above -- not by the raw records themselves.
+campaign matrix (all $18{,}720$ individual executions), complete per-cell
+mechanism telemetry, raw $240$ per-cell RQ6 physical-execution records, or
+unpublished intermediate canonical-analysis files consumed by the figure/table
+generation script. These non-public records are candidates for a future
+dataset revision and are currently represented only by the released reduced
+tables, provenance records, and code.
 
 \section*{Code Availability}
 

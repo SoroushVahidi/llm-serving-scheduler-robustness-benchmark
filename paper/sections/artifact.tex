@@ -1,7 +1,7 @@
 \section{Reproducibility and the LSSP Artifact}
 \label{sec:artifact}
 
-LSSP is released as two linked, publicly accessible artifacts. The GitHub
+LSSP is released through linked public artifacts. The GitHub
 repository -- \url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}
 -- carries the source code, simulator, policy implementations, analysis
 pipeline, validation scripts, the reproduction workflow, figure/table
@@ -9,11 +9,12 @@ generation code (including
 \texttt{paper/scripts/generate\_phase12\_tables\_figures.py}), the manuscript
 source, and the frozen provenance manifests for every campaign stage. The Hugging
 Face dataset -- \url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}
--- carries a companion, analysis-ready subset: the canonical
-ranking-portability analysis outputs, the manuscript's per-RQ table data,
-the reduced RQ6 result with full computational provenance
-(\S\ref{sec:real-system-result}), and a dataset card documenting exact
-scope and licensing. An immutable snapshot of the GitHub release is
+-- carries the current analysis-ready public subset: source-license
+documentation, release checksums, the RQ1/RQ2 portability table, the RQ4/RQ5
+sample-complexity table, and the reduced RQ6 result with full computational
+provenance (\S\ref{sec:real-system-result}). Its dataset card documents the
+exact release scope and the files intentionally deferred. An immutable
+snapshot of the GitHub release is
 additionally archived with a persistent identifier via Zenodo, DOI
 \href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}
 (see Data availability in the Declarations).
@@ -21,36 +22,24 @@ additionally archived with a persistent identifier via Zenodo, DOI
 Upstream workload traces (\S\ref{sec:provenance}) remain governed by their
 original publishers' licenses and are not republished where redistribution
 is not permitted; the release documents provenance and, where license
-terms allow, redistributes processed derivatives, not a copy of every
-source trace. Two categories of already-generated evidence are
-represented through provenance pointers to the GitHub repository rather
-than duplicated in full on Hugging Face: the exploded per-cell
-$18{,}720$-execution campaign matrix underlying \S\ref{sec:results} (the
-canonical analysis outputs and per-RQ table data needed to regenerate
-every reported number are on Hugging Face; the exploded matrix itself is
-a candidate for a future dataset revision), and the 240 raw per-cell RQ6
-physical-execution records (\S\ref{sec:real-system}), for which the
-reduced result already published on Hugging Face carries every value
-needed to independently verify the reported RQ6 claims.
+terms allow, redistributes processed derivatives rather than raw source
+traces. The current public release does \emph{not} include the exploded
+per-cell $18{,}720$-execution campaign matrix, the complete per-cell
+mechanism telemetry, the raw 240 per-cell RQ6 physical-execution records,
+or the unpublished intermediate canonical-analysis files consumed by the
+figure/table generation script. Those files remain represented by the
+published reduced tables, provenance records, and code, and are candidates
+for a future dataset revision.
 
 The primary comparative outcome (\S\ref{sec:results}) was generated from,
 and structurally validated against, the full paired policy-outcome matrix
 across windows, regions, and metrics -- including the per-cell mechanism
 telemetry (\S\ref{sec:telemetry}) -- prior to any scientific
-interpretation (\S\ref{sec:artifact-hashes}). Consistent with the scoping above,
-what is publicly released is not that exploded per-cell matrix itself, but
-everything needed to independently verify every number reported from it:
-the frozen workload window identities and their provenance
-(\S\ref{sec:windows}); the scheduler panel and its configuration
-(\S\ref{sec:panel}); the six-region calibration protocol and its outputs
-(\S\ref{sec:calibration}); the canonical, per-RQ ranking-portability
-analysis outputs derived from that matrix (Kendall/Spearman statistics,
-reversal tables, block-bootstrap confidence intervals); and the
-reproduction scripts used to regenerate every table and figure in this
-manuscript from those released, canonical inputs. The mechanism telemetry
-itself is not separately used to support any finding in this manuscript
-(\S\ref{sec:telemetry}) and is not duplicated in the current public
-release for the same reason as the exploded matrix it is part of.
+interpretation (\S\ref{sec:artifact-hashes}). The public artifacts are
+therefore sufficient to inspect the released principal result tables, reduced
+RQ6 analysis, frozen manifests, code, and provenance, but they are not a
+complete public dump of every intermediate or per-execution record generated
+by the campaign.
 
 \subsection{Analysis Provenance}
 \label{sec:artifact-hashes}
