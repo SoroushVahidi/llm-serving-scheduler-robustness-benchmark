@@ -1,0 +1,85 @@
+\section{Reproducibility and the LSSP Artifact}
+\label{sec:artifact}
+
+LSSP is released through linked public artifacts. The GitHub
+repository -- \url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}
+-- carries the source code, simulator, policy implementations, analysis
+pipeline, validation scripts, the reproduction workflow, figure/table
+generation code (including
+\texttt{paper/scripts/generate\_phase12\_tables\_figures.py}), the manuscript
+source, and the frozen provenance manifests for every campaign stage. The Hugging
+Face dataset -- \url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}
+-- carries the current analysis-ready public subset: source-license
+documentation, release checksums, the RQ1/RQ2 portability table, the RQ4/RQ5
+sample-complexity table, and the reduced RQ6 result with full computational
+provenance (\S\ref{sec:real-system-result}). Its dataset card documents the
+exact release scope and the files intentionally deferred. An immutable
+snapshot of the GitHub release is
+additionally archived with a persistent identifier via Zenodo, DOI
+\href{https://doi.org/10.5281/zenodo.22306798}{10.5281/zenodo.22306798}
+(see Data availability in the Declarations).
+
+Upstream workload traces (\S\ref{sec:provenance}) remain governed by their
+original publishers' licenses and are not republished where redistribution
+is not permitted; the release documents provenance and, where license
+terms allow, redistributes processed derivatives rather than raw source
+traces. The current public release does \emph{not} include the exploded
+per-cell $18{,}720$-execution campaign matrix, the complete per-cell
+mechanism telemetry, the raw 240 per-cell RQ6 physical-execution records,
+or the unpublished intermediate canonical-analysis files consumed by the
+figure/table generation script. Those files remain represented by the
+published reduced tables, provenance records, and code, and are candidates
+for a future dataset revision.
+
+The primary comparative outcome (\S\ref{sec:results}) was generated from,
+and structurally validated against, the full paired policy-outcome matrix
+across windows, regions, and metrics -- including the per-cell mechanism
+telemetry (\S\ref{sec:telemetry}) -- prior to any scientific
+interpretation (\S\ref{sec:artifact-hashes}). The public artifacts are
+therefore sufficient to inspect the released principal result tables, reduced
+RQ6 analysis, frozen manifests, code, and provenance, but they are not a
+complete public dump of every intermediate or per-execution record generated
+by the campaign.
+
+\subsection{Analysis Provenance}
+\label{sec:artifact-hashes}
+
+The primary statistical analysis was executed once, deterministically,
+against the frozen $9{,}360$-configuration matrix, and was independently
+structurally validated before any number in \S\ref{sec:results} or
+\S\ref{sec:sample-complexity} was populated. The full validation record is
+committed to the public GitHub repository rather than reproduced in the
+main text.
+
+Every generated artifact carries, or links to, sufficient provenance --
+the generating commit identity, configuration and workload-manifest
+hashes, and per-cell seed where relevant -- that any released row can be
+regenerated from this project's own commit history alone. Table~\ref{tab:hashes}
+records five scientific-freeze identifiers fixed before any scheduler
+outcome was generated; each was independently re-verified as unchanged
+immediately before this manuscript's release (full SHA-256 values in the
+public repository's \texttt{docs/ARTIFACT\_HASH\_LEDGER.md}).
+
+\begin{table}[t]
+\centering
+\caption{Scientific-freeze identifiers fixed before any scheduler outcome
+was generated. Hashes are abbreviated to the first 12 hexadecimal
+characters here; full SHA-256 values are recorded in the public
+repository's \texttt{docs/ARTIFACT\_HASH\_LEDGER.md} and, where independently re-verifiable
+from the released repository state, were re-derived from the cited
+artifact for this table (four of five; the calibration prelaunch-freeze
+hash is a previously frozen aggregate over multiple sub-artifacts and is
+reported as recorded).}
+\label{tab:hashes}
+\begin{tabular}{llc}
+\toprule
+Artifact & Scientific role & SHA-256 (abbrev.) \\
+\midrule
+Window-corpus freeze & authoritative 120-window freeze identity & \texttt{0d1aa06ccbee\ldots} \\
+Window-corpus compact index & compact freeze index & \texttt{d78ec1087fed\ldots} \\
+Calibration prelaunch freeze & pre-execution calibration contract & \texttt{e2564ea94841\ldots} \\
+FIFO calibration matrix & raw calibration matrix & \texttt{201caaf04476\ldots} \\
+Region-assignment map & deterministic region-assignment map & \texttt{9fcb92f9ea12\ldots} \\
+\bottomrule
+\end{tabular}
+\end{table}

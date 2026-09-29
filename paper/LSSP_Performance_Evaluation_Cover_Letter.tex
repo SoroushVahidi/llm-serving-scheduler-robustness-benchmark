@@ -1,0 +1,80 @@
+\documentclass[10pt]{letter}
+
+\usepackage[margin=0.8in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\signature{Soroush Vahidi\\
+Ph.D. Candidate in Computer Science\\
+Department of Computer Science\\
+Ying Wu College of Computing\\
+New Jersey Institute of Technology\\
+\href{mailto:sv96@njit.edu}{sv96@njit.edu}}
+
+\address{Soroush Vahidi\\
+Department of Computer Science\\
+Ying Wu College of Computing\\
+New Jersey Institute of Technology\\
+Newark, NJ 07102, USA}
+
+\date{September 28, 2026}
+
+\begin{document}
+
+\begin{letter}{Editors of \emph{Performance Evaluation}}
+
+\opening{Dear Editors of \emph{Performance Evaluation},}
+
+I am pleased to submit the manuscript ``How Portable Are LLM-Serving
+Scheduler Rankings Across Workloads, Operating Regions, and Metrics?'' for
+consideration as an original research article in \emph{Performance
+Evaluation}.
+
+The manuscript studies whether comparative rankings of LLM-serving
+schedulers remain portable when the workload source, operating region, or
+evaluation metric changes. Its main methodological contribution is to treat
+comparative scheduler-ranking portability itself as an object of performance
+evaluation, rather than to propose another scheduling policy. The study uses
+three independently released workload sources, six calibrated operating
+regions, and 9,360 unique configurations, each executed twice.
+
+The results are intentionally balanced. Cross-source rankings are stable for
+some source pairs, but 36/990 pairwise comparisons show statistically
+supported practical reversals, all concentrated in one policy pair with
+BurstGPT on one side. Cross-metric portability is substantially lower:
+median Kendall's tau-b is 0.419 and top-policy agreement is 31.9\%. A
+selected physical validation did not reproduce the largest simulated
+reversal, while the stable-control comparison preserved its qualitative
+ordering.
+
+The manuscript fits \emph{Performance Evaluation}'s scope through its focus
+on performance evaluation of computing systems, scheduling and resource
+allocation, trace-driven simulation, workload characterization, statistical
+analysis, and AI-based services. Relative to workload-sensitive dispatching
+studies, including the data-center dispatching analysis of Yildiz et al.\
+(2026), LSSP evaluates the
+portability of an entire comparative LLM-serving scheduler ranking across
+independent workload sources, operating regions, and metrics, with explicit
+ranking uncertainty, practical reversal detection, benchmark
+sample-complexity analysis, and selected physical validation.
+
+Artifacts are publicly available through GitHub, Hugging Face, and Zenodo:
+\begin{quote}\small
+\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}\\
+\url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}\\
+\url{https://doi.org/10.5281/zenodo.22306798}
+\end{quote}
+As described in the manuscript, the release includes source code, provenance,
+selected canonical result tables, and the reduced RQ6 analysis result; it
+does not claim to publish all raw per-execution records.
+
+This manuscript is original, is not under consideration elsewhere, and I
+approve its submission as the sole author. Relevant competing-interest
+information and other required declarations are included in the manuscript.
+
+\closing{Sincerely,}
+
+\end{letter}
+
+\end{document}

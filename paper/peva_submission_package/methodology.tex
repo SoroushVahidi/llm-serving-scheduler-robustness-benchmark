@@ -1,0 +1,354 @@
+\section{Scheduler Benchmark Methodology}
+\label{sec:methodology}
+
+\subsection{Scheduler Panel}
+\label{sec:panel}
+
+The PRIMARY panel comprises 11 policies, executed alongside 2 additional
+\texttt{STYLE\_APPROXIMATION} policies used only for a mandatory robustness
+check (13 policies executed in total): a classical arrival-order baseline
+(\texttt{fifo}, also the load-calibration reference policy), a
+deadline-aware policy (\texttt{edf}), a slack/urgency-aware policy
+(\texttt{least\_laxity\_first}), a service-length-aware policy
+(\texttt{estimated\_service\_time\_first}), a fairness-aware policy
+(\texttt{weighted\_fair\_share}), a KV/memory-pressure-aware policy
+(\texttt{kv\_constrained\_online}), an admission-control/SLO-guard policy
+(\texttt{admission\_control}), and faithful reimplementations of four
+external mechanisms: vLLM-style token-budget continuous batching in both
+its pre-chunked-prefill and chunked-prefill forms
+(\texttt{vllm\_faithful}, \texttt{vllm\_chunked\_prefill\_faithful}),
+Sarathi-style chunked prefill (\texttt{sarathi\_faithful}), and an
+SLO-aware scheduling policy in the SLAI/RAD family
+(\texttt{slai\_faithful}). The two \texttt{STYLE\_APPROXIMATION} robustness
+policies are a token-budget-proxy style approximation
+(\texttt{vllm\_style\_token\_budget}) and an SLO-guard-proxy style
+approximation (\texttt{scorpio\_style\_slo\_guard}); two further faithful
+reimplementations requiring disaggregated/cross-instance simulator
+semantics (\texttt{distserve\_faithful}, \texttt{llumnix\_faithful}) are
+executed only in a secondary stratum, never pooled with the single-GPU
+colocated PRIMARY leaderboard, and one candidate
+(\texttt{apt\_serve\_faithful}) is excluded entirely as
+\texttt{scaffolding\_only} -- not a validated reimplementation at the time
+of this freeze.
+
+A policy enters the PRIMARY panel only if, at the time it was added to the
+comparability audit -- frozen a full day before the discriminability
+pilot (\S\ref{sec:stage0}) executed -- it satisfies an outcome-independent
+selection rule: its mechanism predates this protocol's freeze, it
+occupies a mechanism family not already saturated by an existing panel
+member, it has adequate implementation fidelity and passes its own unit
+tests, it is simulator-semantically compatible with the single-GPU
+colocated execution model, and it is independently reproducible from a
+cited reference. No policy was added to or removed from the panel in
+response to the pilot's outcome, and mechanism families it identified as
+under-implemented (preemptive/multilevel scheduling in the FastServe
+sense, JITServe, LMetric) were deliberately left as documented future-work
+candidates rather than fast-tracked into the panel after seeing the
+pilot's BurstGPT collapse.
+
+\subsection{Fidelity Taxonomy}
+\label{sec:fidelity}
+
+Every executed policy is labeled with one of five fidelity classes:
+\texttt{FAITHFUL\_EXTERNAL} (a validated reimplementation of a specific
+published mechanism), \texttt{REPOSITORY\_NATIVE\_CLASSICAL} (a standard
+scheduling discipline implemented natively in this simulator, not claimed
+as a reproduction of any specific paper), \texttt{SIMULATOR\_PROXY} (a
+mechanism-motivated policy without a single canonical external paper),
+\texttt{STYLE\_APPROXIMATION} (an approximate, style-level proxy for a
+published mechanism, explicitly excluded from the PRIMARY headline panel
+and used only for robustness checks), and \texttt{scaffolding\_only} (an
+unaudited, not-yet-validated implementation, excluded entirely). We do not
+claim that any \texttt{STYLE\_APPROXIMATION} or \texttt{SIMULATOR\_PROXY}
+policy is an official or validated reimplementation of its namesake
+published system.
+
+\subsection{Execution Model}
+\label{sec:execution-model}
+
+Each (window, policy, operating-region) cell is executed as a fully
+deterministic discrete-event simulation: given identical inputs, the
+simulator produces bit-identical outputs, with no consumed randomness
+(verified by a repeated-run determinism test). This determinism is what
+permits the paired design of \S\ref{sec:unit}: two policies' outcomes on
+the same window and region differ only because of the policy's own
+scheduling decisions, not because of independent sampling noise.
+
+\subsection{Discriminability Pilot (Historical)}
+\label{sec:stage0}
+
+Before the benchmark protocol described in the remainder of this section
+was frozen, a preregistered discriminability pilot (internally labeled
+Stage 0) executed a real, 1,080-cell matrix (three sources, three load
+regions, a six-policy PRIMARY subset) to check, before committing to the
+full protocol, that the panel would yield non-trivial scheduler
+differentiation under a fixed load protocol without post-hoc
+cherry-picking. \textbf{This is historical pilot evidence, not the
+confirmatory benchmark-campaign result}, and it never measured
+cross-source ranking portability -- that question was and remains
+explicitly out of the pilot's scope. Its own five-criterion
+discriminability analyzer returned four passing criteria (77.8\% of
+(source, window, load-region) triples non-tied, 86.7\% of windows
+non-tied, no universal policy collapse, and 100\% of non-tied cells showing
+meaningful metric variation) and one genuine failure: BurstGPT contributed
+only 14.3\% of non-tied conditions, against a 15\% floor, versus
+$\sim$42.9\% each for the other two sources -- a failing criterion, robust
+to the completion-conditioned-metric zero-completion convention used, that
+was reported at the time as a preregistered no-go on the pilot panel. A
+follow-up diagnostic traced this to a
+mechanism-level explanation: differentiation was strongly source-dependent,
+attributable to a near-total collapse of five of the six pilot policies
+into pairwise bit-identical outcomes on BurstGPT's structurally
+short-prompt, near-constant-output traffic -- not to BurstGPT receiving
+weaker or fewer calibrated load conditions than the other sources. This
+motivated the benchmark protocol's larger, mechanism-diverse 13-policy
+panel and denser six-region load grid (\S\ref{sec:calibration}), applied
+symmetrically to every source, never to BurstGPT alone. Detailed pilot
+mechanism analysis is reported in the reproducibility artifact
+(\S\ref{sec:artifact}) rather than in the main text; it is not restated
+here as a ranking-portability finding.
+
+\subsection{Operating-Region Calibration}
+\label{sec:calibration}
+
+A FIFO-only calibration pass establishes six operating regions --
+\texttt{LOW} (load factor 0.5), \texttt{PRE\_KNEE} (0.8), \texttt{KNEE}
+(1.0), \texttt{POST\_KNEE} (1.1), \texttt{OVERLOAD} (1.2), and
+\texttt{HIGH\_PRESSURE} (1.5) -- across all 120 frozen windows (720
+calibration cells total; 720 valid, deterministic, 0 failed/missing/
+duplicated). We report this as calibration provenance, not a comparative
+scheduler result: FIFO is the calibration reference policy, and the
+calibration's role is to fix load-factor-to-region mappings before any
+other policy is executed against them, not to characterize FIFO's relative
+performance. As a calibration characteristic worth preserving, 301 of the
+720 calibration-region records (93 BurstGPT, 101 Bailian/Qwen, 107 Azure)
+recorded zero completions under FIFO at that region's load factor; this is
+a property of the calibration design at those specific (window, region)
+combinations, the frozen calibration nonetheless passed its validity
+check, completion-conditioned metrics
+are simply undefined (not zero) in those records
+(\S\ref{sec:metrics}), and no calibration redesign was performed after
+observing this count.
+
+\subsection{Metrics}
+\label{sec:metrics}
+
+Three metrics are always defined for every completed cell: completion
+fraction, weighted completion fraction, and Arrival-Normalized Weighted Goodput (ANWG, the primary metric). We formally define ANWG here because it is this benchmark's headline measure of system-level utility. For a set of arriving requests $R$, let $w_i \ge 1$ denote the priority weight assigned to request $i \in R$. Let $C \subseteq R$ be the subset of requests that successfully complete execution, and let $S \subseteq C$ be the subset of completed requests that also strictly meet their latency deadline (SLO). ANWG is defined as the priority-weighted sum of successfully attained deadlines divided by the total priority weight of all arrivals:
+\begin{equation}
+\text{ANWG} = \frac{\sum_{i \in S} w_i}{\sum_{i \in R} w_i}
+\end{equation}
+Because the denominator is the sum over all \emph{arrivals} rather than completions, rejected, dropped, unfinished, and SLO-missed requests all receive zero numerator credit while remaining in the denominator penalty. ANWG is always defined (the denominator is zero only if a workload window has no arrivals, which is prevented by construction); therefore, undefined-metric exclusions for ANWG are always exactly zero. A second group of metrics is defined
+only conditional on at least one request completing: SLO-violation rate,
+weighted goodput, mean/p95/p99 latency, and request/token throughput are
+each \texttt{NaN} if and only if completion fraction is exactly zero for
+that cell. Mean/p95 time-to-first-token (TTFT) is subject to a stricter,
+separately checked precondition (at least one completed request recorded a
+first-token time), because TTFT can be undefined even when completion
+fraction is positive. No undefined conditional-metric value is ever imputed
+as 0 or 1, in either direction, and never after inspecting which policy or
+source it would affect. Where a policy's value is undefined for a given
+(window, region, metric) condition, that policy is excluded from the
+ranking-derived statistic (Kendall's tau-b, Spearman's rho, top-$k$
+overlap, pairwise reversal detection) for that specific condition and
+metric only -- never scored as a loss or a tie, and never causing the whole
+condition to be dropped for policies that did complete. Every
+ranking-derived table reports its exclusion count
+(\texttt{n\_conditions\_excluded\_for\_undefined\_metric}) alongside the
+statistic itself, since a source-concentrated exclusion rate is itself a
+reportable finding under RQ4, not a footnote.
+
+\subsection{Paired Design and Repetitions}
+\label{sec:paired}
+
+Because the simulator is fully deterministic (\S\ref{sec:execution-model}),
+a single execution per (window, policy, region) cell is sufficient;
+ranking-uncertainty quantification (\S\ref{sec:results}) instead comes from
+resampling over the independent workload windows themselves (block
+bootstrap), not from repeated stochastic runs of the same cell.
+
+\subsection{Mechanism Telemetry}
+\label{sec:telemetry}
+
+Every executed cell additionally records a seven-field mechanism-activation
+telemetry summary: queue-depth (mean/max), batch-saturation (mean/max
+fraction of \texttt{max\_active\_sequences} in use), prefill/decode
+contention fraction, KV-occupancy (mean/max fraction of \texttt{max\_kv\_tokens}
+in use), admission-control activation count, preemption/reorder event
+count, and token-budget saturation fraction. Each field is always defined:
+a value of zero means either that the corresponding mechanism is genuinely
+absent for that policy (for example, preemption count is exactly zero for
+every policy that never issues a preempt/swap/migrate action, which is most
+of the panel) or that the underlying simulator mode does not implement a
+separate prefill/decode phase or token-budget model -- not an
+instrumentation failure. This telemetry is collected for every cell but is
+not used to support any mechanism-level finding in this manuscript; RQ4's
+pre-specified telemetry-to-reversal association analysis is reported, with
+its sparsity and significance caveats, in \S\ref{sec:telemetry-explanation}.
+
+\subsection{Ranking-Uncertainty Quantification and Reversal Classification}
+\label{sec:uncertainty}
+
+Because the statistical unit of analysis is the workload window
+(\S\ref{sec:unit}), ranking-uncertainty is quantified by a whole-window
+block bootstrap: windows, not individual requests, are resampled with
+replacement (preserving each window's internal request sequence intact),
+2{,}000 resamples are drawn per condition, and every reported confidence
+interval is a 95\% percentile interval over those resamples, using a
+deterministic, recorded seed so every interval is exactly reproducible from
+the frozen outcome matrix alone. This block structure exists because the
+requests within a window are not independent observations of scheduler
+behavior -- they share one arrival process, one prompt/output-length
+mixture, and one operating region -- so resampling at the request level
+would understate uncertainty; the window is the unit that is actually
+drawn independently by \S\ref{sec:windows}'s sampling design, and it is
+therefore the unit that must be resampled.
+
+Two further checks calibrate how the pairwise reversal statistics reported
+in \S\ref{sec:reversals} are interpreted, and it is important not to
+conflate them. Although a Friedman rank-sum omnibus test was originally
+specified in the protocol to test for global differences, it was never
+implemented; we disclose this as a protocol gap and proceed directly to
+the pairwise tests below.
+Separately, because the panel and the (source, region, metric) grid
+together generate many pairwise comparisons, every pairwise reversal
+test's two-sided bootstrap sign-test $p$-value -- the intersection-union
+combination $\max(p_x, p_y)$ of the two compared conditions' sign-test
+$p$-values, read off the same resamples that back the ordinary CI rule
+below -- is additionally checked against a Benjamini--Hochberg
+false-discovery-rate (FDR) correction at $q = 0.05$, applied per family, where a
+family is all pairwise policy comparisons within a single (metric,
+load-region) combination. This produces a separate, multiplicity-corrected
+\texttt{supported\_after\_fdr} flag on every record. In the frozen
+benchmark artifact, all $36$ records that the five-class taxonomy below
+independently classifies as \texttt{SUPPORTED\_PRACTICAL\_REVERSAL} also
+satisfy \texttt{supported\_after\_fdr} -- the FDR check removes no headline
+reversal in this dataset -- but the two criteria are computed
+independently from each other and are not guaranteed to coincide in
+general.
+
+A numerical sign change in a point estimate is not, by itself, a meaningful
+scheduler reversal from a systems standpoint: two policies can swap
+point-estimate order by a magnitude far smaller than the benchmark's own
+measurement noise, in which case treating it as a reversal would overstate
+what the benchmark actually supports. The 10\% winning-margin threshold
+used throughout this test was fixed prospectively, before any
+reversal was observed, by reusing this project's own earlier
+discriminability-pilot criterion (\texttt{\_relative\_range\_qualifies},
+\S\ref{sec:stage0}) rather than adopting a threshold chosen after seeing
+these results or asserted as a domain-standard cutoff; it is an
+operational convention for separating materially sized ordering changes
+from microscopic sign changes, not a claim that 10\% is a universal
+practical-significance threshold for LLM serving, and every count labeled
+``practical'' in this manuscript is conditional on it. Every pairwise (policy A, policy B)
+comparison at a given (source, region, metric) condition is therefore
+classified into exactly one of five preregistered classes, combining the
+practical-margin test with the \emph{ordinary} (not FDR-adjusted) 95\%
+percentile bootstrap-CI test defined above; the
+FDR check described above is a separate, additional multiplicity
+safeguard applied on top of this classification for headline reporting,
+not an input the classification itself depends on:
+
+\begin{description}
+  \item[\texttt{UNDEFINED\_UNESTIMABLE}] At least one of the two policies'
+    metric values is undefined for this condition (\S\ref{sec:metrics});
+    no direction is estimated or claimed.
+  \item[\texttt{STABLE\_NO\_SIGN\_CHANGE}] The two policies' relative order
+    agrees across the compared conditions; no reversal occurred.
+  \item[\texttt{MICROSCOPIC\_SIGN\_CHANGE}] The point-estimate order
+    reverses, but the winning margin fails to exceed 10\% of the losing
+    policy's value in \emph{at least one} of the two compared conditions --
+    this includes both the case where the margin is negligible on both
+    sides and the asymmetric case where it exceeds 10\% on one side but not
+    the other. Either way the sign flip is reported here as numerically
+    real but practically negligible or unreliable, never pooled with the
+    classes below.
+  \item[\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}] The point-estimate
+    order reverses and the winning margin exceeds 10\% of the losing
+    policy's value in \emph{both} compared conditions, but the
+    \emph{ordinary} (not FDR-adjusted) 95\% bootstrap interval for the
+    difference fails to
+    exclude zero in \emph{at least one} of the two conditions -- the
+    apparent reversal is not statistically distinguishable from bootstrap
+    noise, at the preregistered confidence level, in at least one of the
+    two conditions being compared.
+  \item[\texttt{SUPPORTED\_PRACTICAL\_REVERSAL}] The point-estimate order
+    reverses \emph{and} the winning margin exceeds 10\% of the losing
+    policy's value in both compared conditions \emph{and} the
+    \emph{ordinary} (not FDR-adjusted) 95\% bootstrap interval for the
+    direction excludes zero
+    in both conditions. Only this class is reported as a headline reversal
+    in \S\ref{sec:reversals}; the other four classes are always reported
+    alongside it, never omitted as a residual category. Every record in
+    this class additionally satisfies the separate FDR-corrected
+    \texttt{supported\_after\_fdr} check described above in the frozen
+    benchmark artifact.
+\end{description}
+
+These five classes are mutually exclusive and exhaustive by construction:
+\texttt{classify\_pairwise\_reversal} in the frozen analysis code evaluates
+undefined-value, sign-change, margin, and confidence-interval conditions as
+a strict if/elif/else chain with an unconditional final branch, so every
+possible (policy A, policy B, condition) input reaches exactly one class,
+including the asymmetric-margin and single-sided-wide-CI cases described
+above; no already-computed reversal record is at risk of being silently
+dropped or misclassified by a gap in this taxonomy.
+
+\subsection{Temporal Analysis Design}
+\label{sec:temporal-design}
+
+Temporal portability is evaluated separately per source, using each
+source's own native chronology rather than a single shared calendar rule,
+because the three sources differ in what temporal structure they actually
+expose (\S\ref{sec:sources}). BurstGPT windows are assigned to EARLY/MIDDLE/
+LATE chronology terciles by deterministic relative order within the trace
+(\S\ref{sec:windows}; 60/30/30 windows respectively), and a secondary
+EARLY/LATE bisect split is run as a robustness check on whether the
+tercile boundary choice itself drives any temporal finding
+(\S\ref{sec:robustness}). Azure 2024's temporal split instead uses the
+trace's own absolute calendar timestamp, frozen at Unix epoch
+\texttt{1715731200.0} (2024-05-15T00:00:00Z), splitting the trace into
+before/after halves at that boundary; this is a genuine calendar split,
+not a relative-order tercile, because Azure's release exposes an
+absolute timestamp field that BurstGPT's schema does not
+(\S\ref{sec:provenance}). Bailian/Qwen's release does not expose a
+verified absolute timestamp field usable for a calendar split; its
+temporal analysis is therefore restricted to a relative-order
+comparison only, explicitly labeled \texttt{RELATIVE\_CHRONOLOGY\_ONLY}
+in every table it appears in, and is never presented alongside BurstGPT's
+tercile result or Azure's calendar-split result as though the three used
+an equivalent temporal definition (\S\ref{sec:temporal}). No cross-source
+temporal number is computed by pooling these three distinct temporal
+definitions into one figure.
+
+\subsection{Robustness Analyses}
+\label{sec:robustness}
+
+Every headline ranking-portability result (\S\ref{sec:results}) is
+pre-specified to be checked against a fixed set of robustness analyses: the
+11-policy high-fidelity subset (PRIMARY panel excluding both
+\texttt{STYLE\_APPROXIMATION} policies), leave-one-source-out re-estimation,
+window-size sensitivity, an alternate completion-conditioned-metric
+convention, the full six-region load grid, a temporal-split sensitivity
+check (\S\ref{sec:temporal-design}'s BurstGPT bisect), and
+mechanism-family-exclusion checks. Six of these seven were implemented and
+are reported in \S\ref{sec:results-robustness}; the seventh,
+\texttt{METRIC\_DEFINITION\_SENSITIVITY}, was never implemented and is
+disclosed there as an open item rather than a result.
+
+\subsection{SLO-Definition Sensitivity: A Disclosed Protocol Gap}
+\label{sec:slo-sensitivity-gap}
+
+An SLO-definition sensitivity check -- re-running the benchmark's
+deadline-dependent policies under an alternative SLO-synthesis rule to
+confirm that any headline reversal is not an artifact of the one
+synthesis choice used to fabricate \texttt{slo\_deadline} where a source
+does not natively carry it (\S\ref{sec:provenance}) -- was planned as part
+of this protocol, but no alternative SLO-synthesis rule was ever actually
+frozen before or during the benchmark campaign. We disclose this as a matter
+of methodological discipline rather than as a result: this robustness
+component is \emph{not} claimed as preregistered evidence anywhere in
+this manuscript. It was instead run afterward as an explicitly labeled
+post-campaign extension, with its own frozen protocol, after
+the campaign's headline results were already known; its results are reported
+in \S\ref{sec:results-slo} and \S\ref{sec:threats}.

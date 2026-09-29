@@ -1,0 +1,144 @@
+\section{Threats to Validity}
+\label{sec:threats}
+
+\paragraph{Simulator abstraction.} All results in this manuscript, except
+\S\ref{sec:real-system}, are produced by a discrete-event simulator, not a
+real serving engine (\S\ref{sec:execution-model}). We do not claim that
+simulated absolute latency or throughput values match real-hardware
+values; only relative ranking and reversal direction were tested for
+transfer, on a small set of selected cases whose scope and outcome are
+detailed below (``Scope of real-system validation'').
+
+\paragraph{Fidelity of reimplemented policies.} \texttt{FAITHFUL\_EXTERNAL}
+policies are validated reimplementations, not the original authors' code;
+residual implementation gaps relative to the original published systems
+are possible despite unit-test validation (\S\ref{sec:fidelity}).
+
+\paragraph{\texttt{STYLE\_APPROXIMATION} baselines.} The two style-level
+approximation policies are explicitly excluded from the PRIMARY headline
+panel and used only for a robustness check; they must not be read as
+official or validated reimplementations of their namesake systems
+(\S\ref{sec:fidelity}).
+
+\paragraph{Three primary workload families.} The benchmark corpus draws from
+three primary sources (\S\ref{sec:sources}); a fourth candidate source
+(TraceLab) is retained only as out-of-distribution context because its
+independence from a prior public window sweep cannot be fully verified.
+Any portability finding in \S\ref{sec:results} is scoped to these three
+sources plus whatever out-of-distribution evidence TraceLab can
+responsibly contribute, not to LLM-serving workloads in general.
+
+\paragraph{Window-size sensitivity.} The benchmark corpus fixes window size
+at 200 requests throughout (\S\ref{sec:window-size}); how the reported
+results would change under a different requests-per-window choice has not
+been swept and is an open item, distinct from the frozen
+\texttt{WINDOW\_SIZE\_SENSITIVITY} robustness-contract item
+(\S\ref{sec:results-robustness}), which despite the shared name concerns
+the number of windows subsampled, not requests per window.
+
+\paragraph{Dataset/provider dependence.} As established in
+\S\ref{sec:sources}, BurstGPT and this project's Azure traces are not
+established to come from independent underlying providers -- both trace
+back to Microsoft Azure infrastructure, collected through different
+mechanisms. Any cross-source finding involving BurstGPT and Azure should be
+read with this in mind; Bailian/Qwen remains a genuinely independent
+platform.
+
+\paragraph{Prompt-token semantic differences.} Prompt-token fields compose
+differently across sources (single-request figure for BurstGPT versus
+potentially multi-turn-cumulative context for Azure and TraceLab;
+\S\ref{sec:descriptors}). Any prompt-length-based claim in this manuscript
+carries this caveat and should not be read as evidence that the sources'
+underlying conversations differ in length, only that their observed,
+request-level prompt-token figures do.
+
+\paragraph{Unresolved historical byte-level overlap.} An exact,
+byte-level reconstruction of a prior related project's specific 60-window
+public-trace replay set could not be independently re-derived from this
+project's available checkout; that project's own recorded parameters and
+final verdict are taken on the strength of direct manuscript inspection,
+not independently re-derived from local artifacts. This project's own
+window construction is independently verified as non-identical
+(\S\ref{sec:windows}, \S\ref{sec:evidence-boundaries}), but the historical
+byte-level reconstruction gap itself remains an open item.
+
+\paragraph{Homogeneous hardware / execution assumptions.} The simulator
+executes every cell under a fixed, single-GPU-colocated execution model for
+the PRIMARY panel; two disaggregation-requiring policies are confined to a
+secondary stratum and never pooled with the PRIMARY leaderboard
+(\S\ref{sec:panel}).
+
+\paragraph{Zero completions and undefined completion-conditioned
+metrics.} Several metrics (\S\ref{sec:metrics}) are undefined, not zero,
+for any cell recording zero completions -- a real methodological choice
+with a real cost: an undefined-metric policy is excluded from that
+specific condition's ranking-derived statistics, lowering effective
+sample size, and must be read alongside every ranking-derived table's
+reported exclusion count. This is not a rare edge case: 301 of 720
+FIFO-only calibration-region records (\S\ref{sec:calibration}) recorded
+zero completions, so a non-trivial share of (window, region) combinations
+contribute no completion-conditioned observation to \S\ref{sec:results}'s
+downstream analyses at that region for any policy -- a structural
+constraint on statistical power, particularly in the highest-pressure
+regions.
+
+\paragraph{Fixed thresholds are conventions, not universal standards.} The
+$10\%$ practical-margin (\S\ref{sec:uncertainty}) and $0.9$ recovery-probability
+(\S\ref{sec:sample-complexity-design}) thresholds used throughout this
+manuscript were both fixed prospectively, but neither is asserted to be a
+domain-standard or universally correct cutoff; every count this manuscript
+labels ``practical'' or ``recovered'' is conditional on the specific
+convention adopted, and a different reasonable choice could shift these
+counts without changing the underlying effect estimates.
+
+\paragraph{Cross-metric disagreement bounds any single-metric ranking
+claim.} \S\ref{sec:results-cross-metric}'s only-moderate cross-metric rank
+correlation and low top-policy agreement are a scope statement, not an
+analysis defect: the study's tracked metrics (ANWG, completion fraction,
+latency percentiles, SLO-violation rate, throughput) capture genuinely
+different deployment objectives, and no single one of them is privileged
+as ``the'' correct measure of scheduler quality beyond this study's own
+choice of ANWG as the PRIMARY headline metric (\S\ref{sec:metrics}).
+Consequently, no ranking-portability claim in \S\ref{sec:results} should
+be read as a claim about scheduler comparisons in general; it is a claim
+about comparisons under the specific metric (or metrics) stated. The
+metric set evaluated here, while broader than a single-metric study, is
+not exhaustive of every metric a practitioner might care about, and
+cross-metric disagreement should itself be read as a substantive finding,
+not as noise to be averaged away.
+
+\paragraph{SLO-definition sensitivity was a post-campaign extension, not
+preregistered evidence.} An SLO-synthesis sensitivity check was planned but
+never actually preregistered before or during the benchmark campaign
+(\S\ref{sec:slo-sensitivity-gap}); it was instead run afterward as an
+explicitly labeled post-campaign extension, after headline results were
+already known (\S\ref{sec:results-slo}). \S\ref{sec:results-slo}'s
+non-trivial minority of SLO-sensitive reversals is a genuine, disclosed
+sensitivity, not a contradiction of any headline reversal, but a caveat
+that should temper confidence in the most SLO-definition-dependent
+individual comparisons.
+
+\paragraph{Scope of real-system validation.} \S\ref{sec:real-system}'s
+validation is limited by design to a small, frozen set of case-selected
+conditions (largest-effect-size reversal plus one stable-ordering control),
+not a full re-execution of the primary outcome matrix on real hardware; agreement
+or disagreement on those specific cases should not be over-generalized to
+every cell in \S\ref{sec:results}. Concretely, the physical evaluation
+covers only $2$ of the panel's $13$ policies (\texttt{slai\_faithful} and
+\texttt{vllm\_faithful}), $3$ of the workload sources, and a single
+operating region (\texttt{HIGH\_PRESSURE}), on one fixed
+hardware/software environment (vLLM~0.27.1, a single A100 GPU
+allocation). Uncertainty is quantified via window-level bootstrap
+resampling over $40$ independent workload windows per source, using one
+physical execution per (policy, source, window) cell -- the workload
+window, not repeated identical-hardware execution, is the unit over which
+statistical inference is drawn (\S\ref{sec:real-system-design}). In
+particular, Table~\ref{tab:rq6-results}'s confidence intervals capture
+\emph{cross-window sampling uncertainty} -- how much the effect would vary
+if a different set of 40 windows had been drawn -- and not
+\emph{repeat-run hardware variability}, since each (policy, source, window)
+cell was executed exactly once; no claim is made about how much a given
+cell's outcome would vary if that same cell were re-run on the same
+hardware. This result should not be read as a comprehensive validation of
+simulator fidelity, of every scheduler in the panel, or of every
+workload/region combination in \S\ref{sec:results}.

@@ -2,4 +2,4 @@ Scheduler rankings are tested across independent LLM workload sources.
 Ranking portability depends on workload source, load region, and metric.
 Supported cross-source reversals are rare and structurally concentrated.
 Cross-metric scheduler rankings are substantially less portable.
-Real-system validation exposes a simulator-portability boundary.
+Selected real-system validation exposes a simulator-fidelity boundary.
