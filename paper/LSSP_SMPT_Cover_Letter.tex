@@ -1,0 +1,80 @@
+\documentclass[10pt]{letter}
+
+\usepackage[margin=0.8in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\signature{Soroush Vahidi\\
+Ph.D. Candidate in Computer Science\\
+Department of Computer Science\\
+Ying Wu College of Computing\\
+New Jersey Institute of Technology\\
+\href{mailto:sv96@njit.edu}{sv96@njit.edu}}
+
+\address{Soroush Vahidi\\
+Department of Computer Science\\
+Ying Wu College of Computing\\
+New Jersey Institute of Technology\\
+Newark, NJ 07102, USA}
+
+\date{October 2, 2026}
+
+\begin{document}
+
+\begin{letter}{Editor-in-Chief\\
+\emph{Simulation Modelling Practice and Theory}}
+
+\opening{Dear Editor-in-Chief,}
+
+I am pleased to submit the manuscript ``A Trace-Driven Simulation
+Methodology for Testing LLM-Serving Scheduler Ranking Portability'' for
+consideration as an original research article in \emph{Simulation Modelling
+Practice and Theory}.
+
+The manuscript studies a modelling and simulation question that arises when
+simulation is used to compare scheduling alternatives: whether the
+comparative ranking produced by a simulation study remains stable when the
+workload source, operating region, or evaluation metric changes. We address
+this question for large language model serving schedulers through LSSP, a
+preregistered, trace-driven deterministic discrete-event simulation study
+over three independently released workload sources, 120 workload windows,
+six calibrated operating regions, and a fixed policy panel.
+
+The contribution is methodological rather than a proposal for a new
+scheduler. The paper formulates comparative ranking portability
+$R(W,M,L)$ as an object of simulation-based selection and comparison,
+uses a paired experimental design over matched workload windows, applies
+uncertainty-aware reversal detection with practical margins and confidence
+intervals, and estimates the sample complexity required for ranking
+recovery. The study also includes workload characterization, source
+separability analysis, and a selected physical vLLM/GPU validation.
+
+The physical validation is reported as a model-fidelity result: the largest
+simulator-predicted selected reversal did not reproduce on physical
+execution, while the stable-control ordering qualitatively persisted. This
+finding helps define the domain of validity of the simulation results
+rather than overstating simulator accuracy.
+
+The manuscript fits SMPT's scope through its focus on trace-driven
+discrete-event simulation, experimental design for comparing alternatives,
+selection and comparison procedures, validation and verification, simulation
+of computer systems, and reproducible simulation artifacts for AI-serving
+infrastructure. Public artifacts are available through GitHub, Hugging Face,
+and Zenodo:
+\begin{quote}\small
+\url{https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark}\\
+\url{https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability}\\
+\url{https://doi.org/10.5281/zenodo.22306798}
+\end{quote}
+
+This manuscript is original, is not under consideration elsewhere, and I
+approve its submission as the sole author. Required declarations, including
+competing-interest, funding, data/code availability, CRediT contribution,
+and AI-assisted-writing statements, are included in the manuscript.
+
+\closing{Sincerely,}
+
+\end{letter}
+
+\end{document}

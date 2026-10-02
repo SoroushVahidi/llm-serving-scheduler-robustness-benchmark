@@ -1,0 +1,90 @@
+\section{Study Design}
+\label{sec:study-design}
+
+\subsection{Research Questions}
+\label{sec:rq}
+
+The six research questions defined in \S\ref{sec:introduction} were frozen
+before outcome generation. The primary confirmatory evidence is RQ1/RQ2 cross-source and temporal
+ranking portability on the frozen real-trace corpus. Provider and domain
+variation are not clean causal isolations: BurstGPT and Azure ultimately
+share Microsoft/Azure infrastructure (\S\ref{sec:sources}), and domain
+shift is addressed only through the cross-source contrasts reported in
+\S\ref{sec:results}. RQ3 is secondary and represented here by an
+engineering-validation pilot of the synthetic-to-real transfer pipeline,
+not by a full confirmatory transfer result on the same footing as RQ1/RQ2.
+Load-level dependence is likewise a secondary sensitivity analysis applied
+to RQ1--RQ4 (\S\ref{sec:evidence-boundaries}).
+
+\subsection{Study Overview}
+\label{sec:overview}
+
+LSSP evaluates a fixed panel of 13 scheduling policies (\S\ref{sec:panel})
+against a frozen corpus of 120 workload windows drawn from three
+independently sourced traces (\S\ref{sec:sources}), across a calibrated
+six-region grid of operating regions (\S\ref{sec:calibration}) and a fixed
+set of primary and completion-conditioned metrics (\S\ref{sec:metrics}).
+Every policy is run against every window under every operating region,
+with a deterministic rep0/rep1 verification pass (\S\ref{sec:paired}),
+producing $9{,}360$ unique policy--window--region configurations, each executed in two deterministic verification passes ($18{,}720$ total executions), from which per-source, per-region, and
+per-metric scheduler rankings are derived. Ranking-portability statistics (Kendall's tau-b, Spearman's
+rho, top-\emph{k} overlap, and pairwise reversal detection) are then
+computed across pairs of sources, regions, and metrics, using workload
+window as the statistical unit (\S\ref{sec:unit}). This design was frozen
+(\S\ref{sec:prereg}) before any comparative scheduler outcome existed.
+
+\subsection{Evidence Independence / Publication Boundaries}
+\label{sec:evidence-boundaries}
+
+This project shares a lineage and a simulator codebase with a related
+manuscript that could otherwise appear to overlap in evidence, and its
+design was explicitly checked against it for overlap before the protocol
+was frozen:
+
+\begin{itemize}
+  \item \textbf{``The Exploitability Gap in LLM-Serving Scheduler
+    Portfolios'' (LLM 2026).} That manuscript's own experiment used a
+    fixed 60-window subset of public BurstGPT and Azure-2023 traces, a
+    different load-factor grid, and an 8-policy portfolio; it is cited
+    here strictly as prior motivation and never restated as this
+    project's own evidence. This project's window sampling
+    (\S\ref{sec:windows}) was independently constructed and verified
+    non-identical to that 60-window set, and its load-level dependence
+    analysis (\S\ref{sec:rq}) uses this project's own calibration
+    protocol (\S\ref{sec:calibration}), never that load grid.
+  \item \textbf{A separate module-intervention manuscript (``Module
+    Counterfactuals for Attributing LLM Serving Scheduler Effects'').}
+    This study makes no module-counterfactual or module-attribution
+    claim; RQ4's workload-descriptor analysis (\S\ref{sec:methodology})
+    is an offline, descriptive association analysis, not a deployed
+    selector or an intervention-based attribution method.
+\end{itemize}
+
+\subsection{Experimental Unit and Paired Design}
+\label{sec:unit}
+
+The statistical unit of analysis is the workload window: a fixed-size
+(200-request) contiguous slice of a source trace, uniquely identified and
+frozen before any scheduler outcome existed (\S\ref{sec:windows}). Every
+policy in the panel (\S\ref{sec:panel}) is run against every window under
+every calibrated operating region (\S\ref{sec:calibration}), so that
+ranking-portability statistics are computed on genuinely paired
+observations -- the same window, region, and metric definition, varying
+only the policy -- rather than on separately tuned per-source experiments.
+Source, operating region, and metric are treated as factors of interest;
+policy identity is the object whose relative ordering is measured.
+
+\subsection{Preregistration}
+\label{sec:prereg}
+
+The workload window set (120 windows: 40 per source, 10 reused from the
+earlier discriminability pilot plus 30 newly sampled per source;
+\S\ref{sec:windows}), the scheduler panel and
+its selection rule (\S\ref{sec:panel}), the metric contract
+(\S\ref{sec:metrics}), the six-region operating-load calibration
+(\S\ref{sec:calibration}), and the ranking-portability analysis plan
+(reversal-detection thresholds, bootstrap procedure, sample-complexity
+design) were each frozen, and structurally validated, before any
+comparative scheduler outcome was generated. The exact frozen content is
+recorded in the public artifact's protocol documentation
+(\S\ref{sec:artifact}).

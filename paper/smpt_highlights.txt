@@ -1,0 +1,5 @@
+Trace-driven simulation tests scheduler ranking portability.
+Paired comparisons span workloads, load regions, and metrics.
+Supported reversals are rare but workload- and load-dependent.
+Sample complexity estimates the window budget for ranking recovery.
+Physical validation exposes a simulator-fidelity boundary.
