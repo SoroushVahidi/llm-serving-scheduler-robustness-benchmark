@@ -346,13 +346,30 @@ def validate_package(verify_public_smoke: bool) -> dict:
         problems.append(f"sensitive content flags: {flagged[:12]}")
     report["restricted_payload_scan"] = {"json_files_scanned": len(scan_paths), "flags": len(flagged)}
 
-    # Existing v1 scientific payload bytes remain untouched in this staged
-    # revision. README is intentionally replaced by the updated v1.1 card.
+    # Existing v1 scientific payload bytes remain untouched. README is
+    # intentionally replaced; .gitattributes adds only the exact LFS rule
+    # required for the newly included large matrix.
     legacy = json.loads((ROOT / "validation/legacy_v1_baseline.json").read_text())
-    bad_legacy = [entry["path"] for entry in legacy["files"] if entry["path"] != "README.md" and sha(ROOT / entry["path"]) != entry["sha256"]]
+    old_attr = next(entry for entry in legacy["files"] if entry["path"] == ".gitattributes")
+    attr_bytes = (ROOT / ".gitattributes").read_bytes()
+    new_rule = b"scientific/campaign/consolidated.json filter=lfs diff=lfs merge=lfs -text\n"
+    attr_append_only = (
+        attr_bytes.endswith(new_rule)
+        and hashlib.sha256(attr_bytes[:-len(new_rule)]).hexdigest() == old_attr["sha256"]
+    )
+    bad_legacy = [
+        entry["path"] for entry in legacy["files"]
+        if entry["path"] != "README.md"
+        and not (entry["path"] == ".gitattributes" and attr_append_only)
+        and sha(ROOT / entry["path"]) != entry["sha256"]
+    ]
     if bad_legacy:
         problems.append(f"v1 existing files changed: {bad_legacy}")
-    report["v1_unchanged_files"] = len(legacy["files"]) - 1 - len(bad_legacy)
+    report["v1_unchanged_files"] = sum(
+        sha(ROOT / entry["path"]) == entry["sha256"]
+        for entry in legacy["files"] if entry["path"] != "README.md"
+    )
+    report["v1_gitattributes_lfs_rule_append_only"] = attr_append_only
 
     report["problems"] = problems
     report["release_candidate_valid"] = not problems

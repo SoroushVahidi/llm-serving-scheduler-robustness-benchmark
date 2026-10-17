@@ -9,6 +9,6 @@ Copyright © 2026 Soroush Vahidi for original LSSP material he controls. The gra
 | scripts/ and .gitattributes | MIT. |
 | LICENSE, LICENSE-DATA, THIRD_PARTY_LICENSES/BAILIAN_APACHE_2.0.txt | Their respective standard license texts, not author-owned research outputs. |
 
-The full CC BY 4.0 legal code is in LICENSE-DATA; the MIT license is in LICENSE. Six byte-identical v1.0.0 files and the previously public 468 numerical outcomes have an earlier MIT distribution history. This new offer does not revoke any existing MIT permission, alter v1.0.0, or imply that all upstream material is CC BY licensed by this author.
+The full CC BY 4.0 legal code is in LICENSE-DATA; the MIT license is in LICENSE. Five byte-identical v1.0.0 auxiliary/data files, the earlier `.gitattributes` content, and the previously public 468 numerical outcomes have an earlier MIT distribution history. One LFS tracking rule is appended to `.gitattributes` for the new matrix. This new offer does not revoke any existing MIT permission, alter the prior v1.0.0 revision, or imply that all upstream material is CC BY licensed by this author.
 
 When sharing CC BY material, credit the creator, identify the material and license, retain supplied notices, and indicate changes. A scholarly dataset/manuscript citation is recommended separately; CC BY does not impose unconditional paper citation on the use of numerical facts. THIRD_PARTY_ATTRIBUTION.md lists upstream terms and transformations.

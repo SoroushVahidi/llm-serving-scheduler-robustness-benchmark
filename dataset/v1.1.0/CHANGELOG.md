@@ -7,7 +7,7 @@
 - Add exact public checksums, release allowlist, schemas, design/provenance/rights/limitations documentation, public-only validator, and the passing amended matrix-validation report.
 - Disclose 468 numerical outcome keys already public in the engineering-smoke file, 18,252 keys absent from identified public artifacts, and prior publication of all 36 temporal numerical rows. No new experiments were run.
 - Align original data, analyses and documentation to CC BY 4.0; keep scripts under MIT, earlier public MIT grants intact, and add pinned source notices and resource acknowledgments.
-- Preserve the six unchanged v1 dataset auxiliary/data files byte-for-byte; the README/card is expanded for this version. Existing public HF history, GitHub v1.0.0 tag, and Software DOI remain intact.
+- Preserve five earlier v1 auxiliary/data files byte-for-byte; append one LFS tracking rule to `.gitattributes` for the large new matrix. The README/card is expanded for this version. Earlier HF history, GitHub v1.0.0 tag, and Software DOI remain intact.
 
 ## v1.0.0 — 2026-09-04
 
