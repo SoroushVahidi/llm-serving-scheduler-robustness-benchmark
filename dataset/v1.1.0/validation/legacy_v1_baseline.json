@@ -1,0 +1,41 @@
+{
+  "public_repo": "https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability",
+  "revision": "f9b8129b1501b9501264768c22c8c069ac0bca76",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 2504,
+      "sha256": "9e75dd981de037ec3769f24f790e126bc5a160b6871f510214e68dc70649aeeb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7506,
+      "sha256": "3b3ab6dc3ea807f6140c9d56bae339e019f96bc62374c670564864e53eebaa7f"
+    },
+    {
+      "path": "LSSP_THIRD_PARTY_SOURCE_LICENSES.md",
+      "bytes": 3631,
+      "sha256": "ca28da18911e7c91bf71839da8e0f7ec76bbd1c8546c3548626d8987f7f57749"
+    },
+    {
+      "path": "checksums.json",
+      "bytes": 1200,
+      "sha256": "0778354e38198ab5191c001a902df40db685276146246f1b1a563a938c25c6eb"
+    },
+    {
+      "path": "rq6/RQ6_ANALYSIS_RESULT.json",
+      "bytes": 3392,
+      "sha256": "1ed13937b2ac96c1f3c17c4e06e99b71c1fa2332a9510c24656feab58874ce5d"
+    },
+    {
+      "path": "table_data/rq1_rq2_portability.json",
+      "bytes": 10898,
+      "sha256": "b639ecea993cbf4280afa87e6695f2233a383485d10cfe37beb5ea9339986fb2"
+    },
+    {
+      "path": "table_data/rq4_sample_complexity.json",
+      "bytes": 4589,
+      "sha256": "6f18a86470f35edf9c39c24835b998f23c4543e53b8e493c3204956220c0743c"
+    }
+  ]
+}

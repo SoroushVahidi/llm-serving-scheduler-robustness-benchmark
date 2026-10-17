@@ -1,0 +1,5101 @@
+{
+  "description": "Observed field paths and types from exact seven scientific JSON files and six included verification manifests; dynamic map keys are represented by {metric}, {key}, or {k}. Counts describe occurrences, not independent samples.",
+  "files": {
+    "manifests/ranking_portability_phase11_raw_fifo_calibration.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.candidate_grid",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.candidate_grid.HIGH_PRESSURE",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.candidate_grid.KNEE",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.candidate_grid.LOW",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.candidate_grid.OVERLOAD",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.candidate_grid.POST_KNEE",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.candidate_grid.PRE_KNEE",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cells",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cells[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].actual_fifo_pressure",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].calibration_protocol_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].cell_status",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].compact_index_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].completion_fraction",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].lambda_ref",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].load_factor",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].phase10_window_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].phase11_prelaunch_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].selected_load_factor",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].simulator_config_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].slo_violation_rate",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].source",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].target_definition",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].window_freeze_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.cells[].window_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.compact_index_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.generated_at_utc",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.manifest_kind",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_cells_actual",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_cells_expected",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_regions",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_windows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.prelaunch_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.protocol_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.reference_policy",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.region_order",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.region_order[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 6
+      },
+      {
+        "path": "$.repo_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_freeze_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      }
+    ],
+    "manifests/ranking_portability_phase11_region_assignments.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.assignments",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.assignments[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].actual_fifo_pressure",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].calibration_status",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].completion_state",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].lambda_ref",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].phase10_window_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].phase11_prelaunch_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].selected_load_factor",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].simulator_config_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].source",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].target_definition",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.assignments[].window_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.compact_index_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.generated_at_utc",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.manifest_kind",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_actual",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_expected",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.prelaunch_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.protocol_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.reference_policy",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.repo_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_freeze_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      }
+    ],
+    "manifests/ranking_portability_phase12_analysis_input.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.COMPARATIVE_PILOT_V2_RESULTS",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.PHASE12_ANALYSIS_INPUT_ADMITTED",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.PHASE12_COMPLETED_CAMPAIGN_VALID",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cell_count",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.completed_matrix_validator_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.consolidated_artifact_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_repo_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.full_matrix_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.manifest_kind",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.provenance_amendment_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.raw_shard_ledger_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.repaired_shard_ledger_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.validation_git_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      }
+    ],
+    "manifests/ranking_portability_phase12_campaign_freeze.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.COMPARATIVE_PILOT_V2_RESULTS",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.EXPECTED_PHASE12_CAMPAIGN_CELLS",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.PHASE12_CAMPAIGN_EXECUTION_STARTED",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_policies",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_policies[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 13
+      },
+      {
+        "path": "$.campaign_regions",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_regions[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 6
+      },
+      {
+        "path": "$.campaign_repetitions",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_repetitions[]",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 2
+      },
+      {
+        "path": "$.campaign_sources",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_sources[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 3
+      },
+      {
+        "path": "$.cells",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cells[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].cell_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].load_region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].policy_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].region_assignment_key",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].repetition",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].scientific_status",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].source_family",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].synthesis_seed",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].window_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.execution_file_hashes",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/calibration/stage0_load_calibration.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/policies/registry.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/ranking_portability/calibration.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/ranking_portability/execute_cell.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/ranking_portability/phase12_campaign.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/ranking_portability/phase12_smoke.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/ranking_portability/schema.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/simulator/simulator.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/simulator/telemetry.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_file_hashes.src/robustbench/workloads/external/benchmark_synthesis.py",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.expected_assignment_key_count",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.full_matrix_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.generated_at_utc",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.manifest_kind",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_assignment_keys_used",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_cells_actual",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.parent_smoke_branch_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.phase10_compact_index_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.phase10_window_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.phase11_prelaunch_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.phase11_raw_fifo_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.phase11_region_assignment_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.region_assignment_index",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.region_assignment_index.{key}",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.region_assignment_index.{key}.absolute_load_factor",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.region_assignment_index.{key}.lambda_ref",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.region_assignment_index.{key}.selected_load_factor",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 720
+      },
+      {
+        "path": "$.repo_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.telemetry_amendment_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w10",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w11",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w12",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w13",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w14",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w15",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w16",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w17",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w18",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w19",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w20",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w21",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w22",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w23",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w24",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w25",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w26",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w27",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w28",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w29",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w30",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w31",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w32",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w33",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w34",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w35",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w36",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w37",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w38",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_pilot_v2_w39",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w00",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w01",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w02",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w03",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w04",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w05",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w06",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w07",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w08",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.azure_llm_2024_stage0_w09",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w10",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w11",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w12",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w13",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w14",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w15",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w16",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w17",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w18",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w19",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w20",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w21",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w22",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w23",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w24",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w25",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w26",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w27",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w28",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w29",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w30",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w31",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w32",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w33",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w34",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w35",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w36",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w37",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w38",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_pilot_v2_w39",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w00",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w01",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w02",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w03",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w04",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w05",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w06",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w07",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w08",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.bailian_qwen_stage0_w09",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w10",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w11",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w12",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w13",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w14",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w15",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w16",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w17",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w18",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w19",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w20",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w21",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w22",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w23",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w24",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w25",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w26",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w27",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w28",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w29",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w30",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w31",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w32",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w33",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w34",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w35",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w36",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w37",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w38",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_pilot_v2_w39",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w00",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w01",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w02",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w03",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w04",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w05",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w06",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w07",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w08",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_identities.burstgpt_stage0_w09",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.windows_per_source",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      }
+    ],
+    "manifests/ranking_portability_phase12_shard_plan.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.balancing_rule",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_manifest_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_manifest_full_matrix_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.admission_control",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.edf",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.estimated_service_time_first",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.fifo",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.kv_constrained_online",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.least_laxity_first",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.sarathi_faithful",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.scorpio_style_slo_guard",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.slai_faithful",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.vllm_chunked_prefill_faithful",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.vllm_faithful",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.vllm_style_token_budget",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cost_estimates_seconds.weighted_fair_share",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.estimated_imbalance_ratio",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.manifest_kind",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.max_shard_estimated_cost_seconds",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.min_shard_estimated_cost_seconds",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.shard_count",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.shards",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.shards[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].cell_count",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].cell_ids",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].cell_ids[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.shards[].estimated_cost_seconds",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.admission_control",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.edf",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.estimated_service_time_first",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.fifo",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.kv_constrained_online",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.least_laxity_first",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.sarathi_faithful",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 16
+      },
+      {
+        "path": "$.shards[].policy_composition.scorpio_style_slo_guard",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.slai_faithful",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 16
+      },
+      {
+        "path": "$.shards[].policy_composition.vllm_chunked_prefill_faithful",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 16
+      },
+      {
+        "path": "$.shards[].policy_composition.vllm_faithful",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 16
+      },
+      {
+        "path": "$.shards[].policy_composition.vllm_style_token_budget",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].policy_composition.weighted_fair_share",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.shards[].shard_id",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 64
+      },
+      {
+        "path": "$.total_cells",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.total_estimated_cost_seconds",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 1
+      }
+    ],
+    "manifests/ranking_portability_pilot_v2_windows_index.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.burstgpt_independence_disclosure",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.dataset_name",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.dataset_short_name",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.manifest_kind",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_new_windows_per_source",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_sources",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_stage0_windows_per_source",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_windows_per_source",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_windows_total",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.repo_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.seed_extension_offset",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.free_intervals_used",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.free_intervals_used[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.free_intervals_used[].end",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.free_intervals_used[].start",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.n_new_windows_requested",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.n_new_windows_selected",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.n_records_dropped_invalid",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.n_records_seen",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.n_records_valid",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.offset_valid_rows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.pinned_ranges",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.pinned_ranges[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.pinned_ranges[].end",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.pinned_ranges[].start",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.seed",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.selection_algorithm_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.stride_free_rows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.window_size",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.window_start_indices",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.azure_llm_2024_conversation_extension.window_start_indices[]",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 30
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.free_intervals_used",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.free_intervals_used[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.free_intervals_used[].end",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.free_intervals_used[].start",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.n_new_windows_requested",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.n_new_windows_selected",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.n_records_dropped_invalid",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.n_records_seen",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.n_records_valid",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.offset_valid_rows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.pinned_ranges",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.pinned_ranges[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.pinned_ranges[].end",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.pinned_ranges[].start",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.seed",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.selection_algorithm_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.stride_free_rows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.window_size",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.window_start_indices",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.bailian_qwen_traceB_extension.window_start_indices[]",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 30
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.free_intervals_used",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.free_intervals_used[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.free_intervals_used[].end",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.free_intervals_used[].start",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.n_new_windows_requested",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.n_new_windows_selected",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.n_records_dropped_invalid",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.n_records_seen",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.n_records_valid",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.offset_valid_rows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.pinned_ranges",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.pinned_ranges[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.pinned_ranges[].end",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.pinned_ranges[].start",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 10
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.seed",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.selection_algorithm_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.stride_free_rows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.window_size",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.window_start_indices",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.source_sampling_reports.burstgpt_extension.window_start_indices[]",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 30
+      },
+      {
+        "path": "$.stage0_windows_manifest_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.window_size",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.windows",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.windows[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].arrival_time_s_max",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].arrival_time_s_min",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].chronology_stratum",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].content_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.arrival_rate_rps",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.burstiness_b",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.concurrency_proxy",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.duration_s",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.field_provenance_summary",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.field_provenance_summary.SOURCE_OBSERVED",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.field_provenance_summary.SYNTHESIZED_IMPUTED",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 40
+      },
+      {
+        "path": "$.windows[].descriptor.field_provenance_summary.UNAVAILABLE",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.has_native_priority",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.has_native_slo",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.interarrival_cv",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.interarrival_mean_s",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.kv_pressure_proxy",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.long_context_fraction",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.n_source_observed_fields",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.n_synthesized_fields",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.n_unavailable_fields",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.output_tokens_cv",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.output_tokens_mean",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.output_tokens_p50",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.output_tokens_p90",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.output_tokens_p95",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.output_tokens_p99",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.prompt_output_correlation",
+        "observed_types": [
+          "float",
+          "null"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.prompt_tokens_cv",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.prompt_tokens_mean",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.prompt_tokens_p50",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.prompt_tokens_p90",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.prompt_tokens_p95",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.prompt_tokens_p99",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.request_count",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.source_family",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.time_bucket",
+        "observed_types": [
+          "null"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].descriptor.window_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].evidence_class",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].offset_valid_rows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].request_count",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].sampling_algorithm",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].sampling_seed",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].source_family",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].source_file",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].source_file_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].start_index_in_valid_rows",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 120
+      },
+      {
+        "path": "$.windows[].window_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 120
+      }
+    ],
+    "scientific/analysis/pairwise_reversals.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_code_git_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_contract_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.consolidated_result_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.fdr_note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.records",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.records.{metric}",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.records.{metric}[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].bh_fdr_p_pair_iut",
+        "observed_types": [
+          "float",
+          "null"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].bh_fdr_rejected_within_metric_loadregion_family",
+        "observed_types": [
+          "bool",
+          "null"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].ci_x",
+        "observed_types": [
+          "array",
+          "null"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].ci_x[]",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 274
+      },
+      {
+        "path": "$.records.{metric}[].ci_y",
+        "observed_types": [
+          "array",
+          "null"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].ci_y[]",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 274
+      },
+      {
+        "path": "$.records.{metric}[].classification",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].condition_x",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].condition_y",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].diff_x",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].diff_y",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].fdr_family",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].load_region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].margin_x",
+        "observed_types": [
+          "float",
+          "null"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].margin_y",
+        "observed_types": [
+          "float",
+          "null"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].metric",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].p_x",
+        "observed_types": [
+          "float",
+          "null"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].p_y",
+        "observed_types": [
+          "float",
+          "null"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].policy_a",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].policy_b",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.records.{metric}[].supported_after_fdr",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 10890
+      },
+      {
+        "path": "$.reversal_contract",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      }
+    ],
+    "scientific/analysis/ranking_correlations.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_code_git_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_contract_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.bootstrap_resamples",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.comparisons",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.comparisons.{metric}",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.comparisons.{metric}[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].bh_fdr_rejected_within_metric_region_family",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].condition_x",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].condition_y",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].kendall_p",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].kendall_tau",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].kendall_tau_ci",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].kendall_tau_ci[]",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 396
+      },
+      {
+        "path": "$.comparisons.{metric}[].metric",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].n_conditions_excluded_for_undefined_metric",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].n_policies_compared",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].spearman_p",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].spearman_rho",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].spearman_rho_ci",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].spearman_rho_ci[]",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 396
+      },
+      {
+        "path": "$.comparisons.{metric}[].topk_k_reduced",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].topk_k_reduced.{k}",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 396
+      },
+      {
+        "path": "$.comparisons.{metric}[].topk_overlap",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].topk_overlap.{k}",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 396
+      },
+      {
+        "path": "$.consolidated_result_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.metrics",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.metrics[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.omnibus_friedman",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.omnibus_friedman[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.omnibus_friedman[].excluded_policies",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.omnibus_friedman[].excluded_policies[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 48
+      },
+      {
+        "path": "$.omnibus_friedman[].load_region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.omnibus_friedman[].metric",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.omnibus_friedman[].n_blocks",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.omnibus_friedman[].n_treatments",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.omnibus_friedman[].p_value",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.omnibus_friedman[].statistic",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.omnibus_friedman_bh_fdr_by_metric",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.omnibus_friedman_bh_fdr_by_metric.{metric}",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.omnibus_friedman_bh_fdr_by_metric.{metric}[]",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.policies",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.policies[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 11
+      }
+    ],
+    "scientific/analysis/sample_complexity.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_code_git_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_contract_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.concentrated_vs_spread",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.concentrated_vs_spread[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.concentrated_vs_spread[].mean_tau_concentrated",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.concentrated_vs_spread[].mean_tau_spread",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.concentrated_vs_spread[].metric",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.concentrated_vs_spread[].n_draws",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.concentrated_vs_spread[].n_total",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.consolidated_result_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.draws_per_n",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.ladder_n_values",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.ladder_n_values[]",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 5
+      },
+      {
+        "path": "$.per_source_metric",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.per_source_metric[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 33
+      },
+      {
+        "path": "$.per_source_metric[].first_n_meeting_exact_threshold",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 33
+      },
+      {
+        "path": "$.per_source_metric[].first_n_meeting_topk_threshold",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 33
+      },
+      {
+        "path": "$.per_source_metric[].first_n_meeting_topk_threshold.{k}",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 66
+      },
+      {
+        "path": "$.per_source_metric[].metric",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 33
+      },
+      {
+        "path": "$.per_source_metric[].points",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 33
+      },
+      {
+        "path": "$.per_source_metric[].points[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 165
+      },
+      {
+        "path": "$.per_source_metric[].points[].n",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 165
+      },
+      {
+        "path": "$.per_source_metric[].points[].n_draws",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 165
+      },
+      {
+        "path": "$.per_source_metric[].points[].p_exact_recovery",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 165
+      },
+      {
+        "path": "$.per_source_metric[].points[].p_topk_recovery",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 165
+      },
+      {
+        "path": "$.per_source_metric[].points[].p_topk_recovery.{k}",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 330
+      },
+      {
+        "path": "$.per_source_metric[].points[].seed",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 165
+      },
+      {
+        "path": "$.per_source_metric[].reference_ranking",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 33
+      },
+      {
+        "path": "$.per_source_metric[].reference_ranking[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 363
+      },
+      {
+        "path": "$.per_source_metric[].source",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 33
+      }
+    ],
+    "scientific/analysis/telemetry_explanation.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_code_git_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_contract_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.consolidated_result_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.model",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.records",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.records[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].coefficients",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].coefficients.burstiness_b",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].coefficients.concurrency_proxy",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].coefficients.long_context_fraction",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].coefficients.output_tokens_cv",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].coefficients.prompt_tokens_cv",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].converged",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].explanatory_only_never_a_selector",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].features",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].features[]",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 4950
+      },
+      {
+        "path": "$.records[].intercept",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].load_region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].metric",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].n_excluded_missing_descriptor",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].n_observations",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].n_reversal_sites",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].policy_a",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].policy_b",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].source_x",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.records[].source_y",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 990
+      },
+      {
+        "path": "$.robustness",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LEAVE_ONE_POLICY_FAMILY_OUT",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LEAVE_ONE_POLICY_FAMILY_OUT.implemented_as_postprocessing",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LEAVE_ONE_POLICY_FAMILY_OUT.new_execution_required_for_this_sensitivity",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LEAVE_ONE_POLICY_FAMILY_OUT.note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LEAVE_ONE_SOURCE_OUT",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LEAVE_ONE_SOURCE_OUT.implemented_as_postprocessing",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LEAVE_ONE_SOURCE_OUT.new_execution_required_for_this_sensitivity",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LEAVE_ONE_SOURCE_OUT.note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LOAD_CALIBRATION_SENSITIVITY",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LOAD_CALIBRATION_SENSITIVITY.implemented_as_postprocessing",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LOAD_CALIBRATION_SENSITIVITY.new_execution_required_for_this_sensitivity",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.LOAD_CALIBRATION_SENSITIVITY.note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.METRIC_DEFINITION_SENSITIVITY",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.METRIC_DEFINITION_SENSITIVITY.implemented_as_postprocessing",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.METRIC_DEFINITION_SENSITIVITY.new_execution_required_for_this_sensitivity",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.METRIC_DEFINITION_SENSITIVITY.note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.PRIMARY_ONLY",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.PRIMARY_ONLY.implemented_as_postprocessing",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.PRIMARY_ONLY.new_execution_required_for_this_sensitivity",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.PRIMARY_ONLY.note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.SLO_DEFINITION_SENSITIVITY",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.SLO_DEFINITION_SENSITIVITY.implemented_as_postprocessing",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.SLO_DEFINITION_SENSITIVITY.new_execution_required_for_this_sensitivity",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.SLO_DEFINITION_SENSITIVITY.note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.TEMPORAL_SPLIT_SENSITIVITY",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.TEMPORAL_SPLIT_SENSITIVITY.implemented_as_postprocessing",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.TEMPORAL_SPLIT_SENSITIVITY.new_execution_required_for_this_sensitivity",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.TEMPORAL_SPLIT_SENSITIVITY.note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.WINDOW_SIZE_SENSITIVITY",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.WINDOW_SIZE_SENSITIVITY.implemented_as_postprocessing",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.WINDOW_SIZE_SENSITIVITY.new_execution_required_for_this_sensitivity",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.component_status.WINDOW_SIZE_SENSITIVITY.note",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.headline_metric",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.seed_sensitivity_applicable",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.strata",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.strata.PRIMARY_ONLY",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.robustness.strata.PRIMARY_ONLY[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 18
+      },
+      {
+        "path": "$.robustness.strata.PRIMARY_ONLY[].kendall_tau",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18
+      },
+      {
+        "path": "$.robustness.strata.PRIMARY_ONLY[].load_region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18
+      },
+      {
+        "path": "$.robustness.strata.PRIMARY_ONLY[].source_x",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18
+      },
+      {
+        "path": "$.robustness.strata.PRIMARY_ONLY[].source_y",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18
+      },
+      {
+        "path": "$.robustness.strata.{key}",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 14
+      },
+      {
+        "path": "$.robustness.strata.{key}[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 210
+      },
+      {
+        "path": "$.robustness.strata.{key}[].kendall_tau",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 210
+      },
+      {
+        "path": "$.robustness.strata.{key}[].load_region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 210
+      },
+      {
+        "path": "$.robustness.strata.{key}[].source_x",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 210
+      },
+      {
+        "path": "$.robustness.strata.{key}[].source_y",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 210
+      }
+    ],
+    "scientific/analysis/temporal_robustness.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_code_git_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_contract_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.consolidated_result_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.records",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.records[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].chronology_label",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 6
+      },
+      {
+        "path": "$.records[].condition_x",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].condition_y",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].is_sensitivity_split",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].kendall_p",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].kendall_tau",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].kendall_tau_ci",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].kendall_tau_ci[]",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 72
+      },
+      {
+        "path": "$.records[].metric",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].n_conditions_excluded_for_undefined_metric",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].n_policies_compared",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].source",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].spearman_p",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].spearman_rho",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].spearman_rho_ci",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].spearman_rho_ci[]",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 72
+      },
+      {
+        "path": "$.records[].split",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].topk_k_reduced",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].topk_k_reduced.{k}",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 72
+      },
+      {
+        "path": "$.records[].topk_overlap",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 36
+      },
+      {
+        "path": "$.records[].topk_overlap.{k}",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 72
+      }
+    ],
+    "scientific/analysis/topk_overlap.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_code_git_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.analysis_contract_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.comparisons",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.comparisons.{metric}",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 11
+      },
+      {
+        "path": "$.comparisons.{metric}[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].condition_x",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].condition_y",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].topk_k_reduced",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].topk_k_reduced.{k}",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 396
+      },
+      {
+        "path": "$.comparisons.{metric}[].topk_overlap",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 198
+      },
+      {
+        "path": "$.comparisons.{metric}[].topk_overlap.{k}",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 396
+      },
+      {
+        "path": "$.consolidated_result_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.top_k_values",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.top_k_values[]",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 2
+      }
+    ],
+    "scientific/campaign/consolidated.json": [
+      {
+        "path": "$",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.campaign_freeze_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cells",
+        "observed_types": [
+          "array"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.cells[]",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].arrival_normalized_weighted_goodput",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].calibration_manifest_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].cell_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].completion_fraction",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].environment",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].error_category",
+        "observed_types": [
+          "null"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].error_detail",
+        "observed_types": [
+          "null"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].load_factor",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].load_region",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].mean_latency",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].mean_ttft",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].p95_latency",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].p95_ttft",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].phase11_raw_fifo_calibration_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].phase11_region_assignments_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].policy_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].policy_registry_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].repetition",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].repo_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].request_throughput",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].schema_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].scientific_status",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].simulator_config_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].slo_violation_rate",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].source_family",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].success",
+        "observed_types": [
+          "bool"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].synthesis_seed",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].synthesis_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry",
+        "observed_types": [
+          "object"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.admission_control_activations",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.batch_saturation_max",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.batch_saturation_mean",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.kv_occupancy_max",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.kv_occupancy_mean",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.n_steps",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.preemption_or_reorder_events",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.prefill_decode_contention_fraction",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.queue_depth_max",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.queue_depth_mean",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.schema_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry.token_budget_saturation_fraction",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].telemetry_schema_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].token_throughput",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].weighted_completion_fraction",
+        "observed_types": [
+          "float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].weighted_goodput",
+        "observed_types": [
+          "float",
+          "nonfinite_float"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].window_id",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells[].window_manifest_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 18720
+      },
+      {
+        "path": "$.cells_content_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.execution_repo_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.full_matrix_hash",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.manifest_kind",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.n_cells",
+        "observed_types": [
+          "int"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.provenance_amendment_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.provenance_contract_version",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.raw_shard_ledger_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.repair_code_git_sha",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      },
+      {
+        "path": "$.repaired_shard_ledger_sha256",
+        "observed_types": [
+          "string"
+        ],
+        "occurrences": 1
+      }
+    ]
+  }
+}

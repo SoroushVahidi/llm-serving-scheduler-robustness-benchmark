@@ -1,0 +1,14 @@
+{
+  "files": {
+    "LSSP_THIRD_PARTY_SOURCE_LICENSES.md": {
+      "bytes": 3631,
+      "sha256": "0f2cb0e795a557c214ae9a2884bf9faba2ba7c9a4b6525cff1171a3e419a1238"
+    },
+    "rq6/RQ6_ANALYSIS_RESULT.json": {
+      "bytes": 3392,
+      "sha256": "1ed13937b2ac96c1f3c17c4e06e99b71c1fa2332a9510c24656feab58874ce5d"
+    }
+  },
+  "release": "v1.0.0",
+  "note": "This checksums file covers only files uploaded byte-identical to their GitHub-repository or upstream-analysis source. table_data/rq1_rq2_portability.json and table_data/rq4_sample_complexity.json were minified (whitespace removed) during publication for transfer efficiency, and rq4_sample_complexity.json additionally omits its exhaustive secondary_metric_thresholds breakdown (all headline RQ4/RQ5 numbers -- the recovery-threshold curves and concentrated-vs-spread comparison -- are unchanged and complete); they are content-equivalent to, but not byte-identical to, the source files in paper/generated/table_data/ in the GitHub repository, so their hashes are intentionally not listed here as verification hashes. README.md's own hash is likewise omitted (self-referential); GitHub/HF commit history is the provenance record for both."
+}

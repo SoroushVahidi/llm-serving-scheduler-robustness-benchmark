@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: >-
+  Please cite the exact dataset version used and the related paper when
+  appropriate. Dataset material is CC BY 4.0; release scripts are MIT.
+type: dataset
+authors:
+  - family-names: Vahidi
+    given-names: Soroush
+title: 'LLM-Serving Scheduler Portability (LSSP): Complete Phase-12 Simulation Outcomes and Canonical Analyses'
+version: 1.1.0
+url: https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability
+license: CC-BY-4.0
+abstract: >-
+  Expanded release of a completed 18,720-outcome LSSP simulation campaign
+  and six canonical analyses. Of these, 468 keyed outcomes were already public;
+  18,252 become additionally accessible.

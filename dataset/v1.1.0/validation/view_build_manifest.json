@@ -1,0 +1,63 @@
+{
+  "notes": "Convenience tables only; original scientific JSON files remain authoritative. All rows are checked independently by validate_release.py.",
+  "pyarrow_version": "24.0.0",
+  "release_version": "1.1.0",
+  "source_matrix_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+  "views": {
+    "load_region_assignments": {
+      "path": "data/tables/load_region_assignments.parquet",
+      "rows": 720,
+      "sha256": "10feaafe5fe8dc587763c4d0ce511edb760912e2bed78ffcb207699ea690dbf5"
+    },
+    "pairwise_reversals": {
+      "path": "data/tables/pairwise_reversals.parquet",
+      "rows": 10890,
+      "sha256": "80df6eac9e95158fc55cdc7d75dee984831253fa11279e24e0e82421f876176c"
+    },
+    "policy_registry": {
+      "path": "data/tables/policy_registry.parquet",
+      "rows": 13,
+      "sha256": "581135e7872758e2b869bd81bff3109234fab908d299f0720a0c4666185461ed"
+    },
+    "ranking_correlations": {
+      "path": "data/tables/ranking_correlations.parquet",
+      "rows": 198,
+      "sha256": "d9291d8467cfd784cefa454c265133e681bdaf0c107d4b85fbfd15fc4d287df4"
+    },
+    "sample_complexity": {
+      "path": "data/tables/sample_complexity.parquet",
+      "rows": 33,
+      "sha256": "db0a4ef1994cab512e7d80f1bdd5d81a4e3310465abee0de8b35ecbf1c3850db"
+    },
+    "scheduler_outcomes": {
+      "path": "data/tables/scheduler_outcomes.parquet",
+      "rows": 18720,
+      "sha256": "b86ca57a1d5d6464fa2d6ae846259ed07e306317dcdffe8e086e958ab2b2e226"
+    },
+    "telemetry_explanation": {
+      "path": "data/tables/telemetry_explanation.parquet",
+      "rows": 990,
+      "sha256": "2a8660a05fd7366d4302365acab3a42429e94db800dc47f6c45c251c3b72c4ba"
+    },
+    "temporal_robustness": {
+      "path": "data/tables/temporal_robustness.parquet",
+      "rows": 36,
+      "sha256": "7253bed88b3622a67825c714025cd4d3b2007a3eb028c8e88251e1f0f9319668"
+    },
+    "topk_overlap": {
+      "path": "data/tables/topk_overlap.parquet",
+      "rows": 198,
+      "sha256": "8cce9dd97e3461df07d9b8f598ec555abc69ec0cb2b054d4e16fba282c05218f"
+    },
+    "unique_configurations": {
+      "path": "data/tables/unique_configurations.parquet",
+      "rows": 9360,
+      "sha256": "e183eb3c20faf4a2b6a7e8b6131b9e0570a1b2daafea7a4a43207c48cfc0dac8"
+    },
+    "workload_windows": {
+      "path": "data/tables/workload_windows.parquet",
+      "rows": 120,
+      "sha256": "cd3f2bdcdd0d8614dd800fb07b6f09dbd9c83b164299873141f3e933bdbdcfb7"
+    }
+  }
+}

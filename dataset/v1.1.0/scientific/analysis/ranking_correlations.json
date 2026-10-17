@@ -1,0 +1,6383 @@
+{
+  "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+  "analysis_contract_version": "phase12_analysis_prefreeze_v1",
+  "bootstrap_resamples": 2000,
+  "campaign_freeze_sha256": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+  "comparisons": {
+    "arrival_normalized_weighted_goodput": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.0009421434444379248,
+        "kendall_tau": 0.9198662110077999,
+        "kendall_tau_ci": [
+          0.8641167436739938,
+          0.9198662110077999
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 1.557512180646104e-05,
+        "spearman_rho": 0.9412064413386635,
+        "spearman_rho_ci": [
+          0.8950122601686679,
+          0.9412064413386635
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.05464362882640402,
+        "kendall_tau": 0.5510387687779837,
+        "kendall_tau_ci": [
+          0.2025478734167333,
+          0.5510387687779837
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.05616868132793777,
+        "spearman_rho": 0.5897678246195884,
+        "spearman_rho_ci": [
+          0.21869176243407465,
+          0.5897678246195884
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.04112444253622577,
+        "kendall_tau": 0.5990422978731537,
+        "kendall_tau_ci": [
+          0.22019275302527214,
+          0.5990422978731537
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.039114688963632516,
+        "spearman_rho": 0.6266083599903658,
+        "spearman_rho_ci": [
+          0.2323525985681023,
+          0.6266083599903658
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 0.0008089572034492398,
+        "kendall_tau": 0.8931884167327451,
+        "kendall_tau_ci": [
+          0.8931884167327451,
+          1.0
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 6.882957998388927e-06,
+        "spearman_rho": 0.9511213670856142,
+        "spearman_rho_ci": [
+          0.9511213670856142,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.009313832263427427,
+        "kendall_tau": 0.7085662394599953,
+        "kendall_tau_ci": [
+          0.4496144015129485,
+          0.7526178090063816
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0012637091692231687,
+        "spearman_rho": 0.8384103035504803,
+        "spearman_rho_ci": [
+          0.5245720917061686,
+          0.87191516958367
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.012227913102061972,
+        "kendall_tau": 0.6968683416725756,
+        "kendall_tau_ci": [
+          0.4040950971038548,
+          0.7526178090063816
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0037336604059791385,
+        "spearman_rho": 0.7910753525361773,
+        "spearman_rho_ci": [
+          0.4570700640801811,
+          0.87191516958367
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.00014533934914921472,
+        "kendall_tau": 0.9583333333333335,
+        "kendall_tau_ci": [
+          0.9139076937674138,
+          1.0
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 4.736199687432892e-09,
+        "spearman_rho": 0.9904306220095696,
+        "spearman_rho_ci": [
+          0.9659764638541438,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.010463341174558044,
+        "kendall_tau": 0.6458333333333335,
+        "kendall_tau_ci": [
+          0.577896743774047,
+          0.7291666666666667
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0019698281927662854,
+        "spearman_rho": 0.820574162679426,
+        "spearman_rho_ci": [
+          0.7805651185713036,
+          0.8581009196673864
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.016622219816450953,
+        "kendall_tau": 0.6041666666666667,
+        "kendall_tau_ci": [
+          0.5208333333333334,
+          0.6875
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.004432489877855213,
+        "spearman_rho": 0.7822966507177034,
+        "spearman_rho_ci": [
+          0.6722488038277512,
+          0.820574162679426
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.00014533934914921472,
+        "kendall_tau": 0.9583333333333335,
+        "kendall_tau_ci": [
+          0.9583333333333335,
+          1.0
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 4.736199687432892e-09,
+        "spearman_rho": 0.9904306220095696,
+        "spearman_rho_ci": [
+          0.9904306220095696,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.009255498281243762,
+        "kendall_tau": 0.6467616667635546,
+        "kendall_tau_ci": [
+          0.5103103630798288,
+          0.6784005252999682
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0013814208845013283,
+        "spearman_rho": 0.8349892675291338,
+        "spearman_rho_ci": [
+          0.6383424685746489,
+          0.8349892675291338
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.01469476961935417,
+        "kendall_tau": 0.6063390625908325,
+        "kendall_tau_ci": [
+          0.46948553403344245,
+          0.6470973183683323
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0032935522540398243,
+        "spearman_rho": 0.7972496396182126,
+        "spearman_rho_ci": [
+          0.6099716921935535,
+          0.8349892675291338
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.00014533934914921472,
+        "kendall_tau": 0.9583333333333335,
+        "kendall_tau_ci": [
+          0.9583333333333335,
+          1.0
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 4.736199687432892e-09,
+        "spearman_rho": 0.9904306220095696,
+        "spearman_rho_ci": [
+          0.9904306220095696,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.012123203503265558,
+        "kendall_tau": 0.6204965959947127,
+        "kendall_tau_ci": [
+          0.5659164584181102,
+          0.6204965959947127
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.002256788989670089,
+        "spearman_rho": 0.8146976604292223,
+        "spearman_rho_ci": [
+          0.7553965866945604,
+          0.8146976604292223
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.01894067359923951,
+        "kendall_tau": 0.580464557543441,
+        "kendall_tau_ci": [
+          0.5254938542453881,
+          0.6204965959947127
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.004886189688627632,
+        "spearman_rho": 0.7771323504382495,
+        "spearman_rho_ci": [
+          0.7097482827225056,
+          0.8146976604292223
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 2.9662500473873967e-05,
+        "kendall_tau": 1.0,
+        "kendall_tau_ci": [
+          0.9040133315325639,
+          1.0
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          0.9653811384521649,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.009317565305828269,
+        "kendall_tau": 0.6226415094339623,
+        "kendall_tau_ci": [
+          0.549962314837632,
+          0.7116700695043587
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0013859390756922648,
+        "spearman_rho": 0.8348623853211009,
+        "spearman_rho_ci": [
+          0.7692118272256386,
+          0.8822382652840358
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.009317565305828269,
+        "kendall_tau": 0.6226415094339623,
+        "kendall_tau_ci": [
+          0.549962314837632,
+          0.6993258208972303
+        ],
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0013859390756922648,
+        "spearman_rho": 0.8348623853211009,
+        "spearman_rho_ci": [
+          0.7692118272256386,
+          0.879667339085829
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      }
+    ],
+    "completion_fraction": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "mean_latency": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.0002222749772430641,
+        "kendall_tau": 0.8785430414108694,
+        "kendall_tau_ci": [
+          0.6038810848771178,
+          0.8852704127574261
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 2.499053872952091e-06,
+        "spearman_rho": 0.9611009145520287,
+        "spearman_rho_ci": [
+          0.6958763888276916,
+          0.9611009145520287
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.16923602786292924,
+        "kendall_tau": 0.3553345272593508,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.7817359599705715
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.24049374929887465,
+        "spearman_rho": 0.38637320504757067,
+        "spearman_rho_ci": [
+          0.38637320504757067,
+          0.8627237318185482
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.16816022785641993,
+        "kendall_tau": 0.35867107489410777,
+        "kendall_tau_ci": [
+          0.35867107489410777,
+          0.812403840463596
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.23932511278148652,
+        "spearman_rho": 0.3872583681894595,
+        "spearman_rho_ci": [
+          0.3872583681894595,
+          0.8727440879150393
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 6.162804879818964e-05,
+        "kendall_tau": 0.9533126619564753,
+        "kendall_tau_ci": [
+          0.7290038003196575,
+          0.9906974722292783
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.054490098177277e-08,
+        "spearman_rho": 0.9885609406820868,
+        "spearman_rho_ci": [
+          0.7963407577716811,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.08164161125720837,
+        "kendall_tau": 0.4500904011951776,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.7817359599705715
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06932028532225716,
+        "spearman_rho": 0.5663278484943844,
+        "spearman_rho_ci": [
+          0.38637320504757067,
+          0.8627237318185482
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.08087294577529829,
+        "kendall_tau": 0.45431669486586984,
+        "kendall_tau_ci": [
+          0.35867107489410777,
+          0.7890763647670371
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06854293751486001,
+        "spearman_rho": 0.5676252794009886,
+        "spearman_rho_ci": [
+          0.3872583681894595,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.0010036183650044851,
+        "kendall_tau": 0.7777777777777777,
+        "kendall_tau_ci": [
+          0.7657474138461686,
+          0.9906974722292783
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00010771421679670374,
+        "spearman_rho": 0.9086757990867581,
+        "spearman_rho_ci": [
+          0.8629487099662625,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.0021855552003605524,
+        "kendall_tau": 0.7290038003196575,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.9906974722292783
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.009016892072391642,
+        "spearman_rho": 0.741420705511565,
+        "spearman_rho_ci": [
+          0.38637320504757067,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.022714693589759773,
+        "kendall_tau": 0.5420797489556428,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.9245283018867925
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.027413602990020363,
+        "spearman_rho": 0.6590406271213911,
+        "spearman_rho_ci": [
+          0.38637320504757067,
+          0.9724770642201837
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.0010036183650044851,
+        "kendall_tau": 0.7777777777777777,
+        "kendall_tau_ci": [
+          0.7407407407407407,
+          0.8888888888888888
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00010771421679670374,
+        "spearman_rho": 0.9086757990867581,
+        "spearman_rho_ci": [
+          0.8630136986301371,
+          0.9452054794520549
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.0021855552003605524,
+        "kendall_tau": 0.7290038003196575,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.9906974722292783
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.009016892072391642,
+        "spearman_rho": 0.741420705511565,
+        "spearman_rho_ci": [
+          0.38637320504757067,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.022714693589759773,
+        "kendall_tau": 0.5420797489556428,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.8785430414108694
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.027413602990020363,
+        "spearman_rho": 0.6590406271213911,
+        "spearman_rho_ci": [
+          0.38637320504757067,
+          0.9427942304653235
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.00017029377577951654,
+        "kendall_tau": 0.8888888888888888,
+        "kendall_tau_ci": [
+          0.7777777777777777,
+          0.8888888888888888
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.1410514677492217e-05,
+        "spearman_rho": 0.9452054794520549,
+        "spearman_rho_ci": [
+          0.8904109589041096,
+          0.9452054794520549
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.005967695159232296,
+        "kendall_tau": 0.6542341797740517,
+        "kendall_tau_ci": [
+          0.4260064336151292,
+          0.9159278516836723
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.01359315452346026,
+        "spearman_rho": 0.7139606793815071,
+        "spearman_rho_ci": [
+          0.4436381296346256,
+          0.9702542565953816
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.003653002862803066,
+        "kendall_tau": 0.6916189900468546,
+        "kendall_tau_ci": [
+          0.4500904011951776,
+          0.9533126619564753
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.010392914639796398,
+        "spearman_rho": 0.7322673634682123,
+        "spearman_rho_ci": [
+          0.530893838514454,
+          0.9885609406820868
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.00017029377577951654,
+        "kendall_tau": 0.8888888888888888,
+        "kendall_tau_ci": [
+          0.7777777777777777,
+          0.8888888888888888
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.1410514677492217e-05,
+        "spearman_rho": 0.9452054794520549,
+        "spearman_rho_ci": [
+          0.9086757990867581,
+          0.9452054794520549
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.022714693589759773,
+        "kendall_tau": 0.5420797489556428,
+        "kendall_tau_ci": [
+          0.4500904011951776,
+          0.8193821290142088
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.033660213107832404,
+        "spearman_rho": 0.6407339430346858,
+        "spearman_rho_ci": [
+          0.5663278484943844,
+          0.8986556807222803
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.005967695159232296,
+        "kendall_tau": 0.6542341797740517,
+        "kendall_tau_ci": [
+          0.4500904011951776,
+          0.9337145191092147
+        ],
+        "metric": "mean_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.01359315452346026,
+        "spearman_rho": 0.7139606793815071,
+        "spearman_rho_ci": [
+          0.5663278484943844,
+          0.9816085127889524
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "mean_ttft": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.0002222749772430641,
+        "kendall_tau": 0.8785430414108694,
+        "kendall_tau_ci": [
+          0.781682047043035,
+          0.8852704127574261
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 2.499053872952091e-06,
+        "spearman_rho": 0.9611009145520287,
+        "spearman_rho_ci": [
+          0.8766020745362726,
+          0.9611009145520287
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.08164161125720837,
+        "kendall_tau": 0.4500904011951776,
+        "kendall_tau_ci": [
+          0.4500904011951776,
+          0.4500904011951776
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06932028532225716,
+        "spearman_rho": 0.5663278484943844,
+        "spearman_rho_ci": [
+          0.5663278484943844,
+          0.5663278484943844
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.08087294577529829,
+        "kendall_tau": 0.45431669486586984,
+        "kendall_tau_ci": [
+          0.45431669486586984,
+          0.5296199396711575
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06854293751486001,
+        "spearman_rho": 0.5676252794009886,
+        "spearman_rho_ci": [
+          0.5676252794009886,
+          0.6178471731486933
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 6.162804879818964e-05,
+        "kendall_tau": 0.9533126619564753,
+        "kendall_tau_ci": [
+          0.8785430414108694,
+          0.9906974722292783
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.054490098177277e-08,
+        "spearman_rho": 0.9885609406820868,
+        "spearman_rho_ci": [
+          0.9611009145520287,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.16923602786292924,
+        "kendall_tau": 0.3553345272593508,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.4500904011951776
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.09023244036665133,
+        "spearman_rho": 0.5345711467096527,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.5663278484943844
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.16816022785641993,
+        "kendall_tau": 0.35867107489410777,
+        "kendall_tau_ci": [
+          0.35867107489410777,
+          0.45431669486586984
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.08935727405815394,
+        "spearman_rho": 0.535795824481307,
+        "spearman_rho_ci": [
+          0.535795824481307,
+          0.5676252794009886
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.0010036183650044851,
+        "kendall_tau": 0.7777777777777777,
+        "kendall_tau_ci": [
+          0.7777777777777777,
+          0.9906974722292783
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00010771421679670374,
+        "spearman_rho": 0.9086757990867581,
+        "spearman_rho_ci": [
+          0.9086757990867581,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.003653002862803066,
+        "kendall_tau": 0.6916189900468546,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.6916189900468546
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.004804608822503086,
+        "spearman_rho": 0.7780340736849756,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.7780340736849756
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.033914877143840186,
+        "kendall_tau": 0.5046949386828398,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.6981132075471699
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.01744968323566008,
+        "spearman_rho": 0.6956539952948018,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.7798165137614679
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.0010036183650044851,
+        "kendall_tau": 0.7777777777777777,
+        "kendall_tau_ci": [
+          0.7777777777777777,
+          0.8888888888888888
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00010771421679670374,
+        "spearman_rho": 0.9086757990867581,
+        "spearman_rho_ci": [
+          0.9086757990867581,
+          0.9452054794520549
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.003653002862803066,
+        "kendall_tau": 0.6916189900468546,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.6916189900468546
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.004804608822503086,
+        "spearman_rho": 0.7780340736849756,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.7780340736849756
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.033914877143840186,
+        "kendall_tau": 0.5046949386828398,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.5849056603773585
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.01744968323566008,
+        "spearman_rho": 0.6956539952948018,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.724770642201835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.00017029377577951654,
+        "kendall_tau": 0.8888888888888888,
+        "kendall_tau_ci": [
+          0.8037734208652635,
+          0.8888888888888888
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.1410514677492217e-05,
+        "spearman_rho": 0.9452054794520549,
+        "spearman_rho_ci": [
+          0.9153342043352655,
+          0.9452054794520549
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.009529948631525604,
+        "kendall_tau": 0.6168493695012487,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.6168493695012487
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.007778625372484598,
+        "spearman_rho": 0.7505740475549179,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.7505740475549179
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.005967695159232296,
+        "kendall_tau": 0.6542341797740517,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.6603773584905661
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.005680941852864332,
+        "spearman_rho": 0.7688807316416231,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.7706422018348624
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.00017029377577951654,
+        "kendall_tau": 0.8888888888888888,
+        "kendall_tau_ci": [
+          0.7777777777777777,
+          0.8888888888888888
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.1410514677492217e-05,
+        "spearman_rho": 0.9452054794520549,
+        "spearman_rho_ci": [
+          0.9086757990867581,
+          0.9452054794520549
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.033914877143840186,
+        "kendall_tau": 0.5046949386828398,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.5526065521258617
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.022033109051231233,
+        "spearman_rho": 0.6773473112080965,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.6958820912259709
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.009529948631525604,
+        "kendall_tau": 0.6168493695012487,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.6669389422208677
+        ],
+        "metric": "mean_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.007778625372484598,
+        "spearman_rho": 0.7505740475549179,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.8064858673148669
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "p95_latency": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.0007876088761037848,
+        "kendall_tau": 0.8498365855987974,
+        "kendall_tau_ci": [
+          0.7817359599705715,
+          0.8578164469184382
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.238361195133088e-05,
+        "spearman_rho": 0.9166147764474597,
+        "spearman_rho_ci": [
+          0.8627237318185482,
+          0.9187146985042236
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.08164161125720837,
+        "kendall_tau": 0.4500904011951776,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.7890763647670371
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06932028532225716,
+        "spearman_rho": 0.5663278484943844,
+        "spearman_rho_ci": [
+          0.38637320504757067,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.05688695520902109,
+        "kendall_tau": 0.5296199396711575,
+        "kendall_tau_ci": [
+          0.4181210050035454,
+          0.9198662110077999
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0427901833585057,
+        "spearman_rho": 0.6178471731486933,
+        "spearman_rho_ci": [
+          0.4215219031762113,
+          0.9412064413386635
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 6.162804879818964e-05,
+        "kendall_tau": 0.9533126619564753,
+        "kendall_tau_ci": [
+          0.7290038003196575,
+          0.9906974722292783
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.054490098177277e-08,
+        "spearman_rho": 0.9885609406820868,
+        "spearman_rho_ci": [
+          0.8512608100317969,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.08164161125720837,
+        "kendall_tau": 0.4500904011951776,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.7817359599705715
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06932028532225716,
+        "spearman_rho": 0.5663278484943844,
+        "spearman_rho_ci": [
+          0.38637320504757067,
+          0.8627237318185482
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.08087294577529829,
+        "kendall_tau": 0.45431669486586984,
+        "kendall_tau_ci": [
+          0.35867107489410777,
+          0.7890763647670371
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06854293751486001,
+        "spearman_rho": 0.5676252794009886,
+        "spearman_rho_ci": [
+          0.3872583681894595,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.00040756353419705687,
+        "kendall_tau": 0.8411582311380664,
+        "kendall_tau_ci": [
+          0.7358490566037736,
+          0.9533126619564753
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 4.6867072951260034e-05,
+        "spearman_rho": 0.9244875463786182,
+        "spearman_rho_ci": [
+          0.8604141520751496,
+          0.9885609406820868
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.0056685170345631775,
+        "kendall_tau": 0.6669389422208677,
+        "kendall_tau_ci": [
+          0.2858309752375147,
+          0.7817359599705715
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0013180859405483897,
+        "spearman_rho": 0.8368015095868386,
+        "spearman_rho_ci": [
+          0.413802944301184,
+          0.8663686463212852
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.005530162517421413,
+        "kendall_tau": 0.6732014170987178,
+        "kendall_tau_ci": [
+          0.2885148930423076,
+          0.7890763647670371
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0015871594112494781,
+        "spearman_rho": 0.8295018954139965,
+        "spearman_rho_ci": [
+          0.3872583681894595,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 6.162804879818964e-05,
+        "kendall_tau": 0.9533126619564753,
+        "kendall_tau_ci": [
+          0.7290038003196575,
+          0.9906974722292783
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.054490098177277e-08,
+        "spearman_rho": 0.9885609406820868,
+        "spearman_rho_ci": [
+          0.8604141520751496,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.003653002862803066,
+        "kendall_tau": 0.6916189900468546,
+        "kendall_tau_ci": [
+          0.39168925931876514,
+          0.9159278516836723
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0005052511619434627,
+        "spearman_rho": 0.8695674941185022,
+        "spearman_rho_ci": [
+          0.47554233150623726,
+          0.9702542565953816
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.005819826541901074,
+        "kendall_tau": 0.6603773584905661,
+        "kendall_tau_ci": [
+          0.2830188679245283,
+          0.8490566037735849
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0006361540613447472,
+        "spearman_rho": 0.8623853211009175,
+        "spearman_rho_ci": [
+          0.38698057870949415,
+          0.9449541284403671
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.00011842124806423195,
+        "kendall_tau": 0.9159278516836723,
+        "kendall_tau_ci": [
+          0.6916189900468546,
+          0.9906974722292783
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.572265480444077e-07,
+        "spearman_rho": 0.9702542565953816,
+        "spearman_rho_ci": [
+          0.8348146788367008,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.0012778750093582227,
+        "kendall_tau": 0.7663886105924604,
+        "kendall_tau_ci": [
+          0.3177708873188251,
+          0.8413556904539533
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00018170494532765,
+        "spearman_rho": 0.8970275202485603,
+        "spearman_rho_ci": [
+          0.43936041808092746,
+          0.9427942304653235
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.003552897215737822,
+        "kendall_tau": 0.6981132075471699,
+        "kendall_tau_ci": [
+          0.20754716981132076,
+          0.7890763647670371
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0013859390756922648,
+        "spearman_rho": 0.8348623853211009,
+        "spearman_rho_ci": [
+          0.2933486238532114,
+          0.8990825688073396
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.00011842124806423195,
+        "kendall_tau": 0.9159278516836723,
+        "kendall_tau_ci": [
+          0.6916189900468546,
+          0.9906974722292783
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.572265480444077e-07,
+        "spearman_rho": 0.9702542565953816,
+        "spearman_rho_ci": [
+          0.8146474418583863,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.0002222749772430641,
+        "kendall_tau": 0.8785430414108694,
+        "kendall_tau_ci": [
+          0.4500904011951776,
+          0.9159278516836723
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 6.382364606867331e-06,
+        "spearman_rho": 0.9519475725086761,
+        "spearman_rho_ci": [
+          0.5663278484943844,
+          0.9702542565953816
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.000703761388102926,
+        "kendall_tau": 0.8113207547169812,
+        "kendall_tau_ci": [
+          0.31081147595432457,
+          0.8490566037735849
+        ],
+        "metric": "p95_latency",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00010988733315066164,
+        "spearman_rho": 0.908256880733945,
+        "spearman_rho_ci": [
+          0.4398336695429145,
+          0.9266055045871561
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "p95_ttft": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.003653002862803066,
+        "kendall_tau": 0.6916189900468546,
+        "kendall_tau_ci": [
+          0.3464101615137754,
+          0.8062552222347565
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0011451349246147764,
+        "spearman_rho": 0.8421074679884444,
+        "spearman_rho_ci": [
+          0.49083085213191413,
+          0.908256880733945
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.16923602786292924,
+        "kendall_tau": 0.3553345272593508,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.35867107489410777
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.09023244036665133,
+        "spearman_rho": 0.5345711467096527,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.535795824481307
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.16816022785641993,
+        "kendall_tau": 0.35867107489410777,
+        "kendall_tau_ci": [
+          0.35867107489410777,
+          0.6646940512883968
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.08935727405815394,
+        "spearman_rho": 0.535795824481307,
+        "spearman_rho_ci": [
+          0.535795824481307,
+          0.7977844730020912
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 0.0002222749772430641,
+        "kendall_tau": 0.8785430414108694,
+        "kendall_tau_ci": [
+          0.7290038003196575,
+          0.9906974722292783
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.3801808671542304e-05,
+        "spearman_rho": 0.9427942304653235,
+        "spearman_rho_ci": [
+          0.8512608100317969,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.08164161125720837,
+        "kendall_tau": 0.4500904011951776,
+        "kendall_tau_ci": [
+          0.3553345272593508,
+          0.45431669486586984
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06932028532225716,
+        "spearman_rho": 0.5663278484943844,
+        "spearman_rho_ci": [
+          0.5345711467096527,
+          0.5676252794009886
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.08087294577529829,
+        "kendall_tau": 0.45431669486586984,
+        "kendall_tau_ci": [
+          0.35867107489410777,
+          0.45431669486586984
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.06854293751486001,
+        "spearman_rho": 0.5676252794009886,
+        "spearman_rho_ci": [
+          0.535795824481307,
+          0.5676252794009886
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.0012778750093582227,
+        "kendall_tau": 0.7663886105924604,
+        "kendall_tau_ci": [
+          0.6542341797740517,
+          0.8490566037735849
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0006761839519524578,
+        "spearman_rho": 0.8604141520751496,
+        "spearman_rho_ci": [
+          0.7963407577716811,
+          0.9244875463786182
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.0033836125860123223,
+        "kendall_tau": 0.705049738919203,
+        "kendall_tau_ci": [
+          0.4500904011951776,
+          0.7116700695043587
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0022056251024702867,
+        "spearman_rho": 0.8157028486556083,
+        "spearman_rho_ci": [
+          0.5663278484943844,
+          0.8179064722502806
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.0011265437249149475,
+        "kendall_tau": 0.7886073743156408,
+        "kendall_tau_ci": [
+          0.45431669486586984,
+          0.9424819839382048
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00022823788117277042,
+        "spearman_rho": 0.8914763623027169,
+        "spearman_rho_ci": [
+          0.5676252794009886,
+          0.9838573324895269
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.0012778750093582227,
+        "kendall_tau": 0.7663886105924604,
+        "kendall_tau_ci": [
+          0.6542341797740517,
+          0.8411582311380664
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0003692156740257994,
+        "spearman_rho": 0.8787208361618549,
+        "spearman_rho_ci": [
+          0.7963407577716811,
+          0.908256880733945
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.003653002862803066,
+        "kendall_tau": 0.6916189900468546,
+        "kendall_tau_ci": [
+          0.3177708873188251,
+          0.7663886105924604
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0018243652543836455,
+        "spearman_rho": 0.8238007839017389,
+        "spearman_rho_ci": [
+          0.3386736556040483,
+          0.8532110091743119
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.0012356391982298442,
+        "kendall_tau": 0.7735849056603774,
+        "kendall_tau_ci": [
+          0.3962264150943396,
+          0.9245283018867925
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00010988733315066164,
+        "spearman_rho": 0.908256880733945,
+        "spearman_rho_ci": [
+          0.4954128440366973,
+          0.9816513761467891
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.0021855552003605524,
+        "kendall_tau": 0.7290038003196575,
+        "kendall_tau_ci": [
+          0.6542341797740517,
+          0.8411582311380664
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0011451349246147764,
+        "spearman_rho": 0.8421074679884444,
+        "spearman_rho_ci": [
+          0.7963407577716811,
+          0.9061808622919129
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.003653002862803066,
+        "kendall_tau": 0.6916189900468546,
+        "kendall_tau_ci": [
+          0.3177708873188251,
+          0.7663886105924604
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0018243652543836455,
+        "spearman_rho": 0.8238007839017389,
+        "spearman_rho_ci": [
+          0.3386736556040483,
+          0.8604141520751496
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.002119635111608082,
+        "kendall_tau": 0.7358490566037736,
+        "kendall_tau_ci": [
+          0.3584905660377358,
+          0.8490566037735849
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00047285648539373043,
+        "spearman_rho": 0.871559633027523,
+        "spearman_rho_ci": [
+          0.45871559633027525,
+          0.9357798165137615
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.002119635111608082,
+        "kendall_tau": 0.7358490566037736,
+        "kendall_tau_ci": [
+          0.6542341797740517,
+          0.7735849056603774
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0010866864544331976,
+        "spearman_rho": 0.8440366972477066,
+        "spearman_rho_ci": [
+          0.7963407577716811,
+          0.8807339449541285
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.0012356391982298442,
+        "kendall_tau": 0.7735849056603774,
+        "kendall_tau_ci": [
+          0.42992531813723395,
+          0.7735849056603774
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0008388196128343031,
+        "spearman_rho": 0.8532110091743119,
+        "spearman_rho_ci": [
+          0.5217404964711013,
+          0.8532110091743119
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.000703761388102926,
+        "kendall_tau": 0.8113207547169812,
+        "kendall_tau_ci": [
+          0.45431669486586984,
+          0.8113207547169812
+        ],
+        "metric": "p95_ttft",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0001664552949601823,
+        "spearman_rho": 0.8990825688073396,
+        "spearman_rho_ci": [
+          0.5676252794009886,
+          0.8990825688073396
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "request_throughput": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.0007876088761037848,
+        "kendall_tau": 0.8498365855987974,
+        "kendall_tau_ci": [
+          0.7817359599705715,
+          0.8578164469184382
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.238361195133088e-05,
+        "spearman_rho": 0.9166147764474597,
+        "spearman_rho_ci": [
+          0.8627237318185482,
+          0.9187146985042236
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.0024924376305454797,
+        "kendall_tau": 0.7817359599705715,
+        "kendall_tau_ci": [
+          0.6396021490668312,
+          0.7890763647670371
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0006294659275078574,
+        "spearman_rho": 0.8627237318185482,
+        "spearman_rho_ci": [
+          0.7992103282490847,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.0009421434444379248,
+        "kendall_tau": 0.9198662110077999,
+        "kendall_tau_ci": [
+          0.7526178090063816,
+          1.0
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 1.557512180646104e-05,
+        "spearman_rho": 0.9412064413386635,
+        "spearman_rho_ci": [
+          0.87191516958367,
+          0.9999999999999999
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 6.162804879818964e-05,
+        "kendall_tau": 0.9533126619564753,
+        "kendall_tau_ci": [
+          0.6542341797740517,
+          0.9909300354235451
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.054490098177277e-08,
+        "spearman_rho": 0.9885609406820868,
+        "spearman_rho_ci": [
+          0.8238007839017389,
+          0.997771425657303
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.004497659080925664,
+        "kendall_tau": 0.7343580230026581,
+        "kendall_tau_ci": [
+          0.6396021490668312,
+          0.7890763647670371
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0008653555418513411,
+        "spearman_rho": 0.852138164556971,
+        "spearman_rho_ci": [
+          0.7992103282490847,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.004397351191846713,
+        "kendall_tau": 0.7412535547811561,
+        "kendall_tau_ci": [
+          0.645607934809394,
+          0.7890763647670371
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0008175303574686786,
+        "spearman_rho": 0.8540903736781231,
+        "spearman_rho_ci": [
+          0.8010412821453204,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.0005686266662584609,
+        "kendall_tau": 0.8148148148148148,
+        "kendall_tau_ci": [
+          0.6666666666666666,
+          0.9999999999999999
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 6.795678247229885e-05,
+        "spearman_rho": 0.9178082191780823,
+        "spearman_rho_ci": [
+          0.8264840182648403,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.0006597636291454093,
+        "kendall_tau": 0.8193821290142088,
+        "kendall_tau_ci": [
+          0.5577954598817947,
+          0.9337145191092147
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 4.210907905205912e-05,
+        "spearman_rho": 0.9263066247445044,
+        "spearman_rho_ci": [
+          0.6050953547236058,
+          0.974619235470846
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.0033836125860123223,
+        "kendall_tau": 0.705049738919203,
+        "kendall_tau_ci": [
+          0.5144957554275265,
+          0.8655446791269228
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.001107113193162173,
+        "spearman_rho": 0.8433537926778324,
+        "spearman_rho_ci": [
+          0.5760613337963335,
+          0.9376668473961219
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.00011842124806423195,
+        "kendall_tau": 0.9159278516836723,
+        "kendall_tau_ci": [
+          0.7290038003196575,
+          1.0
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.572265480444077e-07,
+        "spearman_rho": 0.9702542565953816,
+        "spearman_rho_ci": [
+          0.8512608100317969,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.0011647787729566577,
+        "kendall_tau": 0.7812713323158734,
+        "kendall_tau_ci": [
+          0.590717348824197,
+          0.9424819839382048
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0001695396494479162,
+        "spearman_rho": 0.8986556807222803,
+        "spearman_rho_ci": [
+          0.6221462405000403,
+          0.9816085127889524
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.00035076933536398475,
+        "kendall_tau": 0.8655446791269228,
+        "kendall_tau_ci": [
+          0.5962641122874357,
+          0.9424819839382048
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 2.0157264785473157e-05,
+        "spearman_rho": 0.9376668473961219,
+        "spearman_rho_ci": [
+          0.6235715487609678,
+          0.9838573324895269
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.0007300978102011865,
+        "kendall_tau": 0.8037734208652635,
+        "kendall_tau_ci": [
+          0.7663886105924604,
+          0.9906974722292783
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.737546152243431e-05,
+        "spearman_rho": 0.9153342043352655,
+        "spearman_rho_ci": [
+          0.8623853211009175,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.0020085892304397193,
+        "kendall_tau": 0.7431605356175383,
+        "kendall_tau_ci": [
+          0.5577954598817947,
+          0.9040133315325639
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0003498812751399878,
+        "spearman_rho": 0.8802217180407977,
+        "spearman_rho_ci": [
+          0.6050953547236058,
+          0.965381138452165
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.00035076933536398475,
+        "kendall_tau": 0.8655446791269228,
+        "kendall_tau_ci": [
+          0.6347327646930767,
+          0.9424819839382048
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 2.0157264785473157e-05,
+        "spearman_rho": 0.9376668473961219,
+        "spearman_rho_ci": [
+          0.6235715487609678,
+          0.9838573324895269
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.0007300978102011865,
+        "kendall_tau": 0.8037734208652635,
+        "kendall_tau_ci": [
+          0.7663886105924604,
+          0.9906974722292783
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.737546152243431e-05,
+        "spearman_rho": 0.9153342043352655,
+        "spearman_rho_ci": [
+          0.8787208361618549,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.00040756353419705687,
+        "kendall_tau": 0.8411582311380664,
+        "kendall_tau_ci": [
+          0.6095514542075675,
+          0.8490566037735849
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 2.6557255846681707e-05,
+        "spearman_rho": 0.9336408884219709,
+        "spearman_rho_ci": [
+          0.6681939691647438,
+          0.9357798165137615
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.005819826541901074,
+        "kendall_tau": 0.6603773584905661,
+        "kendall_tau_ci": [
+          0.5094339622641509,
+          0.7358490566037736
+        ],
+        "metric": "request_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0017430947900572132,
+        "spearman_rho": 0.8256880733944955,
+        "spearman_rho_ci": [
+          0.5688073394495413,
+          0.871559633027523
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      }
+    ],
+    "slo_violation_rate": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.002317934772345096,
+        "kendall_tau": 0.8876253645985945,
+        "kendall_tau_ci": [
+          0.8193464903987027,
+          0.8876253645985945
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00010073498303468019,
+        "spearman_rho": 0.9100664035638858,
+        "spearman_rho_ci": [
+          0.8493953099929601,
+          0.9100664035638858
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.2703985743210099,
+        "kendall_tau": 0.3302891295379082,
+        "kendall_tau_ci": [
+          0.22019275302527214,
+          0.3302891295379082
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.29352078102985885,
+        "spearman_rho": 0.34852889785215346,
+        "spearman_rho_ci": [
+          0.2323525985681023,
+          0.34852889785215346
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.22587235588913823,
+        "kendall_tau": 0.3721042037676254,
+        "kendall_tau_ci": [
+          0.3721042037676254,
+          0.3721042037676254
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.24501636679905608,
+        "spearman_rho": 0.38297084310253526,
+        "spearman_rho_ci": [
+          0.38297084310253526,
+          0.38297084310253526
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 0.0018911318983027396,
+        "kendall_tau": 0.8641167436739938,
+        "kendall_tau_ci": [
+          0.8641167436739938,
+          1.0
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 3.432086591667424e-05,
+        "spearman_rho": 0.9296578960461647,
+        "spearman_rho_ci": [
+          0.9296578960461647,
+          0.9999999999999999
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.015302655091124212,
+        "kendall_tau": 0.6908817223234606,
+        "kendall_tau_ci": [
+          0.30382181012509996,
+          0.7510676161988108
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.002068232350275049,
+        "spearman_rho": 0.8184910116988969,
+        "spearman_rho_ci": [
+          0.328037643651112,
+          0.8696190078499353
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.019119592381894618,
+        "kendall_tau": 0.6827887419989189,
+        "kendall_tau_ci": [
+          0.22019275302527214,
+          0.7510676161988108
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.004459122241419799,
+        "spearman_rho": 0.7819829838030427,
+        "spearman_rho_ci": [
+          0.2323525985681023,
+          0.8696190078499353
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.0002603193934067935,
+        "kendall_tau": 0.9545454545454546,
+        "kendall_tau_ci": [
+          0.8790953229099079,
+          1.0
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 5.901322184357807e-09,
+        "spearman_rho": 0.9899497487437187,
+        "spearman_rho_ci": [
+          0.9249916591986468,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.005396000791956358,
+        "kendall_tau": 0.7272727272727273,
+        "kendall_tau_ci": [
+          0.4986206870274041,
+          0.76271276980969
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.001237773949532722,
+        "spearman_rho": 0.8391959798994975,
+        "spearman_rho_ci": [
+          0.6496291755987165,
+          0.8719951227335772
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.009094228422289574,
+        "kendall_tau": 0.6818181818181819,
+        "kendall_tau_ci": [
+          0.44613429891925627,
+          0.6818181818181819
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.002561156185478057,
+        "spearman_rho": 0.8090452261306532,
+        "spearman_rho_ci": [
+          0.5718957699715196,
+          0.8090665814006787
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.0002603193934067935,
+        "kendall_tau": 0.9545454545454546,
+        "kendall_tau_ci": [
+          0.9545454545454546,
+          1.0
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 5.901322184357807e-09,
+        "spearman_rho": 0.9899497487437187,
+        "spearman_rho_ci": [
+          0.9899497487437187,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.004536942197109668,
+        "kendall_tau": 0.7177405625652733,
+        "kendall_tau_ci": [
+          0.6560798513518474,
+          0.7398300378117159
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0007793473344039163,
+        "spearman_rho": 0.8557117554356672,
+        "spearman_rho_ci": [
+          0.7828864423881967,
+          0.867907787320728
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.007557101191239193,
+        "kendall_tau": 0.6755205294731985,
+        "kendall_tau_ci": [
+          0.6035934632436997,
+          0.7177405625652733
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0017004606427474538,
+        "spearman_rho": 0.8267045772853057,
+        "spearman_rho_ci": [
+          0.7162578089934566,
+          0.8557117554356672
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.0002603193934067935,
+        "kendall_tau": 0.9545454545454546,
+        "kendall_tau_ci": [
+          0.9545454545454546,
+          1.0
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 5.901322184357807e-09,
+        "spearman_rho": 0.9899497487437187,
+        "spearman_rho_ci": [
+          0.9899497487437187,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.010023953657647213,
+        "kendall_tau": 0.6480875577554954,
+        "kendall_tau_ci": [
+          0.6333004963811236,
+          0.6560798513518474
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.003187707207642516,
+        "spearman_rho": 0.7988250640728493,
+        "spearman_rho_ci": [
+          0.781378758233864,
+          0.7988250640728493
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.01600187652309825,
+        "kendall_tau": 0.6062754572551408,
+        "kendall_tau_ci": [
+          0.5913123959890826,
+          0.6560798513518474
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.005572754964161456,
+        "spearman_rho": 0.7699518689858788,
+        "spearman_rho_ci": [
+          0.7162578089934566,
+          0.7988250640728493
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.0002775709781103966,
+        "kendall_tau": 0.8762302154233783,
+        "kendall_tau_ci": [
+          0.8000362836474324,
+          1.0
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 3.633794268469579e-05,
+        "spearman_rho": 0.9287380862447173,
+        "spearman_rho_ci": [
+          0.899219607908911,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.026908670657219625,
+        "kendall_tau": 0.5333575224316216,
+        "kendall_tau_ci": [
+          0.45226701686664544,
+          0.796084166404533
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.01572256628346881,
+        "spearman_rho": 0.7034501346308998,
+        "spearman_rho_ci": [
+          0.6122256179209399,
+          0.9078648441950565
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.005819826541901074,
+        "kendall_tau": 0.6603773584905661,
+        "kendall_tau_ci": [
+          0.49526055654364864,
+          0.8158801243801018
+        ],
+        "metric": "slo_violation_rate",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0008388196128343031,
+        "spearman_rho": 0.8532110091743119,
+        "spearman_rho_ci": [
+          0.6497764847409639,
+          0.9352252762912499
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "token_throughput": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.0007876088761037848,
+        "kendall_tau": 0.8498365855987974,
+        "kendall_tau_ci": [
+          0.7817359599705715,
+          0.8578164469184382
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.238361195133088e-05,
+        "spearman_rho": 0.9166147764474597,
+        "spearman_rho_ci": [
+          0.8627237318185482,
+          0.9187146985042236
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.0024924376305454797,
+        "kendall_tau": 0.7817359599705715,
+        "kendall_tau_ci": [
+          0.6396021490668312,
+          0.7890763647670371
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0006294659275078574,
+        "spearman_rho": 0.8627237318185482,
+        "spearman_rho_ci": [
+          0.7992103282490847,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.0009421434444379248,
+        "kendall_tau": 0.9198662110077999,
+        "kendall_tau_ci": [
+          0.7526178090063816,
+          1.0
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 1.557512180646104e-05,
+        "spearman_rho": 0.9412064413386635,
+        "spearman_rho_ci": [
+          0.87191516958367,
+          0.9999999999999999
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 0.00011842124806423195,
+        "kendall_tau": 0.9159278516836723,
+        "kendall_tau_ci": [
+          0.6542341797740517,
+          1.0
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.572265480444077e-07,
+        "spearman_rho": 0.9702542565953816,
+        "spearman_rho_ci": [
+          0.8238007839017389,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.0024924376305454797,
+        "kendall_tau": 0.7817359599705715,
+        "kendall_tau_ci": [
+          0.6396021490668312,
+          0.7890763647670371
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0006294659275078574,
+        "spearman_rho": 0.8627237318185482,
+        "spearman_rho_ci": [
+          0.7992103282490847,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.0024301417658237137,
+        "kendall_tau": 0.7890763647670371,
+        "kendall_tau_ci": [
+          0.645607934809394,
+          0.7890763647670371
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0005914588360003679,
+        "spearman_rho": 0.8647001919846835,
+        "spearman_rho_ci": [
+          0.8010412821453204,
+          0.8647001919846835
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.0005686266662584609,
+        "kendall_tau": 0.8148148148148148,
+        "kendall_tau_ci": [
+          0.6603773584905661,
+          0.9999999999999999
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 6.795678247229885e-05,
+        "spearman_rho": 0.9178082191780823,
+        "spearman_rho_ci": [
+          0.8256880733944955,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.0006597636291454093,
+        "kendall_tau": 0.8193821290142088,
+        "kendall_tau_ci": [
+          0.5144957554275265,
+          0.9337145191092147
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 4.210907905205912e-05,
+        "spearman_rho": 0.9263066247445044,
+        "spearman_rho_ci": [
+          0.6037122778185576,
+          0.9723915314482111
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.0033836125860123223,
+        "kendall_tau": 0.705049738919203,
+        "kendall_tau_ci": [
+          0.36205256863418533,
+          0.8655446791269228
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.001107113193162173,
+        "spearman_rho": 0.8433537926778324,
+        "spearman_rho_ci": [
+          0.5115424644111443,
+          0.9376668473961219
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.00011842124806423195,
+        "kendall_tau": 0.9159278516836723,
+        "kendall_tau_ci": [
+          0.7290038003196575,
+          1.0
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.572265480444077e-07,
+        "spearman_rho": 0.9702542565953816,
+        "spearman_rho_ci": [
+          0.8512608100317969,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.0003649900596532191,
+        "kendall_tau": 0.8574929257125441,
+        "kendall_tau_ci": [
+          0.4808581550705127,
+          0.9424819839382048
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 1.18446214975889e-05,
+        "spearman_rho": 0.9447405874259871,
+        "spearman_rho_ci": [
+          0.6050953547236058,
+          0.9838573324895269
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 9.928292769231532e-05,
+        "kendall_tau": 0.9424819839382048,
+        "kendall_tau_ci": [
+          0.5183650911660144,
+          0.9809506363438459
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 4.934406812747578e-08,
+        "spearman_rho": 0.9838573324895269,
+        "spearman_rho_ci": [
+          0.6050953547236058,
+          0.993095429508208
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.0002222749772430641,
+        "kendall_tau": 0.8785430414108694,
+        "kendall_tau_ci": [
+          0.7663886105924604,
+          1.0
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 1.3801808671542304e-05,
+        "spearman_rho": 0.9427942304653235,
+        "spearman_rho_ci": [
+          0.8787208361618549,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.0006597636291454093,
+        "kendall_tau": 0.8193821290142088,
+        "kendall_tau_ci": [
+          0.5526065521258617,
+          0.9424819839382048
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 4.210907905205912e-05,
+        "spearman_rho": 0.9263066247445044,
+        "spearman_rho_ci": [
+          0.6050953547236058,
+          0.9816085127889524
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 9.928292769231532e-05,
+        "kendall_tau": 0.9424819839382048,
+        "kendall_tau_ci": [
+          0.6347327646930767,
+          0.9809506363438459
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 4.934406812747578e-08,
+        "spearman_rho": 0.9838573324895269,
+        "spearman_rho_ci": [
+          0.6420477427983298,
+          0.993095429508208
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.0007300978102011865,
+        "kendall_tau": 0.8037734208652635,
+        "kendall_tau_ci": [
+          0.7663886105924604,
+          0.9906974722292783
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 7.737546152243431e-05,
+        "spearman_rho": 0.9153342043352655,
+        "spearman_rho_ci": [
+          0.8787208361618549,
+          0.9977142827254394
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.00040756353419705687,
+        "kendall_tau": 0.8411582311380664,
+        "kendall_tau_ci": [
+          0.5849056603773585,
+          0.9159278516836723
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 2.6557255846681707e-05,
+        "spearman_rho": 0.9336408884219709,
+        "spearman_rho_ci": [
+          0.6681939691647438,
+          0.9794075986387342
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.005819826541901074,
+        "kendall_tau": 0.6603773584905661,
+        "kendall_tau_ci": [
+          0.5094339622641509,
+          0.7890763647670371
+        ],
+        "metric": "token_throughput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0017430947900572132,
+        "spearman_rho": 0.8256880733944955,
+        "spearman_rho_ci": [
+          0.5960059768650473,
+          0.8981866514876359
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      }
+    ],
+    "weighted_completion_fraction": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.001565402258002548,
+        "kendall_tau": 0.9999999999999999,
+        "kendall_tau_ci": [
+          0.9999999999999999,
+          0.9999999999999999
+        ],
+        "metric": "weighted_completion_fraction",
+        "n_conditions_excluded_for_undefined_metric": 0,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0,
+        "spearman_rho": 1.0,
+        "spearman_rho_ci": [
+          1.0,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "weighted_goodput": [
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "kendall_p": 0.002317934772345096,
+        "kendall_tau": 0.8876253645985945,
+        "kendall_tau_ci": [
+          0.8193464903987027,
+          0.8876253645985945
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 0.00010073498303468019,
+        "spearman_rho": 0.9100664035638858,
+        "spearman_rho_ci": [
+          0.8493953099929601,
+          0.9100664035638858
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.2703985743210099,
+        "kendall_tau": 0.3302891295379082,
+        "kendall_tau_ci": [
+          0.22019275302527214,
+          0.3302891295379082
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.29352078102985885,
+        "spearman_rho": 0.34852889785215346,
+        "spearman_rho_ci": [
+          0.2323525985681023,
+          0.34852889785215346
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": false,
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "kendall_p": 0.22587235588913823,
+        "kendall_tau": 0.3721042037676254,
+        "kendall_tau_ci": [
+          0.3721042037676254,
+          0.3721042037676254
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.24501636679905608,
+        "spearman_rho": 0.38297084310253526,
+        "spearman_rho_ci": [
+          0.38297084310253526,
+          0.38297084310253526
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "kendall_p": 0.0018911318983027396,
+        "kendall_tau": 0.8641167436739938,
+        "kendall_tau_ci": [
+          0.8641167436739938,
+          1.0
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 3.432086591667424e-05,
+        "spearman_rho": 0.9296578960461647,
+        "spearman_rho_ci": [
+          0.9296578960461647,
+          0.9999999999999999
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.015302655091124212,
+        "kendall_tau": 0.6908817223234606,
+        "kendall_tau_ci": [
+          0.30382181012509996,
+          0.7510676161988108
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.002068232350275049,
+        "spearman_rho": 0.8184910116988969,
+        "spearman_rho_ci": [
+          0.328037643651112,
+          0.8696190078499353
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "kendall_p": 0.019119592381894618,
+        "kendall_tau": 0.6827887419989189,
+        "kendall_tau_ci": [
+          0.22019275302527214,
+          0.7510676161988108
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.004459122241419799,
+        "spearman_rho": 0.7819829838030427,
+        "spearman_rho_ci": [
+          0.2323525985681023,
+          0.8696190078499353
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "kendall_p": 0.0002603193934067935,
+        "kendall_tau": 0.9545454545454546,
+        "kendall_tau_ci": [
+          0.8931884167327451,
+          1.0
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 5.901322184357807e-09,
+        "spearman_rho": 0.9899497487437187,
+        "spearman_rho_ci": [
+          0.9511213670856142,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.005396000791956358,
+        "kendall_tau": 0.7272727272727273,
+        "kendall_tau_ci": [
+          0.4986206870274041,
+          0.76271276980969
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.001237773949532722,
+        "spearman_rho": 0.8391959798994975,
+        "spearman_rho_ci": [
+          0.6496291755987165,
+          0.8719951227335772
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "kendall_p": 0.009094228422289574,
+        "kendall_tau": 0.6818181818181819,
+        "kendall_tau_ci": [
+          0.44613429891925627,
+          0.6818181818181819
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.002561156185478057,
+        "spearman_rho": 0.8090452261306532,
+        "spearman_rho_ci": [
+          0.5718957699715196,
+          0.8090665814006787
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "kendall_p": 0.0002603193934067935,
+        "kendall_tau": 0.9545454545454546,
+        "kendall_tau_ci": [
+          0.9545454545454546,
+          1.0
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 5.901322184357807e-09,
+        "spearman_rho": 0.9899497487437187,
+        "spearman_rho_ci": [
+          0.9899497487437187,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.004536942197109668,
+        "kendall_tau": 0.7177405625652733,
+        "kendall_tau_ci": [
+          0.6560798513518474,
+          0.7398300378117159
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0007793473344039163,
+        "spearman_rho": 0.8557117554356672,
+        "spearman_rho_ci": [
+          0.7828864423881967,
+          0.867907787320728
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "kendall_p": 0.007557101191239193,
+        "kendall_tau": 0.6755205294731985,
+        "kendall_tau_ci": [
+          0.6035934632436997,
+          0.7177405625652733
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0017004606427474538,
+        "spearman_rho": 0.8267045772853057,
+        "spearman_rho_ci": [
+          0.7162578089934566,
+          0.8557117554356672
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "kendall_p": 0.0002603193934067935,
+        "kendall_tau": 0.9545454545454546,
+        "kendall_tau_ci": [
+          0.9545454545454546,
+          1.0
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 5.901322184357807e-09,
+        "spearman_rho": 0.9899497487437187,
+        "spearman_rho_ci": [
+          0.9899497487437187,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.010023953657647213,
+        "kendall_tau": 0.6480875577554954,
+        "kendall_tau_ci": [
+          0.6333004963811236,
+          0.6560798513518474
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.003187707207642516,
+        "spearman_rho": 0.7988250640728493,
+        "spearman_rho_ci": [
+          0.781378758233864,
+          0.7988250640728493
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "kendall_p": 0.01600187652309825,
+        "kendall_tau": 0.6062754572551408,
+        "kendall_tau_ci": [
+          0.6035934632436997,
+          0.6560798513518474
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.005572754964161456,
+        "spearman_rho": 0.7699518689858788,
+        "spearman_rho_ci": [
+          0.7162578089934566,
+          0.7988250640728493
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "kendall_p": 0.0002775709781103966,
+        "kendall_tau": 0.8762302154233783,
+        "kendall_tau_ci": [
+          0.8000362836474324,
+          1.0
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 8,
+        "n_policies_compared": 11,
+        "spearman_p": 3.633794268469579e-05,
+        "spearman_rho": 0.9287380862447173,
+        "spearman_rho_ci": [
+          0.899219607908911,
+          1.0
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.026908670657219625,
+        "kendall_tau": 0.5333575224316216,
+        "kendall_tau_ci": [
+          0.48280454958526764,
+          0.8040761540665545
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 7,
+        "n_policies_compared": 11,
+        "spearman_p": 0.01572256628346881,
+        "spearman_rho": 0.7034501346308998,
+        "spearman_rho_ci": [
+          0.6122256179209399,
+          0.9327372126996393
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "bh_fdr_rejected_within_metric_region_family": true,
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "kendall_p": 0.005819826541901074,
+        "kendall_tau": 0.6603773584905661,
+        "kendall_tau_ci": [
+          0.45716359065567563,
+          0.8158801243801018
+        ],
+        "metric": "weighted_goodput",
+        "n_conditions_excluded_for_undefined_metric": 1,
+        "n_policies_compared": 11,
+        "spearman_p": 0.0008388196128343031,
+        "spearman_rho": 0.8532110091743119,
+        "spearman_rho_ci": [
+          0.6436798617537645,
+          0.9352252762912499
+        ],
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      }
+    ]
+  },
+  "consolidated_result_sha256": "09db0f1d285f830e054dfd5f3876eff94caa08ea1ca982828d5e228d1b3350b9",
+  "metrics": [
+    "arrival_normalized_weighted_goodput",
+    "completion_fraction",
+    "weighted_completion_fraction",
+    "slo_violation_rate",
+    "weighted_goodput",
+    "mean_latency",
+    "p95_latency",
+    "request_throughput",
+    "token_throughput",
+    "mean_ttft",
+    "p95_ttft"
+  ],
+  "omnibus_friedman": [
+    {
+      "excluded_policies": [],
+      "load_region": "LOW",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 2.714773753334771e-152,
+      "statistic": 738.9507266926615
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "PRE_KNEE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 6.45531147676464e-147,
+      "statistic": 713.9175396185866
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "KNEE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 2.196268965838871e-168,
+      "statistic": 813.8274818080422
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "POST_KNEE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 1.708933605927088e-179,
+      "statistic": 865.477217050465
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "OVERLOAD",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 2.03626712184864e-185,
+      "statistic": 893.0076812289967
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 2.5834006996351214e-194,
+      "statistic": 934.3393967303712
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "LOW",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "PRE_KNEE",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "KNEE",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "POST_KNEE",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "OVERLOAD",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "LOW",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "PRE_KNEE",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "KNEE",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "POST_KNEE",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "OVERLOAD",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.382022654939489e-126,
+      "statistic": 613.715629198387
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.648859385603741e-128,
+      "statistic": 622.1684836471753
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.2028459125360469e-159,
+      "statistic": 768.6236352906461
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 9.299326836193423e-175,
+      "statistic": 838.8261390887287
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.897473475812325e-181,
+      "statistic": 867.9781846513438
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.602017927784961e-189,
+      "statistic": 907.3643973214283
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.382022654939489e-126,
+      "statistic": 613.715629198387
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.648859385603741e-128,
+      "statistic": 622.1684836471753
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.2028459125360469e-159,
+      "statistic": 768.6236352906461
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 9.299326836193423e-175,
+      "statistic": 838.8261390887287
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.897473475812325e-181,
+      "statistic": 867.9781846513438
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.602017927784961e-189,
+      "statistic": 907.3643973214283
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.146018505584788e-192,
+      "statistic": 921.9613173026664
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.451575872879757e-193,
+      "statistic": 926.1252505010018
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.2648862022568066e-194,
+      "statistic": 929.8688486265347
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.067751706985359e-194,
+      "statistic": 928.6888473447449
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 6.418333233682278e-194,
+      "statistic": 927.7697954902991
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.4152376292944254e-193,
+      "statistic": 926.1763404552595
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.348375905204265e-186,
+      "statistic": 893.7883221948642
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.7556467339230917e-175,
+      "statistic": 842.1882826475854
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.951980886443484e-170,
+      "statistic": 815.9199901677628
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.807272744578319e-169,
+      "statistic": 812.2902693787795
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.8311295909565027e-168,
+      "statistic": 809.5922615403454
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.0305779672810153e-166,
+      "statistic": 801.4610633401957
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.253200326450312e-160,
+      "statistic": 769.6445679718789
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1434569763154334e-152,
+      "statistic": 736.187703984819
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1703379185112316e-155,
+      "statistic": 750.0873194454531
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.4081207640961307e-154,
+      "statistic": 745.0653244806165
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.0506043541727044e-156,
+      "statistic": 754.9534883720933
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.627633820529078e-165,
+      "statistic": 792.7765041036421
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.253200326450312e-160,
+      "statistic": 769.6445679718789
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1434569763154334e-152,
+      "statistic": 736.187703984819
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1703379185112316e-155,
+      "statistic": 750.0873194454531
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.4081207640961307e-154,
+      "statistic": 745.0653244806165
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.0506043541727044e-156,
+      "statistic": 754.9534883720933
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.627633820529078e-165,
+      "statistic": 792.7765041036421
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.5936106031793774e-191,
+      "statistic": 915.6748437394988
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.5291934758731153e-190,
+      "statistic": 910.413387472383
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.2061821287400137e-190,
+      "statistic": 910.0597014925372
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.984106843302992e-190,
+      "statistic": 910.169024924516
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.2844674802143325e-188,
+      "statistic": 901.2763250883394
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 6.812515081383003e-189,
+      "statistic": 904.4469089193012
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.4265425112558377e-183,
+      "statistic": 878.678600269179
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1820056876853167e-173,
+      "statistic": 833.6984383414109
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 9.295859739744388e-175,
+      "statistic": 838.8268911548492
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.367131882385435e-175,
+      "statistic": 841.5855999999995
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.990129000279691e-174,
+      "statistic": 835.4376632628832
+    },
+    {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.240065305981409e-175,
+      "statistic": 840.9525159461373
+    }
+  ],
+  "omnibus_friedman_bh_fdr_by_metric": {
+    "arrival_normalized_weighted_goodput": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "completion_fraction": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "mean_latency": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "mean_ttft": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "p95_latency": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "p95_ttft": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "request_throughput": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "slo_violation_rate": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "token_throughput": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "weighted_completion_fraction": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "weighted_goodput": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "policies": [
+    "fifo",
+    "edf",
+    "least_laxity_first",
+    "estimated_service_time_first",
+    "weighted_fair_share",
+    "kv_constrained_online",
+    "vllm_faithful",
+    "vllm_chunked_prefill_faithful",
+    "sarathi_faithful",
+    "slai_faithful",
+    "admission_control"
+  ]
+}

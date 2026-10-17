@@ -1,0 +1,2410 @@
+{
+  "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+  "analysis_contract_version": "phase12_analysis_prefreeze_v1",
+  "campaign_freeze_sha256": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+  "comparisons": {
+    "arrival_normalized_weighted_goodput": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      }
+    ],
+    "completion_fraction": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "mean_latency": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "mean_ttft": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "p95_latency": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "p95_ttft": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "request_throughput": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      }
+    ],
+    "slo_violation_rate": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "token_throughput": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      }
+    ],
+    "weighted_completion_fraction": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      }
+    ],
+    "weighted_goodput": [
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "bailian_qwen::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::LOW",
+        "condition_y": "burstgpt::LOW",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "bailian_qwen::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::PRE_KNEE",
+        "condition_y": "burstgpt::PRE_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "bailian_qwen::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::KNEE",
+        "condition_y": "burstgpt::KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "bailian_qwen::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::POST_KNEE",
+        "condition_y": "burstgpt::POST_KNEE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "bailian_qwen::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 1.0
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::OVERLOAD",
+        "condition_y": "burstgpt::OVERLOAD",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "bailian_qwen::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 1.0,
+          "3": 0.6666666666666666
+        }
+      },
+      {
+        "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.3333333333333333
+        }
+      },
+      {
+        "condition_x": "bailian_qwen::HIGH_PRESSURE",
+        "condition_y": "burstgpt::HIGH_PRESSURE",
+        "topk_k_reduced": {
+          "1": false,
+          "3": false
+        },
+        "topk_overlap": {
+          "1": 0.0,
+          "3": 0.6666666666666666
+        }
+      }
+    ]
+  },
+  "consolidated_result_sha256": "09db0f1d285f830e054dfd5f3876eff94caa08ea1ca982828d5e228d1b3350b9",
+  "top_k_values": [
+    1,
+    3
+  ]
+}
