@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """CPU-only cache-location probe; invoke through runtime.py with CUDA_VISIBLE_DEVICES=''."""
 import json
+import hashlib
 import os
 from pathlib import Path
 import socket
@@ -34,7 +35,7 @@ actual = {'torch_hub':torch.hub.get_dir(), 'torch_inductor':cache_dir(),
           'vllm_assets':venv.VLLM_ASSETS_CACHE,'vllm_rpc':venv.VLLM_RPC_BASE_PATH,
           'hf_home':hf.HF_HOME,'hf_hub':hf.HF_HUB_CACHE,'hf_assets':hf.HF_ASSETS_CACHE,
           'hf_xet':hf.HF_XET_CACHE,'hf_token':hf.HF_TOKEN_PATH,'hf_modules':hub.HF_MODULES_CACHE}
-manager = get_cache_manager('mgpu06-cpu-probe')
+manager = get_cache_manager(hashlib.sha256(b'mgpu06-cpu-probe').hexdigest())
 actual['triton_write'] = manager.put('CPU-only cache probe', 'probe.txt')
 for name, path in actual.items():
     if not Path(path).resolve().is_relative_to(phase):
