@@ -11,6 +11,8 @@ import socket
 import subprocess
 import time
 
+from robustbench.mgpu00.gpu_probe import Journal
+
 import httpx
 
 from robustbench.mgpu00.metadata import RequestMetadata
@@ -168,13 +170,20 @@ def main():
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--model-path", required=True, type=Path)
     parser.add_argument("--vllm-executable", required=True)
+    parser.add_argument("--diagnostic-minimal", action="store_true", help="One round per mechanism; no reproducibility claim")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
     started = time.monotonic()
+    progress = Journal(args.out / "progress")
+    if args.diagnostic_minimal:
+        SPEC["repetitions"] = 1
     try:
+        progress.event("smoke_started", diagnostic_minimal=args.diagnostic_minimal, slurm_job_id=os.environ.get("SLURM_JOB_ID"))
         if args.model_path.name != REVISION:
             raise RuntimeError("Model snapshot is not the pinned immutable revision")
-        provenance = collect_gpu_provenance()
+        progress.event("device_probe_started")
+        provenance = collect_gpu_provenance(args.out / "device")
+        progress.event("device_verified", allocation_kind=provenance["allocation_kind"])
         write_new_json(args.out / "gpu_provenance.json", provenance)
         print(json.dumps({"gate": "device_identity", "status": provenance["allocation_kind"],
                           "node": provenance["node"], "memory_bytes": provenance["devices"][0]["cuda_memory_bytes"]}), flush=True)
@@ -183,25 +192,33 @@ def main():
         tokenizer = AutoTokenizer.from_pretrained(args.model_path, local_files_only=True)
         rounds = []
         # Fresh server per round; ABBA blocks startup/order effects. No cell retries.
-        for policy, rep in [("native_fcfs", 0), ("slai_mgpu00_checked", 0),
-                            ("slai_mgpu00_checked", 1), ("native_fcfs", 1)]:
+        sequence = [("native_fcfs", 0), ("slai_mgpu00_checked", 0)]
+        if not args.diagnostic_minimal:
+            sequence += [("slai_mgpu00_checked", 1), ("native_fcfs", 1)]
+        for policy, rep in sequence:
+            progress.event("round_started", policy=policy, repetition=rep)
             rounds.append(run_round(directory=args.out, model_path=args.model_path, executable=args.vllm_executable,
                                    provenance=provenance, git_sha=git_sha, policy=policy, repetition=rep, tokenizer=tokenizer))
+            progress.event("round_passed", policy=policy, repetition=rep)
         if len({r["identity"]["workload_sha256"] for r in rounds}) != 1:
             raise RuntimeError("Workload identity differs between policy/repetition rounds")
         summary = {"status": "COMPLETED_SUCCESS", "stamp": SPEC["stamp"], "spec": SPEC,
                    "git_commit": git_sha, "slurm_job_id": provenance["slurm_job_id"],
                    "elapsed_seconds": time.monotonic()-started, "gpu_count": 1,
                    "gpu_hours": (time.monotonic()-started)/3600, "rounds": [r["experiment_id"] for r in rounds],
-                   "reproducibility": "two fresh-engine repetitions per mechanism; identical input shapes, complete token counts and metadata; timing is measured, not assumed deterministic",
+                   "reproducibility": "NOT_TESTED_ONE_ROUND_PER_MECHANISM" if args.diagnostic_minimal else "two fresh-engine repetitions per mechanism; identical input shapes, complete token counts and metadata; timing is measured, not assumed deterministic",
                    "pilot_go": False, "pilot_blockers": ["TP2 not validated or enabled", "general partial-prefill/KV-pressure fidelity not established", "full-device workload calibration not performed"]}
         write_new_json(args.out / "summary.json", summary)
+        progress.event("smoke_passed", summary=summary)
         print(json.dumps(summary), flush=True)
     except Exception as exc:
+        progress.event("smoke_failed", error=f"{type(exc).__name__}: {exc}")
         write_new_json(args.out / "failure.json", {"status": "FAILED", "stamp": SPEC["stamp"],
                        "error": f"{type(exc).__name__}: {exc}", "elapsed_seconds": time.monotonic()-started,
                        "slurm_job_id": os.environ.get("SLURM_JOB_ID")})
         raise
+    finally:
+        progress.stream.close()
 
 
 if __name__ == "__main__":

@@ -1,13 +1,9 @@
 """Deployment identity and compute-node-only physical-device verification."""
 from dataclasses import asdict, dataclass
 import hashlib
-import importlib.metadata
 import json
-import os
 from pathlib import Path
 import re
-import socket
-import subprocess
 
 from . import EXPERIMENT_VERSION
 
@@ -63,58 +59,12 @@ class ExperimentIdentity:
         return f"{self.experiment_version}-{canonical_hash(asdict(self))}"
 
 
-def verify_full_a100(record):
-    if record.get("cuda_device_count") != 1:
-        raise ValueError("Smoke must see exactly one CUDA device")
-    d = record["devices"][0]
-    if ("A100" not in d["model"] or d["mig_device"] or d["mig_mode_current"] != 0 or
-        d["cuda_memory_bytes"] < 75 * 1024**3 or
-        d["cuda_uuid"] != d["nvml_uuid"] or not d["cuda_uuid"].startswith("GPU-")):
-        raise ValueError("Full A100 identity not independently verified")
-    if "gres/gpu:a100:1" not in record["slurm_job_description"]:
-        raise ValueError("Explicit full-A100 Slurm allocation not verified")
-    return "FULL_GPU_VERIFIED"
+# Kept here as the public API used by existing callers/tests.
+from .gpu_probe import verify_full_a100, probe_and_verify, collect_raw
 
 
-def collect_gpu_provenance():
-    # This function initializes CUDA. Never call from a login/local-test process.
-    if not os.environ.get("SLURM_JOB_ID") or not os.environ.get("SLURMD_NODENAME"):
-        raise RuntimeError("Device probe requires an allocated Slurm compute node")
-    if socket.gethostname().startswith("login"):
-        raise RuntimeError("GPU probe prohibited on login nodes")
-    import torch
-    import pynvml as nv
-    nv.nvmlInit()
-    def string(x):
-        return x.decode() if isinstance(x, bytes) else str(x)
-    devices = []
-    for index in range(torch.cuda.device_count()):
-        p = torch.cuda.get_device_properties(index)
-        uuid = string(p.uuid)
-        handle = nv.nvmlDeviceGetHandleByUUID(uuid.encode())
-        is_mig = bool(nv.nvmlDeviceIsMigDeviceHandle(handle))
-        parent = nv.nvmlDeviceGetDeviceHandleFromMigDeviceHandle(handle) if is_mig else handle
-        mig_current, mig_pending = nv.nvmlDeviceGetMigMode(parent)
-        devices.append({"cuda_ordinal": index, "model": p.name, "cuda_uuid": uuid,
-                        "cuda_memory_bytes": p.total_memory, "nvml_uuid": string(nv.nvmlDeviceGetUUID(handle)),
-                        "parent_uuid": string(nv.nvmlDeviceGetUUID(parent)),
-                        "parent_model": string(nv.nvmlDeviceGetName(parent)),
-                        "parent_memory_bytes": nv.nvmlDeviceGetMemoryInfo(parent).total,
-                        "mig_device": is_mig, "mig_mode_current": mig_current, "mig_mode_pending": mig_pending,
-                        "mig_gpu_instance_id": nv.nvmlDeviceGetGpuInstanceId(handle) if is_mig else None,
-                        "mig_compute_instance_id": nv.nvmlDeviceGetComputeInstanceId(handle) if is_mig else None})
-    result = {"node": socket.gethostname(), "slurmd_nodename": os.environ["SLURMD_NODENAME"],
-              "slurm_job_id": os.environ["SLURM_JOB_ID"], "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
-              "cuda_device_count": torch.cuda.device_count(), "devices": devices,
-              "software": {"cuda": torch.version.cuda, "driver": string(nv.nvmlSystemGetDriverVersion()),
-                           "torch": torch.__version__, "vllm": importlib.metadata.version("vllm"),
-                           "nccl": list(torch.cuda.nccl.version())},
-              "slurm_job_description": subprocess.check_output([
-                  "/apps/slurm/current/bin/scontrol", "show", "job", "-o", os.environ["SLURM_JOB_ID"]], text=True),
-              "nvidia_smi_L": subprocess.check_output(["nvidia-smi", "-L"], text=True)}
-    nv.nvmlShutdown()
-    result["allocation_kind"] = verify_full_a100(result)
-    return result
+def collect_gpu_provenance(diagnostic_directory):
+    return probe_and_verify(diagnostic_directory, collect_raw)
 
 
 def write_new_json(path, value):

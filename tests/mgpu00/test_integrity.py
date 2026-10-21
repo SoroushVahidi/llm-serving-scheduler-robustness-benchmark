@@ -96,10 +96,8 @@ def test_tp_cannot_be_mistaken_for_validated_single_gpu():
 
 
 def full_device():
-    return {"cuda_device_count": 1, "slurm_job_description": "TresPerNode=gres/gpu:a100:1",
-            "devices": [{"model": "NVIDIA A100-SXM4-80GB", "mig_device": False,
-                         "mig_mode_current": 0, "cuda_memory_bytes": 80 * 1024**3,
-                         "cuda_uuid": "GPU-example", "nvml_uuid": "GPU-example"}]}
+    from test_gpu_probe import full_device as fixture
+    return fixture()
 
 
 def test_parent_80gb_does_not_verify_a_10gb_cuda_device():

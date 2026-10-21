@@ -2,16 +2,16 @@
 #SBATCH --job-name=lssp-mgpu00-smoke
 #SBATCH --account=ikoutis
 #SBATCH --partition=gpu
-#SBATCH --qos=low
+#SBATCH --qos=standard
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=32G
 #SBATCH --gres=gpu:a100:1
-#SBATCH --time=00:45:00
+#SBATCH --time=00:20:00
 #SBATCH --no-requeue
 
-# Engineering only. ONE full GPU, one submission, 0.75 GPU-hour hard ceiling.
+# Engineering only. ONE full GPU, one submission, 1/3 GPU-hour hard ceiling.
 # Never submit an array or retry automatically. Slurm output is supplied by the
 # submitter with --output/--error; no output goes into historical RQ6 directories.
 set -euo pipefail
@@ -30,4 +30,4 @@ export LD_LIBRARY_PATH="$MGPU00_VENV/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 export OMP_NUM_THREADS=4
 exec "$MGPU00_VENV/bin/python" -u scripts/mgpu00/smoke.py \
     --out "$MGPU00_OUT_PARENT/job-$SLURM_JOB_ID" \
-    --model-path "$MGPU00_MODEL" --vllm-executable "$MGPU00_VENV/bin/vllm"
+    --model-path "$MGPU00_MODEL" --vllm-executable "$MGPU00_VENV/bin/vllm" --diagnostic-minimal
