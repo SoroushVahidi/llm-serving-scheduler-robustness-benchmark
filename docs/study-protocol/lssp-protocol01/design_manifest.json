@@ -1,0 +1,267 @@
+{
+  "protocol_id": "LSSP-PROTOCOL01",
+  "schema_version": 1,
+  "version": "0.1",
+  "status": "DRAFT",
+  "prepared_date": "2026-10-21",
+  "execution_authorized": false,
+  "base_execution_commit": "4332b08b17e5b789e20a4fe042a6b007f0d43dd6",
+  "decision_states": [
+    "FIXED_CONSTRAINT",
+    "PROVISIONAL",
+    "UNRESOLVED"
+  ],
+  "deployments": [
+    {
+      "id": "a100_1",
+      "gpu": "A100",
+      "allocated_gpus": 1,
+      "tp": 1,
+      "replicas": 1,
+      "physical_fidelity": "NOT_VERIFIED"
+    },
+    {
+      "id": "a100_tp2",
+      "gpu": "A100",
+      "allocated_gpus": 2,
+      "tp": 2,
+      "replicas": 1,
+      "physical_fidelity": "NOT_VERIFIED"
+    },
+    {
+      "id": "a100_dp2",
+      "gpu": "A100",
+      "allocated_gpus": 2,
+      "tp": 1,
+      "replicas": 2,
+      "physical_fidelity": "NOT_VERIFIED"
+    },
+    {
+      "id": "l40_1",
+      "gpu": "L40",
+      "allocated_gpus": 1,
+      "tp": 1,
+      "replicas": 1,
+      "physical_fidelity": "NOT_VERIFIED"
+    },
+    {
+      "id": "l40_tp2",
+      "gpu": "L40",
+      "allocated_gpus": 2,
+      "tp": 2,
+      "replicas": 1,
+      "physical_fidelity": "NOT_VERIFIED"
+    },
+    {
+      "id": "l40_dp2",
+      "gpu": "L40",
+      "allocated_gpus": 2,
+      "tp": 1,
+      "replicas": 2,
+      "physical_fidelity": "NOT_VERIFIED"
+    }
+  ],
+  "policies": [
+    {
+      "id": "native_fcfs",
+      "status": "PROVISIONAL",
+      "physical_main_domain": "NOT_VERIFIED"
+    },
+    {
+      "id": "prompt_spf",
+      "status": "PROVISIONAL",
+      "physical_main_domain": "NOT_VERIFIED"
+    },
+    {
+      "id": "token_fair",
+      "status": "PROVISIONAL",
+      "physical_main_domain": "NOT_VERIFIED"
+    },
+    {
+      "id": "checked_slai",
+      "status": "PROVISIONAL",
+      "physical_main_domain": "NOT_VERIFIED"
+    }
+  ],
+  "sources": [
+    {
+      "id": "burstgpt",
+      "raw_sha256": "56193aa9b2bb26128ded43d2d29a960df6bf5af062bcfc9b005f3fcaa4e6e501",
+      "identity_status": "INHERITED_NOT_REVERIFIED",
+      "new_windows_sha256": null
+    },
+    {
+      "id": "azure_llm_2024",
+      "raw_sha256": "a0cc9b969a9bbf0fd811802cbf4323edd3a209ace791e3799ad4f9207f213941",
+      "identity_status": "INHERITED_NOT_REVERIFIED",
+      "new_windows_sha256": null
+    },
+    {
+      "id": "bailian_qwen",
+      "raw_sha256": "68e3f98e2d601d60d0abf4b89bc8a3654372abab7b1cde6373a13d0054379d59",
+      "identity_status": "INHERITED_NOT_REVERIFIED",
+      "new_windows_sha256": null
+    }
+  ],
+  "primary_transfer_edges": [
+    [
+      "a100_1",
+      "a100_tp2"
+    ],
+    [
+      "a100_1",
+      "a100_dp2"
+    ],
+    [
+      "l40_1",
+      "l40_tp2"
+    ],
+    [
+      "l40_1",
+      "l40_dp2"
+    ],
+    [
+      "a100_1",
+      "l40_1"
+    ],
+    [
+      "a100_tp2",
+      "l40_tp2"
+    ],
+    [
+      "a100_dp2",
+      "l40_dp2"
+    ]
+  ],
+  "load_views": {
+    "primary": "equal_relative_pressure",
+    "secondary": "equal_a100_1_arrival_rate",
+    "reference_policy": "native_fcfs",
+    "relative_pressure_regions": [
+      0.6,
+      0.9
+    ],
+    "capacity_slo_success_threshold": 0.9,
+    "capacity_queue_stability_required": true,
+    "status": "PROVISIONAL"
+  },
+  "primary_metric": {
+    "name": "request_slo_goodput",
+    "unit": "requests_per_second",
+    "success_conditions": [
+      "valid_complete_fixed_output_work",
+      "ttft_within_class_limit",
+      "all_observable_token_gaps_within_class_limit",
+      "e2e_within_class_limit"
+    ],
+    "comparison_scale": "successes_divided_by_all_offered",
+    "practical_margin": 0.05,
+    "target_interval_half_width": 0.025,
+    "familywise_alpha": 0.05,
+    "bootstrap_resamples": 10000,
+    "status": "PROVISIONAL"
+  },
+  "illustrative_design": {
+    "windows_per_source": 8,
+    "repetitions": 3,
+    "is_sample_size_commitment": false,
+    "single_view_executions": 3456,
+    "single_view_gpu_executions": 5760,
+    "both_views_anchor_deduplicated_executions": 6336,
+    "both_views_anchor_deduplicated_gpu_executions": 10944,
+    "primary_interaction_contrasts": 252,
+    "primary_endpoint_contrasts": 216,
+    "joint_primary_family_contrasts": 468
+  },
+  "planning_only_slot_minutes": [
+    10,
+    35
+  ],
+  "current_mgpu02_contract": {
+    "id": "mgpu02-whole-prefill-v1",
+    "max_active": 16,
+    "max_prompt_tokens": 256,
+    "token_budget": 4096,
+    "context_limit": 512,
+    "vllm_version": "0.27.1",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "partial_prefill": "REJECTED",
+    "kv_preemption": "REJECTED",
+    "distributed": "REJECTED",
+    "main_study_sufficient": false
+  },
+  "stages": [
+    {
+      "id": 0,
+      "name": "MGPU03_acceptance_review",
+      "go_status": "NO_GO",
+      "execution_authorized": false
+    },
+    {
+      "id": 1,
+      "name": "24_execution_A100_validation",
+      "go_status": "NO_GO",
+      "execution_authorized": false
+    },
+    {
+      "id": 2,
+      "name": "expanded_fidelity_and_pilot",
+      "go_status": "NO_GO",
+      "execution_authorized": false
+    },
+    {
+      "id": 3,
+      "name": "main_study",
+      "go_status": "NO_GO",
+      "execution_authorized": false
+    },
+    {
+      "id": 4,
+      "name": "focused_extensions",
+      "go_status": "NO_GO",
+      "execution_authorized": false
+    }
+  ],
+  "mgpu03": {
+    "job_id": "1435222",
+    "execution_commit": "4332b08b17e5b789e20a4fe042a6b007f0d43dd6",
+    "accounting_state": "COMPLETED",
+    "accounting_exit_code": "0:0",
+    "elapsed_seconds": 1010,
+    "allocated_gpus": 1,
+    "node": "n0046",
+    "physical_acceptance_reviewed_here": false,
+    "performance_outcomes_used_for_design": false,
+    "evidence": "evidence/mgpu03_accounting.txt"
+  },
+  "freeze_required": {
+    "author_approval": null,
+    "publication_overlap_review": null,
+    "model_weights_revision_and_hashes": null,
+    "tokenizer_revision_and_hashes": null,
+    "effective_configurations_and_topology": null,
+    "software_environment_hash": null,
+    "policy_specifications_and_oracles_hash": null,
+    "physical_fidelity_ledger": null,
+    "raw_source_verification": null,
+    "coverage_audit": null,
+    "window_manifest_hash": null,
+    "slo_and_tenant_overlay_hash": null,
+    "output_limits_and_context": null,
+    "timing_observability_acceptance": null,
+    "calibrated_rates_hash": null,
+    "queue_stability_tolerances": null,
+    "warmup_prelude_drain_rules": null,
+    "sample_size_planning_report": null,
+    "final_windows_and_repetitions": null,
+    "randomization_and_block_plan_hash": null,
+    "statistical_analysis_code_and_validation_hash": null,
+    "mechanism_interventions_freeze": null,
+    "held_out_split_hash": null,
+    "transfer_rule_specification_hash": null,
+    "allocated_gpu_hour_cap": null,
+    "job_and_startup_timeouts": null,
+    "immutable_registration_record": null
+  }
+}

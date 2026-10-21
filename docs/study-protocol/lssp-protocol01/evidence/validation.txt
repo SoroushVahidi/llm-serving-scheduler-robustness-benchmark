@@ -1,0 +1,25 @@
+LSSP-PROTOCOL01 validation, 2026-10-21, run directly through Codex.
+
+Command: python3 docs/study-protocol/lssp-protocol01/validate_protocol.py
+Exit: 0
+PASS: 121 protocol consistency checks; no physical validation performed
+DRAFT: 27 unresolved freeze fields; execution_authorized=false
+
+Command: python3 docs/study-protocol/lssp-protocol01/validate_protocol.py --require-frozen
+Exit: 2 (expected refusal, not an unexpected validation failure)
+PASS: 121 protocol consistency checks; no physical validation performed
+DRAFT: 27 unresolved freeze fields; execution_authorized=false
+NOT FROZEN: all 27 required freeze fields remain unresolved in design_manifest.json.
+
+Checks include required documents/draft markers, no execution authorization,
+all six deployment topologies, unique policies/sources/transfer edges,
+independently enumerated execution/GPU/contrast counts, whole-prefill bound,
+unsupported capability rejection declarations, MGPU03 outcome-use boundaries,
+review-input hashes, descriptor coverage recomputation and local file links.
+
+Additional check: git diff --cached --check (run after staging; exit 0).
+Scope limitation: no serving-harness code changed; no CPU harness suite rerun,
+no physical inference tests, no power calculation from measured pilot variance,
+no implementation of the proposed statistical estimator or transfer predictor.
+The 151 MGPU02 tests are prior evidence, not a new test count for this task.
+No GPU jobs, experiment campaigns, GitHub Actions, merges or manuscript edits.

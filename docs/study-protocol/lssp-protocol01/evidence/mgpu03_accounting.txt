@@ -1,0 +1,15 @@
+LSSP-PROTOCOL01 read-only accounting check, review date 2026-10-21.
+No serving/performance results were opened for protocol selection.
+Command:
+ssh -T -o BatchMode=yes -o ConnectTimeout=10 wulver '/apps/slurm/current/bin/sacct -n -P -j 1435222 --format=JobID,State,ExitCode,ElapsedRaw,AllocTRES,NodeList,Start,End'
+
+JobID|State|ExitCode|ElapsedRaw|AllocTRES|NodeList|Start|End
+1435222|COMPLETED|0:0|1010|billing=32,cpu=16,gres/gpu:a100=1,gres/gpu=1,mem=32G,node=1|n0046|2026-10-21T15:40:04|2026-10-21T15:56:54
+1435222.batch|COMPLETED|0:0|1010|cpu=16,gres/gpu:a100=1,gres/gpu=1,mem=32G,node=1|n0046|2026-10-21T15:40:04|2026-10-21T15:56:54
+1435222.extern|COMPLETED|0:0|1010|billing=32,cpu=16,gres/gpu:a100=1,gres/gpu=1,mem=32G,node=1|n0046|2026-10-21T15:40:04|2026-10-21T15:56:54
+
+Accounting completion is not a physical scheduler-acceptance verdict.
+The parent job consumes 1010/3600 GPU-hours; do not add its steps again.
+Execution commit: 4332b08b17e5b789e20a4fe042a6b007f0d43dd6
+Output: /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu02/artifacts/mgpu02/physical-smoke/job-1435222
+Preflight/submission: /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu02/artifacts/mgpu03
