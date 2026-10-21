@@ -1,0 +1,383 @@
+FFFFFFFFFFFF......                                                       [100%]
+=================================== FAILURES ===================================
+__ test_engine_identity_reuse_rejected_without_state_mutation[waiting-False] ___
+
+scheduler_factory = <function scheduler_factory.<locals>.make at 0x7ed2a6f34900>
+slai = False, phase = 'waiting'
+
+    @pytest.mark.parametrize('slai', [False, True])
+    @pytest.mark.parametrize('phase', ['waiting', 'running', 'finished'])
+    def test_engine_identity_reuse_rejected_without_state_mutation(scheduler_factory, slai, phase):
+        s = scheduler_factory(slai=slai)
+        original = request(0, output=1 if phase == 'finished' else 2)
+        s.add_request(original)
+        if phase != 'waiting':
+            finish(s, s.schedule())
+        metadata = dict(s.mgpu_metadata)
+        admitted = set(s.mgpu_admitted)
+        waiting, running, requests = list(s.waiting), list(s.running), dict(s.requests)
+        events = list(s.test_events)
+        replacement = request(1)  # Distinct workload ID and ordinal, same engine ID.
+        replacement.request_id = original.request_id
+        with pytest.raises(ValueError, match='engine request identity'):
+>           s.add_request(replacement)
+
+tests/mgpu02/test_fidelity_boundaries.py:30:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/robustbench/mgpu02/vllm_scheduler.py:39: in add_request
+    return super().add_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/mgpu00/vllm_scheduler.py:47: in add_request
+    super().add_request(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <conftest.scheduler_factory.<locals>.make.<locals>.CapturingScheduler object at 0x7ed2a5347ce0>
+request = <vllm.v1.request.Request object at 0x7ed2a5347ef0>
+
+    def add_request(self, request: Request) -> None:
+        existing = self.requests.get(request.request_id)
+        if existing is not None:
+            update = StreamingUpdate.from_request(request)
+            if existing.status != RequestStatus.WAITING_FOR_STREAMING_REQ:
+>               assert existing.streaming_queue is not None, "duplicate request id"
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError: duplicate request id
+
+../../modal-venv/lib/python3.12/site-packages/vllm/v1/core/sched/scheduler.py:2218: AssertionError
+----------------------------- Captured stdout call -----------------------------
+INFO 10-21 19:43:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 19:43:23 [model.py:1883] Using max model len 512
+INFO 10-21 19:43:23 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=4096.
+WARNING 10-21 19:43:23 [vllm.py:1194] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 10-21 19:43:23 [vllm.py:1247] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 10-21 19:43:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 19:43:23 [vllm.py:1426] Cudagraph is disabled under eager mode
+INFO 10-21 19:43:23 [compilation.py:329] Enabled custom fusions: norm_quant, act_quant
+___ test_engine_identity_reuse_rejected_without_state_mutation[waiting-True] ___
+
+scheduler_factory = <function scheduler_factory.<locals>.make at 0x7ed2a53f1c60>
+slai = True, phase = 'waiting'
+
+    @pytest.mark.parametrize('slai', [False, True])
+    @pytest.mark.parametrize('phase', ['waiting', 'running', 'finished'])
+    def test_engine_identity_reuse_rejected_without_state_mutation(scheduler_factory, slai, phase):
+        s = scheduler_factory(slai=slai)
+        original = request(0, output=1 if phase == 'finished' else 2)
+        s.add_request(original)
+        if phase != 'waiting':
+            finish(s, s.schedule())
+        metadata = dict(s.mgpu_metadata)
+        admitted = set(s.mgpu_admitted)
+        waiting, running, requests = list(s.waiting), list(s.running), dict(s.requests)
+        events = list(s.test_events)
+        replacement = request(1)  # Distinct workload ID and ordinal, same engine ID.
+        replacement.request_id = original.request_id
+        with pytest.raises(ValueError, match='engine request identity'):
+>           s.add_request(replacement)
+
+tests/mgpu02/test_fidelity_boundaries.py:30:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/robustbench/mgpu02/vllm_scheduler.py:39: in add_request
+    return super().add_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/mgpu00/vllm_scheduler.py:86: in add_request
+    super().add_request(request)
+src/robustbench/mgpu00/vllm_scheduler.py:47: in add_request
+    super().add_request(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <conftest.scheduler_factory.<locals>.make.<locals>.CapturingScheduler object at 0x7ed2a53f6bd0>
+request = <vllm.v1.request.Request object at 0x7ed2a53f5760>
+
+    def add_request(self, request: Request) -> None:
+        existing = self.requests.get(request.request_id)
+        if existing is not None:
+            update = StreamingUpdate.from_request(request)
+            if existing.status != RequestStatus.WAITING_FOR_STREAMING_REQ:
+>               assert existing.streaming_queue is not None, "duplicate request id"
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError: duplicate request id
+
+../../modal-venv/lib/python3.12/site-packages/vllm/v1/core/sched/scheduler.py:2218: AssertionError
+----------------------------- Captured stdout call -----------------------------
+INFO 10-21 19:43:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 19:43:23 [model.py:1883] Using max model len 512
+INFO 10-21 19:43:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+__ test_engine_identity_reuse_rejected_without_state_mutation[running-False] ___
+
+scheduler_factory = <function scheduler_factory.<locals>.make at 0x7ed2a53f20c0>
+slai = False, phase = 'running'
+
+    @pytest.mark.parametrize('slai', [False, True])
+    @pytest.mark.parametrize('phase', ['waiting', 'running', 'finished'])
+    def test_engine_identity_reuse_rejected_without_state_mutation(scheduler_factory, slai, phase):
+        s = scheduler_factory(slai=slai)
+        original = request(0, output=1 if phase == 'finished' else 2)
+        s.add_request(original)
+        if phase != 'waiting':
+            finish(s, s.schedule())
+        metadata = dict(s.mgpu_metadata)
+        admitted = set(s.mgpu_admitted)
+        waiting, running, requests = list(s.waiting), list(s.running), dict(s.requests)
+        events = list(s.test_events)
+        replacement = request(1)  # Distinct workload ID and ordinal, same engine ID.
+        replacement.request_id = original.request_id
+        with pytest.raises(ValueError, match='engine request identity'):
+>           s.add_request(replacement)
+
+tests/mgpu02/test_fidelity_boundaries.py:30:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/robustbench/mgpu02/vllm_scheduler.py:39: in add_request
+    return super().add_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/mgpu00/vllm_scheduler.py:47: in add_request
+    super().add_request(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <conftest.scheduler_factory.<locals>.make.<locals>.CapturingScheduler object at 0x7ed2a520e4b0>
+request = <vllm.v1.request.Request object at 0x7ed2a520d250>
+
+    def add_request(self, request: Request) -> None:
+        existing = self.requests.get(request.request_id)
+        if existing is not None:
+            update = StreamingUpdate.from_request(request)
+            if existing.status != RequestStatus.WAITING_FOR_STREAMING_REQ:
+>               assert existing.streaming_queue is not None, "duplicate request id"
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError: duplicate request id
+
+../../modal-venv/lib/python3.12/site-packages/vllm/v1/core/sched/scheduler.py:2218: AssertionError
+----------------------------- Captured stdout call -----------------------------
+INFO 10-21 19:43:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 19:43:23 [model.py:1883] Using max model len 512
+INFO 10-21 19:43:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+___ test_engine_identity_reuse_rejected_without_state_mutation[running-True] ___
+
+scheduler_factory = <function scheduler_factory.<locals>.make at 0x7ed2a53f2c00>
+slai = True, phase = 'running'
+
+    @pytest.mark.parametrize('slai', [False, True])
+    @pytest.mark.parametrize('phase', ['waiting', 'running', 'finished'])
+    def test_engine_identity_reuse_rejected_without_state_mutation(scheduler_factory, slai, phase):
+        s = scheduler_factory(slai=slai)
+        original = request(0, output=1 if phase == 'finished' else 2)
+        s.add_request(original)
+        if phase != 'waiting':
+            finish(s, s.schedule())
+        metadata = dict(s.mgpu_metadata)
+        admitted = set(s.mgpu_admitted)
+        waiting, running, requests = list(s.waiting), list(s.running), dict(s.requests)
+        events = list(s.test_events)
+        replacement = request(1)  # Distinct workload ID and ordinal, same engine ID.
+        replacement.request_id = original.request_id
+        with pytest.raises(ValueError, match='engine request identity'):
+>           s.add_request(replacement)
+
+tests/mgpu02/test_fidelity_boundaries.py:30:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/robustbench/mgpu02/vllm_scheduler.py:39: in add_request
+    return super().add_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/mgpu00/vllm_scheduler.py:86: in add_request
+    super().add_request(request)
+src/robustbench/mgpu00/vllm_scheduler.py:47: in add_request
+    super().add_request(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <conftest.scheduler_factory.<locals>.make.<locals>.CapturingScheduler object at 0x7ed2a51f8650>
+request = <vllm.v1.request.Request object at 0x7ed2a4da37d0>
+
+    def add_request(self, request: Request) -> None:
+        existing = self.requests.get(request.request_id)
+        if existing is not None:
+            update = StreamingUpdate.from_request(request)
+            if existing.status != RequestStatus.WAITING_FOR_STREAMING_REQ:
+>               assert existing.streaming_queue is not None, "duplicate request id"
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError: duplicate request id
+
+../../modal-venv/lib/python3.12/site-packages/vllm/v1/core/sched/scheduler.py:2218: AssertionError
+----------------------------- Captured stdout call -----------------------------
+INFO 10-21 19:43:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 19:43:23 [model.py:1883] Using max model len 512
+INFO 10-21 19:43:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+__ test_engine_identity_reuse_rejected_without_state_mutation[finished-False] __
+
+scheduler_factory = <function scheduler_factory.<locals>.make at 0x7ed2a53f3600>
+slai = False, phase = 'finished'
+
+    @pytest.mark.parametrize('slai', [False, True])
+    @pytest.mark.parametrize('phase', ['waiting', 'running', 'finished'])
+    def test_engine_identity_reuse_rejected_without_state_mutation(scheduler_factory, slai, phase):
+        s = scheduler_factory(slai=slai)
+        original = request(0, output=1 if phase == 'finished' else 2)
+        s.add_request(original)
+        if phase != 'waiting':
+            finish(s, s.schedule())
+        metadata = dict(s.mgpu_metadata)
+        admitted = set(s.mgpu_admitted)
+        waiting, running, requests = list(s.waiting), list(s.running), dict(s.requests)
+        events = list(s.test_events)
+        replacement = request(1)  # Distinct workload ID and ordinal, same engine ID.
+        replacement.request_id = original.request_id
+>       with pytest.raises(ValueError, match='engine request identity'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/mgpu02/test_fidelity_boundaries.py:29: Failed
+----------------------------- Captured stdout call -----------------------------
+INFO 10-21 19:43:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 19:43:23 [model.py:1883] Using max model len 512
+INFO 10-21 19:43:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+__ test_engine_identity_reuse_rejected_without_state_mutation[finished-True] ___
+
+scheduler_factory = <function scheduler_factory.<locals>.make at 0x7ed2a53f3b00>
+slai = True, phase = 'finished'
+
+    @pytest.mark.parametrize('slai', [False, True])
+    @pytest.mark.parametrize('phase', ['waiting', 'running', 'finished'])
+    def test_engine_identity_reuse_rejected_without_state_mutation(scheduler_factory, slai, phase):
+        s = scheduler_factory(slai=slai)
+        original = request(0, output=1 if phase == 'finished' else 2)
+        s.add_request(original)
+        if phase != 'waiting':
+            finish(s, s.schedule())
+        metadata = dict(s.mgpu_metadata)
+        admitted = set(s.mgpu_admitted)
+        waiting, running, requests = list(s.waiting), list(s.running), dict(s.requests)
+        events = list(s.test_events)
+        replacement = request(1)  # Distinct workload ID and ordinal, same engine ID.
+        replacement.request_id = original.request_id
+>       with pytest.raises(ValueError, match='engine request identity'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/mgpu02/test_fidelity_boundaries.py:29: Failed
+----------------------------- Captured stdout call -----------------------------
+INFO 10-21 19:43:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 19:43:23 [model.py:1883] Using max model len 512
+INFO 10-21 19:43:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+_____ test_invalid_kv_observation_cannot_change_lst_or_batch_history[nan] ______
+
+utilization = nan
+
+    @pytest.mark.parametrize('utilization', [float('nan'), float('inf'), -float('inf'),
+                                            -.01, 1.01, None])
+    def test_invalid_kv_observation_cannot_change_lst_or_batch_history(utilization):
+        core = SlaiCore(2)
+        c = Candidate('r0', RequestMetadata('r0', 0, 'tight', 0., 30., 1.), 128)
+        core.batch_completed(start_s=1., end_s=1.002, progressed=[c], kv_utilization=.5)
+        before = (core.batches, core.total_batch_s, dict(core.lst))
+>       with pytest.raises(ValueError, match='KV utilization'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/mgpu02/test_fidelity_boundaries.py:47: Failed
+_____ test_invalid_kv_observation_cannot_change_lst_or_batch_history[inf] ______
+
+utilization = inf
+
+    @pytest.mark.parametrize('utilization', [float('nan'), float('inf'), -float('inf'),
+                                            -.01, 1.01, None])
+    def test_invalid_kv_observation_cannot_change_lst_or_batch_history(utilization):
+        core = SlaiCore(2)
+        c = Candidate('r0', RequestMetadata('r0', 0, 'tight', 0., 30., 1.), 128)
+        core.batch_completed(start_s=1., end_s=1.002, progressed=[c], kv_utilization=.5)
+        before = (core.batches, core.total_batch_s, dict(core.lst))
+>       with pytest.raises(ValueError, match='KV utilization'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/mgpu02/test_fidelity_boundaries.py:47: Failed
+_____ test_invalid_kv_observation_cannot_change_lst_or_batch_history[-inf] _____
+
+utilization = -inf
+
+    @pytest.mark.parametrize('utilization', [float('nan'), float('inf'), -float('inf'),
+                                            -.01, 1.01, None])
+    def test_invalid_kv_observation_cannot_change_lst_or_batch_history(utilization):
+        core = SlaiCore(2)
+        c = Candidate('r0', RequestMetadata('r0', 0, 'tight', 0., 30., 1.), 128)
+        core.batch_completed(start_s=1., end_s=1.002, progressed=[c], kv_utilization=.5)
+        before = (core.batches, core.total_batch_s, dict(core.lst))
+>       with pytest.raises(ValueError, match='KV utilization'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/mgpu02/test_fidelity_boundaries.py:47: Failed
+____ test_invalid_kv_observation_cannot_change_lst_or_batch_history[-0.01] _____
+
+utilization = -0.01
+
+    @pytest.mark.parametrize('utilization', [float('nan'), float('inf'), -float('inf'),
+                                            -.01, 1.01, None])
+    def test_invalid_kv_observation_cannot_change_lst_or_batch_history(utilization):
+        core = SlaiCore(2)
+        c = Candidate('r0', RequestMetadata('r0', 0, 'tight', 0., 30., 1.), 128)
+        core.batch_completed(start_s=1., end_s=1.002, progressed=[c], kv_utilization=.5)
+        before = (core.batches, core.total_batch_s, dict(core.lst))
+>       with pytest.raises(ValueError, match='KV utilization'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/mgpu02/test_fidelity_boundaries.py:47: Failed
+_____ test_invalid_kv_observation_cannot_change_lst_or_batch_history[1.01] _____
+
+utilization = 1.01
+
+    @pytest.mark.parametrize('utilization', [float('nan'), float('inf'), -float('inf'),
+                                            -.01, 1.01, None])
+    def test_invalid_kv_observation_cannot_change_lst_or_batch_history(utilization):
+        core = SlaiCore(2)
+        c = Candidate('r0', RequestMetadata('r0', 0, 'tight', 0., 30., 1.), 128)
+        core.batch_completed(start_s=1., end_s=1.002, progressed=[c], kv_utilization=.5)
+        before = (core.batches, core.total_batch_s, dict(core.lst))
+>       with pytest.raises(ValueError, match='KV utilization'):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/mgpu02/test_fidelity_boundaries.py:47: Failed
+_____ test_invalid_kv_observation_cannot_change_lst_or_batch_history[None] _____
+
+utilization = None
+
+    @pytest.mark.parametrize('utilization', [float('nan'), float('inf'), -float('inf'),
+                                            -.01, 1.01, None])
+    def test_invalid_kv_observation_cannot_change_lst_or_batch_history(utilization):
+        core = SlaiCore(2)
+        c = Candidate('r0', RequestMetadata('r0', 0, 'tight', 0., 30., 1.), 128)
+        core.batch_completed(start_s=1., end_s=1.002, progressed=[c], kv_utilization=.5)
+        before = (core.batches, core.total_batch_s, dict(core.lst))
+        with pytest.raises(ValueError, match='KV utilization'):
+>           core.batch_completed(start_s=2., end_s=2.002, progressed=[c],
+                                 kv_utilization=utilization)
+
+tests/mgpu02/test_fidelity_boundaries.py:48:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <robustbench.mgpu00.slai.SlaiCore object at 0x7ed2a4da0fb0>
+
+    def batch_completed(self, *, start_s, end_s, progressed, kv_utilization):
+        duration = end_s - start_s
+        if not math.isfinite(duration) or duration <= 0:
+            raise ValueError("Invalid measured batch duration")
+        self.total_batch_s += duration
+        self.batches += 1
+>       offset = 5 if kv_utilization < .96 else 10
+                      ^^^^^^^^^^^^^^^^^^^^
+E       TypeError: '<' not supported between instances of 'NoneType' and 'float'
+
+src/robustbench/mgpu00/slai.py:46: TypeError
+=============================== warnings summary ===============================
+../../modal-venv/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/soroush/modal-venv/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_engine_identity_reuse_rejected_without_state_mutation[waiting-False]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_engine_identity_reuse_rejected_without_state_mutation[waiting-True]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_engine_identity_reuse_rejected_without_state_mutation[running-False]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_engine_identity_reuse_rejected_without_state_mutation[running-True]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_engine_identity_reuse_rejected_without_state_mutation[finished-False]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_engine_identity_reuse_rejected_without_state_mutation[finished-True]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_invalid_kv_observation_cannot_change_lst_or_batch_history[nan]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_invalid_kv_observation_cannot_change_lst_or_batch_history[inf]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_invalid_kv_observation_cannot_change_lst_or_batch_history[-inf]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_invalid_kv_observation_cannot_change_lst_or_batch_history[-0.01]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_invalid_kv_observation_cannot_change_lst_or_batch_history[1.01]
+FAILED tests/mgpu02/test_fidelity_boundaries.py::test_invalid_kv_observation_cannot_change_lst_or_batch_history[None]
+12 failed, 6 passed, 14 warnings in 0.74s

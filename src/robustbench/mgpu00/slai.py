@@ -41,6 +41,11 @@ class SlaiCore:
         duration = end_s - start_s
         if not math.isfinite(duration) or duration <= 0:
             raise ValueError("Invalid measured batch duration")
+        # An invalid observation must not select a memory-pressure branch or
+        # partially mutate the measured batch history used by future LSTs.
+        if (type(kv_utilization) not in (int, float)
+                or not math.isfinite(kv_utilization) or not 0 <= kv_utilization <= 1):
+            raise ValueError("Invalid measured KV utilization; expected a finite fraction in [0, 1]")
         self.total_batch_s += duration
         self.batches += 1
         offset = 5 if kv_utilization < .96 else 10

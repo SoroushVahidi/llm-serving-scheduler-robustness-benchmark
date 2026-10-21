@@ -1,0 +1,43 @@
+{
+  "status": "CPU_VALIDATED_PHYSICAL_NOT_VERIFIED",
+  "baseline_defect_reproduction": {
+    "failed": 12,
+    "passed": 6
+  },
+  "final_nonoverlapping_suites": [
+    {
+      "paths": [
+        "tests/mgpu00",
+        "tests/mgpu02 (before test_simulator_limits.py was added)",
+        "tests/mgpu05",
+        "tests/mgpu06"
+      ],
+      "passed": 260,
+      "failed": 0,
+      "seconds": 12.26
+    },
+    {
+      "paths": [
+        "tests/mgpu02/test_simulator_limits.py",
+        "tests/test_anwg_metric.py"
+      ],
+      "passed": 11,
+      "failed": 0,
+      "seconds": 0.04
+    }
+  ],
+  "distinct_final_passes": 271,
+  "new_tests": 21,
+  "bash_syntax": "PASS",
+  "git_diff_check": "PASS",
+  "frozen_files_unchanged": 29,
+  "historical_dataset_raw_bytes_equal_baseline": true,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "gpu_hours": 0,
+  "physical_claims": false,
+  "failure_log_representation": {
+    "tracked": "Trailing whitespace stripped only",
+    "raw_path": "artifacts/fidelity-review-20261021/before-repair.raw.txt",
+    "raw_sha256": "2d17882632359ee3a68a136056a1701164e10edff508bbe115a262276938c64c"
+  }
+}

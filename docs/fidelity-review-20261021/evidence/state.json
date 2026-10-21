@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-21T23:44:39.757668+00:00",
+  "baseline": "b14992716c20b36d26e6f28e60b2c8e0b8b09a07",
+  "repository": "SoroushVahidi/llm-serving-scheduler-robustness-benchmark",
+  "branch": "research/lssp-prefill-kv-fidelity-20261021",
+  "local_versions": {
+    "vllm": "0.27.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "5.8.1",
+    "tokenizers": "0.22.2",
+    "pytest": "9.0.3",
+    "numpy": "2.3.5",
+    "httpx": "0.28.1"
+  },
+  "frozen_files_verified": 29,
+  "historical_lfs_bytes_equal_HEAD": true,
+  "gpu_allocations": 0,
+  "gpu_hours": 0,
+  "baseline_cpu_tests": {
+    "local": 250,
+    "wulver_focused": 33,
+    "not_unique_test_total": 283
+  },
+  "baseline_physical_instrumentation": "NOT VERIFIED; no MGPU05/MGPU06 allocation"
+}

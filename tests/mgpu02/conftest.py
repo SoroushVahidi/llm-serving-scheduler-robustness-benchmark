@@ -22,13 +22,13 @@ def scheduler_factory(tmp_path, monkeypatch):
     # forward pass. Use the pinned model's real config from the source fixture.
     model_path = Path(__file__).parent / 'qwen-config'
     init_none_hash(sha256)
-    def make(slai=True, blocks=10000, slots=16, chunked=True, checked=True):
+    def make(slai=True, blocks=10000, slots=16, chunked=True, checked=True, budget=4096):
         model = ModelConfig(model=str(model_path), tokenizer=str(model_path),
                             skip_tokenizer_init=True, dtype='bfloat16', max_model_len=512,
                             enforce_eager=True)
         config = VllmConfig(model_config=model,
             scheduler_config=SchedulerConfig(max_model_len=512, is_encoder_decoder=False,
-                max_num_seqs=slots, max_num_batched_tokens=4096,
+                max_num_seqs=slots, max_num_batched_tokens=budget,
                 enable_chunked_prefill=chunked, async_scheduling=False,
                 policy='priority' if slai else 'fcfs', watermark=0.0),
             cache_config=CacheConfig(block_size=16, enable_prefix_caching=False),

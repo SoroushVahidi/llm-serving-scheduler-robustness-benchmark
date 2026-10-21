@@ -1,0 +1,31 @@
+{
+  "path": "dataset/v1.1.0/manifests/ranking_portability_pilot_v2_windows_index.json",
+  "sha256": "d78ec1087fedae02174ca093a9860c70468be336ccb1d7e6de756c81ba331e53",
+  "scope": "Existing source-reported descriptor quantiles; not raw prompt text, target retokenization or exact exclusion fractions. No new window selection.",
+  "coverage": [
+    {
+      "source": "azure_llm_2024",
+      "windows": 40,
+      "median_gt_128": 40,
+      "median_gt_256": 40,
+      "minimum_window_median": 628.5,
+      "maximum_window_median": 1595.0
+    },
+    {
+      "source": "bailian_qwen",
+      "windows": 40,
+      "median_gt_128": 40,
+      "median_gt_256": 40,
+      "minimum_window_median": 343.5,
+      "maximum_window_median": 1150.0
+    },
+    {
+      "source": "burstgpt",
+      "windows": 40,
+      "median_gt_128": 40,
+      "median_gt_256": 9,
+      "minimum_window_median": 140.5,
+      "maximum_window_median": 620.5
+    }
+  ]
+}
