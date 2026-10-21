@@ -1,0 +1,428 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./sn-jnl.cls
+Document Class: sn-jnl 2019/11/18 v0.1: An authoring template for Springer Jour
+nal articles
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/fleqn.clo)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/sttools/cuted.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fix-cm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/manyfoot.sty
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/nccfoots.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(../artifacts/mgpu00/draft-manuscript/main.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(../artifacts/mgpu00/draft-manuscript/main.out)
+(../artifacts/mgpu00/draft-manuscript/main.out)
+
+LaTeX Font Warning: Font shape `OT1/cmtt/m/scsl' undefined
+(Font)              using `OT1/cmtt/m/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/it' undefined
+(Font)              using `OT1/cmtt/b/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/sl' undefined
+(Font)              using `OT1/cmtt/b/it' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/scit' undefined
+(Font)              using `OT1/cmtt/b/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/b/sc' undefined
+(Font)              using `OT1/cmtt/b/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/bx/scsl' undefined
+(Font)              using `OT1/cmtt/bx/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/bx/sc' undefined
+(Font)              using `OT1/cmtt/bx/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sbx/sc' undefined
+(Font)              using `OT1/cmtt/sb/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/n' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/it' undefined
+(Font)              using `OT1/cmtt/sb/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/sl' undefined
+(Font)              using `OT1/cmtt/sb/it' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/scit' undefined
+(Font)              using `OT1/cmtt/sb/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sb/sc' undefined
+(Font)              using `OT1/cmtt/sb/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/sbc/sc' undefined
+(Font)              using `OT1/cmtt/c/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/n' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/it' undefined
+(Font)              using `OT1/cmtt/c/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/sl' undefined
+(Font)              using `OT1/cmtt/c/it' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/scit' undefined
+(Font)              using `OT1/cmtt/c/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/c/sc' undefined
+(Font)              using `OT1/cmtt/c/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/lc/sc' undefined
+(Font)              using `OT1/cmtt/l/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/n' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/it' undefined
+(Font)              using `OT1/cmtt/l/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/sl' undefined
+(Font)              using `OT1/cmtt/l/it' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/scit' undefined
+(Font)              using `OT1/cmtt/l/sc' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/l/sc' undefined
+(Font)              using `OT1/cmtt/l/n' instead on input line 17.
+
+
+LaTeX Font Warning: Font shape `OT1/cmtt/m/In' undefined
+(Font)              using `OT1/cmtt/m/n' instead on input line 17.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(./sections/introduction.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [1{/var/li
+b/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [2]
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 115.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [3{/usr/sh
+are/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
+(./sections/related_work.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [4]
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [5]
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [6]
+Underfull \vbox (badness 10000) has occurred while \output is active [7])
+(./sections/study_design.tex
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [8]
+Underfull \vbox (badness 10000) has occurred while \output is active [9])
+(./sections/workloads.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [10]
+Underfull \vbox (badness 10000) has occurred while \output is active [11]
+Underfull \vbox (badness 10000) has occurred while \output is active [12])
+(./sections/methodology.tex
+Underfull \hbox (badness 1142) in paragraph at lines 7--33
+\OT1/cmr/m/n/10 forms (\OT1/cmtt/l/it/10.03749 vllm[]-faith-ful\OT1/cmr/m/n/10 
+, \OT1/cmtt/l/it/10.03749 vllm[]-chun-ked[]-pre-fill[]-faith-ful\OT1/cmr/m/n/10
+ ), Sarathi-style chun-ked
+
+Underfull \vbox (badness 10000) has occurred while \output is active [13]
+Underfull \vbox (badness 10000) has occurred while \output is active [14]
+Underfull \vbox (badness 10000) has occurred while \output is active [15]
+Underfull \vbox (badness 10000) has occurred while \output is active [16]
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [17]
+Underfull \vbox (badness 10000) has occurred while \output is active [18])
+(./sections/results.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [19]
+Overfull \hbox (2.13432pt too wide) in paragraph at lines 40--54
+ [] 
+
+Underfull \vbox (badness 10000) has occurred while \output is active [20 <./gen
+erated/figures/fig1_portability_heatmap.pdf>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [21]
+Underfull \hbox (badness 2165) in paragraph at lines 159--162
+[]\OT1/cmr/bx/n/10.03749 BurstGPT (EARLY/MIDDLE/LATE ter-cile, pri-mary). \OT1/
+cmr/m/n/10 Com-puted
+
+Underfull \hbox (badness 2005) in paragraph at lines 162--165
+[]\OT1/cmr/bx/n/10.03749 BurstGPT (EARLY/LATE bisect, sen-si-tiv-ity). \OT1/cmr
+/m/n/10 The \OT1/cmtt/l/it/10.03749 BISECT\OT1/cmr/m/n/10 -labeled
+
+Underfull \vbox (badness 10000) has occurred while \output is active [22 <./gen
+erated/figures/fig2_reversal_class_matrix.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 194--203
+[]\OT1/cmtt/l/it/10.03749 LEAVE[]-ONE[]-SOURCE[]-OUT\OT1/cmr/bx/n/10.03749 . \O
+T1/cmr/m/n/10 Exclud-ing Burst-GPT leaves only the Azure-
+
+Underfull \vbox (badness 10000) has occurred while \output is active [23]
+Underfull \vbox (badness 10000) has occurred while \output is active [24])
+(./sections/sample_complexity.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [25]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./sections/real_system.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [26]
+Underfull \vbox (badness 10000) has occurred while \output is active [27 <./gen
+erated/figures/fig3_sample_complexity_curves.pdf>]
+Underfull \hbox (badness 2856) in paragraph at lines 19--20
+[]\OT1/cmr/bx/n/10.03749 Software and Hard-ware (cor-rected by the MGPU00 integ
+rity
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 23.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [28]
+Underfull \vbox (badness 10000) has occurred while \output is active [29])
+(./sections/discussion.tex
+Underfull \hbox (badness 1466) in paragraph at lines 87--1
+[]\OT1/cmr/m/n/10 These selected-case val-ues describe the legacy imple-men-ta-
+tions. Given the
+
+Underfull \vbox (badness 10000) has occurred while \output is active [30]
+Underfull \vbox (badness 10000) has occurred while \output is active [31]
+Underfull \vbox (badness 10000) has occurred while \output is active [32])
+(./sections/limitations.tex
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 4.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 12.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [33]
+Underfull \vbox (badness 10000) has occurred while \output is active [34]
+Underfull \vbox (badness 10000) has occurred while \output is active [35])
+(./sections/artifact.tex
+Underfull \hbox (badness 2197) in paragraph at lines 4--20
+\OT1/cmr/m/n/10 car-ries the source code, sim-u-la-tor, pol-icy imple-men-ta-ti
+ons, anal-y-sis pipeline,
+
+Underfull \hbox (badness 6412) in paragraph at lines 4--20
+\OT1/cmr/m/n/10 val-i-da-tion scripts, the repro-duc-tion work-flow, figure/tab
+le gen-er-a-tion code
+
+Underfull \hbox (badness 7796) in paragraph at lines 4--20
+\OT1/cmr/m/n/10 source, and the frozen prove-nance man-i-fests for every cam-pa
+ign stage.
+
+Underfull \hbox (badness 6332) in paragraph at lines 4--20
+\OT1/cmr/m/n/10 The Hug-ging Face dataset -- [][]$https : / / huggingface . co 
+/ datasets / SoroushVahidi /
+
+Underfull \vbox (badness 10000) has occurred while \output is active [36]
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [37])
+(./sections/conclusion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [38])
+(./sections/declarations.tex
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 3.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 11.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [39]
+Underfull \hbox (badness 1152) in paragraph at lines 48--77
+\OT1/cmr/m/n/10 SoroushVahidi / llm-[]serving-[]scheduler-[]portability$[][], w
+ith frozen man-i-fests and code
+)
+Underfull \hbox (badness 10000) in paragraph at lines 78--61
+\OT1/cmr/m/n/10 The sim-u-la-tor, pol-icy imple-men-ta-tions, and anal-y-sis pi
+peline under-ly-
+
+Underfull \hbox (badness 5133) in paragraph at lines 78--61
+\OT1/cmr/m/n/10 ing this study are pub-licly avail-able at [][]$https : / / git
+hub . com / SoroushVahidi /
+(../artifacts/mgpu00/draft-manuscript/main.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active [40]
+Underfull \hbox (badness 1454) in paragraph at lines 18--23
+\OT1/cmr/m/n/10 trade-off in llm infer-ence with sarathi-serve. In: Pro-ceed-in
+gs of the 18th
+
+Underfull \hbox (badness 1043) in paragraph at lines 18--23
+\OT1/cmr/m/n/10 '24). USENIX Asso-ci-a-tion, URL [][]$https : / / www . usenix 
+. org / conference / osdi24 /
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--29
+[]\OT1/cmr/m/n/10 Alibaba Cloud (2026) qwen-bailian-usagetraces-anon. Anonymize
+d
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--29
+\OT1/cmr/m/n/10 Bail-ian/Qwen pro-duc-tion LLM-serving usage-trace release; rep
+os-i-
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--29
+\OT1/cmr/m/n/10 tory \OT1/cmtt/l/it/10.03749 alibaba-edu/qwen-bailian-usagetrac
+es-anon\OT1/cmr/m/n/10 , pinned com-mit
+
+Underfull \vbox (badness 10000) has occurred while \output is active [41]
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
+\OT1/cmr/m/n/10 com / Azure / AzurePublicDataset / blob / master / AzureLLMInfe
+renceDataset2024 .
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [42]
+Underfull \vbox (badness 10000) has occurred while \output is active
+Underfull \vbox (badness 10000) has occurred while \output is active [43])
+Underfull \vbox (badness 10000) has occurred while \output is active [44]
+(../artifacts/mgpu00/draft-manuscript/main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
+rm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on ../artifacts/mgpu00/draft-manuscript/main.pdf (44 pages, 5882
+43 bytes).
+Transcript written on ../artifacts/mgpu00/draft-manuscript/main.log.

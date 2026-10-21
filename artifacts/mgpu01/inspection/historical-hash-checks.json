@@ -1,0 +1,26 @@
+[
+  {
+    "path": "artifacts/mgpu01/inspection/historical/slai_faithful-azure_llm_2024_pilot_v2_w10.json",
+    "matches_prior_audit": true
+  },
+  {
+    "path": "artifacts/mgpu01/inspection/historical/slai_faithful-azure_llm_2024_pilot_v2_w10.server.log",
+    "matches_prior_audit": true
+  },
+  {
+    "path": "artifacts/mgpu01/inspection/historical/slai_faithful-prologue_task0.txt",
+    "matches_prior_audit": true
+  },
+  {
+    "path": "artifacts/mgpu01/inspection/historical/vllm_faithful-azure_llm_2024_pilot_v2_w10.json",
+    "matches_prior_audit": true
+  },
+  {
+    "path": "artifacts/mgpu01/inspection/historical/vllm_faithful-azure_llm_2024_pilot_v2_w10.server.log",
+    "matches_prior_audit": true
+  },
+  {
+    "path": "artifacts/mgpu01/inspection/historical/vllm_faithful-prologue_task1.txt",
+    "matches_prior_audit": true
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "retrieved_utc": "2026-10-21T19:17:50.111198+00:00",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/engine/arg_utils.py",
+      "sha256": "165f9ec6e3b067bb7e6c72d68adedde7fa4d5ed7932fa7568064b9d9086e6830",
+      "local_sha256": "165f9ec6e3b067bb7e6c72d68adedde7fa4d5ed7932fa7568064b9d9086e6830"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/config/model.py",
+      "sha256": "d14c60ce1b2a7d9c47983ef0df0c10c4f8083ced5bc45935e8ababfe59f22736",
+      "local_sha256": "d14c60ce1b2a7d9c47983ef0df0c10c4f8083ced5bc45935e8ababfe59f22736"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/config/scheduler.py",
+      "sha256": "3cf5d41a5d662ab0eada6f3128e2538abc0a250d6aef82acab7df7dd84e498bc",
+      "local_sha256": "3cf5d41a5d662ab0eada6f3128e2538abc0a250d6aef82acab7df7dd84e498bc"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/sched/scheduler.py",
+      "sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+      "local_sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/sched/request_queue.py",
+      "sha256": "4b8d938e5fb8152fe61030b8aa991f983fcac9a405c37ed8908045e05e82ae5e",
+      "local_sha256": "4b8d938e5fb8152fe61030b8aa991f983fcac9a405c37ed8908045e05e82ae5e"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/request.py",
+      "sha256": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012",
+      "local_sha256": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/kv_cache_manager.py",
+      "sha256": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6",
+      "local_sha256": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/tests/v1/core/utils.py",
+      "sha256": "d38794bc0f2be4c9957c78adb62f165dd4ccafee6ab8cb004193263efc660b42",
+      "local_sha256": null
+    }
+  ]
+}

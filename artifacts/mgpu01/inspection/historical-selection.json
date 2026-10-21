@@ -1,0 +1,175 @@
+{
+  "root": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-rq6-scientific-prefreeze",
+  "tasks": [
+    {
+      "accounting": [
+        {
+          "allocated_tres": "billing=7,cpu=5,gres/gpu:a100_10g=1,gres/gpu=1,mem=16G,node=1",
+          "elapsed_seconds": "217",
+          "end": "2026-09-03T21:57:52",
+          "exit_code": "0:0",
+          "job_id": "1222413_0",
+          "node": "n0001",
+          "requested_tres": "billing=6,cpu=4,gres/gpu:a100_10g=1,gres/gpu=1,mem=16G,node=1",
+          "start": "2026-09-03T21:54:15",
+          "state": "COMPLETED"
+        }
+      ],
+      "allocated_device_uuid": null,
+      "array_index": 0,
+      "calibration_manifest_sha256": "839f1ea99982cbfd198aa12c801a5e2e90ee47699b2b75e7b1c67da3878a8d00",
+      "classification": "MIG_VERIFIED",
+      "cuda_visible_memory_gib_observations": [
+        9.5
+      ],
+      "evidence": [
+        {
+          "bytes": 1790,
+          "excerpts": [],
+          "path": "artifacts/real_vllm/validation/rq6/172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670/slai_faithful/azure_llm_2024/azure_llm_2024_pilot_v2_w10.json",
+          "sha256": "fa6b434c09d2bff3fe92e290d6f7db1c2b915928d293c88b976c74347cce802e"
+        },
+        {
+          "bytes": 43048,
+          "excerpts": [
+            {
+              "line": 90,
+              "text": "(EngineCore pid=742045) INFO 09-03 21:56:40 [gpu_worker.py:789] Free memory on device (9.38/9.5 GiB) on startup. Desired GPU memory utilization is (0.65, 6.18 GiB). Actual usage is 1.2 GiB for consumed memory (weights + non-torch), 1.05 GiB for peak activation, and 0.39 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=3641909556` (3.39 GiB) to fit into requested memory, or `--kv-cache-memory=7087320576` (6.6 GiB) to fully utilize gpu memory. Current kv cache memory in use is 3.92 GiB."
+            }
+          ],
+          "path": "artifacts/real_vllm/validation/rq6/172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670/slai_faithful/azure_llm_2024/azure_llm_2024_pilot_v2_w10.server.log",
+          "sha256": "df1f903a3b1beefe313ff54600fbee2a2086dfae98093a396eefc32787e75317"
+        },
+        {
+          "bytes": 804,
+          "excerpts": [
+            {
+              "line": 13,
+              "text": "NVIDIA A100-SXM4-80GB, 81920 MiB, 9402 MiB"
+            },
+            {
+              "line": 14,
+              "text": "NVIDIA A100-SXM4-80GB, 81920 MiB, 52279 MiB"
+            },
+            {
+              "line": 15,
+              "text": "NVIDIA A100-SXM4-80GB, 81920 MiB, 5668 MiB"
+            },
+            {
+              "line": 16,
+              "text": "NVIDIA A100-SXM4-80GB, 81920 MiB, 29969 MiB"
+            }
+          ],
+          "path": "artifacts/real_vllm/validation/rq6/172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670/prologue_task0.txt",
+          "sha256": "20efcb704a89d227f2273552cccdab227633519aabcdce9d22775a572e6ea6ea"
+        }
+      ],
+      "gpu": "NVIDIA A100-SXM4-80GB",
+      "mig_compute_instance_id": null,
+      "mig_configuration": "A100 10 GB MIG allocation; exact GI/CI profile not recorded",
+      "mig_gpu_instance_id": null,
+      "missing_fields": [
+        "allocated CUDA UUID",
+        "parent UUID mapping",
+        "MIG GI/CI IDs"
+      ],
+      "parent_gpu_models_observed": [
+        "NVIDIA A100-SXM4-80GB"
+      ],
+      "parent_gpu_uuid": null,
+      "policy": "slai_faithful",
+      "repo_sha": "703a752762348bd911c9d93f17731fa5244b38f9",
+      "run_status": "COMPLETED",
+      "slurm_job_id": "1222416",
+      "source": "azure_llm_2024",
+      "validation_manifest_sha256": "172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670",
+      "window_id": "azure_llm_2024_pilot_v2_w10",
+      "workload_manifest_content_sha256": "07ff25709d8bdcfafa095b982bc9d3a2e831a02cb98d010ccfb75c2f47cbf251"
+    },
+    {
+      "accounting": [
+        {
+          "allocated_tres": "billing=7,cpu=5,gres/gpu:a100_10g=1,gres/gpu=1,mem=16G,node=1",
+          "elapsed_seconds": "213",
+          "end": "2026-09-03T21:57:48",
+          "exit_code": "0:0",
+          "job_id": "1222413_1",
+          "node": "n0001",
+          "requested_tres": "billing=6,cpu=4,gres/gpu:a100_10g=1,gres/gpu=1,mem=16G,node=1",
+          "start": "2026-09-03T21:54:15",
+          "state": "COMPLETED"
+        }
+      ],
+      "allocated_device_uuid": null,
+      "array_index": 1,
+      "calibration_manifest_sha256": "839f1ea99982cbfd198aa12c801a5e2e90ee47699b2b75e7b1c67da3878a8d00",
+      "classification": "MIG_VERIFIED",
+      "cuda_visible_memory_gib_observations": [
+        9.5
+      ],
+      "evidence": [
+        {
+          "bytes": 1714,
+          "excerpts": [],
+          "path": "artifacts/real_vllm/validation/rq6/172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670/vllm_faithful/azure_llm_2024/azure_llm_2024_pilot_v2_w10.json",
+          "sha256": "dcdef5db4912259290890181b7f7f753c0b18446f2f2d0b164aff9cca84cb782"
+        },
+        {
+          "bytes": 42292,
+          "excerpts": [
+            {
+              "line": 90,
+              "text": "(EngineCore pid=742052) INFO 09-03 21:56:40 [gpu_worker.py:789] Free memory on device (9.38/9.5 GiB) on startup. Desired GPU memory utilization is (0.65, 6.18 GiB). Actual usage is 1.2 GiB for consumed memory (weights + non-torch), 1.05 GiB for peak activation, and 0.39 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=3641909556` (3.39 GiB) to fit into requested memory, or `--kv-cache-memory=7087320576` (6.6 GiB) to fully utilize gpu memory. Current kv cache memory in use is 3.92 GiB."
+            }
+          ],
+          "path": "artifacts/real_vllm/validation/rq6/172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670/vllm_faithful/azure_llm_2024/azure_llm_2024_pilot_v2_w10.server.log",
+          "sha256": "6cb69d7f6397a77103e041383dc8708e9a78b64ea7060a86e768df5566bc99d4"
+        },
+        {
+          "bytes": 804,
+          "excerpts": [
+            {
+              "line": 13,
+              "text": "NVIDIA A100-SXM4-80GB, 81920 MiB, 9402 MiB"
+            },
+            {
+              "line": 14,
+              "text": "NVIDIA A100-SXM4-80GB, 81920 MiB, 52279 MiB"
+            },
+            {
+              "line": 15,
+              "text": "NVIDIA A100-SXM4-80GB, 81920 MiB, 5668 MiB"
+            },
+            {
+              "line": 16,
+              "text": "NVIDIA A100-SXM4-80GB, 81920 MiB, 29969 MiB"
+            }
+          ],
+          "path": "artifacts/real_vllm/validation/rq6/172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670/prologue_task1.txt",
+          "sha256": "44fe47dde8590ed4d78649691c5cc896dacb021800bab94acf10897839e09534"
+        }
+      ],
+      "gpu": "NVIDIA A100-SXM4-80GB",
+      "mig_compute_instance_id": null,
+      "mig_configuration": "A100 10 GB MIG allocation; exact GI/CI profile not recorded",
+      "mig_gpu_instance_id": null,
+      "missing_fields": [
+        "allocated CUDA UUID",
+        "parent UUID mapping",
+        "MIG GI/CI IDs"
+      ],
+      "parent_gpu_models_observed": [
+        "NVIDIA A100-SXM4-80GB"
+      ],
+      "parent_gpu_uuid": null,
+      "policy": "vllm_faithful",
+      "repo_sha": "703a752762348bd911c9d93f17731fa5244b38f9",
+      "run_status": "COMPLETED",
+      "slurm_job_id": "1222417",
+      "source": "azure_llm_2024",
+      "validation_manifest_sha256": "172efb13b30efea440a18644ef852fa2d0b8cc6fee93ea730981b2ac868bd670",
+      "window_id": "azure_llm_2024_pilot_v2_w10",
+      "workload_manifest_content_sha256": "07ff25709d8bdcfafa095b982bc9d3a2e831a02cb98d010ccfb75c2f47cbf251"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "cgroups": {
+    "/proc/self/cgroup": "22:hugetlb:/\n21:perf_event:/\n20:blkio:/system.slice/slurmd.service\n19:freezer:/slurm/uid_511190/job_1434644/step_batch\n18:cpu,cpuacct:/slurm/uid_511190/job_1434644/step_batch/task_0\n17:net_cls,net_prio:/\n16:rdma:/\n15:misc:/\n14:cpuset:/slurm/uid_511190/job_1434644/step_batch/task_0\n11:memory:/slurm/uid_511190/job_1434644/step_batch/task_0\n5:devices:/slurm/uid_511190/job_1434644/step_batch/task_0\n2:pids:/system.slice/slurmd.service\n1:name=systemd:/system.slice/slurmd.service\n",
+    "/proc/self/mountinfo": "671 669 0:25 / /sys/fs/cgroup ro,nosuid,nodev,noexec master:9 - tmpfs tmpfs ro,size=4096k,nr_inodes=1024,mode=755,inode64\n672 671 0:26 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime master:10 - cgroup cgroup rw,xattr,release_agent=/usr/lib/systemd/systemd-cgroups-agent,name=systemd\n673 671 0:30 / /sys/fs/cgroup/cpuset rw,nosuid,nodev,noexec,relatime master:14 - cgroup cgroup rw,cpuset\n674 671 0:31 / /sys/fs/cgroup/misc rw,nosuid,nodev,noexec,relatime master:15 - cgroup cgroup rw,misc\n675 671 0:32 / /sys/fs/cgroup/pids rw,nosuid,nodev,noexec,relatime master:16 - cgroup cgroup rw,pids\n676 671 0:33 / /sys/fs/cgroup/rdma rw,nosuid,nodev,noexec,relatime master:17 - cgroup cgroup rw,rdma\n677 671 0:34 / /sys/fs/cgroup/net_cls,net_prio rw,nosuid,nodev,noexec,relatime master:18 - cgroup cgroup rw,net_cls,net_prio\n678 671 0:35 / /sys/fs/cgroup/cpu,cpuacct rw,nosuid,nodev,noexec,relatime master:19 - cgroup cgroup rw,cpu,cpuacct\n679 671 0:36 / /sys/fs/cgroup/freezer rw,nosuid,nodev,noexec,relatime master:20 - cgroup cgroup rw,freezer\n680 671 0:37 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime master:21 - cgroup cgroup rw,blkio\n681 671 0:38 / /sys/fs/cgroup/devices rw,nosuid,nodev,noexec,relatime master:22 - cgroup cgroup rw,devices\n682 671 0:39 / /sys/fs/cgroup/perf_event rw,nosuid,nodev,noexec,relatime master:23 - cgroup cgroup rw,perf_event\n683 671 0:40 / /sys/fs/cgroup/memory rw,nosuid,nodev,noexec,relatime master:24 - cgroup cgroup rw,memory\n684 671 0:41 / /sys/fs/cgroup/hugetlb rw,nosuid,nodev,noexec,relatime master:25 - cgroup cgroup rw,hugetlb",
+    "/sys/fs/cgroup/devices/slurm/uid_511190/job_1434644/step_batch/task_0/devices.list": "a *:* rwm\n",
+    "cgroup_v2_note": "Device BPF policy is not inferred from filesystem visibility; no privileged BPF query attempted.",
+    "device_nodes": [
+      {
+        "major": 0,
+        "minor": 0,
+        "mode": "0o40755",
+        "path": "/dev/nvidia-caps"
+      },
+      {
+        "major": 195,
+        "minor": 254,
+        "mode": "0o20666",
+        "path": "/dev/nvidia-modeset"
+      },
+      {
+        "major": 504,
+        "minor": 0,
+        "mode": "0o20666",
+        "path": "/dev/nvidia-uvm"
+      },
+      {
+        "major": 504,
+        "minor": 1,
+        "mode": "0o20666",
+        "path": "/dev/nvidia-uvm-tools"
+      },
+      {
+        "major": 195,
+        "minor": 0,
+        "mode": "0o20666",
+        "path": "/dev/nvidia0"
+      },
+      {
+        "major": 195,
+        "minor": 1,
+        "mode": "0o20666",
+        "path": "/dev/nvidia1"
+      },
+      {
+        "major": 195,
+        "minor": 2,
+        "mode": "0o20666",
+        "path": "/dev/nvidia2"
+      },
+      {
+        "major": 195,
+        "minor": 3,
+        "mode": "0o20666",
+        "path": "/dev/nvidia3"
+      },
+      {
+        "major": 195,
+        "minor": 255,
+        "mode": "0o20666",
+        "path": "/dev/nvidiactl"
+      }
+    ]
+  },
+  "cuda_device_count": 1,
+  "cuda_visible_devices": "0",
+  "devices": [
+    {
+      "cuda_memory_bytes": 85093777408,
+      "cuda_ordinal": 0,
+      "cuda_pci_bus_id": "00000000:01:00.0",
+      "cuda_uuid": "ce14abd6-e9d0-44be-b887-ba3276440e00",
+      "cuda_uuid_bytes": [
+        206,
+        20,
+        171,
+        214,
+        233,
+        208,
+        68,
+        190,
+        184,
+        135,
+        186,
+        50,
+        118,
+        68,
+        14,
+        0
+      ],
+      "cuda_uuid_repr": "<torch._C._CUuuid object at 0x15548face370>",
+      "cuda_uuid_type": "_CUuuid",
+      "mig_device": false,
+      "mig_mode_current": 0,
+      "mig_mode_pending": 0,
+      "model": "NVIDIA A100-SXM4-80GB",
+      "nvml_index": 0,
+      "nvml_lookup_uuid": "ce14abd6-e9d0-44be-b887-ba3276440e00",
+      "nvml_memory_bytes": 85899345920,
+      "nvml_model": "NVIDIA A100-SXM4-80GB",
+      "nvml_pci_bus_id": "00000000:01:00.0",
+      "nvml_uuid": "GPU-ce14abd6-e9d0-44be-b887-ba3276440e00",
+      "parent_memory_bytes": 85899345920,
+      "parent_model": "NVIDIA A100-SXM4-80GB",
+      "parent_uuid": "GPU-ce14abd6-e9d0-44be-b887-ba3276440e00",
+      "torch_properties_repr": "_CudaDeviceProperties(name='NVIDIA A100-SXM4-80GB', major=8, minor=0, total_memory=81151MB, multi_processor_count=108, uuid=ce14abd6-e9d0-44be-b887-ba3276440e00, pci_bus_id=1, pci_device_id=0, pci_domain_id=0, L2_cache_size=40MB)"
+    }
+  ],
+  "environment": {
+    "CUDA_DEVICE_ORDER": null,
+    "CUDA_VISIBLE_DEVICES": "0",
+    "NVIDIA_VISIBLE_DEVICES": null,
+    "SLURMD_NODENAME": "n0003",
+    "SLURM_GPUS_ON_NODE": "1",
+    "SLURM_JOB_GPUS": "0",
+    "SLURM_JOB_ID": "1434644",
+    "SLURM_STEP_GPUS": null,
+    "SLURM_STEP_ID": "-5"
+  },
+  "node": "n0003",
+  "nvidia_smi_L": {
+    "argv": [
+      "nvidia-smi",
+      "-L"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "GPU 0: NVIDIA A100-SXM4-80GB (UUID: GPU-ce14abd6-e9d0-44be-b887-ba3276440e00)\n"
+  },
+  "nvidia_smi_inventory": {
+    "argv": [
+      "nvidia-smi",
+      "--query-gpu=index,uuid,name,memory.total,pci.bus_id,mig.mode.current,mig.mode.pending",
+      "--format=csv"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "index, uuid, name, memory.total [MiB], pci.bus_id, mig.mode.current, mig.mode.pending\n0, GPU-ce14abd6-e9d0-44be-b887-ba3276440e00, NVIDIA A100-SXM4-80GB, 81920 MiB, 00000000:01:00.0, Disabled, Disabled\n"
+  },
+  "scontrol": {
+    "argv": [
+      "/apps/slurm/current/bin/scontrol",
+      "show",
+      "job",
+      "-d",
+      "-o",
+      "1434644"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "JobId=1434644 JobName=lssp-mgpu00-smoke SLUID=sD21M5FNDNH300 UserId=sv96(511190) GroupId=sv96(511190) MCS_label=N/A Priority=10602 Nice=0 Account=ikoutis QOS=standard JobState=RUNNING Reason=None Dependency=(null) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 DerivedExitCode=0:0 RunTime=00:00:03 TimeLimit=00:20:00 TimeMin=N/A SubmitTime=2026-10-21T12:40:51 EligibleTime=2026-10-21T12:40:51 AccrueTime=2026-10-21T12:40:51 StartTime=2026-10-21T12:41:04 EndTime=2026-10-21T13:01:04 Deadline=N/A PreemptEligibleTime=2026-10-21T12:41:04 PreemptTime=None SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-21T12:41:04 Scheduler=Backfill Partition=gpu AllocNode:Sid=login02:1445893 ReqNodeList=(null) ExcNodeList=(null) NodeList=n0003 BatchHost=n0003 NumNodes=1 NumCPUs=16 NumTasks=1 CPUs/Task=16 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=16,mem=32G,node=1,billing=32,gres/gpu=1,gres/gpu:a100=1 AllocTRES=cpu=16,mem=32G,node=1,billing=32,gres/gpu=1,gres/gpu:a100=1 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* JOB_GRES=gpu:a100:1 Nodes=n0003 CPU_IDs=48-63 Mem=32768 GRES=gpu:a100:1(IDX:0) MinCPUsNode=16 MinMemoryNode=32G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null) Command=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/scripts/mgpu00/smoke.sbatch SubmitLine=/apps/slurm/current/bin/sbatch --parsable --account=ikoutis --partition=gpu --qos=standard --gres=gpu:a100:1 --export=ALL,MGPU00_REPO=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00,MGPU00_OUT_PARENT=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry,MGPU00_EXPECTED_SHA=77ddb6fe93fd77ee6bce8883b911696789917b7e --output=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry/slurm-%j.out --error=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry/slurm-%j.err scripts/mgpu00/smoke.sbatch WorkDir=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00 StdErr=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry/slurm-1434644.err StdIn=/dev/null StdOut=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry/slurm-1434644.out TresPerNode=gres/gpu:a100:1 TresPerTask=cpu=16\n"
+  },
+  "selected_nvidia_smi": {
+    "memory_mib": 81920.0,
+    "mig_mode": "Disabled",
+    "name": "NVIDIA A100-SXM4-80GB",
+    "pci_bus_id": "00000000:01:00.0",
+    "uuid": "GPU-ce14abd6-e9d0-44be-b887-ba3276440e00"
+  },
+  "selected_nvidia_smi_command": {
+    "argv": [
+      "nvidia-smi",
+      "-i",
+      "GPU-ce14abd6-e9d0-44be-b887-ba3276440e00",
+      "--query-gpu=name,uuid,memory.total,pci.bus_id,mig.mode.current",
+      "--format=csv,noheader,nounits"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "NVIDIA A100-SXM4-80GB, GPU-ce14abd6-e9d0-44be-b887-ba3276440e00, 81920, 00000000:01:00.0, Disabled\n"
+  },
+  "slurm_job_description": "JobId=1434644 JobName=lssp-mgpu00-smoke SLUID=sD21M5FNDNH300 UserId=sv96(511190) GroupId=sv96(511190) MCS_label=N/A Priority=10602 Nice=0 Account=ikoutis QOS=standard JobState=RUNNING Reason=None Dependency=(null) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 DerivedExitCode=0:0 RunTime=00:00:03 TimeLimit=00:20:00 TimeMin=N/A SubmitTime=2026-10-21T12:40:51 EligibleTime=2026-10-21T12:40:51 AccrueTime=2026-10-21T12:40:51 StartTime=2026-10-21T12:41:04 EndTime=2026-10-21T13:01:04 Deadline=N/A PreemptEligibleTime=2026-10-21T12:41:04 PreemptTime=None SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-21T12:41:04 Scheduler=Backfill Partition=gpu AllocNode:Sid=login02:1445893 ReqNodeList=(null) ExcNodeList=(null) NodeList=n0003 BatchHost=n0003 NumNodes=1 NumCPUs=16 NumTasks=1 CPUs/Task=16 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=16,mem=32G,node=1,billing=32,gres/gpu=1,gres/gpu:a100=1 AllocTRES=cpu=16,mem=32G,node=1,billing=32,gres/gpu=1,gres/gpu:a100=1 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* JOB_GRES=gpu:a100:1 Nodes=n0003 CPU_IDs=48-63 Mem=32768 GRES=gpu:a100:1(IDX:0) MinCPUsNode=16 MinMemoryNode=32G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null) Command=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/scripts/mgpu00/smoke.sbatch SubmitLine=/apps/slurm/current/bin/sbatch --parsable --account=ikoutis --partition=gpu --qos=standard --gres=gpu:a100:1 --export=ALL,MGPU00_REPO=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00,MGPU00_OUT_PARENT=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry,MGPU00_EXPECTED_SHA=77ddb6fe93fd77ee6bce8883b911696789917b7e --output=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry/slurm-%j.out --error=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry/slurm-%j.err scripts/mgpu00/smoke.sbatch WorkDir=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00 StdErr=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry/slurm-1434644.err StdIn=/dev/null StdOut=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/artifacts/mgpu00/probe-retry/slurm-1434644.out TresPerNode=gres/gpu:a100:1 TresPerTask=cpu=16\n",
+  "slurm_job_id": "1434644",
+  "slurmd_nodename": "n0003",
+  "software": {
+    "cuda": "13.0",
+    "driver": "580.159.04",
+    "httpx": "0.28.1",
+    "nccl": [
+      2,
+      29,
+      7
+    ],
+    "nvidia-ml-py": "13.610.43",
+    "torch": "2.13.0+cu130",
+    "torch_git": "cf30153c4c131c8164ee7798e5022d810682e2cb",
+    "transformers": "5.16.1",
+    "vllm": "0.27.1"
+  }
+}

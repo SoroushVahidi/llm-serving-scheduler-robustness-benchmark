@@ -15,10 +15,12 @@ The real-system validation follows a preregistered, window-resampled evaluation 
   \item \textbf{Inferential Unit:} The statistical unit of analysis is the workload window, preserving the methodology established in \S\ref{sec:methodology}.
   \item \textbf{Scale and Execution:} The design evaluates $40$ independent workload windows per source, each containing $200$ requests. Exactly one scientific execution is performed per (policy, source, window) cell, yielding $240$ total scientific tasks ($2$ policies $\times$ $3$ sources $\times$ $40$ windows).
   \item \textbf{Uncertainty Quantification:} Uncertainty is quantified via window-level bootstrap resampling ($\ge 2{,}000$ resamples) over the $40$ independent windows per source.
-  \item \textbf{Operating Regions:} Workloads are calibrated against the real engine's observed saturation point to define load regions independently of the simulator's calibration.
-  \item \textbf{Software and Hardware:} Every execution serves \texttt{Qwen/Qwen2.5-0.5B-Instruct} on \texttt{vllm==0.27.1} (\texttt{torch==2.13.0}), one instance per task on a single NVIDIA A100-SXM4-80GB GPU (Slurm resource label \texttt{gres=gpu:a100\_10g}, unchanged from the validated load-calibration campaign). This label is a Slurm resource tag, not evidence of a fractional or MIG GPU partition; the allocated device is a full 80\,GB A100. Tokenizer revision, model dtype, tensor-parallel degree, and maximum model length were not separately recorded in the frozen execution manifest; rather than invent values, we do not report them here.
-  \item \textbf{Ordering and Provenance:} Each (policy, source, window) cell is executed exactly once; with one execution per cell there is no repeated-measures ordering to alternate. Cells are assigned deterministically to Slurm array indices by a fixed (source, window, policy) sort, with execution concurrency limited to four simultaneous array tasks. Every execution records its exact git commit, hardware environment (per-task GPU query), software versions, and workload/calibration-manifest hash identity to ensure reproducibility.
+  \item \textbf{Operating Regions:} The historical calibration procedure was independent of the simulator calibration, but 77 of 120 searches were already SLO-violating at the lower bound; those terminal outcomes do not establish an observed saturation knee.
+  \item \textbf{Software and Hardware (corrected by the MGPU00 integrity audit):} The historical executions served \texttt{Qwen/Qwen2.5-0.5B-Instruct} with \texttt{vllm==0.27.1} and \texttt{torch==2.13.0}. A subsequent audit of all 240 task-level Slurm records and engine logs verifies one A100 10\,GB MIG allocation per task (\texttt{gres/gpu:a100\_10g=1}); every engine log reports 9.5\,GiB CUDA-visible device capacity. The prologues list parent NVIDIA A100-SXM4-80GB cards, not the allocated MIG device. The previous description of a full 80\,GB allocation was incorrect. Allocated-device UUIDs, parent-to-instance UUID mappings, and exact MIG GI/CI identifiers were not recorded and cannot be recovered from these artifacts. Frozen measurements, manifests, and released versions remain unchanged; the retrospective evidence is recorded in \texttt{docs/mgpu00/HISTORICAL\_AUDIT.md}.
+  \item \textbf{Ordering and Provenance:} Each (policy, source, window) cell is executed exactly once; with one execution per cell there is no repeated-measures ordering to alternate. Cells are assigned deterministically to Slurm array indices by a fixed (source, window, policy) sort, with execution concurrency limited to four simultaneous array tasks. Every execution records its git commit, parent-device inventory, software versions, and workload/calibration-manifest hash identity; the inventory does not establish the allocated-device UUID.
 \end{itemize}
+
+\paragraph{Retrospective integrity qualification.} The MGPU00 audit also identifies a 32-worker client concurrency cap, prompt preparation inside timed dispatch, omitted workload-specific SLAI class metadata, and a fixed 1\,ms scheduling-step clock in the historical adapter. These facts limit the interpretation of the observations as a faithful simulator-to-hardware policy comparison. The numerical results below remain observations of the recorded legacy implementation; they do not validate class-aware SLAI behavior, full-GPU behavior, or multi-GPU portability. New MGPU00 engineering checks use a separately versioned implementation and do not replace or augment the 240 historical scientific measurements.
 
 \subsection{Case Selection}
 \label{sec:real-system-case-selection}
@@ -35,13 +37,13 @@ Evaluating this selection on physical hardware requires mapping the simulated me
 \subsection{Results}
 \label{sec:real-system-result}
 
-The physical-hardware load-calibration prerequisite for these validation cases has been executed (120/120 terminal outcomes: 43 converged, 77 lower-bound-already-violating), establishing the necessary injection rates for the deployment environment. All $240$ scientific evaluation tasks ($2$ policies $\times$ $3$ sources $\times$ $40$ windows) subsequently completed on the software/hardware environment above (\S\ref{sec:real-system-design}), with zero failed, timed-out, or partial cells.
+The physical-hardware load-calibration prerequisite for these validation cases has been executed (120/120 terminal outcomes: 43 converged, 77 lower-bound-already-violating), producing the injection rates used by the historical runner without establishing a bracketed saturation point for every window. All $240$ scientific evaluation tasks ($2$ policies $\times$ $3$ sources $\times$ $40$ windows) subsequently completed on the software/hardware environment above (\S\ref{sec:real-system-design}), with zero failed, timed-out, or partial cells.
 
 Table~\ref{tab:rq6-results} reports the \texttt{slai\_faithful}-minus-\texttt{vllm\_faithful} arrival-normalized-weighted-goodput (ANWG) effect for each source, using the same window-level paired bootstrap as \S\ref{sec:uncertainty} ($2{,}000$ resamples over the $40$ independent windows/source, 95\% CI). All three effects are statistically supported (CI excludes zero) and favor \texttt{vllm\_faithful}.
 
 \begin{table}[t]
 \centering
-\caption{Real-vLLM RQ6 outcomes against the simulator-selected cases (\texttt{HIGH\_PRESSURE}, 40 paired windows/source, 95\% window-level bootstrap CI, $2{,}000$ resamples). Effect is \texttt{slai\_faithful}$-$\texttt{vllm\_faithful} ANWG.}
+\caption{Historical legacy-implementation RQ6 outcomes, subject to the MGPU00 integrity qualification, against the simulator-selected cases (\texttt{HIGH\_PRESSURE}, 40 paired windows/source, 95\% window-level bootstrap CI, $2{,}000$ resamples). Effect is \texttt{slai\_faithful}$-$\texttt{vllm\_faithful} ANWG.}
 \label{tab:rq6-results}
 \small
 \setlength{\tabcolsep}{4.5pt}
@@ -82,10 +84,9 @@ five-class taxonomy is defined for a pairwise comparison across two
 conditions of the same source and is not applied here to a single
 physical-source row.
 
-This selected-case result exposes a simulator-fidelity boundary rather
-than establishing a general finding: the Azure/BurstGPT reversal that the
-simulator identified as this study's largest-effect-size case did not
-transfer to physical execution, while the paired stable-control comparison
-retained its qualitative ordering (\S\ref{sec:threats} scopes what this
-design does and does not establish; \S\ref{sec:discussion} interprets the
-two outcomes together).
+These selected-case values describe the legacy implementations. Given the
+MGPU00 policy and replay findings, the mismatch cannot be attributed to
+simulator fidelity alone, and the retained control ordering does not validate
+faithful policy transfer. New engineering validation and scientific
+measurements must remain separate from this historical record
+(\S\ref{sec:threats}; \S\ref{sec:discussion}).

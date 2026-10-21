@@ -1,0 +1,42 @@
+[
+  {
+    "path": "artifacts/mgpu02/local-validation/checks.txt",
+    "bytes": 200,
+    "sha256": "0cf2d18c23d9d9738c78a04dc1aaa355b34874e40b5d9bdc00170045761488cb"
+  },
+  {
+    "path": "artifacts/mgpu02/local-validation/prompt-equivalence.json",
+    "bytes": 223,
+    "sha256": "f2fed3814bbf5268ae86e3b15c79b5c653d63256857ec4b77185b91845e5a6e3"
+  },
+  {
+    "path": "artifacts/mgpu02/local-validation/pytest.log",
+    "bytes": 726,
+    "sha256": "5a40394fa9d78bb3d500bd7f09b6616ac236d9b46d427120c0ba2fbe0268cdda"
+  },
+  {
+    "path": "artifacts/mgpu02/local-validation/pytest.xml",
+    "bytes": 19460,
+    "sha256": "e66d7c9a8ef147ded7d8144c83a70090190a6c8181890bc7f7655cf70057bda3"
+  },
+  {
+    "path": "artifacts/mgpu02/source-inspection/remote-tokenizer.json",
+    "bytes": 619,
+    "sha256": "d1166635a54ea8ed9fd6399145b05354a603847d52229bfc4b1fed4e72a00445"
+  },
+  {
+    "path": "artifacts/mgpu02/source-inspection/remote.json",
+    "bytes": 876,
+    "sha256": "4b1c520c63c916c716e24890cdbb771ec244bd3da6d91e9d8888d6da5b85bfce"
+  },
+  {
+    "path": "artifacts/mgpu02/source-inspection/slai-reference.json",
+    "bytes": 224,
+    "sha256": "f467a53f075b78a7d04f1a243f016b1aac064d437464a4503dcdf895a05ec6dd"
+  },
+  {
+    "path": "artifacts/mgpu02/source-inspection/upstream.json",
+    "bytes": 2323,
+    "sha256": "51dab22780be8149a192363ce0b52a73a9c6bb53bfbcf646cbe8b44df19f9d42"
+  }
+]
