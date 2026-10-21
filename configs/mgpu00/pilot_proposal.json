@@ -1,0 +1,132 @@
+{
+  "blockers": [
+    "MGPU00 physical smoke pending",
+    "TP2 mechanism validation not performed; adapter rejects TP2",
+    "general partial-prefill and native KV-pressure equivalence not established",
+    "model size and model revision for scientific pilot not frozen",
+    "full-device calibration required"
+  ],
+  "calibration": "NOT_PERFORMED; old MIG rates are forbidden",
+  "deployments": [
+    {
+      "dp": 1,
+      "gpu": "full A100",
+      "gpu_count": 1,
+      "pp": 1,
+      "tp": 1
+    },
+    {
+      "dp": 1,
+      "gpu": "full A100",
+      "gpu_count": 2,
+      "pp": 1,
+      "tp": 2
+    }
+  ],
+  "expected_physical_executions": 144,
+  "gpu_hours_estimate": null,
+  "launch_authorization": false,
+  "optional_dp2_additional_executions": 72,
+  "policies": [
+    "native_fcfs",
+    "slai_mgpu00_checked"
+  ],
+  "region": {
+    "factor": 1.5,
+    "name": "HIGH_PRESSURE",
+    "reference": "new full-device native baseline calibration, independently bracketed per deployment/window",
+    "slo_budget": "fixed per request, not compressed along with interarrival times"
+  },
+  "repetitions": [
+    0,
+    1,
+    2
+  ],
+  "runtime_estimate": null,
+  "selection_rule": "lowest SHA256(LSSP-MGPU01-prespec-v1: + window_id), four per source; no outcome-based selection",
+  "sources": [
+    {
+      "manifest_file_sha256": "2845026aa5322f23ba79e605dc134d9f19c88ab5eade3c0ab24f99f75e267574",
+      "manifest_path": "rq6_workload_azure_llm_2024_20260903.json",
+      "source": "azure_llm_2024",
+      "windows": [
+        {
+          "content_sha256": "748decb3e7825f79023902661bcf08fb0cf554e5ad137050f30692136c7e42b0",
+          "request_count": 200,
+          "window_id": "azure_llm_2024_pilot_v2_w21"
+        },
+        {
+          "content_sha256": "4abf429fad2bf8a1a9af57ef663a6bb78a4c39d2ebdc7f7fe841d5b366fb7f5a",
+          "request_count": 200,
+          "window_id": "azure_llm_2024_pilot_v2_w20"
+        },
+        {
+          "content_sha256": "6e2ef89eb600d5d15d3aba7c46123fecfe78ee6385b3c14c1bde6042cd1801e9",
+          "request_count": 200,
+          "window_id": "azure_llm_2024_pilot_v2_w37"
+        },
+        {
+          "content_sha256": "4e5041e390eb9bdfd92462cc8929856d61f24e2708df7d39d41ec5e8d467e06d",
+          "request_count": 200,
+          "window_id": "azure_llm_2024_pilot_v2_w17"
+        }
+      ]
+    },
+    {
+      "manifest_file_sha256": "46f85adccfe57c513e72e0a0a9d054e7b758fceb9483efe613d7c98a57094069",
+      "manifest_path": "rq6_workload_bailian_qwen_20260903.json",
+      "source": "bailian_qwen",
+      "windows": [
+        {
+          "content_sha256": "2647bf1b83ef02deeaad3e2a74275b69a09ad93b4b3bb9f05f2406c03fa9271a",
+          "request_count": 200,
+          "window_id": "bailian_qwen_stage0_w02"
+        },
+        {
+          "content_sha256": "ee0911f9986996e009d5dbdac4fa3c22f8dd54ca415160cf7d38881525456603",
+          "request_count": 200,
+          "window_id": "bailian_qwen_pilot_v2_w10"
+        },
+        {
+          "content_sha256": "3d0f92674b1ea611d863fb9d13f9c1efbeb7e902e5b4ef6049b443b3c9b585e1",
+          "request_count": 200,
+          "window_id": "bailian_qwen_stage0_w05"
+        },
+        {
+          "content_sha256": "0b2712b4e61b3915709d17df7fcd415ca05bd06fc420de0bdeea389fbec4465f",
+          "request_count": 200,
+          "window_id": "bailian_qwen_stage0_w03"
+        }
+      ]
+    },
+    {
+      "manifest_file_sha256": "74684f73b6508f3c3e5ce5d54e9043379d07e423c108aa08b43e6f4258f482b1",
+      "manifest_path": "rq6_workload_burstgpt_20260903.json",
+      "source": "burstgpt",
+      "windows": [
+        {
+          "content_sha256": "ea6bd71e4e0394c994245100e3714d38e12f6f737fae5671eba5507abb2d19b6",
+          "request_count": 200,
+          "window_id": "burstgpt_pilot_v2_w37"
+        },
+        {
+          "content_sha256": "6627719e90e567edfa796fd001961c15b14e187455c079f82a0019ded482ecd7",
+          "request_count": 200,
+          "window_id": "burstgpt_pilot_v2_w36"
+        },
+        {
+          "content_sha256": "6422ae0b77b1c4b4680fc98509167b9e205c76d0a797877f764437de8316406b",
+          "request_count": 200,
+          "window_id": "burstgpt_pilot_v2_w32"
+        },
+        {
+          "content_sha256": "1c59c3deb58dd64dd682508251e9a3c9d101e16f0f5c1c87ca2a78d7a4ef6ab4",
+          "request_count": 200,
+          "window_id": "burstgpt_pilot_v2_w21"
+        }
+      ]
+    }
+  ],
+  "status": "PREPARED_NOT_EXECUTABLE_NO_GO",
+  "version": "MGPU01-proposal-v1"
+}

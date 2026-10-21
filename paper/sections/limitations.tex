@@ -127,8 +127,8 @@ every cell in \S\ref{sec:results}. Concretely, the physical evaluation
 covers only $2$ of the panel's $13$ policies (\texttt{slai\_faithful} and
 \texttt{vllm\_faithful}), $3$ of the workload sources, and a single
 operating region (\texttt{HIGH\_PRESSURE}), on one fixed
-hardware/software environment (vLLM~0.27.1, a single A100 GPU
-allocation). Uncertainty is quantified via window-level bootstrap
+hardware/software environment (vLLM~0.27.1, an A100 10\,GB MIG
+allocation with 9.5\,GiB CUDA-visible capacity). Uncertainty is quantified via window-level bootstrap
 resampling over $40$ independent workload windows per source, using one
 physical execution per (policy, source, window) cell -- the workload
 window, not repeated identical-hardware execution, is the unit over which
@@ -142,3 +142,5 @@ cell's outcome would vary if that same cell were re-run on the same
 hardware. This result should not be read as a comprehensive validation of
 simulator fidelity, of every scheduler in the panel, or of every
 workload/region combination in \S\ref{sec:results}.
+
+\paragraph{Historical physical-measurement integrity.} The retrospective MGPU00 audit classifies all 240 RQ6 allocations as MIG and identifies omitted SLAI class transport, client-side injection bottlenecks, and a synthetic scheduling clock. Thus the recorded outcomes establish behavior of the historical implementations, not full-fidelity SLAI or full-GPU ranking portability. Unknown historical UUIDs and instance identifiers remain unknown; no measurements or frozen provenance have been reconstructed or overwritten. Corrected engineering tests must be reported separately from the historical scientific results.
