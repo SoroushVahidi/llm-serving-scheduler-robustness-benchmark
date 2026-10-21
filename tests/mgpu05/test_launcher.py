@@ -41,6 +41,10 @@ def test_startup_failure_cleans_and_seals(tmp_path,monkeypatch,cleanup_error):
     from robustbench.mgpu05.design import design
     from robustbench.mgpu05.evidence import verify_seal
     mod=launcher(); calls=[]
+    from robustbench.mgpu06 import runtime
+    monkeypatch.setattr(runtime,'PROJECT',tmp_path)
+    monkeypatch.setattr(runtime,'IPC_LIMIT',1000)
+    monkeypatch.setenv('MGPU06_RUNTIME_ROOT',str(tmp_path/'runtime'))
     class Diagnostics:
         def __init__(self,directory,prefix): self.directory=directory
         def start(self,argv,env):

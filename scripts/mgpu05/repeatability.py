@@ -20,6 +20,7 @@ from robustbench.mgpu05.design import MODEL, REVISION, cohort, payload, verify_d
 from robustbench.mgpu05.evidence import Journal, digest, seal
 from robustbench.mgpu05.offline import analyze
 from robustbench.mgpu05.replay import replay
+from robustbench.mgpu06.runtime import prepare, verify_environment
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -45,23 +46,20 @@ def command(executable, model, port, policy):
 def run_policy(args, block, policy, assets, hardware):
     directory = args.out/policy
     directory.mkdir()
-    cache = args.out/('cache-'+policy)  # excluded from each execution's evidence seal
-    cache.mkdir()
+    env, runtime = prepare(os.environ['MGPU06_RUNTIME_ROOT'], policy, ROOT)
     with socket.socket() as sock:
         sock.bind(('127.0.0.1',0))
         port = sock.getsockname()[1]
     argv = command(args.vllm_executable,args.model_path,port,policy)
-    env = dict(os.environ, LSSP_MGPU05_SYNTHETIC='1', LSSP_MGPU05_TIMING_PROVENANCE='physical_candidate',
+    env.update(LSSP_MGPU05_SYNTHETIC='1', LSSP_MGPU05_TIMING_PROVENANCE='physical_candidate',
                LSSP_MGPU00_DECODE_LIMIT='2', VLLM_USE_V2_MODEL_RUNNER='1', VLLM_USE_FLASHINFER_SAMPLER='0',
-               HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', TOKENIZERS_PARALLELISM='false',
-               VLLM_CACHE_ROOT=str(cache/'vllm'), TORCHINDUCTOR_CACHE_DIR=str(cache/'torch'),
-               CUDA_CACHE_PATH=str(cache/'cuda'))
+               HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', TOKENIZERS_PARALLELISM='false')
     requests = cohort(block['window'],block['region'])
     warm = [payload('balanced',0,'spread',warmup=True)]
     manifest = dict(schema='mgpu05-execution-v1', stamp='SYNTHETIC_ENGINEERING_ONLY',
                     git_sha=args.expected_sha, plan_sha256=file_hash(args.plan), block=block,
                     policy=policy, payloads=requests, payloads_sha256=digest(requests), warmup=warm,
-                    model_path=str(args.model_path), assets=assets, hardware=hardware,
+                    model_path=str(args.model_path), assets=assets, hardware=hardware, runtime=runtime,
                     command=argv, readiness_timeout_s=1200, utc=datetime.now(timezone.utc).isoformat(),
                     environment={k:env[k] for k in ('LSSP_MGPU05_SYNTHETIC','LSSP_MGPU05_TIMING_PROVENANCE',
                        'LSSP_MGPU00_DECODE_LIMIT','VLLM_USE_V2_MODEL_RUNNER','VLLM_USE_FLASHINFER_SAMPLER',
@@ -130,11 +128,12 @@ def main():
     args = p.parse_args()
     if git('rev-parse','HEAD')!=args.expected_sha or git('status','--porcelain','--untracked-files=no'):
         raise ValueError('Exact clean tested checkout required')
+    runtime = verify_environment()
     plan = verify_design(json.loads(args.plan.read_text()))
     tokenizer, assets = verify_assets(ROOT,args.model_path)
     block = plan['blocks'][args.block]
     if args.check_only:
-        print(json.dumps(dict(status='CPU_PREFLIGHT_PASS',block=block,assets=assets),indent=2))
+        print(json.dumps(dict(status='CPU_PREFLIGHT_PASS',block=block,assets=assets,runtime=runtime),indent=2))
         return
     if not os.environ.get('SLURM_JOB_ID') or os.environ.get('SLURM_ARRAY_JOB_ID'):
         raise ValueError('Single non-array Slurm allocation required')
@@ -144,7 +143,7 @@ def main():
         raise ValueError('Server and preflight must use the same Python environment')
     args.out.mkdir(parents=True)
     write_new_json(args.out/'block.json',dict(plan=plan,block=block,assets=assets,
-                   git_sha=args.expected_sha,slurm_job_id=os.environ['SLURM_JOB_ID']))
+                   git_sha=args.expected_sha,slurm_job_id=os.environ['SLURM_JOB_ID'],runtime=runtime))
     def terminated(signum, frame):
         raise SystemExit('Terminated by signal '+str(signum))
     signal.signal(signal.SIGTERM,terminated)

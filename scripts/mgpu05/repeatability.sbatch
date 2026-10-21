@@ -12,12 +12,14 @@
 #SBATCH --no-requeue
 # PREPARED ONLY: one reviewed pair, never an array or retry loop.
 set -euo pipefail
+umask 077
 : "${MGPU05_REPO:?Dedicated clean reviewed checkout}"
 : "${MGPU05_OUT_PARENT:?New durable engineering parent}"
 : "${MGPU05_EXPECTED_SHA:?Exact reviewed tested commit}"
 : "${MGPU05_BLOCK:?One preselected block from design.json, 0..11}"
 : "${MGPU05_VENV:?Pinned Wulver vLLM 0.27.1 environment}"
 : "${MGPU05_MODEL:?Pinned Qwen snapshot path}"
+: "${MGPU06_RUNTIME_PARENT:?Private short project path outside checkout, e.g. /project/ikoutis/sv96/r}"
 test -z "${SLURM_ARRAY_JOB_ID:-}"
 cd "$MGPU05_REPO"
 test "$(git rev-parse HEAD)" = "$MGPU05_EXPECTED_SHA"
@@ -31,7 +33,9 @@ trap 'rc=$?; printf "%s batch_exit=%s\n" "$(date -u +%FT%TZ)" "$rc" >> "$MGPU05_
 printf '%s batch_started\n' "$(date -u +%FT%TZ)" >> "$MGPU05_OUT_PARENT/job-$SLURM_JOB_ID.bootstrap.log"
 # 2*(1200 readiness + 60 warmup + 123 replay/drain + 45 cleanup) < 2940.
 # All-stage bound also covers asset verification and independent analysis.
-timeout --signal=TERM --kill-after=45s 2940s "$MGPU05_VENV/bin/python" -u scripts/mgpu05/repeatability.py \
+timeout --signal=TERM --kill-after=45s 2940s "$MGPU05_VENV/bin/python" -B -u scripts/mgpu06/runtime.py \
+  --root "$MGPU06_RUNTIME_PARENT/m6-$SLURM_JOB_ID" --repo "$MGPU05_REPO" -- \
+  "$MGPU05_VENV/bin/python" -B -u scripts/mgpu05/repeatability.py \
   --expected-sha "$MGPU05_EXPECTED_SHA" --block "$MGPU05_BLOCK" \
   --model-path "$MGPU05_MODEL" --vllm-executable "$MGPU05_VENV/bin/vllm" \
   --out "$MGPU05_OUT_PARENT/job-$SLURM_JOB_ID"
