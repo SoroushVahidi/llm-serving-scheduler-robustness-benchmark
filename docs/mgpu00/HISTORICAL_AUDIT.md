@@ -53,7 +53,9 @@ device identity. The working manuscript now explicitly corrects these claims.
 Not established: allocated UUIDs, exact MIG profile, repeat-run variability,
 full-GPU equivalence, TP/PP/DP behavior, and faithful class-aware SLAI execution.
 The corrected source is in `paper/sections/real_system.tex` and
-`paper/sections/limitations.tex`. The published PDF, release tags, dataset
+`paper/sections/limitations.tex`, with matching qualifications in the abstract,
+introduction, discussion and conclusion. In particular, the observed mismatch
+cannot be attributed to simulator fidelity alone. The published PDF, release tags, dataset
 versions, historical scripts/manifests and numerical results remain unchanged.
 No journal or preprint host has been contacted.
 

@@ -47,7 +47,8 @@ single-GPU experiment. No DP implementation is silently assumed ready.
 
 ## Runtime and GPU-hours
 
-No measured full-GPU smoke result is available at the time of this proposal.
+Smoke job 1434545 failed its device-identity gate before server startup or replay,
+using 0.043333 allocated GPU-hours. No serving-time result is available.
 Therefore no numeric pilot GPU-hour estimate is justified yet. The historical
 9.5 GiB, 0.5B-model observations are not full-device or TP2 runtime measurements.
 

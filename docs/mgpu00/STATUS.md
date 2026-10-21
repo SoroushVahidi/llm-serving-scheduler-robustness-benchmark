@@ -21,10 +21,13 @@ Base: `e73a3b711b65f9c181ff9a2674007efca22f1b65`.
 
 ## Physical validation
 
-No physical validation result exists at this commit. The prepared submission
-requests one full A100 for at most 45 minutes (0.75 allocated GPU-hour), with
-automatic requeue disabled. No pilot, DP or multi-node job is authorized here.
-The submitted code commit and any Slurm job ID must be recorded separately.
+Job **1434545** ran code commit `3aaaa3012193091519cbdf5e5e27ea87a9f4b25e`
+and failed the initial independent full-A100 verification gate before any server
+or replay started. Slurm allocated one `gpu:a100` on `n0003` for 156 seconds:
+**0.043333 allocated GPU-hours**. No retry was attempted. Detailed command,
+logs, limitations and failure are in [`SMOKE_JOB_1434545.md`](SMOKE_JOB_1434545.md).
+The compound probe error did not preserve the raw CUDA/NVML record, so the exact
+failed identity field remains unknown. No pilot, DP or multi-node job was run.
 
 ## Pilot decision
 

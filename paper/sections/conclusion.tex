@@ -38,11 +38,11 @@ SLO definition while not persisting under another
 (\S\ref{sec:results-slo}). We report only a pilot-scale, engineering
 validation of the synthetic-to-real transfer pipeline for RQ3, not a
 transfer conclusion (\S\ref{sec:results-rq3-pilot}). A selected physical
-vLLM/GPU validation (RQ6) of this benchmark's largest identified reversal
-did not reproduce that reversal, while a paired stable-control comparison
-retained the same qualitative ordering on real hardware -- a selected-case
-simulator-fidelity limitation, not a general estimate of hardware
-reversal prevalence (\S\ref{sec:real-system}).
+study (RQ6) did not reproduce its simulator-selected reversal, but the
+MGPU00 audit identifies MIG allocation and policy/replay defects. Its
+historical outcomes therefore do not establish faithful hardware ranking
+transfer or isolate a simulator-fidelity limitation
+(\S\ref{sec:real-system}).
 
 Ranking portability, in this benchmark, is therefore neither universal nor
 uniformly fragile: it is real, but conditional on the workload source,
@@ -52,5 +52,5 @@ those conditions explicitly rather than being read as general. LSSP is
 released as a public, independently reproducible artifact
 (\S\ref{sec:artifact}) spanning all six research questions at their
 differing levels of completeness -- from the frozen primary analysis
-through the pilot-scale RQ3 result and the selected RQ6 physical
-validation -- so that each can be independently verified and extended.
+through the pilot-scale RQ3 result and the qualified historical RQ6
+physical observations -- so that each can be independently verified and extended.
