@@ -13,14 +13,20 @@ record = verify_environment()
 pins = verify_sources(Path(__file__).resolve().parents[2])
 if os.environ.get('CUDA_VISIBLE_DEVICES') != '':
     raise ValueError('CPU probe requires explicitly hidden GPUs')
+print('CPU_PROBE_STAGE import torch',flush=True)
 import torch
+print('CPU_PROBE_STAGE import triton',flush=True)
 import triton
+print('CPU_PROBE_STAGE import vllm.envs',flush=True)
 import vllm.envs as venv
+print('CPU_PROBE_STAGE import HF/transformers',flush=True)
 from huggingface_hub import constants as hf
 from transformers.utils import hub
+print('CPU_PROBE_STAGE import Torch cache helpers',flush=True)
 from torch._inductor.runtime.cache_dir_utils import cache_dir
 from triton.runtime.cache import get_cache_manager
 
+print('CPU_PROBE_STAGE effective path and filesystem checks',flush=True)
 phase = Path(record['phase_root'])
 actual = {'torch_hub':torch.hub.get_dir(), 'torch_inductor':cache_dir(),
           'tempfile':tempfile.gettempdir(),
