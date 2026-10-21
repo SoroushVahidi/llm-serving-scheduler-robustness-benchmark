@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/entrypoints/openai/completion/protocol.py",
+    "installed_sha256": "b9d3defe3d4193b1d252d3a9532718865ef277cb46a14281aba553f7929e50a3",
+    "upstream_sha256": "b9d3defe3d4193b1d252d3a9532718865ef277cb46a14281aba553f7929e50a3"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/entrypoints/openai/completion/serving.py",
+    "installed_sha256": "2590281b465d8a9e31252bd92407661f3af9adeddf7bd52c80395cc9fbb9e19c",
+    "upstream_sha256": "2590281b465d8a9e31252bd92407661f3af9adeddf7bd52c80395cc9fbb9e19c"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/engine/input_processor.py",
+    "installed_sha256": "5de9296e6f4c00473a92df8df6e4e7e5f83fa37852c7540c4447c59a8b813111",
+    "upstream_sha256": "5de9296e6f4c00473a92df8df6e4e7e5f83fa37852c7540c4447c59a8b813111"
+  }
+]

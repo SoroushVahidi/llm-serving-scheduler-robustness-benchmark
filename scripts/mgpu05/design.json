@@ -1,0 +1,188 @@
+{
+  "schema": "mgpu05-design-v1",
+  "status": "DRAFT_AUTHOR_REVIEW_REQUIRED",
+  "seed": 20261021,
+  "synthetic_only": true,
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "policies": [
+    "native_fcfs",
+    "slai_mgpu00_checked"
+  ],
+  "maximum_policy_executions": 24,
+  "maximum_allocations": 12,
+  "allocation_minutes": 50,
+  "maximum_gpu_hours": 10.0,
+  "readiness_timeout_s": 1200,
+  "request_timeout_s": 120,
+  "warmup_timeout_s": 60,
+  "independent_server_per_execution": true,
+  "contract": {
+    "prompt_cap": 256,
+    "max_active": 16,
+    "token_budget": 4096,
+    "max_model_len": 512,
+    "chunked_prefill": true,
+    "tp": 1,
+    "dp": 1,
+    "pp": 1
+  },
+  "blocks": [
+    {
+      "block": 0,
+      "window": "boundary",
+      "region": "burst",
+      "repetition": 2,
+      "policy_order": [
+        "native_fcfs",
+        "slai_mgpu00_checked"
+      ],
+      "payloads_sha256": "c3d16b156d61e918c1b89725c8ca8855489994b9f64f4164df558fa0a5bd1ca5",
+      "requests": 16,
+      "arrival_duration_s": 0.8
+    },
+    {
+      "block": 1,
+      "window": "balanced",
+      "region": "burst",
+      "repetition": 2,
+      "policy_order": [
+        "slai_mgpu00_checked",
+        "native_fcfs"
+      ],
+      "payloads_sha256": "e812a2d43c70e7a62f187b640e3f9b7f046dc0f38ab71e4e736223c6a4c57793",
+      "requests": 12,
+      "arrival_duration_s": 0.6000000000000001
+    },
+    {
+      "block": 2,
+      "window": "balanced",
+      "region": "burst",
+      "repetition": 1,
+      "policy_order": [
+        "native_fcfs",
+        "slai_mgpu00_checked"
+      ],
+      "payloads_sha256": "e812a2d43c70e7a62f187b640e3f9b7f046dc0f38ab71e4e736223c6a4c57793",
+      "requests": 12,
+      "arrival_duration_s": 0.6000000000000001
+    },
+    {
+      "block": 3,
+      "window": "boundary",
+      "region": "spread",
+      "repetition": 1,
+      "policy_order": [
+        "native_fcfs",
+        "slai_mgpu00_checked"
+      ],
+      "payloads_sha256": "3038837ab8276e73660de5cc0d40a1be5e629108dd52ca0f561614dca8a3f761",
+      "requests": 16,
+      "arrival_duration_s": 3.2
+    },
+    {
+      "block": 4,
+      "window": "balanced",
+      "region": "spread",
+      "repetition": 1,
+      "policy_order": [
+        "slai_mgpu00_checked",
+        "native_fcfs"
+      ],
+      "payloads_sha256": "758f7a10bcac0555f3ba72e4bba376bd46e606b014ec29136c7a31550eb2a955",
+      "requests": 12,
+      "arrival_duration_s": 2.4000000000000004
+    },
+    {
+      "block": 5,
+      "window": "balanced",
+      "region": "spread",
+      "repetition": 2,
+      "policy_order": [
+        "native_fcfs",
+        "slai_mgpu00_checked"
+      ],
+      "payloads_sha256": "758f7a10bcac0555f3ba72e4bba376bd46e606b014ec29136c7a31550eb2a955",
+      "requests": 12,
+      "arrival_duration_s": 2.4000000000000004
+    },
+    {
+      "block": 6,
+      "window": "balanced",
+      "region": "burst",
+      "repetition": 0,
+      "policy_order": [
+        "slai_mgpu00_checked",
+        "native_fcfs"
+      ],
+      "payloads_sha256": "e812a2d43c70e7a62f187b640e3f9b7f046dc0f38ab71e4e736223c6a4c57793",
+      "requests": 12,
+      "arrival_duration_s": 0.6000000000000001
+    },
+    {
+      "block": 7,
+      "window": "boundary",
+      "region": "burst",
+      "repetition": 1,
+      "policy_order": [
+        "native_fcfs",
+        "slai_mgpu00_checked"
+      ],
+      "payloads_sha256": "c3d16b156d61e918c1b89725c8ca8855489994b9f64f4164df558fa0a5bd1ca5",
+      "requests": 16,
+      "arrival_duration_s": 0.8
+    },
+    {
+      "block": 8,
+      "window": "balanced",
+      "region": "spread",
+      "repetition": 0,
+      "policy_order": [
+        "slai_mgpu00_checked",
+        "native_fcfs"
+      ],
+      "payloads_sha256": "758f7a10bcac0555f3ba72e4bba376bd46e606b014ec29136c7a31550eb2a955",
+      "requests": 12,
+      "arrival_duration_s": 2.4000000000000004
+    },
+    {
+      "block": 9,
+      "window": "boundary",
+      "region": "burst",
+      "repetition": 0,
+      "policy_order": [
+        "slai_mgpu00_checked",
+        "native_fcfs"
+      ],
+      "payloads_sha256": "c3d16b156d61e918c1b89725c8ca8855489994b9f64f4164df558fa0a5bd1ca5",
+      "requests": 16,
+      "arrival_duration_s": 0.8
+    },
+    {
+      "block": 10,
+      "window": "boundary",
+      "region": "spread",
+      "repetition": 0,
+      "policy_order": [
+        "slai_mgpu00_checked",
+        "native_fcfs"
+      ],
+      "payloads_sha256": "3038837ab8276e73660de5cc0d40a1be5e629108dd52ca0f561614dca8a3f761",
+      "requests": 16,
+      "arrival_duration_s": 3.2
+    },
+    {
+      "block": 11,
+      "window": "boundary",
+      "region": "spread",
+      "repetition": 2,
+      "policy_order": [
+        "native_fcfs",
+        "slai_mgpu00_checked"
+      ],
+      "payloads_sha256": "3038837ab8276e73660de5cc0d40a1be5e629108dd52ca0f561614dca8a3f761",
+      "requests": 16,
+      "arrival_duration_s": 3.2
+    }
+  ]
+}
