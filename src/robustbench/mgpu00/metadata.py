@@ -16,11 +16,12 @@ class RequestMetadata:
     weight: float
 
     def __post_init__(self):
-        if not self.request_id or type(self.ordinal) is not int or self.ordinal < 0:
+        if not isinstance(self.request_id, str) or not self.request_id or type(self.ordinal) is not int or self.ordinal < 0:
             raise ValueError("Explicit request identity and nonnegative integer ordinal required")
-        if self.class_id not in TBT:
+        if not isinstance(self.class_id, str) or self.class_id not in TBT:
             raise ValueError(f"Unknown/missing SLAI class: {self.class_id!r}")
-        if not all(math.isfinite(x) for x in (self.arrival_s, self.deadline_s, self.weight)):
+        if not all(type(x) in (int, float) and math.isfinite(x)
+                   for x in (self.arrival_s, self.deadline_s, self.weight)):
             raise ValueError("Nonfinite workload metadata")
         if self.arrival_s < 0 or self.deadline_s < self.arrival_s or self.weight <= 0:
             raise ValueError("Invalid arrival, deadline or weight")

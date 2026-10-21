@@ -1,0 +1,1 @@
+{"status": "PASS", "comparison": "actual pinned tokenizer vs frozen token IDs", "fixture_sha256": "b4cdc0f246a690d170bd37372e3b77cb8908a5a73ef773239e1ae36c732cfead", "body_ids": [63122, 16614, 12507], "prompt_tokens": 128}

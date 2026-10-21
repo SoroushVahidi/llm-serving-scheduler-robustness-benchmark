@@ -1,0 +1,4 @@
+PASS: focused Python AST syntax (13 files)
+PASS: bash -n scripts/mgpu00/smoke.sbatch scripts/mgpu02/smoke.sbatch
+PASS: git diff --check
+No GitHub Actions, GPU inference or Slurm submission performed.

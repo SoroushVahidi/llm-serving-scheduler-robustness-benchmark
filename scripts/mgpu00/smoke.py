@@ -38,6 +38,23 @@ SPEC = {"stamp": "ENGINEERING_ONLY_NOT_RANKING_EVIDENCE", "model": MODEL, "revis
         "prefix_caching": False, "tp": 1, "pp": 1, "dp": 1}
 
 
+SCHEDULERS = {
+    'native_fcfs': 'robustbench.mgpu00.vllm_scheduler.InstrumentedNativeScheduler',
+    'slai_mgpu00_checked': 'robustbench.mgpu00.vllm_scheduler.LSSPSlaiVLLMScheduler',
+}
+EXTRA_SERVER_ARGS = []
+
+
+def load_tokenizer(model_path, progress):
+    progress.event('tokenizer_import_started')
+    from transformers import AutoTokenizer
+    progress.event('tokenizer_import_finished')
+    progress.event('tokenizer_load_started', model_path=str(model_path))
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+    progress.event('tokenizer_load_finished')
+    return tokenizer
+
+
 def read_events(path):
     events = []
     for line in path.read_text(errors="replace").splitlines():
@@ -102,16 +119,16 @@ def run_round(*, directory, model_path, executable, provenance, git_sha, policy,
     with socket.socket() as sock:
         sock.bind(("127.0.0.1", 0))
         port = sock.getsockname()[1]
-    scheduler = "LSSPSlaiVLLMScheduler" if policy == "slai_mgpu00_checked" else "InstrumentedNativeScheduler"
     command = [executable, "serve", str(model_path), "--served-model-name", MODEL,
                "--revision", REVISION, "--tokenizer-revision", REVISION,
                "--host", "127.0.0.1", "--port", str(port), "--dtype", "bfloat16",
                "--max-model-len", "512", "--max-num-batched-tokens", "4096", "--max-num-seqs", "16",
                "--gpu-memory-utilization", "0.2", "--enforce-eager", "--no-async-scheduling",
-               "--no-enable-chunked-prefill", "--no-enable-prefix-caching",
+               "--enable-chunked-prefill" if SPEC["chunked_prefill"] else "--no-enable-chunked-prefill",
+               "--no-enable-prefix-caching",
                "--tensor-parallel-size", "1", "--pipeline-parallel-size", "1", "--data-parallel-size", "1",
                "--scheduling-policy", "priority" if policy == "slai_mgpu00_checked" else "fcfs",
-               "--scheduler-cls", "robustbench.mgpu00.vllm_scheduler." + scheduler]
+               "--scheduler-cls", SCHEDULERS[policy], *EXTRA_SERVER_ARGS]
     log_path = directory / f"{prefix}.server.log"
     start = time.monotonic()
     environment = dict(os.environ, LSSP_MGPU00_DECODE_LIMIT="2", VLLM_USE_FLASHINFER_SAMPLER="0",
@@ -191,12 +208,7 @@ def main():
         print(json.dumps({"gate": "device_identity", "status": provenance["allocation_kind"],
                           "node": provenance["node"], "memory_bytes": provenance["devices"][0]["cuda_memory_bytes"]}), flush=True)
         git_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
-        progress.event("tokenizer_import_started")
-        from transformers import AutoTokenizer
-        progress.event("tokenizer_import_finished")
-        progress.event("tokenizer_load_started", model_path=str(args.model_path))
-        tokenizer = AutoTokenizer.from_pretrained(args.model_path, local_files_only=True)
-        progress.event("tokenizer_load_finished")
+        tokenizer = load_tokenizer(args.model_path, progress)
         rounds = []
         # Fresh server per round; ABBA blocks startup/order effects. No cell retries.
         sequence = [("native_fcfs", 0), ("slai_mgpu00_checked", 0)]
