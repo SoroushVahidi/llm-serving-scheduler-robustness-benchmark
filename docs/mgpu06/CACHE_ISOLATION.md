@@ -10,7 +10,7 @@ Original evidence remains at `artifacts/mgpu06/preflight-20261021T2214Z/` in the
 
 ## Exact placement and reviewed implementation
 
-Set `MGPU06_RUNTIME_PARENT=/project/ikoutis/sv96/r`. The batch wrapper creates `m6-$SLURM_JOB_ID/{b,n,s}` for bootstrap/client, native server/workers and SLAI server/workers respectively. Every directory below the project mount is owner-only mode 0700; files use umask 077. Existing nonprivate parents, symlinks, reused phase directories and paths inside HOME/the checkout fail. These directories are outside Git and research artifacts. Their configuration is copied into the durable block/execution manifests; generated kernels are not scientific evidence.
+Set `MGPU06_RUNTIME_PARENT=/project/ikoutis/sv96/r`. The batch wrapper creates `m6-$SLURM_JOB_ID/{b,n,s}` for bootstrap/client, native server/workers and SLAI server/workers respectively. Every configured directory below the project mount is owner-only mode 0700; files use umask 077. GPFS was observed to create a requested-0700 directory as 0755, so newly created directories receive an explicit chmod before any content is written; existing nonprivate directories are rejected. Existing nonprivate parents, symlinks, reused phase directories and paths inside HOME/the checkout fail. These directories are outside Git and research artifacts. Their configuration is copied into the durable block/execution manifests; generated kernels are not scientific evidence.
 
 `src/robustbench/mgpu06/runtime.py` is the authoritative complete mapping. Relative to each phase root:
 
