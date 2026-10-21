@@ -43,10 +43,18 @@ def reject_home_cache_features(env):
             raise ValueError('Unsupported optional home-cache feature: '+key)
 
 
-def private_directory(path):
+def private_directory(path, exclusive=False):
     if path.is_symlink():
         raise ValueError('Runtime symlink rejected: '+str(path))
-    path.mkdir(mode=0o700, exist_ok=True)
+    try:
+        path.mkdir(mode=0o700)
+    except FileExistsError:
+        if exclusive:
+            raise
+    else:
+        # GPFS inherited ACLs can override mkdir's requested mode. Restrict
+        # only the directory just created, before putting any content in it.
+        path.chmod(0o700)
     info = path.stat()
     if info.st_uid != os.getuid() or stat.S_IMODE(info.st_mode) != 0o700:
         raise ValueError('Runtime directory must be owned by this user and mode 0700: '+str(path))
@@ -79,7 +87,7 @@ def prepare(root, phase, repo, base_env=None):
     phase_root = root/PHASES[phase]
     if len(str(phase_root/'ipc').encode()) > IPC_LIMIT:
         raise ValueError('Runtime root too long for vLLM IPC sockets')
-    phase_root.mkdir(mode=0o700)  # exclusive: never reuse a kernel/temporary cache
+    private_directory(phase_root, exclusive=True)
     paths = {}
     for key, relative in DIRECTORIES.items():
         path = phase_root/relative

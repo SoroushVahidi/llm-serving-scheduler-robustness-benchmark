@@ -50,6 +50,17 @@ def test_nonprivate_parent_rejected(project):
         runtime.prepare(project/'public/job','bootstrap',project/'repo')
 
 
+def test_inherited_permissions_restricted_only_on_new_directories(project,monkeypatch):
+    original=Path.mkdir
+    def inherited(path,*args,**kwargs):
+        original(path,*args,**kwargs)
+        path.chmod(0o755)
+    monkeypatch.setattr(Path,'mkdir',inherited)
+    _,record=runtime.prepare(project/'cache','bootstrap',project/'repo')
+    assert Path(record['phase_root']).stat().st_mode & 0o777 == 0o700
+    assert (project/'cache').stat().st_mode & 0o777 == 0o700
+
+
 def test_symlink_rejected(project):
     (project/'real').mkdir(mode=0o700)
     (project/'link').symlink_to(project/'real')
