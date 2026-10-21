@@ -8,9 +8,15 @@ import json
 import os
 from pathlib import Path
 import socket
+import signal
+import importlib.metadata
 import subprocess
 import time
 
+print(json.dumps({"stage": "python_module_imports_started", "time_ns": time.time_ns()}), flush=True)
+
+from robustbench.mgpu00.startup import (ServerDiagnostics, require_compatible_smoke,
+                                       validate_readiness_timeout, checkpoint)
 from robustbench.mgpu00.gpu_probe import Journal
 
 import httpx
@@ -19,6 +25,7 @@ from robustbench.mgpu00.metadata import RequestMetadata
 from robustbench.mgpu00.provenance import ExperimentIdentity, canonical_hash, collect_gpu_provenance, write_new_json
 from robustbench.mgpu00.replay import PreparedRequest, make_client, replay
 
+print(json.dumps({"stage": "python_module_imports_finished", "time_ns": time.time_ns()}), flush=True)
 MODEL = "Qwen/Qwen2.5-0.5B-Instruct"
 REVISION = "7ae557604adf67be50417f59c2c2f167def9a775"
 SPEC = {"stamp": "ENGINEERING_ONLY_NOT_RANKING_EVIDENCE", "model": MODEL, "revision": REVISION,
@@ -80,17 +87,7 @@ def join_and_validate(result, events, requests, policy):
     return result
 
 
-def stop_server(process):
-    if process.poll() is None:
-        process.terminate()
-        try:
-            process.wait(timeout=30)
-        except subprocess.TimeoutExpired:
-            process.kill()
-            process.wait(timeout=10)
-
-
-def run_round(*, directory, model_path, executable, provenance, git_sha, policy, repetition, tokenizer):
+def run_round(*, directory, model_path, executable, provenance, git_sha, policy, repetition, tokenizer, readiness_timeout_s):
     prefix = f"{policy}-rep{repetition}"
     body_ids = tokenizer.encode("scheduler integrity fixture", add_special_tokens=False)
     prompt_ids = tuple((body_ids * (128 // len(body_ids) + 1))[:128])
@@ -123,36 +120,32 @@ def run_round(*, directory, model_path, executable, provenance, git_sha, policy,
                        TORCHINDUCTOR_CACHE_DIR=str(directory / "cache/torchinductor"),
                        CUDA_CACHE_PATH=str(directory / "cache/cuda"))
     result = None
-    with log_path.open("x") as log:
-        process = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT, env=environment)
-        try:
-            with httpx.Client(base_url=f"http://127.0.0.1:{port}", timeout=3., trust_env=False) as client:
-                deadline = start + 600
-                while time.monotonic() < deadline:
-                    if process.poll() is not None:
-                        raise RuntimeError(f"Server exited {process.returncode}; inspect {log_path}")
-                    try:
-                        if client.get("/v1/models").status_code == 200:
-                            break
-                    except httpx.HTTPError:
-                        pass
-                    time.sleep(2)
-                else:
-                    raise RuntimeError("Server readiness timeout")
-            ready_s = time.monotonic() - start
-            async def execute():
-                async with make_client(f"http://127.0.0.1:{port}", 32) as client:
-                    warm = PreparedRequest(RequestMetadata("fixture-warmup", 999999, "tight", 0., 30., 1.), prompt_ids, 4)
-                    warm_result = await replay([warm], model=MODEL, client=client, max_inflight=1,
-                        timeout_s=60., max_dispatch_delay_s=1.)
-                    if warm_result["completed"] != 1:
-                        raise RuntimeError("Warmup failed")
-                    return await replay(requests, model=MODEL, client=client, max_inflight=32,
-                        timeout_s=120., max_dispatch_delay_s=SPEC["max_dispatch_delay_s"])
-            result = asyncio.run(execute())
-            write_new_json(directory / f"{prefix}.raw_replay.json", result)
-        finally:
-            stop_server(process)
+    diagnostics = ServerDiagnostics(directory, prefix)
+    checkpoint(directory / f"{prefix}.launch.json", {"command": command, "spec": SPEC,
+               "identity": asdict(identity), "git_sha": git_sha,
+               "readiness_timeout_s": readiness_timeout_s,
+               "cache_paths": {k: environment[k] for k in
+                   ("VLLM_CACHE_ROOT", "TORCHINDUCTOR_CACHE_DIR", "CUDA_CACHE_PATH")}})
+    try:
+        diagnostics.start(command, environment)
+        with httpx.Client(base_url=f"http://127.0.0.1:{port}", trust_env=False) as client:
+            ready_s = diagnostics.wait_ready(client, MODEL, readiness_timeout_s)
+        async def execute():
+            async with make_client(f"http://127.0.0.1:{port}", 32) as client:
+                warm = PreparedRequest(RequestMetadata("fixture-warmup", 999999, "tight", 0., 30., 1.), prompt_ids, 4)
+                warm_result = await replay([warm], model=MODEL, client=client, max_inflight=1,
+                    timeout_s=60., max_dispatch_delay_s=1.)
+                checkpoint(directory / f"{prefix}.warmup.json", warm_result)
+                if not warm_result["valid_replay"] or warm_result["completed"] != 1:
+                    raise RuntimeError("Warmup failed")
+                return await replay(requests, model=MODEL, client=client, max_inflight=32,
+                    timeout_s=120., max_dispatch_delay_s=SPEC["max_dispatch_delay_s"])
+        result = asyncio.run(execute())
+        write_new_json(directory / f"{prefix}.raw_replay.json", result)
+        if diagnostics.process.poll() is not None:
+            raise RuntimeError("Server exited during serving; round invalid")
+    finally:
+        diagnostics.close()
     result = join_and_validate(result, read_events(log_path), requests, policy)
     record = {"stamp": SPEC["stamp"], "identity": asdict(identity), "experiment_id": identity.experiment_id,
               "execution_id": canonical_hash({"experiment_id": identity.experiment_id, "hardware": provenance}),
@@ -170,15 +163,25 @@ def main():
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--model-path", required=True, type=Path)
     parser.add_argument("--vllm-executable", required=True)
+    parser.add_argument("--readiness-timeout-s", type=float, default=1200.)
     parser.add_argument("--diagnostic-minimal", action="store_true", help="One round per mechanism; no reproducibility claim")
     args = parser.parse_args()
+    validate_readiness_timeout(args.readiness_timeout_s)
     args.out.mkdir(parents=True, exist_ok=False)
     started = time.monotonic()
     progress = Journal(args.out / "progress")
     if args.diagnostic_minimal:
         SPEC["repetitions"] = 1
+    def terminate(signum, frame):
+        raise RuntimeError(f"Termination signal {signum}")
+    signal.signal(signal.SIGTERM, terminate)
+    signal.signal(signal.SIGINT, terminate)
     try:
         progress.event("smoke_started", diagnostic_minimal=args.diagnostic_minimal, slurm_job_id=os.environ.get("SLURM_JOB_ID"))
+        progress.event("compatibility_check_started")
+        require_compatible_smoke(model=MODEL, version=importlib.metadata.version("vllm"),
+                                 chunked_prefill=SPEC["chunked_prefill"])
+        progress.event("compatibility_verified")
         if args.model_path.name != REVISION:
             raise RuntimeError("Model snapshot is not the pinned immutable revision")
         progress.event("device_probe_started")
@@ -188,8 +191,12 @@ def main():
         print(json.dumps({"gate": "device_identity", "status": provenance["allocation_kind"],
                           "node": provenance["node"], "memory_bytes": provenance["devices"][0]["cuda_memory_bytes"]}), flush=True)
         git_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+        progress.event("tokenizer_import_started")
         from transformers import AutoTokenizer
+        progress.event("tokenizer_import_finished")
+        progress.event("tokenizer_load_started", model_path=str(args.model_path))
         tokenizer = AutoTokenizer.from_pretrained(args.model_path, local_files_only=True)
+        progress.event("tokenizer_load_finished")
         rounds = []
         # Fresh server per round; ABBA blocks startup/order effects. No cell retries.
         sequence = [("native_fcfs", 0), ("slai_mgpu00_checked", 0)]
@@ -198,7 +205,8 @@ def main():
         for policy, rep in sequence:
             progress.event("round_started", policy=policy, repetition=rep)
             rounds.append(run_round(directory=args.out, model_path=args.model_path, executable=args.vllm_executable,
-                                   provenance=provenance, git_sha=git_sha, policy=policy, repetition=rep, tokenizer=tokenizer))
+                                   provenance=provenance, git_sha=git_sha, policy=policy, repetition=rep, tokenizer=tokenizer,
+                                   readiness_timeout_s=args.readiness_timeout_s))
             progress.event("round_passed", policy=policy, repetition=rep)
         if len({r["identity"]["workload_sha256"] for r in rounds}) != 1:
             raise RuntimeError("Workload identity differs between policy/repetition rounds")
@@ -208,12 +216,12 @@ def main():
                    "gpu_hours": (time.monotonic()-started)/3600, "rounds": [r["experiment_id"] for r in rounds],
                    "reproducibility": "NOT_TESTED_ONE_ROUND_PER_MECHANISM" if args.diagnostic_minimal else "two fresh-engine repetitions per mechanism; identical input shapes, complete token counts and metadata; timing is measured, not assumed deterministic",
                    "pilot_go": False, "pilot_blockers": ["TP2 not validated or enabled", "general partial-prefill/KV-pressure fidelity not established", "full-device workload calibration not performed"]}
-        write_new_json(args.out / "summary.json", summary)
+        checkpoint(args.out / "summary.json", summary)
         progress.event("smoke_passed", summary=summary)
         print(json.dumps(summary), flush=True)
     except Exception as exc:
         progress.event("smoke_failed", error=f"{type(exc).__name__}: {exc}")
-        write_new_json(args.out / "failure.json", {"status": "FAILED", "stamp": SPEC["stamp"],
+        checkpoint(args.out / "failure.json", {"status": "FAILED", "stamp": SPEC["stamp"],
                        "error": f"{type(exc).__name__}: {exc}", "elapsed_seconds": time.monotonic()-started,
                        "slurm_job_id": os.environ.get("SLURM_JOB_ID")})
         raise

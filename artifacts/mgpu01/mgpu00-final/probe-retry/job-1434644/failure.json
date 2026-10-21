@@ -1,0 +1,7 @@
+{
+  "elapsed_seconds": 887.2752137390198,
+  "error": "RuntimeError: Server readiness timeout",
+  "slurm_job_id": "1434644",
+  "stamp": "ENGINEERING_ONLY_NOT_RANKING_EVIDENCE",
+  "status": "FAILED"
+}

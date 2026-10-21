@@ -1,5 +1,11 @@
 # MGPU00 validation ledger
 
+**MGPU01 follow-up:** job 1434644 ultimately failed readiness after 892 allocated
+seconds; all 15 full-device identity checks passed, but no inference ran.
+[The MGPU01 report](../mgpu01/REPORT.md) preserves final evidence, resolves the
+unsupported chunked-prefill configuration, and records why no further GPU retry
+was submitted. Entries below remain the historical MGPU00 ledger.
+
 Date: 2026-10-21. Branch: `research/lssp-mgpu00-integrity-20261021`.
 Base: `e73a3b711b65f9c181ff9a2674007efca22f1b65`.
 

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/scripts/mgpu00/smoke.py", line 208, in <module>
+    main()
+  File "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/scripts/mgpu00/smoke.py", line 177, in main
+    provenance = collect_gpu_provenance()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/src/robustbench/mgpu00/provenance.py", line 116, in collect_gpu_provenance
+    result["allocation_kind"] = verify_full_a100(result)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/src/robustbench/mgpu00/provenance.py", line 73, in verify_full_a100
+    raise ValueError("Full A100 identity not independently verified")
+ValueError: Full A100 identity not independently verified

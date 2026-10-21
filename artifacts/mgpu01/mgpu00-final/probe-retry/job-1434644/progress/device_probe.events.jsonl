@@ -1,0 +1,5 @@
+{"diagnostic_minimal": true, "slurm_job_id": "1434644", "stage": "smoke_started", "time_ns": 1792600867510197651}
+{"stage": "device_probe_started", "time_ns": 1792600867512846582}
+{"allocation_kind": "FULL_GPU_VERIFIED", "stage": "device_verified", "time_ns": 1792600876346593997}
+{"policy": "native_fcfs", "repetition": 0, "stage": "round_started", "time_ns": 1792601123682807003}
+{"error": "RuntimeError: Server readiness timeout", "stage": "smoke_failed", "time_ns": 1792601754779750417}

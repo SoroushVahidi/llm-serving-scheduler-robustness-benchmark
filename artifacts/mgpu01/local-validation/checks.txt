@@ -1,0 +1,62 @@
+[
+  {
+    "command": [
+      "bash",
+      "-n",
+      "scripts/mgpu00/smoke.sbatch"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "syntax": "scripts/mgpu00/smoke.py",
+    "status": "PASS",
+    "sha256": "72542b376450d3a16733bcde9cb613efb12a76b8fb2127be41611d1d33990773"
+  },
+  {
+    "syntax": "scripts/mgpu01/inspect_startup.py",
+    "status": "PASS",
+    "sha256": "0775e22dcfa03f3147255735e6cbff44af0d4da594e92e7dc521cc259bd41e0b"
+  },
+  {
+    "syntax": "src/robustbench/mgpu00/startup.py",
+    "status": "PASS",
+    "sha256": "84a2b80777066b8ec3b0ea863900646c37886d3eb9afe66515695eba24e239ed"
+  },
+  {
+    "syntax": "src/robustbench/mgpu00/provenance.py",
+    "status": "PASS",
+    "sha256": "5e8927efc10b8377f2e533028898c833fbd69c9945da9f2f0be76c5b438970d6"
+  },
+  {
+    "syntax": "tests/mgpu00/test_startup.py",
+    "status": "PASS",
+    "sha256": "b7b631a6362e988cccb1ef1303468456e8b18a09117fa659436efb9421431a18"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "--",
+      "docs",
+      "scripts",
+      "src",
+      "tests"
+    ],
+    "returncode": 0,
+    "note": "Raw archival logs intentionally retain original whitespace; excluded from source check."
+  }
+]

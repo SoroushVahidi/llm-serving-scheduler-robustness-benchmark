@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/scripts/mgpu00/smoke.py", line 225, in <module>
+    main()
+  File "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/scripts/mgpu00/smoke.py", line 200, in main
+    rounds.append(run_round(directory=args.out, model_path=args.model_path, executable=args.vllm_executable,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-mgpu00/scripts/mgpu00/smoke.py", line 141, in run_round
+    raise RuntimeError("Server readiness timeout")
+RuntimeError: Server readiness timeout

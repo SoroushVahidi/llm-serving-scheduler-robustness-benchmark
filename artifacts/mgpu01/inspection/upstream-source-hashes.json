@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/engine/arg_utils.py",
+    "retrieved_at": "2026-10-21T18:09:18.652937+00:00",
+    "upstream_sha256": "165f9ec6e3b067bb7e6c72d68adedde7fa4d5ed7932fa7568064b9d9086e6830",
+    "local_sha256": "165f9ec6e3b067bb7e6c72d68adedde7fa4d5ed7932fa7568064b9d9086e6830",
+    "matches_local": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/config/model.py",
+    "retrieved_at": "2026-10-21T18:09:18.941299+00:00",
+    "upstream_sha256": "d14c60ce1b2a7d9c47983ef0df0c10c4f8083ced5bc45935e8ababfe59f22736",
+    "local_sha256": "d14c60ce1b2a7d9c47983ef0df0c10c4f8083ced5bc45935e8ababfe59f22736",
+    "matches_local": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/sched/scheduler.py",
+    "retrieved_at": "2026-10-21T18:09:19.214107+00:00",
+    "upstream_sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+    "local_sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+    "matches_local": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/worker/gpu/model_runner.py",
+    "retrieved_at": "2026-10-21T18:09:19.387078+00:00",
+    "upstream_sha256": "60fb531a045d6879da25f57cdb95584cc5272e4ef33b69e6b9c2ff3acbd78f8a",
+    "local_sha256": "60fb531a045d6879da25f57cdb95584cc5272e4ef33b69e6b9c2ff3acbd78f8a",
+    "matches_local": true
+  }
+]

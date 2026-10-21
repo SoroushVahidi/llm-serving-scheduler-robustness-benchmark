@@ -1,5 +1,11 @@
 # MGPU00 measurement and scheduling contract
 
+**MGPU01 correction:** the declared non-chunked adapter domain below is not an
+officially supported vLLM/Qwen deployment. The current runner now fails before
+GPU work. See [the compatibility review and diagnostic repair](../mgpu01/REPORT.md)
+for the authoritative current launch limits and NO-GO decision. Earlier smoke
+resource descriptions below are historical and do not describe the new wrapper.
+
 The new code lives in `robustbench.mgpu00`; historical RQ6 code at its recorded
 commits is untouched. Python 3.12, vLLM 0.27.1 and Torch 2.13.0+cu130 are the
 inspected environment. The vLLM scheduler source SHA-256 is

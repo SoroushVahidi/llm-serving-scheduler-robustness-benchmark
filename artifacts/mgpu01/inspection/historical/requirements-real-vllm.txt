@@ -1,0 +1,35 @@
+# Pinned real-vLLM environment for the RQ6 Wulver/local engineering gates.
+#
+# Validated together as a set: local GPU smoke (RTX 5060 Ti) plus the Wulver
+# debug_gpu engineering gate (job 1219334, pass_gate=true, A100 MIG 1g.10gb).
+# `torch`/`vllm` are load-bearing and version-sensitive -- LSSPSlaiVLLMScheduler
+# depends on vLLM's v1 `SchedulerInterface` and native
+# `SchedulingPolicy.PRIORITY` (see docs/REAL_VLLM_SLAI_FIDELITY.md), which do
+# not exist before vLLM 0.27.x. Do not silently upgrade any pin here without
+# re-running scripts/real_vllm/wulver_engineering_gate.sbatch end to end.
+#
+# `pandas`/`scipy`/`python-dateutil` are required by
+# src/robustbench/real_llm/calibration_common.py::aggregate_results and were
+# the actual cause of Wulver job 1219300's failure (ModuleNotFoundError:
+# pandas) -- the venv had vllm/torch but was never given the rest of this
+# repo's declared dependencies. See pyproject.toml's `dependencies` for the
+# general (non-GPU) project requirement on pandas/scipy/numpy/pyyaml; this
+# file is the GPU-environment superset actually needed to run the real-vLLM
+# path (vllm/torch/httpx/transformers/tokenizers/huggingface_hub added on
+# top).
+#
+# `robustbench` itself is intentionally NOT pip-installed into this venv --
+# it is imported via `PYTHONPATH=<repo>/src`
+# (see scripts/real_vllm/wulver_engineering_gate.sbatch).
+
+torch==2.13.0
+vllm==0.27.1
+numpy==2.3.5
+pandas==3.0.5
+scipy==1.18.1
+python-dateutil==2.9.0.post0
+pyyaml==6.0.3
+httpx==0.28.1
+transformers==5.16.1
+tokenizers==0.23.1
+huggingface_hub==1.29.0

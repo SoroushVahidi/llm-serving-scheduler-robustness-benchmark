@@ -1,0 +1,90 @@
+{
+  "checks": [
+    {
+      "check": "slurm_compute_context",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "cuda_device_count",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "slurm_full_a100_gres",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "cuda_a100_model",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "nvml_a100_model",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "cuda_full_memory",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "nvml_full_memory",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "nvml_non_mig_handle",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "mig_mode_disabled",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "cuda_nvml_uuid",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "cuda_uuid_bytes",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "parent_uuid",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "pci_mapping",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "visible_device_selector",
+      "passed": true,
+      "reason": "verified"
+    },
+    {
+      "check": "nvidia_smi_consistency",
+      "passed": true,
+      "reason": "verified"
+    }
+  ],
+  "legacy_predicates_on_new_evidence_only": {
+    "cuda_device_count_is_one": true,
+    "cuda_memory_at_least_75_GiB": true,
+    "literal_slurm_gres_match": true,
+    "mig_mode_current_zero": true,
+    "model_contains_A100": true,
+    "not_mig_device": true,
+    "raw_cuda_uuid_equals_nvml_uuid": false,
+    "raw_cuda_uuid_starts_GPU_prefix": false
+  },
+  "passed": true
+}

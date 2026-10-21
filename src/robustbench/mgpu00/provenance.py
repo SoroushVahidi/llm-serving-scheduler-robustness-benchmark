@@ -2,6 +2,7 @@
 from dataclasses import asdict, dataclass
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 
@@ -73,3 +74,5 @@ def write_new_json(path, value):
     with path.open("x") as stream:
         json.dump(value, stream, indent=2, sort_keys=True, allow_nan=False)
         stream.write("\n")
+        stream.flush()
+        os.fsync(stream.fileno())
