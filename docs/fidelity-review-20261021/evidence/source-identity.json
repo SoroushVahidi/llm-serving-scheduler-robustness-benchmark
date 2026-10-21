@@ -1,0 +1,26 @@
+{
+  "vllm/v1/core/sched/scheduler.py": {
+    "local_sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+    "upstream_sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+    "upstream_url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/sched/scheduler.py",
+    "wulver_sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a"
+  },
+  "vllm/v1/core/kv_cache_manager.py": {
+    "local_sha256": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6",
+    "upstream_sha256": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6",
+    "upstream_url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/kv_cache_manager.py",
+    "wulver_sha256": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6"
+  },
+  "vllm/v1/request.py": {
+    "local_sha256": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012",
+    "upstream_sha256": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012",
+    "upstream_url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/request.py",
+    "wulver_sha256": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012"
+  },
+  "vllm/config/scheduler.py": {
+    "local_sha256": "3cf5d41a5d662ab0eada6f3128e2538abc0a250d6aef82acab7df7dd84e498bc",
+    "upstream_sha256": "3cf5d41a5d662ab0eada6f3128e2538abc0a250d6aef82acab7df7dd84e498bc",
+    "upstream_url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/config/scheduler.py",
+    "wulver_sha256": "3cf5d41a5d662ab0eada6f3128e2538abc0a250d6aef82acab7df7dd84e498bc"
+  }
+}

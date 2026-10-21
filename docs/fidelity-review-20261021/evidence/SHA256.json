@@ -1,0 +1,10 @@
+{
+  "before-repair.txt": "4de723807385ae35dad9753ad584380ff97a335696bbfeda339ede0d5677f2a7",
+  "cpu-additional.txt": "ebce840c0438cff283be1e37b4b50492b564f789b8d84dec8f4ee591a28714d7",
+  "cpu-regression.txt": "0fa70d2cdf60b0ffd54c63870587d4c582df169ccacfd4aafb12b85223367445",
+  "preserved-files.json": "705302d80f56e0679603a9175f23ecc04cf3a38cdf7b70a8c5d5d6c606c3918f",
+  "source-identity.json": "6bc595cbfad0e962e8dcbec2acd26df5c0d83f69e5d1fdd74ebf6b0b4926ac82",
+  "state.json": "148042e53688619babf7ac85174d1bea67dc99b1fb0e46c40001fe4f8d1c0ad0",
+  "validation-summary.json": "401da9cf2e3d6e3c5611a234088b660e9e150e514d0409a2a7f7290929a8c74a",
+  "workload-coverage.json": "779906fd14b77fdd9b9fb25fe2ac96825a0798ba143c5cf8391c7dd92152156f"
+}

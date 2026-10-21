@@ -18,6 +18,12 @@ class WholePrefillChecks:
                    token_budget=self.max_num_scheduled_tokens, max_active=self.max_num_running_reqs)
 
     def add_request(self, request):
+        # Keep engine identity unique for the lifetime of the evidence journal,
+        # including completed requests. Native vLLM accepts streaming updates
+        # or reuse after completion, but this contract supports neither. Reject
+        # before the inherited adapter can overwrite metadata/admission history.
+        if request.request_id in self.mgpu_metadata:
+            raise ValueError('Duplicate engine request identity')
         if (request.status != RequestStatus.WAITING or request.num_computed_tokens != 0
                 or request.num_output_tokens or request.resumable or request.mm_features
                 or request.prompt_embeds is not None or request.lora_request is not None
