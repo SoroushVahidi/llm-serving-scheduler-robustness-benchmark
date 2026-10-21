@@ -114,3 +114,14 @@ leave only partial journals/logs and is never interpreted as a pass.
 Job ID, executed commit, initial status and later-inspection commands are recorded
 in the retry submission ledger after submission. Monitoring ends approximately
 two minutes after submission; queued status is not a validated running job.
+
+## Physical finding from the bounded initial observation
+
+Retry 1434644 passed all 15 identity checks on a full A100. Its raw Torch UUID
+is unprefixed while NVML supplies the same identifier with `GPU-`, so the old
+raw-equality and prefix predicates both fail on this independently verified
+full device. This confirms the formatting defect in the old verifier under the
+installed environment, not a MIG allocation. The old job's missing raw values
+remain unrecovered; additional historical failed conditions cannot be excluded.
+See `PROBE_RETRY_1434644.md` and its committed raw snapshot for precise evidence.
+The initial observation did not establish vLLM/scheduler completion.
