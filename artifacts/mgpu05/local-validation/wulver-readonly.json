@@ -1,0 +1,33 @@
+{
+  "inspection": "read-only stdlib hashes and Rust tokenizer; no torch/CUDA import or GPU allocation",
+  "utc": "2026-10-21T21:53:34.765127+00:00",
+  "python": "3.12.14 (main, Sep  2 2026, 23:27:36) [GCC 15.3.0]",
+  "versions": {
+    "vllm": "0.27.1",
+    "torch": "2.13.0",
+    "transformers": "5.16.1",
+    "tokenizers": "0.23.1",
+    "httpx": "0.28.1",
+    "numpy": "2.3.5"
+  },
+  "sources": {
+    "vllm/entrypoints/openai/completion/protocol.py": "b9d3defe3d4193b1d252d3a9532718865ef277cb46a14281aba553f7929e50a3",
+    "vllm/entrypoints/openai/completion/serving.py": "2590281b465d8a9e31252bd92407661f3af9adeddf7bd52c80395cc9fbb9e19c",
+    "vllm/v1/engine/input_processor.py": "5de9296e6f4c00473a92df8df6e4e7e5f83fa37852c7540c4447c59a8b813111"
+  },
+  "files": {
+    "config.json": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+    "generation_config.json": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+    "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+    "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+    "model.safetensors": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe"
+  },
+  "body_ids": [
+    63122,
+    16614,
+    12507
+  ],
+  "decoded_body": "scheduler integrity fixture"
+}

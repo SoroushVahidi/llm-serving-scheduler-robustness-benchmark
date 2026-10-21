@@ -1,0 +1,9 @@
+PASS: AST parsing 15 MGPU05 Python files
+PASS: bash -n scripts/mgpu05/repeatability.sbatch
+PASS: both script CLI help/imports
+PASS: vLLM API source hashes match installed/upstream v0.27.1
+PASS: read-only Wulver model/tokenizer/config hashes and fixture tokenization agree
+PASS: no tracked baseline files changed before staging
+PASS: git diff --check
+No Slurm submissions, GPU inference, GitHub Actions or changes to MGPU03 evidence.
+PASS: offline validator imports neither torch nor vllm
