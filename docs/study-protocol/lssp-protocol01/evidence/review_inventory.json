@@ -1,0 +1,185 @@
+{
+  "baseline_commit": "4332b08b17e5b789e20a4fe042a6b007f0d43dd6",
+  "prepared_date": "2026-10-21",
+  "review_kind": "bounded_primary_source_and_repository_review",
+  "local_files": [
+    {
+      "path": "README.md",
+      "sha256": "9580970cd5a71381f27cd9415368919963830f5f8abe66d0a2b81e0b5f21eb14",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "8322fd713a1e2dc933f0b5011d527b4bf6553da6be1bec0bf99f4d0a40934dda",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "LLM_Scheduler_Portability.pdf",
+      "sha256": "9a35651ada6b5728e3a35a6ed20b4a53f0a79a8418ff01c61577e95246a0dce7",
+      "review_scope": "first_page_and_identity"
+    },
+    {
+      "path": "SMPT_Manuscript_Blind.pdf",
+      "sha256": "a605796b65822489abcad9c1357cb7e8590e7d6387df2079d61b2b4b028cd7e1",
+      "review_scope": "first_page_and_identity"
+    },
+    {
+      "path": "paper/sections/introduction.tex",
+      "sha256": "10b4f9b7e152dfcaf990bc3c6aa01fe0d87a2485264c6a7a23771ca888d0a9c8",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "paper/sections/related_work.tex",
+      "sha256": "b8b260e55c539db1d640ca1cdfcffeb92f0b079a15c720f92e4ccd584b6c7846",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "paper/sections/workloads.tex",
+      "sha256": "87b1fdd17f1f585dc58e5d57d0892dd2e8b7ffe571522b8185b7497fabe88c58",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "paper/sections/methodology.tex",
+      "sha256": "54a67565a2dbe0f97337a88fbe0cc32e154dd49f6c96e2848079deba19a4d69e",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "paper/sections/study_design.tex",
+      "sha256": "2d99b4b67133cd404334b8a4cbd89fa4f3841a2036483099b0de685c4f7eab75",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "paper/sections/real_system.tex",
+      "sha256": "b2acbb48856412f8ef97d379eac25ca6f9264cff4248a0120a4ec86b6e1986da",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "paper/sections/limitations.tex",
+      "sha256": "287df5cf44c2fc30d6dac3e180639a01f89e8833376e6bd9c6da32c9b628c8f7",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "docs/OVERLAP_LEDGER.md",
+      "sha256": "0ea47387cd7fc56aa04159ba65683d7d45547d373b76ca94267fc83094bc6227",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "docs/DATA_FIELD_PROVENANCE.md",
+      "sha256": "559fd8aaa33d61261a71b81a40ff243e73e87b3aeb5bab6683b992c68497390f",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "docs/mgpu00/HISTORICAL_AUDIT.md",
+      "sha256": "e6c96e5258cd1eaa43853b6e47ee19b877d19714011d5a4fc3175202a016973c",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "docs/mgpu01/REPORT.md",
+      "sha256": "7b05b91d883b109adb51e37c208b4f72f3c918e1450a37accc079f03cdb3f8d8",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "docs/mgpu02/REPORT.md",
+      "sha256": "922eefb71dce5e72bdb1c6e4759e326986cf73257066bc44efb1c09d1f073884",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "docs/mgpu02/SMOKE.md",
+      "sha256": "67995bff8cba4db565316c14f91d2cef7d881a68aa04681c1834080b358f2a25",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "src/robustbench/mgpu00/slai.py",
+      "sha256": "89157537700987aa27040164abe873b510b520060598fb50ccf9ac9131079466",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "src/robustbench/mgpu02/contract.py",
+      "sha256": "4fbff58b434cee02ba814ade25c03318a63de7bc6ccf02df671a9473bf7653c1",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "src/robustbench/mgpu02/vllm_scheduler.py",
+      "sha256": "3aab27fe113625ca1c613cf07e2bc46d7e5eeb73407bbd6bb3ca392116031a3b",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "src/robustbench/workloads/external/adapters/bailian.py",
+      "sha256": "9043102063bf685c1c43a1578c745b63b8ce9930afcc6798585cf891a3f0cd1c",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "configs/policies/canonical_policy_registry.yaml",
+      "sha256": "cb642c2d58c05ce4f639c0c5314ab38b6e15b0639ce15d6404c7b58ad15a0f0d",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "configs/workloads/source_registry.yaml",
+      "sha256": "fe860112c915e5f81dceb6f49259bd35dd7adb72716a89efe7b3a202d207140b",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "dataset/v1.1.0/PROVENANCE.md",
+      "sha256": "0ff1ae81d71578313dd300fe3a3c2ab1da8d8d72d372a3ab51c622d2f4885052",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "dataset/v1.1.0/LIMITATIONS.md",
+      "sha256": "030d021019e02eb4961281883e87dff8e80e7c53379c74ea354e0fcb77f720a3",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "dataset/v1.1.0/EXPERIMENT_DESIGN.md",
+      "sha256": "49fc27a92c59d1d7a10ca116f38b4fe96b1e58bb02d9e21a5691c6769099ff27",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    },
+    {
+      "path": "dataset/v1.1.0/manifests/ranking_portability_pilot_v2_windows_index.json",
+      "sha256": "d78ec1087fedae02174ca093a9860c70468be336ccb1d7e6de756c81ba331e53",
+      "review_scope": "targeted_relevant_sections_or_metadata"
+    }
+  ],
+  "public_access": {
+    "github_readme": {
+      "url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/main/README.md",
+      "blob_sha": "1ad4dae3454a86c8b8a1af2e8d3496c830a2f0e4",
+      "status": "READ"
+    },
+    "huggingface": {
+      "url": "https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability",
+      "status": "CARD_ACCESSIBLE_VIEWER_SCHEMA_ERROR"
+    },
+    "research_square": {
+      "url": "https://www.researchsquare.com/article/rs-10935389/v1",
+      "status": "WEB_TOOL_INACCESSIBLE_REMOTE_BYTES_NOT_VERIFIED"
+    },
+    "zenodo": {
+      "url": "https://doi.org/10.5281/zenodo.22306798",
+      "status": "WEB_TOOL_INACCESSIBLE_REMOTE_BYTES_NOT_VERIFIED"
+    }
+  },
+  "coverage_input": "dataset/v1.1.0/manifests/ranking_portability_pilot_v2_windows_index.json",
+  "coverage_scope": "Source descriptor quantiles only; not raw exact excluded fractions or target tokenization",
+  "coverage_summary": [
+    {
+      "source": "azure_llm_2024",
+      "windows": 40,
+      "windows_prompt_p50_gt_256": 40,
+      "windows_prompt_p99_gt_256": 40
+    },
+    {
+      "source": "bailian_qwen",
+      "windows": 40,
+      "windows_prompt_p50_gt_256": 40,
+      "windows_prompt_p99_gt_256": 40
+    },
+    {
+      "source": "burstgpt",
+      "windows": 40,
+      "windows_prompt_p50_gt_256": 9,
+      "windows_prompt_p99_gt_256": 38
+    }
+  ],
+  "mgpu03_access_scope": "one_read_only_sacct_query_no_serving_outputs",
+  "historical_lfs_note": "New-worktree checkout warned that consolidated.json was not an LFS pointer; raw worktree bytes equal git HEAD bytes (37,252,923). No historical file was changed."
+}
