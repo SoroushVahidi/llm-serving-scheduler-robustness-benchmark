@@ -1,0 +1,1232 @@
+{
+  "schema": "lssp-conformance-cases/v2-draft",
+  "status": "DRAFT",
+  "construction": "Hand-specified numeric expectations, not extracted from adapter outputs",
+  "defaults": {
+    "execution": "synchronous",
+    "prefix_caching": false,
+    "speculation": false,
+    "KV": "ample unless specified",
+    "active_slots": "ample unless specified",
+    "prompt_output": "synthetic symbols; no inference",
+    "O": 100,
+    "clock": "single monotonic domain",
+    "alternative_profile_rows": "independent alternatives from the same initial snapshot"
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "scenario": "Short prompt, final prefill produces first token",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "P": 4,
+        "G": 0,
+        "C_exec": 0,
+        "O": 2,
+        "B": 8
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "r": 4
+          },
+          "C_exec": 4,
+          "Y": [
+            17
+          ],
+          "state": "DECODE_READY"
+        },
+        {
+          "plan": {
+            "r": 1
+          },
+          "C_exec": 5,
+          "Y": [
+            17,
+            18
+          ],
+          "state": "TERMINAL",
+          "owned_blocks": 0
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C02",
+      "scenario": "Long input split into three iterations",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "P": 10,
+        "G": 0,
+        "C_exec": 0,
+        "O": 2,
+        "B": 4
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "r": 4
+          },
+          "C_exec": 4,
+          "Y": [],
+          "state": "PREFILL_PAUSED"
+        },
+        {
+          "plan": {
+            "r": 4
+          },
+          "C_exec": 8,
+          "Y": [],
+          "state": "PREFILL_PAUSED"
+        },
+        {
+          "plan": {
+            "r": 2
+          },
+          "C_exec": 10,
+          "Y": [
+            17
+          ],
+          "state": "DECODE_READY"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C03",
+      "scenario": "Decode and admitted prefill contend",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "running": [
+          "d"
+        ],
+        "d": {
+          "P": 2,
+          "G": 1,
+          "C_exec": 2
+        },
+        "waiting": [
+          "p"
+        ],
+        "p": {
+          "P": 7,
+          "G": 0,
+          "C_exec": 0
+        },
+        "d_LST": 9,
+        "now": 10
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "d": 1,
+            "p": 3
+          },
+          "d_G": 2,
+          "p_C_exec": 3,
+          "p_G": 0
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C04",
+      "scenario": "Critical decode, paused prefill, then new request",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "K": 2,
+        "now": 10,
+        "decode": {
+          "d_LST": 9
+        },
+        "paused_fifo": [
+          {
+            "id": "p",
+            "P": 10,
+            "C_exec": 4,
+            "G": 0
+          }
+        ],
+        "waiting": [
+          {
+            "id": "w",
+            "P": 1
+          }
+        ]
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "d": 1,
+            "p": 3
+          },
+          "held": [],
+          "waiting": [
+            "w"
+          ],
+          "p_C_exec": 7
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C05",
+      "scenario": "Hold and resume without eviction or LST refresh",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "K": 1,
+        "now": 10,
+        "d_LST": 11,
+        "paused_fifo": [
+          {
+            "id": "p",
+            "P": 8,
+            "C_exec": 4
+          }
+        ],
+        "waiting": []
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "p": 4
+          },
+          "held": [
+            "d"
+          ],
+          "d_LST": 11,
+          "d_KV": "unchanged"
+        },
+        {
+          "plan": {
+            "d": 1
+          },
+          "d_LST": "update only after ACK",
+          "p_disposition": "cancelled and freed between iterations; independently logged"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C06",
+      "scenario": "Equal LST/arrival tie is stable, not object comparison",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S02"
+      ],
+      "inputs": {
+        "B": 1,
+        "K": 1,
+        "now": 10,
+        "decodes": [
+          {
+            "id": "a",
+            "LST": 9,
+            "arrival": 1,
+            "ordinal": 2
+          },
+          {
+            "id": "b",
+            "LST": 9,
+            "arrival": 1,
+            "ordinal": 3
+          }
+        ]
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "a": 1
+          },
+          "held": [
+            "b"
+          ]
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C07",
+      "scenario": "Temporary full-input-fit refusal retains waiting request",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "block_size": 4,
+        "usable_blocks": 3,
+        "free_blocks": 1,
+        "other_owned_blocks": 2,
+        "P": 8,
+        "G": 0,
+        "C_exec": 0
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "state": "WAITING",
+          "reason": "TEMPORARY_KV_REFUSAL",
+          "free_blocks": 1,
+          "Y": []
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C08",
+      "scenario": "Input cannot fit even on an empty deployment",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "block_size": 4,
+        "usable_blocks": 3,
+        "free_blocks": 3,
+        "P": 13,
+        "O": 1
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "state": "REJECTED",
+          "reason": "UNSUPPORTED_FULL_INPUT_CAPACITY",
+          "offered_record_retained": true
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C09",
+      "scenario": "Fit check versus incremental native allocation",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "block_size": 4,
+        "usable_blocks": 2,
+        "free_blocks": 2,
+        "P": 8,
+        "G": 0,
+        "C_exec": 0,
+        "O": 4
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "r": 4
+          },
+          "C_exec": 4,
+          "Y": [],
+          "owned_blocks": 1,
+          "free_blocks": 1
+        },
+        {
+          "plan": {
+            "r": 4
+          },
+          "C_exec": 8,
+          "Y": [
+            17
+          ],
+          "owned_blocks": 2,
+          "free_blocks": 0
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C10",
+      "scenario": "Self-preemption before decode requiring another block",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "block_size": 4,
+        "usable_blocks": 1,
+        "free_blocks": 0,
+        "P": 4,
+        "C_exec": 4,
+        "Y": [
+          17
+        ],
+        "owned_blocks": 1,
+        "epoch": 0,
+        "O": 3
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "state": "RECOMPUTE_WAITING",
+          "C_exec": 0,
+          "C_plan": 0,
+          "Y": [
+            17
+          ],
+          "epoch": 1,
+          "free_blocks": 1,
+          "owned_blocks": 0
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C11",
+      "scenario": "Replay known prefix, then append only the next output",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "block_size": 4,
+        "usable_blocks": 2,
+        "free_blocks": 2,
+        "P": 4,
+        "C_exec": 0,
+        "Y": [
+          17
+        ],
+        "E": 1,
+        "epoch": 1,
+        "O": 3,
+        "note": "Separate sufficient-capacity fixture, not extra memory granted to C10"
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "r": 4
+          },
+          "C_exec": 4,
+          "Y": [
+            17
+          ],
+          "E": 1,
+          "new_samples": [],
+          "state": "RECOMPUTE_PAUSED"
+        },
+        {
+          "plan": {
+            "r": 1
+          },
+          "C_exec": 5,
+          "Y": [
+            17,
+            18
+          ],
+          "E": 1,
+          "new_samples": [
+            18
+          ],
+          "state": "DECODE_READY",
+          "client_new_emittable_indexes": [
+            1
+          ]
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C12",
+      "scenario": "Different native and adapted-SLAI victims",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 1,
+        "block_size": 4,
+        "usable_blocks": 3,
+        "free_blocks": 0,
+        "native_running_order": [
+          "d",
+          "p",
+          "e"
+        ],
+        "paused_fifo": [
+          "p"
+        ],
+        "d": {
+          "P": 4,
+          "G": 1,
+          "C_exec": 4,
+          "blocks": 1,
+          "LST": 9
+        },
+        "p": {
+          "P": 6,
+          "G": 0,
+          "C_exec": 4,
+          "blocks": 1
+        },
+        "e": {
+          "P": 2,
+          "G": 1,
+          "C_exec": 2,
+          "blocks": 1,
+          "LST": 11
+        },
+        "now": 10
+      },
+      "expected_steps": [
+        {
+          "profile": "native",
+          "plan": {
+            "d": 1
+          },
+          "preempted": [
+            "e"
+          ],
+          "free_blocks": 0
+        },
+        {
+          "profile": "slai_adapted",
+          "plan": {
+            "d": 1
+          },
+          "preempted": [
+            "p"
+          ],
+          "held": [
+            "e"
+          ],
+          "free_blocks": 0,
+          "note": "Alternative result from the SAME initial snapshot, not a second sequential step"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C13",
+      "scenario": "Conservative reference append gate differs from native",
+      "basis": "SOURCE_DERIVED_REFERENCE_DIFFERENCE",
+      "approval_status": "SOURCE_OBSERVATION_ONLY",
+      "requires_decisions": [],
+      "inputs": {
+        "B": 1,
+        "block_size": 4,
+        "usable_blocks": 1,
+        "free_blocks": 0,
+        "P": 3,
+        "G": 1,
+        "C_exec": 3,
+        "owned_blocks": 1,
+        "reference_logical_length": 4,
+        "paused_fifo": []
+      },
+      "expected_steps": [
+        {
+          "profile": "native",
+          "plan": {
+            "d": 1
+          },
+          "preempted": []
+        },
+        {
+          "profile": "slai_reference",
+          "plan": {},
+          "preempted": [
+            "d"
+          ],
+          "reason": "free_blocks_not_positive"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C14",
+      "scenario": "Lifetime output cap survives recomputation",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "P": 4,
+        "O": 2,
+        "C_exec": 0,
+        "Y": [
+          17
+        ],
+        "E": 1,
+        "epoch": 1
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "r": 4
+          },
+          "Y": [
+            17
+          ]
+        },
+        {
+          "plan": {
+            "r": 1
+          },
+          "Y": [
+            17,
+            18
+          ],
+          "G": 2,
+          "state": "TERMINAL",
+          "owned_blocks": 0,
+          "forbidden": "a third new token or re-emission of index 0"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C15",
+      "scenario": "Reference final-prefill sample is not appended",
+      "basis": "SOURCE_DERIVED_REFERENCE_DIFFERENCE",
+      "approval_status": "SOURCE_OBSERVATION_ONLY",
+      "requires_decisions": [],
+      "inputs": {
+        "P": 4,
+        "G": 0,
+        "C_exec": 0,
+        "B": 8,
+        "raw_sampler_symbol": 17
+      },
+      "expected_steps": [
+        {
+          "profile": "slai_reference",
+          "plan": {
+            "r": 4
+          },
+          "prompt_processing_finished": true,
+          "appended_output": [],
+          "first_output_timestamp": null
+        },
+        {
+          "profile": "native",
+          "plan": {
+            "r": 4
+          },
+          "appended_output": [
+            17
+          ],
+          "note": "Alternative engine result from same initial prompt"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C16",
+      "scenario": "Invalid/missing class metadata",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S02"
+      ],
+      "inputs": {
+        "B": 4,
+        "metadata": {
+          "class_id": null
+        }
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "state": "REJECTED",
+          "reason": "INVALID_METADATA",
+          "queue_and_KV_mutation": false
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C17",
+      "scenario": "Engine identity reused after terminal",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "engine_id": "e0",
+        "ledger": {
+          "e0": "terminal request a"
+        },
+        "incoming_request": "b"
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "state": "REJECTED",
+          "reason": "DUPLICATE_ENGINE_ID",
+          "ledger": "unchanged"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C18",
+      "scenario": "ACK is not permission to invent partial samples",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "P": 10,
+        "C_exec": 0,
+        "G": 0,
+        "accepted_plan": {
+          "r": 4
+        },
+        "ACK_samples": [
+          17
+        ]
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "r": 4
+          },
+          "state": "CONTRACT_FAILURE",
+          "reason": "SAMPLE_BEFORE_CATCHUP",
+          "successful_observation": false
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C19",
+      "scenario": "Unknown/duplicate/wrong-epoch ACK",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "epoch": 2,
+        "accepted_batch": "b3",
+        "ACK_epoch": 1
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "state": "CONTRACT_FAILURE",
+          "reason": "STALE_OR_UNBOUND_ACK",
+          "Y_mutation": false,
+          "metric_eligibility": false
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C20",
+      "scenario": "LST mean and pressure boundary",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S05"
+      ],
+      "inputs": {
+        "B": 4,
+        "batch_durations_s": [
+          0.01,
+          0.02
+        ],
+        "batch_end_s": 10,
+        "TBT_s": 0.1,
+        "mean_s": 0.015,
+        "offset_low": 5,
+        "offset_high": 10,
+        "threshold": 0.96
+      },
+      "expected_steps": [
+        {
+          "KV_fraction": 0.959999,
+          "expected_LST_s": 10.025
+        },
+        {
+          "KV_fraction": 0.96,
+          "expected_LST_s": 9.95
+        },
+        {
+          "request_state": "HELD",
+          "previous_LST_s": 8.0,
+          "expected_LST_s": 8.0
+        },
+        {
+          "request_state": "PREFILL_PAUSED",
+          "previous_LST_s": null,
+          "expected_LST_s": null
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C21",
+      "scenario": "Bad KV telemetry cannot update history",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S05"
+      ],
+      "inputs": {
+        "B": 4,
+        "values": [
+          "NaN",
+          "Infinity",
+          -0.01,
+          1.01,
+          true,
+          "0.5"
+        ],
+        "batch_count": 2,
+        "LST_s": 10.025
+      },
+      "expected_steps": [
+        {
+          "state": "CONTRACT_FAILURE",
+          "reason": "INVALID_KV_OBSERVATION",
+          "batch_count": 2,
+          "LST_s": 10.025
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C22",
+      "scenario": "Changed output prefix after preemption",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "before_Y": [
+          17,
+          18
+        ],
+        "after_Y": [
+          17,
+          19
+        ]
+      },
+      "expected_steps": [
+        {
+          "state": "CONTRACT_FAILURE",
+          "reason": "PREFIX_NOT_PRESERVED"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C23",
+      "scenario": "Cancel while execution is outstanding",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "state": "IN_FLIGHT",
+        "epoch": 0,
+        "G": 1,
+        "E": 1
+      },
+      "expected_steps": [
+        {
+          "event": "cancel",
+          "state": "CANCEL_PENDING",
+          "retain_allocations_until_safe": true
+        },
+        {
+          "event": "late ACK",
+          "state": "TERMINAL",
+          "G": 1,
+          "E": 1,
+          "discarded_new_samples_recorded": true,
+          "free_only_after_safe_ACK": true
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C24",
+      "scenario": "Impossible timestamp causality in same clock domain",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S05"
+      ],
+      "inputs": {
+        "B": 4,
+        "dispatch_s": 4,
+        "completion_s": 3,
+        "clock_domain": "same"
+      },
+      "expected_steps": [
+        {
+          "state": "CONTRACT_FAILURE",
+          "reason": "TIMESTAMP_CAUSALITY"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C25",
+      "scenario": "Two tokens in one stream event",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S03",
+        "S05"
+      ],
+      "inputs": {
+        "B": 4,
+        "stream_events": [
+          {
+            "time_s": 4,
+            "token_indexes": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "expected_steps": [
+        {
+          "client_chunk_count": 1,
+          "observed_token_count": 2,
+          "individual_generation_times": "NOT_VERIFIED",
+          "all_gap_SLO": "NOT_VERIFIED"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C26",
+      "scenario": "TP2 lacks one required rank ACK",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S08"
+      ],
+      "inputs": {
+        "B": 4,
+        "required_ranks": [
+          0,
+          1
+        ],
+        "ACK_ranks": [
+          0
+        ]
+      },
+      "expected_steps": [
+        {
+          "physical_fidelity": "NOT_VERIFIED",
+          "commit_output": false,
+          "action": "bounded wait then explicit failed execution; never unilateral rank success"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C27",
+      "scenario": "DP2 duplicate replica receipt",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S08"
+      ],
+      "inputs": {
+        "B": 4,
+        "offered_request": "r",
+        "fixed_route": 0,
+        "received_by": [
+          0,
+          1
+        ]
+      },
+      "expected_steps": [
+        {
+          "state": "CONTRACT_FAILURE",
+          "reason": "DUPLICATE_DP_RECEIPT",
+          "metric_eligibility": false
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C28",
+      "scenario": "No continuation on a terminal or overscheduled request",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S06"
+      ],
+      "inputs": {
+        "B": 4,
+        "state": "TERMINAL",
+        "P": 4,
+        "O": 2,
+        "G": 2,
+        "candidate_q": 1
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "state": "CONTRACT_FAILURE",
+          "reason": "TERMINAL_RESCHEDULE"
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C29",
+      "scenario": "Prefill cannot grow under adapted incremental allocation",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S04"
+      ],
+      "inputs": {
+        "B": 4,
+        "block_size": 4,
+        "usable_blocks": 2,
+        "free_blocks": 0,
+        "p": {
+          "P": 8,
+          "G": 0,
+          "C_exec": 4,
+          "blocks": 1
+        },
+        "other_owned_blocks": 1,
+        "selected": "p"
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "preempted": [
+            "p"
+          ],
+          "state": "RECOMPUTE_WAITING",
+          "C_exec": 0,
+          "Y": [],
+          "free_blocks": 1,
+          "waiting_admissions_this_iteration": []
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C30",
+      "scenario": "Paused FIFO differs from arrival-time sorting",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S02"
+      ],
+      "inputs": {
+        "B": 2,
+        "K": 1,
+        "paused_fifo": [
+          {
+            "id": "p_newer",
+            "arrival": 2,
+            "remaining": 3,
+            "P": 4,
+            "G": 0,
+            "C_exec": 1
+          },
+          {
+            "id": "p_older",
+            "arrival": 1,
+            "remaining": 3,
+            "P": 4,
+            "G": 0,
+            "C_exec": 1
+          }
+        ],
+        "waiting": []
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "p_newer": 2
+          },
+          "paused_remaining_order_after_ACK": [
+            "p_older",
+            "p_newer"
+          ]
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C31",
+      "scenario": "Strict flag is binary, not three-tier priority",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S01",
+        "S02"
+      ],
+      "inputs": {
+        "B": 1,
+        "N": 1,
+        "waiting": [
+          {
+            "id": "medium_long",
+            "strict": false,
+            "P": 8,
+            "TBT": 0.3,
+            "arrival": 1,
+            "ordinal": 0
+          },
+          {
+            "id": "loose_short",
+            "strict": false,
+            "P": 1,
+            "TBT": 0.5,
+            "arrival": 2,
+            "ordinal": 1
+          }
+        ]
+      },
+      "expected_steps": [
+        {
+          "plan": {
+            "loose_short": 1
+          },
+          "waiting": [
+            "medium_long"
+          ]
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    },
+    {
+      "id": "C32",
+      "scenario": "Invalid context is recorded, never truncated",
+      "basis": "PROPOSED_ADAPTATION",
+      "approval_status": "UNRESOLVED",
+      "requires_decisions": [
+        "S07"
+      ],
+      "inputs": {
+        "B": 4,
+        "P": 7,
+        "O": 2,
+        "L": 8
+      },
+      "expected_steps": [
+        {
+          "plan": {},
+          "state": "REJECTED",
+          "reason": "CONTEXT_OVERFLOW",
+          "P_retained": 7,
+          "O_retained": 2,
+          "source_record_retained": true
+        }
+      ],
+      "physical_status": "NOT_VERIFIED"
+    }
+  ]
+}

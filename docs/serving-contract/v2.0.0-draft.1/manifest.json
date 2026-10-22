@@ -1,0 +1,34 @@
+{
+  "semantics_id": "lssp-serving-semantics/2.0.0-draft.1",
+  "status": "DRAFT",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "physical_status": "NOT_VERIFIED",
+  "author_approval": null,
+  "baseline_pr": 4,
+  "baseline_commit": "efc5243898d18bbb62ccb51dcf66a0767827dac6",
+  "base_pr": 3,
+  "base_commit": "b14992716c20b36d26e6f28e60b2c8e0b8b09a07",
+  "policy_profiles": [
+    "native-vllm-0.27.1-fcfs/v2-draft",
+    "lssp-slai-nativekv/v2-draft"
+  ],
+  "comparison_only_profile": "slai-reference-5098a7/source-observation",
+  "execution_schema_id": "lssp-plan-native-ack/v2-draft",
+  "simulator_semantics": "requires separate prospective ID; no historical relabeling",
+  "analysis_version": "UNRESOLVED",
+  "decisions": {
+    "S01": "UNRESOLVED",
+    "S02": "UNRESOLVED",
+    "S03": "UNRESOLVED",
+    "S04": "UNRESOLVED",
+    "S05": "UNRESOLVED",
+    "S06": "UNRESOLVED",
+    "S07": "UNRESOLVED",
+    "S08": "UNRESOLVED"
+  },
+  "cases_path": "cases.json",
+  "cases_sha256": "e8cdaba8034fe84abab776759cb76f5c8f05d761970017318b3c23968df71575",
+  "conformance_cases": 32,
+  "gpu_allocations_this_task": 0,
+  "future_execution_authorized": false
+}

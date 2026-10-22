@@ -1,0 +1,42 @@
+{
+  "baseline": "efc5243898d18bbb62ccb51dcf66a0767827dac6",
+  "preserved_file_count": 29,
+  "preserved_sha256": {
+    "scripts/mgpu02/prompt.json": "b4cdc0f246a690d170bd37372e3b77cb8908a5a73ef773239e1ae36c732cfead",
+    "scripts/mgpu02/smoke.py": "82dd5d35a0416c8700d9b808654c190d10a28f7fc6c5a7df305f9c3fcdb3e932",
+    "scripts/mgpu02/smoke.sbatch": "dd1305b0aca6619a2a33bd95a03db009200f6ccb0c363acbe23107f0aa7ff338",
+    "scripts/mgpu02/verify_prompt.py": "7451081eeb8f2617ef90bdf83d1759ee7b2f5c8cc5b376bdd3d1d0ec8fe427a7",
+    "scripts/mgpu05/api-sources.json": "56d81c47a30efec9e70fa56215fa54fcfe3e2d89cedf8ab17382a00f339aa240",
+    "scripts/mgpu05/design.json": "50def7c3b424020947a2450550c4452e547e9245da2b9ec587de63328c297fe8",
+    "scripts/mgpu05/environment.json": "00f6b19448a0b6e25302b519da68000eba734e9d41705da9a6ba6e7adc708e29",
+    "scripts/mgpu05/repeatability.py": "0e29ed93f06ac027e65765b937829d5c32b653823f2295bbd1e96c111308ac90",
+    "scripts/mgpu05/repeatability.sbatch": "e1251ee66e527e957c0662bf0b2cea8b0924ddd29a1756bcf9f1358e5c0ff966",
+    "scripts/mgpu05/validate.py": "f8bfa49758bf2694b06d8558045fdfc79e71b70227271a09dd64ce52816ae7b1",
+    "scripts/mgpu06/probe.py": "2adb5058590eed1b8eb564b2bf71e27270487a8989362019683c4afaaa43a3ca",
+    "scripts/mgpu06/runtime-sources.json": "33d9282191d302dfb60534728f7c699d437b90749359b5632d84e92f25f76893",
+    "scripts/mgpu06/runtime.py": "9c1ced2cda35f1f090baacad386f935d304bcfb4d239e00057fd6f92c6ef5985",
+    "docs/study-protocol/lssp-protocol01/AUTHOR_DECISIONS.md": "78a9ed96a6b0989571894bdfd6b8710d8374430c030ec86688f88a127367d7fb",
+    "docs/study-protocol/lssp-protocol01/EXPERIMENTAL_MATRIX.md": "58b8226c0d2c442300025ed22384dae8297663920441eb68be056a10e9056fe2",
+    "docs/study-protocol/lssp-protocol01/FIDELITY_AND_EXCLUSION_GATES.md": "cafc90eb58fbbcf007116732c318e5100c7986a59d60d0870d6a3f57806da1d4",
+    "docs/study-protocol/lssp-protocol01/HYPOTHESES.md": "37eeedcb38db335cc44c8933a22b16fffbf9f61bd0cf3c25dac0c4a80d412092",
+    "docs/study-protocol/lssp-protocol01/METRICS_AND_STATISTICS.md": "5fd345e1278c9ccfbda2eced6b10a4f285b233e91cff9ce4b5bb166d8ef7c570",
+    "docs/study-protocol/lssp-protocol01/NOVELTY_AND_OVERLAP.md": "8a76b4d0d2f1af1e2bc53bb0f3616ff5653eab62a905f6be1d00182599f813c9",
+    "docs/study-protocol/lssp-protocol01/PREREGISTRATION_DRAFT.md": "9ac1f9ba1b06e4d32f549b0631661215f4dbccee1e0c0045e794b6d00986ca6d",
+    "docs/study-protocol/lssp-protocol01/README.md": "1173b278488ce49834c1bf40248077a102f7305db9da3d9f686412240058b7f5",
+    "docs/study-protocol/lssp-protocol01/RESEARCH_QUESTIONS.md": "b5b1366eae320d8b95c6ae683e13ac2a3b7e09bb3d75764e617c9ce6dbc7a45e",
+    "docs/study-protocol/lssp-protocol01/RESOURCE_BUDGET.md": "3686dc9dc3bcfdedd00b533651f8c1f20ccd56038e4799395ab004423feeefe7",
+    "docs/study-protocol/lssp-protocol01/STAGED_EXECUTION_PLAN.md": "f44bea425c190f5d21f3ef789d87905b2884e2f3e35cf196d6730074161b821b",
+    "docs/study-protocol/lssp-protocol01/design_manifest.json": "6709838033ce3f5fc22734f2886727ebbda5cb9ed4f4389ebe3316f9da127a7d",
+    "docs/study-protocol/lssp-protocol01/evidence/mgpu03_accounting.txt": "879ab920cfbb23481713e098c41080d627fb9dbcf74d1fad19215cc6476ca558",
+    "docs/study-protocol/lssp-protocol01/evidence/review_inventory.json": "d4e9e0b89d6379565c49216320e2874d6862643b57d5b3b4610a7a8000229243",
+    "docs/study-protocol/lssp-protocol01/evidence/validation.txt": "bdb4e98dfce55a0ee9241bec0444ec4a6b0f8839e8fa300fb47037717477e7fd",
+    "docs/study-protocol/lssp-protocol01/validate_protocol.py": "a8671112e9dda9009e7d9477ba3b8bc49d4c7f68422ad99f95bd22e00d3ffbbf"
+  },
+  "preexisting_lfs_checkout_anomaly": {
+    "path": "dataset/v1.1.0/scientific/campaign/consolidated.json",
+    "size_bytes": 37252923,
+    "baseline_raw_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "checkout_raw_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "status": "raw bytes identical; Git filter reports modified; deliberately not repaired or staged"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "AUTHOR_DECISIONS.md": "8ee75d6b7586c1d21fe766886279ab9c4ceda2329e297ae9846c5a94d4bdfbc0",
+  "CONFORMANCE.md": "b59c0cb7c95ebd7f8dcc4d38d7d20976427f980446bbb4b77b23d2474e05c232",
+  "FIDELITY_GATES.md": "8943dcd26e35c82f8e91d3b98f18fb1d34d630b41c7f4f06a514bebd5867d6bd",
+  "IMPLEMENTATION_PLAN.md": "835cb83a211b4ed0bd80185bbea9d3439da3d1fa8c26d86e7d35ddbe2a325a9d",
+  "README.md": "2e510656e3d431dd3a90c8b129ab2b69c90f20c453d304f5839d2dd3aa13bb00",
+  "SOURCE_COMPARISON.md": "fccc6fab1d9885a10e9dca797a940e3ac7b83e92cef1c2d4fb1ea6cc86eac2e5",
+  "SPECIFICATION.md": "6d8b717216d22b95c9bcf20d38339a7e9c1ac0372e6198d7419115e935f48fc9",
+  "TRACE_MAPPING.md": "1fd7e2113afbfc38278367609b26fa8f969215f2449e778abd5f357928221692",
+  "VALIDATION.md": "82860b442f389c0f73c175d821a4b8efa729298b40b7be8179e98ef6150130e2",
+  "cases.json": "e8cdaba8034fe84abab776759cb76f5c8f05d761970017318b3c23968df71575",
+  "check_runtime_boundary.py": "1d783f3cedaa41496c57f5005af81dd90d0b0a833a6fdef8829731818b9a9a68",
+  "evidence/cpu-tests.log": "8560510a63ce1f3a747272b1c954f8218cfc7bbf043217a1781dbe54976f2c96",
+  "evidence/document-checks.json": "87be8fb7b5bfd863a6e5ed479b94a26e9c9d0c695598bb4397a410d3a2f068f3",
+  "evidence/preservation.json": "f9041a4f70ddb919332b180b52a47d5b12429b7ffbc9d967b967c368a8cd2bea",
+  "evidence/runtime-boundary.log": "1f955d4eba404cef9f67eeee2b27b6119766973f2eb140d8ca02233503bb69de",
+  "evidence/sources.json": "c8ea11f2c03b49c27d5fbdf6984af7945192ca65a0fc68b0aae1175fbda4d7ae",
+  "evidence/trace-audit.json": "421bf5f54ee8eb725b522c8edb952bc8d28565853f41379513f0e1e44f08dc39",
+  "manifest.json": "771c0aaf7ba3a9e32d312268575cf3d7a28e0e50559a058e7023272e4c3b6c98",
+  "validate_documents.py": "f5e8919dd2613b0c9c668557f380de2a96a42125527aae8afb4b7858ba5c559c"
+}

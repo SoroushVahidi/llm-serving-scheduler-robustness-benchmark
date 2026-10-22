@@ -1,0 +1,94 @@
+{
+  "vllm_version": "0.27.1",
+  "vllm_installed_files": {
+    "v1/core/sched/scheduler.py": {
+      "sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+      "upstream_url": "https://github.com/vllm-project/vllm/blob/v0.27.1/vllm/v1/core/sched/scheduler.py",
+      "upstream_sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+      "installed_matches_upstream": true
+    },
+    "v1/core/kv_cache_manager.py": {
+      "sha256": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6",
+      "upstream_url": "https://github.com/vllm-project/vllm/blob/v0.27.1/vllm/v1/core/kv_cache_manager.py",
+      "upstream_sha256": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6",
+      "installed_matches_upstream": true
+    },
+    "v1/core/block_pool.py": {
+      "sha256": "51cad2fd425128a0ff433ca4685acfc022e40659153ea5d7180fc586e1eebb6c",
+      "upstream_url": "https://github.com/vllm-project/vllm/blob/v0.27.1/vllm/v1/core/block_pool.py",
+      "upstream_sha256": "51cad2fd425128a0ff433ca4685acfc022e40659153ea5d7180fc586e1eebb6c",
+      "installed_matches_upstream": true
+    },
+    "v1/request.py": {
+      "sha256": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012",
+      "upstream_url": "https://github.com/vllm-project/vllm/blob/v0.27.1/vllm/v1/request.py",
+      "upstream_sha256": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012",
+      "installed_matches_upstream": true
+    },
+    "config/scheduler.py": {
+      "sha256": "3cf5d41a5d662ab0eada6f3128e2538abc0a250d6aef82acab7df7dd84e498bc",
+      "upstream_url": "https://github.com/vllm-project/vllm/blob/v0.27.1/vllm/config/scheduler.py",
+      "upstream_sha256": "3cf5d41a5d662ab0eada6f3128e2538abc0a250d6aef82acab7df7dd84e498bc",
+      "installed_matches_upstream": true
+    }
+  },
+  "slai_revision": "5098a7aba05e3edbcfa3a509d6cc9cd248fc4380",
+  "slai_source_files": {
+    "sarathi/core/scheduler/slai_scheduler.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/scheduler/slai_scheduler.py",
+      "sha256": "972361a25def480ca136cd90bced4b4b691a77749742cc374bb60f6cea99dbfc"
+    },
+    "sarathi/core/scheduler/base_scheduler.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/scheduler/base_scheduler.py",
+      "sha256": "5b4ac0fd3154ae25b580614fb4b3fd773091eb730951f72b3624fd71ecf06cbd"
+    },
+    "sarathi/core/datatypes/sequence.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/datatypes/sequence.py",
+      "sha256": "a10a34fbab78d8aaa7e0e2c18aa11641d0b33534a23092ccfcbe9715d39523b4"
+    },
+    "sarathi/core/block_space_manager/sarathi_block_space_manager.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/block_space_manager/sarathi_block_space_manager.py",
+      "sha256": "e49b9b54ba246c4e04612c646abbd056eba2736b38e5f6cc28e2190ccdc35f29"
+    },
+    "sarathi/core/block_space_manager/base_block_space_manager.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/block_space_manager/base_block_space_manager.py",
+      "sha256": "75b6e133fd5665e38f53a185aaf34db07883b468a557bd19b97c1632b4c91e0c"
+    },
+    "sarathi/engine/base_llm_engine.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/engine/base_llm_engine.py",
+      "sha256": "301f11f55ce19b08728df9f238b675916ee6d2c94373645dc72ccc348516f69c"
+    },
+    "sarathi/core/block_space_manager/vllm_block_space_manager.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/block_space_manager/vllm_block_space_manager.py",
+      "sha256": "34b7f9e2474be259d114bbc5e3589238a8d3de1237f3bd7870d32eac144aface"
+    },
+    "sarathi/core/sequence_manager/engine_sequence_manager.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/sequence_manager/engine_sequence_manager.py",
+      "sha256": "7c3fd9c2152011629edec216cb76dc1f26481ceb275447482ef7ca85638c05b9"
+    },
+    "sarathi/core/sequence_manager/base_sequence_manager.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/sequence_manager/base_sequence_manager.py",
+      "sha256": "1705241edd761aabde072332a806772eb90e1f245db608b183e5bcec29a6a103"
+    },
+    "sarathi/core/datatypes/sequence_state.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/datatypes/sequence_state.py",
+      "sha256": "68c754bacb13fffbdcdb7b5e17ad3835a6dfb04a5c28a57a830609e99fe28723"
+    },
+    "sarathi/core/datatypes/sequence_status.py": {
+      "url": "https://raw.githubusercontent.com/agrimUT/SLAI/5098a7aba05e3edbcfa3a509d6cc9cd248fc4380/sarathi/core/datatypes/sequence_status.py",
+      "sha256": "fb36d9e71393bb02dd30d11aca73f51b8de18aba351d75d395341bd9eda16df9"
+    }
+  },
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "packages": {
+      "vllm": "0.27.1",
+      "torch": "2.13.0+cu130",
+      "transformers": "5.8.1",
+      "tokenizers": "0.22.2",
+      "pytest": "9.0.3",
+      "pyarrow": "24.0.0"
+    }
+  },
+  "scope": "CPU source/probe environment; not a new Wulver or GPU execution"
+}
