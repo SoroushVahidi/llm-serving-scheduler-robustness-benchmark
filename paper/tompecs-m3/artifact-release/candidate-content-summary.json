@@ -1,0 +1,50 @@
+{
+  "payload_files": 34005,
+  "payload_bytes": 3273177026,
+  "groups": {
+    "COMMITS.json": {
+      "files": 1,
+      "bytes": 570
+    },
+    "README.md": {
+      "files": 1,
+      "bytes": 8014
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "files": 1,
+      "bytes": 3775
+    },
+    "code/c01": {
+      "files": 243,
+      "bytes": 1830001
+    },
+    "code/stat01": {
+      "files": 223,
+      "bytes": 3211243
+    },
+    "evidence/c01": {
+      "files": 11792,
+      "bytes": 1076487662
+    },
+    "evidence/input-lineage": {
+      "files": 8,
+      "bytes": 98936413
+    },
+    "evidence/stat": {
+      "files": 21557,
+      "bytes": 2077182087
+    },
+    "evidence/stat-original": {
+      "files": 19,
+      "bytes": 112028
+    },
+    "paper": {
+      "files": 160,
+      "bytes": 15405233
+    }
+  },
+  "byte_identical_duplicate_hash_groups": 485,
+  "duplicate_extra_bytes": 10203296,
+  "unique_content_bytes": 3262973730,
+  "large_raw_files_duplicated": []
+}

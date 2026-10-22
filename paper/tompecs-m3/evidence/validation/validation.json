@@ -359,7 +359,7 @@
   "builds": {
     "manuscript": {
       "status": "PASS",
-      "pages": 21,
+      "pages": 22,
       "overfull_boxes": 0,
       "unresolved_references": 0,
       "bibliography_optional_metadata_advisories": [
@@ -371,7 +371,7 @@
     },
     "acmsmall": {
       "status": "PASS",
-      "pages": 22,
+      "pages": 23,
       "overfull_boxes": 0,
       "unresolved_references": 0,
       "bibliography_optional_metadata_advisories": [
@@ -383,6 +383,7 @@
     }
   },
   "historical_changes": [
+    "dataset/v1.1.0/scientific/campaign/consolidated.json",
     "paper/tompecs-m3/.gitignore",
     "paper/tompecs-m3/CLAIM_TO_EVIDENCE.md",
     "paper/tompecs-m3/M2_TO_M3_CHANGES.md",
@@ -440,6 +441,16 @@
     "paper/tompecs-m3/figures/absolute.pdf",
     "paper/tompecs-m3/figures/chronology.pdf",
     "paper/tompecs-m3/figures/matched.pdf",
+    "paper/tompecs-m3/final-review/OVERLAP_AUDIT.md",
+    "paper/tompecs-m3/final-review/REFEREE_REPORT.md",
+    "paper/tompecs-m3/final-review/REFERENCES.md",
+    "paper/tompecs-m3/final-review/SUBMISSION_READINESS.md",
+    "paper/tompecs-m3/final-review/VALIDATION.md",
+    "paper/tompecs-m3/final-review/dynamollm-metadata.json",
+    "paper/tompecs-m3/final-review/final-checks.json",
+    "paper/tompecs-m3/final-review/overlap-evidence.json",
+    "paper/tompecs-m3/final-review/overlap_scan.py",
+    "paper/tompecs-m3/final-review/reference-metadata.json",
     "paper/tompecs-m3/m3-acmsmall.pdf",
     "paper/tompecs-m3/m3-manuscript.pdf",
     "paper/tompecs-m3/main.tex",
@@ -482,5 +493,6 @@
     "paper/tompecs-m3/template/acmart.dtx",
     "paper/tompecs-m3/template/acmart.ins"
   ],
+  "historical_checkout_check": "CHECKED",
   "experiments_executed": 0
 }

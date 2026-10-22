@@ -1,3 +1,5 @@
+> **Historical PR20 assessment (retained).** Current status, provenance, artifact and readiness findings supersede the pending questions below: [artifact-readiness assessment](../artifact-release/READINESS.md), [verified related-manuscript statuses](../artifact-release/RELATED_MANUSCRIPTS.md), and [source provenance](../artifact-release/SOURCE_PROVENANCE.md). Rejected/withdrawn dispositions no longer require confirmation. This body records what was known in the earlier review.
+
 # Final M3 referee and readiness review
 
 Reviewed version: PR #19, `ed24b2e8224ea88aa289b60dea6142beeea5330d`. Review date: 2026-10-22. Corrections are stacked on that exact version. **Verdict: NOT_READY.** Task state: **COMPLETED_SUCCESS** (review and correction package; not submission clearance).

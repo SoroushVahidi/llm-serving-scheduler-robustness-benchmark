@@ -1,0 +1,55 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "checks": {
+    "azure_license": {
+      "git_blob": "a2c95fc1559c88a47f83793422c3fc20424e1f21",
+      "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9",
+      "bytes": 18653
+    },
+    "azure_readme": {
+      "git_blob": "22e88efcecf9448bfae4c608ce118142d69d1a58",
+      "sha256": "b4018009abc757d3ec77300253c4dc93dfe85709bc3455998e3d6d4c12004c8e",
+      "bytes": 2499
+    },
+    "alibaba_license": {
+      "git_blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "bytes": 11357
+    },
+    "alibaba_readme": {
+      "git_blob": "d01cbe6a10faac546e3454260e11ea339ad92a18",
+      "sha256": "9815b81e4157885ab446ecca397df92a89d3797af4721d19306ad414307f0f04",
+      "bytes": 6628
+    },
+    "burst_license": {
+      "git_blob": "4ea99c213c5c0c005ae4e80df8e52169d06896ec",
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "bytes": 18656
+    },
+    "burst_readme": {
+      "git_blob": "7ae67bad964a03ca9fe4365df52aaea9111a75f8",
+      "sha256": "9d9061ef8548e96a854df7c317b4cdf286745c1a6da2f711f288f5e24aa09ef3",
+      "bytes": 5214
+    },
+    "raw_sources": {
+      "AzureLLMInferenceTrace_conv_2024.csv": {
+        "sha256": "a0cc9b969a9bbf0fd811802cbf4323edd3a209ace791e3799ad4f9207f213941",
+        "bytes": 1135195393,
+        "upstream_name": "AzureLLMInferenceTrace_conv_1week.csv",
+        "identity": "MATCH"
+      },
+      "BurstGPT_without_fails_2.csv": {
+        "sha256": "56193aa9b2bb26128ded43d2d29a960df6bf5af062bcfc9b005f3fcaa4e6e501",
+        "bytes": 142376815,
+        "upstream_name": "BurstGPT_without_fails_2.csv",
+        "identity": "MATCH"
+      },
+      "qwen_traceB_blksz_16.jsonl": {
+        "sha256": "68e3f98e2d601d60d0abf4b89bc8a3654372abab7b1cde6373a13d0054379d59",
+        "bytes": 96209982,
+        "upstream_name": "qwen_traceB_blksz_16.jsonl",
+        "identity": "MATCH"
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "azure_license.txt": {
+    "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/215becdacba1ce682c7368642ce97d5a332de7a6/LICENSE",
+    "accessed_utc": "2026-10-22T20:21:33.122656+00:00",
+    "http_status": 200,
+    "final_url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/215becdacba1ce682c7368642ce97d5a332de7a6/LICENSE",
+    "bytes": 18653,
+    "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9",
+    "file": "azure_license.txt"
+  },
+  "azure_readme.txt": {
+    "url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/215becdacba1ce682c7368642ce97d5a332de7a6/AzureLLMInferenceDataset2024.md",
+    "accessed_utc": "2026-10-22T20:21:33.123121+00:00",
+    "http_status": 200,
+    "final_url": "https://raw.githubusercontent.com/Azure/AzurePublicDataset/215becdacba1ce682c7368642ce97d5a332de7a6/AzureLLMInferenceDataset2024.md",
+    "bytes": 2499,
+    "sha256": "b4018009abc757d3ec77300253c4dc93dfe85709bc3455998e3d6d4c12004c8e",
+    "file": "azure_readme.txt"
+  },
+  "alibaba_license.txt": {
+    "url": "https://raw.githubusercontent.com/alibaba-edu/qwen-bailian-usagetraces-anon/5f7439c51ec248a0c585f7d90a41a6f57773b912/LICENSE",
+    "accessed_utc": "2026-10-22T20:21:33.123404+00:00",
+    "http_status": 200,
+    "final_url": "https://raw.githubusercontent.com/alibaba-edu/qwen-bailian-usagetraces-anon/5f7439c51ec248a0c585f7d90a41a6f57773b912/LICENSE",
+    "bytes": 11357,
+    "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+    "file": "alibaba_license.txt"
+  },
+  "alibaba_readme.txt": {
+    "url": "https://raw.githubusercontent.com/alibaba-edu/qwen-bailian-usagetraces-anon/5f7439c51ec248a0c585f7d90a41a6f57773b912/README.md",
+    "accessed_utc": "2026-10-22T20:21:33.123705+00:00",
+    "http_status": 200,
+    "final_url": "https://raw.githubusercontent.com/alibaba-edu/qwen-bailian-usagetraces-anon/5f7439c51ec248a0c585f7d90a41a6f57773b912/README.md",
+    "bytes": 6628,
+    "sha256": "9815b81e4157885ab446ecca397df92a89d3797af4721d19306ad414307f0f04",
+    "file": "alibaba_readme.txt"
+  },
+  "burst_license.txt": {
+    "url": "https://raw.githubusercontent.com/HPMLL/BurstGPT/d895a53bb7b8ec137d0d2fe203b335835a78c10a/LICENSE",
+    "accessed_utc": "2026-10-22T20:21:33.124001+00:00",
+    "http_status": 200,
+    "final_url": "https://raw.githubusercontent.com/HPMLL/BurstGPT/d895a53bb7b8ec137d0d2fe203b335835a78c10a/LICENSE",
+    "bytes": 18656,
+    "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+    "file": "burst_license.txt"
+  },
+  "burst_readme.txt": {
+    "url": "https://raw.githubusercontent.com/HPMLL/BurstGPT/d895a53bb7b8ec137d0d2fe203b335835a78c10a/README.md",
+    "accessed_utc": "2026-10-22T20:21:33.124317+00:00",
+    "http_status": 200,
+    "final_url": "https://raw.githubusercontent.com/HPMLL/BurstGPT/d895a53bb7b8ec137d0d2fe203b335835a78c10a/README.md",
+    "bytes": 5214,
+    "sha256": "9d9061ef8548e96a854df7c317b4cdf286745c1a6da2f711f288f5e24aa09ef3",
+    "file": "burst_readme.txt"
+  },
+  "acm-authorship.html": {
+    "url": "https://prod-www.acm.bloomreach.cloud/publications/policies/new-acm-policy-on-authorship",
+    "accessed_utc": "2026-10-22T20:21:33.344988+00:00",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "tompecs-guidelines.html": {
+    "url": "https://dl.acm.org/journal/tompecs/author-guidelines",
+    "accessed_utc": "2026-10-22T20:21:33.357704+00:00",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "hf-api.json": {
+    "url": "https://huggingface.co/api/datasets/SoroushVahidi/llm-serving-scheduler-portability",
+    "accessed_utc": "2026-10-22T20:21:33.360018+00:00",
+    "http_status": 200,
+    "final_url": "https://huggingface.co/api/datasets/SoroushVahidi/llm-serving-scheduler-portability",
+    "bytes": 5725,
+    "sha256": "7a53fc8c05fddcb8874e667d5bbca8227586f0357b5361db0fe1b2fb761a19d4",
+    "file": "hf-api.json"
+  },
+  "zenodo-api.json": {
+    "url": "https://zenodo.org/api/records/22306798",
+    "accessed_utc": "2026-10-22T20:21:33.362572+00:00",
+    "http_status": 200,
+    "final_url": "https://zenodo.org/api/records/22306798",
+    "bytes": 6669,
+    "sha256": "5f823bb0f147fe9de5e89fb1b027376a93462869d45ff9af0f721487be5da255",
+    "file": "zenodo-api.json"
+  },
+  "acmart-current.pdf": {
+    "url": "https://portalparts.acm.org/hippo/latex_templates/acmart.pdf",
+    "accessed_utc": "2026-10-22T20:21:33.371295+00:00",
+    "http_status": 200,
+    "final_url": "https://portalparts.acm.org/hippo/latex_templates/acmart.pdf",
+    "bytes": 932753,
+    "sha256": "d75d4a6a49c8453b20fbb059541e79328d2ddb35cf96e24053e172129367ed52",
+    "file": "LOCAL_ONLY: /home/soroush/lssp-m3-artifact-readiness-20261022/acmart-current.pdf"
+  }
+}

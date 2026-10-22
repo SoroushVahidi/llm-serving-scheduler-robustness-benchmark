@@ -1,3 +1,5 @@
+> **Historical PR20 assessment (retained).** Current status, provenance, artifact and readiness findings supersede the pending questions below: [artifact-readiness assessment](../artifact-release/READINESS.md), [verified related-manuscript statuses](../artifact-release/RELATED_MANUSCRIPTS.md), and [source provenance](../artifact-release/SOURCE_PROVENANCE.md). Rejected/withdrawn dispositions no longer require confirmation. This body records what was known in the earlier review.
+
 # Related-manuscript overlap audit
 
 Audit target: M3 at `ed24b2e8224ea88aa289b60dea6142beeea5330d`; 2026-10-22. This is an audit of recoverable local source versions, not proof of what a portal received or of current editorial status. Full commits and per-file SHA-256 values for 13 source sets are in [overlap-evidence.json](overlap-evidence.json); the read-only [scanner](overlap_scan.py) makes the textual check reproducible. Manuscript concepts, results, and conclusions were also compared directly; lexical novelty is not scientific novelty.

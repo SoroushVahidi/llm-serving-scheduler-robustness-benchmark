@@ -9,12 +9,18 @@ These are three separately released sources, not three independent provider
 populations: BurstGPT and Azure have Azure infrastructure in their collection
 provenance. Table~\ref{tab:provenance} identifies the consumed files and
 transformations. The supplement records full file and window fingerprints.
+The official Azure conversation release has the name
+\texttt{AzureLLMInferenceTrace\_conv\_1week.csv}; its published SHA-256
+matches the consumed file despite the local rename. Azure and BurstGPT
+are licensed CC BY 4.0, and the pinned Bailian/Qwen data Apache 2.0.
+The local candidate preserves attribution, license texts, and transformation
+notices; release approval and reviewer access remain author decisions.
 
 \begin{table}[t]
 \caption{Consumed dataset provenance. Each row contributes 40 windows and
 8,000 request records. Hashes are prefixes of SHA-256 values; full values are
-in the bundled input manifest. License verification is a separate submission
-item, not implied by a hash.}
+in the bundled input manifest. The artifact provenance audit matches these hashes to upstream release
+assets or a pinned LFS object and retains the corresponding license notices.}
 \label{tab:provenance}\small
 \begin{tabularx}{\linewidth}{@{}lXl@{}}\toprule
 Source & File and representation & File hash prefix \\\midrule

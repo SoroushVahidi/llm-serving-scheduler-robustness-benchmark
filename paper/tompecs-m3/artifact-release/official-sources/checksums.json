@@ -1,0 +1,77 @@
+{
+  "access_date": "2026-10-22",
+  "files": {
+    "access-records.json": {
+      "bytes": 4733,
+      "sha256": "0ab9eebe184b1e8b3dbbbedb5c1008dc2efb5d938b5179f145af7e256b7a372d"
+    },
+    "alibaba_license.txt": {
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    "alibaba_pointer.json": {
+      "bytes": 714,
+      "sha256": "1fd0ab14b424024f9ca9fd0e9d2583da90b747cd5ee0875b6ce9401555de05ca"
+    },
+    "alibaba_readme.txt": {
+      "bytes": 6628,
+      "sha256": "9815b81e4157885ab446ecca397df92a89d3797af4721d19306ad414307f0f04"
+    },
+    "alibaba_tree.json": {
+      "bytes": 2460,
+      "sha256": "f9ac46af5e790c091a87356cbf9431e7f527fb8797449a6d6e88669584a28774"
+    },
+    "azure_commit.json": {
+      "bytes": 6112,
+      "sha256": "cc2d8da614d075616a3286020c3f198aba029b8fc1e74a64843c9b11144313c6"
+    },
+    "azure_license.txt": {
+      "bytes": 18653,
+      "sha256": "9bbc1ea9fe5c96df01b311a2ac864d5b18fc87b9948bfd14770e4b44db755ee9"
+    },
+    "azure_readme.txt": {
+      "bytes": 2499,
+      "sha256": "b4018009abc757d3ec77300253c4dc93dfe85709bc3455998e3d6d4c12004c8e"
+    },
+    "azure_release.json": {
+      "bytes": 5518,
+      "sha256": "01b76cc98f8677bc24df6fcd61e7546e3c2f0434626ff16427221f8695919410"
+    },
+    "azure_tree.json": {
+      "bytes": 7049,
+      "sha256": "fb4bdc02a9ae6da7ac914e3948b9fcae9a5f18fa73c835c5900a58b5c3b30c44"
+    },
+    "burst_commit.json": {
+      "bytes": 94377,
+      "sha256": "e4cc130bfd5b5b9d9d218b65acb0ee9c3b0c31bfcae7ac006d124d5691d8cc34"
+    },
+    "burst_license.txt": {
+      "bytes": 18656,
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+    },
+    "burst_readme.txt": {
+      "bytes": 5214,
+      "sha256": "9d9061ef8548e96a854df7c317b4cdf286745c1a6da2f711f288f5e24aa09ef3"
+    },
+    "burst_releases.json": {
+      "bytes": 25340,
+      "sha256": "068f437787de52aee1f46d04aeb63974530c5427f87d4ee6c0047f2b43e88c34"
+    },
+    "burst_tree.json": {
+      "bytes": 8725,
+      "sha256": "b217bb765b9a8f4493e6fc68300b6ec65e4e0d9993a87efce526ee7717a940a6"
+    },
+    "hf-api.json": {
+      "bytes": 5725,
+      "sha256": "7a53fc8c05fddcb8874e667d5bbca8227586f0357b5361db0fe1b2fb761a19d4"
+    },
+    "releases.json": {
+      "bytes": 5545,
+      "sha256": "124ebee7aaf6d73a77c4ebde871f080bbbc9054a7dfd0c09ad913cf8cad159d2"
+    },
+    "zenodo-api.json": {
+      "bytes": 6669,
+      "sha256": "5f823bb0f147fe9de5e89fb1b027376a93462869d45ff9af0f721487be5da255"
+    }
+  }
+}

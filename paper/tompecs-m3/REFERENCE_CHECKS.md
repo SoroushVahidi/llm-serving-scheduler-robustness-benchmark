@@ -1,3 +1,5 @@
+> **Historical reference check.** The current 24-reference bibliography is documented in [PR20 reference updates](final-review/REFERENCES.md); consumed-source license/identity verification is superseded by [SOURCE_PROVENANCE.md](artifact-release/SOURCE_PROVENANCE.md).
+
 # Reference and provenance checks
 
 This records the original PR #19 rewrite. The [final review](final-review/REFEREE_REPORT.md), [reference audit](final-review/REFERENCES.md), and [final validation](final-review/VALIDATION.md) supersede it for the stacked correction.

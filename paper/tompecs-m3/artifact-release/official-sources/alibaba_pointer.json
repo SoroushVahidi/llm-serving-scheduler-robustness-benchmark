@@ -1,0 +1,8 @@
+{
+  "source_url": "https://raw.githubusercontent.com/alibaba-edu/qwen-bailian-usagetraces-anon/5f7439c51ec248a0c585f7d90a41a6f57773b912/qwen_traceB_blksz_16.jsonl",
+  "access_date": "2026-10-22",
+  "git_blob": "34432ac74acce73cc0ca29fc6780f9d0c7b5a4ac",
+  "pointer_text_sha256": "e5087a9596633d958e4461f6365ba2deb196844844c6ff4ffcb4c69e270dc5b2",
+  "pointer_text": "version https://git-lfs.github.com/spec/v1\noid sha256:68e3f98e2d601d60d0abf4b89bc8a3654372abab7b1cde6373a13d0054379d59\nsize 96209982\n",
+  "packaging_note": "Wrapped as JSON to prevent Git LFS interpreting this provenance snapshot as a request to upload the original dataset. The original pointer text remains in the local candidate snapshot."
+}

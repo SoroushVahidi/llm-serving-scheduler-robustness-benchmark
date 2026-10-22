@@ -1,3 +1,5 @@
+> **Current supplement:** [artifact-readiness verification](artifact-release/VERIFICATION.md) adds full local payload checks and focused contract reasoning. The numerical evidence map below remains unchanged.
+
 # Claim-to-evidence verification
 
 Authority: final review PR #17 at `6b2eedd7aa254986b85c1bb901587641cbeac8b0`; prewrite audit PR #16 at `d22c7751af9c563d5a4d8a304c007f26112c4d12`. All C01 claims are finite-corpus descriptions. All STAT01 claims identify the synthetic scenario and uncertainty family.
