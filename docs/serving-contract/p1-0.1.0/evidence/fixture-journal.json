@@ -1,0 +1,1199 @@
+{
+  "schema": "lssp-p1-ledger/0.1.0",
+  "run_id": "p1-preserved-prefix-fixture",
+  "provenance": "cpu_fixture",
+  "events": [
+    {
+      "sequence": 0,
+      "kind": "enqueue",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 1.0,
+        "category": "host_control"
+      },
+      "data": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "WAITING",
+        "epoch": 0,
+        "acknowledged": 0,
+        "planned": 0,
+        "pending": null,
+        "generated": [],
+        "emitted": 0,
+        "observed": 0,
+        "resident": false,
+        "allocation": null,
+        "replay_until": 0,
+        "seen_prompt": [],
+        "prompt_work": 0,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": null,
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 1,
+      "kind": "admit",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 2.0,
+        "category": "host_control"
+      },
+      "data": {
+        "allocation": {
+          "observation_id": "admission-0",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "ADMITTED",
+        "epoch": 0,
+        "acknowledged": 0,
+        "planned": 0,
+        "pending": null,
+        "generated": [],
+        "emitted": 0,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-0",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 0,
+        "seen_prompt": [],
+        "prompt_work": 0,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": null,
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 2,
+      "kind": "plan",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 3.0,
+        "category": "host_control"
+      },
+      "data": {
+        "plan": {
+          "plan_id": "partial",
+          "batch_id": "partial",
+          "epoch": 0,
+          "start": 0,
+          "end": 2
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "IN_FLIGHT",
+        "epoch": 0,
+        "acknowledged": 0,
+        "planned": 2,
+        "pending": {
+          "plan_id": "partial",
+          "batch_id": "partial",
+          "epoch": 0,
+          "start": 0,
+          "end": 2
+        },
+        "generated": [],
+        "emitted": 0,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-0",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 0,
+        "seen_prompt": [],
+        "prompt_work": 0,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": null,
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 3,
+      "kind": "ack",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 4.0,
+        "category": "host_control"
+      },
+      "data": {
+        "ack": {
+          "plan_id": "partial",
+          "epoch": 0,
+          "start": 0,
+          "executed_end": 2,
+          "samples": [],
+          "success": true,
+          "quiescent": true,
+          "allocation": null
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "PREFILL_PAUSED",
+        "epoch": 0,
+        "acknowledged": 2,
+        "planned": 2,
+        "pending": null,
+        "generated": [],
+        "emitted": 0,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-0",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 0,
+        "seen_prompt": [
+          0,
+          1
+        ],
+        "prompt_work": 2,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": null,
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 4,
+      "kind": "plan",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 5.0,
+        "category": "host_control"
+      },
+      "data": {
+        "plan": {
+          "plan_id": "final-prefill",
+          "batch_id": "final-prefill",
+          "epoch": 0,
+          "start": 2,
+          "end": 4
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "IN_FLIGHT",
+        "epoch": 0,
+        "acknowledged": 2,
+        "planned": 4,
+        "pending": {
+          "plan_id": "final-prefill",
+          "batch_id": "final-prefill",
+          "epoch": 0,
+          "start": 2,
+          "end": 4
+        },
+        "generated": [],
+        "emitted": 0,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-0",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 0,
+        "seen_prompt": [
+          0,
+          1
+        ],
+        "prompt_work": 2,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": null,
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 5,
+      "kind": "ack",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 6.0,
+        "category": "host_control"
+      },
+      "data": {
+        "ack": {
+          "plan_id": "final-prefill",
+          "epoch": 0,
+          "start": 2,
+          "executed_end": 4,
+          "samples": [
+            17
+          ],
+          "success": true,
+          "quiescent": true,
+          "allocation": null
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "DECODE_READY",
+        "epoch": 0,
+        "acknowledged": 4,
+        "planned": 4,
+        "pending": null,
+        "generated": [
+          17
+        ],
+        "emitted": 0,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-0",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 0,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 4,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 6,
+      "kind": "emit",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 7.0,
+        "category": "server_observation"
+      },
+      "data": {
+        "start": 0,
+        "tokens": [
+          17
+        ]
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "DECODE_READY",
+        "epoch": 0,
+        "acknowledged": 4,
+        "planned": 4,
+        "pending": null,
+        "generated": [
+          17
+        ],
+        "emitted": 1,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-0",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 0,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 4,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 7,
+      "kind": "preempt",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 8.0,
+        "category": "host_control"
+      },
+      "data": {
+        "allocation": {
+          "observation_id": "external-preemption",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 8,
+          "owned_blocks": [],
+          "other_allocated_blocks": 0
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "RECOMPUTE_WAITING",
+        "epoch": 1,
+        "acknowledged": 0,
+        "planned": 0,
+        "pending": null,
+        "generated": [
+          17
+        ],
+        "emitted": 1,
+        "observed": 0,
+        "resident": false,
+        "allocation": {
+          "observation_id": "external-preemption",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 8,
+          "owned_blocks": [],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 4,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 8,
+      "kind": "admit",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 9.0,
+        "category": "host_control"
+      },
+      "data": {
+        "allocation": {
+          "observation_id": "admission-1",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "ADMITTED",
+        "epoch": 1,
+        "acknowledged": 0,
+        "planned": 0,
+        "pending": null,
+        "generated": [
+          17
+        ],
+        "emitted": 1,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-1",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 4,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 9,
+      "kind": "plan",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 10.0,
+        "category": "host_control"
+      },
+      "data": {
+        "plan": {
+          "plan_id": "replay-prompt",
+          "batch_id": "replay-prompt",
+          "epoch": 1,
+          "start": 0,
+          "end": 4
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "IN_FLIGHT",
+        "epoch": 1,
+        "acknowledged": 0,
+        "planned": 4,
+        "pending": {
+          "plan_id": "replay-prompt",
+          "batch_id": "replay-prompt",
+          "epoch": 1,
+          "start": 0,
+          "end": 4
+        },
+        "generated": [
+          17
+        ],
+        "emitted": 1,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-1",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 4,
+        "repeated_prompt_work": 0,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 10,
+      "kind": "ack",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 11.0,
+        "category": "host_control"
+      },
+      "data": {
+        "ack": {
+          "plan_id": "replay-prompt",
+          "epoch": 1,
+          "start": 0,
+          "executed_end": 4,
+          "samples": [],
+          "success": true,
+          "quiescent": true,
+          "allocation": null
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "RECOMPUTE_PAUSED",
+        "epoch": 1,
+        "acknowledged": 4,
+        "planned": 4,
+        "pending": null,
+        "generated": [
+          17
+        ],
+        "emitted": 1,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-1",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 8,
+        "repeated_prompt_work": 4,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 11,
+      "kind": "plan",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 12.0,
+        "category": "host_control"
+      },
+      "data": {
+        "plan": {
+          "plan_id": "replay-retained-output",
+          "batch_id": "replay-retained-output",
+          "epoch": 1,
+          "start": 4,
+          "end": 5
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "IN_FLIGHT",
+        "epoch": 1,
+        "acknowledged": 4,
+        "planned": 5,
+        "pending": {
+          "plan_id": "replay-retained-output",
+          "batch_id": "replay-retained-output",
+          "epoch": 1,
+          "start": 4,
+          "end": 5
+        },
+        "generated": [
+          17
+        ],
+        "emitted": 1,
+        "observed": 0,
+        "resident": true,
+        "allocation": {
+          "observation_id": "admission-1",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 8,
+        "repeated_prompt_work": 4,
+        "retained_output_work": 0,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": null,
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 12,
+      "kind": "ack",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 13.0,
+        "category": "host_control"
+      },
+      "data": {
+        "ack": {
+          "plan_id": "replay-retained-output",
+          "epoch": 1,
+          "start": 4,
+          "executed_end": 5,
+          "samples": [
+            18
+          ],
+          "success": true,
+          "quiescent": true,
+          "allocation": null
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "TERMINAL",
+        "epoch": 1,
+        "acknowledged": 5,
+        "planned": 5,
+        "pending": null,
+        "generated": [
+          17,
+          18
+        ],
+        "emitted": 1,
+        "observed": 0,
+        "resident": false,
+        "allocation": {
+          "observation_id": "admission-1",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 8,
+        "repeated_prompt_work": 4,
+        "retained_output_work": 1,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": "COMPLETE",
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 13,
+      "kind": "emit",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 14.0,
+        "category": "server_observation"
+      },
+      "data": {
+        "start": 1,
+        "tokens": [
+          18
+        ]
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "TERMINAL",
+        "epoch": 1,
+        "acknowledged": 5,
+        "planned": 5,
+        "pending": null,
+        "generated": [
+          17,
+          18
+        ],
+        "emitted": 2,
+        "observed": 0,
+        "resident": false,
+        "allocation": {
+          "observation_id": "admission-1",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 8,
+        "repeated_prompt_work": 4,
+        "retained_output_work": 1,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": "COMPLETE",
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 14,
+      "kind": "observe",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 15.0,
+        "category": "client_observation"
+      },
+      "data": {
+        "start": 0,
+        "tokens": [
+          17,
+          18
+        ]
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "TERMINAL",
+        "epoch": 1,
+        "acknowledged": 5,
+        "planned": 5,
+        "pending": null,
+        "generated": [
+          17,
+          18
+        ],
+        "emitted": 2,
+        "observed": 2,
+        "resident": false,
+        "allocation": {
+          "observation_id": "admission-1",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 7,
+          "owned_blocks": [
+            1
+          ],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 8,
+        "repeated_prompt_work": 4,
+        "retained_output_work": 1,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": "COMPLETE",
+        "pending_disposition": null
+      }
+    },
+    {
+      "sequence": 15,
+      "kind": "release",
+      "request_id": "r",
+      "stamp": {
+        "domain": "synthetic/host/monotonic",
+        "seconds": 16.0,
+        "category": "host_control"
+      },
+      "data": {
+        "allocation": {
+          "observation_id": "terminal-release",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 8,
+          "owned_blocks": [],
+          "other_allocated_blocks": 0
+        }
+      },
+      "after": {
+        "spec": {
+          "request_id": "r",
+          "engine_id": "engine-r",
+          "prompt_tokens": 4,
+          "output_limit": 2,
+          "prompt_digest": "synthetic-input-identity",
+          "arrival": {
+            "domain": "synthetic/host/monotonic",
+            "seconds": 0.0,
+            "category": "host_control"
+          },
+          "metadata": []
+        },
+        "state": "TERMINAL",
+        "epoch": 1,
+        "acknowledged": 5,
+        "planned": 5,
+        "pending": null,
+        "generated": [
+          17,
+          18
+        ],
+        "emitted": 2,
+        "observed": 2,
+        "resident": false,
+        "allocation": {
+          "observation_id": "terminal-release",
+          "pool_id": "synthetic-pool",
+          "total_blocks": 9,
+          "system_blocks": 1,
+          "free_blocks": 8,
+          "owned_blocks": [],
+          "other_allocated_blocks": 0
+        },
+        "replay_until": 5,
+        "seen_prompt": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "prompt_work": 8,
+        "repeated_prompt_work": 4,
+        "retained_output_work": 1,
+        "decode_work": 0,
+        "discarded_samples": [],
+        "first_sample": {
+          "domain": "synthetic/host/monotonic",
+          "seconds": 6.0,
+          "category": "host_control"
+        },
+        "disposition": "COMPLETE",
+        "pending_disposition": null
+      }
+    }
+  ],
+  "faults": []
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS_DOCUMENT_CHECKS",
+  "check_groups": [
+    "draft status, unresolved decisions and corpus hash",
+    "32 unique literal cases; status, references, token budgets and output limits",
+    "illustrative progress/prefix/context/LST arithmetic",
+    "27 local documentation links and all 16 original decision references",
+    "29 frozen/protocol files and pre-existing historical raw-byte identity",
+    "120 frozen descriptors and independently recomputed length-summary arithmetic",
+    "16 source identities; five recorded installed/upstream matches"
+  ],
+  "case_count": 32,
+  "scheduler_conformance_executed": false,
+  "physical_validation": "NOT_VERIFIED"
+}

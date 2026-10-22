@@ -1,0 +1,3 @@
+Initial documentation assembly check: FAIL (missing referenced log).
+check_documents.py detected VALIDATION.md -> evidence/original-specification-check.json before the original-specification checker had generated that output.
+No production transition or pytest failure. The output was subsequently generated; the final document check was rerun. Existing PR #5 evidence was not modified.

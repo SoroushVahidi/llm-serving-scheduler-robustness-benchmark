@@ -1,0 +1,45 @@
+{
+  "schema": "lssp-p1-implementation/0.1.0",
+  "baseline_commit": "ee1868618db9afc89160e1d0daf92b54829a80bc",
+  "journal_schema": "lssp-p1-ledger/0.1.0",
+  "approval_record": "APPROVAL_AMENDMENT.md",
+  "decisions": {
+    "S01": "DELEGATED_APPROVAL_P1",
+    "S02": "UNRESOLVED",
+    "S03": "DELEGATED_APPROVAL_P1",
+    "S04": "UNRESOLVED",
+    "S05": "DELEGATED_APPROVAL_P1",
+    "S06": "DELEGATED_APPROVAL_P1",
+    "S07": "UNRESOLVED",
+    "S08": "UNRESOLVED"
+  },
+  "execution_scope": "CPU-only abstract ledger and independent referee; no scheduler integration",
+  "test_counts": {
+    "distinct_collected": 415,
+    "passed": 415,
+    "failed": 0,
+    "skipped": 0,
+    "new_p1": 144,
+    "existing": 271
+  },
+  "test_nodes_sha256": "3a889cf2f440f2ef98b62f87391511bbccb9ab58ff412447d3144f931e2029d7",
+  "exhaustive": {
+    "histories": 170,
+    "seed": null,
+    "prompt_bounds": [
+      1,
+      3
+    ],
+    "output_bounds": [
+      1,
+      2
+    ],
+    "max_preemptions": "2 when P<=2, otherwise 1",
+    "max_journal_events": 24,
+    "included_in_pytest_count": true
+  },
+  "physical_status": "NOT_VERIFIED",
+  "P2": "NO_GO_PENDING_DECISIONS_AND_AUTHORIZATION",
+  "GPU_hours": 0,
+  "original_corpus_sha256": "e8cdaba8034fe84abab776759cb76f5c8f05d761970017318b3c23968df71575"
+}
