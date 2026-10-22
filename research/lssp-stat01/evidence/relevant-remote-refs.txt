@@ -1,0 +1,9 @@
+181b8ad212af377f87c7b7bb47f05b5f4725fcca	refs/heads/docs/lssp-authoritative-state-reconciliation-20260903
+366752a76f86dec30190f3e7767124f684378de4	refs/heads/manuscript/lssp-tompecs-m1
+880a37e8e7c19d089be124291e288269966a9147	refs/heads/manuscript/lssp-tompecs-m2
+b7090b8a073f49416cc9c575bc8710e28b983867	refs/heads/research/bootstrap-cross-workload-benchmark-20260831
+b009e9dfc19b49775332777a17f233652bc2e599	refs/heads/research/lssp-cross-metric-analysis-extension-20260903
+bd641d4902431b821cd7eb4ce9ad236955cec45d	refs/heads/research/lssp-phase12-analysis-prefreeze-20260902
+1909713ef059571e65e55bdef89de818cd3869b3	refs/heads/research/project-state-audit-20260901
+f67c65f2f0b6cef661701e75c14f0a7e6868da4d	refs/heads/research/ranking-portability-phase11-calibration-prep-20260901
+6e2c02fc46b287a5f741c0907475c92c9e33fc87	refs/heads/research/ranking-portability-phase11-calibration-run-20260901

@@ -1,0 +1,220 @@
+worktree /home/soroush/repos/llm-serving-scheduler-robustness-benchmark
+HEAD b7090b8a073f49416cc9c575bc8710e28b983867
+branch refs/heads/research/bootstrap-cross-workload-benchmark-20260831
+
+worktree /home/soroush/repos/llm-serving-scheduler-docs-reconciliation
+HEAD 181b8ad212af377f87c7b7bb47f05b5f4725fcca
+branch refs/heads/docs/lssp-authoritative-state-reconciliation-20260903
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-artifact-repro
+HEAD 8a624e4606ffa4b9f7d545b6cbe193c4191c7e82
+branch refs/heads/research/lssp-artifact-repro-prefreeze-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-c01
+HEAD 5ed2929d6012460ac43fd21730abd05ea45f9dcc
+branch refs/heads/research/lssp-c01-common-model
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-contract-v2
+HEAD ee1868618db9afc89160e1d0daf92b54829a80bc
+branch refs/heads/research/lssp-serving-contract-v2-draft
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-cross-metric-analysis-extension
+HEAD b009e9dfc19b49775332777a17f233652bc2e599
+branch refs/heads/research/lssp-cross-metric-analysis-extension-20260903
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-dataset-release-prefreeze
+HEAD 2b9a21fb58798292c95980d35d05e53b3c6f14f6
+branch refs/heads/research/lssp-dataset-release-prefreeze-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-fidelity
+HEAD efc5243898d18bbb62ccb51dcf66a0767827dac6
+branch refs/heads/research/lssp-prefill-kv-fidelity-20261021
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-integrated
+HEAD 4a545b9ae17ae01312db093e6e350f5822bf0bec
+branch refs/heads/research/lssp-integrated-phase10-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-jsc-concision
+HEAD 452e7cc758d00e32e94afffbf5d48f90cdb11520
+branch refs/heads/manuscript/lssp-jsc-concision-audit-20260904
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-jsc-reviewer-polish
+HEAD d4b27d6361e1274d051779e47750973fefeb3b78
+branch refs/heads/maintenance/lssp-jsc-repository-cleanup-20260904
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-jsc-springer-final
+HEAD 187aef900658ff4b2611ed5b60861d22aae2a845
+branch refs/heads/publication/lssp-public-artifact-hardening-20260904
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-jsc-visual-audit
+HEAD b1f9a12021c25dff8ad7cc06ff9654b6a047c132
+branch refs/heads/main
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-literature
+HEAD 1909713ef059571e65e55bdef89de818cd3869b3
+branch refs/heads/research/lssp-literature-verification-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-literature-canonical
+HEAD 7e5230f4aa1ea408a7d9580594135ca471dc3e42
+branch refs/heads/research/lssp-literature-canonical-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-main-pdf-publish-20261002
+HEAD 83fe9485b569d7b1bab00786f3123f96c5ebeabb
+detached
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-manuscript-jsc
+HEAD a37e7060e6d99a737d177c173e554ca4687eac95
+branch refs/heads/manuscript/lssp-jsc-polish-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-mgpu00
+HEAD 4332b08b17e5b789e20a4fe042a6b007f0d43dd6
+branch refs/heads/research/lssp-mgpu00-integrity-20261021
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-mgpu05
+HEAD b14992716c20b36d26e6f28e60b2c8e0b8b09a07
+branch refs/heads/research/lssp-mgpu05-measurement-20261021
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-peva
+HEAD 097547206b6e99286553f43190bfa14c5b542b35
+branch refs/heads/manuscript/lssp-peva-preparation-20260928
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-phase11-integrated
+HEAD 30995d6dc5c9d3bb5db3aecdb975ddb70a92e86a
+branch refs/heads/research/lssp-integrated-phase11-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-phase12-analysis-prefreeze
+HEAD bd641d4902431b821cd7eb4ce9ad236955cec45d
+branch refs/heads/research/lssp-phase12-analysis-prefreeze-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-phase12-freeze
+HEAD 44e3a6e1bf979627d6d8ecca82cc90b3a1c0c9b1
+branch refs/heads/research/lssp-phase12-reuse-audit-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-phase12-result-validation
+HEAD 2aba8b639177d64288eaed01ba3a4b6c81a0de7c
+branch refs/heads/validation/lssp-phase12-structural-audit-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-phase12-smoke
+HEAD 38188eca740c3bfeafa0463c80aaaff34b725e5a
+branch refs/heads/research/lssp-phase12-pilotv2-smoke-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-protocol01
+HEAD f88f6fb97be1e012573b8136507104f8d513e67d
+branch refs/heads/research/lssp-protocol01-20261021
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-real-vllm-prep
+HEAD 52ef9fff1dcb49ca729f91d24e1aed077c72a6b0
+branch refs/heads/engineering/lssp-rq6-wulver-recovery-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-release-prep
+HEAD 240a49b707e6587910edf9b8cacc8f2760208191
+branch refs/heads/release/lssp-jsc-artifact-prep-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-repro-dep-fix
+HEAD d2ca55a9cc11c9b4dfc42ca29696c5d32dfa5cea
+branch refs/heads/maintenance/lssp-reproducibility-dependency-fix-20260904
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-rq3-synthetic-to-real
+HEAD 4b9dfe0585062f7d6788502e48d56d3c50579acb
+branch refs/heads/research/lssp-rq3-synthetic-to-real-prefreeze-20260903
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-rq6-case-selection
+HEAD fcb0379cea56d56ff5deebce503a0accfb804c23
+branch refs/heads/validation/lssp-phase12-rq6-case-selection-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-rq6-scientific-prefreeze
+HEAD 703a752762348bd911c9d93f17731fa5244b38f9
+branch refs/heads/research/lssp-rq6-real-vllm-scientific-prefreeze-20260902
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-slo-sensitivity-extension
+HEAD 7cddca5cd3949acdb35ac2fc62fdda2935c07603
+branch refs/heads/research/lssp-slo-sensitivity-extension-20260903
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-smpt-retargeting-20261002
+HEAD cc25fcd14f6fe28ab30d9e46635a72c0d6285d00
+branch refs/heads/manuscript/lssp-smpt-retargeting-20261002
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-stat01
+HEAD 880a37e8e7c19d089be124291e288269966a9147
+branch refs/heads/research/lssp-stat01-calibration
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1
+HEAD 366752a76f86dec30190f3e7767124f684378de4
+branch refs/heads/manuscript/lssp-tompecs-m1
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2
+HEAD 880a37e8e7c19d089be124291e288269966a9147
+branch refs/heads/manuscript/lssp-tompecs-m2
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-v2-p1
+HEAD 810b987dd873215d1a872eca83fd5c50770ca434
+branch refs/heads/research/lssp-v2-p1-ledger
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-v2-p2a
+HEAD df4b13d269d64a949a9dd910b6a65e61718dbc29
+branch refs/heads/research/lssp-v2-p2a-native-boundary
+
+worktree /home/soroush/repos/llm-serving-scheduler-lssp-v2-p2b
+HEAD f1a22fc6d5b1610b1ba8ed9ad34fb68d1db82cb7
+branch refs/heads/research/lssp-v2-p2b-control
+
+worktree /home/soroush/repos/llm-serving-scheduler-main-peva-pdf-sync-20260928
+HEAD 80c3baabe12cd138bb0ead4e3dd581cbebcc4e21
+branch refs/heads/maintenance/sync-final-peva-pdf-20260928
+
+worktree /home/soroush/repos/llm-serving-scheduler-main-publish
+HEAD 7d7bfc4e271a72ccd4ccd83e6238e133dd10ddee
+branch refs/heads/maintenance/publish-final-manuscript-20260928
+
+worktree /home/soroush/repos/llm-serving-scheduler-main-publish-concise
+HEAD 773255b4f86744fe862bc897af6f108dffe28460
+branch refs/heads/maintenance/publish-ranking-portability-manuscript
+
+worktree /home/soroush/repos/llm-serving-scheduler-main-smpt-cleanup-20261002
+HEAD 099ee18955b5007f8a92f657067c3e14d31d7ec7
+detached
+
+worktree /home/soroush/repos/llm-serving-scheduler-phase11-calibration-prep
+HEAD f67c65f2f0b6cef661701e75c14f0a7e6868da4d
+branch refs/heads/research/ranking-portability-phase11-calibration-prep-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-phase11-calibration-run
+HEAD 6e2c02fc46b287a5f741c0907475c92c9e33fc87
+branch refs/heads/research/ranking-portability-phase11-calibration-run-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-portability-telemetry
+HEAD d252b0ba1414ebd7ec56d9e75eb4f8cec8aab5ec
+branch refs/heads/research/ranking-portability-telemetry-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-project-state-audit
+HEAD 1909713ef059571e65e55bdef89de818cd3869b3
+branch refs/heads/research/project-state-audit-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-public-metadata
+HEAD 290e46c6994666c6659e5f6aa9c9978c455e6750
+branch refs/heads/metadata/venue-neutral-public-main
+
+worktree /home/soroush/repos/llm-serving-scheduler-ranking-portability-windows
+HEAD 3f5aa6a27e56b2d32f80b471d1201b5ec119c962
+branch refs/heads/research/ranking-portability-windows-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-robustness-ranking-portability-prereg
+HEAD edc48802941b4d4d613eac93b868150833dd6df8
+branch refs/heads/research/ranking-portability-pilot-v2-prereg-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-robustness-stage0-burstgpt-diagnostic
+HEAD 5508e81ea4aabd24ff7a173fb4cb817540e44335
+branch refs/heads/research/stage0-burstgpt-diagnostic-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-robustness-stage0-prelaunch
+HEAD de9f0a3e299b9b2172283409b493776f661eb1d1
+branch refs/heads/research/stage0-orchestration-prelaunch-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-robustness-stage0-prereqs
+HEAD 23202e38933f4ca17b959aaa96261fe8b019f89f
+branch refs/heads/research/stage0-prerequisites-20260901
+
+worktree /home/soroush/repos/llm-serving-scheduler-robustness-stage0-repair
+HEAD 848bae31d379779283801fba60714d15f4dce2d1
+branch refs/heads/research/stage0-zero-completion-undefined-metrics-20260901
+
