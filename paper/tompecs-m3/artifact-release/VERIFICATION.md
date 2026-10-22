@@ -1,3 +1,5 @@
+> **Historical snapshot:** the focused major revision is documented in [the current final report](../major-revision/FINAL_REPORT.md) and [claim audit](../major-revision/CLAIM_TO_EVIDENCE.md). This dated report retains its original provenance; rc1 itself is unchanged.
+
 # M3 verification record
 
 This document accompanies the local candidate. The dated final report and machine records beside the archives are the authority for post-packaging extraction checks; they are external to the archive to avoid a self-referential archive hash. No scientific experiment is executed by this verification workflow.

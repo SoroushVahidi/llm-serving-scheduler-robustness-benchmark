@@ -1,3 +1,5 @@
+> **Historical snapshot:** the focused major revision is documented in [the current final report](../major-revision/FINAL_REPORT.md) and [claim audit](../major-revision/CLAIM_TO_EVIDENCE.md). This dated report retains its original provenance; rc1 itself is unchanged.
+
 # LSSP M3 local research artifact candidate rc1 — 2026-10-22
 
 This is a **local candidate for author approval**, not a published release or assigned DOI. It contains the complete frozen C01 and STAT01 records needed to inspect the executed comparison and recalibrate saved endpoint summaries. No command below runs new scientific experiments. The separate upstream-source archive is optional for verification because the exact executed request inputs are bundled here.

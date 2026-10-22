@@ -23,27 +23,27 @@
 \newcommand{\authorreview}[1]{\par\noindent\textbf{AUTHOR REVIEW REQUIRED:} #1\par}
 \begin{document}
 \begin{abstract}
-A scheduler comparison is difficult to interpret when its implementations
-use different service, resource, or information rules. We evaluate four
-project-maintained LLM-serving scheduler adaptations under a shared,
-synthetic execution contract. The study covers 120 trace-derived windows
-from three sources, six inherited arrival/deadline settings, and two KV
-reservation capacities: 5,760 validated cells, all completing every request.
-Against chunked-FCFS, the SLO-gated adaptation reduces the six source/capacity
-aggregate mean latencies by 11.3--34.0\%, while reducing token throughput by
-1.65--4.01\%. On BurstGPT, its mean window-level p95 latency increases by
-3.72\% and 18.97\% at the two capacities. Its urgency gate does not bind;
-these results concern the adaptation's admission ordering and chunking,
-not the complete original SLAI algorithm. Chunked-FCFS and decode-first
-produce identical records in all 1,440 matched conditions. No source-mean
-comparison exhibits a strict 10\% practical reversal, although window-level
-and metric-dependent reversals occur. Exact ties and redundant rankings
-further limit what a leaderboard conveys. A separate 134,000-study
-known-truth calibration diagnostic identifies failures of historical
-inferential procedures under specified synthetic scenarios. The contribution
-is a finite-corpus performance evaluation that distinguishes measured
-trade-offs, model-implied invariances, and inferential limits; it is neither
-a new scheduler nor a validated native-GPU performance predictor.
+A shared execution contract can change what a scheduler comparison means:
+nominally different policies may have the same executable consequences,
+while the remaining differences reward different objectives. We present a
+reproducible case study of four LLM-serving scheduler adaptations under
+CM-0.1, a synthetic model with fixed batch cost and bounded residency.
+The contract yields three observed behaviors: chunked-FCFS and decode-first
+produce identical per-request terminal states and metrics in all 1,440 matched conditions.
+Their priority lists can differ without changing executed work. SLO-gated's
+urgency gate is inactive, but prompt-length admission ordering remains active.
+Across six source/capacity aggregates from 120 trace-derived windows,
+SLO-gated reduces mean latency by 11.3--34.0\% against chunked-FCFS while
+reducing token throughput by 1.65--4.01\%; BurstGPT mean window-p95 latency
+increases by 3.72\% and 18.97\%. A saved-record example connects lower
+mean latency to earlier completions for many requests alongside a longer
+drain and worse p95. No source-mean comparison has a strict 10\% practical
+reversal, although window-level and metric-dependent reversals occur.
+A separate known-truth diagnostic identifies limitations of historical
+inference. The contribution is the explanation and measurement of which
+scheduler distinctions survive this contract and how they affect ranking
+interpretation, not a new scheduler, general scheduling principle, universal
+ranking, physical performance prediction, or statistical guarantee.
 \end{abstract}
 \ccsdesc[500]{Computing methodologies~Simulation evaluation}
 \ccsdesc[300]{Computer systems organization~Cloud computing}

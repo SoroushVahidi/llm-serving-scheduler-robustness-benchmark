@@ -140,7 +140,7 @@ All other estimable cases are inconclusive. The screen permits conservative
 overcoverage and is not a proof of exact nominal calibration.
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\centering\small\setlength{\tabcolsep}{5pt}
 \caption{Complete original-eight scenario screen and stopping counts.
 C: calibration concern; I: inconclusive; E: empirical compatibility with
 tolerance; A: outside-domain abstention. P: original precision objective
@@ -151,6 +151,34 @@ family. Full numerical results for all 17 methods and both families are
 in \texttt{stat01-all-endpoints.csv}.}
 \label{tab:scenarios}\input{tables/stat-scenarios}
 \end{table}
+
+\subsection{Diagnostic outcomes and stopping interpretation}
+Other
+scenarios expose the practical-versus-sign target mismatch: practical FDR
+is 0.39500 at the exact practical boundary and approximately 0.73316 in the
+medium-reversal scenario. Full scenario results are retained rather than
+summarized as a single global error rate.
+
+These findings also have limits. Assumption-aligned Gaussian procedures
+frequently remain \emph{inconclusive} under the stringent simultaneous
+Monte Carlo screen; that is not evidence that they are miscalibrated.
+Conservative bounded Hoeffding--Holm comparisons have zero observed false
+discoveries and 100\% observed diagnostic coverage, but practical power is
+zero at 40 windows and approximately 0.05263 at 400. The campaign does not
+certify a generally useful replacement procedure. Of 144 original
+method/scenario classifications, 45 indicate concern, 74 are inconclusive,
+9 meet the empirical tolerance screen, and 16 abstain outside their domain.
+Seven of the nine compatible entries arise in the degenerate exact-ties
+scenario; the remaining two are bounded Hoeffding.
+
+Completion and precision must also be separated. Scenarios 3 and 17 stop
+at 2,000 and 4,000 studies; the other sixteen finish at 8,000. Six scenarios
+meet the original precision objective, while twelve stop at the maximum
+count with precision gaps. The original eight-method uncertainty family
+controls stopping. The expanded 17-method report has its own, wider
+allocation; additions do not retrospectively become prespecified. Neither
+maximum-count completion nor an inconclusive calibration screen is a
+successful calibration claim.
 
 \subsection{Numerical boundary case and substantive limitations}
 The saved scenario 11, replicate 6628, comparison index 47 has a screened
@@ -229,3 +257,38 @@ paper. The current artifact-release assessment records user-verified historical
 dispositions and the latest active-manuscript evidence. Precise reuse
 disclosure, approved release access and author declarations remain required
 before submission.
+
+The inspected related local sources are the headroom manuscript at
+\texttt{327736bc07c7}, the module-counterfactual manuscript at
+\texttt{ffae40a1d470}, and the closed-API manuscript at
+\texttt{87ecfacb97fd}. Full commits, file hashes, titles and user-verified
+submission-status dates are retained in
+\path{major-revision/RELATED_MANUSCRIPTS.md}. These are local-source
+identities, not certified submission uploads. The older BurstGPT overlap
+and the module manuscript's anonymized prior-artifact identity remain
+unresolved; an unavailable FGCS intermediate is not equated with the
+withdrawn LLM2026 version.
+
+\FloatBarrier
+\section{Chronological Summaries}\label{app:chronology}
+Figure~\ref{fig:chronology} reports SLO-minus-chunked \anwg\ differences in
+four consecutive ten-window blocks. Across settings and capacities, block
+means range from $-0.0120$ to $+0.2030$ for Azure, $-0.0300$ to $+0.2330$
+for Bailian, and $+0.0150$ to $+0.3275$ for BurstGPT. Negative differences
+occur in 8/48 Azure and 24/48 Bailian block/setting/capacity combinations,
+and none of the 48 BurstGPT combinations. The frozen EARLY/MIDDLE/LATE
+summaries show the same qualitative contrast: negative differences in
+6/36, 20/36, and 0/36 combinations, respectively. These are corpus-order
+sensitivities, not estimates of a temporal process or guarantees for future
+traffic.
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{figures/chronology.pdf}
+\caption{Chronological block means of SLO-gated minus chunked-FCFS \anwg.
+Each block contains ten frozen windows. Colors identify inherited settings
+(L through H); solid circles and dashed squares denote four and eight
+slots. Blocks have unequal durations and are not independent temporal
+samples. The figure uses all 144 block/setting/capacity combinations.}
+\Description{Three source panels show goodput differences over four consecutive ten-window blocks, retaining all six settings and both capacities. Azure and Bailian include negative differences; BurstGPT differences are positive.}
+\label{fig:chronology}
+\end{figure}

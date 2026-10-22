@@ -1,3 +1,5 @@
+> **Historical snapshot:** the focused major revision is documented in [the current final report](../major-revision/FINAL_REPORT.md) and [claim audit](../major-revision/CLAIM_TO_EVIDENCE.md). This dated report retains its original provenance; rc1 itself is unchanged.
+
 # Current related-manuscript status and incremental contribution
 
 Assessment: 2026-10-22. This supersedes status questions in the PR20 review. **Disposition authority is the user's independently performed journal-correspondence review**, supplied for this task. The worker did not access email or submission portals. Local source fingerprints identify inspected versions, not the actual uploaded versions.

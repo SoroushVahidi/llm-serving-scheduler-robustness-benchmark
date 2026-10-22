@@ -22,6 +22,16 @@ STAT01 & Synthetic independent studies with known population truth & Scenario-sp
 \end{tabularx}
 \end{table}
 
+The positive modeling question is whether admission and prefill/decode rules
+still produce different completion distributions when every adaptation faces
+the same online information and resource constraints. Fixing batch cost
+removes composition-dependent execution cost from this comparison; retaining
+four or eight resident slots preserves competition for admission. This
+makes it possible to distinguish a change in the order of work that all
+executes from a change in which requests can enter or progress. These are
+properties of the implemented abstraction. We do not claim that its settings
+were selected in advance to produce the equivalence or trade-offs found here.
+
 \subsection{Service, resources, and information}
 \cm\ represents one abstract device. Each batch lasts 1\,ms and has a
 32,768-token work budget. Each executed prompt token consumes one unit;
@@ -104,7 +114,10 @@ updates, far below 0.495\,s. The urgency gate never binds. Prompt-length
 ordering of waiting admissions remains active; resident prefills still
 progress, and later arrivals cannot preempt admitted requests. Whole-FCFS
 also retains a distinct rule: admitting whole prefills defers all decodes
-in that batch. Neither mechanism is removed by the work bound.
+in that batch. Neither mechanism is removed by the work bound. Thus the model does more
+than give policies identical settings: it identifies which of their decision
+rules can change state transitions. The resulting finite-window completion
+distributions are the empirical object of Section~\ref{sec:performance}.
 
 \subsection{Conformance evidence}
 The event referee reconstructs request states, token spans, timing,

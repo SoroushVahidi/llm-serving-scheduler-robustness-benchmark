@@ -1,0 +1,12 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9",
+    "PyMuPDF": "1.28.2"
+  },
+  "source_commit": "2a65c0e139d1410475170781469901559960265d",
+  "experiments_executed": 0
+}

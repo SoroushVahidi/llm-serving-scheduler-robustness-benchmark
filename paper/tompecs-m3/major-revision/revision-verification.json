@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "base_commit": "2a65c0e139d1410475170781469901559960265d",
+  "checks": {
+    "chronology_moved_intact": true,
+    "stat_detail_moved_intact": true,
+    "all_original_appendix_equations_preserved": true,
+    "abstract_terminal_wording": true,
+    "ranking_wording": true,
+    "no_worker_remark": true,
+    "larger_scenario_type": true,
+    "no_old_generated_data_changed": true,
+    "example_pass": true,
+    "scope_preserved": true,
+    "manuscript_display_labels": true,
+    "acmsmall_display_labels": true,
+    "all_local_comparison_pins_match": true
+  },
+  "experiments_executed": 0
+}

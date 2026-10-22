@@ -1,20 +1,26 @@
 \section{Discussion and Threats to Validity}\label{sec:discussion}
-\paragraph{What an evaluator should report.}
-The useful comparison object is an adaptation together with its execution,
-resource, and information contract. A common contract exposes both
-nontrivial trade-offs and distinctions that cannot affect execution.
-Here, the budget and reservation rules collapse chunked-FCFS and
-decode-first to one behavior and leave the urgency gate inactive. Reporting
-four implementation names without these consequences would overstate
-mechanistic coverage. Absolute latency and throughput then reveal costs
-that a goodput-only or mean-latency-only ranking would miss.
-The comparison is informative partly because it identifies which nominal
-choices have no executable consequence under the stated constraints.
-Its remaining empirical question concerns admission order, chunked versus
-whole prefill, and residency, rather than a broad contest among native
-serving algorithms. Changing the budget, timing model, or resource contract
-could restore distinctions; this study makes no measured claim about those
-unevaluated configurations.
+\paragraph{What the common contract reveals.}
+This case study connects a contract's constraints to the comparison a ranking
+can support. The fixed timing and work bound remove composition costs and
+competition among feasible chunked spans; resident slots still make admission
+competitive. Consequently four named adaptations provide three observed
+behaviors, and a different priority-list order need not mean a different
+request outcome. The active admission and whole-prefill/decode rules still
+reshape completion distributions. The saved-record example makes that
+remaining sensitivity concrete: a lower sum of latencies can accompany a
+later final completion and a worse upper quantile. This is an empirical
+instance of familiar competing scheduling objectives, not a new general
+principle or an optimality result for short-prompt ordering.
+
+The incremental value is the connection between those exact structural
+consequences, the measured residual trade-offs and the estimands used to rank
+them. The adjacent headroom and module studies already examine inactive
+choices and metric sensitivity, but do not establish this common-contract
+matrix's equivalence and source-mean/window contrast. A count of policy names
+would overstate the behaviors compared; a source-mean leaderboard alone
+would omit the within-corpus variation. Changing the token budget, timing or
+reservation model could restore distinctions, but no measured result here
+is assigned to those unevaluated contracts.
 
 Aggregation must be specified with the same care. A source mean answers a
 question about equal-window average performance; a cross-window reversal
@@ -60,15 +66,18 @@ availability, and conservative power must remain visible when interpreting
 calibration screens.
 
 \section{Conclusion}
-Under a common execution contract, scheduler comparison is as much about
-performance magnitudes and inactive distinctions as about the rank order.
-For RQ1, SLO-gated reduces aggregate mean latency by 11.3--34.0\% but loses
-throughput, with worse BurstGPT mean window-p95 latency; chunked-FCFS and
-decode-first are identical throughout the evaluated matrix. For RQ2, no
-source-mean comparison has a strict 10\% practical reversal, while window
-and metric comparisons do, and many exact rankings are tied or redundant.
-For RQ3, the historical audit and synthetic diagnostic distinguish
-reproducible execution and arithmetic from calibrated inference. The
-result is a bounded, traceable performance evaluation: its strongest
-conclusions concern the measured trade-offs and invariances of these
-adaptations under \cm.
+The common execution contract changes the interpretation of this scheduler
+comparison before any winner is selected. Four adaptation names yield three
+observed behaviors: chunked-FCFS and decode-first have exactly equal
+per-request terminal states and metrics, while SLO-gated's inactive urgency
+gate leaves prompt-length admission ordering as an active distinction.
+The remaining behaviors have substantive, model-specific trade-offs:
+SLO-gated reduces aggregate mean latency by 11.3--34.0\% but loses throughput
+and has worse BurstGPT mean window-p95 latency. Saved request and event
+records illustrate how those objectives disagree despite constant output.
+Zero strict source-mean practical reversals coexist with window and metric
+reversals, exact ties and redundant rankings. STAT01 separately shows why
+historical inference requires more than reproducible arithmetic. Together,
+these results provide a reproducible case study of which scheduler
+comparisons a contract makes meaningful, with measured finite-corpus
+consequences rather than a universal ranking or physical prediction.

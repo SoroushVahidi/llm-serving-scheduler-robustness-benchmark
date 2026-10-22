@@ -1,3 +1,5 @@
+> **Historical snapshot:** the focused major revision is documented in [the current final report](../major-revision/FINAL_REPORT.md) and [claim audit](../major-revision/CLAIM_TO_EVIDENCE.md). This dated report retains its original provenance; rc1 itself is unchanged.
+
 # Superseding M3 artifact and submission assessment
 
 Assessment date: 2026-10-22. **Submission verdict: NOT_READY.** The bounded scientific presentation is strengthened and the local artifact candidate is prepared for approval; external delivery and author/venue decisions remain gates. This assessment supersedes the status, licensing and artifact questions in PR20's historical final-review reports. It does not overturn their scientific scope cautions or certify journal acceptance.

@@ -18,8 +18,8 @@ This null result is compatible with smaller sign changes and different tie
 sets. Among 396 comparisons of source pairs at fixed settings, capacities,
 and metrics, exact top
 sets are equal in 307 and intersect in 323; complete average-rank vectors
-are equal in 247. Identical practical ordering and identical full rankings
-are different statements.
+are equal in 247. Absence of a strict practical reversal is weaker than equality of rankings
+or top sets.
 
 \begin{table}[t]
 \centering\small\setlength{\tabcolsep}{4pt}
@@ -86,28 +86,7 @@ endpoints, completion ties, and numerical TPOT distinctions. They summarize
 reporting consequences; they are not eleven independent tests of a
 scheduler's robustness.
 
-\subsection{Chronological summaries}
-Figure~\ref{fig:chronology} reports SLO-minus-chunked \anwg\ differences in
-four consecutive ten-window blocks. Across settings and capacities, block
-means range from $-0.0120$ to $+0.2030$ for Azure, $-0.0300$ to $+0.2330$
-for Bailian, and $+0.0150$ to $+0.3275$ for BurstGPT. Negative differences
-occur in 8/48 Azure and 24/48 Bailian block/setting/capacity combinations,
-and none of the 48 BurstGPT combinations. The frozen EARLY/MIDDLE/LATE
-summaries show the same qualitative contrast: negative differences in
-6/36, 20/36, and 0/36 combinations, respectively. These are corpus-order
-sensitivities, not estimates of a temporal process or guarantees for future
-traffic.
-
-\begin{figure}[!htbp]
-\centering\includegraphics[width=\linewidth]{figures/chronology.pdf}
-\caption{Chronological block means of SLO-gated minus chunked-FCFS \anwg.
-Each block contains ten frozen windows. Colors identify inherited settings
-(L through H); solid circles and dashed squares denote four and eight
-slots. Blocks have unequal durations and are not independent temporal
-samples. The figure uses all 144 block/setting/capacity combinations.}
-\Description{Three source panels show goodput differences over four consecutive ten-window blocks, retaining all six settings and both capacities. Azure and Bailian include negative differences; BurstGPT differences are positive.}
-\label{fig:chronology}
-\end{figure}
+Chronological sensitivities are retained in Appendix~\ref{app:chronology}.
 
 \paragraph{Answer to RQ2.}
 No source-mean policy comparison reverses by more than 10\% in both

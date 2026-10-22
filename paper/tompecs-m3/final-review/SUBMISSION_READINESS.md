@@ -1,3 +1,5 @@
+> **Historical snapshot:** the focused major revision is documented in [the current final report](../major-revision/FINAL_REPORT.md) and [claim audit](../major-revision/CLAIM_TO_EVIDENCE.md). This dated report retains its original provenance; rc1 itself is unchanged.
+
 > **Historical PR20 assessment (retained).** Current status, provenance, artifact and readiness findings supersede the pending questions below: [artifact-readiness assessment](../artifact-release/READINESS.md), [verified related-manuscript statuses](../artifact-release/RELATED_MANUSCRIPTS.md), and [source provenance](../artifact-release/SOURCE_PROVENANCE.md). Rejected/withdrawn dispositions no longer require confirmation. This body records what was known in the earlier review.
 
 # Submission requirements, placeholders, and author decisions

@@ -54,32 +54,15 @@ has practical FDR 0.09025 in the IID equal-null scenario, with an expanded
 Monte Carlo lower bound above 0.05. Independent-block and AR nulls show
 much larger false-discovery rates and poor ordinary interval coverage.
 These null examples already demonstrate a calibration concern without
-requiring interpretation of power or near-boundary alternatives. Other
-scenarios expose the practical-versus-sign target mismatch: practical FDR
-is 0.39500 at the exact practical boundary and approximately 0.73316 in the
-medium-reversal scenario. Full scenario results are retained rather than
-summarized as a single global error rate.
+requiring interpretation of power or near-boundary alternatives.
 
-These findings also have limits. Assumption-aligned Gaussian procedures
-frequently remain \emph{inconclusive} under the stringent simultaneous
-Monte Carlo screen; that is not evidence that they are miscalibrated.
-Conservative bounded Hoeffding--Holm comparisons have zero observed false
-discoveries and 100\% observed diagnostic coverage, but practical power is
-zero at 40 windows and approximately 0.05263 at 400. The campaign does not
-certify a generally useful replacement procedure. Of 144 original
-method/scenario classifications, 45 indicate concern, 74 are inconclusive,
-9 meet the empirical tolerance screen, and 16 abstain outside their domain.
-Seven of the nine compatible entries arise in the degenerate exact-ties
-scenario; the remaining two are bounded Hoeffding.
-
-Completion and precision must also be separated. Scenarios 3 and 17 stop
-at 2,000 and 4,000 studies; the other sixteen finish at 8,000. Six scenarios
-meet the original precision objective, while twelve stop at the maximum
-count with precision gaps. The original eight-method uncertainty family
-controls stopping. The expanded 17-method report has its own, wider
-allocation; additions do not retrospectively become prespecified. Neither
-maximum-count completion nor an inconclusive calibration screen is a
-successful calibration claim.
+The diagnostic supports a narrow conclusion: historical inference needs
+its own calibration evidence even when execution and ranking arithmetic are
+reproducible. It does not test C01 population claims. Assumption-aligned
+methods can remain inconclusive, conservative alternatives can have little
+power, and maximum-count stops can leave precision gaps. Appendix~\ref{app:stat}
+retains those distinctions, all classifications and stopping counts, and the
+separate original-eight and expanded-17 uncertainty families.
 
 \paragraph{Answer to RQ3.}
 Reproducing historical arithmetic establishes what its rule reported;

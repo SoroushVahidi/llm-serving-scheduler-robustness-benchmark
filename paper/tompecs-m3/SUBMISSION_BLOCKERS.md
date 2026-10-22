@@ -1,3 +1,5 @@
+> **Current revision:** see [major-revision/FINAL_REPORT.md](major-revision/FINAL_REPORT.md), [focused claims](major-revision/CLAIM_TO_EVIDENCE.md), and [remaining blockers](major-revision/REMAINING_BLOCKERS.md). Earlier reports below are historical.
+
 > **Superseded checklist/report.** See [current artifact-readiness assessment](artifact-release/READINESS.md) and [current validation](artifact-release/VERIFICATION.md). This earlier record is retained as history.
 
 # Remaining submission blockers
