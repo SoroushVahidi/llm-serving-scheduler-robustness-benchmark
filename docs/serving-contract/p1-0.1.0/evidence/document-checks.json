@@ -1,0 +1,30 @@
+{
+  "status": "PASS_DOCUMENTS_AND_PRESERVATION",
+  "baseline": "ee1868618db9afc89160e1d0daf92b54829a80bc",
+  "frozen_script_protocol_files": 29,
+  "original_pr5_files": 20,
+  "historical_raw_bytes": 37252923,
+  "historical_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+  "historical_lfs_filter_anomaly": "unchanged raw bytes; not staged or repaired",
+  "unchanged_path_checks": [
+    "src/robustbench/mgpu00",
+    "src/robustbench/mgpu02",
+    "src/robustbench/mgpu05",
+    "src/robustbench/mgpu06",
+    "src/robustbench/simulator",
+    "scripts",
+    "docs/study-protocol",
+    "tests/mgpu00",
+    "tests/mgpu02",
+    "tests/mgpu05",
+    "tests/mgpu06"
+  ],
+  "case_status_counts": {
+    "P1_EXECUTED": 11,
+    "P1_PROJECTION": 10,
+    "BLOCKED": 11
+  },
+  "documentation_links": 15,
+  "oracle_has_no_production_imports": true,
+  "physical_validation": "NOT_VERIFIED"
+}

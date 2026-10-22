@@ -1,0 +1,11 @@
+{
+  "status": "PASS_CPU_PACKAGING",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "wheel": "robustbench-1.0.0-py3-none-any.whl",
+  "wheel_sha256": "f73b935ba70779adf2dfb7399db314fcd8e4d5a563262efe0baf01895352eec2",
+  "source_date_epoch": "315532800",
+  "source_directory_modified": false,
+  "build_stdout": "Processing /tmp/lssp-p1-package-o70qo48t/project\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: robustbench\n  Building wheel for robustbench (pyproject.toml): started\n  Building wheel for robustbench (pyproject.toml): finished with status 'done'\n  Created wheel for robustbench: filename=robustbench-1.0.0-py3-none-any.whl size=369327 sha256=f73b935ba70779adf2dfb7399db314fcd8e4d5a563262efe0baf01895352eec2\n  Stored in directory: /tmp/pip-ephem-wheel-cache-qmaue2ka/wheels/3a/dc/4f/d1966fa159806e8f8997074100cff655fa8e4eec55f4e00c58\nSuccessfully built robustbench\n",
+  "build_stderr": "",
+  "import_check": "wheel imports isolated; no heavy dependencies; reference independent\n"
+}

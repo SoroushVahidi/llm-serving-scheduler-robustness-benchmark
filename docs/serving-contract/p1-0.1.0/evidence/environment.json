@@ -1,0 +1,16 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "packages": {
+    "pytest": "9.0.3",
+    "vllm": "0.27.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "5.8.1",
+    "tokenizers": "0.22.2",
+    "numpy": "2.3.5",
+    "setuptools": "80.10.2",
+    "wheel": "NO_STANDALONE_DISTRIBUTION_METADATA",
+    "pip": "26.1.2"
+  },
+  "scope": "local CPU validation; not Wulver or physical execution",
+  "diagnostic": "Initial unconditional version lookup failed for wheel; missing standalone distribution recorded explicitly. Offline setuptools wheel build passed; nothing installed."
+}

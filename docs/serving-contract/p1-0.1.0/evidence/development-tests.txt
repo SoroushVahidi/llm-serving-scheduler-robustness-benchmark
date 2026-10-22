@@ -1,0 +1,8 @@
+.................................................................................................................EXHAUSTIVE P=1 O=1 max_preemptions=2 histories=3 max_events=11 seed=none
+.EXHAUSTIVE P=1 O=2 max_preemptions=2 histories=11 max_events=18 seed=none
+.EXHAUSTIVE P=2 O=1 max_preemptions=2 histories=14 max_events=17 seed=none
+.EXHAUSTIVE P=2 O=2 max_preemptions=2 histories=70 max_events=24 seed=none
+.EXHAUSTIVE P=3 O=1 max_preemptions=1 histories=20 max_events=17 seed=none
+.EXHAUSTIVE P=3 O=2 max_preemptions=1 histories=52 max_events=22 seed=none
+.
+119 passed in 0.44s
