@@ -1,0 +1,146 @@
+{
+  "schema": "m3-worked-example-v1",
+  "source_commit": "2a65c0e139d1410475170781469901559960265d",
+  "execution_commit": "2d8342e699f35044044ac518c0b75a3c4a1c768c",
+  "run": "c01-full-167b9074e5711420",
+  "condition_id": "burstgpt::burstgpt_pilot_v2_w12::HIGH_PRESSURE",
+  "window": "burstgpt_pilot_v2_w12",
+  "source": "burstgpt",
+  "region": "HIGH_PRESSURE",
+  "profile": "kv262144",
+  "slots": 8,
+  "requests_sha256": "b9948dfb1b172d32857ae09fad3f02e542e5dcf75f4535481fc224c7b41fb621",
+  "input_path": "evidence/c01/inputs/full-inputs.json",
+  "selection": "Outcome-selected illustration: among BurstGPT conditions with SLO mean latency lower, token throughput lower, and p95 latency higher than chunked-FCFS, take lexicographically first (window, region, profile). Not random or representative. Identity fixed here; regeneration never reselects.",
+  "eligible_conditions": 80,
+  "request_selection": {
+    "13": "first differing admitted membership, FCFS choice",
+    "14": "first differing admitted membership, SLO choice",
+    "26": "largest completion delay and final completion under both policies",
+    "196": "largest completion improvement"
+  },
+  "selected_request_ids": [
+    13,
+    14,
+    26,
+    196
+  ],
+  "rows": [
+    {
+      "condition_id": "burstgpt::burstgpt_pilot_v2_w12::HIGH_PRESSURE",
+      "journal_sha256": "4ea21b3f0d1bfd29b6caea27d268f5d19c04b6926cee937331301b8d90edfb22",
+      "load_factor": 522.4444461566375,
+      "metrics": {
+        "arrival_normalized_weighted_goodput": 0.07,
+        "busy_device_seconds": 1.1500000000000001,
+        "completion_fraction": 1.0,
+        "decode_work": 3520,
+        "emitted_token_throughput": 3060.8695652174333,
+        "mean_latency": 0.06168091691930643,
+        "mean_tpot": 0.0010000000000000007,
+        "mean_ttft": 0.0450809169193065,
+        "n_latency": 200,
+        "n_tpot": 200,
+        "n_ttft": 200,
+        "num_completed": 200,
+        "num_total": 200,
+        "num_unfinished": 0,
+        "observed_seconds": 1.1499999999999841,
+        "p95_latency": 0.1107414722793581,
+        "p95_tpot": 0.0010000000000000009,
+        "p95_ttft": 0.10065125534380508,
+        "peak_reserved_kv": 262144,
+        "peak_used_kv": 6704,
+        "prefill_work": 50809,
+        "request_throughput": 173.91304347826326,
+        "token_throughput": 3060.8695652174333
+      },
+      "policy": "chunked_fcfs_c01",
+      "profile": "kv262144",
+      "record_identity": "167b9074e57114203e6aaaf3ded08b7b4d8f0a72b35c69054fa995de8d4ef47a",
+      "region": "HIGH_PRESSURE",
+      "requests_sha256": "b9948dfb1b172d32857ae09fad3f02e542e5dcf75f4535481fc224c7b41fb621",
+      "result_path": "runs/c01-full-167b9074e5711420/cells/ecec167d9fb8e426ac67298b",
+      "result_sha256": "ee256fd9cfec5844d7c5148de9d211f68c3b9fd264edd953ec836049764268f4",
+      "reused": false,
+      "source": "burstgpt",
+      "synthesis_seed": 900012,
+      "window": "burstgpt_pilot_v2_w12"
+    },
+    {
+      "condition_id": "burstgpt::burstgpt_pilot_v2_w12::HIGH_PRESSURE",
+      "journal_sha256": "a35a5aa4ad758fdca7e1f704849001aad6d130a7c7c046036615d196f4ccf98b",
+      "load_factor": 522.4444461566375,
+      "metrics": {
+        "arrival_normalized_weighted_goodput": 0.28,
+        "busy_device_seconds": 1.347,
+        "completion_fraction": 1.0,
+        "decode_work": 3520,
+        "emitted_token_throughput": 2613.214550853822,
+        "mean_latency": 0.0366409169193063,
+        "mean_tpot": 0.0010000000000000007,
+        "mean_ttft": 0.02004091691930648,
+        "n_latency": 200,
+        "n_tpot": 200,
+        "n_ttft": 200,
+        "num_completed": 200,
+        "num_total": 200,
+        "num_unfinished": 0,
+        "observed_seconds": 1.3469999999999624,
+        "p95_latency": 0.1474798387521259,
+        "p95_tpot": 0.0010000000000000009,
+        "p95_ttft": 0.12146380288276214,
+        "peak_reserved_kv": 262144,
+        "peak_used_kv": 7264,
+        "prefill_work": 50809,
+        "request_throughput": 148.4780994803308,
+        "token_throughput": 2613.214550853822
+      },
+      "policy": "slo_gated_c01",
+      "profile": "kv262144",
+      "record_identity": "167b9074e57114203e6aaaf3ded08b7b4d8f0a72b35c69054fa995de8d4ef47a",
+      "region": "HIGH_PRESSURE",
+      "requests_sha256": "b9948dfb1b172d32857ae09fad3f02e542e5dcf75f4535481fc224c7b41fb621",
+      "result_path": "runs/c01-full-167b9074e5711420/cells/9feed68339670e5b366d064f",
+      "result_sha256": "33fc8572bad1d715d5e20fe6d0cfcbf71b0d5cb18e3a60e758f85957614632fe",
+      "reused": false,
+      "source": "burstgpt",
+      "synthesis_seed": 900012,
+      "window": "burstgpt_pilot_v2_w12"
+    }
+  ],
+  "files": {
+    "evidence/c01/inputs/full-inputs.json": {
+      "sha256": "a77bf5420ca8a55c3765919dbf42e774794f471da6ff404d0ad19a53c43a8c8c",
+      "bytes": 55407339
+    },
+    "evidence/c01/launch.json": {
+      "sha256": "6d89c212ecd41037c5fe4e5ede8fb10fdd2a8aa99dabf723aabc50f060b9e66b",
+      "bytes": 20587
+    },
+    "evidence/c01/runs/c01-full-167b9074e5711420/cells/ecec167d9fb8e426ac67298b/result.json": {
+      "sha256": "ee256fd9cfec5844d7c5148de9d211f68c3b9fd264edd953ec836049764268f4",
+      "bytes": 47558
+    },
+    "evidence/c01/runs/c01-full-167b9074e5711420/cells/ecec167d9fb8e426ac67298b/events.jsonl.gz": {
+      "sha256": "4ea21b3f0d1bfd29b6caea27d268f5d19c04b6926cee937331301b8d90edfb22",
+      "bytes": 29731
+    },
+    "evidence/c01/runs/c01-full-167b9074e5711420/cells/9feed68339670e5b366d064f/result.json": {
+      "sha256": "33fc8572bad1d715d5e20fe6d0cfcbf71b0d5cb18e3a60e758f85957614632fe",
+      "bytes": 47599
+    },
+    "evidence/c01/runs/c01-full-167b9074e5711420/cells/9feed68339670e5b366d064f/events.jsonl.gz": {
+      "sha256": "a35a5aa4ad758fdca7e1f704849001aad6d130a7c7c046036615d196f4ccf98b",
+      "bytes": 31489
+    },
+    "code/c01/research/lssp-c01/policies.py": {
+      "sha256": "d54e96880afb9001dc0fbc19511bb6338367eb828948a48cd68a516e871fdbb1",
+      "bytes": 2591
+    },
+    "code/c01/research/lssp-c01/engine.py": {
+      "sha256": "2907a198a3ede133000429c57aec3269faf47ac96e019b19302dcae3ccbc6836",
+      "bytes": 4510
+    }
+  }
+}

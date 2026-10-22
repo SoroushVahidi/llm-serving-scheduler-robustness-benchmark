@@ -1,0 +1,68 @@
+{
+  "headroom": {
+    "repository": "/home/soroush/llm-serving-heuristic-evolution",
+    "commit": "327736bc07c79e9ac6a1f233473f5a289ca4438a",
+    "authority": "Inspected local source only; uploaded version not certified",
+    "files": {
+      "paper/performance_evaluation/main.tex": {
+        "sha256": "d8ced7b07b30cbe6ffc0d75c510b33857867dab4476eba14d384160ce703f830",
+        "bytes": 59954,
+        "local_matches_pinned": true
+      }
+    }
+  },
+  "module": {
+    "repository": "/home/soroush/repos/llm-serving-module-intervention-benchmark",
+    "commit": "ffae40a1d470624b3dc1da7c48673b12c6556152",
+    "authority": "Inspected local source only; uploaded version not certified",
+    "files": {
+      "paper/sections/abstract.tex": {
+        "sha256": "ebbb6969137139a743278929cb9f3df91a53837fd0de3bcb3de5227a6602e3fe",
+        "bytes": 2754,
+        "local_matches_pinned": true
+      },
+      "paper/sections/intro.tex": {
+        "sha256": "1875433a2b23751461a27bfc3b2eecdda5af1ab6b56b1239a08ea29b0ee782c4",
+        "bytes": 6561,
+        "local_matches_pinned": true
+      },
+      "paper/sections/related.tex": {
+        "sha256": "6c8ffa81cd059d0d895caed8867aafbd0561f634e7a5c39190533d6c411601b1",
+        "bytes": 4394,
+        "local_matches_pinned": true
+      },
+      "paper/sections/conclusion.tex": {
+        "sha256": "4ff605728ac5408fd36acc82873922f600cf95a46727c9c2863551f389c7b7fd",
+        "bytes": 1282,
+        "local_matches_pinned": true
+      }
+    }
+  },
+  "closed-api": {
+    "repository": "/home/soroush/frontier-allocation-for-budgeted-llm-inference",
+    "commit": "87ecfacb97fdce519bb309c14d66eb909a758a4d",
+    "authority": "Inspected local source only; uploaded version not certified",
+    "files": {
+      "paper_performance_evaluation/main.tex": {
+        "sha256": "007801f18148047a0c5dc022fb6b79cce333e9b1279056c2f6e2961eca9c2d90",
+        "bytes": 4344,
+        "local_matches_pinned": true
+      },
+      "paper_performance_evaluation/sections/01_introduction.tex": {
+        "sha256": "2dae96c0df76200a5df2fa2dbbecf0d8f14bda49ce8938ec00ab10a50bf32092",
+        "bytes": 6196,
+        "local_matches_pinned": true
+      },
+      "paper_performance_evaluation/sections/12_discussion.tex": {
+        "sha256": "ffc1331c5a2335de563a061ea3da1ce783efd321606b851572c5603e74bda4c1",
+        "bytes": 2569,
+        "local_matches_pinned": true
+      },
+      "paper_performance_evaluation/sections/13_conclusion.tex": {
+        "sha256": "ada00a8fa9ebd101cbd37dbc15796e205196e0816b0a3c3ad47e1b5cbefd67f8",
+        "bytes": 1075,
+        "local_matches_pinned": true
+      }
+    }
+  }
+}

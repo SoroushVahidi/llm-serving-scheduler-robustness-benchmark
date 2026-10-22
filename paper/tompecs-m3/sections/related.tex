@@ -35,6 +35,43 @@ adaptation on the same window and condition, and distinguishes source
 means from cross-window comparisons. We do not infer that the selected
 windows are independent draws from provider populations.
 
+\paragraph{Throughput optimality and finite-window completion.}
+Dai, Deng, Li, and Peng's May 18, 2026 revision studies batching and
+work-conserving scheduling through queueing stability
+\citep{dai2026throughput}. Their token-budget model has batch time depending
+on token load; their maximal-batch-size extension shows that request-count
+constraints materially change the stability analysis. This makes the
+binding constraint a substantive modeling choice, rather than an incidental
+configuration detail. In \cm, full-context reservations limit residency to
+four or eight requests, chunked work cannot exhaust the token budget, and
+every batch costs the same time. Moreover, our throughput is output from a
+finite, fully drained input divided by its completion duration. It is not
+their long-run stability criterion. Their work motivates examining batching
+and concurrency together, but its theorems do not certify these adaptations;
+our finite-window throughput losses neither refute their stability results
+nor establish a new scheduling principle.
+
+\paragraph{Related manuscripts and incremental question.}
+Related active manuscripts by the author already study inactive mechanisms
+and metric sensitivity. The action-opportunity/headroom manuscript asks when
+an executable alternative exists and measures reference-conditional,
+one-step causal value. The module-counterfactual manuscript studies typed
+transplants, downstream erasure and transplant fidelity. The closed-API
+resource-accounting manuscript separates nominal budgets, realized resources
+and answer selection on different tasks and data. M3 does not contribute
+those methods or reuse their quantitative results as validation. Its
+incremental object is a complete common-contract adaptation comparison:
+exact trajectory consequences for the chunked/decode pair, measured remaining
+trade-offs, and the contrast between source-mean stability and window/metric
+rankings, with a separate historical-inference diagnostic. The shared ideas
+of explicit accounting and conditional mechanisms are acknowledged, not
+claimed as unique to this paper. Appendix~\ref{app:evidence} and the related-
+manuscript disclosure identify inspected local versions; actual submitted
+versions and public citation identities require author confirmation.
+M3 also reuses windows, reconstruction and the archived 36/990 rule result
+from the earlier portability line, whose rejected/withdrawn submissions are
+not active concurrent work.
+
 \paragraph{Serving simulators and model credibility.}
 Vidur combines profiling and predictive models to explore LLM inference
 configurations \citep{vidur2024}; LLMServingSim develops HW/SW co-simulation

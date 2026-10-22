@@ -39,24 +39,15 @@ At four-slot Bailian, \anwg\ is also 3.12\% lower for SLO-gated despite its
 24.05\% mean-latency reduction. Throughput, deadline attainment, and response
 time reward different aspects of the completed schedule.
 
-Because the urgency gate does not bind (Section~\ref{sec:contract}), these
-observations concern prompt-length admission ordering and the declared
-chunking rules. Earlier admission of short prompts can change who waits
-and which requests finish last. The measured mean/tail/throughput contrast
-is consistent with that ordering distinction, but the study does not isolate
-separate causal contributions by intervention or validate the original
-SLAI system. Prompt length is observable prefill work, not known total
-service time: the policy cannot see remaining output length.
-For a matched, fully completed 200-request condition, mean latency depends
-on $\sum_i(c_i-a_i)/200$, whereas token throughput is
-$\sum_i o_i/(\max_i c_i-\min_i a_i)$. Reducing the sum of completion times
-need not reduce the last completion time or an upper quantile. This explains
-why those objectives can disagree without a change in output count or
-batch cost. It does not assert that every window's drain grows: the reported
-source/capacity throughput means average window rates, and are not the
-inverse of a mean drain time. Deadline attainment is a third functional,
-counting which individual completions cross synthetic deadlines; the Bailian
-loss therefore does not contradict its mean-latency gain.
+For a matched, fully completed 200-request condition, mean latency is
+$\sum_i(c_i-a_i)/200$, whereas token throughput is
+$\sum_i o_i/(\max_i c_i-\min_i a_i)$. Reducing the sum need not reduce the
+last completion or an upper quantile. Deadline attainment counts which
+completions cross synthetic deadlines; its Bailian loss is therefore
+compatible with the mean-latency gain. The source/capacity throughput means
+average window rates and are not inverses of mean durations. The following
+saved-record illustration connects these distinct objectives to the active
+admission ordering identified in Section~\ref{sec:contract}.
 
 \begin{figure}[!p]
 \centering\includegraphics[width=\linewidth]{figures/absolute.pdf}
@@ -70,6 +61,9 @@ condition means, with no inferential uncertainty bands.}
 \Description{Twelve panels compare source means across six settings, three distinct adaptation behaviors, and two capacities. SLO-gated lowers mean latency, while throughput is lower and BurstGPT tail latency is higher.}
 \label{fig:absolute}
 \end{figure}
+
+\FloatBarrier
+\input{sections/example}
 
 \subsection{Capacity and inherited-setting effects}
 Increasing reservation capacity doubles permitted residency from four to

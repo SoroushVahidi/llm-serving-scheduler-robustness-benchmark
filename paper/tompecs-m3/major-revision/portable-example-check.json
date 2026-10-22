@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "artifact_root": "rc1 clean-extraction (distinct from staging)",
+  "identical_derived_files": [
+    "example-summary.json",
+    "example-aggregates.csv",
+    "example-requests.csv",
+    "example-aggregates.tex",
+    "example-requests.tex"
+  ],
+  "independent_event_reconstruction": "PASS",
+  "experiments_executed": 0
+}

@@ -1,3 +1,5 @@
+> **Current revision:** see [major-revision/FINAL_REPORT.md](major-revision/FINAL_REPORT.md), [focused claims](major-revision/CLAIM_TO_EVIDENCE.md), and [remaining blockers](major-revision/REMAINING_BLOCKERS.md). Earlier reports below are historical.
+
 > **Current supplement:** [artifact-readiness verification](artifact-release/VERIFICATION.md) adds full local payload checks and focused contract reasoning. The numerical evidence map below remains unchanged.
 
 # Claim-to-evidence verification

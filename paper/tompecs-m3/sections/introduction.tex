@@ -31,12 +31,16 @@ of their published systems.
 Workload-sensitive serving evaluations already establish that benchmark
 choice matters \citep{papaioannou2024workload}; predictive serving simulators
 address the cost of exploring configurations \citep{vidur2024,llmservingsim2024}.
-Our contribution is a different empirical object: a complete comparison
-of restricted adaptations across a fixed corpus, with absolute performance,
-matched differences, ties, and practical reversals reported together.
-This permits a reader to distinguish a useful performance difference from
-a rank change caused by aggregation, duplicate metrics, or an inactive
-scheduling distinction.
+Our incremental question is which nominal scheduler distinctions survive
+an explicit common contract, and how the surviving behaviors affect the
+meaning of a ranking. We answer with a reproducible case study that connects
+state-transition reasoning, complete matched outcomes, and a traceable
+saved-record explanation. The result is more specific than the established
+observations that resource constraints activate mechanisms and metrics can
+disagree: under this contract two named adaptations collapse exactly, yet
+admission and whole-prefill distinctions retain measurable consequences.
+Completeness makes those claims auditable; the cell count is not itself the
+scientific contribution.
 
 The completed comparison changes the emphasis of the historical narrative.
 Across six source--capacity aggregates, SLO-gated improves mean latency but
@@ -60,14 +64,16 @@ audit and known-truth statistical calibration establish about the reliability
 and limitations of scheduler comparisons?
 \end{description}
 
-The paper makes four specific contributions. First, it specifies an
-executable comparison contract and identifies the departures of each
-adaptation from its published lineage. Second, it reports the complete
-5,760-cell evaluation, including absolute latency, throughput, goodput,
-and complete request accounting. Third, it quantifies how window variation,
-aggregation, ties, and metric choice change the interpretation of rankings,
-including the null source-mean reversal result. Fourth, it separates
-execution conformance from statistical calibration through a concise
-historical audit and a completed synthetic diagnostic. These contributions
-support finite-corpus conclusions under \cm; they make no new algorithmic,
-statistical-test, or native-performance claim.
+The paper contributes three linked results. First, it establishes why four
+adaptation identities yield three observed behaviors: the residency/work
+bound makes a priority-list distinction ineffective, while the clock updates
+leave an urgency gate inactive. Second, it measures the remaining
+workload-specific mean/tail/throughput trade-offs and uses exact saved inputs,
+admissions and completions to explain their coexistence in one illustrative
+condition. Third, it distinguishes the absence of strict source-mean
+reversals from window and metric sensitivity, retaining exact ties and
+redundant endpoints. STAT01 supports interpretation of the historical
+motivation by separating reproducible ranking arithmetic from calibrated
+population inference; it is not an additional C01 performance experiment.
+Together these results answer a contract-specific evaluation question, rather
+than introducing an algorithm or a general optimality or inference result.

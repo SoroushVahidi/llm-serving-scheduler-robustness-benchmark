@@ -1,6 +1,6 @@
 # M3 author-review manuscript
 
-**Status: COMPLETED_SUCCESS — rewrite and local validation; submission blockers remain.**
+**Current scientific verdict: READY_FOR_AUTHOR_AND_ADMINISTRATIVE_FINALIZATION.** Author review, access, disclosure and administrative blockers remain; submission is not authorized.
 
 Title: *Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation*.
 
@@ -8,8 +8,11 @@ This directory is a new manuscript, stacked on final evidence-review commit `6b2
 
 ## Review entry points
 
-- [Current artifact-readiness assessment](artifact-release/READINESS.md): **NOT_READY** for submission; verified source licenses/statuses, complete local candidate, author/venue gates.
-- [Artifact inventory and access](artifact-release/INVENTORY.md), [portable candidate guide](artifact-release/CANDIDATE_README.md), and [current verification](artifact-release/VERIFICATION.md).
+- [Focused major-revision final report](major-revision/FINAL_REPORT.md), [claim audit](major-revision/CLAIM_TO_EVIDENCE.md), [current validation](major-revision/VALIDATION.md), and [remaining blockers](major-revision/REMAINING_BLOCKERS.md).
+- [Saved-record example and independent verification](major-revision/EXAMPLE_PROVENANCE.md), [related-manuscript disclosure](major-revision/RELATED_MANUSCRIPTS.md), and [rc1/companion pairing](major-revision/COMPANION.md).
+
+- [Historical PR21 artifact-readiness assessment](artifact-release/READINESS.md): **NOT_READY** for submission; verified source licenses/statuses, complete local candidate, author/venue gates.
+- [Artifact inventory and access](artifact-release/INVENTORY.md), [portable candidate guide](artifact-release/CANDIDATE_README.md), and [PR21 verification](artifact-release/VERIFICATION.md).
 - [Historical final scientific and submission-readiness review](final-review/REFEREE_REPORT.md): **NOT_READY**; includes claim/novelty assessment, overlap and literature audit, author decisions, and correction validation. Its pending status/license questions are superseded by the current artifact-readiness assessment.
 - [ACM manuscript PDF](m3-manuscript.pdf) and [acmsmall PDF](m3-acmsmall.pdf).
 - [LaTeX source](main.tex) and [bibliography](references.bib).

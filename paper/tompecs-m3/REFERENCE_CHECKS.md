@@ -1,3 +1,5 @@
+> **Current revision:** see [major-revision/FINAL_REPORT.md](major-revision/FINAL_REPORT.md), [focused claims](major-revision/CLAIM_TO_EVIDENCE.md), and [remaining blockers](major-revision/REMAINING_BLOCKERS.md). Earlier reports below are historical.
+
 > **Historical reference check.** The current 24-reference bibliography is documented in [PR20 reference updates](final-review/REFERENCES.md); consumed-source license/identity verification is superseded by [SOURCE_PROVENANCE.md](artifact-release/SOURCE_PROVENANCE.md).
 
 # Reference and provenance checks

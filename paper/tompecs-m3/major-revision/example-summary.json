@@ -1,0 +1,184 @@
+{
+  "aggregates": [
+    {
+      "policy": "chunked_fcfs_c01",
+      "completed": 200,
+      "output_tokens": 3520,
+      "mean_latency_s": 0.06168091691930643,
+      "p95_latency_s": 0.1107414722793581,
+      "first_arrival_to_final_completion_s": 1.1499999999999841,
+      "token_throughput": 3060.8695652174333,
+      "sum_latency_s": 12.336183383861286
+    },
+    {
+      "policy": "slo_gated_c01",
+      "completed": 200,
+      "output_tokens": 3520,
+      "mean_latency_s": 0.0366409169193063,
+      "p95_latency_s": 0.1474798387521259,
+      "first_arrival_to_final_completion_s": 1.3469999999999624,
+      "token_throughput": 2613.214550853822,
+      "sum_latency_s": 7.32818338386126
+    }
+  ],
+  "relative_change_percent": {
+    "mean_latency_s": -40.59602426591439,
+    "p95_latency_s": 33.17489438833812,
+    "token_throughput": -14.625092798810968
+  },
+  "earlier": 151,
+  "later": 29,
+  "unchanged": 20,
+  "sum_completion_difference_s": -5.008000000000025,
+  "p95_convention": "linear interpolation at zero-based position (200-1)*0.95=189.05",
+  "selected_requests": [
+    13,
+    14,
+    26,
+    196
+  ],
+  "events": [
+    {
+      "policy": "chunked_fcfs_c01",
+      "event_zero_based": 13,
+      "time_s": 0.013000000000000005,
+      "end_s": 0.014000000000000005,
+      "admissions": [],
+      "completed": [
+        5
+      ],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "chunked_fcfs_c01",
+      "event_zero_based": 14,
+      "time_s": 0.014000000000000005,
+      "end_s": 0.015000000000000006,
+      "admissions": [
+        13
+      ],
+      "completed": [],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "chunked_fcfs_c01",
+      "event_zero_based": 15,
+      "time_s": 0.015000000000000006,
+      "end_s": 0.016000000000000007,
+      "admissions": [],
+      "completed": [
+        6,
+        7
+      ],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "chunked_fcfs_c01",
+      "event_zero_based": 16,
+      "time_s": 0.016000000000000007,
+      "end_s": 0.017000000000000008,
+      "admissions": [
+        14,
+        15
+      ],
+      "completed": [],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "chunked_fcfs_c01",
+      "event_zero_based": 26,
+      "time_s": 0.026000000000000016,
+      "end_s": 0.027000000000000017,
+      "admissions": [
+        24,
+        25,
+        26
+      ],
+      "completed": [],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "chunked_fcfs_c01",
+      "event_zero_based": 223,
+      "time_s": 0.22300000000000017,
+      "end_s": 0.22400000000000017,
+      "admissions": [
+        160
+      ],
+      "completed": [
+        157
+      ],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "slo_gated_c01",
+      "event_zero_based": 13,
+      "time_s": 0.013000000000000005,
+      "end_s": 0.014000000000000005,
+      "admissions": [],
+      "completed": [
+        5
+      ],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "slo_gated_c01",
+      "event_zero_based": 14,
+      "time_s": 0.014000000000000005,
+      "end_s": 0.015000000000000006,
+      "admissions": [
+        14
+      ],
+      "completed": [],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "slo_gated_c01",
+      "event_zero_based": 15,
+      "time_s": 0.015000000000000006,
+      "end_s": 0.016000000000000007,
+      "admissions": [],
+      "completed": [
+        6,
+        7
+      ],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "slo_gated_c01",
+      "event_zero_based": 16,
+      "time_s": 0.016000000000000007,
+      "end_s": 0.017000000000000008,
+      "admissions": [
+        13,
+        15
+      ],
+      "completed": [],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "slo_gated_c01",
+      "event_zero_based": 26,
+      "time_s": 0.026000000000000016,
+      "end_s": 0.027000000000000017,
+      "admissions": [
+        27,
+        28,
+        24
+      ],
+      "completed": [],
+      "reserved_tokens": 262144
+    },
+    {
+      "policy": "slo_gated_c01",
+      "event_zero_based": 223,
+      "time_s": 0.22300000000000017,
+      "end_s": 0.22400000000000017,
+      "admissions": [
+        26
+      ],
+      "completed": [],
+      "reserved_tokens": 262144
+    }
+  ]
+}

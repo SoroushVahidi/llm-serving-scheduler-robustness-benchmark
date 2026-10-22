@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "method": "NumPy array metrics from independently reconstructed saved event timelines; no analysis-generator imports",
+  "selection_verified": true,
+  "files_hashed": 8,
+  "requests_per_policy": 200,
+  "policies": [
+    {
+      "policy": "chunked_fcfs_c01",
+      "journal_events": 1150,
+      "terminal_states_verified": 200,
+      "p95_bracket_ids": [
+        191,
+        195
+      ],
+      "p95_bracket_latency_s": [
+        0.11073288019025782,
+        0.11090472197226356
+      ],
+      "final_request_ids": [
+        26
+      ]
+    },
+    {
+      "policy": "slo_gated_c01",
+      "journal_events": 1347,
+      "terminal_states_verified": 200,
+      "p95_bracket_ids": [
+        139,
+        68
+      ],
+      "p95_bracket_latency_s": [
+        0.14741301613318034,
+        0.14874946851209175
+      ],
+      "final_request_ids": [
+        26
+      ]
+    }
+  ],
+  "maximum_numeric_tolerance": 1e-12,
+  "all_derived_csv_fields_checked": true,
+  "displayed_tables_checked": true,
+  "first_membership_difference_s": 0.014000000000000005,
+  "experiments_executed": 0,
+  "support_sha256": {
+    "analyze_example.py": "4db3c3e5fb1f2d28e09c69c4e5f48a31cb410eafb0645663f7f42d18af96e966",
+    "verify_example.py": "653c11d2d199dfc0ebe097dc907f027d56ff352915a933eff37f156ad2ed4fd5",
+    "example-manifest.json": "6d920ce67c24bb3fec92f4c7d3136ee5772e39f4aa8b015e937e57ba67ceab9b",
+    "example-summary.json": "bcceec1e17ee340fdd4e7f03874c6589584b319f0f5dbb4c92d8e709ab4f35d6",
+    "example-aggregates.csv": "dff9bcdafd178544eb0f0c5f7ceec3545ae387d5886f8e81c03b4994473117db",
+    "example-requests.csv": "01e42bbd1ae4bd022ed4d622952fd8880385a694a09d48f9ef55674a5925a5d2",
+    "example-aggregates.tex": "e18109bb121aeb3ccc0685d6ce30d6d96fa9fc620a6108a368a2377ab40a452b",
+    "example-requests.tex": "ed7fea41a405c63e27aa7c65be1fabbb9c71659aae3f7535b9e33032bcb75e97"
+  }
+}
