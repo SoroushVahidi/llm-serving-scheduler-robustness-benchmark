@@ -43,6 +43,8 @@ refuses duplicate attempts or an active recovery job, persists submission intent
 before invoking Slurm, and never retries automatically. `recovery.sbatch` is CPU
 only, four CPUs/8 GiB, at most nine hours. Monitoring stops within two minutes.
 
-The deployment manifest and launch/startup record will be added as evidence
-after freezing the code and submitting the single authorized recovery. A healthy
-job is not completed computation or scientific calibration.
+See [LAUNCH_REPORT.md](LAUNCH_REPORT.md) and the committed deployment manifest,
+submission and single startup snapshot. Slurm **1440206** was observed
+**RUNNING_HEALTHY**, with 7,250 reused studies independently validated and zero
+new studies generated at the snapshot. Monitoring ended within two minutes.
+A healthy job is not completed computation or scientific calibration.

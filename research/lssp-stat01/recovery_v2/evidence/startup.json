@@ -1,0 +1,133 @@
+{
+  "checkpoint.json": {
+    "generated_studies": 0,
+    "identity": "061933a64e27da208dc782865f7a5f39e5788357b11b37df7899c423226de319",
+    "reused_studies": 7250,
+    "scenarios": {
+      "0": {
+        "last_look": null,
+        "n": 425,
+        "status": "ACTIVE"
+      },
+      "1": {
+        "last_look": null,
+        "n": 425,
+        "status": "ACTIVE"
+      },
+      "10": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "11": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "12": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "13": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "14": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "15": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "16": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "17": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "2": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "3": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "4": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "5": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "6": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "7": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "8": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      },
+      "9": {
+        "last_look": null,
+        "n": 400,
+        "status": "ACTIVE"
+      }
+    },
+    "status": "RUNNING",
+    "time": "2026-10-22T14:54:07.173893+00:00"
+  },
+  "err": {
+    "exists": true,
+    "mtime_utc": "2026-10-22T14:52:52.325835+00:00",
+    "size": 0,
+    "tail": ""
+  },
+  "failure_records": [],
+  "observed_utc": "2026-10-22T14:54:04.981648+00:00",
+  "out": {
+    "exists": true,
+    "mtime_utc": "2026-10-22T14:54:07.176427+00:00",
+    "size": 75621,
+    "tail": "T\", \"origin\": \"audited\", \"scenario\": 6, \"start\": 375, \"time\": \"2026-10-22T14:54:04.146675+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 3, \"studies\": 400, \"time\": \"2026-10-22T14:54:04.204170+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 7, \"start\": 375, \"time\": \"2026-10-22T14:54:04.204299+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 4, \"studies\": 400, \"time\": \"2026-10-22T14:54:04.491390+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 8, \"start\": 375, \"time\": \"2026-10-22T14:54:04.491618+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 5, \"studies\": 400, \"time\": \"2026-10-22T14:54:04.628625+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 9, \"start\": 375, \"time\": \"2026-10-22T14:54:04.628764+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 6, \"studies\": 400, \"time\": \"2026-10-22T14:54:04.836223+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 10, \"start\": 375, \"time\": \"2026-10-22T14:54:04.836433+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 7, \"studies\": 400, \"time\": \"2026-10-22T14:54:04.866257+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 11, \"start\": 375, \"time\": \"2026-10-22T14:54:04.866369+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 8, \"studies\": 400, \"time\": \"2026-10-22T14:54:05.202679+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 12, \"start\": 375, \"time\": \"2026-10-22T14:54:05.202805+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 10, \"studies\": 400, \"time\": \"2026-10-22T14:54:05.502694+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 13, \"start\": 375, \"time\": \"2026-10-22T14:54:05.502801+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 9, \"studies\": 400, \"time\": \"2026-10-22T14:54:05.524009+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 14, \"start\": 375, \"time\": \"2026-10-22T14:54:05.524126+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 11, \"studies\": 400, \"time\": \"2026-10-22T14:54:05.667879+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 15, \"start\": 375, \"time\": \"2026-10-22T14:54:05.667995+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 12, \"studies\": 400, \"time\": \"2026-10-22T14:54:05.969247+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 16, \"start\": 375, \"time\": \"2026-10-22T14:54:05.969367+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 14, \"studies\": 400, \"time\": \"2026-10-22T14:54:06.217018+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 17, \"start\": 375, \"time\": \"2026-10-22T14:54:06.217165+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 15, \"studies\": 400, \"time\": \"2026-10-22T14:54:06.273006+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 0, \"start\": 400, \"time\": \"2026-10-22T14:54:06.273130+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 13, \"studies\": 400, \"time\": \"2026-10-22T14:54:06.351939+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 1, \"start\": 400, \"time\": \"2026-10-22T14:54:06.352054+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 16, \"studies\": 400, \"time\": \"2026-10-22T14:54:06.822056+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 2, \"start\": 400, \"time\": \"2026-10-22T14:54:06.822180+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 0, \"studies\": 425, \"time\": \"2026-10-22T14:54:06.898569+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 3, \"start\": 400, \"time\": \"2026-10-22T14:54:06.898687+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 1, \"studies\": 425, \"time\": \"2026-10-22T14:54:06.955138+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 4, \"start\": 400, \"time\": \"2026-10-22T14:54:06.955266+00:00\"}\n{\"event\": \"BATCH_VALIDATED\", \"mode\": \"REUSED_AUDITED_ORIGINAL\", \"scenario\": 17, \"studies\": 400, \"time\": \"2026-10-22T14:54:07.176120+00:00\"}\n{\"event\": \"BATCH_START\", \"origin\": \"audited\", \"scenario\": 5, \"start\": 400, \"time\": \"2026-10-22T14:54:07.176251+00:00\"}\n"
+  },
+  "root": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022",
+  "run_id": "stat01-recovery-v2-061933a64e27da20",
+  "sacct": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "JobID|State|Submit|Start|End|Elapsed|ExitCode|AllocCPUS|ReqMem|MaxRSS|NodeList\n1440206|RUNNING|2026-10-22T14:52:38|2026-10-22T14:52:50|Unknown|00:01:16|0:0|4|8G||n0006\n1440206.batch|RUNNING|2026-10-22T14:52:50|2026-10-22T14:52:50|Unknown|00:01:16|0:0|4|||n0006\n1440206.extern|RUNNING|2026-10-22T14:52:50|2026-10-22T14:52:50|Unknown|00:01:16|0:0|4|||n0006\n"
+  },
+  "scontrol": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "JobId=1440206 JobName=lssp-stat01-recovery-v2\n   UserId=sv96(511190) GroupId=sv96(511190) MCS_label=N/A\n   Priority=10602 Nice=0 Account=ikoutis QOS=standard\n   JobState=RUNNING Reason=None Dependency=(null)\n   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:01:17 TimeLimit=09:00:00 TimeMin=N/A\n   SubmitTime=2026-10-22T14:52:38 EligibleTime=2026-10-22T14:52:38\n   AccrueTime=2026-10-22T14:52:38\n   StartTime=2026-10-22T14:52:50 EndTime=2026-10-22T23:52:50 Deadline=N/A\n   PreemptEligibleTime=2026-10-22T14:52:50 PreemptTime=None\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-22T14:52:50 Scheduler=Backfill\n   Partition=general AllocNode:Sid=login02:965010\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList=n0006\n   BatchHost=n0006\n   NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=4,mem=8G,node=1,billing=4\n   AllocTRES=cpu=4,mem=8G,node=1,billing=4\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=4 MinMemoryNode=8G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)\n   Command=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022/code/recovery.sbatch\n   SubmitLine=sbatch --parsable --chdir=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022 --export=ALL,STAT01_RECOVERY_ROOT=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022,STAT01_RECOVERY_ID=stat01-recovery-v2-061933a64e27da20 --output=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022/logs/stat01-recovery-v2-061933a64e27da20-%j.out --error=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022/logs/stat01-recovery-v2-061933a64e27da20-%j.err /mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022/code/recovery.sbatch\n   WorkDir=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022\n   StdErr=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022/logs/stat01-recovery-v2-061933a64e27da20-1440206.err\n   StdIn=/dev/null\n   StdOut=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-recovery-v2-20261022/logs/stat01-recovery-v2-061933a64e27da20-1440206.out\n   TresPerTask=cpu=4\n\n"
+  },
+  "slurm_id": "1440206",
+  "squeue": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "             JOBID        STATE           START_TIME         TIME               NODELIST(REASON)\n           1440206      RUNNING  2026-10-22T14:52:50         1:15                          n0006\n"
+  }
+}
