@@ -1,5 +1,7 @@
 # LSSP-C01 — common-model scheduler comparability
 
+**RUNNING_HEALTHY at the bounded startup observation:** Slurm1438638; see [launch report and exact paths](LAUNCH_REPORT.md) and [scientific readiness limits](SCIENTIFIC_READINESS.md). No completion claim; no further polling.
+
 New CPU investigation from M2 draft PR#10 (`880a37e8e7c19d089be124291e288269966a9147`). Historical data, code and M1/M2 evidence remain unchanged. No manuscript claims updated. The inherited Git LFS anomaly remains unresolved.
 
 Start with [reuse/gap matrix](REUSE_AND_GAPS.md), [prospective protocol](PROTOCOL.md), [pre-launch corrections](CHANGES_BEFORE_LAUNCH.md) and [validation](VALIDATION.md). [input_manifest.json](input_manifest.json) pins the144-cell pilot (three original200-request windows × six original load settings × four new adaptations × two KV capacities).

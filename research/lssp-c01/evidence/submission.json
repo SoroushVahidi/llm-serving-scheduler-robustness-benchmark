@@ -1,0 +1,12 @@
+{
+  "job_id": "1438638",
+  "submitted_at_utc": "2026-10-22T03:49:50Z",
+  "run_id": "c01-30f3af3717d536cb",
+  "cpus": 1,
+  "memory": "4G",
+  "partition": "general",
+  "qos": "standard",
+  "account": "ikoutis",
+  "walltime": "02:00:00",
+  "gpus": 0
+}
