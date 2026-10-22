@@ -1,0 +1,46 @@
+2026-10-22T04:28:25Z
+2026-10-22T04:28:37Z
+STAT01_JOB_ID=1438961
+             JOBID        STATE       TIME TIME_LIMIT  NODES NODELIST(REASON)
+           1438961      PENDING       0:00    9:00:00      1 (None)
+JobId=1438961 JobName=lssp-stat01-calibration
+   UserId=sv96(511190) GroupId=sv96(511190) MCS_label=N/A
+   Priority=10602 Nice=0 Account=ikoutis QOS=standard
+   JobState=PENDING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=09:00:00 TimeMin=N/A
+   SubmitTime=2026-10-22T00:28:27 EligibleTime=2026-10-22T00:28:27
+   AccrueTime=2026-10-22T00:28:27
+   StartTime=Unknown EndTime=Unknown Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-22T00:28:27 Scheduler=Main
+   Partition=general AllocNode:Sid=login02:3120373
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=
+   NumNodes=1-1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=4,mem=8G,node=1,billing=4
+   AllocTRES=(null)
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=4 MinMemoryNode=8G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524/code/campaign.sbatch
+   SubmitLine=sbatch --parsable --chdir /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524 --export ALL,STAT01_ROOT=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524,STAT01_RUN_ID=stat01-f97f91abe5da0bf5,STAT01_PYTHON=/project/ikoutis/sv96/github/llm-serving-scheduler-robustness-benchmark/.venv312/bin/python --output /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524/logs/stat01-f97f91abe5da0bf5-%j.out --error /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524/logs/stat01-f97f91abe5da0bf5-%j.err /project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524/code/campaign.sbatch
+   WorkDir=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524
+   StdErr=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524/logs/stat01-f97f91abe5da0bf5-1438961.err
+   StdIn=/dev/null
+   StdOut=/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524/logs/stat01-f97f91abe5da0bf5-1438961.out
+   TresPerTask=cpu=4
+
+
+STDOUT_STARTUP
+Log not created yet (queued job).
+
+STDERR_STARTUP
+Error log not created yet.
+
+CHECKPOINT_HEALTH_ONLY
+Checkpoint not yet created; runtime initializes it on startup.
+Failure artifact names: []
+Environment artifact names: []
+STARTUP_ELAPSED_SECONDS=10
+2026-10-22T04:28:37Z
