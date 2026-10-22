@@ -44,6 +44,10 @@
       "sha256": "85f68d44633baba5e15daeaea206c1b7f171181c30bed179f8612f0651c8c6d1",
       "bytes": 8014
     },
+    "artifact-release/FINAL_REPORT.md": {
+      "sha256": "b202030673a006c75357b6e7e8a8d80cd726e1a8fbc98f8134cef424c5f5d9f2",
+      "bytes": 9904
+    },
     "artifact-release/INVENTORY.md": {
       "sha256": "36177d45eb8bc85e41960ceaead2e7377b1fccc91818eaf72001e33cf4e4d4fc",
       "bytes": 6247
