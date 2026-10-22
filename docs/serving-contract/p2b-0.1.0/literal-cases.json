@@ -1,0 +1,17 @@
+{
+  "schema": "lssp-p2b-literal-cases/0.1.0",
+  "profile": "lssp-slai-s02-prefill-control/0.1.0",
+  "status": "FROZEN_PROSPECTIVE_CPU_EXPECTATIONS",
+  "cases": [
+    {"id":"L01", "kind":"control", "requests":[["a",2,"loose",0],["b",2,"loose",1]], "spans":[["a",0,1]], "mask":[false]},
+    {"id":"L02", "kind":"control", "requests":[["a",2,"loose",0],["b",2,"loose",1]], "spans":[["b",0,2]], "mask":[true]},
+    {"id":"L03", "kind":"control", "requests":[["a",2,"loose",0],["b",2,"loose",1]], "spans":[["b",0,2],["a",0,2]], "mask":[true,true]},
+    {"id":"L04", "kind":"s02", "requests":[["medium",8,"medium",0],["loose",2,"loose",1],["tight",16,"tight",2]], "spans":[["tight",0,16],["loose",0,2],["medium",0,8]], "mask":[true,true,true]},
+    {"id":"L05", "kind":"s02", "requests":[["second",2,"medium",2],["first",2,"loose",1]], "spans":[["first",0,2],["second",0,2]], "mask":[true,true]}
+  ],
+  "multistep_literals": {
+    "paused_before_new_strict": "test_s02_paused_fifo_and_held_decode: B3/N3, d P1/O2 then p P7/O1 then strict P1/O1. p spans 0:3,3:6,6:7 before strict; d held until p/strict finish.",
+    "resident_reordering": "test_multiple_paused_residents_reorder_exactly: p/q P5, first p0:2 q0:1, then q1:3 p2:3; zero samples and canonical resident membership preserved.",
+    "unrepresentable": "test_cross_phase_interleave_rejected_without_mutation: waiting p before selected resident d is rejected before native current_step/queue/KV/progress mutation."
+  }
+}

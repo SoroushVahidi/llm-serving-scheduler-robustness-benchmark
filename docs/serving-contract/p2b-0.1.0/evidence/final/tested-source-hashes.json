@@ -1,0 +1,11 @@
+{
+  "docs/serving-contract/p2b-0.1.0/literal-cases.json": "8646656d17aea1f977ce9e39f81bf2ee61b54d2f467c0dc07d6550b97702b299",
+  "src/robustbench/serving_v2/p2b/__init__.py": "1a3de728b63678b4984c9536e190414099e38e472e64ba24d69b18530fb4cc37",
+  "src/robustbench/serving_v2/p2b/control.py": "022fccb0ed5e7729304be4544b27524119bff115575e78838b77bec208d670c1",
+  "src/robustbench/serving_v2/p2b/hook.py": "81849ab2e88aa0c5b2f8b1839dababf11dd0160219b0667d9b736b4a36aba1bc",
+  "src/robustbench/serving_v2/p2b/pins.py": "2d2aacb19986327f98ccfd4d3da8539fe201a444843cec996e2f44c1cc60a8e7",
+  "src/robustbench/serving_v2/p2b/reference.py": "e59e22971656be96cc7368c50a7f0fda0f76ae92ff3dc37800ac63a383aefed5",
+  "src/robustbench/serving_v2/p2b/s02.py": "a7cc204dd4a3040d7199d11033291f3f74a2273ff8b2c243a29af4d37db110c1",
+  "tests/serving_v2_p2b/conftest.py": "79e3378100ce40a78f55f055529b77086413ef2884020b18b24775f5605a626c",
+  "tests/serving_v2_p2b/test_control.py": "28c01d2f86b4a00e51a56810c9623c6728f7f516ece63ec41999ecfb64703401"
+}

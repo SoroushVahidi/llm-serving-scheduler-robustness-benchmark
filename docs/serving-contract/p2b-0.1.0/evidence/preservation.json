@@ -1,0 +1,30 @@
+{
+  "status": "PASS_PRESERVATION_AND_CPU_CONFORMANCE",
+  "baseline": "df4b13d269d64a949a9dd910b6a65e61718dbc29",
+  "inherited_seals": {
+    "v2.0.0-draft.1": 20,
+    "p1-0.1.0": 27,
+    "p2a-0.1.0": 31
+  },
+  "frozen_files": 29,
+  "historical_bytes": 37252923,
+  "historical_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+  "lfs_anomaly": "unchanged bytes, unstaged",
+  "counts": {
+    "distinct": 583,
+    "inherited": 508,
+    "new": 75,
+    "passed": 583,
+    "failed": 0,
+    "skipped": 0
+  },
+  "fixture": {
+    "valid": true,
+    "complete": true,
+    "batches_checked": 1,
+    "errors": [],
+    "physical_status": "NOT_VERIFIED",
+    "transport_closed": false
+  },
+  "links": 25
+}

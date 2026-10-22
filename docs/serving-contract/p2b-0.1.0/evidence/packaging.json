@@ -1,0 +1,13 @@
+{
+  "status": "PASS_OFFLINE_REPRODUCIBLE_WHEEL",
+  "hashes": [
+    "88123553868a3662d6e24af5d2fb24b64d093053146594b537e472896f26db45",
+    "88123553868a3662d6e24af5d2fb24b64d093053146594b537e472896f26db45"
+  ],
+  "source_date_epoch": "315532800",
+  "build_stdout": [
+    "Processing /tmp/lssp-p2b-wheel-c97ohmeg/project\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: robustbench\n  Building wheel for robustbench (pyproject.toml): started\n  Building wheel for robustbench (pyproject.toml): finished with status 'done'\n  Created wheel for robustbench: filename=robustbench-1.0.0-py3-none-any.whl size=395584 sha256=88123553868a3662d6e24af5d2fb24b64d093053146594b537e472896f26db45\n  Stored in directory: /tmp/pip-ephem-wheel-cache-l1r32ql4/wheels/ec/7d/6c/3f2c943784ede3bede51e176e3cfdf0ecf9512949260e30d94\nSuccessfully built robustbench\n",
+    "Processing /tmp/lssp-p2b-wheel-c97ohmeg/project\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: robustbench\n  Building wheel for robustbench (pyproject.toml): started\n  Building wheel for robustbench (pyproject.toml): finished with status 'done'\n  Created wheel for robustbench: filename=robustbench-1.0.0-py3-none-any.whl size=395584 sha256=88123553868a3662d6e24af5d2fb24b64d093053146594b537e472896f26db45\n  Stored in directory: /tmp/pip-ephem-wheel-cache-_1fnr6va/wheels/ec/7d/6c/3f2c943784ede3bede51e176e3cfdf0ecf9512949260e30d94\nSuccessfully built robustbench\n"
+  ],
+  "import_result": "PASS isolated wheel referee/types; producer and heavy imports absent\n"
+}

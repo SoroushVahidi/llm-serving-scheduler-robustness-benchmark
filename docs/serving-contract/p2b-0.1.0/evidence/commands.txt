@@ -1,0 +1,9 @@
+Final regression command and working directory: evidence/final/command and cwd.
+Final worker source: run_cpu_validation.sh.
+Environment and test umask: evidence/final/environment.json and test-umask.
+Session lssp-p2b-validation, window final3, PID 520614, exit 0.
+Source verification worker: evidence/source-worker.py (source-only, no inference); evidence/source-verification.exit = 0.
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /home/soroush/modal-venv/bin/python -B docs/serving-contract/p2b-0.1.0/check_preservation.py
+PYTHONDONTWRITEBYTECODE=1 /home/soroush/modal-venv/bin/python -B docs/serving-contract/p2b-0.1.0/check_packaging.py
+git diff --cached --check -- src/robustbench/serving_v2/p2b tests/serving_v2_p2b docs/serving-contract/p2b-0.1.0 ":(exclude)docs/serving-contract/p2b-0.1.0/evidence"
+Raw failure traceback whitespace and native patch context are preserved. New source/tests/docs are checked without rewriting original raw evidence.

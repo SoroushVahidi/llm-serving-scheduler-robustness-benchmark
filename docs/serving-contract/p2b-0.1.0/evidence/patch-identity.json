@@ -1,0 +1,4 @@
+{
+  "patched_schedule_sha256": "062195e45fa2fa4d16d68081a26ebf3dcc55fad1007e927e009a14b1dbd455e4",
+  "hook_id": "vllm-0.27.1-exact-span-hook/0.1.0"
+}

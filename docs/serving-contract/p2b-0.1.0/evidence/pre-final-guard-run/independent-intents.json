@@ -1,0 +1,24 @@
+{
+  "x": {
+    "proposal": {
+      "batch_id": "x",
+      "spans": [
+        {
+          "request_id": "b",
+          "epoch": 0,
+          "start": 0,
+          "end": 3
+        },
+        {
+          "request_id": "a",
+          "epoch": 0,
+          "start": 0,
+          "end": 2
+        }
+      ],
+      "token_budget": 128,
+      "active_limit": 16
+    },
+    "holds": []
+  }
+}

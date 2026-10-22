@@ -1,0 +1,18 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.39",
+  "packages": {
+    "vllm": "0.27.1",
+    "torch": "2.13.0+cu130",
+    "triton": "3.7.1",
+    "transformers": "5.8.1",
+    "tokenizers": "0.22.2",
+    "pytest": "9.0.3"
+  },
+  "CUDA_VISIBLE_DEVICES": "",
+  "HF_HUB_OFFLINE": "1",
+  "TRANSFORMERS_OFFLINE": "1",
+  "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+  "PYTHONDONTWRITEBYTECODE": "1",
+  "model_execution": false
+}
