@@ -1,0 +1,63 @@
+\ifdefined\MThreeSmall
+\documentclass[acmsmall,screen]{acmart}
+\else
+\documentclass[manuscript,screen,review]{acmart}
+\fi
+\usepackage{booktabs,tabularx,longtable}
+\usepackage{placeins,flafter}
+\usepackage{seqsplit,xurl}
+\setcopyright{none}
+\settopmatter{printacmref=false}
+\acmJournal{TOMPECS}
+\acmDOI{}
+\acmYear{2026}
+\newcommand{\anwg}{\mathrm{ANWG}}
+\newcommand{\reviewitem}[1]{\par\noindent\textbf{AUTHOR REVIEW REQUIRED:} #1\par}
+\title[Scheduler Rankings Under a Common Model]{Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation}
+\author{Soroush Vahidi}
+\email{sv96@njit.edu}
+\affiliation{\institution{New Jersey Institute of Technology}\city{Newark}\state{New Jersey}\country{USA}}
+\begin{document}
+\begin{abstract}
+A scheduler ranking is a property of an evaluation contract as well as a
+workload. Comparing implementations with different service progression,
+resource enforcement or policy information can obscure what a ranking
+measures. We evaluate four project-maintained LLM-serving scheduler
+adaptations under one explicit CPU discrete-event model. The complete
+finite-corpus design contains 120 windows from three trace sources, six
+inherited arrival/deadline settings and two KV reservation capacities:
+5,760 validated cells, including 144 reused pilot cells. All requests
+complete. Across six source/capacity aggregates, the SLO-gated adaptation
+reduces mean latency by 11.3--34.0\% relative to chunked-FCFS while reducing
+token throughput by 1.65--4.01\%; BurstGPT's mean window-level p95 latency
+increases at both capacities. The urgency gate never binds, so these gains
+do not demonstrate urgency-aware scheduling. Chunked-FCFS and decode-first
+are exactly equivalent in all 1,440 matched conditions. There are no
+strict 10\% practical reversals between source means, although window-level
+and metric-dependent reversals occur. A separate 134,000-study known-truth
+diagnostic identifies calibration concerns in historical inference
+procedures; it does not confer statistical guarantees on trace comparisons.
+The contribution is an auditable model-based evaluation showing how
+absolute trade-offs, structural equivalences and aggregation jointly
+constrain ranking claims, rather than a new scheduler or a native-GPU
+performance prediction.
+\end{abstract}
+\ccsdesc[500]{Computing methodologies~Simulation evaluation}
+\ccsdesc[300]{Computer systems organization~Cloud computing}
+\keywords{LLM serving, scheduling, performance evaluation, discrete-event simulation, workload dependence}
+\maketitle
+\input{sections/introduction}
+\input{sections/related}
+\input{sections/model}
+\input{sections/design}
+\input{sections/performance}
+\input{sections/rankings}
+\input{sections/inference}
+\input{sections/discussion}
+\input{sections/conclusion}
+\input{sections/declarations}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+\appendix
+\input{sections/appendix}
+\end{document}

@@ -1,0 +1,84 @@
+\section{The Common-Model Comparison Contract}\label{sec:model}
+\subsection{Execution, resources and information}
+CM-0.1 models one abstract device. A nonempty batch lasts exactly
+$\Delta=0.001$ simulated seconds and may execute at most 32,768 work
+tokens. Each prefill token costs one work unit; each scheduled decoding
+request costs one unit and emits one token. A request's final prefill
+batch emits no output, so decoding starts no earlier than the next batch.
+Requests arriving during a batch become eligible at its end. When no work
+is available, the clock advances directly to the next arrival.
+
+Every resident reserves a full 32,768-token context, regardless of its
+unknown output length. With capacity $K$, simultaneous residency is
+bounded by $\min(64,\lfloor K/32768\rfloor)$. The two capacities,
+131,072 and 262,144 token slots, therefore permit \emph{four and eight}
+residents, respectively. Used KV is tracked separately from executed
+prompt and output prefixes, rounded up to 16-token blocks. All frozen
+prompt-plus-output lengths fit the context bound (maximum 30,053).
+Reservation avoids output prediction and admission deadlock, at the cost
+of conservative concurrency. It is not an incremental native KV allocator.
+
+A policy sees only arrived request IDs and stable ordinals, arrival times,
+prompt lengths, acknowledged progress, resident status, the last-output
+or prefill-completion time, and the current clock. Actual or remaining
+output length, source identity, future arrivals and output-derived
+deadlines are hidden. The engine receives explicit per-request work spans
+and either executes that plan exactly or rejects it. No eviction,
+preemption, migration, prefix sharing or recomputation is available.
+Completion releases the reservation. The common administrative horizon
+is the last arrival plus 50 seconds; unfinished requests would remain
+explicitly unfinished, not become observed latency samples.
+
+\begin{table}[t]
+\centering\small
+\caption{Adaptations under CM-0.1. Names below denote project-maintained
+rules, not executions of the original systems. All rows share the contract
+in Section~\ref{sec:model}.}\label{tab:adaptations}
+\begin{tabularx}{\linewidth}{lX}
+\toprule Adaptation / lineage & Executed scheduling rule \\\midrule
+Whole-FCFS / vLLM-inspired & Admit FCFS whole prompts when a slot and budget
+permit; defer resident decodes in such batches. Otherwise decode residents. \\
+Chunked-FCFS / chunked vLLM-inspired & Resident work before waiting work,
+stable arrival order; prefill cap 512 tokens per request per batch. \\
+Decode-first / Sarathi-inspired & Resident decodes, resident prefills,
+then waiting prefills, each class FCFS; the same 512-token prefill cap. \\
+SLO-gated / SLAI-inspired & Critical resident decodes first, then resident
+prefills, waiting prefills by prompt length and ordinal, then remaining
+decodes. Critical means time since last output/prefill completion at least
+0.495 seconds. The prefill cap is 512 tokens. \\\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Why some mechanisms coincide}
+The four rules in Table~\ref{tab:adaptations} have distinct identities, but
+need not induce distinct executions. At most eight residents or newly
+admitted requests can receive work in a batch. With a 512-token prefill cap,
+the three chunked rules use at most $8\times512=4096$ work tokens, well
+below the 32,768 budget. Reordering resident decode and prefill work
+therefore does not exclude any of it, and the fixed batch cost is
+independent of order. Chunked-FCFS and decode-first admit waiting requests
+in the same order and advance the same prefixes. Their equality is a
+structural consequence in this domain, verified against all final records.
+
+The same budget slack lets SLO-gated execute all eligible residual decodes
+in every batch. The time since an acknowledged output or completed
+prefill cannot accumulate to its 0.495-second gate. The gate is inactive
+throughout these executions; prompt-length ordering of new admissions is
+the relevant distinction. A gain attributed to an active urgency gate,
+or to full SLAI, would misidentify the executed mechanism. Whole-FCFS can
+differ because whole-prefill batches explicitly defer decodes and its
+larger prompt spans can constrain admission within the budget.
+
+\subsection{Conformance evidence}
+An independent event referee reconstructs request progress, intent versus
+executed spans, eligibility, token work, reservations, block-rounded KV,
+timestamps, completion and metric accounting without importing the engine
+or policy implementation. The execution gate also tested deterministic
+replay, validated restart, input identity and future/latent-output
+noninterference. All 5,760 journals passed the exhaustive in-allocation
+check before final analysis. The subsequent review independently checked
+all result and input identities, reran the separate summary verifier and
+replayed 24 structurally selected journals. Those fresh sampled checks
+supplement, rather than replace or purport to repeat, the exhaustive pass.
+This evidence establishes conformance to the contract, not physical timing
+accuracy or security isolation of policy code.

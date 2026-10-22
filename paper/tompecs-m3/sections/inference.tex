@@ -1,0 +1,91 @@
+\section{Historical Comparisons and Inferential Reliability}\label{sec:inference}
+\subsection{What the historical comparison establishes}
+The archived LSSP campaign evaluated 13 implementations, with an 11-policy
+primary panel, across 120 windows and six settings. Its 9,360 configurations
+have two deterministic verification passes, not independent stochastic
+replicates. Historical policy paths differed in prefill work, resource
+enforcement and available information. Consequently, the preserved outcomes
+are comparisons of policy--model combinations, not the four CM-0.1
+adaptations. Numerical reproducibility cannot remove that distinction.
+
+Of 990 historical primary pairwise comparison records, 36 meet the saved
+point-margin and nominal-interval rule, spanning five policy pairs. We
+retain that number as an \emph{archived-rule count}. It is neither 36
+independent discoveries nor 36 reproduced common-model reversals. The
+historical pipeline screened point estimates for practical differences,
+formed bootstrap tail fractions around zero, adjusted a selected family
+and required nominal percentile intervals to exclude zero. A noisy point
+screen at 10\% followed by a zero-effect test is not a calibrated test
+that the population effect exceeds 10\%.
+
+\subsection{A separate known-truth diagnostic}
+STAT01 generates independent synthetic studies with three sources and
+eleven policies, normally 40 windows per source. Its 165 source-pair/policy-pair
+hypotheses distinguish sign reversals from strict population practical
+reversals. Eighteen scenarios vary ties, effect size, serial dependence,
+variance, innovation distribution and missingness. The campaign completed
+134,000 studies, retaining 112,275 existing studies and generating 21,725
+missing ones. All original records remain intact. Twelve scenarios reached
+the 8,000-study ceiling without all precision targets; the other six met
+the original precision criterion. Completion is not calibration success.
+
+There are three numerical interpretations. The eight original implementations
+retain their frozen floating-point contracts. An added legacy-source
+comparator reproduces the actual historical BH code. Eight further
+comparisons use exact rational multiplicity thresholds: finite-bootstrap
+probabilities on their count grids and analytic probabilities interpreted
+as their represented binary64 values. The nine additions are explicitly
+post-diagnosis. Their expanded uncertainty family is kept separate from
+the original eight-method family. Appendix~\ref{app:stat} gives definitions,
+stopping rules, all original scenario classifications and the numerical
+boundary case; the supplement includes every endpoint of all 17 methods.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\linewidth]{figures/calibration.pdf}
+\caption{Known-truth null diagnostics, 8,000 independent studies per
+scenario. Points estimate practical FDR; bars are the expanded
+17-method-family empirical-Bernstein Monte Carlo bounds, accounting for
+18 scenarios, 16 endpoints and five looks. The dashed line is 0.05.
+These post-diagnosis-family summaries are conditional on the fixed
+amendment, not general guarantees for trace data. All scenarios and
+original-family screens appear in Appendix~\ref{app:stat}.}\label{fig:calibration}
+\Description{Three panels show practical FDR for seven procedures under
+IID, independent-block and autoregressive nulls. Historical-source
+screened BH is above 0.05 even under the IID null and approaches one
+under temporal dependence.}
+\end{figure}
+
+The actual historical-source comparator estimates practical FDR at
+0.09025 under the IID equal null, with expanded-family Monte Carlo bounds
+$[0.06878,0.11172]$. Under independent-block and AR nulls it rises to
+0.91800 and 0.980375 (Figure~\ref{fig:calibration}). Its ordinary fixed-contrast
+interval coverage is 0.647625 and 0.564875 in those two dependent scenarios.
+Full-family BH reduces discovery error but does not repair the component
+intervals: original full-BH practical FDR remains 0.51875 and 0.778625.
+The largest final endpoint-mean difference between legacy source and the
+frozen port is only 0.00025. Exact threshold arithmetic likewise leaves
+the principal calibration concerns intact.
+
+There is no universally certified replacement in these results. Analytic
+procedures retain their stated Gaussian IID, independent-cluster or known-covariance
+justifications, but their stringent joint empirical-compatibility screens
+are generally inconclusive in nondegenerate assumption-valid scenarios.
+That is not evidence against a mathematical guarantee under its assumptions.
+The covariance oracle is not a deployable solution when covariance is
+unknown. Grouped-bootstrap BY has ordinary-interval coverage 0.88775 even
+in the IID equal null. Bounded Hoeffding-Holm has zero observed FDR and
+100\% diagnostic coverage in its two bounded IID scenarios, but practical
+power is zero at 40 windows and only 0.052632 at 400. Conservatism and
+inconclusiveness are substantive findings, not reasons to change the rules.
+
+\paragraph{Answer to RQ3.}
+Historical arithmetic can be reproduced without establishing either a
+shared execution comparison or calibrated inference. The synthetic cases
+exhibit concrete failures of the historical discovery procedure; arithmetic
+corrections do not resolve its target, dependence or selection problems.
+Conversely, the synthetic generators do not identify which individual
+historical trace conclusions are false. The descriptive common-model
+results stand on their finite-corpus accounting and need no transferred
+FDR guarantee.
+
+\FloatBarrier

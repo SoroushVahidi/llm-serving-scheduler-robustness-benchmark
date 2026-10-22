@@ -1,0 +1,53 @@
+\section{Background and Related Comparisons}\label{sec:related}
+\paragraph{Serving mechanisms.}
+Orca established iteration-level scheduling for generative inference;
+vLLM's PagedAttention addresses KV-memory management; Sarathi-Serve uses
+chunked prefill to manage throughput--latency trade-offs
+\citep{yu2022orca,kwon2023vllm,agrawal2024sarathi}. These systems motivate
+our adaptation lineage, but their hardware, kernels and allocators are
+not executed here. The distinction is especially important for SLAI,
+whose published scheduling framework includes theory and a richer
+practical policy \citep{slai2025}. Our restricted prompt-ordering and
+urgency-gate adaptation neither implements that complete policy nor
+inherits its guarantees. Prefill/decode disaggregation in DistServe and
+dynamic migration in Llumnix illustrate further mechanisms outside the
+single-device, nonpreemptive CM-0.1 action space
+\citep{zhong2024distserve,sun2024llumnix}.
+
+\paragraph{Workload-sensitive evaluation.}
+Papaioannou and Doudali explicitly examine how dataset and inference
+scenario affect serving-system evaluation \citep{papaioannou2024workload}.
+Thus workload dependence itself is not our novelty. BurstGPT supplies
+production-derived traffic \citep{burstgpt2025}; ServeGen studies workload
+characterization and generation \citep{servegen2026}. Our experiment
+instead freezes existing windows and jointly reports performance under
+specified resource and metric axes. It does not evaluate a workload
+generator or claim that three sources represent all serving traffic.
+Work on trace resampling for parallel schedulers likewise shows why
+workload structure matters \citep{zakay2014resampling}. We retain
+chronology descriptively rather than borrowing an independence assumption
+from a different resampling design.
+
+\paragraph{Simulation and validation.}
+Vidur combines profiling and predictive models to estimate serving
+performance \citep{vidur2024}. LLMServingSim composes hardware/software
+simulation at iteration granularity \citep{llmservingsim2024}. Their
+hardware-prediction purpose differs from our fixed-cost comparison
+contract. Following the distinction between model verification and
+validation \citep{sargent2013}, we verify that schedules conform to
+CM-0.1; this does not establish operational agreement with a GPU system.
+The useful question here is which comparative statements survive explicit
+work, resource and information accounting, and which follow from the
+abstraction itself.
+
+\paragraph{Ranking and inference.}
+Comparing algorithms across datasets is well established
+\citep{demsar2006comparisons}. A rank, a maximizing set, a practical
+pairwise reversal and an absolute performance difference answer different
+questions. We do not propose a new rank statistic. Likewise, BH, BY and
+Holm are established multiple-testing procedures
+\citep{benjamini1995,benjamini2001dependency,holm1979}; their error-control
+arguments require appropriate component p-values and assumptions.
+Section~\ref{sec:inference} tests a specific historical pipeline and
+separate comparison procedures, rather than presenting multiplicity
+adjustment as a remedy for an unidentified estimand.

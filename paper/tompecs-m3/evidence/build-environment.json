@@ -1,0 +1,8 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.39",
+  "matplotlib": "3.10.9",
+  "numpy": "2.3.5",
+  "pymupdf": "1.28.2",
+  "acmart_sha256": "784c4f2fb07a70d8a797ee9d1c63f441c10fbd2f915c9c615d28cda35c0b742a"
+}
