@@ -1,0 +1,17 @@
+shard_id=0
+cell_count=293
+skipped_already_valid=0
+computed_this_run=293
+valid_after_run=293
+invalid_or_failed_after_run=0
+output_path=/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-phase12-campaign-run/artifacts/campaign_results/81fa3d9b48a22410/shard_000.json
+0 artifacts/phase12_campaign_logs/shard_0.err
+analysis
+manifests
+artifacts/manifests/ranking_portability_pilot_v2_windows_index.json
+artifacts/manifests/ranking_portability_phase12_shard_plan.json
+artifacts/manifests/ranking_portability_phase11_region_assignments.json
+artifacts/manifests/ranking_portability_phase12_campaign_freeze.json
+artifacts/manifests/ranking_portability_phase12_smoke_raw.json
+artifacts/manifests/ranking_portability_phase11_raw_fifo_calibration.json
+Python 3.9.25

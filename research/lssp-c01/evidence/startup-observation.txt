@@ -1,0 +1,233 @@
+2026-10-22T03:50:00Z
+{
+  "job_id": "1438638",
+  "submitted_at_utc": "2026-10-22T03:49:50Z",
+  "run_id": "c01-30f3af3717d536cb",
+  "cpus": 1,
+  "memory": "4G",
+  "partition": "general",
+  "qos": "standard",
+  "account": "ikoutis",
+  "walltime": "02:00:00",
+  "gpus": 0
+}
+1438638|RUNNING|n0009|0:09|2:00:00|1|4G|general
+FILE logs/c01-30f3af3717d536cb-1438638.out
+{"event": "STARTED", "time": "2026-10-22T03:49:54.443018+00:00", "identity": "30f3af3717d536cb46d9f8cceb5c35535719a70ccb0fbfb1032ccee0176a0834", "out": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-c01-3c8e2d6/runs/c01-30f3af3717d536cb", "pid": 899713}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::whole_fcfs_c01", "time": "2026-10-22T03:49:54.443943+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::whole_fcfs_c01", "count": 1, "time": "2026-10-22T03:49:54.526608+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::chunked_fcfs_c01", "time": "2026-10-22T03:49:54.527062+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::chunked_fcfs_c01", "count": 2, "time": "2026-10-22T03:49:54.598769+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::decode_first_c01", "time": "2026-10-22T03:49:54.599228+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::decode_first_c01", "count": 3, "time": "2026-10-22T03:49:54.668484+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::slo_gated_c01", "time": "2026-10-22T03:49:54.669002+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::slo_gated_c01", "count": 4, "time": "2026-10-22T03:49:54.745027+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::whole_fcfs_c01", "time": "2026-10-22T03:49:54.745512+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::whole_fcfs_c01", "count": 5, "time": "2026-10-22T03:49:54.782897+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::chunked_fcfs_c01", "time": "2026-10-22T03:49:54.783329+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::chunked_fcfs_c01", "count": 6, "time": "2026-10-22T03:49:54.820322+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::decode_first_c01", "time": "2026-10-22T03:49:54.820762+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::decode_first_c01", "count": 7, "time": "2026-10-22T03:49:54.857210+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::slo_gated_c01", "time": "2026-10-22T03:49:54.857665+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::slo_gated_c01", "count": 8, "time": "2026-10-22T03:49:54.893818+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::whole_fcfs_c01", "time": "2026-10-22T03:49:54.894293+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::whole_fcfs_c01", "count": 9, "time": "2026-10-22T03:49:54.984381+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::chunked_fcfs_c01", "time": "2026-10-22T03:49:54.984857+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::chunked_fcfs_c01", "count": 10, "time": "2026-10-22T03:49:55.064451+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::decode_first_c01", "time": "2026-10-22T03:49:55.064916+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::decode_first_c01", "count": 11, "time": "2026-10-22T03:49:55.144944+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::slo_gated_c01", "time": "2026-10-22T03:49:55.145410+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::slo_gated_c01", "count": 12, "time": "2026-10-22T03:49:55.232880+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::whole_fcfs_c01", "time": "2026-10-22T03:49:55.233294+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::whole_fcfs_c01", "count": 13, "time": "2026-10-22T03:49:55.285259+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::chunked_fcfs_c01", "time": "2026-10-22T03:49:55.285674+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::chunked_fcfs_c01", "count": 14, "time": "2026-10-22T03:49:55.326885+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::decode_first_c01", "time": "2026-10-22T03:49:55.327343+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::decode_first_c01", "count": 15, "time": "2026-10-22T03:49:55.368831+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::slo_gated_c01", "time": "2026-10-22T03:49:55.369286+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::slo_gated_c01", "count": 16, "time": "2026-10-22T03:49:55.412713+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::whole_fcfs_c01", "time": "2026-10-22T03:49:55.413132+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::whole_fcfs_c01", "count": 17, "time": "2026-10-22T03:49:55.508418+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::chunked_fcfs_c01", "time": "2026-10-22T03:49:55.508909+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::chunked_fcfs_c01", "count": 18, "time": "2026-10-22T03:49:55.592568+00:00"}
+{"event": "CELL_START", "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::decode_first_c01", "time": "2026-10-22T03:49:55.593096+00:00"}
+{"event": "CELL_VALIDATED", "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::decode_first_c01", "count": 19, "time": "2026-10-22T03:49:55.676271+00:00"}
+{"event": "CELL_START"
+FILE logs/c01-30f3af3717d536cb-1438638.err
+
+FILE runs/c01-30f3af3717d536cb/checkpoint.json
+{
+  "completed_cells": [
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::whole_fcfs_c01",
+      "path": "cells/7075fddbc2eb48c4a30883b2",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::chunked_fcfs_c01",
+      "path": "cells/226ae54a0e9614cb03e5f021",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::decode_first_c01",
+      "path": "cells/b9c1ce8cadcd3374223d2225",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::LOW::kv131072::slo_gated_c01",
+      "path": "cells/0e15ee3704633d3cd5f8ff9e",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::whole_fcfs_c01",
+      "path": "cells/a77dbcd5c84888331ca45576",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::chunked_fcfs_c01",
+      "path": "cells/a90b454ed3453160851bfc95",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::decode_first_c01",
+      "path": "cells/57ba7d67819e6493379cbddd",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::LOW::kv262144::slo_gated_c01",
+      "path": "cells/a47d8d53980a8a488ec2465b",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::whole_fcfs_c01",
+      "path": "cells/b9e13683c71c45e7a6a5ad0d",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::chunked_fcfs_c01",
+      "path": "cells/e18a93c02fd3f135ee6876b5",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::decode_first_c01",
+      "path": "cells/41cf8d148130d49164f8edc7",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv131072::slo_gated_c01",
+      "path": "cells/0b69654cae7d8137fe33b59f",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::whole_fcfs_c01",
+      "path": "cells/d0221e0b3404b2af908fc4bf",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::chunked_fcfs_c01",
+      "path": "cells/6f8ac2809415b2de261ce3f6",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::decode_first_c01",
+      "path": "cells/c591548f841821c531294973",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::PRE_KNEE::kv262144::slo_gated_c01",
+      "path": "cells/530dacdd716b0dab09e220d4",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::whole_fcfs_c01",
+      "path": "cells/b97b36cf2abdcd9210ff4695",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::chunked_fcfs_c01",
+      "path": "cells/9dd351699809e6946382dbcb",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::decode_first_c01",
+      "path": "cells/777e19190a781f76f699480d",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv131072::slo_gated_c01",
+      "path": "cells/1ebb0f5ec59dbca089f31acf",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv262144::whole_fcfs_c01",
+      "path": "cells/809df514a694b5df3f15672a",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv262144::chunked_fcfs_c01",
+      "path": "cells/48eab73dd3717c74bc838d80",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv262144::decode_first_c01",
+      "path": "cells/97eaf04065f1ca57e7269584",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::KNEE::kv262144::slo_gated_c01",
+      "path": "cells/087358f2fd0789122c2f53f7",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::POST_KNEE::kv131072::whole_fcfs_c01",
+      "path": "cells/59a7a6ede9cb52d36e5d3ceb",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::POST_KNEE::kv131072::chunked_fcfs_c01",
+      "path": "cells/99d2f6b02d68511f409588b5",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::POST_KNEE::kv131072::decode_first_c01",
+      "path": "cells/c1635de33a7b5a964896ce5e",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::POST_KNEE::kv131072::slo_gated_c01",
+      "path": "cells/816af4998cfa82f42d20b419",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::POST_KNEE::kv262144::whole_fcfs_c01",
+      "path": "cells/f5ced34c6328e1aea71fbd7e",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::POST_KNEE::kv262144::chunked_fcfs_c01",
+      "path": "cells/8cdd2b19babbeac745c1cd9e",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::POST_KNEE::kv262144::decode_first_c01",
+      "path": "cells/974251848b929900cd6c091b",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::POST_KNEE::kv262144::slo_gated_c01",
+      "path": "cells/b962b17ef02d0ca6d25a82cb",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::OVERLOAD::kv131072::whole_fcfs_c01",
+      "path": "cells/5898320593c407da01f82b19",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::OVERLOAD::kv131072::chunked_fcfs_c01",
+      "path": "cells/d68d170928c6c33c54ae8ff3",
+      "state": "NEW_VALIDATED"
+    },
+    {
+      "key": "burstgpt::burstgpt_stage0_w00::OVERLOAD::kv131072::decode_first_c01",
+      "

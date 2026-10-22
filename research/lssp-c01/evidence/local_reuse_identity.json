@@ -1,0 +1,90 @@
+[
+  {
+    "path": "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2",
+    "head": "880a37e8e7c19d089be124291e288269966a9147",
+    "files": {
+      "paper/tompecs-m2/M2_STATISTICAL_AUDIT.md": {
+        "sha256": "304e605eb0b1268071a227b2089237fa68cd7bfe57e469ed482711f747a05553",
+        "bytes": 18136
+      },
+      "paper/tompecs-m2/M2_REFEREE_REPORT.md": {
+        "sha256": "50bffc5811f9312222c7333e10f1feb294fa9bc116600684ba50a7bd826c2aa9",
+        "bytes": 10059
+      },
+      "src/robustbench/ranking_portability/execute_cell.py": {
+        "sha256": "f43991b71a1588d1940f88de677351027a7ac13fc9144c4af90cd66fcf3d67a0",
+        "bytes": 3515
+      },
+      "src/robustbench/simulator/simulator.py": {
+        "sha256": "a4fa693aa24c76e87bf0fc023ec88086f727dd926d89b586648c75c182ed1b5e",
+        "bytes": 37676
+      },
+      "src/robustbench/workloads/external/benchmark_synthesis.py": {
+        "sha256": "8f429c8e640a1366c8251cafc14e0e6d802db910b137bb115bd92f26664c3e8b",
+        "bytes": 6692
+      },
+      "artifacts/manifests/ranking_portability_phase12_campaign_freeze.json": {
+        "sha256": "44a81e98d9a3fa6646bd716125726bf732530d243a54d0952e98b20fda1d564a",
+        "bytes": 8571918
+      },
+      "artifacts/manifests/ranking_portability_pilot_v2_windows_index.json": {
+        "sha256": "d78ec1087fedae02174ca093a9860c70468be336ccb1d7e6de756c81ba331e53",
+        "bytes": 264916
+      }
+    }
+  },
+  {
+    "path": "/home/soroush/repos/llm-serving-scheduler-lssp-v2-p2b",
+    "head": "f1a22fc6d5b1610b1ba8ed9ad34fb68d1db82cb7",
+    "files": {
+      "docs/serving-contract/p2b-0.1.0/README.md": {
+        "sha256": "fa7b42e74ea04941785ee9d8fb0ed33b9a74229b861e144e840829f61a3dd04f",
+        "bytes": 3299
+      },
+      "docs/serving-contract/p2b-0.1.0/CONTRACT.md": {
+        "sha256": "364679538bc7e0c9b53846200c5480c4252c813cd18a6d827c9fad148ba949a6",
+        "bytes": 6563
+      }
+    }
+  },
+  {
+    "path": "/home/soroush/repos/llm-serving-scheduler-lssp-fidelity",
+    "head": "efc5243898d18bbb62ccb51dcf66a0767827dac6",
+    "files": {
+      "docs/fidelity-review-20261021/REPORT.md": {
+        "sha256": "00248c0a352f14e50b13cb9307e0c2abcfb2dac2b60e67f6f596d0adfa09dc33",
+        "bytes": 18446
+      }
+    }
+  },
+  {
+    "path": "/home/soroush/repos/llm-serving-module-intervention-benchmark-shared-state-ext-v2",
+    "head": "3ae7d56594b65362fc206e30b4c5015af17fca68",
+    "files": {
+      "experiments/shared_state_erasure_extension_v2/preregistration.json": {
+        "sha256": "a716b4c295d7c771a5438c2026583b1c462e216026e8685764d41f85ebc92232",
+        "bytes": 14933
+      },
+      "experiments/shared_state_erasure_extension_v2/window_manifest.json": {
+        "sha256": "e2bbc392af0c82986624f772239ca1dddc8b7071040281c5524c28237cd9c9a0",
+        "bytes": 6756
+      },
+      "experiments/shared_state_erasure_extension_v2/results/launch_manifest.json": {
+        "sha256": "871b0ef6865508c17c896123000fda4b0851202c71aea8406d058389a72ab4f4",
+        "bytes": 652
+      },
+      "experiments/shared_state_erasure_extension_v2/results/completeness_report.json": {
+        "sha256": "e471ed21ac89e0a1ad818d92b75528697d7167cb0edf923457fb0396d4686041",
+        "bytes": 859
+      },
+      "experiments/shared_state_erasure_extension_v2/results/analysis/results.json": {
+        "sha256": "f7c9fe7a481301583d0d0990dd164dad4a761c3dd354c9b20c2139e91118821c",
+        "bytes": 30243
+      },
+      "src/module_intervention_benchmark/gate1/shared_state_erasure_extension.py": {
+        "sha256": "9eb7853de7f27a066fbcbac80ce74d2d755f00f0795cdd3d0dd8c772963ec54d",
+        "bytes": 5423
+      }
+    }
+  }
+]

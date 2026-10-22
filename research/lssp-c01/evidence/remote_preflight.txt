@@ -1,0 +1,7 @@
+Python 3.12.13
+9.1.1
+/project/ikoutis/sv96/github/llm-serving-scheduler-robustness-benchmark/.venv312/bin/python
+Filesystem      Size  Used Avail Use% Mounted on
+mmfs1           2.0T  1.1T  943G  54% /mmfs1
+             JOBID                                     NAME      STATE    PARTITION       TIME TIME_LIMIT NODELIST(REASON)
+           1291889                       pe-lh-canregen-agg    PENDING      general       0:00      20:00 (DependencyNeverSatisfied)
