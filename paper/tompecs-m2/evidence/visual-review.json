@@ -1,0 +1,23 @@
+{
+  "contact_sheet_pages": {
+    "manuscript": 27,
+    "acmsmall": 28
+  },
+  "full_size_manuscript_pages": [
+    14,
+    18,
+    21
+  ],
+  "findings": "No clipping seen in reviewed layouts; tables and recovery figure legible in detailed pages. acmsmall page 28 contains reference continuation and is counted. No exhaustive semantic proof claimed. Final disclosure edit reviewed on page 6 and final layout sheets.",
+  "previous_reviewed_pdf_sha256": {
+    "manuscript": "1deaa55a2d36dd26fed61e6b29c2a74101f47a4c2bac14a562cf9479eda0f871",
+    "acmsmall": "07b2793e32a5db76e7c2586ebef357edddb9932ce00c22ae9476f64c7d3f6bc0"
+  },
+  "reviewed_pdf_sha256": {
+    "manuscript": "afb0c5c9b6c35a52307ed1993fe12b7764d07a8d95ebf68e9513184a8ce4473e",
+    "acmsmall": "08a06455111e1a60dd74d809c46a0b78a80edc2bf41e670c95ffd94f45499352"
+  },
+  "final_additional_detail_pages": [
+    6
+  ]
+}

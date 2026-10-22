@@ -1,0 +1,1268 @@
+--- M1/revised/main.tex
++++ M2/revised/main.tex
+@@ -27,11 +27,12 @@
+ verification passes, not independent stochastic repetitions. For the
+ primary arrival-normalized weighted-goodput metric, cross-source Kendall
+ correlations range from 0.551 to 1.000. Of 990 pairwise-policy comparison
+-records, 36 satisfy the saved practical-margin and interval criteria for
++records, 36 satisfy the saved practical-margin and nominal interval criteria for
+ a reversal; they span five policy pairs and all involve BurstGPT.
+ A post-campaign cross-metric analysis yields a median correlation of 0.419
+-and deterministic top-choice agreement of 31.9\%, with explicit tie and
+-missing-observation qualifications. These characterize the historical
++and deterministic top-choice agreement of 31.9\%, while a post-hoc comparison finds overlap of maximizing policy sets in
++57.8\% of conditions. Independent numerical reproduction confirms the saved
++intervals, but their coverage and the historical FDR claim are not established. These characterize the historical
+ simulator, not native serving rankings. Retrospective audits of the legacy
+ GPU comparison and subsequent CPU conformance work leave faithful physical
+ ranking transfer unverified. The results support reporting comparative
+@@ -54,7 +55,7 @@
+ \input{revised/sections/conclusion}
+ \section*{Artifact availability and declarations}\label{sec:artifact}
+ The review repository preserves the source, configurations, frozen outcome
+-matrix, canonical analyses and the M1 claim audit. The dataset package
++matrix, canonical analyses and the M1 and M2 claim audits. The dataset package
+ \texttt{dataset/v1.1.0} includes per-execution outcomes, analysis JSON and
+ reproducible tabular views; it does not include a full dump of the legacy
+ physical request records. Historical Hugging Face and Zenodo release
+@@ -70,7 +71,7 @@
+ statements require author confirmation for the final submission. The author
+ is responsible for conceptualization, methodology, software, validation,
+ analysis, data curation, visualization and writing. AI-assisted preparation
+-was used historically and Codex assisted this M1 revision; the revised
++was used historically and Codex assisted these M1/M2 revisions; the revised
+ claims and text remain pending detailed author review and approval.
+ 
+ \bibliographystyle{ACM-Reference-Format}
+--- M1/revised/references.bib
++++ M2/revised/references.bib
+@@ -367,3 +367,24 @@
+   year = {2026},
+   note = {Anonymized Bailian/Qwen production LLM-serving usage-trace release; repository \texttt{alibaba-edu/qwen-bailian-usagetraces-anon}, pinned commit \texttt{5f7439c51ec248a0c585f7d90a41a6f57773b912}, Apache-2.0},
+ }
++
++@article{demsar2006comparisons,
++ author = {Janez Dem{\v{s}}ar},
++ title = {Statistical Comparisons of Classifiers over Multiple Data Sets},
++ journal = {Journal of Machine Learning Research}, volume = {7},
++ pages = {1--30}, year = {2006},
++ url = {https://jmlr.org/papers/v7/demsar06a.html}
++}
++@article{benjamini2001dependency,
++ author = {Yoav Benjamini and Daniel Yekutieli},
++ title = {The Control of the False Discovery Rate in Multiple Testing under Dependency},
++ journal = {The Annals of Statistics}, volume = {29}, number = {4},
++ pages = {1165--1188}, year = {2001}, doi = {10.1214/aos/1013699998}
++}
++@inproceedings{zakay2013resampling,
++ author = {Netanel Zakay and Dror G. Feitelson},
++ title = {Workload Resampling for Performance Evaluation of Parallel Job Schedulers},
++ booktitle = {Proceedings of the 4th ACM/SPEC International Conference on Performance Engineering},
++ pages = {149--159}, year = {2013}, publisher = {ACM},
++ url = {https://research.spec.org/icpe_proceedings/2013/proceedings/p149.pdf}
++}
+--- M1/revised/sections/conclusion.tex
++++ M2/revised/sections/conclusion.tex
+@@ -1,15 +1,34 @@
+ \section{Conclusion}\label{sec:conclusion}
+-LSSP treats the portability of a comparative scheduler ranking as an
+-explicit evaluation output. Its historical simulator corpus shows strong
+-but uneven cross-source agreement, a minority of practical reversals
+-spanning five policy pairs, and more limited agreement across metrics.
+-The contribution is the reproducible comparison design and the
+-conditional empirical characterization, not a novel rank statistic or a
+-universal scheduler recommendation.
++The four retrospective manuscript questions have conditional, evidence-based
++answers. For Q1, aggregate ANWG orderings are positively associated across
++all 18 source-pair/region comparisons ($\tau_b=0.551$--$1.000$), with
++stronger Azure--Bailian agreement than BurstGPT comparisons. Absolute
++utility and tied top sets differ markedly across sources, so ordinal
++agreement alone does not establish equivalent service quality.
+ 
+-These findings apply to the frozen implementations, windows, regions and
+-metric rules. Later audits narrow the native-system fidelity claims:
+-the legacy physical comparison cannot establish faithful scheduler-ranking
+-transfer, and CPU conformance is not physical execution evidence. Future
+-serving measurements require separately validated admission, execution,
+-KV, timing and output contracts before testing portability on hardware.
++For Q2, 36 of 990 records pass the historical 10\% point-margin and nominal
++interval rule, spanning five policy pairs. The endpoints reproduce, but
++calibrated significance and FDR control are not established; alternative
++family bookkeeping and grouped-window resampling each retain 30 under
++their respective rules. The finding is a minority of observed practical
++ordering changes in a specified simulator, not 36 confirmed physical
++reversals.
++
++For Q3, the historical median cross-metric tau is 0.419. Deterministic
++ID agreement is 31.9\%, whereas maximizing sets intersect in 57.8\% of
++conditions. Matching observed windows leaves the broad descriptive pattern
++intact but changes some estimates and their target population. Saved SLO
++sensitivities likewise constrain any objective-independent selection claim.
++
++For Q4, most temporal comparisons are stable, with a BurstGPT LOW exception
++at $\tau_b=-0.10$. Recovery depends on source and target: the 0.9 exact-order
++criterion is reached at 30 windows for Azure and only at the trivial
++40-window reference for the other sources. This is finite-reference
++stability, not an independent-window requirement for future workloads.
++
++The contribution is a traceable comparison design and a critical empirical
++case study, not a new rank statistic or a universal scheduler recommendation.
++Original synthetic-to-real and faithful native-ranking questions remain
++unanswered. Policy-dependent service semantics and legacy physical-runner
++defects prevent transporting these results to production serving without
++separate comparability validation and new, prospectively designed evidence.
+--- M1/revised/sections/introduction.tex
++++ M2/revised/sections/introduction.tex
+@@ -25,7 +25,7 @@
+ in six FIFO-referenced operating regions. There are 9,360 distinct
+ configurations and two deterministic verification passes per configuration.
+ The passes check repeatability of the simulator; they are not independent
+-samples. Uncertainty is instead assessed across workload windows, subject
++samples. Historical resampling variation is instead assessed across workload windows, subject
+ to the dependence limitations in Section~\ref{sec:threats}.
+ 
+ The contribution is a reproducible evaluation methodology and an empirical
+@@ -38,14 +38,56 @@
+ The scientific object is the reliability and scope of the comparative
+ conclusion produced by their application.
+ 
++\subsection{Why comparative validity is the evaluation target}
++A performance evaluator often has two decisions to make: which
++implementation to compare, and which evidence would justify carrying its
++ordering into a new setting. The second decision can fail even when the
++first experiment is reproducible. An average over a trace can hide a
++policy pair whose ordering changes elsewhere. Conversely, a small rank
++change can be irrelevant if both implementations attain almost identical
++utility. We therefore separate agreement of the full panel, individual
++pair reversals, and changes in the set of preferred policies. These are
++complementary questions with different denominators.
++
++This distinction matters for modeling as well as for deployment. A
++simulator can be repeatable while representing service demands or resource
++constraints differently for different policies. Its ranking is then a
++property of the complete policy--model combination. Reporting only a
++leaderboard would encourage readers to attribute all differences to the
++scheduling discipline. Reporting the model boundary, absolute outcome
++levels and comparison support makes that attribution testable. This paper
++uses the historical corpus to expose where the evidence ends rather than
++treating a policy's implementation name as validation.
++
++The unit of observation is equally consequential. Thousands of execution
++records need not provide thousands of independent observations: policies
++reuse the same windows, regions are transformations of those windows, and
++the second deterministic pass supplies no sampling variation. Similarly,
++more metric pairs do not create new workload coverage. A portable
++comparison needs a clear account of what was resampled and what remained
++fixed. This motivates preserving the full comparison grid, including
++stable, tied and undefined cases, rather than reporting only reversals.
++
++\subsection{Contribution and evidential scope}
+ The primary ANWG ranking correlations range from 0.551 to 1.000 across 18
+ source-pair/region comparisons. Of 990 pairwise-policy comparison records,
+-36 meet the saved practical-margin and confidence-interval reversal criteria;
++36 meet the saved practical-margin and nominal interval reversal criteria;
+ these span five policy pairs and all involve BurstGPT. Most comparisons
+ therefore retain their order. A separately labeled post-campaign analysis
+ shows a median cross-metric Kendall correlation of 0.419 and agreement of
+-the deterministic top-choice rule in 316 of 990 conditions. Agreement
+-and disagreement are both findings; neither is assumed in advance.
++the deterministic top-choice rule in 316 of 990 conditions. A retrospective audit additionally distinguishes deterministic choice
++from the existence of a common maximizing policy, and saved interval
++support from calibrated inference. Agreement and disagreement are both
++findings; neither is assumed in advance.
++
++The resulting contribution has three parts: a fixed evidence organization
++that separates ranking agreement from practical pairwise change; a fully
++identified simulator case study spanning source, operating region and
++objective; and an independently reproducible audit showing how ties,
++missingness and inferential assumptions alter the meaning of the saved
++summaries. The audit is post hoc. It strengthens traceability, not the
++prospective status of the experiment. No new scheduler, rank statistic,
++coverage theorem or learned transfer predictor is proposed.
+ 
+ These are observations of historical simulator implementations. Later
+ source and engineering audits identified limits in partial-prefill
+@@ -57,7 +99,8 @@
+ The distinction is central to the domain of validity, not a qualification
+ added after interpreting the numerical results.
+ 
+-The original six research questions are retained in
++The four retrospective manuscript questions and their mapping to all six
++original protocol questions appear in
+ Section~\ref{sec:rq}. Sections~\ref{sec:execution-model} and
+ \ref{sec:workloads} define the model and experimental design;
+ Sections~\ref{sec:within}, \ref{sec:results} and
+--- M1/revised/sections/limitations.tex
++++ M2/revised/sections/limitations.tex
+@@ -49,8 +49,9 @@
+ 
+ \subsection{Statistical and construct validity}
+ The 18,720 executions comprise 9,360 deterministic pairs, not stochastic
+-replications. Window bootstrap intervals characterize variation within the
+-sampled trace corpus under a window-exchangeability assumption. Production
++replications. Window bootstrap intervals summarize resampling variation within the
++sampled trace corpus. Their nominal coverage requires assumptions not
++established here. Production
+ traces can retain temporal or session dependence across windows. Independent
+ publication of traces is not independent sampling of providers; BurstGPT and
+ Azure share infrastructure lineage. Provider and domain effects are not
+@@ -63,10 +64,11 @@
+ the preserved calibration manifest has none. Earlier prose reporting 301 calibration zero-completion cells is disputed by that file. Survivorship
+ conditioning, deterministic tie breaks and synthetic deadlines affect the
+ meaning of a preferred policy. Practical-margin and recovery thresholds
+-are reporting conventions, not universal systems standards. The raw-CI
+-reversal taxonomy and the additional within-family BH-FDR flag answer
+-different questions; neither is a family-wise error guarantee. No global
+-multiplicity claim across all analyses is made.
++are reporting conventions, not universal systems standards. The raw-interval
++reversal taxonomy and within-family BH flags are historical procedural
++labels. Neither a calibrated significance level nor even within-family
++FDR control has been established. Increasing bootstrap draws cannot
++repair dependence, screening or a mismatch of estimands.
+ 
+ The cross-metric and SLO extensions were conducted after primary results
+ were available. Their frozen extension configurations support reproducibility,
+@@ -85,10 +87,10 @@
+ sample of every production LLM service.
+ 
+ Historical source, campaign and analysis files are preserved with hashes.
+-M1 independently reconciles execution counts, numerical pairs, primary
+-Kendall point estimates, stored reversal classifications and cross-metric
+-point estimates. It does not regenerate every bootstrap interval, establish
+-fresh hardware reproducibility, or retroactively validate source licensing
+-and public release accessibility. Bibliography metadata and the prior
++M1 reconciled counts and point estimates; M2 independently reproduces all
++198 source-ranking tau intervals, 72 primary reversal intervals, 6,890
++cross-metric difference intervals, six cross-metric rank intervals and
++66 Friedman statistics. This does not establish interval coverage, fresh
++hardware reproducibility, source licensing or public release accessibility. Bibliography metadata and the prior
+ manuscript overlap boundary require final author review. Unresolved
+ checks are listed explicitly in the accompanying claim-to-evidence register.
+--- M1/revised/sections/metrics.tex
++++ M2/revised/sections/metrics.tex
+@@ -1,63 +1,133 @@
+-\section{Portability Across Metrics}
+-\label{sec:results-cross-metric}
++\section{Portability Across Metrics}\label{sec:results-cross-metric}
++Q3 asks whether a preferred-policy conclusion survives a change of objective.
++This section uses the saved post-campaign cross-metric extension and new,
++explicitly post-hoc M2 sensitivities on its frozen inputs. No serving
++execution is added. All 55 unordered pairs among the 11 eligible metrics
++are evaluated for each of three sources and six regions: 990 conditions.
++These conditions share outcomes and are not independent observations.
+ 
+-\S\ref{sec:reversals} and \S\ref{sec:results-robustness} ask whether a
+-policy ranking under one fixed metric (ANWG) is portable across sources,
+-regions, and windows. A different question -- whether a ranking is
+-portable across \emph{metrics}, for the same source and region -- is
+-addressed here as an explicitly labeled post-campaign extension that
+-reuses the primary analysis's own statistical methods without modifying,
+-re-running, or re-deriving the underlying outcome matrix. Across all $3$
+-sources $\times$ $6$ regions $\times$ $55$
+-metric pairs among the study's tracked outcome metrics ($990$ conditions),
+-rank correlation between metrics is on average moderate (median Kendall's
+-$\tau_b = 0.419$, range $[-0.506, 1.000]$; $202/990$, $20\%$, of conditions
+-have \emph{negative} $\tau_b$), and the single top-ranked policy agrees
+-between the two metrics in only $316/990$ ($31.9\%$) of conditions
+-(disagreeing in the remaining $68.1\%$). At the level of individual
+-pairwise policy comparisons ($54{,}450$ total, one per (metric pair, condition, policy pair), generated from the 55 unique pairs among the 11 eligible tracked metrics: ANWG, completion fraction, weighted completion fraction, SLO-violation rate, weighted goodput, mean latency, p95 latency, request throughput, token throughput, mean TTFT, and p95 TTFT; p99 latency was ineligible and excluded), the same five-class taxonomy as \S\ref{sec:reversals} (ordinary, not
+-FDR-adjusted, bootstrap-CI classification; \S\ref{sec:uncertainty}) finds $3{,}244$ ($6.0\%$) show a statistically
+-supported practical disagreement in which
+-policy is preferred depending on which metric is used, versus $45{,}800$
+-($84.1\%$) in the same order, $5{,}205$ ($9.6\%$) a sign change too small
+-to be practically meaningful, and $201$ ($0.4\%$) an unsupported sign
+-change with a wide confidence interval; no aggregate comparison in this policy panel
+-was undefined or unestimable; individual policy/window observations can nevertheless be missing. Unlike \S\ref{sec:reversals}'s primary
+-reversal check, the separate BH-FDR correction removes some of these
+-cross-metric disagreements: of the $3{,}244$ raw-CI-supported records,
+-$3{,}207$ ($98.9\%$) also survive the within-family BH-FDR check, while
+-$37$ ($1.1\%$) do not, meaning the multiplicity-corrected count of
+-cross-metric disagreements is $3{,}207$ rather than $3{,}244$ -- a genuine,
+-disclosed sensitivity to the multiplicity correction, not an error in
+-either figure. Scheduler-ranking portability is
+-therefore not only source- and region-dependent (\S\ref{sec:results});
+-which metric is used to define ``better'' materially changes the ranking
+-in a non-trivial minority of conditions, and the median condition shows no
+-default expectation that the two metrics' top choices should agree.
++\subsection{Historical correlations and classification counts}
++The historical median Kendall tau-b is 0.419, with range $[-0.506,1.000]$;
++202 of 990 conditions have negative correlation. The deterministic top
++choice agrees in 316 conditions (31.9\%). Thus the objective can change
++both the full ordering and the selected policy ID. The median describes
++this enumerated set of metric pairs; it is not an expectation over a
++population of future deployment objectives.
+ 
++The 54,450 policy-pair records divide into 45,800 same-order cases,
++5,205 microscopic sign changes, 201 practical sign changes with a wide
++saved interval, and 3,244 saved-supported practical disagreements. The
++historical screened BH procedure flags 3,207 of the last group, removing
++37. These are preserved procedural counts. M2 withdraws the stronger
++interpretation that they are statistically established practical effects
++at a controlled error rate. The limitations of the component tail
++quantities, selection and dependence apply here as in Q2.
+ 
+-\subsection{What a preferred-policy change means}
+-All 55 unordered pairs among 11 metrics are included at each of three
+-sources and six regions. Thus 990 denotes metric-pair conditions here;
+-it denotes policy-pair/source-pair/region records in the primary reversal
+-analysis. These are different denominators even though their sizes match.
+-The 54,450 records further expand each metric-pair condition into 55
+-policy-pair comparisons. They share windows, policies and metrics, so they
+-must not be interpreted as 54,450 independent replications.
++No condition-level ranking is undefined, but that does not imply complete
++policy/window observations. Nor do 54,450 records supply 54,450 samples:
++each window contributes to multiple policies, metrics and regions. The
++number of pairwise records is useful for describing the evaluation grid,
++not for justifying precision of a claim about general serving workloads.
+ 
+-Lower-is-better metrics are direction-normalized before comparison.
+-Kendall tau-b accommodates equal aggregate values; top-1 uses a stable
+-policy-ID tie break. Among the 1,980 metric sides of the 990 records,
+-1,010 have more than one policy tied at the maximum. The 31.9\% top-choice
+-agreement is exactly reproducible under the historical rule but should
+-not be described as disagreement between unique optimal policies. A
+-set-valued optimum-overlap analysis would be a separately specified
+-extension; it is not retroactively substituted for the reported statistic.
++\subsection{Tied optima versus deterministic policy selection}
++Let $T_m=\{p:\bar y_{p,m}=\max_j\bar y_{j,m}\}$ after direction
++normalization. The historical rule selects the smallest policy ID in
++$T_m$. A set-based question instead asks whether $T_a\cap T_b$ is
++nonempty: is there any policy maximizing both observed objectives?
++Equality of the two sets asks a stricter question. Neither set criterion
++selects a policy without an additional preference rule.
+ 
+-The median correlation describes this finite set of metric comparisons,
+-not a sampling distribution over all conceivable service objectives.
+-Correlated metrics, conditional observation sets and metric-specific
+-priority weighting can explain some disagreement by construction. The
+-analysis does not identify a uniquely correct deployment metric. It
+-requires a reader to state the intended objective before transporting a
+-ranking. Its post-campaign status limits confirmatory interpretation.
++Among 1,980 metric sides, 1,010 have tied maxima. In the M2 post-hoc
++analysis, the maximizing sets intersect in 572/990 conditions (57.8\%),
++and are identical in 179/990 (18.1\%). Only 257 conditions have a unique
++maximizer on both sides. Mean Jaccard overlap,
++$|T_a\cap T_b|/|T_a\cup T_b|$, is 0.329. These statistics use exact
++aggregate equality, matching the historical arithmetic; no tolerance was
++tuned to improve agreement. Near-optimal sets under a deployment-specific
++utility tolerance are a different, unmeasured object.
++
++\begin{table}[t]\centering
++\caption{Historical and post-hoc agreement summaries on the same 990
++cross-metric conditions. Different definitions answer different questions.}
++\label{tab:top-sets}
++\begin{tabular}{p{0.58\linewidth}rr}\toprule
++Agreement definition & Count & Fraction\\\midrule
++Historical deterministic ID & 316 & 31.9\%\\
++Post-hoc nonempty maximizing-set intersection & 572 & 57.8\%\\
++Post-hoc equality of maximizing sets & 179 & 18.1\%\\
++Both objectives have unique maxima (eligibility) & 257 & 26.0\%\\\bottomrule
++\end{tabular}\end{table}
++The additional 256 intersecting-set conditions show why the complement
++of 31.9\% cannot be called disagreement between unique optima. A common
++best policy may exist even when the ID rule picks different members of
++unequal sets. Conversely, nonempty intersection can be permissive when
++one objective ties many policies. Reporting intersection alongside set
++size and equality avoids presenting 57.8\% as a corrected version of
++31.9\%. Both are valid descriptions of different selection questions.
++
++\subsection{Matched support and the meaning of a metric difference}
++Historical policy means omit undefined observations separately. To compare
++$a$ and $b$, the difference of those means is
++\begin{equation}
++ d_{\mathrm{sep}}=
++ \frac{\sum_{w\in\mathcal W_a}y_{w,a}}{|\mathcal W_a|}
++ -\frac{\sum_{w\in\mathcal W_b}y_{w,b}}{|\mathcal W_b|},
++\end{equation}
++whereas the bootstrap difference averages $y_{w,a}-y_{w,b}$ over
++$\mathcal W_a\cap\mathcal W_b$. Without equal support, its interval is
++not an interval for $d_{\mathrm{sep}}$. This is an estimand mismatch,
++not simply a wider or narrower error bar. M2 therefore avoids assigning
++that interval to the separately aggregated point difference.
++
++We perform two distinct post-hoc checks. First, each metric-pair ranking
++is recomputed over windows where all 11 policies have both metrics.
++This common-panel support retains 33--40 windows per condition. The
++median tau becomes 0.41849, 202 correlations remain negative, and the ID
++agreement remains 316/990. Individual tau values change in 81 conditions.
++The historical median remains reported as 0.419; the new value is a
++sensitivity estimate with a different eligibility rule.
++
++Second, for every policy-pair record, each metric's policy means are
++recomputed over that pair's observed-window intersection. This retains
++more observations than requiring the entire panel. Differences change
++in 5,890 of 54,450 records, including 2,720 of the 3,244 saved-supported
++records. All 3,244 retain opposite signs and both 10\% point-margin gates;
++for the affected saved-supported records, the matched signs also agree
++with the saved interval signs. This supports robustness of those
++\emph{descriptive gates} in this corpus. It neither validates their
++$p$-values nor supplies fresh intervals for newly eligible cases. We do
++not report a replacement total of statistically supported disagreements.
++
++Matching support also changes the scientific target. A latency comparison
++restricted to windows on which both policies finish requests does not
++represent windows where one finishes none. Within an observed window,
++each policy's latency may still describe a different set of completed
++requests. Matched windows therefore do not eliminate request-level
++survivorship selection. ANWG answers an arrival-based question; conditional
++latency answers a completion-based question. Neither should be silently
++substituted for the other.
++
++\subsection{Implications for objective-dependent selection}
++A policy can have low latency among its completed requests while providing
++little arrival-normalized deadline utility. Throughput and TTFT measure
++other aspects of service; priority weighting changes whose outcomes count
++most. Some disagreement between such rankings is consequently compatible
++with internally consistent measurements. Negative tau does not by itself
++identify a measurement error or a universally inferior scheduler.
++
++For evaluation practice, the objective, denominator and eligibility rule
++must accompany the selected policy. If the intended decision is to attain
++arrival deadlines, completion-conditioned speed is insufficient evidence.
++If several policies attain the same measured objective, the benchmark can
++report that set rather than implying that an arbitrary ID is uniquely
++best. A deployment may use another objective to break ties, but this
++corpus does not validate that decision rule, its cost or its portability.
++
++The saved SLO extension in Section~\ref{sec:results-slo} changes the
++benchmark's synthetic deadline convention rather than merely relabeling
++an unchanged latency statistic. Its 13/30 top-choice changes and six
++reversal-direction changes among 72 nonidentity checks show dependence on
++that convention within its selected scope. The extension excludes LOW
++because its design targeted saved reversal cases; no conclusion about
++LOW's deadline sensitivity follows. These distinctions answer Q3 without
++turning retrospective sensitivity into a prospective deployment guarantee.
+--- M1/revised/sections/model.tex
++++ M2/revised/sections/model.tex
+@@ -33,7 +33,7 @@
+ pilot (\S\ref{sec:stage0}) executed -- it satisfies an outcome-independent
+ selection rule: its mechanism predates this protocol's freeze, it
+ occupies a mechanism family not already saturated by an existing panel
+-member, it has adequate implementation fidelity and passes its own unit
++member, it was judged to have adequate implementation fidelity and passed its own unit
+ tests, it is simulator-semantically compatible with the single-GPU
+ colocated execution model, and it is independently reproducible from a
+ cited reference. No policy was added to or removed from the panel in
+@@ -98,9 +98,10 @@
+ configuration, policy, and operating region, the simulator consumes no
+ randomness and produces bit-identical outputs; this was verified by a
+ repeated-run determinism test. This determinism is what permits the paired
+-design of \S\ref{sec:unit}: two policies' outcomes on the same window and
+-region differ only because of the policy's own scheduling decisions, not
+-because of independent sampling noise.
++design of \S\ref{sec:unit}: two policies' outcomes share the same input window without independent
++simulation noise. Differences also include policy-dependent service modes,
++resource enforcement and information access; they cannot be attributed to
++scheduling order alone.
+ 
+ \begin{table}[t]
+ \centering
+--- M1/revised/sections/portability.tex
++++ M2/revised/sections/portability.tex
+@@ -33,8 +33,7 @@
+ portability is not homogeneous even within a region: the range at LOW
+ ($0.55$--$0.92$) is nearly as wide as at any other region, and the range is
+ driven entirely by which source pair is compared, not by which region is
+-compared (\S\ref{sec:load-conditioning} tests region dependence
+-explicitly). No region shows uniformly low or uniformly high agreement
++compared (\S\ref{sec:load-conditioning} describes region dependence). No region shows uniformly low or uniformly high agreement
+ across all three source pairs simultaneously.
+ 
+ \subsection{Load Conditioning}
+@@ -43,19 +42,42 @@
+ Load-level dependence is a secondary robustness/sensitivity analysis
+ (\S\ref{sec:rq}), reported here as a direct read of the same
+ \S\ref{sec:cross-source-rankings} table rather than a separate headline
+-claim of cross-source rank instability by itself. Secondary ranking statistics (Spearman's $\rho$ and top-1/top-3 overlap) exhibit an identical quantitative pattern and are omitted from the main tables for concision; their full values are preserved in the preserved analysis outputs. Figure~\ref{fig:portability-heatmap}'s
++claim of cross-source rank instability by itself. Secondary ranking statistics (Spearman's $\rho$ and top-1/top-3 overlap) provide additional summaries and are omitted from the main tables for concision; their full values are preserved in the preserved analysis outputs. Figure~\ref{fig:portability-heatmap}'s
+ per-region mean tau-b is close to flat across the six regions ($0.69$ at
+ LOW, rising to $0.72$--$0.77$ elsewhere, no monotonic trend with load
+-factor); a leave-one-region-out comparison between the full six-region
++factor); a region-subset comparison between the full six-region
+ grid and the four-region \texttt{LOW}/\texttt{PRE\_KNEE}/\texttt{KNEE}/
+ \texttt{OVERLOAD} subset used by \texttt{LOAD\_CALIBRATION\_SENSITIVITY}
+ (\S\ref{sec:robustness}) changes the mean tau-b by less than $0.01$
+ ($0.728$ on the four-region subset versus $0.733$ on the full six-region
+-grid) -- the headline cross-source portability conclusion is not sensitive
+-to the choice of four-region versus six-region calibration grid. Load
++grid) -- this particular descriptive mean changes little under that region subset. Load
+ regime does, however, materially affect \emph{where practically supported
+ reversals occur} (\S\ref{sec:reversals}): reversal counts are concentrated
+ at PRE\_KNEE and above, essentially absent at LOW.
++
++\begin{table}[t]\centering
++\caption{Primary ANWG cross-source comparison records by region. Each row
++contains 55 policy pairs times three source pairs; these are overlapping
++comparisons, not independent experimental units.}\label{tab:region-counts}
++\begin{tabular}{lrrrr}\toprule
++Region & Stable & Microscopic & Supported & Total\\\midrule
++LOW & 161 & 4 & 0 & 165\\
++PRE\_KNEE & 149 & 10 & 6 & 165\\
++KNEE & 149 & 10 & 6 & 165\\
++POST\_KNEE & 147 & 12 & 6 & 165\\
++OVERLOAD & 147 & 8 & 10 & 165\\
++HIGH\_PRESSURE & 145 & 12 & 8 & 165\\\bottomrule
++\end{tabular}
++\end{table}
++
++Table~\ref{tab:region-counts} separates small ordering changes from
++supported reversals. No primary record is unestimable or a practical sign
++change with a wide saved interval. This does not prove that every
++microscopic sign change is statistically insignificant: the frozen
++classification stops at the margin test and need not evaluate its interval.
++The absence of supported reversals at LOW is an observed result under the
++fixed metric and margin, not a reason to exclude that region.
++
+ 
+ \subsection{Pairwise Reversals}
+ \label{sec:reversals}
+@@ -70,7 +92,7 @@
+ either \texttt{UNDEFINED\_UNESTIMABLE} or
+ \texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}. The large majority of
+ pairwise comparisons are stable; a small but non-trivial minority (about 1
+-in 28) are both practically and statistically supported reversals -- never
++in 28) are both practical reversals passing the saved nominal interval rule -- never
+ a majority, and never absent. The saved taxonomy contains no practical sign change with a wide interval. Microscopic changes are tested before the interval branch, so this is not evidence that practical and statistical criteria always agree.
+ 
+ 
+@@ -96,7 +118,7 @@
+ (\S\ref{sec:real-system}), is the source pair with both the highest tau-b
+ and (among the highest-tau conditions) the narrowest bootstrap interval:
+ Azure-2024 vs.\ Bailian/Qwen at \texttt{HIGH\_PRESSURE} ($\tau = 1.00$,
+-95\% CI $[0.90, 1.00]$).
++nominal 95\% resampling interval $[0.90, 1.00]$).
+ 
+ \subsection{Temporal Portability}
+ \label{sec:temporal}
+@@ -108,18 +130,18 @@
+ (sensitivity check on the tercile boundary), Azure-2024's absolute calendar
+ split, and Bailian/Qwen's \texttt{RELATIVE\_CHRONOLOGY\_ONLY} comparison,
+ for which no calendar-based claim is made. All values are keyed identically
+-to the source temporal robustness artifact. The canonical results reveal high rank stability across time: BurstGPT's tercile split shows strong agreement between EARLY and LATE chunks across non-LOW load regions ($\tau_b \in [0.81, 1.0]$), while the BISECT sensitivity check yields similarly stable correlations ($\tau_b \in [0.72, 0.80]$). At LOW, one BurstGPT tercile comparison instead has $\tau_b=-0.10$; this exception must not be hidden by a non-LOW summary. Azure's calendar split produces near-perfect correlation ($\tau_b \in [0.90, 1.0]$), and Bailian's relative-chronology split likewise exhibits minimal rank change ($\tau_b \in [0.94, 1.0]$).
++to the source temporal robustness artifact. The temporal evidence is mostly stable, with a LOW exception: BurstGPT's tercile split shows strong agreement between EARLY and LATE chunks across non-LOW load regions ($\tau_b \in [0.81, 1.0]$), while the BISECT sensitivity check yields similarly stable correlations ($\tau_b \in [0.72, 0.80]$). At LOW, one BurstGPT tercile comparison instead has $\tau_b=-0.10$; this exception must not be hidden by a non-LOW summary. Azure's calendar split produces near-perfect correlation ($\tau_b \in [0.90, 1.0]$), and Bailian's relative-chronology split likewise exhibits minimal rank change ($\tau_b \in [0.94, 1.0]$).
+ 
+ Although the frozen protocol for this research question specified an analysis of temporal, provider, and domain shifts, a standalone domain-shift component was not separately operationalized in the final artifacts. The evidence reported here addresses the temporal component directly. The frozen cross-source comparisons (\S\ref{sec:cross-source-rankings}) include the one genuine provider boundary in this corpus (Bailian/Qwen on Alibaba Cloud versus the two Microsoft-infrastructure sources, \S\ref{sec:sources}), but the design does not isolate a causal provider effect from ordinary cross-source variation -- BurstGPT-vs-Azure is a cross-source, not cross-provider, comparison; domain shift, like the provider component, is addressed only implicitly through these same cross-source comparisons and was not separately operationalized.
+ 
+ \subsection{Point estimates and saved uncertainty}
+ \begin{table}[t]\centering
+ \caption{All 18 primary source-pair comparisons. A=Azure, B=Bailian,
+-G=BurstGPT. Intervals are the preserved 95\% window-bootstrap intervals;
+-M1 independently reproduced the point estimates but did not rerun intervals.}
++G=BurstGPT. Intervals are preserved nominal 95\% window-resampling intervals;
++M2 independently reproduced all 18, without establishing coverage.}
+ \label{tab:all-correlations}
+ \begin{tabular}{llrr}\toprule
+-Region & Pair & Tau-b & Saved 95\% interval\\\midrule
++Region & Pair & Tau-b & Saved nominal interval\\\midrule
+ LOW & A--B & 0.920 & [0.864, 0.920]\\
+ LOW & A--G & 0.551 & [0.203, 0.551]\\
+ LOW & B--G & 0.599 & [0.220, 0.599]\\
+--- M1/revised/sections/related_work.tex
++++ M2/revised/sections/related_work.tex
+@@ -54,3 +54,45 @@
+ These standard measures serve a reproducible comparison protocol. Our
+ finite-corpus recovery study estimates stability relative to the frozen
+ reference ranking, not a theorem about population sample complexity.
++
++\subsection{What is added beyond standard ranking statistics}
++Workload resampling has a direct performance-evaluation precedent.
++Zakay and Feitelson's conference study decomposes traces into user
++subtraces and recombines them while preserving activity cycles
++\citep{zakay2013resampling}. The shared concern is that the structure of
++the workload affects the reliability of a scheduler comparison. LSSP
++resamples already selected request windows instead; it does not implement
++user-level trace reconstruction or establish that its windows are
++independent. The distinction prevents borrowing a validity argument from
++a resampling design with different observational units.
++
++Dem\v{s}ar's comparison framework uses ranks across multiple datasets to
++compare algorithms, including Friedman omnibus tests and subsequent
++comparisons \citep{demsar2006comparisons}. LSSP applies standard rank tools
++to fixed policy implementations, but asks an additional descriptive
++question: whether their order is preserved when the condition or metric
++changes. A pooled difference between policies is not itself evidence of
++such a change. A method can outperform another in every source and still
++produce a strong omnibus statistic. The source-pair reversal table is
++therefore a distinct object, not an automatic interpretation of Friedman
++significance.
++
++The methodological addition is the explicit linkage between comparison
++objects: each ranking carries its implementation panel, observed-window
++support, utility definition, practical threshold and tie rule. The
++post-hoc audit shows that these choices have measurable consequences in
++one corpus. For example, agreement of deterministic top choices and
++intersection of maximizing sets yield different answers without any change
++to the outcomes. This is evidence for reporting both objects when ties
++are common; it is not a claim that a new estimator has been invented.
++
++The study also separates three validation tasks that can otherwise be
++conflated: reproducing an analysis from frozen numbers, assessing its
++sampling assumptions, and checking whether the simulator represents the
++intended serving mechanisms. Exact numerical reproduction addresses only
++the first. The inferential audit addresses limits of the second; the
++legacy native-runner audit exposes unresolved parts of the third. This
++separation is the paper's relevance to modeling and performance evaluation,
++but it also limits the strength of its systems conclusions. A benchmark
++with correctly implemented standard statistics still needs a defensible
++comparison model and sufficiently representative inputs.
+--- M1/revised/sections/research_questions.tex
++++ M2/revised/sections/research_questions.tex
+@@ -1,257 +1,170 @@
+ \section{Research Questions and Portability Measures}\label{sec:study-design}\label{sec:rq}
+-We preserve the original six questions, including those not answered by
+-adequate evidence in this study:
++We organize the manuscript around four questions that the frozen outcomes
++can address. This is a retrospective presentation change, not a new
++preregistration. ``Answer'' below means a conditional description of the
++specified implementations and corpus, not a population or native-system
++claim.
+ \begin{description}
+-  \item[RQ1.] How stable are scheduler rankings across independent
+-    workload sources?
+-  \item[RQ2.] How stable are scheduler rankings under temporal, provider,
+-    and domain shifts?
+-  \item[RQ3.] To what extent do rankings obtained on synthetic stress
+-    workloads transfer to rankings on independent real-trace-derived
+-    workloads?
+-  \item[RQ4.] Which source-native observable workload characteristics are
+-    associated with cross-dis\-tribution scheduler rank reversals?
+-  \item[RQ5.] How many independent workload windows are required before a
+-    comparative scheduler ranking becomes statistically stable?
+-  \item[RQ6.] Do representative simulated scheduler rankings and
+-    cross-workload rank reversals reproduce on a real serving engine?
++\item[Q1: Source and region portability.] How much do aggregate policy
++orderings agree across the three released sources and six operating regions?
++\item[Q2: Practical pairwise reversals.] Which policy pairs change order
++with more than the frozen 10\% relative margin on both sides, and how
++sensitive is their saved interval support to the analysis assumptions?
++\item[Q3: Objective sensitivity.] How do metric choice, tied optima,
++observation support and the saved alternative SLO definitions change
++preferred-policy conclusions?
++\item[Q4: Temporal and finite-reference stability.] How stable are
++rankings across the available temporal splits and subsets of the
++40-window source reference?
+ \end{description}
+-Here ``independent sources'' means separately released artifacts, not proven
+-independence of providers or of every request. RQ1/RQ2 are the primary
+-cross-source and temporal questions. RQ3 remains an engineering pilot,
+-RQ4 a descriptive association analysis, RQ5 finite-reference recovery,
+-and RQ6 unresolved as a faithful native-system comparison. Operating-region
+-sensitivity is secondary. Cross-metric analysis is explicitly post-campaign;
+-its prominence in this manuscript does not make it retrospectively preregistered.
++
++\begin{table}[t]\centering
++\caption{Mapping to all six original protocol questions. The four manuscript
++questions above are retrospective; extension results remain post-campaign.}
++\label{tab:rq-map}
++\begin{tabular}{p{0.29\linewidth}p{0.60\linewidth}}\toprule
++Original protocol question & Evidence status and manuscript location\\\midrule
++RQ1: cross-source stability & Answered descriptively for this corpus (Q1, Q2); source release does not establish sampling independence.\\
++RQ2: temporal/provider/domain shifts & Partially answered (Q1, Q4). Temporal splits exist; provider and domain effects are not isolated.\\
++RQ3: synthetic-to-real transfer & Unanswered at the intended fidelity; pilot context only.\\
++RQ4: observable reversal characteristics & Partially answered descriptively; sparse association fits do not identify causes (Section~\ref{sec:telemetry-explanation}).\\
++RQ5: independent windows needed for stability & Partially answered (Q4): finite-reference recovery, not population sample complexity.\\
++RQ6: faithful native ranking transfer & Unanswered; legacy runner defects prevent that interpretation (Section~\ref{sec:real-system}).\\\bottomrule
++\end{tabular}
++\end{table}
++Q3 uses post-campaign cross-metric and SLO extension artifacts. Broad
++metric and SLO sensitivity were anticipated in the historical plans;
++that does not make the eventual extension implementation, its selected
++region coverage, or the present matched-support and set-valued analyses
++prospectively frozen primary results. The original questions and plans
++remain unchanged in the artifact.
+ 
+ \subsection{Comparison object and statistical unit}\label{sec:unit}
+-Let $R(W,M,L)$ denote the ordering of a fixed policy panel under workload
+-source or window set $W$, metric $M$, and operating region $L$. Policy
+-outcomes are paired within the same window and region. For source-level
+-rankings, a policy's defined outcomes are averaged over windows, after the
+-two identical deterministic execution passes are collapsed. Comparisons
+-between sources use different window populations; they are not paired
+-request-by-request across sources. The window is the resampling unit.
+-Non-overlap and deterministic sampling do not prove statistical independence
+-of windows drawn from a shared production stream.
++Let $R(W,M,L)$ denote the ordering of a fixed policy panel under source or
++window set $W$, metric $M$, and operating region $L$. Collapse the two
++identical deterministic passes before aggregation. Policies share windows
++within a source/region; different sources are not paired request by request.
++A whole window is the historical resampling unit. This preserves
++within-window policy dependence but assumes exchangeability between
++windows; non-overlap alone does not establish that assumption.
+ 
+-Tau-b is computed from the policy-level aggregate values, preserving equal
+-values as ties. Top-$k$ summaries instead sort by value and then by policy
+-identifier. In particular, the reported top-1 agreement is agreement of
+-this deterministic tie-breaking rule, not overlap of all policies tied
+-for the optimum. Exact-order recovery uses the same distinction. These
+-conventions are retained for reproducibility and bound the interpretation
+-of preferred-policy stability.
+-\subsection{Metrics}
+-\label{sec:metrics}
++For defined outcomes $y_{w,p,m}$, the historical aggregate is
++\begin{equation}
++ \bar y_{p,m}=|\mathcal W_{p,m}|^{-1}
++ \sum_{w\in\mathcal W_{p,m}} y_{w,p,m},
++\end{equation}
++where $\mathcal W_{p,m}$ contains the observed windows for policy $p$
++and metric $m$. Empty support gives no aggregate. Pairwise difference
++intervals instead use $\mathcal W_{a,m}\cap\mathcal W_{b,m}$. These
++estimands coincide for complete ANWG observations, but need not coincide
++for conditional metrics. Section~\ref{sec:results-cross-metric} examines
++this distinction without imputing unobserved outcomes.
+ 
+-Three metrics are always defined for every completed cell: completion
+-fraction, weighted completion fraction, and Arrival-Normalized Weighted Goodput (ANWG, the primary metric). We formally define ANWG here because it is this benchmark's headline measure of system-level utility. For a set of arriving requests $R$, let $w_i \ge 1$ denote the priority weight assigned to request $i \in R$. Let $C \subseteq R$ be the subset of requests that successfully complete execution, and let $S \subseteq C$ be the subset of completed requests that also meet their latency deadline (SLO), with completion at or before the deadline. ANWG is defined as the priority-weighted sum of successfully attained deadlines divided by the total priority weight of all arrivals:
++\subsection{Metrics}\label{sec:metrics}
++The primary metric, Arrival-Normalized Weighted Goodput (ANWG), is
+ \begin{equation}
+-\text{ANWG} = \frac{\sum_{i \in S} w_i}{\sum_{i \in R} w_i}
++ \mathrm{ANWG}=\frac{\sum_{i\in S} w_i}{\sum_{i\in R} w_i},
+ \end{equation}
+-Because the denominator is the sum over all \emph{arrivals} rather than completions, rejected, dropped, unfinished, and SLO-missed requests all receive zero numerator credit while remaining in the denominator penalty. ANWG is always defined (the denominator is zero only if a workload window has no arrivals, which is prevented by construction); therefore, undefined-metric exclusions for ANWG are always exactly zero. A second group of metrics is defined
+-only conditional on at least one request completing: SLO-violation rate,
+-weighted goodput, mean/p95/p99 latency, and request/token throughput are
+-each \texttt{NaN} if and only if completion fraction is exactly zero for
+-that cell. Mean/p95 time-to-first-token (TTFT) is subject to a stricter,
+-separately checked precondition (at least one completed request recorded a
+-first-token time), because TTFT can be undefined even when completion
+-fraction is positive. No undefined conditional-metric value is ever imputed
+-as 0 or 1, in either direction, and never after inspecting which policy or
+-source it would affect. Where a policy's value is undefined for a given
+-(window, region, metric) condition, that policy is excluded from the
+-ranking-derived statistic (Kendall's tau-b, Spearman's rho, top-$k$
+-overlap, pairwise reversal detection) for that specific condition and
+-metric only -- never scored as a loss or a tie, and never causing the whole
+-condition to be dropped for policies that did complete. Every
+-ranking-derived table reports its exclusion count
+-(\texttt{n\_conditions\_excluded\_for\_undefined\_metric}) alongside the
+-statistic itself, since a source-concentrated exclusion rate is itself a
+-reportable finding under RQ4, not a footnote.
++where $R$ contains all arriving requests, $w_i\geq1$ is priority weight,
++and $S$ contains requests completed at or before their deadline. Dropped,
++unfinished and late requests retain denominator weight but receive no
++numerator credit. Every window has arrivals. ANWG, completion fraction
++and weighted completion fraction are therefore always defined.
+ 
+-\subsection{Ranking-Uncertainty Quantification and Reversal Classification}
+-\label{sec:uncertainty}
++The other eligible metrics are SLO-violation rate, weighted goodput, mean
++and p95 latency, request and token throughput, and mean and p95 TTFT.
++The first six require a completion; TTFT additionally requires a recorded
++first-token time for a completed request. The executed ranking schema
++does not contain p99 latency or TPOT. Undefined observations are omitted,
++never assigned a zero, loss or tie. A condition can remain estimable even
++when its policy means use different window subsets. Lower-is-better
++metrics are negated for cross-metric comparisons.
+ 
+-Because the statistical unit of analysis is the workload window
+-(\S\ref{sec:unit}), ranking-uncertainty is quantified by a whole-window
+-block bootstrap: windows, not individual requests, are resampled with
+-replacement (preserving each window's internal request sequence intact),
+-2{,}000 resamples are drawn per condition, and every reported confidence
+-interval is a 95\% percentile interval over those resamples, using a
+-deterministic, recorded seed so every interval is exactly reproducible from
+-the frozen outcome matrix alone. This block structure exists because the
+-requests within a window are not independent observations of scheduler
+-behavior -- they share one arrival process, one prompt/output-length
+-mixture, and one operating region -- so resampling at the request level
+-would understate uncertainty; the window is the design's resampling unit. Residual temporal dependence between windows may still affect interval coverage; it is not removed merely by treating requests within a window as a block.
+-
+-Two further checks calibrate how the pairwise reversal statistics reported
+-in \S\ref{sec:reversals} are interpreted, and it is important not to
+-conflate them. The frozen output contains 66 Friedman omnibus records (11 metrics by six regions). Earlier manuscript text incorrectly described the omnibus test as unimplemented; this draft corrects that statement. The principal reversal findings below use the separately recorded pairwise procedure.
+-Separately, because the panel and the (source, region, metric) grid
+-together generate many pairwise comparisons, every pairwise reversal
+-test's two-sided bootstrap sign-test $p$-value -- the intersection-union
+-combination $\max(p_x, p_y)$ of the two compared conditions' sign-test
+-$p$-values, read off the same resamples that back the ordinary CI rule
+-below -- is additionally checked against a Benjamini--Hochberg
+-false-discovery-rate (FDR) correction at $q = 0.05$, applied per family, where a
+-family is all pairwise policy comparisons within a single (metric,
+-load-region) combination. This produces a separate, multiplicity-corrected
+-\texttt{supported\_after\_fdr} flag on every record. In the frozen
+-benchmark artifact, all $36$ records that the five-class taxonomy below
+-independently classifies as \texttt{SUPPORTED\_PRACTICAL\_REVERSAL} also
+-satisfy \texttt{supported\_after\_fdr} -- the FDR check removes no headline
+-reversal in this dataset -- but the two criteria are computed
+-independently from each other and are not guaranteed to coincide in
+-general.
+-
+-A numerical sign change in a point estimate is not, by itself, a meaningful
+-scheduler reversal from a systems standpoint: two policies can swap
+-point-estimate order by a magnitude far smaller than the benchmark's own
+-chosen practical margin, in which case treating it as a reversal would overstate
+-what the benchmark actually supports. The 10\% winning-margin threshold
+-used throughout this test was fixed prospectively, before any
+-reversal was observed, by reusing this project's own earlier
+-discriminability-pilot criterion (\texttt{\_relative\_range\_qualifies},
+-\S\ref{sec:stage0}) rather than adopting a threshold chosen after seeing
+-these results or asserted as a domain-standard cutoff; it is an
+-operational convention for separating materially sized ordering changes
+-from microscopic sign changes, not a claim that 10\% is a universal
+-practical-significance threshold for LLM serving, and every count labeled
+-``practical'' in this manuscript is conditional on it. Every pairwise (policy A, policy B)
+-comparison at a given (source, region, metric) condition is therefore
+-classified into exactly one of five preregistered classes, combining the
+-practical-margin test with the \emph{ordinary} (not FDR-adjusted) 95\%
+-percentile bootstrap-CI test defined above; the
+-FDR check described above is a separate, additional multiplicity
+-safeguard applied on top of this classification for headline reporting,
+-not an input the classification itself depends on:
+-
+-\begin{description}
+-  \item[\texttt{UNDEFINED\_UNESTIMABLE}] At least one of the two policies'
+-    metric values is undefined for this condition (\S\ref{sec:metrics});
+-    no direction is estimated or claimed.
+-  \item[\texttt{STABLE\_NO\_SIGN\_CHANGE}] The two policies' relative order
+-    agrees across the compared conditions; no reversal occurred.
+-  \item[\texttt{MICROSCOPIC\_SIGN\_CHANGE}] The point-estimate order
+-    reverses, but the winning margin fails to exceed 10\% of the losing
+-    policy's value in \emph{at least one} of the two compared conditions --
+-    this includes both the case where the margin is negligible on both
+-    sides and the asymmetric case where it exceeds 10\% on one side but not
+-    the other. Either way the sign flip is reported here as numerically
+-    real but practically negligible or unreliable, never pooled with the
+-    classes below.
+-  \item[\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}] The point-estimate
+-    order reverses and the winning margin exceeds 10\% of the losing
+-    policy's value in \emph{both} compared conditions, but the
+-    \emph{ordinary} (not FDR-adjusted) 95\% bootstrap interval for the
+-    difference fails to
+-    exclude zero in \emph{at least one} of the two conditions -- the
+-    apparent reversal is not statistically distinguishable from bootstrap
+-    noise, at the preregistered confidence level, in at least one of the
+-    two conditions being compared.
+-  \item[\texttt{SUPPORTED\_PRACTICAL\_REVERSAL}] The point-estimate order
+-    reverses \emph{and} the winning margin exceeds 10\% of the losing
+-    policy's value in both compared conditions \emph{and} the
+-    \emph{ordinary} (not FDR-adjusted) 95\% bootstrap interval for the
+-    direction excludes zero
+-    in both conditions. Only this class is reported as a headline reversal
+-    in \S\ref{sec:reversals}; the other four classes are always reported
+-    alongside it, never omitted as a residual category. Every record in
+-    this class additionally satisfies the separate FDR-corrected
+-    \texttt{supported\_after\_fdr} check described above in the frozen
+-    benchmark artifact.
+-\end{description}
+-
+-These five classes are mutually exclusive and exhaustive by construction:
+-\texttt{classify\_pairwise\_reversal} in the frozen analysis code evaluates
+-undefined-value, sign-change, margin, and confidence-interval conditions as
+-a strict if/elif/else chain with an unconditional final branch, so every
+-possible (policy A, policy B, condition) input reaches exactly one class,
+-including the asymmetric-margin and single-sided-wide-CI cases described
+-above; no already-computed reversal record is at risk of being silently
+-dropped or misclassified by a gap in this taxonomy.
+-
+-
+-\subsection{Aggregation, eligibility and reproducible interpretation}
+-Write $y_{w,p,m}$ for the defined metric value of policy $p$ on window $w$
+-under metric $m$, with source and region fixed. Let
+-$\mathcal W_{p,m}$ be the windows where that value is defined. The
+-historical aggregate is
+-\begin{equation}
+- \bar y_{p,m}=\frac{1}{|\mathcal W_{p,m}|}
+-       \sum_{w\in\mathcal W_{p,m}} y_{w,p,m}.
+-\end{equation}
+-If this set is empty, the policy has no aggregate for that condition.
+-Lower-is-better values are negated for cross-metric ranking comparison.
+-Missing values never become a zero, a worst rank, or a tied rank. A
+-consequence is that two policy means can describe different observed
+-window subsets. The pairwise bootstrap difference instead uses the
+-intersection of windows with both policy outcomes. Agreement of complete
+-conditions does not remove this conditioning difference.
+-
+-For comparable policy-value vectors, let $C$ and $D$ be the numbers of
+-concordant and discordant policy pairs, and $T_x,T_y$ the pairs tied only
+-in the first or second vector. Kendall's tie-adjusted coefficient is
++Kendall tau-b preserves equal values as ties. With concordant and
++discordant pair counts $C,D$ and one-sided tie counts $T_x,T_y$,
+ \begin{equation}
+  \tau_b=\frac{C-D}{\sqrt{(C+D+T_x)(C+D+T_y)}}.
+ \end{equation}
+-A zero denominator leaves the coefficient undefined. A positive aggregate
+-value allows individual discordant pairs. Sorting ties lexicographically
+-for top-$k$ reporting is an implementation convention separate from this
+-coefficient; it must not silently change the ties counted by tau-b.
++A zero denominator is undefined. Top-$k$ and exact-order recovery instead
++sort by metric value and then policy ID. Thus a single top choice need
++not be a unique optimum. Q3 reports both the historical choice and a
++post-hoc maximizing-set comparison.
+ 
+-For two conditions $x,y$ and policy pair $a,b$, the recorded differences
+-are $d_x=\bar y_{a,x}-\bar y_{b,x}$ and $d_y=\bar y_{a,y}-\bar y_{b,y}$.
+-The implementation requires both nonzero and opposite in sign before
+-considering a reversal. Its relative margin divides the absolute
+-difference by the absolute aggregate value of the losing policy in that
+-condition. A zero losing value makes that margin unestimable; it is not
+-an automatic practical-significance pass. Equal values are assigned zero
+-difference and zero margin and do not constitute a sign change. These
+-edge cases matter particularly for bounded utility metrics with many
+-exact ties.
++\subsection{Saved uncertainty and reversal taxonomy}\label{sec:uncertainty}
++The historical procedure draws 2,000 samples of windows with replacement
++and records the 2.5th and 97.5th percentiles. We call these \emph{nominal
++95\% resampling intervals}; their reproduction does not establish 95\%
++coverage under temporal dependence or for discontinuous, tied rankings.
++Undefined rank statistics are discarded before percentile calculation.
++This occurs in 30 of 198 source comparisons; the two primary LOW
++comparisons involving BurstGPT discard 10 and 12 of 2,000 draws.
++The resulting intervals condition on an estimable resampled ranking,
++even though all primary ANWG cell values are observed.
++Cross-source ranking samples are drawn separately. Cross-metric ranking
++samples share window indices. Cross-metric pairwise difference intervals
++use separate seeded marginal draws for each metric, a distinct procedure
++from the paired ranking bootstrap.
+ 
+-The saved procedure evaluates eligibility, sign, margin and then interval
+-support in that order. Consequently, many stable or microscopic records
+-have no bootstrap interval or $p$-value at all. The BH check is applied to
+-tests that reach the statistical-support stage within the recorded family,
+-not to invented $p$-values for every stable record. For the primary
+-analysis the family is metric/region; for the cross-metric extension it
+-is source/region/metric-pair. The reported flags are reproducible results
+-of that procedure. Their interpretation is conditional on this screening,
+-bootstrap construction and dependence structure; this paper does not prove
+-unconditional false-discovery control for the entire research workflow.
++For policy pair $a,b$, the saved classification first compares separately
++aggregated differences $d_x=\bar y_{a,x}-\bar y_{b,x}$ and $d_y$.
++Opposite nonzero signs are required. Each absolute difference must exceed
++10\% of the absolute value of the losing policy in that condition. A zero
++loser makes this margin unestimable, except that an exact tie has zero
++difference and margin. The threshold is a historical operational
++convention, not an established deployment-utility cutoff or a confidence
++bound on the effect size.
+ 
+-The saved two-sided bootstrap tail fraction is computed from the same
+-2,000 resamples as the interval, and can equal zero at finite resolution.
+-This is not evidence of zero probability of an incorrect scientific claim.
+-Cross-source ranking bootstraps draw the two source window collections
+-separately. Cross-metric bootstraps use a common sampled window sequence
+-because both metrics describe the same outcomes. Repetition IDs are never
+-resampled as additional windows. M1 verifies saved intervals' classification
+-logic and point estimates, but does not rerun these stochastic resampling
+-calculations or substitute new interval estimates for the frozen ones.
++The five exclusive labels are: undefined/unestimable; stable (including
++exact ties); microscopic sign change (at least one margin at most 10\%);
++practical sign change with a saved interval including zero; and
++\texttt{SUPPORTED\_PRACTICAL\_REVERSAL} (both margins pass and both
++saved difference intervals exclude zero). We retain the final label only
++as an artifact category, abbreviated \emph{saved-supported}. It does not
++assert calibrated statistical significance. The sequential rule skips
++interval calculation for stable and microscopic records; absence of the
++wide-interval class does not establish equivalence between practical and
++statistical criteria.
++
++The saved tail quantity is
++\begin{equation}
++ p_s=\min\{1,2\min[\widehat P(d_s^*\leq0),
++                         \widehat P(d_s^*\geq0)]\},\qquad
++ p_{\mathrm{pair}}=\max(p_x,p_y).
++\end{equation}
++This is an empirical bootstrap tail fraction, not an exact binomial sign
++test. The maximum has an intersection--union interpretation only if its
++component tests are valid for the intended nulls. Here null calibration,
++data-dependent directional screening and window dependence are not
++established. Nor do zero-excluding intervals test the stronger hypothesis
++that both population margins exceed 10\%.
++
++The historical BH calculation uses only records reaching the interval
++stage: families are metric/region for cross-source reversals and
++source/region/metric-pair for cross-metric disagreements. Independence or
++the required positive dependence of valid null $p$-values is not shown
++\citep{benjamini2001dependency}. Consequently, the saved flags are
++reproduced bookkeeping results, \emph{not a verified 5\% FDR guarantee},
++even within families. Section~\ref{sec:audit-sensitivity} reports bounded
++alternative bookkeeping and dependence sensitivities; none repairs null
++calibration by changing a denominator alone.
+ 
+ \subsection{Evidence denominators}
+ \begin{table}[t]\centering
+-\caption{Units in the historical study. Numerically equal totals need not
+-refer to the same evidence.}\label{tab:denominators}
+-\begin{tabular}{p{0.43\linewidth}p{0.48\linewidth}}\toprule
++\caption{Units in the frozen campaign. Comparison counts describe coverage,
++not independent replications.}\label{tab:denominators}
++\begin{tabular}{p{0.38\linewidth}p{0.53\linewidth}}\toprule
+ Quantity & Interpretation\\\midrule
+-120 windows & 40 per source; 200 requests in each window\\
+-9,360 configurations & 120 windows times six regions times 13 policies\\
++120 windows & 40 per source, 200 requests per window\\
++9,360 configurations & 120 windows $\times$ six regions $\times$ 13 policies\\
+ 18,720 executions & Two deterministic passes per configuration\\
+-18 primary ranking comparisons & Three source pairs times six regions\\
+-990 primary reversal records & 18 conditions times 55 policy pairs\\
+-990 cross-metric conditions & Three sources times six regions times 55 metric pairs\\
+-54,450 metric disagreement records & 990 conditions times 55 policy pairs\\
+-500 draws per recovery budget & Subsamples of a fixed reference corpus, not new executions\\
+-240 legacy physical executions & Separate runner and fidelity limits; not included in the simulator matrix\\\bottomrule
++18 primary rank comparisons & Three source pairs $\times$ six regions\\
++990 primary reversal records & 18 conditions $\times$ 55 policy pairs\\
++990 cross-metric conditions & Three sources $\times$ six regions $\times$ 55 metric pairs\\
++54,450 metric disagreements & 990 conditions $\times$ 55 policy pairs\\
++500 draws per recovery budget & Subsets of the fixed reference corpus\\\bottomrule
+ \end{tabular}
+ \end{table}
+-The inferential unit remains the window. Comparison records reuse its
+-outcomes many times; their counts describe coverage rather than sample
+-independence. A change in the number of policy pairs or metrics changes
+-these denominators without acquiring any additional workload evidence.
++All reported fractions condition on these enumerated comparison sets.
++Increasing the metric or policy panel creates more records without adding
++workload evidence. The separate 240 legacy physical executions do not
++enlarge the simulator's inferential sample.
+--- M1/revised/sections/robustness.tex
++++ M2/revised/sections/robustness.tex
+@@ -2,7 +2,7 @@
+ \subsection{Robustness}
+ \label{sec:results-robustness}
+ 
+-Of the seven preregistered robustness families (\S\ref{sec:robustness}), six were computed (five in the ranking-correlation, temporal-robustness, and sample-complexity outputs below, and a sixth, \texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT}, in the telemetry-explanation analysis of \S\ref{sec:telemetry-explanation}). The seventh, \texttt{METRIC\_DEFINITION\_SENSITIVITY}, was never implemented; we disclose this as a protocol gap rather than perform a post hoc analysis after the results were already known.
++Of the seven non-SLO robustness items in the historical implementation account (\S\ref{sec:robustness}), six were computed (five in the ranking-correlation, temporal-robustness, and sample-complexity outputs below, and a sixth, \texttt{LEAVE\_ONE\_POLICY\_FAMILY\_OUT}, in the telemetry-explanation analysis of \S\ref{sec:telemetry-explanation}). The seventh, \texttt{METRIC\_DEFINITION\_SENSITIVITY}, was never implemented; we disclose this as a protocol gap rather than perform a post hoc analysis after the results were already known.
+ 
+ \begin{itemize}
+   \item \textbf{\texttt{PRIMARY\_ONLY}.} Identical to the headline result
+@@ -72,14 +72,13 @@
+ data point on its own; the informative content is in how slowly each
+ source's curve rises toward that trivial ceiling.
+ 
+-Top-1 recovery (does the resampled subset identify the single
+-best-performing PRIMARY-panel policy correctly) is a materially easier
++Top-1 recovery (does the resampled subset reproduce the deterministic
++PRIMARY-panel top choice) is a materially easier
+ question than exact-order recovery for two of the three sources: Azure-2024
+ and Bailian/Qwen both exceed $0.9$ top-1 recovery already at $n=5$
+ ($96.6\%$ and essentially $100\%$ respectively), even though their
+ \emph{exact}-order recovery at $n=5$ is only $35.0\%$ and $14.6\%$. For
+-these two sources, identifying the single best policy requires far less
+-evidence than reconstructing the complete 11-policy ordering. BurstGPT
++these two sources, recovering that top choice requires fewer sampled windows than reconstructing the complete 11-policy ordering. BurstGPT
+ shows no such gap: its top-1 recovery is comparably slow to its
+ exact-order recovery ($13.0\%$ at $n=5$, $74.2\%$ at $n=30$), remaining below
+ $0.9$ until the trivial $n=40$ ceiling -- consistent with
+@@ -103,20 +102,22 @@
+ \Description{Exact-order and top-choice recovery probabilities at 5, 10, 20, 30 and 40 windows. The full 40-window reference is recovered by construction.}
+ \end{figure}
+ 
+-This analysis directly answers RQ5 (\S\ref{sec:rq}) and depends on the full
++This analysis partially addresses original RQ5 and answers the finite-reference
++part of Q4 (\S\ref{sec:rq}) and depends on the full
+ primary outcome matrix (\S\ref{sec:results}); it is not run on the earlier,
+ smaller discriminability pilot (\S\ref{sec:stage0}).
+ \subsection{SLO-Definition Sensitivity}
+ \label{sec:results-slo}
+ 
+-As disclosed in \S\ref{sec:slo-sensitivity-gap}, this check was never part
+-of the preregistered protocol; we report it here as the post-campaign
++As disclosed in \S\ref{sec:slo-sensitivity-gap}, the concrete extension was specified after primary results, although
++broad SLO sensitivity was already anticipated in the historical plan; we report it here as the post-campaign
+ extension it was actually run as: three alternative SLO-synthesis
+ multipliers (\texttt{tight\_10x}, \texttt{primary\_20x} -- this study's own
+ convention -- and \texttt{loose\_40x}) applied across the 5 load regions
+ that contain at least one PRIMARY-metric supported reversal (excluding
+ \texttt{LOW}, which accounts for 0 of the 36 supported reversals and so
+-has nothing for a sensitivity check to stress-test), evaluating $11$
++the selected-reversal persistence design omits it; this does not establish
++SLO insensitivity at LOW), evaluating $11$
+ policies $\times$ $120$ total windows $\times$ $5$ regions $\times$ $3$
+ variants ($19{,}800$ input rows according to the preserved extension status), with every seed held identical to
+ \S\ref{sec:results}.
+@@ -128,7 +129,7 @@
+ nonetheless changes under an alternative SLO definition in $13/30$ ($43\%$)
+ of conditions.
+ 
+-\textbf{Reversal persistence.} We check the 36 PRIMARY-metric supported reversals from \S\ref{sec:reversals} against the alternative definitions. Because there are 3 SLO variants (tight, primary, loose), there are $36 \times 3 = 108$ mathematical comparisons in the artifact's persistence matrix, of which $36$ are identity checks against the primary definition itself (all 36 trivially persist). Restricting focus to the $72$ scientifically meaningful non-trivial comparisons against the alternative definitions: $52/72$ ($72\%$) persist, $6/72$ ($8\%$) change direction, $10/72$ ($14\%$) remain the same direction but fall below the practical-margin threshold under the alternative definition, and $4/72$ ($6\%$) become statistically indistinguishable from zero. The six direction changes contradict a claim of invariant reversal direction under alternative deadlines. A non-trivial minority ($20/72$, $28\%$) are sensitive to the SLO-definition
++\textbf{Reversal persistence.} We check the 36 PRIMARY-metric supported reversals from \S\ref{sec:reversals} against the alternative definitions. Because there are 3 SLO variants (tight, primary, loose), there are $36 \times 3 = 108$ mathematical comparisons in the artifact's persistence matrix, of which $36$ are identity checks against the primary definition itself (all 36 trivially persist). Restricting focus to the $72$ scientifically meaningful non-trivial comparisons against the alternative definitions: $52/72$ ($72\%$) persist, $6/72$ ($8\%$) change direction, $10/72$ ($14\%$) remain the same direction but fall below the practical-margin threshold under the alternative definition, and $4/72$ ($6\%$) become unsupported by the extension's saved interval rule. The six direction changes contradict a claim of invariant reversal direction under alternative deadlines. A non-trivial minority ($20/72$, $28\%$) are sensitive to the SLO-definition
+ choice -- disclosed here as a caveat on those specific reversals, not
+ grounds to discard them.
+ 
+@@ -152,3 +153,79 @@
+ specific comparison. A changed objective or execution model warrants
+ reassessment; it does not license assuming a reversal. No held-out
+ portability predictor or cost-effective recalibration rule is validated here.
++
++\subsection{Independent inferential audit and bounded sensitivities}
++\label{sec:audit-sensitivity}
++The M2 audit independently reconstructs all 198 saved cross-source tau
++intervals across 11 metrics, including the 18 primary intervals, and all
++72 intervals underlying the 36 primary saved-supported reversals. It also
++reconstructs 6,890 cross-metric difference intervals and six rank intervals
++covering ANWG versus mean latency at LOW and HIGH\_PRESSURE in all sources.
++The independent script imports no production analysis routines. All
++checked endpoints and tail fractions match to numerical tolerance.
++
++Reproduction requires more than a nominal seed. The primary pipeline uses
++one NumPy random stream initialized at zero, consumed first by all 198
++ranking comparisons and then by reversal comparisons reaching the interval
++stage. Its row order and preceding draws matter. The extension derives
++separate CRC32 seeds from condition, metric and policy keys. M2 records
++input hashes, ordering, seeds, algorithms and software versions. These
++facts establish computational repeatability, not empirical coverage.
++
++\paragraph{The 66 Friedman records.}
++For each metric/region, the blocks are all 120 windows, pooled across
++sources, and treatments are policies. The complete-policy rule includes
++all 11 policies for the three always-defined metrics (18 records), but
++excludes the historical vLLM policy for each conditional metric (48
++records), leaving 10 treatments. It does not drop those policies only
++within the incomplete source. Independent average-rank sums with tie
++correction reproduce every statistic and its chi-square tail probability;
++the audit supplies each exact input matrix.
++
++This omnibus tests a policy main effect in the pooled block design under
++its null assumptions. It is not a source-by-policy interaction test and
++cannot establish cross-source ranking heterogeneity. The pipeline computes
++it first but does not condition pairwise analysis on its rejection. The
++pairwise reversal claim thus receives no additional validation from a
++small omnibus $p$-value. Independence of blocks and the suitability of the
++asymptotic null approximation remain assumptions, even with 120 nominal
++blocks. Likewise, saved Kendall/Spearman analytic $p$-values concern
++association across the selected policy coordinates, not uncertainty from
++sampling workload windows; we do not use them as window-level evidence.
++
++\paragraph{Multiplicity and finite resolution.}
++Thirty of 36 primary intersection--union tail quantities are zero in
++2,000 draws. A zero means no relevant tail draw occurred, not zero error
++probability. As an arithmetic sensitivity, M2 retains the complete family
++size, assigning untested records a placeholder of one. This is not a new
++calibrated test. The number of saved-supported records also passing BH
++changes from 36 to 30 for the primary analysis, and from 3,207 to 3,006 for
++the cross-metric extension.
++
++Adding one to each tail count and dividing by 2,001 before doubling gives
++minimum two-sided value $2/2001$. With full families, the corresponding
++counts are 30 and 2,971. Applying the harmonic-factor dependence adjustment
++of Benjamini--Yekutieli to those same quantities gives zero and 1,940.
++These different counts expose sensitivity to the testing interpretation;
++none is endorsed as an FDR-controlled discovery count. Valid null
++$p$-values are required even for a dependence adjustment. In particular,
++a Monte Carlo continuity adjustment cannot turn the uncentered empirical
++bootstrap into a proven null test.
++
++\paragraph{Dependence stress test.}
++A separate post-hoc calculation orders the 40 selected windows of each
++source by valid-row position and groups consecutive sets of five. It
++resamples eight groups with replacement for 2,000 draws, preserving policy
++pairing within each group. Thirty of the 36 primary saved-supported
++records retain zero-excluding intervals on both sides. This is a bounded
++stress test, not an estimated optimal block length or validated 95\%
++procedure: selected windows are irregularly separated, and eight groups
++provide limited information. No provider-level bootstrap is justified by
++three sources spanning only two infrastructure lineages.
++
++Together these checks support retaining the observed ordering changes and
++historical procedural labels while withdrawing their claimed error-rate
++interpretation. They do not show that the six sensitivity losses are false
++reversals, or that the remaining 30 are certain. More resampling of the
++same windows cannot create independent workload coverage, rectify policy
++comparability, or settle faithful native transfer.
+--- M1/revised/sections/within.tex
++++ M2/revised/sections/within.tex
+@@ -21,31 +21,84 @@
+ so effective observation sets can differ even when a condition-level
+ ranking remains estimable.
+ 
+-\begin{table}[t]\centering
+-\caption{Primary ANWG cross-source comparison records by region. Each row
+-contains 55 policy pairs times three source pairs; these are overlapping
+-comparisons, not independent experimental units.}\label{tab:region-counts}
+-\begin{tabular}{lrrrr}\toprule
+-Region & Stable & Microscopic & Supported & Total\\\midrule
+-LOW & 161 & 4 & 0 & 165\\
+-PRE\_KNEE & 149 & 10 & 6 & 165\\
+-KNEE & 149 & 10 & 6 & 165\\
+-POST\_KNEE & 147 & 12 & 6 & 165\\
+-OVERLOAD & 147 & 8 & 10 & 165\\
+-HIGH\_PRESSURE & 145 & 12 & 8 & 165\\\bottomrule
+-\end{tabular}
+-\end{table}
+-
+-Table~\ref{tab:region-counts} separates small ordering changes from
+-supported reversals. No primary record is unestimable or a practical sign
+-change with a wide saved interval. This does not prove that every
+-microscopic sign change is statistically insignificant: the frozen
+-classification stops at the margin test and need not evaluate its interval.
+-The absence of supported reversals at LOW is an observed result under the
+-fixed metric and margin, not a reason to exclude that region.
+-
+ The full per-policy outcome matrix remains the record for within-region
+ performance. This paper does not turn the panel into a universal winner
+ recommendation: the policies share a simulator implementation boundary,
+ and region names, synthesized deadlines and metric conditioning all
+ constrain the interpretation of an ordering.
++
++\subsection{Absolute utility before rank comparison}
++Table~\ref{tab:within-values} is a new descriptive tabulation of the frozen
++outcomes, not a new execution or a replacement estimate. It reports the
++mean ANWG of FIFO, the range of policy means, and the size of the exact
++maximizing set. Each mean has the same 40-window support. Rounding in the
++table does not determine ties; sets are computed from unrounded values.
++
++\begin{table}[t]\centering
++\caption{Within-source ANWG context from frozen outcomes. Minimum and maximum
++are over the 11 policy means, not confidence limits. Top-set size uses exact
++stored arithmetic. A=Azure, B=Bailian, G=BurstGPT.}
++\label{tab:within-values}
++\begin{tabular}{llrrrr}\toprule
++Source & Region & FIFO & Minimum & Maximum & Top-set size\\\midrule
++A & LOW & 1.000 & 0.018 & 1.000 & 6\\
++A & PRE\_KNEE & 1.000 & 0.018 & 1.000 & 5\\
++A & KNEE & 0.998 & 0.018 & 1.000 & 4\\
++A & POST\_KNEE & 0.991 & 0.018 & 1.000 & 4\\
++A & OVERLOAD & 0.987 & 0.018 & 1.000 & 4\\
++A & HIGH\_PRESSURE & 0.964 & 0.018 & 1.000 & 1\\
++B & LOW & 1.000 & 0.080 & 1.000 & 7\\
++B & PRE\_KNEE & 1.000 & 0.080 & 1.000 & 6\\
++B & KNEE & 0.998 & 0.080 & 1.000 & 4\\
++B & POST\_KNEE & 0.988 & 0.080 & 1.000 & 4\\
++B & OVERLOAD & 0.979 & 0.080 & 1.000 & 4\\
++B & HIGH\_PRESSURE & 0.946 & 0.079 & 1.000 & 1\\
++G & LOW & 1.000 & 0.968 & 1.000 & 9\\
++G & PRE\_KNEE & 1.000 & 0.856 & 1.000 & 7\\
++G & KNEE & 0.997 & 0.666 & 0.997 & 4\\
++G & POST\_KNEE & 0.981 & 0.573 & 0.981 & 3\\
++G & OVERLOAD & 0.935 & 0.490 & 0.936 & 2\\
++G & HIGH\_PRESSURE & 0.645 & 0.271 & 0.652 & 2\\
++\bottomrule\end{tabular}\end{table}
++At LOW the maximum mean is 1.000 for every source, with six, seven and
++nine policies tied in Azure, Bailian and BurstGPT respectively. Yet the
++minimum is 0.018 for Azure, 0.080 for Bailian and 0.968 for BurstGPT.
++A ranking difference at LOW therefore has quite different absolute-utility
++context across sources. The table also explains why a tie-broken top
++choice is a weak description of a unique preferred policy in this region.
++
++At HIGH\_PRESSURE, FIFO means are 0.964, 0.946 and 0.645 respectively.
++The highest means remain 1.000 for Azure and Bailian, whereas BurstGPT's
++maximum is approximately 0.652. Thus similar ordinal agreement can coexist
++with different attained utility. A high cross-source tau does not establish
++similar service quality; a lower tau does not identify the magnitude or
++cost of every changed pair. This is why Q1's ordinal summary is accompanied
++by Q2's practical-margin criterion rather than interpreted alone.
++
++These contrasts cannot be attributed solely to queue ordering. Classical
++and serving-inspired implementations have different historical service
++and resource semantics (Section~\ref{sec:execution-model}). In particular,
++instant-prefill and prefill-aware paths do not impose the same work model.
++Policies without hard KV enforcement can also report demand above nominal
++capacity. The table supports description of the resulting abstractions;
++it does not show that one native serving mechanism dominates another.
++This is a fundamental comparability boundary for a scheduler-selection
++claim, not an uncertainty that more resampling can remove.
++
++\subsection{Observation support and operating-region interpretation}
++All 48 zero-completion primary configurations belong to the historical
++vLLM policy: seven Azure windows and one Bailian window in each of six
++regions. Other primary policies provide defined completion outcomes on
++those same inputs. Consequently, the corresponding conditional vLLM means
++have 33 Azure or 39 Bailian observations, while other policy means use 40.
++ANWG includes all 40 windows and gives the zero-completion outcomes zero
++credit. These are different questions about the same frozen executions.
++
++The zero-completion pattern is not a finding that each of those windows
++is intrinsically infeasible for all policies. It is specific to an
++implementation and its model path. Similarly, FIFO-referenced load factors
++are controlled arrival-rate settings, not measured native saturation
++states shared by every implementation. Interpreting higher-region changes
++requires both the absolute outcomes and these implementation constraints.
++The corpus does not estimate a universal utilization knee or a calibrated
++capacity curve for production hardware.

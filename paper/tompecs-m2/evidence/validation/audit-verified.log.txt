@@ -1,0 +1,80 @@
+ranking intervals 198 198
+{
+  "status": "POST_HOC_AUDIT_NOT_NEW_EXPERIMENT",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1"
+  },
+  "cross_metric_intervals": {
+    "correlations_tested": 6,
+    "correlations_matched": 6,
+    "differences_tested": 6890,
+    "differences_matched": 6890
+  },
+  "ranking_intervals": {
+    "tested": 198,
+    "matched": 198,
+    "primary_matched": 18
+  },
+  "primary_reversal_intervals": {
+    "tested": 72,
+    "matched": 72
+  },
+  "friedman": {
+    "tested": 66,
+    "matched": 66,
+    "treatment_counts": {
+      "11": 18,
+      "10": 48
+    }
+  },
+  "cross_metric": {
+    "n": 990,
+    "point_matches": 990,
+    "id_agreement": 316,
+    "set_intersection": 572,
+    "set_equality": 179,
+    "both_unique": 257,
+    "mean_jaccard": 0.3293462766190039,
+    "matched_id_agreement": 316,
+    "matched_median_tau": 0.41848860073577854,
+    "matched_negative_tau": 202,
+    "matched_tau_changes": 81,
+    "common_windows_min": 33
+  },
+  "matched_pairwise": {
+    "changed_records": 5890,
+    "saved_supported_affected": 2720,
+    "saved_supported_losing_practical_gate": 0,
+    "saved_supported_ci_sign_misaligned": 0
+  },
+  "multiplicity": {
+    "primary": {
+      "families": 6,
+      "tested": 36,
+      "zero_iut": 30,
+      "flag_mismatches": 0,
+      "saved_screened": 36,
+      "full_family": 30,
+      "plus_one_full": 30,
+      "plus_one_full_BY": 0
+    },
+    "cross_metric": {
+      "families": 990,
+      "tested": 3445,
+      "zero_iut": 2723,
+      "flag_mismatches": 0,
+      "saved_screened": 3207,
+      "full_family": 3006,
+      "plus_one_full": 2971,
+      "plus_one_full_BY": 1940
+    }
+  },
+  "chronological_block_sensitivity": {
+    "records": 36,
+    "both_exclude_zero": 30,
+    "block_length": 5,
+    "seed_base": 20261022
+  }
+}

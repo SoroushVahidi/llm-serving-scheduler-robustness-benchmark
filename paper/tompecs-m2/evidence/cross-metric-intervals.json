@@ -1,0 +1,98 @@
+[
+  {
+    "source": "azure_llm_2024",
+    "region": "LOW",
+    "a": "arrival_normalized_weighted_goodput",
+    "b": "mean_latency",
+    "seed": 2747694542,
+    "saved": [
+      0.2832788618662658,
+      0.588348405414552
+    ],
+    "ci": [
+      0.28327886186626583,
+      0.5883484054145521
+    ],
+    "match": true
+  },
+  {
+    "source": "azure_llm_2024",
+    "region": "HIGH_PRESSURE",
+    "a": "arrival_normalized_weighted_goodput",
+    "b": "mean_latency",
+    "seed": 55581936,
+    "saved": [
+      0.3535533905932738,
+      0.5046949386828399
+    ],
+    "ci": [
+      0.3535533905932738,
+      0.5046949386828399
+    ],
+    "match": true
+  },
+  {
+    "source": "bailian_qwen",
+    "region": "LOW",
+    "a": "arrival_normalized_weighted_goodput",
+    "b": "mean_latency",
+    "seed": 3329990413,
+    "saved": [
+      0.21520264493646468,
+      0.2508726030021272
+    ],
+    "ci": [
+      0.21520264493646468,
+      0.2508726030021272
+    ],
+    "match": true
+  },
+  {
+    "source": "bailian_qwen",
+    "region": "HIGH_PRESSURE",
+    "a": "arrival_normalized_weighted_goodput",
+    "b": "mean_latency",
+    "seed": 275095563,
+    "saved": [
+      0.42992531813723395,
+      0.5420797489556428
+    ],
+    "ci": [
+      0.42992531813723395,
+      0.5420797489556428
+    ],
+    "match": true
+  },
+  {
+    "source": "burstgpt",
+    "region": "LOW",
+    "a": "arrival_normalized_weighted_goodput",
+    "b": "mean_latency",
+    "seed": 3359868938,
+    "saved": [
+      -0.5504818825631803,
+      0.6789146042562408
+    ],
+    "ci": [
+      -0.5504818825631803,
+      0.678914604256241
+    ],
+    "match": true
+  },
+  {
+    "source": "burstgpt",
+    "region": "HIGH_PRESSURE",
+    "a": "arrival_normalized_weighted_goodput",
+    "b": "mean_latency",
+    "seed": 1007658847,
+    "saved": [
+      0.5757575757575758,
+      1.0
+    ],
+    "ci": [
+      0.5757575757575758,
+      1.0
+    ],
+    "match": true
+  }
+]

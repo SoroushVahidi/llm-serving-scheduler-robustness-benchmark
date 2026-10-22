@@ -1,0 +1,30 @@
+{
+  "observed_date_utc": "2026-10-22",
+  "sources": [
+    {
+      "url": "https://jmlr.org/papers/v7/demsar06a.html",
+      "result": "Primary article metadata and abstract retrieved; algorithm comparison scope."
+    },
+    {
+      "url": "https://research.spec.org/icpe_proceedings/2013/proceedings/p149.pdf",
+      "result": "Primary conference paper retrieved; user subtrace resampling and activity-cycle preservation."
+    },
+    {
+      "url": "https://www.math.tau.ac.il/~ybenja/depApr27.pdf",
+      "result": "Author-hosted primary paper retrieved; abstract supports positive-regression-dependence condition; PDF text encoding partly garbled."
+    },
+    {
+      "url": "https://projecteuclid.org/journals/annals-of-statistics/volume-29/issue-4/The-control-of-the-false-discovery-rate-in-multiple-testing/10.1214/aos/1013699998.full",
+      "result": "Publisher iframe shell only."
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.friedmanchisquare.html",
+      "result": "Official documentation retrieved. Current web documentation v1.18; local computation uses installed v1.17.1."
+    },
+    {
+      "url": "https://dl.acm.org/journal/tompecs/author-guidelines",
+      "result": "403 Forbidden; current journal-specific requirements not verified."
+    }
+  ],
+  "scope": "Targeted primary-source checks for new methodological discussion, not full bibliography certification."
+}

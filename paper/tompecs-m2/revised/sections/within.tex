@@ -1,0 +1,104 @@
+\section{Performance Within Operating Regions}\label{sec:within}
+The operating-region names identify FIFO-referenced arrival-rate settings,
+not independently measured physical saturation states. Each source has
+40 windows and every primary policy is observed on each window in each
+region. Comparisons within a source/region use matched windows; a policy
+is not calibrated separately to obtain a favorable operating point.
+
+The central quantity is relative order under ANWG, the fraction of arrival
+priority weight receiving deadline credit. Completion-conditioned latency
+and throughput can describe a different subset of requests. A policy that
+finishes only favorable requests can have a strong completion-conditioned
+metric while losing arrival-normalized utility; the common denominator
+and missing-value rules are therefore part of the comparison, not merely
+reporting details.
+
+Across the complete two-pass campaign, 211 of 9,360 unique configurations
+have zero completions; 48 of these belong to the 11-policy primary panel.
+The preserved FIFO calibration manifest instead has zero zero-completion records out of 720. Calibration records cannot be propagated as zero-completion
+outcomes for all other policies. The reported rankings retain defined
+policy/window observations and omit undefined conditional observations,
+so effective observation sets can differ even when a condition-level
+ranking remains estimable.
+
+The full per-policy outcome matrix remains the record for within-region
+performance. This paper does not turn the panel into a universal winner
+recommendation: the policies share a simulator implementation boundary,
+and region names, synthesized deadlines and metric conditioning all
+constrain the interpretation of an ordering.
+
+\subsection{Absolute utility before rank comparison}
+Table~\ref{tab:within-values} is a new descriptive tabulation of the frozen
+outcomes, not a new execution or a replacement estimate. It reports the
+mean ANWG of FIFO, the range of policy means, and the size of the exact
+maximizing set. Each mean has the same 40-window support. Rounding in the
+table does not determine ties; sets are computed from unrounded values.
+
+\begin{table}[t]\centering
+\caption{Within-source ANWG context from frozen outcomes. Minimum and maximum
+are over the 11 policy means, not confidence limits. Top-set size uses exact
+stored arithmetic. A=Azure, B=Bailian, G=BurstGPT.}
+\label{tab:within-values}
+\begin{tabular}{llrrrr}\toprule
+Source & Region & FIFO & Minimum & Maximum & Top-set size\\\midrule
+A & LOW & 1.000 & 0.018 & 1.000 & 6\\
+A & PRE\_KNEE & 1.000 & 0.018 & 1.000 & 5\\
+A & KNEE & 0.998 & 0.018 & 1.000 & 4\\
+A & POST\_KNEE & 0.991 & 0.018 & 1.000 & 4\\
+A & OVERLOAD & 0.987 & 0.018 & 1.000 & 4\\
+A & HIGH\_PRESSURE & 0.964 & 0.018 & 1.000 & 1\\
+B & LOW & 1.000 & 0.080 & 1.000 & 7\\
+B & PRE\_KNEE & 1.000 & 0.080 & 1.000 & 6\\
+B & KNEE & 0.998 & 0.080 & 1.000 & 4\\
+B & POST\_KNEE & 0.988 & 0.080 & 1.000 & 4\\
+B & OVERLOAD & 0.979 & 0.080 & 1.000 & 4\\
+B & HIGH\_PRESSURE & 0.946 & 0.079 & 1.000 & 1\\
+G & LOW & 1.000 & 0.968 & 1.000 & 9\\
+G & PRE\_KNEE & 1.000 & 0.856 & 1.000 & 7\\
+G & KNEE & 0.997 & 0.666 & 0.997 & 4\\
+G & POST\_KNEE & 0.981 & 0.573 & 0.981 & 3\\
+G & OVERLOAD & 0.935 & 0.490 & 0.936 & 2\\
+G & HIGH\_PRESSURE & 0.645 & 0.271 & 0.652 & 2\\
+\bottomrule\end{tabular}\end{table}
+At LOW the maximum mean is 1.000 for every source, with six, seven and
+nine policies tied in Azure, Bailian and BurstGPT respectively. Yet the
+minimum is 0.018 for Azure, 0.080 for Bailian and 0.968 for BurstGPT.
+A ranking difference at LOW therefore has quite different absolute-utility
+context across sources. The table also explains why a tie-broken top
+choice is a weak description of a unique preferred policy in this region.
+
+At HIGH\_PRESSURE, FIFO means are 0.964, 0.946 and 0.645 respectively.
+The highest means remain 1.000 for Azure and Bailian, whereas BurstGPT's
+maximum is approximately 0.652. Thus similar ordinal agreement can coexist
+with different attained utility. A high cross-source tau does not establish
+similar service quality; a lower tau does not identify the magnitude or
+cost of every changed pair. This is why Q1's ordinal summary is accompanied
+by Q2's practical-margin criterion rather than interpreted alone.
+
+These contrasts cannot be attributed solely to queue ordering. Classical
+and serving-inspired implementations have different historical service
+and resource semantics (Section~\ref{sec:execution-model}). In particular,
+instant-prefill and prefill-aware paths do not impose the same work model.
+Policies without hard KV enforcement can also report demand above nominal
+capacity. The table supports description of the resulting abstractions;
+it does not show that one native serving mechanism dominates another.
+This is a fundamental comparability boundary for a scheduler-selection
+claim, not an uncertainty that more resampling can remove.
+
+\subsection{Observation support and operating-region interpretation}
+All 48 zero-completion primary configurations belong to the historical
+vLLM policy: seven Azure windows and one Bailian window in each of six
+regions. Other primary policies provide defined completion outcomes on
+those same inputs. Consequently, the corresponding conditional vLLM means
+have 33 Azure or 39 Bailian observations, while other policy means use 40.
+ANWG includes all 40 windows and gives the zero-completion outcomes zero
+credit. These are different questions about the same frozen executions.
+
+The zero-completion pattern is not a finding that each of those windows
+is intrinsically infeasible for all policies. It is specific to an
+implementation and its model path. Similarly, FIFO-referenced load factors
+are controlled arrival-rate settings, not measured native saturation
+states shared by every implementation. Interpreting higher-region changes
+requires both the absolute outcomes and these implementation constraints.
+The corpus does not estimate a universal utilization knee or a calibrated
+capacity curve for production hardware.

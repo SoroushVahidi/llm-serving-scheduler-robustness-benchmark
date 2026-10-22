@@ -1,0 +1,7 @@
+session=lssp-tompecs-m2
+window=audit
+pid=531876
+start=2026-10-22T02:55:45+00:00
+command=python -u paper/tompecs-m2/scripts/audit.py 
+end=2026-10-22T02:55:50+00:00
+exit=1

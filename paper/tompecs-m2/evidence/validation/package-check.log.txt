@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "markdown_links_resolve": true,
+    "audit-verified_exit_zero": true,
+    "additional-checks_exit_zero": true,
+    "cpu-checks_exit_zero": true,
+    "clean-build_exit_zero": true,
+    "numerical_counts": true,
+    "primary_classification_counts": true,
+    "document_checks": true,
+    "complete_review_deliverables": true
+  },
+  "failed": 0,
+  "missing_links": []
+}

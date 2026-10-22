@@ -1,0 +1,26 @@
+ranking intervals 198 198
+Traceback (most recent call last):
+  File "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/paper/tompecs-m2/scripts/audit.py", line 116, in <module>
+    for n,x in [('ranking-intervals.json',ranks),('primary-reversal-intervals.json',reversals),('friedman-audit.json',fried),('cross-metric-sets-and-matched.json',cm),('matched-pairwise-changes.json',matched),('multiplicity-families.json',families),('chronological-block-sensitivity.json',block),('within-region.json',within),('statistical-audit.json',summary)]:write(n,x)
+                                                                                                                                                                                                                                                                                                                                                                          ^^^^^^^^^^
+  File "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/paper/tompecs-m2/scripts/audit.py", line 13, in write
+    def write(n,x): (OUT/n).write_text(json.dumps(x,indent=2,allow_nan=True)+'\n')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type int64 is not JSON serializable

@@ -1,0 +1,1154 @@
+[
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "azure_llm_2024::PRE_KNEE",
+    "condition_y": "burstgpt::PRE_KNEE",
+    "x": {
+      "saved_ci": [
+        -0.22612812500000004,
+        -0.18362499999999998
+      ],
+      "ci": [
+        -0.22612812500000004,
+        -0.18362499999999998
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.06786562500000003,
+        0.2182687499999999
+      ],
+      "ci": [
+        0.06786562500000003,
+        0.2182687499999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "azure_llm_2024::PRE_KNEE",
+    "condition_y": "burstgpt::PRE_KNEE",
+    "x": {
+      "saved_ci": [
+        0.18462499999999998,
+        0.226503125
+      ],
+      "ci": [
+        0.18462499999999998,
+        0.226503125
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.22288124999999998,
+        -0.06925
+      ],
+      "ci": [
+        -0.22288124999999998,
+        -0.06925
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::PRE_KNEE",
+    "condition_y": "burstgpt::PRE_KNEE",
+    "x": {
+      "saved_ci": [
+        0.876746875,
+        0.9481281250000001
+      ],
+      "ci": [
+        0.876746875,
+        0.9481281250000001
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.2043875,
+        -0.025000000000000012
+      ],
+      "ci": [
+        -0.2043875,
+        -0.025000000000000012
+      ],
+      "p": 0.011,
+      "saved_p": 0.011,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "bailian_qwen::PRE_KNEE",
+    "condition_y": "burstgpt::PRE_KNEE",
+    "x": {
+      "saved_ci": [
+        -0.19675624999999997,
+        -0.14511875000000005
+      ],
+      "ci": [
+        -0.19675624999999997,
+        -0.14511875000000005
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.069996875,
+        0.21966874999999977
+      ],
+      "ci": [
+        0.069996875,
+        0.21966874999999977
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "bailian_qwen::PRE_KNEE",
+    "condition_y": "burstgpt::PRE_KNEE",
+    "x": {
+      "saved_ci": [
+        0.14375,
+        0.196628125
+      ],
+      "ci": [
+        0.14375,
+        0.196628125
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.22238124999999997,
+        -0.07299687500000002
+      ],
+      "ci": [
+        -0.22238124999999997,
+        -0.07299687500000002
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::PRE_KNEE",
+    "condition_y": "burstgpt::PRE_KNEE",
+    "x": {
+      "saved_ci": [
+        0.8744968750000001,
+        0.93338125
+      ],
+      "ci": [
+        0.8744968750000001,
+        0.93338125
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.206878125,
+        -0.026353125000000123
+      ],
+      "ci": [
+        -0.206878125,
+        -0.026353125000000123
+      ],
+      "p": 0.014,
+      "saved_p": 0.014,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "azure_llm_2024::KNEE",
+    "condition_y": "burstgpt::KNEE",
+    "x": {
+      "saved_ci": [
+        -0.22599999999999998,
+        -0.159375
+      ],
+      "ci": [
+        -0.22599999999999998,
+        -0.159375
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.185496875,
+        0.3672624999999999
+      ],
+      "ci": [
+        0.185496875,
+        0.3672624999999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "azure_llm_2024::KNEE",
+    "condition_y": "burstgpt::KNEE",
+    "x": {
+      "saved_ci": [
+        0.158746875,
+        0.22437812499999998
+      ],
+      "ci": [
+        0.158746875,
+        0.22437812499999998
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.363378125,
+        -0.185496875
+      ],
+      "ci": [
+        -0.363378125,
+        -0.185496875
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::KNEE",
+    "condition_y": "burstgpt::KNEE",
+    "x": {
+      "saved_ci": [
+        0.7604937500000001,
+        0.8717531250000001
+      ],
+      "ci": [
+        0.7604937500000001,
+        0.8717531250000001
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.4243874999999999,
+        -0.1704843750000001
+      ],
+      "ci": [
+        -0.4243874999999999,
+        -0.1704843750000001
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "bailian_qwen::KNEE",
+    "condition_y": "burstgpt::KNEE",
+    "x": {
+      "saved_ci": [
+        -0.24112499999999998,
+        -0.18574375000000004
+      ],
+      "ci": [
+        -0.24112499999999998,
+        -0.18574375000000004
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.18825,
+        0.3666374999999999
+      ],
+      "ci": [
+        0.18825,
+        0.3666374999999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "bailian_qwen::KNEE",
+    "condition_y": "burstgpt::KNEE",
+    "x": {
+      "saved_ci": [
+        0.186,
+        0.24063124999999996
+      ],
+      "ci": [
+        0.186,
+        0.24063124999999996
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.36775,
+        -0.1873531250000001
+      ],
+      "ci": [
+        -0.36775,
+        -0.1873531250000001
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::KNEE",
+    "condition_y": "burstgpt::KNEE",
+    "x": {
+      "saved_ci": [
+        0.8376250000000001,
+        0.9121374999999999
+      ],
+      "ci": [
+        0.8376250000000001,
+        0.9121374999999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.42312500000000003,
+        -0.17074687500000002
+      ],
+      "ci": [
+        -0.42312500000000003,
+        -0.17074687500000002
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "azure_llm_2024::POST_KNEE",
+    "condition_y": "burstgpt::POST_KNEE",
+    "x": {
+      "saved_ci": [
+        -0.19976562499999997,
+        -0.12799375000000004
+      ],
+      "ci": [
+        -0.19976562499999997,
+        -0.12799375000000004
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.222875,
+        0.3948843749999999
+      ],
+      "ci": [
+        0.222875,
+        0.3948843749999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "azure_llm_2024::POST_KNEE",
+    "condition_y": "burstgpt::POST_KNEE",
+    "x": {
+      "saved_ci": [
+        0.126871875,
+        0.20025312500000003
+      ],
+      "ci": [
+        0.126871875,
+        0.20025312500000003
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.38843437499999994,
+        -0.22386562500000004
+      ],
+      "ci": [
+        -0.38843437499999994,
+        -0.22386562500000004
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::POST_KNEE",
+    "condition_y": "burstgpt::POST_KNEE",
+    "x": {
+      "saved_ci": [
+        0.690621875,
+        0.8180062499999999
+      ],
+      "ci": [
+        0.690621875,
+        0.8180062499999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.5067499999999999,
+        -0.25
+      ],
+      "ci": [
+        -0.5067499999999999,
+        -0.25
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "bailian_qwen::POST_KNEE",
+    "condition_y": "burstgpt::POST_KNEE",
+    "x": {
+      "saved_ci": [
+        -0.2455,
+        -0.19487500000000002
+      ],
+      "ci": [
+        -0.2455,
+        -0.19487500000000002
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.21949687500000004,
+        0.3960187499999999
+      ],
+      "ci": [
+        0.21949687500000004,
+        0.3960187499999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "bailian_qwen::POST_KNEE",
+    "condition_y": "burstgpt::POST_KNEE",
+    "x": {
+      "saved_ci": [
+        0.1935,
+        0.2455
+      ],
+      "ci": [
+        0.1935,
+        0.2455
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.39312812499999994,
+        -0.22036250000000004
+      ],
+      "ci": [
+        -0.39312812499999994,
+        -0.22036250000000004
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::POST_KNEE",
+    "condition_y": "burstgpt::POST_KNEE",
+    "x": {
+      "saved_ci": [
+        0.808996875,
+        0.8928750000000001
+      ],
+      "ci": [
+        0.808996875,
+        0.8928750000000001
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.503759375,
+        -0.25270000000000026
+      ],
+      "ci": [
+        -0.503759375,
+        -0.25270000000000026
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "azure_llm_2024::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        -0.16850312499999998,
+        -0.08562187500000001
+      ],
+      "ci": [
+        -0.16850312499999998,
+        -0.08562187500000001
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.22424687499999998,
+        0.37488749999999993
+      ],
+      "ci": [
+        0.22424687499999998,
+        0.37488749999999993
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        0.52975,
+        0.5862593749999999
+      ],
+      "ci": [
+        0.52975,
+        0.5862593749999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.20626249999999996,
+        -0.03548750000000008
+      ],
+      "ci": [
+        -0.20626249999999996,
+        -0.03548750000000008
+      ],
+      "p": 0.007,
+      "saved_p": 0.007,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "azure_llm_2024::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        0.08849375000000001,
+        0.17174999999999999
+      ],
+      "ci": [
+        0.08849375000000001,
+        0.17174999999999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.37113437499999996,
+        -0.22247812500000008
+      ],
+      "ci": [
+        -0.37113437499999996,
+        -0.22247812500000008
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        0.621740625,
+        0.751265625
+      ],
+      "ci": [
+        0.621740625,
+        0.751265625
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.5295437499999999,
+        -0.29498750000000007
+      ],
+      "ci": [
+        -0.5295437499999999,
+        -0.29498750000000007
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "vllm_chunked_prefill_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        0.532871875,
+        0.588128125
+      ],
+      "ci": [
+        0.532871875,
+        0.588128125
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.209125,
+        -0.03048437500000009
+      ],
+      "ci": [
+        -0.209125,
+        -0.03048437500000009
+      ],
+      "p": 0.007,
+      "saved_p": 0.007,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "bailian_qwen::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        -0.24924999999999997,
+        -0.196996875
+      ],
+      "ci": [
+        -0.24924999999999997,
+        -0.196996875
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.221875,
+        0.37249999999999994
+      ],
+      "ci": [
+        0.221875,
+        0.37249999999999994
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        0.557121875,
+        0.650753125
+      ],
+      "ci": [
+        0.557121875,
+        0.650753125
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.211003125,
+        -0.033121875000000016
+      ],
+      "ci": [
+        -0.211003125,
+        -0.033121875000000016
+      ],
+      "p": 0.005,
+      "saved_p": 0.005,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "bailian_qwen::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        0.197375,
+        0.25075312499999997
+      ],
+      "ci": [
+        0.197375,
+        0.25075312499999997
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.37425625,
+        -0.22186875000000003
+      ],
+      "ci": [
+        -0.37425625,
+        -0.22186875000000003
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        0.779615625,
+        0.876625
+      ],
+      "ci": [
+        0.779615625,
+        0.876625
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.531515625,
+        -0.2962343750000001
+      ],
+      "ci": [
+        -0.531515625,
+        -0.2962343750000001
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "vllm_chunked_prefill_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::OVERLOAD",
+    "condition_y": "burstgpt::OVERLOAD",
+    "x": {
+      "saved_ci": [
+        0.5583656250000001,
+        0.6495093749999999
+      ],
+      "ci": [
+        0.5583656250000001,
+        0.6495093749999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.20250312500000003,
+        -0.029865625000000055
+      ],
+      "ci": [
+        -0.20250312500000003,
+        -0.029865625000000055
+      ],
+      "p": 0.005,
+      "saved_p": 0.005,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "x": {
+      "saved_ci": [
+        0.45737500000000003,
+        0.5127531249999999
+      ],
+      "ci": [
+        0.45737500000000003,
+        0.5127531249999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.22565312499999998,
+        -0.07236875000000004
+      ],
+      "ci": [
+        -0.22565312499999998,
+        -0.07236875000000004
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "x": {
+      "saved_ci": [
+        0.451603125,
+        0.58775625
+      ],
+      "ci": [
+        0.451603125,
+        0.58775625
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.43225625000000006,
+        -0.26036875
+      ],
+      "ci": [
+        -0.43225625000000006,
+        -0.26036875
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "vllm_chunked_prefill_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "x": {
+      "saved_ci": [
+        0.45675,
+        0.5113749999999999
+      ],
+      "ci": [
+        0.45675,
+        0.5113749999999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.23000937500000002,
+        -0.07311562500000006
+      ],
+      "ci": [
+        -0.23000937500000002,
+        -0.07311562500000006
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "slai_faithful",
+    "condition_x": "bailian_qwen::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "x": {
+      "saved_ci": [
+        -0.22712500000000002,
+        -0.16649687500000002
+      ],
+      "ci": [
+        -0.22712500000000002,
+        -0.16649687500000002
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        0.14299062500000004,
+        0.25688125000000006
+      ],
+      "ci": [
+        0.14299062500000004,
+        0.25688125000000006
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "sarathi_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "x": {
+      "saved_ci": [
+        0.4821218749999999,
+        0.583125
+      ],
+      "ci": [
+        0.4821218749999999,
+        0.583125
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.22725937499999999,
+        -0.07099687500000003
+      ],
+      "ci": [
+        -0.22725937499999999,
+        -0.07099687500000003
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_chunked_prefill_faithful",
+    "condition_x": "bailian_qwen::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "x": {
+      "saved_ci": [
+        0.16636875,
+        0.22612812499999999
+      ],
+      "ci": [
+        0.16636875,
+        0.22612812499999999
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.263503125,
+        -0.14387500000000003
+      ],
+      "ci": [
+        -0.263503125,
+        -0.14387500000000003
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "slai_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "x": {
+      "saved_ci": [
+        0.663240625,
+        0.790128125
+      ],
+      "ci": [
+        0.663240625,
+        0.790128125
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.43127187499999997,
+        -0.262871875
+      ],
+      "ci": [
+        -0.43127187499999997,
+        -0.262871875
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  },
+  {
+    "policy_a": "vllm_chunked_prefill_faithful",
+    "policy_b": "vllm_faithful",
+    "condition_x": "bailian_qwen::HIGH_PRESSURE",
+    "condition_y": "burstgpt::HIGH_PRESSURE",
+    "x": {
+      "saved_ci": [
+        0.48324687499999996,
+        0.581128125
+      ],
+      "ci": [
+        0.48324687499999996,
+        0.581128125
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    },
+    "y": {
+      "saved_ci": [
+        -0.22838125000000004,
+        -0.07511875000000003
+      ],
+      "ci": [
+        -0.22838125000000004,
+        -0.07511875000000003
+      ],
+      "p": 0.0,
+      "saved_p": 0.0,
+      "match": true
+    }
+  }
+]

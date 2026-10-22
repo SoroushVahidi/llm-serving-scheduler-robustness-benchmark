@@ -1,0 +1,3368 @@
+[
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.9198662110077999,
+    "point_match": true,
+    "saved": [
+      0.8641167436739938,
+      0.9198662110077999
+    ],
+    "reproduced": [
+      0.8641167436739938,
+      0.9198662110077999
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.5510387687779837,
+    "point_match": true,
+    "saved": [
+      0.2025478734167333,
+      0.5510387687779837
+    ],
+    "reproduced": [
+      0.20254787341673333,
+      0.5510387687779837
+    ],
+    "match": true,
+    "undefined_draws": 10
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.5990422978731537,
+    "point_match": true,
+    "saved": [
+      0.22019275302527214,
+      0.5990422978731537
+    ],
+    "reproduced": [
+      0.22019275302527214,
+      0.5990422978731538
+    ],
+    "match": true,
+    "undefined_draws": 12
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.8931884167327451,
+    "point_match": true,
+    "saved": [
+      0.8931884167327451,
+      1.0
+    ],
+    "reproduced": [
+      0.893188416732745,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.7085662394599953,
+    "point_match": true,
+    "saved": [
+      0.4496144015129485,
+      0.7526178090063816
+    ],
+    "reproduced": [
+      0.4496144015129485,
+      0.7526178090063816
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.6968683416725756,
+    "point_match": true,
+    "saved": [
+      0.4040950971038548,
+      0.7526178090063816
+    ],
+    "reproduced": [
+      0.4040950971038548,
+      0.7526178090063816
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.9583333333333335,
+    "point_match": true,
+    "saved": [
+      0.9139076937674138,
+      1.0
+    ],
+    "reproduced": [
+      0.9139076937674137,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.6458333333333335,
+    "point_match": true,
+    "saved": [
+      0.577896743774047,
+      0.7291666666666667
+    ],
+    "reproduced": [
+      0.577896743774047,
+      0.7291666666666666
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.6041666666666667,
+    "point_match": true,
+    "saved": [
+      0.5208333333333334,
+      0.6875
+    ],
+    "reproduced": [
+      0.5208333333333334,
+      0.6875
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.9583333333333335,
+    "point_match": true,
+    "saved": [
+      0.9583333333333335,
+      1.0
+    ],
+    "reproduced": [
+      0.9583333333333334,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.6467616667635546,
+    "point_match": true,
+    "saved": [
+      0.5103103630798288,
+      0.6784005252999682
+    ],
+    "reproduced": [
+      0.5103103630798288,
+      0.6784005252999682
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.6063390625908325,
+    "point_match": true,
+    "saved": [
+      0.46948553403344245,
+      0.6470973183683323
+    ],
+    "reproduced": [
+      0.46948553403344245,
+      0.6470973183683323
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.9583333333333335,
+    "point_match": true,
+    "saved": [
+      0.9583333333333335,
+      1.0
+    ],
+    "reproduced": [
+      0.9583333333333334,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6204965959947127,
+    "point_match": true,
+    "saved": [
+      0.5659164584181102,
+      0.6204965959947127
+    ],
+    "reproduced": [
+      0.5659164584181103,
+      0.6204965959947126
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.580464557543441,
+    "point_match": true,
+    "saved": [
+      0.5254938542453881,
+      0.6204965959947127
+    ],
+    "reproduced": [
+      0.5254938542453882,
+      0.6204965959947126
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 1.0,
+    "point_match": true,
+    "saved": [
+      0.9040133315325639,
+      1.0
+    ],
+    "reproduced": [
+      0.9040133315325639,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.6226415094339623,
+    "point_match": true,
+    "saved": [
+      0.549962314837632,
+      0.7116700695043587
+    ],
+    "reproduced": [
+      0.549962314837632,
+      0.7116700695043588
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.6226415094339623,
+    "point_match": true,
+    "saved": [
+      0.549962314837632,
+      0.6993258208972303
+    ],
+    "reproduced": [
+      0.549962314837632,
+      0.6993258208972302
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 94
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 97
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 98
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 87
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 97
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 101
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 85
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 93
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 96
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 74
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 96
+  },
+  {
+    "metric": "completion_fraction",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 89
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 91
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 85
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 91
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 102
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 92
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 86
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 99
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 86
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 96
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 92
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 89
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.9999999999999999,
+    "point_match": true,
+    "saved": [
+      0.9999999999999999,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      1.0,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 98
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.8876253645985945,
+    "point_match": true,
+    "saved": [
+      0.8193464903987027,
+      0.8876253645985945
+    ],
+    "reproduced": [
+      0.8193464903987027,
+      0.8876253645985945
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.3302891295379082,
+    "point_match": true,
+    "saved": [
+      0.22019275302527214,
+      0.3302891295379082
+    ],
+    "reproduced": [
+      0.22019275302527214,
+      0.3302891295379082
+    ],
+    "match": true,
+    "undefined_draws": 245
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.3721042037676254,
+    "point_match": true,
+    "saved": [
+      0.3721042037676254,
+      0.3721042037676254
+    ],
+    "reproduced": [
+      0.3721042037676254,
+      0.3721042037676254
+    ],
+    "match": true,
+    "undefined_draws": 257
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.8641167436739938,
+    "point_match": true,
+    "saved": [
+      0.8641167436739938,
+      1.0
+    ],
+    "reproduced": [
+      0.8641167436739938,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.6908817223234606,
+    "point_match": true,
+    "saved": [
+      0.30382181012509996,
+      0.7510676161988108
+    ],
+    "reproduced": [
+      0.3038218101251,
+      0.7510676161988108
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.6827887419989189,
+    "point_match": true,
+    "saved": [
+      0.22019275302527214,
+      0.7510676161988108
+    ],
+    "reproduced": [
+      0.22019275302527214,
+      0.7510676161988108
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.9545454545454546,
+    "point_match": true,
+    "saved": [
+      0.8790953229099079,
+      1.0
+    ],
+    "reproduced": [
+      0.8790953229099078,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.7272727272727273,
+    "point_match": true,
+    "saved": [
+      0.4986206870274041,
+      0.76271276980969
+    ],
+    "reproduced": [
+      0.4986206870274041,
+      0.7627127698096899
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.6818181818181819,
+    "point_match": true,
+    "saved": [
+      0.44613429891925627,
+      0.6818181818181819
+    ],
+    "reproduced": [
+      0.44613429891925627,
+      0.6818181818181818
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.9545454545454546,
+    "point_match": true,
+    "saved": [
+      0.9545454545454546,
+      1.0
+    ],
+    "reproduced": [
+      0.9545454545454546,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.7177405625652733,
+    "point_match": true,
+    "saved": [
+      0.6560798513518474,
+      0.7398300378117159
+    ],
+    "reproduced": [
+      0.6560798513518474,
+      0.7398300378117159
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.6755205294731985,
+    "point_match": true,
+    "saved": [
+      0.6035934632436997,
+      0.7177405625652733
+    ],
+    "reproduced": [
+      0.6035934632436997,
+      0.7177405625652734
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.9545454545454546,
+    "point_match": true,
+    "saved": [
+      0.9545454545454546,
+      1.0
+    ],
+    "reproduced": [
+      0.9545454545454546,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6480875577554954,
+    "point_match": true,
+    "saved": [
+      0.6333004963811236,
+      0.6560798513518474
+    ],
+    "reproduced": [
+      0.6333004963811236,
+      0.6560798513518474
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6062754572551408,
+    "point_match": true,
+    "saved": [
+      0.5913123959890826,
+      0.6560798513518474
+    ],
+    "reproduced": [
+      0.5913123959890826,
+      0.6560798513518474
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.8762302154233783,
+    "point_match": true,
+    "saved": [
+      0.8000362836474324,
+      1.0
+    ],
+    "reproduced": [
+      0.8000362836474323,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.5333575224316216,
+    "point_match": true,
+    "saved": [
+      0.45226701686664544,
+      0.796084166404533
+    ],
+    "reproduced": [
+      0.45226701686664544,
+      0.796084166404533
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "slo_violation_rate",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.6603773584905661,
+    "point_match": true,
+    "saved": [
+      0.49526055654364864,
+      0.8158801243801018
+    ],
+    "reproduced": [
+      0.49526055654364853,
+      0.8158801243801018
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.8876253645985945,
+    "point_match": true,
+    "saved": [
+      0.8193464903987027,
+      0.8876253645985945
+    ],
+    "reproduced": [
+      0.8193464903987027,
+      0.8876253645985945
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.3302891295379082,
+    "point_match": true,
+    "saved": [
+      0.22019275302527214,
+      0.3302891295379082
+    ],
+    "reproduced": [
+      0.22019275302527214,
+      0.3302891295379082
+    ],
+    "match": true,
+    "undefined_draws": 272
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.3721042037676254,
+    "point_match": true,
+    "saved": [
+      0.3721042037676254,
+      0.3721042037676254
+    ],
+    "reproduced": [
+      0.3721042037676254,
+      0.3721042037676254
+    ],
+    "match": true,
+    "undefined_draws": 277
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.8641167436739938,
+    "point_match": true,
+    "saved": [
+      0.8641167436739938,
+      1.0
+    ],
+    "reproduced": [
+      0.8641167436739938,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.6908817223234606,
+    "point_match": true,
+    "saved": [
+      0.30382181012509996,
+      0.7510676161988108
+    ],
+    "reproduced": [
+      0.3038218101251,
+      0.7510676161988108
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.6827887419989189,
+    "point_match": true,
+    "saved": [
+      0.22019275302527214,
+      0.7510676161988108
+    ],
+    "reproduced": [
+      0.22019275302527214,
+      0.7510676161988108
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.9545454545454546,
+    "point_match": true,
+    "saved": [
+      0.8931884167327451,
+      1.0
+    ],
+    "reproduced": [
+      0.893188416732745,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.7272727272727273,
+    "point_match": true,
+    "saved": [
+      0.4986206870274041,
+      0.76271276980969
+    ],
+    "reproduced": [
+      0.4986206870274041,
+      0.7627127698096899
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.6818181818181819,
+    "point_match": true,
+    "saved": [
+      0.44613429891925627,
+      0.6818181818181819
+    ],
+    "reproduced": [
+      0.44613429891925627,
+      0.6818181818181818
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.9545454545454546,
+    "point_match": true,
+    "saved": [
+      0.9545454545454546,
+      1.0
+    ],
+    "reproduced": [
+      0.9545454545454546,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.7177405625652733,
+    "point_match": true,
+    "saved": [
+      0.6560798513518474,
+      0.7398300378117159
+    ],
+    "reproduced": [
+      0.6560798513518474,
+      0.7398300378117159
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.6755205294731985,
+    "point_match": true,
+    "saved": [
+      0.6035934632436997,
+      0.7177405625652733
+    ],
+    "reproduced": [
+      0.6035934632436997,
+      0.7177405625652734
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.9545454545454546,
+    "point_match": true,
+    "saved": [
+      0.9545454545454546,
+      1.0
+    ],
+    "reproduced": [
+      0.9545454545454546,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6480875577554954,
+    "point_match": true,
+    "saved": [
+      0.6333004963811236,
+      0.6560798513518474
+    ],
+    "reproduced": [
+      0.6333004963811236,
+      0.6560798513518474
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6062754572551408,
+    "point_match": true,
+    "saved": [
+      0.6035934632436997,
+      0.6560798513518474
+    ],
+    "reproduced": [
+      0.6035934632436997,
+      0.6560798513518474
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.8762302154233783,
+    "point_match": true,
+    "saved": [
+      0.8000362836474324,
+      1.0
+    ],
+    "reproduced": [
+      0.8000362836474323,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.5333575224316216,
+    "point_match": true,
+    "saved": [
+      0.48280454958526764,
+      0.8040761540665545
+    ],
+    "reproduced": [
+      0.4828045495852676,
+      0.8040761540665545
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "weighted_goodput",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.6603773584905661,
+    "point_match": true,
+    "saved": [
+      0.45716359065567563,
+      0.8158801243801018
+    ],
+    "reproduced": [
+      0.4571635906556756,
+      0.8158801243801018
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.8785430414108694,
+    "point_match": true,
+    "saved": [
+      0.6038810848771178,
+      0.8852704127574261
+    ],
+    "reproduced": [
+      0.6038810848771178,
+      0.8852704127574261
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.3553345272593508,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.7817359599705715
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.7817359599705715
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.35867107489410777,
+    "point_match": true,
+    "saved": [
+      0.35867107489410777,
+      0.812403840463596
+    ],
+    "reproduced": [
+      0.3586710748941078,
+      0.812403840463596
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.9533126619564753,
+    "point_match": true,
+    "saved": [
+      0.7290038003196575,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7290038003196576,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.4500904011951776,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.7817359599705715
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.7817359599705715
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.45431669486586984,
+    "point_match": true,
+    "saved": [
+      0.35867107489410777,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.3586710748941078,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.7777777777777777,
+    "point_match": true,
+    "saved": [
+      0.7657474138461686,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7657474138461687,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.7290038003196575,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.5420797489556428,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.9245283018867925
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.9245283018867925
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.7777777777777777,
+    "point_match": true,
+    "saved": [
+      0.7407407407407407,
+      0.8888888888888888
+    ],
+    "reproduced": [
+      0.7407407407407407,
+      0.8888888888888888
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.7290038003196575,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.5420797489556428,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.8785430414108694
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.8785430414108694
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.8888888888888888,
+    "point_match": true,
+    "saved": [
+      0.7777777777777777,
+      0.8888888888888888
+    ],
+    "reproduced": [
+      0.7777777777777778,
+      0.8888888888888888
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6542341797740517,
+    "point_match": true,
+    "saved": [
+      0.4260064336151292,
+      0.9159278516836723
+    ],
+    "reproduced": [
+      0.4260064336151292,
+      0.9159278516836723
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6916189900468546,
+    "point_match": true,
+    "saved": [
+      0.4500904011951776,
+      0.9533126619564753
+    ],
+    "reproduced": [
+      0.45009040119517757,
+      0.9533126619564752
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.8888888888888888,
+    "point_match": true,
+    "saved": [
+      0.7777777777777777,
+      0.8888888888888888
+    ],
+    "reproduced": [
+      0.7777777777777778,
+      0.8888888888888888
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.5420797489556428,
+    "point_match": true,
+    "saved": [
+      0.4500904011951776,
+      0.8193821290142088
+    ],
+    "reproduced": [
+      0.45009040119517757,
+      0.8193821290142089
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_latency",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.6542341797740517,
+    "point_match": true,
+    "saved": [
+      0.4500904011951776,
+      0.9337145191092147
+    ],
+    "reproduced": [
+      0.45009040119517757,
+      0.9337145191092148
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.8498365855987974,
+    "point_match": true,
+    "saved": [
+      0.7817359599705715,
+      0.8578164469184382
+    ],
+    "reproduced": [
+      0.7817359599705715,
+      0.8578164469184382
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.4500904011951776,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.5296199396711575,
+    "point_match": true,
+    "saved": [
+      0.4181210050035454,
+      0.9198662110077999
+    ],
+    "reproduced": [
+      0.4181210050035454,
+      0.9198662110077999
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.9533126619564753,
+    "point_match": true,
+    "saved": [
+      0.7290038003196575,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7290038003196576,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.4500904011951776,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.7817359599705715
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.7817359599705715
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.45431669486586984,
+    "point_match": true,
+    "saved": [
+      0.35867107489410777,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.3586710748941078,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.8411582311380664,
+    "point_match": true,
+    "saved": [
+      0.7358490566037736,
+      0.9533126619564753
+    ],
+    "reproduced": [
+      0.7358490566037735,
+      0.9533126619564752
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.6669389422208677,
+    "point_match": true,
+    "saved": [
+      0.2858309752375147,
+      0.7817359599705715
+    ],
+    "reproduced": [
+      0.2858309752375147,
+      0.7817359599705715
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.6732014170987178,
+    "point_match": true,
+    "saved": [
+      0.2885148930423076,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.28851489304230765,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.9533126619564753,
+    "point_match": true,
+    "saved": [
+      0.7290038003196575,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7290038003196576,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.6916189900468546,
+    "point_match": true,
+    "saved": [
+      0.39168925931876514,
+      0.9159278516836723
+    ],
+    "reproduced": [
+      0.39168925931876514,
+      0.9159278516836723
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.6603773584905661,
+    "point_match": true,
+    "saved": [
+      0.2830188679245283,
+      0.8490566037735849
+    ],
+    "reproduced": [
+      0.2830188679245283,
+      0.8490566037735849
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.9159278516836723,
+    "point_match": true,
+    "saved": [
+      0.6916189900468546,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.6916189900468546,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.7663886105924604,
+    "point_match": true,
+    "saved": [
+      0.3177708873188251,
+      0.8413556904539533
+    ],
+    "reproduced": [
+      0.3177708873188251,
+      0.8413556904539533
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6981132075471699,
+    "point_match": true,
+    "saved": [
+      0.20754716981132076,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.20754716981132076,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.9159278516836723,
+    "point_match": true,
+    "saved": [
+      0.6916189900468546,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.6916189900468546,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.8785430414108694,
+    "point_match": true,
+    "saved": [
+      0.4500904011951776,
+      0.9159278516836723
+    ],
+    "reproduced": [
+      0.45009040119517757,
+      0.9159278516836723
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_latency",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.8113207547169812,
+    "point_match": true,
+    "saved": [
+      0.31081147595432457,
+      0.8490566037735849
+    ],
+    "reproduced": [
+      0.3108114759543245,
+      0.8490566037735849
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.8498365855987974,
+    "point_match": true,
+    "saved": [
+      0.7817359599705715,
+      0.8578164469184382
+    ],
+    "reproduced": [
+      0.7817359599705715,
+      0.8578164469184382
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.7817359599705715,
+    "point_match": true,
+    "saved": [
+      0.6396021490668312,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.6396021490668312,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.9198662110077999,
+    "point_match": true,
+    "saved": [
+      0.7526178090063816,
+      1.0
+    ],
+    "reproduced": [
+      0.7526178090063816,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.9533126619564753,
+    "point_match": true,
+    "saved": [
+      0.6542341797740517,
+      0.9909300354235451
+    ],
+    "reproduced": [
+      0.6542341797740516,
+      0.990930035423545
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.7343580230026581,
+    "point_match": true,
+    "saved": [
+      0.6396021490668312,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.6396021490668312,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.7412535547811561,
+    "point_match": true,
+    "saved": [
+      0.645607934809394,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.645607934809394,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.8148148148148148,
+    "point_match": true,
+    "saved": [
+      0.6666666666666666,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      0.6666666666666666,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.8193821290142088,
+    "point_match": true,
+    "saved": [
+      0.5577954598817947,
+      0.9337145191092147
+    ],
+    "reproduced": [
+      0.5577954598817947,
+      0.9337145191092148
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.705049738919203,
+    "point_match": true,
+    "saved": [
+      0.5144957554275265,
+      0.8655446791269228
+    ],
+    "reproduced": [
+      0.5144957554275265,
+      0.8655446791269229
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.9159278516836723,
+    "point_match": true,
+    "saved": [
+      0.7290038003196575,
+      1.0
+    ],
+    "reproduced": [
+      0.7290038003196576,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.7812713323158734,
+    "point_match": true,
+    "saved": [
+      0.590717348824197,
+      0.9424819839382048
+    ],
+    "reproduced": [
+      0.5907173488241971,
+      0.9424819839382049
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.8655446791269228,
+    "point_match": true,
+    "saved": [
+      0.5962641122874357,
+      0.9424819839382048
+    ],
+    "reproduced": [
+      0.5962641122874358,
+      0.9424819839382049
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.8037734208652635,
+    "point_match": true,
+    "saved": [
+      0.7663886105924604,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7663886105924606,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.7431605356175383,
+    "point_match": true,
+    "saved": [
+      0.5577954598817947,
+      0.9040133315325639
+    ],
+    "reproduced": [
+      0.5577954598817947,
+      0.9040133315325639
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.8655446791269228,
+    "point_match": true,
+    "saved": [
+      0.6347327646930767,
+      0.9424819839382048
+    ],
+    "reproduced": [
+      0.6347327646930768,
+      0.9424819839382049
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.8037734208652635,
+    "point_match": true,
+    "saved": [
+      0.7663886105924604,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7663886105924606,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.8411582311380664,
+    "point_match": true,
+    "saved": [
+      0.6095514542075675,
+      0.8490566037735849
+    ],
+    "reproduced": [
+      0.6095514542075674,
+      0.8490566037735849
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "request_throughput",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.6603773584905661,
+    "point_match": true,
+    "saved": [
+      0.5094339622641509,
+      0.7358490566037736
+    ],
+    "reproduced": [
+      0.5094339622641509,
+      0.7358490566037735
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.8498365855987974,
+    "point_match": true,
+    "saved": [
+      0.7817359599705715,
+      0.8578164469184382
+    ],
+    "reproduced": [
+      0.7817359599705715,
+      0.8578164469184382
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.7817359599705715,
+    "point_match": true,
+    "saved": [
+      0.6396021490668312,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.6396021490668312,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.9198662110077999,
+    "point_match": true,
+    "saved": [
+      0.7526178090063816,
+      1.0
+    ],
+    "reproduced": [
+      0.7526178090063816,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.9159278516836723,
+    "point_match": true,
+    "saved": [
+      0.6542341797740517,
+      1.0
+    ],
+    "reproduced": [
+      0.6542341797740516,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.7817359599705715,
+    "point_match": true,
+    "saved": [
+      0.6396021490668312,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.6396021490668312,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.7890763647670371,
+    "point_match": true,
+    "saved": [
+      0.645607934809394,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.645607934809394,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.8148148148148148,
+    "point_match": true,
+    "saved": [
+      0.6603773584905661,
+      0.9999999999999999
+    ],
+    "reproduced": [
+      0.660377358490566,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.8193821290142088,
+    "point_match": true,
+    "saved": [
+      0.5144957554275265,
+      0.9337145191092147
+    ],
+    "reproduced": [
+      0.5144957554275265,
+      0.9337145191092148
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.705049738919203,
+    "point_match": true,
+    "saved": [
+      0.36205256863418533,
+      0.8655446791269228
+    ],
+    "reproduced": [
+      0.36205256863418533,
+      0.8655446791269229
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.9159278516836723,
+    "point_match": true,
+    "saved": [
+      0.7290038003196575,
+      1.0
+    ],
+    "reproduced": [
+      0.7290038003196576,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.8574929257125441,
+    "point_match": true,
+    "saved": [
+      0.4808581550705127,
+      0.9424819839382048
+    ],
+    "reproduced": [
+      0.4808581550705127,
+      0.9424819839382049
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.9424819839382048,
+    "point_match": true,
+    "saved": [
+      0.5183650911660144,
+      0.9809506363438459
+    ],
+    "reproduced": [
+      0.5183650911660144,
+      0.9809506363438459
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.8785430414108694,
+    "point_match": true,
+    "saved": [
+      0.7663886105924604,
+      1.0
+    ],
+    "reproduced": [
+      0.7663886105924606,
+      1.0
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.8193821290142088,
+    "point_match": true,
+    "saved": [
+      0.5526065521258617,
+      0.9424819839382048
+    ],
+    "reproduced": [
+      0.5526065521258618,
+      0.9424819839382049
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.9424819839382048,
+    "point_match": true,
+    "saved": [
+      0.6347327646930767,
+      0.9809506363438459
+    ],
+    "reproduced": [
+      0.6347327646930768,
+      0.9809506363438459
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.8037734208652635,
+    "point_match": true,
+    "saved": [
+      0.7663886105924604,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7663886105924606,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.8411582311380664,
+    "point_match": true,
+    "saved": [
+      0.5849056603773585,
+      0.9159278516836723
+    ],
+    "reproduced": [
+      0.5849056603773585,
+      0.9159278516836723
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "token_throughput",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.6603773584905661,
+    "point_match": true,
+    "saved": [
+      0.5094339622641509,
+      0.7890763647670371
+    ],
+    "reproduced": [
+      0.5094339622641509,
+      0.7890763647670372
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.8785430414108694,
+    "point_match": true,
+    "saved": [
+      0.781682047043035,
+      0.8852704127574261
+    ],
+    "reproduced": [
+      0.781682047043035,
+      0.8852704127574261
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.4500904011951776,
+    "point_match": true,
+    "saved": [
+      0.4500904011951776,
+      0.4500904011951776
+    ],
+    "reproduced": [
+      0.45009040119517757,
+      0.45009040119517757
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.45431669486586984,
+    "point_match": true,
+    "saved": [
+      0.45431669486586984,
+      0.5296199396711575
+    ],
+    "reproduced": [
+      0.4543166948658699,
+      0.5296199396711575
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.9533126619564753,
+    "point_match": true,
+    "saved": [
+      0.8785430414108694,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.8785430414108694,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.3553345272593508,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.4500904011951776
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.45009040119517757
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.35867107489410777,
+    "point_match": true,
+    "saved": [
+      0.35867107489410777,
+      0.45431669486586984
+    ],
+    "reproduced": [
+      0.3586710748941078,
+      0.4543166948658699
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.7777777777777777,
+    "point_match": true,
+    "saved": [
+      0.7777777777777777,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7777777777777778,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.6916189900468546,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.6916189900468546
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.6916189900468546
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.5046949386828398,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.6981132075471699
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.6981132075471698
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.7777777777777777,
+    "point_match": true,
+    "saved": [
+      0.7777777777777777,
+      0.8888888888888888
+    ],
+    "reproduced": [
+      0.7777777777777778,
+      0.8888888888888888
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.6916189900468546,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.6916189900468546
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.6916189900468546
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.5046949386828398,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.5849056603773585
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.5849056603773585
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.8888888888888888,
+    "point_match": true,
+    "saved": [
+      0.8037734208652635,
+      0.8888888888888888
+    ],
+    "reproduced": [
+      0.8037734208652635,
+      0.8888888888888888
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6168493695012487,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.6168493695012487
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.6168493695012487
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6542341797740517,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.6603773584905661
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.660377358490566
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.8888888888888888,
+    "point_match": true,
+    "saved": [
+      0.7777777777777777,
+      0.8888888888888888
+    ],
+    "reproduced": [
+      0.7777777777777778,
+      0.8888888888888888
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.5046949386828398,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.5526065521258617
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.5526065521258618
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "mean_ttft",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.6168493695012487,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.6669389422208677
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.6669389422208677
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::LOW",
+    "y": "bailian_qwen::LOW",
+    "point": 0.6916189900468546,
+    "point_match": true,
+    "saved": [
+      0.3464101615137754,
+      0.8062552222347565
+    ],
+    "reproduced": [
+      0.34641016151377546,
+      0.8062552222347567
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.3553345272593508,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.35867107489410777
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.3586710748941078
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "bailian_qwen::LOW",
+    "y": "burstgpt::LOW",
+    "point": 0.35867107489410777,
+    "point_match": true,
+    "saved": [
+      0.35867107489410777,
+      0.6646940512883968
+    ],
+    "reproduced": [
+      0.3586710748941078,
+      0.6646940512883968
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "bailian_qwen::PRE_KNEE",
+    "point": 0.8785430414108694,
+    "point_match": true,
+    "saved": [
+      0.7290038003196575,
+      0.9906974722292783
+    ],
+    "reproduced": [
+      0.7290038003196576,
+      0.9906974722292782
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.4500904011951776,
+    "point_match": true,
+    "saved": [
+      0.3553345272593508,
+      0.45431669486586984
+    ],
+    "reproduced": [
+      0.3553345272593507,
+      0.4543166948658699
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "bailian_qwen::PRE_KNEE",
+    "y": "burstgpt::PRE_KNEE",
+    "point": 0.45431669486586984,
+    "point_match": true,
+    "saved": [
+      0.35867107489410777,
+      0.45431669486586984
+    ],
+    "reproduced": [
+      0.3586710748941078,
+      0.4543166948658699
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::KNEE",
+    "y": "bailian_qwen::KNEE",
+    "point": 0.7663886105924604,
+    "point_match": true,
+    "saved": [
+      0.6542341797740517,
+      0.8490566037735849
+    ],
+    "reproduced": [
+      0.6542341797740516,
+      0.8490566037735849
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.705049738919203,
+    "point_match": true,
+    "saved": [
+      0.4500904011951776,
+      0.7116700695043587
+    ],
+    "reproduced": [
+      0.45009040119517757,
+      0.7116700695043588
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "bailian_qwen::KNEE",
+    "y": "burstgpt::KNEE",
+    "point": 0.7886073743156408,
+    "point_match": true,
+    "saved": [
+      0.45431669486586984,
+      0.9424819839382048
+    ],
+    "reproduced": [
+      0.4543166948658699,
+      0.9424819839382049
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "bailian_qwen::POST_KNEE",
+    "point": 0.7663886105924604,
+    "point_match": true,
+    "saved": [
+      0.6542341797740517,
+      0.8411582311380664
+    ],
+    "reproduced": [
+      0.6542341797740516,
+      0.8411582311380664
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.6916189900468546,
+    "point_match": true,
+    "saved": [
+      0.3177708873188251,
+      0.7663886105924604
+    ],
+    "reproduced": [
+      0.3177708873188251,
+      0.7663886105924606
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "bailian_qwen::POST_KNEE",
+    "y": "burstgpt::POST_KNEE",
+    "point": 0.7735849056603774,
+    "point_match": true,
+    "saved": [
+      0.3962264150943396,
+      0.9245283018867925
+    ],
+    "reproduced": [
+      0.39622641509433965,
+      0.9245283018867925
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "bailian_qwen::OVERLOAD",
+    "point": 0.7290038003196575,
+    "point_match": true,
+    "saved": [
+      0.6542341797740517,
+      0.8411582311380664
+    ],
+    "reproduced": [
+      0.6542341797740516,
+      0.8411582311380664
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.6916189900468546,
+    "point_match": true,
+    "saved": [
+      0.3177708873188251,
+      0.7663886105924604
+    ],
+    "reproduced": [
+      0.3177708873188251,
+      0.7663886105924606
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "bailian_qwen::OVERLOAD",
+    "y": "burstgpt::OVERLOAD",
+    "point": 0.7358490566037736,
+    "point_match": true,
+    "saved": [
+      0.3584905660377358,
+      0.8490566037735849
+    ],
+    "reproduced": [
+      0.3584905660377358,
+      0.8490566037735849
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "bailian_qwen::HIGH_PRESSURE",
+    "point": 0.7358490566037736,
+    "point_match": true,
+    "saved": [
+      0.6542341797740517,
+      0.7735849056603774
+    ],
+    "reproduced": [
+      0.6542341797740516,
+      0.7735849056603774
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "azure_llm_2024::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.7735849056603774,
+    "point_match": true,
+    "saved": [
+      0.42992531813723395,
+      0.7735849056603774
+    ],
+    "reproduced": [
+      0.42992531813723395,
+      0.7735849056603774
+    ],
+    "match": true,
+    "undefined_draws": 0
+  },
+  {
+    "metric": "p95_ttft",
+    "x": "bailian_qwen::HIGH_PRESSURE",
+    "y": "burstgpt::HIGH_PRESSURE",
+    "point": 0.8113207547169812,
+    "point_match": true,
+    "saved": [
+      0.45431669486586984,
+      0.8113207547169812
+    ],
+    "reproduced": [
+      0.4543166948658699,
+      0.8113207547169812
+    ],
+    "match": true,
+    "undefined_draws": 0
+  }
+]

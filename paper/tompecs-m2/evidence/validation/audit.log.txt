@@ -1,0 +1,9 @@
+ranking intervals 198 198
+Traceback (most recent call last):
+  File "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/paper/tompecs-m2/scripts/audit.py", line 100, in <module>
+    chronology={s:sorted(W[s,R[0]],key=lambda w:meta_by[w]['relative_order']) for s in S}
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/paper/tompecs-m2/scripts/audit.py", line 100, in <lambda>
+    chronology={s:sorted(W[s,R[0]],key=lambda w:meta_by[w]['relative_order']) for s in S}
+                                                ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'relative_order'

@@ -1,0 +1,7 @@
+session=lssp-tompecs-m2
+window=package-final
+pid=535930
+start=2026-10-22T03:16:28+00:00
+command=python paper/tompecs-m2/scripts/package_check.py 
+end=2026-10-22T03:16:28+00:00
+exit=0
