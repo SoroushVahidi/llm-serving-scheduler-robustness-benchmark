@@ -1,0 +1,38 @@
+{
+  "paper/tompecs-m2/M2_STATISTICAL_AUDIT.md": {
+    "sha256": "304e605eb0b1268071a227b2089237fa68cd7bfe57e469ed482711f747a05553",
+    "bytes": 18136
+  },
+  "paper/tompecs-m2/scripts/audit.py": {
+    "sha256": "01d744baad32262ad42cdd7a76e468e1549e24c5c1c9d5c26084da21ba4d8dcd",
+    "bytes": 15627
+  },
+  "paper/tompecs-m2/scripts/additional_checks.py": {
+    "sha256": "816a7b2cbb14f301473312b8780a3914ccb282344efc0ba5283912574f4b84b5",
+    "bytes": 2921
+  },
+  "paper/tompecs-m2/evidence/statistical-audit.json": {
+    "sha256": "1b9c3be700a77fba7fa4c68a1107815439a484af7a036977ea091e6ac7624d93",
+    "bytes": 3473
+  },
+  "paper/tompecs-m2/evidence/multiplicity-families.json": {
+    "sha256": "1e93131cfa77fa3cca006c60918ef0750613829be5c79fb727feee6e84eb40ca",
+    "bytes": 193549
+  },
+  "paper/tompecs-m2/evidence/chronological-block-sensitivity.json": {
+    "sha256": "5e36ebf0f3457bc7f1890633cd32e7244e08ff949849e1998a1f80eb7bd2af68",
+    "bytes": 14485
+  },
+  "src/robustbench/ranking_portability/analysis/reversal_analysis.py": {
+    "sha256": "cde759b146ba51c3f5cb8674842ced6fc9198612254b00acc739a6c2b4d10b5f",
+    "bytes": 8151
+  },
+  "src/robustbench/ranking_portability/analysis/stats.py": {
+    "sha256": "76ecae65f800bebe2ecfed80efb9757428763423e8380203c0b3460e8cf00168",
+    "bytes": 7222
+  },
+  "scripts/ranking_portability/run_phase12_analysis.py": {
+    "sha256": "03098a8c2b3d91b7f55d7e964104a70efe6d7441e1184405830b38683bb6e061",
+    "bytes": 44579
+  }
+}

@@ -1,0 +1,23 @@
+artifacts/gate1_analysis_post_1196169/coverage_report.json
+{'complete': True, 'coverage_detail': [{'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok': True, 'pairwise_ok': True, 'single_ok': True, 'task_id': 'joint_multi_mechanism__gate1_joint_joint_00000_r0'}, {'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok': True, 'pairwise_ok': True, 'single_ok': True, 'task_id': 'joint_multi_mechanism__gate1_joint_joint_00000_r1'}, {'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok': True, 'pairwise_ok': True, 'single_ok': True, 'task_id': 'joint_multi_mechanism__gate1_joint_joint_00000_r2'}, {'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok': True, 'pairwise_ok': True, 'single_ok': True, 'task_id': 'joint_multi_mechanism__gate1_joint_joint_00001_r0'}, {'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok': True, 'pairwise_ok': True, 'single_ok': True, 'task_id': 'joint_multi_mechanism__gate1_joint_joint_00001_r1'}, {'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok': True, 'pairwise_ok': True, 'single_ok': True, 'task_id': 'joint_multi_mechanism__gate1_joint_joint_00001_r2'}, {'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok': True, 'pairwise_ok': True, 'single_ok': True, 'task_id': 'joint_multi_mechanism__gate1_joint_joint_00010_r0'}, {'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok': True, 'pairwise_ok': True, 'single_ok': True, 'task_id': 'joint_multi_mechanism__gate1_joint_joint_00010_r1'}, {'n_native': 27, 'n_pairwise': 24, 'n_single': 72, 'native_ok
+experiments/prospective_actionable_opportunity_v1/analysis/bootstrap_results.json
+{'H1_bootstrap': {'delta_r_1x': 0.054504116021541066, 'delta_r_95ci': [-0.019730857160741362, 0.18389660134613608], 'bootstrap_b': 2000}}
+    wulver    ikoutis              debug,low,standard 
+PartitionName=general
+   AllowGroups=ALL AllowAccounts=ALL DenyQos=debug,test,course
+   AllocNodes=ALL Default=YES QoS=N/A
+   DefaultTime=UNLIMITED DisableRootJobs=NO Exclusive=NO GraceTime=0 Hidden=NO
+   MaxNodes=UNLIMITED MaxTime=UNLIMITED MinNodes=1 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   NodeSets=general_hosts
+   Nodes=n[0006-0023,0029-0044,0050-0065,0070-0087,0093-0110,0112-0122]
+   PriorityJobFactor=1 PriorityTier=1 RootOnly=NO ReqResv=NO OverSubscribe=NO
+   OverTimeLimit=NONE PreemptMode=OFF
+   State=UP TotalCPUs=12416 TotalNodes=97 SelectTypeParameters=NONE
+   JobDefaults=(null)
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+   TRES=cpu=12416,mem=49794000M,node=97,billing=12416
+   TRESBillingWeights=CPU=1.0,Mem=0.25G,GRES/gpu=0,gres/gpu:a100=16.0,GRES/gpu:a100_40g=8.0,GRES/gpu:a100_20g=4.0,GRES/gpu:a100_10g=2.0,gres/gpu:l40=8.0
+   ResumeTimeout=GLOBAL SuspendTimeout=GLOBAL SuspendTime=1200 PowerDownOnIdle=NO
+
+3.12.13 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:38:16) [GCC 14.3.0]
+2.5.2 1.18.1 9.1.1

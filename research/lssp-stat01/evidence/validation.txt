@@ -1,0 +1,7 @@
+2026-10-22T04:22:08Z
+...............................................................          [100%]
+63 passed in 1.74s
+{"evidence_class": "ENGINEERING_ONLY_NAMESPACE_0", "scenario": "large_reversal", "seconds": 0.03259389474987984, "bootstrap_draws": 2000, "raw_shape": [3, 40, 11]}
+{"evidence_class": "ENGINEERING_ONLY_NAMESPACE_0", "scenario": "ar_reversal", "seconds": 0.018423810601234436, "bootstrap_draws": 2000, "raw_shape": [3, 40, 11]}
+{"evidence_class": "ENGINEERING_ONLY_NAMESPACE_0", "scenario": "bounded_reversal_n400", "seconds": 0.15927241370081902, "bootstrap_draws": 2000, "raw_shape": [3, 400, 11]}
+2026-10-22T04:22:10Z
