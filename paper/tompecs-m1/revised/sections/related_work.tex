@@ -1,0 +1,56 @@
+\section{Background and Related Work}\label{sec:related}
+\label{sec:related-serving}
+\subsection{Serving mechanisms and workload variation}
+Prefill processes an input context; autoregressive decoding generates new
+tokens while retaining KV state. Iteration-level scheduling in Orca
+\citep{yu2022orca}, PagedAttention in vLLM \citep{kwon2023vllm} and
+stall-free chunked prefill in Sarathi-Serve \citep{agrawal2024sarathi}
+address different batching and memory constraints. DistServe and Splitwise
+separate prefill and decode resources \citep{zhong2024distserve,patel2024splitwise};
+Llumnix rebalances instances \citep{sun2024llumnix}; Mooncake organizes
+serving around KV state \citep{qin2025mooncake}. Fairness-aware token
+accounting \citep{sheng2024vtc}, service-length-aware packing
+\citep{jin2023s3}, learned ordering \citep{efficientllmscheduling2024}
+and SLO-aware scheduling \citep{slai2025} illustrate why a single scalar
+ranking need not preserve every deployment objective. We compare historical
+simulator policies inspired by such mechanisms, not these systems as
+interchangeable production implementations.
+
+\label{sec:related-workloads}
+BurstGPT, Azure and Bailian expose different production-derived request
+populations \citep{burstgpt2025,azure2024trace,bailianqwen2026}.
+Characterization and generation work examines workload heterogeneity,
+including KV reuse and changes over time
+\citep{kvcache_wild2025,ayearinllmserving2026,servegen2026}.
+BurstGPT and Azure are separately released sources associated with Azure
+infrastructure; their comparison does not isolate a provider effect.
+Observed prompt lengths can also have different conversation/context
+semantics. LSSP retains these distinctions when interpreting portability.
+
+\subsection{Simulation and evaluation methodology}\label{sec:related-simulators}
+Vidur and LLMServingSim provide infrastructure for evaluating serving
+configurations \citep{vidur2024,llmservingsim2024,llmservingsim2_2025}.
+LSSP does not claim a more accurate simulator. Its emphasis is the
+comparative conclusion induced by a fixed model, together with the
+restrictions on transporting that conclusion beyond the model.
+
+\label{sec:related-dependence}
+Workload-dependent performance is established background. Work on serving
+workload selection \citep{papaioannou2024workload}, production-trace
+dispatching \citep{yildiz2026dispatching}, and workload resampling in parallel
+job scheduling \citep{zakay2014resampling} provides close methodological
+precedents. The distinctive scope pursued here is a common, frozen panel
+with jointly reported source, region and metric comparisons, explicit
+reversal denominators, and uncertainty conditional on the available windows.
+It is not a priority claim that workload sensitivity or ranking comparison
+was previously unknown.
+
+\label{sec:related-methodology}\label{sec:related-position}
+Kendall's tau-b measures ordinal concordance while accommodating ties;
+Spearman correlation and top-$k$ overlap provide complementary summaries.
+Neither a positive aggregate correlation nor a shared top choice rules out
+pair-specific reversals. Practical margins distinguish a numerically changed
+order from an operationally meaningful difference under a stated convention.
+These standard measures serve a reproducible comparison protocol. Our
+finite-corpus recovery study estimates stability relative to the frozen
+reference ranking, not a theorem about population sample complexity.

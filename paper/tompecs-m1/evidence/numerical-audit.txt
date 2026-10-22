@@ -1,0 +1,154 @@
+{
+  "scope": "offline verification of preserved outputs; no new scientific execution or bootstrap confidence intervals",
+  "checks": {
+    "unique_execution_keys": true,
+    "9360_identical_numeric_telemetry_pairs": true,
+    "120_windows_200_requests": true,
+    "all_cells_successful": true,
+    "18_independent_kendall_point_estimates": true,
+    "990_independent_classifications_from_saved_intervals": true,
+    "990_pair_differences_from_cells": true,
+    "990_independent_cross_metric_tau_and_top1": true
+  },
+  "source_window_counts": {
+    "burstgpt": 40,
+    "azure_llm_2024": 40,
+    "bailian_qwen": 40
+  },
+  "chronology": {
+    "EARLY": 60,
+    "MIDDLE": 30,
+    "LATE": 30
+  },
+  "chronology_by_source": {
+    "azure_llm_2024": {
+      "EARLY": 20,
+      "MIDDLE": 10,
+      "LATE": 10
+    },
+    "bailian_qwen": {
+      "EARLY": 20,
+      "MIDDLE": 10,
+      "LATE": 10
+    },
+    "burstgpt": {
+      "EARLY": 20,
+      "MIDDLE": 10,
+      "LATE": 10
+    }
+  },
+  "executions": 18720,
+  "unique_configurations": 9360,
+  "zero_completion_unique": 211,
+  "primary_zero_completion_unique": 48,
+  "policies_all": [
+    "admission_control",
+    "edf",
+    "estimated_service_time_first",
+    "fifo",
+    "kv_constrained_online",
+    "least_laxity_first",
+    "sarathi_faithful",
+    "scorpio_style_slo_guard",
+    "slai_faithful",
+    "vllm_chunked_prefill_faithful",
+    "vllm_faithful",
+    "vllm_style_token_budget",
+    "weighted_fair_share"
+  ],
+  "policies_primary": [
+    "fifo",
+    "edf",
+    "least_laxity_first",
+    "estimated_service_time_first",
+    "weighted_fair_share",
+    "kv_constrained_online",
+    "vllm_faithful",
+    "vllm_chunked_prefill_faithful",
+    "sarathi_faithful",
+    "slai_faithful",
+    "admission_control"
+  ],
+  "reversals": {
+    "counts": {
+      "STABLE_NO_SIGN_CHANGE": 906,
+      "MICROSCOPIC_SIGN_CHANGE": 48,
+      "SUPPORTED_PRACTICAL_REVERSAL": 36
+    },
+    "supported_pairs": {
+      "sarathi_faithful / slai_faithful": 9,
+      "slai_faithful / vllm_chunked_prefill_faithful": 9,
+      "slai_faithful / vllm_faithful": 10,
+      "sarathi_faithful / vllm_faithful": 4,
+      "vllm_chunked_prefill_faithful / vllm_faithful": 4
+    },
+    "supported_by_region": {
+      "PRE_KNEE": 6,
+      "KNEE": 6,
+      "POST_KNEE": 6,
+      "OVERLOAD": 10,
+      "HIGH_PRESSURE": 8
+    },
+    "all_involve_burstgpt": true,
+    "supported_after_fdr": 36
+  },
+  "friedman_records": 66,
+  "cross_metric": {
+    "n": 990,
+    "median_tau": 0.4190666247677027,
+    "min_tau": -0.5063696835418333,
+    "max_tau": 1.0,
+    "negative_tau": 202,
+    "top1_agreement": 316.0,
+    "policy_metric_sides_with_tied_maximum": 1010,
+    "class_counts": {
+      "SAME_ORDER": 45800,
+      "UNSUPPORTED_SIGN_CHANGE_WIDE_CI": 201,
+      "SUPPORTED_PRACTICAL_DISAGREEMENT": 3244,
+      "SIGN_CHANGE_MICROSCOPIC": 5205
+    },
+    "supported_fdr": 3207,
+    "independent_mismatches": []
+  },
+  "slo": {
+    "status": {
+      "manifest_kind": "POST_PHASE12_SLO_DEFINITION_SENSITIVITY_EXTENSION_ANALYSIS_STATUS",
+      "n_input_rows": 19800,
+      "n_ranking_robustness_records": 30,
+      "n_reversal_persistence_records": 108,
+      "n_reversals_disappearing": 4,
+      "n_reversals_persisting": 88
+    },
+    "median_tau": 0.8723567442899586,
+    "top1_changes": 13,
+    "nontrivial_persistence": {
+      "PERSISTS": 52,
+      "BECOMES_UNSUPPORTED": 10,
+      "DISAPPEARS": 4,
+      "DIRECTION_CHANGE": 6
+    }
+  },
+  "calibration": {
+    "records": 720,
+    "zero_completion": 0
+  },
+  "robustness_means": {
+    "LEAVE_ONE_POLICY_FAMILY_OUT::A_ARRIVAL_ORDER": 0.7073574175498002,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::B_DEADLINE_AWARE": 0.7200691045799821,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::C_SLACK_URGENCY": 0.7304012277479636,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::D_SERVICE_LENGTH": 0.7134365225432494,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::E_TOKEN_BUDGET_BATCHING": 0.7207879554512291,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::F_CHUNKED_PREFILL": 0.767578281964791,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::G_KV_MEMORY_PRESSURE": 0.736496611807898,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::H_ADJACENT_SLO_AWARE": 0.7916726780453006,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::H_ADMISSION_SLO_GUARD": 0.7370243970004092,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::I_FAIRNESS": 0.7134365225432494,
+    "LEAVE_ONE_SOURCE_OUT::azure_llm_2024": 0.618253739296772,
+    "LEAVE_ONE_SOURCE_OUT::bailian_qwen": 0.6325563522939237,
+    "LEAVE_ONE_SOURCE_OUT::burstgpt": 0.9480091046234242,
+    "LOAD_CALIBRATION_SENSITIVITY::FOUR_REGION_SUBSET": 0.7280165079774228,
+    "PRIMARY_ONLY": 0.7329397320713733
+  },
+  "telemetry_usable": 42
+}
+CHECKS 8 passed 0 failed

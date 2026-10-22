@@ -1,0 +1,78 @@
+\ifdefined\MOneSmall
+\documentclass[acmsmall,screen]{acmart}
+\else
+\documentclass[manuscript,screen,review]{acmart}
+\fi
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[htt]{hyphenat}
+\usepackage{seqsplit}
+\setcopyright{none}
+\settopmatter{printacmref=false}
+\acmJournal{TOMPECS}
+\acmDOI{}
+\acmYear{2026}
+\title{LLM-Serving Scheduler Ranking Portability Across Workloads, Operating Regions, and Metrics}
+\author{Soroush Vahidi}
+\email{sv96@njit.edu}
+\affiliation{\institution{New Jersey Institute of Technology}\city{Newark}\state{New Jersey}\country{USA}}
+\begin{document}
+\begin{abstract}
+Scheduler rankings are conditional on the workload, operating region,
+metric and execution model used to obtain them. We present a reproducible
+comparison methodology and an empirical study of a frozen, trace-driven
+LLM-serving simulator corpus: three released trace sources, 120 windows,
+six operating regions and 13 executed policies, including an 11-policy
+primary panel. The 9,360 configurations each have two deterministic
+verification passes, not independent stochastic repetitions. For the
+primary arrival-normalized weighted-goodput metric, cross-source Kendall
+correlations range from 0.551 to 1.000. Of 990 pairwise-policy comparison
+records, 36 satisfy the saved practical-margin and interval criteria for
+a reversal; they span five policy pairs and all involve BurstGPT.
+A post-campaign cross-metric analysis yields a median correlation of 0.419
+and deterministic top-choice agreement of 31.9\%, with explicit tie and
+missing-observation qualifications. These characterize the historical
+simulator, not native serving rankings. Retrospective audits of the legacy
+GPU comparison and subsequent CPU conformance work leave faithful physical
+ranking transfer unverified. The results support reporting comparative
+rankings with their workload, metric, uncertainty and implementation boundaries.
+\end{abstract}
+\ccsdesc[500]{Computing methodologies~Simulation evaluation}
+\ccsdesc[300]{Computer systems organization~Cloud computing}
+\keywords{LLM serving, scheduling, ranking portability, trace-driven simulation, performance evaluation}
+\maketitle
+\input{revised/sections/introduction}
+\input{revised/sections/related_work}
+\input{revised/sections/research_questions}
+\input{revised/sections/model}
+\input{revised/sections/workloads}
+\input{revised/sections/within}
+\input{revised/sections/portability}
+\input{revised/sections/metrics}
+\input{revised/sections/robustness}
+\input{revised/sections/limitations}
+\input{revised/sections/conclusion}
+\section*{Artifact availability and declarations}\label{sec:artifact}
+The review repository preserves the source, configurations, frozen outcome
+matrix, canonical analyses and the M1 claim audit. The dataset package
+\texttt{dataset/v1.1.0} includes per-execution outcomes, analysis JSON and
+reproducible tabular views; it does not include a full dump of the legacy
+physical request records. Historical Hugging Face and Zenodo release
+references require a current accessibility and version check before submission.
+The working repository is private; this draft makes no claim that its new
+review files are publicly available. Upstream trace redistribution remains
+subject to the original terms.
+
+The author declares no competing interests. Historical acknowledgments
+identify support from Google Cloud Research Credits, the CloudRift AI Builder
+Grant and the Cohere Labs Catalyst Grant Program, and acknowledge Professor
+Ioannis Koutis and NJIT's Wulver/ARCS resources. Funding and contribution
+statements require author confirmation for the final submission. The author
+is responsible for conceptualization, methodology, software, validation,
+analysis, data curation, visualization and writing. AI-assisted preparation
+was used historically and Codex assisted this M1 revision; the revised
+claims and text remain pending detailed author review and approval.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{revised/references}
+\end{document}

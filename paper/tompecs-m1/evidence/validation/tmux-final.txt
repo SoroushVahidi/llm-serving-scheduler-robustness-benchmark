@@ -1,0 +1,1 @@
+lssp-tompecs-m1:baseline pane=%301 pid=523356 dead=1 exit=0 command="bash /home/soroush/.local/state/lssp-tompecs-m1/baseline.sh"

@@ -1,0 +1,3960 @@
+{
+  "scope": "offline verification of preserved outputs; no new scientific execution or bootstrap confidence intervals",
+  "checks": {
+    "unique_execution_keys": true,
+    "9360_identical_numeric_telemetry_pairs": true,
+    "120_windows_200_requests": true,
+    "all_cells_successful": true,
+    "18_independent_kendall_point_estimates": true,
+    "990_independent_classifications_from_saved_intervals": true,
+    "990_pair_differences_from_cells": true,
+    "990_independent_cross_metric_tau_and_top1": true
+  },
+  "source_window_counts": {
+    "burstgpt": 40,
+    "azure_llm_2024": 40,
+    "bailian_qwen": 40
+  },
+  "chronology": {
+    "EARLY": 60,
+    "MIDDLE": 30,
+    "LATE": 30
+  },
+  "chronology_by_source": {
+    "azure_llm_2024": {
+      "EARLY": 20,
+      "MIDDLE": 10,
+      "LATE": 10
+    },
+    "bailian_qwen": {
+      "EARLY": 20,
+      "MIDDLE": 10,
+      "LATE": 10
+    },
+    "burstgpt": {
+      "EARLY": 20,
+      "MIDDLE": 10,
+      "LATE": 10
+    }
+  },
+  "executions": 18720,
+  "unique_configurations": 9360,
+  "zero_completion_unique": 211,
+  "primary_zero_completion_unique": 48,
+  "policies_all": [
+    "admission_control",
+    "edf",
+    "estimated_service_time_first",
+    "fifo",
+    "kv_constrained_online",
+    "least_laxity_first",
+    "sarathi_faithful",
+    "scorpio_style_slo_guard",
+    "slai_faithful",
+    "vllm_chunked_prefill_faithful",
+    "vllm_faithful",
+    "vllm_style_token_budget",
+    "weighted_fair_share"
+  ],
+  "policies_primary": [
+    "fifo",
+    "edf",
+    "least_laxity_first",
+    "estimated_service_time_first",
+    "weighted_fair_share",
+    "kv_constrained_online",
+    "vllm_faithful",
+    "vllm_chunked_prefill_faithful",
+    "sarathi_faithful",
+    "slai_faithful",
+    "admission_control"
+  ],
+  "reversals": {
+    "counts": {
+      "STABLE_NO_SIGN_CHANGE": 906,
+      "MICROSCOPIC_SIGN_CHANGE": 48,
+      "SUPPORTED_PRACTICAL_REVERSAL": 36
+    },
+    "supported_pairs": {
+      "sarathi_faithful / slai_faithful": 9,
+      "slai_faithful / vllm_chunked_prefill_faithful": 9,
+      "slai_faithful / vllm_faithful": 10,
+      "sarathi_faithful / vllm_faithful": 4,
+      "vllm_chunked_prefill_faithful / vllm_faithful": 4
+    },
+    "supported_by_region": {
+      "PRE_KNEE": 6,
+      "KNEE": 6,
+      "POST_KNEE": 6,
+      "OVERLOAD": 10,
+      "HIGH_PRESSURE": 8
+    },
+    "all_involve_burstgpt": true,
+    "supported_after_fdr": 36
+  },
+  "kendall": [
+    {
+      "condition_x": "azure_llm_2024::LOW",
+      "condition_y": "bailian_qwen::LOW",
+      "stored": 0.9198662110077999,
+      "recomputed": 0.9198662110077999,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::LOW",
+      "condition_y": "burstgpt::LOW",
+      "stored": 0.5510387687779837,
+      "recomputed": 0.5510387687779837,
+      "match": true
+    },
+    {
+      "condition_x": "bailian_qwen::LOW",
+      "condition_y": "burstgpt::LOW",
+      "stored": 0.5990422978731537,
+      "recomputed": 0.5990422978731537,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::PRE_KNEE",
+      "condition_y": "bailian_qwen::PRE_KNEE",
+      "stored": 0.8931884167327451,
+      "recomputed": 0.8931884167327451,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::PRE_KNEE",
+      "condition_y": "burstgpt::PRE_KNEE",
+      "stored": 0.7085662394599953,
+      "recomputed": 0.7085662394599953,
+      "match": true
+    },
+    {
+      "condition_x": "bailian_qwen::PRE_KNEE",
+      "condition_y": "burstgpt::PRE_KNEE",
+      "stored": 0.6968683416725756,
+      "recomputed": 0.6968683416725756,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::KNEE",
+      "condition_y": "bailian_qwen::KNEE",
+      "stored": 0.9583333333333335,
+      "recomputed": 0.9583333333333335,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::KNEE",
+      "condition_y": "burstgpt::KNEE",
+      "stored": 0.6458333333333335,
+      "recomputed": 0.6458333333333335,
+      "match": true
+    },
+    {
+      "condition_x": "bailian_qwen::KNEE",
+      "condition_y": "burstgpt::KNEE",
+      "stored": 0.6041666666666667,
+      "recomputed": 0.6041666666666667,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::POST_KNEE",
+      "condition_y": "bailian_qwen::POST_KNEE",
+      "stored": 0.9583333333333335,
+      "recomputed": 0.9583333333333335,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::POST_KNEE",
+      "condition_y": "burstgpt::POST_KNEE",
+      "stored": 0.6467616667635546,
+      "recomputed": 0.6467616667635546,
+      "match": true
+    },
+    {
+      "condition_x": "bailian_qwen::POST_KNEE",
+      "condition_y": "burstgpt::POST_KNEE",
+      "stored": 0.6063390625908325,
+      "recomputed": 0.6063390625908325,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::OVERLOAD",
+      "condition_y": "bailian_qwen::OVERLOAD",
+      "stored": 0.9583333333333335,
+      "recomputed": 0.9583333333333335,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::OVERLOAD",
+      "condition_y": "burstgpt::OVERLOAD",
+      "stored": 0.6204965959947127,
+      "recomputed": 0.6204965959947127,
+      "match": true
+    },
+    {
+      "condition_x": "bailian_qwen::OVERLOAD",
+      "condition_y": "burstgpt::OVERLOAD",
+      "stored": 0.580464557543441,
+      "recomputed": 0.580464557543441,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+      "condition_y": "bailian_qwen::HIGH_PRESSURE",
+      "stored": 1.0,
+      "recomputed": 1.0,
+      "match": true
+    },
+    {
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE",
+      "condition_y": "burstgpt::HIGH_PRESSURE",
+      "stored": 0.6226415094339623,
+      "recomputed": 0.6226415094339623,
+      "match": true
+    },
+    {
+      "condition_x": "bailian_qwen::HIGH_PRESSURE",
+      "condition_y": "burstgpt::HIGH_PRESSURE",
+      "stored": 0.6226415094339623,
+      "recomputed": 0.6226415094339623,
+      "match": true
+    }
+  ],
+  "friedman_records": 66,
+  "cross_metric": {
+    "n": 990,
+    "median_tau": 0.4190666247677027,
+    "min_tau": -0.5063696835418333,
+    "max_tau": 1.0,
+    "negative_tau": 202,
+    "top1_agreement": 316.0,
+    "policy_metric_sides_with_tied_maximum": 1010,
+    "class_counts": {
+      "SAME_ORDER": 45800,
+      "UNSUPPORTED_SIGN_CHANGE_WIDE_CI": 201,
+      "SUPPORTED_PRACTICAL_DISAGREEMENT": 3244,
+      "SIGN_CHANGE_MICROSCOPIC": 5205
+    },
+    "supported_fdr": 3207,
+    "independent_mismatches": []
+  },
+  "slo": {
+    "status": {
+      "manifest_kind": "POST_PHASE12_SLO_DEFINITION_SENSITIVITY_EXTENSION_ANALYSIS_STATUS",
+      "n_input_rows": 19800,
+      "n_ranking_robustness_records": 30,
+      "n_reversal_persistence_records": 108,
+      "n_reversals_disappearing": 4,
+      "n_reversals_persisting": 88
+    },
+    "median_tau": 0.8723567442899586,
+    "top1_changes": 13,
+    "nontrivial_persistence": {
+      "PERSISTS": 52,
+      "BECOMES_UNSUPPORTED": 10,
+      "DISAPPEARS": 4,
+      "DIRECTION_CHANGE": 6
+    }
+  },
+  "temporal": [
+    {
+      "condition_x": "burstgpt::LOW::TERCILE::EARLY",
+      "condition_y": "burstgpt::LOW::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.001565402258002548,
+      "kendall_tau": 0.9999999999999999,
+      "kendall_tau_ci": [
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        1.0,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::LOW::TERCILE::EARLY",
+      "condition_y": "burstgpt::LOW::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.7518296340458492,
+      "kendall_tau": -0.09999999999999999,
+      "kendall_tau_ci": [
+        -0.09999999999999999,
+        -0.09999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.7698749998921367,
+      "spearman_rho": -0.10000000000000002,
+      "spearman_rho_ci": [
+        -0.10000000000000002,
+        -0.10000000000000002
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::LOW::TERCILE::LATE",
+      "condition_y": "burstgpt::LOW::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.7518296340458492,
+      "kendall_tau": -0.09999999999999999,
+      "kendall_tau_ci": [
+        -0.09999999999999999,
+        -0.09999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.7698749998921367,
+      "spearman_rho": -0.10000000000000002,
+      "spearman_rho_ci": [
+        -0.10000000000000002,
+        -0.10000000000000002
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::PRE_KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::PRE_KNEE::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0031159184886809044,
+      "kendall_tau": 0.8947368421052629,
+      "kendall_tau_ci": [
+        0.5803810000880093,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 1.2869632723222726e-07,
+      "spearman_rho": 0.9799999999999999,
+      "spearman_rho_ci": [
+        0.5932958789676531,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::PRE_KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::PRE_KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.3692494004206658,
+      "kendall_tau": 0.2699527623995085,
+      "kendall_tau_ci": [
+        0.2699527623995085,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.4123853026238912,
+      "spearman_rho": 0.27541214906363853,
+      "spearman_rho_ci": [
+        0.27541214906363853,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::PRE_KNEE::TERCILE::LATE",
+      "condition_y": "burstgpt::PRE_KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.23123887683475286,
+      "kendall_tau": 0.359937016532678,
+      "kendall_tau_ci": [
+        0.2699527623995085,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.2392724248269785,
+      "spearman_rho": 0.38729833462074165,
+      "spearman_rho_ci": [
+        0.27541214906363853,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::KNEE::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00043784124494494607,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.6827887419989189,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 9.370452282996268e-72,
+      "spearman_rho": 0.9999999999999999,
+      "spearman_rho_ci": [
+        0.6876057271371582,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.011217580036727183,
+      "kendall_tau": 0.6784005252999682,
+      "kendall_tau_ci": [
+        0.5586203877309281,
+        0.8876253645985946
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.004159155550223962,
+      "spearman_rho": 0.7855992442348344,
+      "spearman_rho_ci": [
+        0.6266083599903658,
+        0.9631901840490797
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::KNEE::TERCILE::LATE",
+      "condition_y": "burstgpt::KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.011217580036727183,
+      "kendall_tau": 0.6784005252999682,
+      "kendall_tau_ci": [
+        0.6094040593428307,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.004159155550223962,
+      "spearman_rho": 0.7855992442348344,
+      "spearman_rho_ci": [
+        0.6897286264197526,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::POST_KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::POST_KNEE::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0020018577930924738,
+      "kendall_tau": 0.8787878787878788,
+      "kendall_tau_ci": [
+        0.7510676161988108,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 1.95525123023201e-06,
+      "spearman_rho": 0.9631901840490797,
+      "spearman_rho_ci": [
+        0.7752417511840508,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::POST_KNEE::TERCILE::EARLY",
+      "condition_y": "burstgpt::POST_KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.04121061037978315,
+      "kendall_tau": 0.541602560309064,
+      "kendall_tau_ci": [
+        0.541602560309064,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.043708713486726176,
+      "spearman_rho": 0.6157396939277886,
+      "spearman_rho_ci": [
+        0.6157396939277886,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::POST_KNEE::TERCILE::LATE",
+      "condition_y": "burstgpt::POST_KNEE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.015840526746870448,
+      "kendall_tau": 0.6400757530925302,
+      "kendall_tau_ci": [
+        0.541602560309064,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0119659899342931,
+      "spearman_rho": 0.722824858089143,
+      "spearman_rho_ci": [
+        0.6157396939277886,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::OVERLOAD::TERCILE::EARLY",
+      "condition_y": "burstgpt::OVERLOAD::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0020018577930924738,
+      "kendall_tau": 0.8787878787878788,
+      "kendall_tau_ci": [
+        0.7510676161988108,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 1.95525123023201e-06,
+      "spearman_rho": 0.9631901840490797,
+      "spearman_rho_ci": [
+        0.7752417511840508,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::OVERLOAD::TERCILE::EARLY",
+      "condition_y": "burstgpt::OVERLOAD::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.016351843955289123,
+      "kendall_tau": 0.6337694342435132,
+      "kendall_tau_ci": [
+        0.6337694342435132,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.009107430208452423,
+      "spearman_rho": 0.7407883136280001,
+      "spearman_rho_ci": [
+        0.7407883136280001,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::OVERLOAD::TERCILE::LATE",
+      "condition_y": "burstgpt::OVERLOAD::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00559968266876402,
+      "kendall_tau": 0.7312724241271306,
+      "kendall_tau_ci": [
+        0.6337694342435132,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0028126351226469546,
+      "spearman_rho": 0.8047412615671081,
+      "spearman_rho_ci": [
+        0.7407883136280001,
+        1.0
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::HIGH_PRESSURE::TERCILE::EARLY",
+      "condition_y": "burstgpt::HIGH_PRESSURE::TERCILE::LATE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.002197847545626046,
+      "kendall_tau": 0.812403840463596,
+      "kendall_tau_ci": [
+        0.6784005252999682,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.00045435631069108175,
+      "spearman_rho": 0.8727440879150394,
+      "spearman_rho_ci": [
+        0.7752417511840508,
+        0.9999999999999999
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::HIGH_PRESSURE::TERCILE::EARLY",
+      "condition_y": "burstgpt::HIGH_PRESSURE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0024301417658237137,
+      "kendall_tau": 0.7890763647670371,
+      "kendall_tau_ci": [
+        0.6759263694193746,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0005914588360003668,
+      "spearman_rho": 0.8647001919846836,
+      "spearman_rho_ci": [
+        0.7869345938805026,
+        0.9999999999999999
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.3333333333333333
+      }
+    },
+    {
+      "condition_x": "burstgpt::HIGH_PRESSURE::TERCILE::LATE",
+      "condition_y": "burstgpt::HIGH_PRESSURE::TERCILE::MIDDLE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0004551767944563678,
+      "kendall_tau": 0.8547315588743926,
+      "kendall_tau_ci": [
+        0.700404195972475,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 2.3876223764919137e-05,
+      "spearman_rho": 0.9352252762912497,
+      "spearman_rho_ci": [
+        0.7869345938805026,
+        0.9999999999999999
+      ],
+      "split": "TERCILE",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::LOW::BISECT::EARLY",
+      "condition_y": "burstgpt::LOW::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.019016473672300527,
+      "kendall_tau": 0.7254762501100116,
+      "kendall_tau_ci": [
+        -0.09999999999999999,
+        0.9999999999999999
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.008988517447141391,
+      "spearman_rho": 0.7416198487095662,
+      "spearman_rho_ci": [
+        -0.10000000000000002,
+        1.0
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::PRE_KNEE::BISECT::EARLY",
+      "condition_y": "burstgpt::PRE_KNEE::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.009684949956290744,
+      "kendall_tau": 0.7587869106393281,
+      "kendall_tau_ci": [
+        0.359937016532678,
+        0.9999999999999998
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.004351391695810162,
+      "spearman_rho": 0.7832604499879573,
+      "spearman_rho_ci": [
+        0.38729833462074165,
+        1.0
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::KNEE::BISECT::EARLY",
+      "condition_y": "burstgpt::KNEE::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.006455760027574831,
+      "kendall_tau": 0.7286524160629289,
+      "kendall_tau_ci": [
+        0.6094040593428307,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0009041264595332434,
+      "spearman_rho": 0.8506143541025448,
+      "spearman_rho_ci": [
+        0.6897286264197526,
+        0.9999999999999999
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::POST_KNEE::BISECT::EARLY",
+      "condition_y": "burstgpt::POST_KNEE::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.0022564046681571416,
+      "kendall_tau": 0.8043996665398436,
+      "kendall_tau_ci": [
+        0.6041585400191987,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.00048644033510462074,
+      "spearman_rho": 0.870712084953299,
+      "spearman_rho_ci": [
+        0.6750123615163116,
+        0.9999999999999999
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "burstgpt::OVERLOAD::BISECT::EARLY",
+      "condition_y": "burstgpt::OVERLOAD::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.0023688151759310135,
+      "kendall_tau": 0.7966275068156915,
+      "kendall_tau_ci": [
+        0.700066596898638,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0005549675928102464,
+      "spearman_rho": 0.8666902986261695,
+      "spearman_rho_ci": [
+        0.7887457230744283,
+        0.9999999999999999
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "burstgpt::HIGH_PRESSURE::BISECT::EARLY",
+      "condition_y": "burstgpt::HIGH_PRESSURE::BISECT::LATE",
+      "is_sensitivity_split": true,
+      "kendall_p": 0.0024301417658237137,
+      "kendall_tau": 0.7890763647670371,
+      "kendall_tau_ci": [
+        0.7724872793364282,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "burstgpt",
+      "spearman_p": 0.0005914588360003668,
+      "spearman_rho": 0.8647001919846836,
+      "spearman_rho_ci": [
+        0.835789033327984,
+        0.9999999999999999
+      ],
+      "split": "BISECT",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.3333333333333333
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::LOW::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::LOW::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.000488870531699955,
+      "kendall_tau": 0.9487179487179487,
+      "kendall_tau_ci": [
+        0.8164965809277261,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 8.386803945703662e-09,
+      "spearman_rho": 0.9891304347826085,
+      "spearman_rho_ci": [
+        0.8565603610802409,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::PRE_KNEE::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::PRE_KNEE::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00041434065586331165,
+      "kendall_tau": 0.9414688716912717,
+      "kendall_tau_ci": [
+        0.8931884167327451,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 2.366997560163373e-06,
+      "spearman_rho": 0.9615732502404013,
+      "spearman_rho_ci": [
+        0.9511213670856142,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 0.0,
+        "3": 0.6666666666666666
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::KNEE::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::KNEE::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9574271077563381,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9757833315074853,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::POST_KNEE::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::POST_KNEE::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9574271077563381,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9757833315074853,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::OVERLOAD::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::OVERLOAD::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9574271077563381,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9757833315074853,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "condition_x": "azure_llm_2024::HIGH_PRESSURE::CALENDAR_BOUNDARY::AT_OR_AFTER_BOUNDARY",
+      "condition_y": "azure_llm_2024::HIGH_PRESSURE::CALENDAR_BOUNDARY::BEFORE_BOUNDARY",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0001888621386744852,
+      "kendall_tau": 0.9040133315325639,
+      "kendall_tau_ci": [
+        0.8723567442899586,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "azure_llm_2024",
+      "spearman_p": 1.4881766992279836e-06,
+      "spearman_rho": 0.9653811384521649,
+      "spearman_rho_ci": [
+        0.9510309442380371,
+        1.0
+      ],
+      "split": "CALENDAR_BOUNDARY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::LOW::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::LOW::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00043784124494494607,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        1.0,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 9.370452282996268e-72,
+      "spearman_rho": 0.9999999999999999,
+      "spearman_rho_ci": [
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::PRE_KNEE::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::PRE_KNEE::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.0002376108411566479,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9487179487179487,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9891304347826085,
+        1.0
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::KNEE::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::KNEE::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9166666666666667,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9808612440191388,
+        1.0
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::POST_KNEE::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::POST_KNEE::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 7.368256406390709e-05,
+      "kendall_tau": 1.0,
+      "kendall_tau_ci": [
+        0.9166666666666667,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 0.0,
+      "spearman_rho": 1.0,
+      "spearman_rho_ci": [
+        0.9808612440191388,
+        1.0
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::OVERLOAD::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::OVERLOAD::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 0.00014533934914921472,
+      "kendall_tau": 0.9583333333333335,
+      "kendall_tau_ci": [
+        0.9166666666666667,
+        1.0
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 4.736199687432892e-09,
+      "spearman_rho": 0.9904306220095696,
+      "spearman_rho_ci": [
+        0.9808612440191388,
+        1.0
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    },
+    {
+      "chronology_label": "RELATIVE_CHRONOLOGY_ONLY",
+      "condition_x": "bailian_qwen::HIGH_PRESSURE::RELATIVE_CHRONOLOGY_ONLY::EARLY_RELATIVE",
+      "condition_y": "bailian_qwen::HIGH_PRESSURE::RELATIVE_CHRONOLOGY_ONLY::LATE_RELATIVE",
+      "is_sensitivity_split": false,
+      "kendall_p": 9.928292769231532e-05,
+      "kendall_tau": 0.9424819839382048,
+      "kendall_tau_ci": [
+        0.8723567442899586,
+        0.9814268704352471
+      ],
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_conditions_excluded_for_undefined_metric": 0,
+      "n_policies_compared": 11,
+      "source": "bailian_qwen",
+      "spearman_p": 4.934406812747578e-08,
+      "spearman_rho": 0.9838573324895269,
+      "spearman_rho_ci": [
+        0.9604007072354562,
+        0.9932680437705017
+      ],
+      "split": "RELATIVE_CHRONOLOGY_ONLY",
+      "topk_k_reduced": {
+        "1": false,
+        "3": false
+      },
+      "topk_overlap": {
+        "1": 1.0,
+        "3": 1.0
+      }
+    }
+  ],
+  "sample_complexity": {
+    "analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+    "analysis_contract_version": "phase12_analysis_prefreeze_v1",
+    "campaign_freeze_sha256": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+    "concentrated_vs_spread": [
+      {
+        "mean_tau_concentrated": 0.9396226415094339,
+        "mean_tau_spread": 0.9857012466741388,
+        "metric": "arrival_normalized_weighted_goodput",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.9999999999999998,
+        "mean_tau_spread": 0.9999999999999998,
+        "metric": "completion_fraction",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.9999999999999998,
+        "mean_tau_spread": 0.9999999999999998,
+        "metric": "weighted_completion_fraction",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.9202066207346895,
+        "mean_tau_spread": 0.9835351219358002,
+        "metric": "slo_violation_rate",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.9202066207346895,
+        "mean_tau_spread": 0.9841037139131145,
+        "metric": "weighted_goodput",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.8529104930832521,
+        "mean_tau_spread": 0.9934997403889312,
+        "metric": "mean_latency",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.9099309085113113,
+        "mean_tau_spread": 0.9862573489441786,
+        "metric": "p95_latency",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.8882448843625893,
+        "mean_tau_spread": 0.892875854705696,
+        "metric": "request_throughput",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.9125411806588856,
+        "mean_tau_spread": 0.8980652131697102,
+        "metric": "token_throughput",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.8409473537959552,
+        "mean_tau_spread": 0.9939255797778341,
+        "metric": "mean_ttft",
+        "n_draws": 500,
+        "n_total": 40
+      },
+      {
+        "mean_tau_concentrated": 0.8587342419339135,
+        "mean_tau_spread": 0.9568685465923127,
+        "metric": "p95_ttft",
+        "n_draws": 500,
+        "n_total": 40
+      }
+    ],
+    "consolidated_result_sha256": "09db0f1d285f830e054dfd5f3876eff94caa08ea1ca982828d5e228d1b3350b9",
+    "draws_per_n": 500,
+    "ladder_n_values": [
+      5,
+      10,
+      20,
+      30,
+      40
+    ],
+    "per_source_metric": [
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 40,
+          "3": 40
+        },
+        "metric": "arrival_normalized_weighted_goodput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.002,
+            "p_topk_recovery": {
+              "1": 0.13,
+              "3": 0.124
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.02,
+            "p_topk_recovery": {
+              "1": 0.224,
+              "3": 0.268
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.218,
+            "p_topk_recovery": {
+              "1": 0.494,
+              "3": 0.51
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.566,
+            "p_topk_recovery": {
+              "1": 0.742,
+              "3": 0.78
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "edf",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "kv_constrained_online",
+          "admission_control",
+          "fifo",
+          "least_laxity_first",
+          "vllm_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 30,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "completion_fraction",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.314,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.568,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.888,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.99,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "admission_control",
+          "edf",
+          "estimated_service_time_first",
+          "fifo",
+          "kv_constrained_online",
+          "least_laxity_first",
+          "sarathi_faithful",
+          "slai_faithful",
+          "vllm_chunked_prefill_faithful",
+          "weighted_fair_share",
+          "vllm_faithful"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 30,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "weighted_completion_fraction",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.314,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.568,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.888,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.99,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "admission_control",
+          "edf",
+          "estimated_service_time_first",
+          "fifo",
+          "kv_constrained_online",
+          "least_laxity_first",
+          "sarathi_faithful",
+          "slai_faithful",
+          "vllm_chunked_prefill_faithful",
+          "weighted_fair_share",
+          "vllm_faithful"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "slo_violation_rate",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.008,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.998
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.038,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.236,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.566,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "least_laxity_first",
+          "fifo",
+          "vllm_faithful",
+          "admission_control",
+          "kv_constrained_online",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 40,
+          "3": 40
+        },
+        "metric": "weighted_goodput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.002,
+            "p_topk_recovery": {
+              "1": 0.12,
+              "3": 0.124
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.028,
+            "p_topk_recovery": {
+              "1": 0.198,
+              "3": 0.268
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.226,
+            "p_topk_recovery": {
+              "1": 0.39,
+              "3": 0.51
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.566,
+            "p_topk_recovery": {
+              "1": 0.61,
+              "3": 0.78
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "edf",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "kv_constrained_online",
+          "admission_control",
+          "vllm_faithful",
+          "fifo",
+          "least_laxity_first",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 20
+        },
+        "metric": "mean_latency",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.0,
+            "p_topk_recovery": {
+              "1": 0.99,
+              "3": 0.828
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.002,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.742
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.216,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.906
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.58,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "vllm_faithful",
+          "least_laxity_first",
+          "fifo",
+          "kv_constrained_online",
+          "admission_control",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 30
+        },
+        "metric": "p95_latency",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.79
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.674
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.166,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.71
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.612,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.994
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "kv_constrained_online",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf",
+          "admission_control",
+          "least_laxity_first",
+          "vllm_faithful",
+          "fifo"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 40,
+          "3": 30
+        },
+        "metric": "request_throughput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.0,
+            "p_topk_recovery": {
+              "1": 0.124,
+              "3": 0.158
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.026,
+            "p_topk_recovery": {
+              "1": 0.268,
+              "3": 0.332
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.262,
+            "p_topk_recovery": {
+              "1": 0.51,
+              "3": 0.72
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.668,
+            "p_topk_recovery": {
+              "1": 0.78,
+              "3": 0.95
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "least_laxity_first",
+          "fifo",
+          "admission_control",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf",
+          "kv_constrained_online",
+          "vllm_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 40,
+          "3": 30
+        },
+        "metric": "token_throughput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.004,
+            "p_topk_recovery": {
+              "1": 0.124,
+              "3": 0.146
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.05,
+            "p_topk_recovery": {
+              "1": 0.268,
+              "3": 0.31
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.296,
+            "p_topk_recovery": {
+              "1": 0.51,
+              "3": 0.688
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.662,
+            "p_topk_recovery": {
+              "1": 0.78,
+              "3": 0.944
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "least_laxity_first",
+          "fifo",
+          "admission_control",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf",
+          "kv_constrained_online",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "vllm_faithful",
+          "slai_faithful"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 20,
+          "3": 5
+        },
+        "metric": "mean_ttft",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.062,
+            "p_topk_recovery": {
+              "1": 0.712,
+              "3": 0.938
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.25,
+            "p_topk_recovery": {
+              "1": 0.852,
+              "3": 0.982
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.51,
+            "p_topk_recovery": {
+              "1": 0.97,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.78,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "least_laxity_first",
+          "vllm_faithful",
+          "fifo",
+          "kv_constrained_online",
+          "admission_control",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 30
+        },
+        "metric": "p95_ttft",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.0,
+            "p_topk_recovery": {
+              "1": 0.938,
+              "3": 0.876
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.0,
+            "p_topk_recovery": {
+              "1": 0.996,
+              "3": 0.732
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.026,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.516
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.706,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.926
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "least_laxity_first",
+          "kv_constrained_online",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf",
+          "admission_control",
+          "vllm_faithful",
+          "fifo"
+        ],
+        "source": "burstgpt"
+      },
+      {
+        "first_n_meeting_exact_threshold": 30,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 30
+        },
+        "metric": "arrival_normalized_weighted_goodput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.35,
+            "p_topk_recovery": {
+              "1": 0.966,
+              "3": 0.35
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.624,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.624
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.886,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.886
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.988,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.988
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "edf",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "kv_constrained_online",
+          "admission_control",
+          "fifo",
+          "least_laxity_first",
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 5,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "completion_fraction",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "admission_control",
+          "edf",
+          "estimated_service_time_first",
+          "fifo",
+          "kv_constrained_online",
+          "least_laxity_first",
+          "sarathi_faithful",
+          "slai_faithful",
+          "vllm_chunked_prefill_faithful",
+          "weighted_fair_share",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 5,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "weighted_completion_fraction",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "admission_control",
+          "edf",
+          "estimated_service_time_first",
+          "fifo",
+          "kv_constrained_online",
+          "least_laxity_first",
+          "sarathi_faithful",
+          "slai_faithful",
+          "vllm_chunked_prefill_faithful",
+          "weighted_fair_share",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "slo_violation_rate",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.124,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.998
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.286,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.556,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.718,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful",
+          "least_laxity_first",
+          "fifo",
+          "admission_control",
+          "kv_constrained_online",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 30
+        },
+        "metric": "weighted_goodput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.124,
+            "p_topk_recovery": {
+              "1": 0.966,
+              "3": 0.35
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.286,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.624
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.556,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.886
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.718,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.988
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "edf",
+          "vllm_faithful",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "kv_constrained_online",
+          "admission_control",
+          "fifo",
+          "least_laxity_first",
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 30,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "mean_latency",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.5,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.652,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.836,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.99,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "least_laxity_first",
+          "fifo",
+          "kv_constrained_online",
+          "weighted_fair_share",
+          "estimated_service_time_first",
+          "admission_control",
+          "edf",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "p95_latency",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.208,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.314,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.458,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.564,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "kv_constrained_online",
+          "edf",
+          "admission_control",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "fifo",
+          "least_laxity_first",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 40
+        },
+        "metric": "request_throughput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.068,
+            "p_topk_recovery": {
+              "1": 0.998,
+              "3": 0.326
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.074,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.404
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.082,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.416
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.128,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.454
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "least_laxity_first",
+          "fifo",
+          "admission_control",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf",
+          "kv_constrained_online",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 40
+        },
+        "metric": "token_throughput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.112,
+            "p_topk_recovery": {
+              "1": 0.998,
+              "3": 0.298
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.056,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.27
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.06,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.264
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.1,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.37
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "least_laxity_first",
+          "fifo",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "admission_control",
+          "edf",
+          "kv_constrained_online",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 30,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "mean_ttft",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.686,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.768,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.878,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.99,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful",
+          "least_laxity_first",
+          "fifo",
+          "kv_constrained_online",
+          "weighted_fair_share",
+          "estimated_service_time_first",
+          "admission_control",
+          "edf",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 30,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "p95_ttft",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.33,
+            "p_topk_recovery": {
+              "1": 0.97,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.54,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.788,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.942,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "least_laxity_first",
+          "kv_constrained_online",
+          "fifo",
+          "weighted_fair_share",
+          "estimated_service_time_first",
+          "admission_control",
+          "edf",
+          "vllm_faithful"
+        ],
+        "source": "azure_llm_2024"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 30
+        },
+        "metric": "arrival_normalized_weighted_goodput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.146,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.248
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.242,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.42
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.478,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.77
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.64,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.936
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "edf",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "kv_constrained_online",
+          "admission_control",
+          "fifo",
+          "least_laxity_first",
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 5,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "completion_fraction",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "admission_control",
+          "edf",
+          "estimated_service_time_first",
+          "fifo",
+          "kv_constrained_online",
+          "least_laxity_first",
+          "sarathi_faithful",
+          "slai_faithful",
+          "vllm_chunked_prefill_faithful",
+          "weighted_fair_share",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 5,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "weighted_completion_fraction",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "admission_control",
+          "edf",
+          "estimated_service_time_first",
+          "fifo",
+          "kv_constrained_online",
+          "least_laxity_first",
+          "sarathi_faithful",
+          "slai_faithful",
+          "vllm_chunked_prefill_faithful",
+          "weighted_fair_share",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 40
+        },
+        "metric": "slo_violation_rate",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.002,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.482
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.024,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.528
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.196,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.56
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.456,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.652
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful",
+          "least_laxity_first",
+          "fifo",
+          "admission_control",
+          "vllm_faithful",
+          "kv_constrained_online",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 40
+        },
+        "metric": "weighted_goodput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.01,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.02
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.056,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.082
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.302,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.364
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.59,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.716
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "edf",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "kv_constrained_online",
+          "vllm_faithful",
+          "admission_control",
+          "fifo",
+          "least_laxity_first",
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "mean_latency",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.126,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.294,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.592,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.796,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "least_laxity_first",
+          "fifo",
+          "admission_control",
+          "kv_constrained_online",
+          "weighted_fair_share",
+          "estimated_service_time_first",
+          "edf",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "p95_latency",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.048,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.982
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.1,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.188,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.246,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "edf",
+          "kv_constrained_online",
+          "admission_control",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "fifo",
+          "least_laxity_first",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 40
+        },
+        "metric": "request_throughput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.004,
+            "p_topk_recovery": {
+              "1": 0.99,
+              "3": 0.39
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.034,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.468
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.178,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.678
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.534,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.862
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "least_laxity_first",
+          "fifo",
+          "edf",
+          "weighted_fair_share",
+          "estimated_service_time_first",
+          "admission_control",
+          "kv_constrained_online",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 40
+        },
+        "metric": "token_throughput",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.004,
+            "p_topk_recovery": {
+              "1": 0.99,
+              "3": 0.382
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.038,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.458
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.184,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.668
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.52,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 0.856
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "least_laxity_first",
+          "fifo",
+          "edf",
+          "weighted_fair_share",
+          "estimated_service_time_first",
+          "admission_control",
+          "kv_constrained_online",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "mean_ttft",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.134,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.31,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.592,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.79,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "slai_faithful",
+          "least_laxity_first",
+          "fifo",
+          "admission_control",
+          "kv_constrained_online",
+          "weighted_fair_share",
+          "estimated_service_time_first",
+          "edf",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      },
+      {
+        "first_n_meeting_exact_threshold": 40,
+        "first_n_meeting_topk_threshold": {
+          "1": 5,
+          "3": 5
+        },
+        "metric": "p95_ttft",
+        "points": [
+          {
+            "n": 5,
+            "n_draws": 500,
+            "p_exact_recovery": 0.12,
+            "p_topk_recovery": {
+              "1": 0.992,
+              "3": 1.0
+            },
+            "seed": 12350
+          },
+          {
+            "n": 10,
+            "n_draws": 500,
+            "p_exact_recovery": 0.152,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12355
+          },
+          {
+            "n": 20,
+            "n_draws": 500,
+            "p_exact_recovery": 0.326,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12365
+          },
+          {
+            "n": 30,
+            "n_draws": 500,
+            "p_exact_recovery": 0.398,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12375
+          },
+          {
+            "n": 40,
+            "n_draws": 500,
+            "p_exact_recovery": 1.0,
+            "p_topk_recovery": {
+              "1": 1.0,
+              "3": 1.0
+            },
+            "seed": 12385
+          }
+        ],
+        "reference_ranking": [
+          "slai_faithful",
+          "sarathi_faithful",
+          "vllm_chunked_prefill_faithful",
+          "least_laxity_first",
+          "admission_control",
+          "kv_constrained_online",
+          "estimated_service_time_first",
+          "weighted_fair_share",
+          "edf",
+          "fifo",
+          "vllm_faithful"
+        ],
+        "source": "bailian_qwen"
+      }
+    ]
+  },
+  "calibration": {
+    "records": 720,
+    "zero_completion": 0
+  },
+  "robustness_means": {
+    "LEAVE_ONE_POLICY_FAMILY_OUT::A_ARRIVAL_ORDER": 0.7073574175498002,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::B_DEADLINE_AWARE": 0.7200691045799821,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::C_SLACK_URGENCY": 0.7304012277479636,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::D_SERVICE_LENGTH": 0.7134365225432494,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::E_TOKEN_BUDGET_BATCHING": 0.7207879554512291,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::F_CHUNKED_PREFILL": 0.767578281964791,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::G_KV_MEMORY_PRESSURE": 0.736496611807898,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::H_ADJACENT_SLO_AWARE": 0.7916726780453006,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::H_ADMISSION_SLO_GUARD": 0.7370243970004092,
+    "LEAVE_ONE_POLICY_FAMILY_OUT::I_FAIRNESS": 0.7134365225432494,
+    "LEAVE_ONE_SOURCE_OUT::azure_llm_2024": 0.618253739296772,
+    "LEAVE_ONE_SOURCE_OUT::bailian_qwen": 0.6325563522939237,
+    "LEAVE_ONE_SOURCE_OUT::burstgpt": 0.9480091046234242,
+    "LOAD_CALIBRATION_SENSITIVITY::FOUR_REGION_SUBSET": 0.7280165079774228,
+    "PRIMARY_ONLY": 0.7329397320713733
+  },
+  "telemetry_usable": 42,
+  "inputs": {
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/dataset/v1.1.0/scientific/campaign/consolidated.json": {
+      "bytes": 37252923,
+      "sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/dataset/v1.1.0/manifests/ranking_portability_pilot_v2_windows_index.json": {
+      "bytes": 264916,
+      "sha256": "d78ec1087fedae02174ca093a9860c70468be336ccb1d7e6de756c81ba331e53"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/dataset/v1.1.0/scientific/analysis/ranking_correlations.json": {
+      "bytes": 183103,
+      "sha256": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/dataset/v1.1.0/scientific/analysis/pairwise_reversals.json": {
+      "bytes": 8022760,
+      "sha256": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-cross-metric-analysis-extension/artifacts/analysis/cross_metric_extension/33729102c2f8867cb521f8557cd51b42d8830811de8dea16cc7ab68d53b61fd9/cross_metric_correlations.json": {
+      "bytes": 1142013,
+      "sha256": "8fa69a9d87832436ba88e2ee2f0d8a3002e390269a8e9f37085860bb290ad1b2"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-cross-metric-analysis-extension/artifacts/analysis/cross_metric_extension/33729102c2f8867cb521f8557cd51b42d8830811de8dea16cc7ab68d53b61fd9/cross_metric_pairwise_disagreements.json": {
+      "bytes": 41970872,
+      "sha256": "122a3a7297d80f505cb8bdd48a2f89d068bdb69f88ef608d54b33f6e64e3af23"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-slo-sensitivity-extension/artifacts/analysis/slo_sensitivity/424b332ff860870ae062db3360c18170476c19b462eb895dff69cd0d88b22c6d/full/ranking_robustness.json": {
+      "bytes": 15518,
+      "sha256": "c83ff167fe34a57c9cb535782f61873c6d321b0e1700f9755043fde98db82fa0"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-slo-sensitivity-extension/artifacts/analysis/slo_sensitivity/424b332ff860870ae062db3360c18170476c19b462eb895dff69cd0d88b22c6d/full/reversal_persistence.json": {
+      "bytes": 51017,
+      "sha256": "01d0785afbeb4cb3ebccf4e60d4b2379891750ed65d59f685bc74fe58ecf761e"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-slo-sensitivity-extension/artifacts/analysis/slo_sensitivity/424b332ff860870ae062db3360c18170476c19b462eb895dff69cd0d88b22c6d/full/slo_sensitivity_status.json": {
+      "bytes": 259,
+      "sha256": "9f3a9c9b5bcb5113fa7ef02823e0679c22b662dab8a35bce409fa94a44dcf245"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/dataset/v1.1.0/scientific/analysis/temporal_robustness.json": {
+      "bytes": 31280,
+      "sha256": "c19a3c6400336525beda132386585e9d709782f5e0b05dec36867ee1850675d0"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/dataset/v1.1.0/scientific/analysis/sample_complexity.json": {
+      "bytes": 57135,
+      "sha256": "cb54afc0e1bb868580b6a8c929d94f4718dbc1eaa01d527b0a2c265c07578dcf"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/dataset/v1.1.0/scientific/analysis/telemetry_explanation.json": {
+      "bytes": 850652,
+      "sha256": "b073fa0bbe91efe670151e7250d603f020ed7c0f1a60b90397fa7c18c5d591f6"
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/dataset/v1.1.0/manifests/ranking_portability_phase11_raw_fifo_calibration.json": {
+      "bytes": 709192,
+      "sha256": "201caaf04476ad8737ef6079fc0d6cb4e864601711d0b96c88750a717d8b2a6a"
+    }
+  }
+}

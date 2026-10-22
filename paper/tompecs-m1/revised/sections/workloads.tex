@@ -1,0 +1,164 @@
+\section{Workloads and Experimental Design}\label{sec:workloads}
+\subsection{Sources}
+\label{sec:sources}
+
+LSSP's primary benchmark corpus draws from three independently released
+workload sources: BurstGPT \citep{burstgpt2025}, Microsoft's official Azure
+2024 LLM-inference trace \citep{azure2024trace,stojkovic2025dynamollm}, and
+Alibaba Cloud's Bailian/Qwen anonymized usage-trace
+release \citep{bailianqwen2026}. Azure's 2023 conversation/code traces
+\citep{patel2024splitwise} and windows from an earlier discriminability
+pilot (\S\ref{sec:stage0}) contribute additional context but are not part
+of the primary 120-window matrix beyond the 10-per-source pilot windows
+reused as described below. TraceLab \citep{tracelab2026} is retained as an
+out-of-distribution, coding-agent workload family for future expansion,
+not as one of the three primary sources, because its independence from a
+prior 512-window public sweep cannot be fully verified from public
+artifacts alone.
+
+BurstGPT's own reported
+collection methodology logs traffic from a regional customer of Microsoft's
+Azure OpenAI GPT service, and this project's Azure trace is Microsoft's own
+official release of internal Azure LLM-inference-service traffic. Both
+therefore sit on the same underlying cloud provider's infrastructure. We
+describe BurstGPT and Azure as distinct, independently released workload
+sources -- different collection methodology, different customer
+population, different release provenance and version history -- and we do
+not describe them as independent providers. Bailian/Qwen (Alibaba Cloud)
+is a genuinely different underlying platform from both.
+
+\subsection{Representation and Provenance}
+\label{sec:provenance}
+
+Each source is ingested through a dedicated, field-level-audited adapter that maps the source's native
+schema onto a common internal request representation (arrival time, input
+tokens, output tokens, total tokens, session identifier where available,
+model class). Native-field provenance is separate from benchmark synthesis: absent tenant, KV-reuse and failure fields are not inferred, whereas the benchmark supplies priority/SLO parameters for policies and metrics where necessary. These are synthetic experimental attributes, not source-observed service guarantees. License status for each source was verified before any confirmatory use of a real, full-scale sample (for example, BurstGPT is under CC-BY-4.0).
+
+\subsection{Window Construction}
+\label{sec:windows}
+
+The benchmark corpus freezes exactly 120 windows of 200 requests each: 40
+per source (\texttt{azure\_llm\_2024}, \texttt{bailian\_qwen},
+\texttt{burstgpt}), each composed of 10 windows reused verbatim from the
+discriminability pilot (\S\ref{sec:stage0}) plus 30 new windows drawn by a
+deterministic, outcome-blind, source-symmetric pinned-extension sampler
+that uses only valid-row index ranges and fixed seeds -- never scheduler
+metrics, policy identities, or the pilot's tie/non-tie outcomes (verified
+by structural audit to contain no BurstGPT-outcome-targeting signal).
+Windows are assigned to EARLY/MIDDLE/LATE chronology strata by
+deterministic relative chronology (60/30/30 windows respectively); the
+reused pilot windows are all EARLY. The freeze was independently
+validated -- unique window identities, exact per-source and reused/new
+counts, fixed \texttt{request\_count = 200}, no prohibited overlap, valid
+chronology, and absence of any scheduler/policy/load-calibration outcome
+field in the selection rule -- and recorded with a canonical content hash
+(excluding generation timestamp; full values and verification records are
+in the preserved artifact hash ledger) before any load calibration or
+scheduler outcome was generated.
+
+\subsection{Descriptors}
+\label{sec:descriptors}
+
+Each window is described by a 28-feature descriptor vector spanning prompt-
+and output-token-length statistics (mean, p90, long-prompt fraction at the
+512/2048/8192-token thresholds), arrival-timing statistics (mean arrival
+rate, inter-arrival percentiles), and derived load-pressure proxies. Three
+deterministically redundant pressure-proxy features ($R^2=1.0$ against
+other included features) are retained in the underlying dataset but
+excluded from the classifier input used in \S\ref{sec:separability}.
+Prompt-token figures compose differently across sources for architectural
+reasons: TraceLab's and Azure's prompt-token fields are potentially
+multi-turn-cumulative context, while BurstGPT's is a single per-request
+figure. This is a property of how each source's underlying workload is
+architected (a growing agent/conversation session versus a single stateless
+API call), not an adapter artifact, and it is preserved as an explicit
+caveat on every prompt-length-based claim below.
+
+
+\subsection{Characterization scope}\label{sec:cross-source-diffs}\label{sec:separability}\label{sec:drivers}
+A separate descriptor study used 400 windows across four classes, including
+TraceLab. It is not part of the 120-window outcome matrix. Its classifier
+results and feature-attribution claims require their own provenance and
+are not evidence that a particular feature causes ranking reversals. This
+draft retains the source and prompt-semantics caveats without using those
+classifier accuracies as central portability evidence.
+\subsection{Operating-Region Calibration}
+\label{sec:calibration}
+
+A FIFO-only calibration pass establishes six operating regions --
+\texttt{LOW} (load factor 0.5), \texttt{PRE\_KNEE} (0.8), \texttt{KNEE}
+(1.0), \texttt{POST\_KNEE} (1.1), \texttt{OVERLOAD} (1.2), and
+\texttt{HIGH\_PRESSURE} (1.5) -- across all 120 frozen windows (720
+calibration cells total; 720 valid, deterministic, 0 failed/missing/
+duplicated). We report this as calibration provenance, not a comparative
+scheduler result: FIFO is the calibration reference policy, and the
+calibration's role is to fix load-factor-to-region mappings before any
+other policy is executed against them, not to characterize FIFO's relative
+performance. The preserved 720-cell raw FIFO calibration manifest contains no zero-completion cells. Earlier manuscript prose reporting 301 such records is inconsistent with this artifact and is not retained as a finding. The distinction between calibration and campaign configuration is preserved: a calibration record is not an outcome for every policy under the final campaign.
+
+\subsection{Paired Design and Repetitions}
+\label{sec:paired}
+
+Because the simulator is fully deterministic (\S\ref{sec:execution-model}),
+a single execution per (window, policy, region) cell is sufficient: each of
+the $9{,}360$ configurations yields one scientific outcome, and its rep0/rep1
+pair ($18{,}720$ executions in total) is a deterministic verification pass
+confirming bit-identical output, not an independent stochastic replicate.
+Ranking-uncertainty quantification (\S\ref{sec:results}) instead comes from
+resampling over the workload windows themselves (block
+bootstrap), not from repeated stochastic runs of the same cell.
+
+
+\subsection{Protocol freeze, pilot and overlap}\label{sec:prereg}\label{sec:stage0}\label{sec:evidence-boundaries}\label{sec:overview}
+The repository preserves the workload, panel, calibration, campaign and
+analysis freezes and their hashes. The earlier discriminability pilot
+motivated the larger panel; it is not confirmatory ranking evidence.
+The principal outcome matrix is fixed. Subsequent metric and SLO analyses
+are labeled extensions, with their original configurations unchanged.
+Reused pilot windows are disclosed rather than counted as an independent
+replication of the pilot. Historical source and freeze identities are
+retained even where later prose or engineering audits qualify their meaning.
+
+A related load-scaling manuscript and a separate module-intervention
+project share research lineage. This paper does not claim their results
+or intervention-based attribution as its own. The earlier 60-window
+project's exact byte-level overlap is not fully reconstructed; final
+overlap review remains necessary. The present sampler is distinct, but
+that alone is not a proof of zero overlap.
+
+\subsection{Window and trace eligibility}\label{sec:window-size}
+Every principal window contains 200 requests; a sweep of requests per
+window has not been performed. The recovery analysis varies the number
+of windows, not requests per window. Source-reported token counts are not
+retokenized model inputs. All 40 Azure and 40 Bailian window medians exceed
+256 source tokens. The later whole-prefill engineering contract, bounded
+at 256 prompt tokens and 16 active sequences, therefore does not cover
+these traces. No requests were truncated or filtered for this manuscript
+preparation, and no mapping to a modern model/tokenizer context limit is
+silently assumed.
+
+\subsection{Temporal partitions}\label{sec:temporal-design}
+The manifest assigns 20 EARLY, 10 MIDDLE and 10 LATE windows per source
+(60/30/30 over all three sources). Thus 60/30/30 is not a BurstGPT-only
+count. BurstGPT uses relative-chronology terciles and an additional bisect
+sensitivity split. Azure uses the frozen 2024-05-15 calendar boundary;
+Bailian is labeled relative chronology only. These definitions remain
+unchanged and are interpreted separately.
+\subsection{Recorded prompt-length coverage}
+\begin{table}[t]\centering
+\caption{Range of window-level median source-reported prompts in the
+frozen 40-window/source corpus. These are not common-tokenizer counts.}
+\label{tab:prompt-coverage}
+\begin{tabular}{lrrr}\toprule
+Source & Minimum median & Maximum median & Medians above 256\\\midrule
+azure\_llm\_2024 & 628.5 & 1595 & 40/40\\
+bailian\_qwen & 343.5 & 1150 & 40/40\\
+burstgpt & 140.5 & 620.5 & 9/40\\
+\bottomrule\end{tabular}\end{table}
+These summaries demonstrate a coverage gap for bounded short-prompt
+serving checks, not an exact request-exclusion fraction. A window median
+does not identify every request above a threshold, and source length
+fields do not recover absent prompt text. No benchmark text is synthesized
+here to claim tokenizer equivalence. Model, tokenizer and context eligibility
+for prospective native traces require separate decisions and measurements.

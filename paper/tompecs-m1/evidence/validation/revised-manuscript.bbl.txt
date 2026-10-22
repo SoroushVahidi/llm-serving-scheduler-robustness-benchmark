@@ -1,0 +1,439 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{25}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter does
+%%% not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+\makeatletter
+\@ifundefined{NAT@parse@date}{}{\let\NAT@parse@date@orig\NAT@parse@date}
+\@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
+\makeatother
+
+\bibitem[Agrawal et~al\mbox{.}(2024a)]%
+        {vidur2024}
+\bibfield{author}{\bibinfo{person}{Amey Agrawal}, \bibinfo{person}{Nitin
+  Kedia}, \bibinfo{person}{Jayashree Mohan}, \bibinfo{person}{Ashish Panwar},
+  \bibinfo{person}{Nipun Kwatra}, \bibinfo{person}{Bhargav~S. Gulavani},
+  \bibinfo{person}{Ramachandran Ramjee}, {and} \bibinfo{person}{Alexey
+  Tumanov}.} \bibinfo{year}{2024}\natexlab{a}.
+\newblock \showarticletitle{VIDUR: A Large-Scale Simulation Framework for LLM
+  Inference}. In \bibinfo{booktitle}{\emph{Proceedings of Machine Learning and
+  Systems (MLSys '24)}}. \bibinfo{publisher}{MLSys}.
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2405.05465}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Agrawal et~al\mbox{.}(2024b)]%
+        {agrawal2024sarathi}
+\bibfield{author}{\bibinfo{person}{Amey Agrawal}, \bibinfo{person}{Nitin
+  Kedia}, \bibinfo{person}{Ashish Panwar}, \bibinfo{person}{Jayashree Mohan},
+  \bibinfo{person}{Nipun Kwatra}, \bibinfo{person}{Bhargav~S. Gulavani},
+  \bibinfo{person}{Alexey Tumanov}, {and} \bibinfo{person}{Ramachandran
+  Ramjee}.} \bibinfo{year}{2024}\natexlab{b}.
+\newblock \showarticletitle{Taming Throughput-Latency Tradeoff in LLM Inference
+  with Sarathi-Serve}. In \bibinfo{booktitle}{\emph{Proceedings of the 18th
+  USENIX Symposium on Operating Systems Design and Implementation (OSDI '24)}}.
+  \bibinfo{publisher}{USENIX Association}.
+\newblock
+\urldef\tempurl%
+\url{https://www.usenix.org/conference/osdi24/presentation/agrawal}
+\showURL{%
+\tempurl}
+
+
+\bibitem[{Alibaba Cloud}(2026)]%
+        {bailianqwen2026}
+\bibfield{author}{\bibinfo{person}{{Alibaba Cloud}}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{qwen-bailian-usagetraces-anon}}.
+\newblock
+\urldef\tempurl%
+\url{https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon/tree/5f7439c51ec248a0c585f7d90a41a6f57773b912}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Anonymized Bailian/Qwen production LLM-serving usage-trace release;
+  repository \texttt{alibaba-edu/qwen-bailian-usagetraces-anon}, pinned commit
+  \texttt{5f7439c51ec248a0c585f7d90a41a6f57773b912}, Apache-2.0}.
+
+
+\bibitem[Bari et~al\mbox{.}(2025)]%
+        {slai2025}
+\bibfield{author}{\bibinfo{person}{Agrim Bari}, \bibinfo{person}{Parikshit
+  Hegde}, {and} \bibinfo{person}{Gustavo de Veciana}.}
+  \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Optimal Scheduling Algorithms for LLM Inference:
+  Theory and Practice}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the ACM on Measurement and
+  Analysis of Computing Systems}} \bibinfo{volume}{9}, \bibinfo{number}{3}
+  (\bibinfo{year}{2025}), \bibinfo{pages}{59}.
+\newblock
+\href{https://doi.org/10.1145/3771574}{doi:\nolinkurl{10.1145/3771574}}
+
+
+\bibitem[Cho et~al\mbox{.}(2025)]%
+        {llmservingsim2_2025}
+\bibfield{author}{\bibinfo{person}{Jaehong Cho}, \bibinfo{person}{Hyunmin
+  Choi}, {and} \bibinfo{person}{Jongse Park}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{LLMServingSim2.0: A Unified Simulator for
+  Heterogeneous Hardware and Serving Techniques in LLM Infrastructure}.
+\newblock \bibinfo{journal}{\emph{IEEE Computer Architecture Letters}}
+  \bibinfo{volume}{24}, \bibinfo{number}{2} (\bibinfo{year}{2025}).
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2511.07229}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Cho et~al\mbox{.}(2024)]%
+        {llmservingsim2024}
+\bibfield{author}{\bibinfo{person}{Jaehong Cho}, \bibinfo{person}{Minsu Kim},
+  \bibinfo{person}{Hyunmin Choi}, \bibinfo{person}{Guseul Heo}, {and}
+  \bibinfo{person}{Jongse Park}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{LLMServingSim: A HW/SW Co-Simulation Infrastructure
+  for LLM Inference Serving at Scale}. In \bibinfo{booktitle}{\emph{Proceedings
+  of the 2024 IEEE International Symposium on Workload Characterization (IISWC
+  '24)}}. \bibinfo{publisher}{IEEE}.
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2408.05499}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Fu et~al\mbox{.}(2024)]%
+        {efficientllmscheduling2024}
+\bibfield{author}{\bibinfo{person}{Yichao Fu}, \bibinfo{person}{Siqi Zhu},
+  \bibinfo{person}{Runlong Su}, \bibinfo{person}{Aurick Qiao},
+  \bibinfo{person}{Ion Stoica}, {and} \bibinfo{person}{Hao Zhang}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Efficient LLM Scheduling by Learning to Rank}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 38th Conference on Neural
+  Information Processing Systems (NeurIPS '24)}}.
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2408.15792}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Jin et~al\mbox{.}(2023)]%
+        {jin2023s3}
+\bibfield{author}{\bibinfo{person}{Yunho Jin}, \bibinfo{person}{Chun-Feng Wu},
+  \bibinfo{person}{David Brooks}, {and} \bibinfo{person}{Gu-Yeon Wei}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{S\textsuperscript{3}: Increasing GPU Utilization
+  during Generative Inference for Higher Throughput}. In
+  \bibinfo{booktitle}{\emph{Advances in Neural Information Processing Systems
+  36 (NeurIPS '23)}}.
+\newblock
+\href{https://doi.org/10.5555/3666122.3666913}{doi:\nolinkurl{10.5555/3666122.3666913}}
+
+
+\bibitem[Kwon et~al\mbox{.}(2023)]%
+        {kwon2023vllm}
+\bibfield{author}{\bibinfo{person}{Woosuk Kwon}, \bibinfo{person}{Zhuohan Li},
+  \bibinfo{person}{Siyuan Zhuang}, \bibinfo{person}{Ying Sheng},
+  \bibinfo{person}{Lianmin Zheng}, \bibinfo{person}{Cody~Hao Yu},
+  \bibinfo{person}{Joseph~E. Gonzalez}, \bibinfo{person}{Hao Zhang}, {and}
+  \bibinfo{person}{Ion Stoica}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Efficient Memory Management for Large Language
+  Model Serving with PagedAttention}. In \bibinfo{booktitle}{\emph{Proceedings
+  of the 29th Symposium on Operating Systems Principles (SOSP '23)}}.
+  \bibinfo{publisher}{ACM}.
+\newblock
+\href{https://doi.org/10.1145/3600006.3613165}{doi:\nolinkurl{10.1145/3600006.3613165}}
+
+
+\bibitem[{Microsoft Azure}(2024)]%
+        {azure2024trace}
+\bibfield{author}{\bibinfo{person}{{Microsoft Azure}}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{AzureLLMInferenceDataset2024}}.
+\newblock
+\urldef\tempurl%
+\url{https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Nixon et~al\mbox{.}(2026)]%
+        {ayearinllmserving2026}
+\bibfield{author}{\bibinfo{person}{William Nixon}, \bibinfo{person}{Jon
+  Durbin}, \bibinfo{person}{Florian Standhartinger},
+  \bibinfo{person}{Haryadi~S. Gunawi}, {and} \bibinfo{person}{Juncheng Yang}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{A Year in LLM Serving: Workload Evolution, Caching
+  and Load-Balancing}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint}} (\bibinfo{year}{2026}).
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2608.13573}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Papaioannou and Doudali(2024)]%
+        {papaioannou2024workload}
+\bibfield{author}{\bibinfo{person}{Konstantinos Papaioannou} {and}
+  \bibinfo{person}{Thaleia~Dimitra Doudali}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{The Importance of Workload Choice in Evaluating LLM
+  Inference Systems}. In \bibinfo{booktitle}{\emph{Proceedings of the 4th
+  Workshop on Machine Learning and Systems (EuroMLSys '24)}}.
+  \bibinfo{publisher}{ACM}, \bibinfo{pages}{39--46}.
+\newblock
+\href{https://doi.org/10.1145/3642970.3655823}{doi:\nolinkurl{10.1145/3642970.3655823}}
+
+
+\bibitem[Patel et~al\mbox{.}(2024)]%
+        {patel2024splitwise}
+\bibfield{author}{\bibinfo{person}{Pratyush Patel}, \bibinfo{person}{Esha
+  Choukse}, \bibinfo{person}{Chaojie Zhang}, \bibinfo{person}{Aashaka Shah},
+  \bibinfo{person}{Íñigo Goiri}, \bibinfo{person}{Saeed Maleki}, {and}
+  \bibinfo{person}{Ricardo Bianchini}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Splitwise: Efficient Generative LLM Inference Using
+  Phase Splitting}. In \bibinfo{booktitle}{\emph{Proceedings of the 51st Annual
+  International Symposium on Computer Architecture (ISCA '24)}}.
+  \bibinfo{publisher}{IEEE/ACM}.
+\newblock
+\href{https://doi.org/10.1109/ISCA59077.2024.00019}{doi:\nolinkurl{10.1109/ISCA59077.2024.00019}}
+
+
+\bibitem[Qin et~al\mbox{.}(2025)]%
+        {qin2025mooncake}
+\bibfield{author}{\bibinfo{person}{Ruoyu Qin}, \bibinfo{person}{Zheming Li},
+  \bibinfo{person}{Weiran He}, \bibinfo{person}{Jialei Cui},
+  \bibinfo{person}{Feng Ren}, \bibinfo{person}{Mingxing Zhang},
+  \bibinfo{person}{Yongwei Wu}, \bibinfo{person}{Weimin Zheng}, {and}
+  \bibinfo{person}{Xinran Xu}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Mooncake: Trading More Storage for Less Computation
+  --- A KVCache-centric Architecture for Serving LLM Chatbot}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 23rd USENIX Conference on File
+  and Storage Technologies (FAST '25)}}. \bibinfo{publisher}{USENIX
+  Association}.
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2407.00079}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Sheng et~al\mbox{.}(2024)]%
+        {sheng2024vtc}
+\bibfield{author}{\bibinfo{person}{Ying Sheng}, \bibinfo{person}{Shiyi Cao},
+  \bibinfo{person}{Dacheng Li}, \bibinfo{person}{Banghua Zhu},
+  \bibinfo{person}{Zhuohan Li}, \bibinfo{person}{Danyang Zhuo},
+  \bibinfo{person}{Joseph~E. Gonzalez}, {and} \bibinfo{person}{Ion Stoica}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Fairness in Serving Large Language Models}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 18th USENIX Symposium on
+  Operating Systems Design and Implementation (OSDI '24)}}.
+  \bibinfo{publisher}{USENIX Association}.
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2401.00588}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Stojkovic et~al\mbox{.}(2025)]%
+        {stojkovic2025dynamollm}
+\bibfield{author}{\bibinfo{person}{Jovan Stojkovic}, \bibinfo{person}{Chaojie
+  Zhang}, \bibinfo{person}{Íñigo Goiri}, \bibinfo{person}{Josep Torrellas},
+  {and} \bibinfo{person}{Esha Choukse}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{DynamoLLM: Designing LLM Inference Clusters for
+  Performance and Energy Efficiency}. In \bibinfo{booktitle}{\emph{Proceedings
+  of the 2025 IEEE International Symposium on High-Performance Computer
+  Architecture (HPCA '25)}}. \bibinfo{publisher}{IEEE}.
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2408.00741}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Sun et~al\mbox{.}(2024)]%
+        {sun2024llumnix}
+\bibfield{author}{\bibinfo{person}{Biao Sun}, \bibinfo{person}{Ziming Huang},
+  \bibinfo{person}{Hanyu Zhao}, \bibinfo{person}{Wencong Xiao},
+  \bibinfo{person}{Xinyi Zhang}, \bibinfo{person}{Yong Li}, {and}
+  \bibinfo{person}{Wei Lin}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Llumnix: Dynamic Scheduling for Large Language
+  Model Serving}. In \bibinfo{booktitle}{\emph{Proceedings of the 18th USENIX
+  Symposium on Operating Systems Design and Implementation (OSDI '24)}}.
+  \bibinfo{publisher}{USENIX Association}.
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2406.03243}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Wang et~al\mbox{.}(2025b)]%
+        {kvcache_wild2025}
+\bibfield{author}{\bibinfo{person}{Jiahao Wang}, \bibinfo{person}{Jinbo Han},
+  \bibinfo{person}{Xingda Wei}, \bibinfo{person}{Sijie Shen},
+  \bibinfo{person}{Dingyan Zhang}, \bibinfo{person}{Chenguang Fang},
+  \bibinfo{person}{Rong Chen}, \bibinfo{person}{Wenyuan Yu}, {and}
+  \bibinfo{person}{Haibo Chen}.} \bibinfo{year}{2025}\natexlab{b}.
+\newblock \showarticletitle{KVCache Cache in the Wild: Characterizing and
+  Optimizing KVCache Cache at a Large Cloud Provider}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the 2025 USENIX Annual
+  Technical Conference (ATC '25)}} (\bibinfo{year}{2025}).
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2506.02634}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Wang et~al\mbox{.}(2025a)]%
+        {burstgpt2025}
+\bibfield{author}{\bibinfo{person}{Yuxin Wang}, \bibinfo{person}{Yuhan Chen},
+  \bibinfo{person}{Zeyu Li}, \bibinfo{person}{Xueze Kang},
+  \bibinfo{person}{Yuchu Fang}, \bibinfo{person}{Yeju Zhou},
+  \bibinfo{person}{Yang Zheng}, \bibinfo{person}{Zhenheng Tang},
+  \bibinfo{person}{Xin He}, \bibinfo{person}{Rui Guo}, \bibinfo{person}{Xin
+  Wang}, \bibinfo{person}{Qiang Wang}, \bibinfo{person}{Amelie~Chi Zhou}, {and}
+  \bibinfo{person}{Xiaowen Chu}.} \bibinfo{year}{2025}\natexlab{a}.
+\newblock \showarticletitle{BurstGPT: A Real-World Workload Dataset to Optimize
+  LLM Serving Systems}. In \bibinfo{booktitle}{\emph{Proceedings of the 31st
+  ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '25),
+  Volume 2}}. \bibinfo{publisher}{ACM}.
+\newblock
+\href{https://doi.org/10.1145/3711896.3737413}{doi:\nolinkurl{10.1145/3711896.3737413}}
+
+
+\bibitem[Xiang et~al\mbox{.}(2026)]%
+        {servegen2026}
+\bibfield{author}{\bibinfo{person}{Yuxing Xiang}, \bibinfo{person}{Xue Li},
+  \bibinfo{person}{Kun Qian}, \bibinfo{person}{Yan Zhang},
+  \bibinfo{person}{Wenyuan Yu}, \bibinfo{person}{Ennan Zhai},
+  \bibinfo{person}{Xin Jin}, {and} \bibinfo{person}{Jingren Zhou}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{ServeGen: Workload Characterization and Generation
+  of Large Language Model Serving in Production}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 23rd USENIX Symposium on
+  Networked Systems Design and Implementation (NSDI '26)}}.
+  \bibinfo{publisher}{USENIX Association}.
+\newblock
+\urldef\tempurl%
+\url{https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Yildiz et~al\mbox{.}(2026)]%
+        {yildiz2026dispatching}
+\bibfield{author}{\bibinfo{person}{Mert Yildiz}, \bibinfo{person}{Alexey
+  Rolich}, {and} \bibinfo{person}{Andrea Baiocchi}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{Dispatching policies in data center clusters:
+  Insights from {Google} and {Alibaba} workloads}.
+\newblock \bibinfo{journal}{\emph{Performance Evaluation}}
+  \bibinfo{volume}{172} (\bibinfo{year}{2026}), \bibinfo{pages}{102551}.
+\newblock
+\href{https://doi.org/10.1016/j.peva.2026.102551}{doi:\nolinkurl{10.1016/j.peva.2026.102551}}
+
+
+\bibitem[Yu et~al\mbox{.}(2022)]%
+        {yu2022orca}
+\bibfield{author}{\bibinfo{person}{Gyeong-In Yu}, \bibinfo{person}{Joo~Seong
+  Jeong}, \bibinfo{person}{Geon-Woo Kim}, \bibinfo{person}{Soojeong Kim}, {and}
+  \bibinfo{person}{Byung-Gon Chun}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Orca: A Distributed Serving System for
+  Transformer-Based Generative Models}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 16th USENIX Symposium on
+  Operating Systems Design and Implementation (OSDI '22)}}.
+  \bibinfo{publisher}{USENIX Association}.
+\newblock
+\urldef\tempurl%
+\url{https://www.usenix.org/conference/osdi22/presentation/yu}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Zakay and Feitelson(2014)]%
+        {zakay2014resampling}
+\bibfield{author}{\bibinfo{person}{Netanel Zakay} {and}
+  \bibinfo{person}{Dror~G. Feitelson}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Workload resampling for performance evaluation of
+  parallel job schedulers}.
+\newblock \bibinfo{journal}{\emph{Concurrency and Computation: Practice and
+  Experience}} \bibinfo{volume}{26}, \bibinfo{number}{12}
+  (\bibinfo{year}{2014}), \bibinfo{pages}{2079--2105}.
+\newblock
+\href{https://doi.org/10.1002/cpe.3240}{doi:\nolinkurl{10.1002/cpe.3240}}
+
+
+\bibitem[Zhong et~al\mbox{.}(2024)]%
+        {zhong2024distserve}
+\bibfield{author}{\bibinfo{person}{Yinmin Zhong}, \bibinfo{person}{Shengyu
+  Liu}, \bibinfo{person}{Junda Chen}, \bibinfo{person}{Jianbo Hu},
+  \bibinfo{person}{Yibo Zhu}, \bibinfo{person}{Xuanzhe Liu},
+  \bibinfo{person}{Xin Jin}, {and} \bibinfo{person}{Hao Zhang}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{DistServe: Disaggregating Prefill and Decoding for
+  Goodput-Optimized Large Language Model Serving}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 18th USENIX Symposium on
+  Operating Systems Design and Implementation (OSDI '24)}}.
+  \bibinfo{publisher}{USENIX Association}.
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2401.09670}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Zhu et~al\mbox{.}(2026)]%
+        {tracelab2026}
+\bibfield{author}{\bibinfo{person}{Kan Zhu}, \bibinfo{person}{Mathew Jacob},
+  \bibinfo{person}{Chenxi Ma}, \bibinfo{person}{Yi Pan},
+  \bibinfo{person}{Stephanie Wang}, \bibinfo{person}{Arvind Krishnamurthy},
+  {and} \bibinfo{person}{Baris Kasikci}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \showarticletitle{TraceLab: Characterizing Coding Agent Workloads for
+  LLM Serving}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint}} (\bibinfo{year}{2026}).
+\newblock
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2606.30560}
+\showURL{%
+\tempurl}
+
+
+\end{thebibliography}

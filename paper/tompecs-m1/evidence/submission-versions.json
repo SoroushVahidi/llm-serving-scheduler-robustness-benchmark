@@ -1,0 +1,416 @@
+{
+  "JSC": {
+    "revision": "b1f9a12021c25dff8ad7cc06ff9654b6a047c132",
+    "prefix": "paper/jsc_submission_package",
+    "files": {
+      "paper/jsc_submission_package/LSSP_JSC_submission_20260904.zip": {
+        "bytes": 673816,
+        "sha256": "6e05c3155dcb27992c9a577f13a0eb9be786520fab209be6b2f873ad1d2f5a18"
+      },
+      "paper/jsc_submission_package/artifact.tex": {
+        "bytes": 5588,
+        "sha256": "159322962986c69d67350bb12e77b30e1bdefea8d9ef7e34a5421b8338681da0"
+      },
+      "paper/jsc_submission_package/conclusion.tex": {
+        "bytes": 3583,
+        "sha256": "2eea8320c641b3334d83eb5f2aa8f694d359f2ec4f160fa281214d86ed2fcb06"
+      },
+      "paper/jsc_submission_package/declarations.tex": {
+        "bytes": 4588,
+        "sha256": "aa9889be5f937f9c923701f7d99afa01e82028d2c2ba65e0b0c6095c6dc386b7"
+      },
+      "paper/jsc_submission_package/discussion.tex": {
+        "bytes": 11159,
+        "sha256": "fef251290f818db2af0bce0ba1421042c98980d857ddc4209b2d4bcebe4d4ef9"
+      },
+      "paper/jsc_submission_package/fig1_portability_heatmap.pdf": {
+        "bytes": 21856,
+        "sha256": "6242d9020bac39a5d07a91dba4c972a02f727152b5cda9fe5c3c104ea21fb7cf",
+        "pages": 1
+      },
+      "paper/jsc_submission_package/fig2_reversal_class_matrix.pdf": {
+        "bytes": 21749,
+        "sha256": "66633312a3ec5a121b364bd0b32171cab73b4f477ddab1a1f285c96dc1be1c3a",
+        "pages": 1
+      },
+      "paper/jsc_submission_package/fig3_sample_complexity_curves.pdf": {
+        "bytes": 19417,
+        "sha256": "34383d6af7fe9116fe8fa75e989d895eeab1064aca9d6db3f49517cca6a37e64",
+        "pages": 1
+      },
+      "paper/jsc_submission_package/introduction.tex": {
+        "bytes": 9696,
+        "sha256": "b3b68683b29b3e4f99667ff8d1c1657124e3755dd52e7d71d71a7223e54c30cd"
+      },
+      "paper/jsc_submission_package/limitations.tex": {
+        "bytes": 8712,
+        "sha256": "30455ac06c812fd95f797818f03e42ebd9858008476847db1207f124b39ad928"
+      },
+      "paper/jsc_submission_package/main.pdf": {
+        "bytes": 586437,
+        "sha256": "4f58fe5907665662b4c9dcb4eba2e1b01d267d3e49f18eec6f263bf6e5486e39",
+        "pages": 44
+      },
+      "paper/jsc_submission_package/main.tex": {
+        "bytes": 2490,
+        "sha256": "0663b6f1b535172ae3218400f4f74fc2e256eea406ec2743f38c29b8218d4468"
+      },
+      "paper/jsc_submission_package/methodology.tex": {
+        "bytes": 21786,
+        "sha256": "54a67565a2dbe0f97337a88fbe0cc32e154dd49f6c96e2848079deba19a4d69e"
+      },
+      "paper/jsc_submission_package/real_system.tex": {
+        "bytes": 8594,
+        "sha256": "3cdde43adedd0e44582c16a4e1c07e608d0082e84fd5157454af71ccfecac1ba"
+      },
+      "paper/jsc_submission_package/references.bib": {
+        "bytes": 16737,
+        "sha256": "d8375529891e156cb3164a412d96a70de2690ce5c5a6820d1aa40c6c06c8d361"
+      },
+      "paper/jsc_submission_package/related_work.tex": {
+        "bytes": 15339,
+        "sha256": "b8b260e55c539db1d640ca1cdfcffeb92f0b079a15c720f92e4ccd584b6c7846"
+      },
+      "paper/jsc_submission_package/results.tex": {
+        "bytes": 20572,
+        "sha256": "ea16197b571aa5e27ae5afadc662f1b93aaaee55d64c6f00630a5a38a27596d2"
+      },
+      "paper/jsc_submission_package/sample_complexity.tex": {
+        "bytes": 5054,
+        "sha256": "a0dfe74907b66044fc28a1e04e45b1c97824748d04eff017977222e6780d0330"
+      },
+      "paper/jsc_submission_package/study_design.tex": {
+        "bytes": 5199,
+        "sha256": "2d99b4b67133cd404334b8a4cbd89fa4f3841a2036483099b0de685c4f7eab75"
+      },
+      "paper/jsc_submission_package/workloads.tex": {
+        "bytes": 9592,
+        "sha256": "87b1fdd17f1f585dc58e5d57d0892dd2e8b7ffe571522b8185b7497fabe88c58"
+      }
+    }
+  },
+  "PEVA": {
+    "revision": "097547206b6e99286553f43190bfa14c5b542b35",
+    "prefix": "paper/peva_submission_package",
+    "files": {
+      "paper/peva_submission_package/artifact.tex": {
+        "bytes": 3812,
+        "sha256": "d0822c9d9e2673ec0f125ab3ca8a1c76faa55127b7bc4bc78ce84f4edc4c5ac3"
+      },
+      "paper/peva_submission_package/conclusion.tex": {
+        "bytes": 2512,
+        "sha256": "1b7c6951618e3f5e8bed3c3726cffb792aebe694502772d9cfffe510962a195e"
+      },
+      "paper/peva_submission_package/declarations.tex": {
+        "bytes": 4028,
+        "sha256": "8c3bad869dfc08faf530f03244c934afb3da651495ac1c13ff99e20ce560ee9e"
+      },
+      "paper/peva_submission_package/discussion.tex": {
+        "bytes": 9387,
+        "sha256": "034ead79d4d916338b6028e4d59696e417c3eecf97fc2554ddecbd37ce92c40d"
+      },
+      "paper/peva_submission_package/fig1_portability_heatmap.pdf": {
+        "bytes": 21856,
+        "sha256": "6242d9020bac39a5d07a91dba4c972a02f727152b5cda9fe5c3c104ea21fb7cf",
+        "pages": 1
+      },
+      "paper/peva_submission_package/fig2_reversal_class_matrix.pdf": {
+        "bytes": 21749,
+        "sha256": "66633312a3ec5a121b364bd0b32171cab73b4f477ddab1a1f285c96dc1be1c3a",
+        "pages": 1
+      },
+      "paper/peva_submission_package/fig3_sample_complexity_curves.pdf": {
+        "bytes": 19417,
+        "sha256": "34383d6af7fe9116fe8fa75e989d895eeab1064aca9d6db3f49517cca6a37e64",
+        "pages": 1
+      },
+      "paper/peva_submission_package/introduction.tex": {
+        "bytes": 9231,
+        "sha256": "5cc08376ee4f0109dc7fddfe2ef478092efaa3c869576746a7dca86122c93383"
+      },
+      "paper/peva_submission_package/limitations.tex": {
+        "bytes": 8644,
+        "sha256": "c1e193085472c05dd6a9a9b084d37702bc193a4a21cc659b8d9c055464677979"
+      },
+      "paper/peva_submission_package/main.tex": {
+        "bytes": 2575,
+        "sha256": "7ddcd5a88203e5e0b8a3fd2833d984ff3628f554422da9b9f830c5d75b3a34b4"
+      },
+      "paper/peva_submission_package/methodology.tex": {
+        "bytes": 22021,
+        "sha256": "ba83951a87d81044aac203f2c9afd65fec087802693e24f548629ec138d4f021"
+      },
+      "paper/peva_submission_package/real_system.tex": {
+        "bytes": 8594,
+        "sha256": "3cdde43adedd0e44582c16a4e1c07e608d0082e84fd5157454af71ccfecac1ba"
+      },
+      "paper/peva_submission_package/references.bib": {
+        "bytes": 16677,
+        "sha256": "3dcb27fc599861921dc7ebd2ca95de8fef59134ad32ee9bcb74f0dbca4b0b2ac"
+      },
+      "paper/peva_submission_package/related_work.tex": {
+        "bytes": 13707,
+        "sha256": "735bf6f66252b69f91d2c3603f48587c201828e61a2e4012ed84b23cca6e79f0"
+      },
+      "paper/peva_submission_package/results.tex": {
+        "bytes": 19349,
+        "sha256": "2d1c966a5424188bb68b9e18402d3b872f0d1b0c1ff30fb3cb703afbb2654025"
+      },
+      "paper/peva_submission_package/sample_complexity.tex": {
+        "bytes": 5054,
+        "sha256": "a0dfe74907b66044fc28a1e04e45b1c97824748d04eff017977222e6780d0330"
+      },
+      "paper/peva_submission_package/study_design.tex": {
+        "bytes": 4947,
+        "sha256": "2ec1fe63b8c31fa525c1d1f5387034a737fb85678197bd92c7a35104aeab43e4"
+      },
+      "paper/peva_submission_package/workloads.tex": {
+        "bytes": 9544,
+        "sha256": "1a9e467d0ba69835c2c89ec52adb00f91ca661286850e264c6a797985af2abab"
+      }
+    }
+  },
+  "SMPT": {
+    "revision": "cc25fcd14f6fe28ab30d9e46635a72c0d6285d00",
+    "prefix": "paper/smpt_submission_package",
+    "files": {
+      "paper/smpt_submission_package/artifact.tex": {
+        "bytes": 2113,
+        "sha256": "5cc85a0b3bf3e40aac5e97b63fb5bd144d029cd04e039e370187627e093684d1"
+      },
+      "paper/smpt_submission_package/conclusion.tex": {
+        "bytes": 2677,
+        "sha256": "2ce3ad801cda755024debd184114e67e4fd91f1bf2e54f418cc2638b6803e69a"
+      },
+      "paper/smpt_submission_package/declarations.tex": {
+        "bytes": 3920,
+        "sha256": "298db9741dd64e45c5d862a60a01326ad42d76fdab35b5d150fba403084acf41"
+      },
+      "paper/smpt_submission_package/discussion.tex": {
+        "bytes": 9962,
+        "sha256": "15c0622a21b14c3be6a8747775d794a68241f34f07149152d89da7ed451fa941"
+      },
+      "paper/smpt_submission_package/fig1_portability_heatmap.pdf": {
+        "bytes": 21856,
+        "sha256": "6242d9020bac39a5d07a91dba4c972a02f727152b5cda9fe5c3c104ea21fb7cf",
+        "pages": 1
+      },
+      "paper/smpt_submission_package/fig2_reversal_class_matrix.pdf": {
+        "bytes": 21749,
+        "sha256": "66633312a3ec5a121b364bd0b32171cab73b4f477ddab1a1f285c96dc1be1c3a",
+        "pages": 1
+      },
+      "paper/smpt_submission_package/fig3_sample_complexity_curves.pdf": {
+        "bytes": 19417,
+        "sha256": "34383d6af7fe9116fe8fa75e989d895eeab1064aca9d6db3f49517cca6a37e64",
+        "pages": 1
+      },
+      "paper/smpt_submission_package/introduction.tex": {
+        "bytes": 10365,
+        "sha256": "da66b6c94cac9160c42c1f518f51a71b08c98db70e12a528439ef547dac12f82"
+      },
+      "paper/smpt_submission_package/limitations.tex": {
+        "bytes": 9441,
+        "sha256": "7f48034f3fad32db0f25c58378ce657f73d6eeb019b51bacb1614d2d68da399b"
+      },
+      "paper/smpt_submission_package/main.tex": {
+        "bytes": 3040,
+        "sha256": "0c71efbc57ab5737b3e82292f0e0f2016eee17beae827cee7c1b770f8a9d58f6"
+      },
+      "paper/smpt_submission_package/methodology.tex": {
+        "bytes": 27967,
+        "sha256": "95f9727bdff94d1d3b244089846e59faf704dbcbd8364b66f6a38ff546437618"
+      },
+      "paper/smpt_submission_package/real_system.tex": {
+        "bytes": 9374,
+        "sha256": "87d66b062dd590f337c8788ea2d04a6ecae77a7328b674af9440404fc1c1f38a"
+      },
+      "paper/smpt_submission_package/references.bib": {
+        "bytes": 16677,
+        "sha256": "3dcb27fc599861921dc7ebd2ca95de8fef59134ad32ee9bcb74f0dbca4b0b2ac"
+      },
+      "paper/smpt_submission_package/related_work.tex": {
+        "bytes": 13886,
+        "sha256": "a83d4475ee8157d9b1e75d9c41a975bb65cc44885e8b5b26cec361a7482022d0"
+      },
+      "paper/smpt_submission_package/results.tex": {
+        "bytes": 19803,
+        "sha256": "7692c38df8cb923115ca65be95392be91af0f0c447cddc5b8aaa53dc3249ec4e"
+      },
+      "paper/smpt_submission_package/sample_complexity.tex": {
+        "bytes": 5225,
+        "sha256": "7b7c544c4253c8d43ae03e28a687054181ee4cd36a209998b9439785ceb6c3c5"
+      },
+      "paper/smpt_submission_package/study_design.tex": {
+        "bytes": 4947,
+        "sha256": "2ec1fe63b8c31fa525c1d1f5387034a737fb85678197bd92c7a35104aeab43e4"
+      },
+      "paper/smpt_submission_package/workloads.tex": {
+        "bytes": 9583,
+        "sha256": "eb72e07a8c8cf47471994ba8ccb80d647660cd9f64e0b91ca26fcf9aa8bf8a69"
+      }
+    }
+  },
+  "SMPT_blind": {
+    "revision": "cc25fcd14f6fe28ab30d9e46635a72c0d6285d00",
+    "prefix": "paper/smpt_blind_submission_package",
+    "files": {
+      "paper/smpt_blind_submission_package/artifact.tex": {
+        "bytes": 1900,
+        "sha256": "d41ddfbd76999e24b41d0b8a931b892bbf0249906bc274b8292de11e5a8207ec"
+      },
+      "paper/smpt_blind_submission_package/conclusion.tex": {
+        "bytes": 2677,
+        "sha256": "2ce3ad801cda755024debd184114e67e4fd91f1bf2e54f418cc2638b6803e69a"
+      },
+      "paper/smpt_blind_submission_package/declarations.tex": {
+        "bytes": 2826,
+        "sha256": "69ac3658bb738693ce997ccb59d57c5da4dac6726f5eb43010030f945db5074c"
+      },
+      "paper/smpt_blind_submission_package/discussion.tex": {
+        "bytes": 9962,
+        "sha256": "15c0622a21b14c3be6a8747775d794a68241f34f07149152d89da7ed451fa941"
+      },
+      "paper/smpt_blind_submission_package/fig1_portability_heatmap.pdf": {
+        "bytes": 21856,
+        "sha256": "6242d9020bac39a5d07a91dba4c972a02f727152b5cda9fe5c3c104ea21fb7cf",
+        "pages": 1
+      },
+      "paper/smpt_blind_submission_package/fig2_reversal_class_matrix.pdf": {
+        "bytes": 21749,
+        "sha256": "66633312a3ec5a121b364bd0b32171cab73b4f477ddab1a1f285c96dc1be1c3a",
+        "pages": 1
+      },
+      "paper/smpt_blind_submission_package/fig3_sample_complexity_curves.pdf": {
+        "bytes": 19417,
+        "sha256": "34383d6af7fe9116fe8fa75e989d895eeab1064aca9d6db3f49517cca6a37e64",
+        "pages": 1
+      },
+      "paper/smpt_blind_submission_package/introduction.tex": {
+        "bytes": 10365,
+        "sha256": "da66b6c94cac9160c42c1f518f51a71b08c98db70e12a528439ef547dac12f82"
+      },
+      "paper/smpt_blind_submission_package/limitations.tex": {
+        "bytes": 9441,
+        "sha256": "7f48034f3fad32db0f25c58378ce657f73d6eeb019b51bacb1614d2d68da399b"
+      },
+      "paper/smpt_blind_submission_package/main.tex": {
+        "bytes": 2939,
+        "sha256": "a7554b4b3019d22bfddc0836e6654aedd471544fee7007046d82bdd2d411d08b"
+      },
+      "paper/smpt_blind_submission_package/methodology.tex": {
+        "bytes": 27967,
+        "sha256": "95f9727bdff94d1d3b244089846e59faf704dbcbd8364b66f6a38ff546437618"
+      },
+      "paper/smpt_blind_submission_package/real_system.tex": {
+        "bytes": 9374,
+        "sha256": "87d66b062dd590f337c8788ea2d04a6ecae77a7328b674af9440404fc1c1f38a"
+      },
+      "paper/smpt_blind_submission_package/references.bib": {
+        "bytes": 16677,
+        "sha256": "3dcb27fc599861921dc7ebd2ca95de8fef59134ad32ee9bcb74f0dbca4b0b2ac"
+      },
+      "paper/smpt_blind_submission_package/related_work.tex": {
+        "bytes": 13886,
+        "sha256": "a83d4475ee8157d9b1e75d9c41a975bb65cc44885e8b5b26cec361a7482022d0"
+      },
+      "paper/smpt_blind_submission_package/results.tex": {
+        "bytes": 19803,
+        "sha256": "7692c38df8cb923115ca65be95392be91af0f0c447cddc5b8aaa53dc3249ec4e"
+      },
+      "paper/smpt_blind_submission_package/sample_complexity.tex": {
+        "bytes": 5225,
+        "sha256": "7b7c544c4253c8d43ae03e28a687054181ee4cd36a209998b9439785ceb6c3c5"
+      },
+      "paper/smpt_blind_submission_package/study_design.tex": {
+        "bytes": 4859,
+        "sha256": "d3533eef09ea456b809ff1ee15eb4cf93202e9785b62dcecc6935354c22cd5ca"
+      },
+      "paper/smpt_blind_submission_package/workloads.tex": {
+        "bytes": 9583,
+        "sha256": "eb72e07a8c8cf47471994ba8ccb80d647660cd9f64e0b91ca26fcf9aa8bf8a69"
+      }
+    }
+  },
+  "main_source": {
+    "revision": "e73a3b711b65f9c181ff9a2674007efca22f1b65",
+    "prefix": "paper",
+    "files": {
+      "paper/generated/figures/fig1_portability_heatmap.pdf": {
+        "bytes": 21856,
+        "sha256": "6242d9020bac39a5d07a91dba4c972a02f727152b5cda9fe5c3c104ea21fb7cf",
+        "pages": 1
+      },
+      "paper/generated/figures/fig2_reversal_class_matrix.pdf": {
+        "bytes": 21749,
+        "sha256": "66633312a3ec5a121b364bd0b32171cab73b4f477ddab1a1f285c96dc1be1c3a",
+        "pages": 1
+      },
+      "paper/generated/figures/fig3_sample_complexity_curves.pdf": {
+        "bytes": 19417,
+        "sha256": "34383d6af7fe9116fe8fa75e989d895eeab1064aca9d6db3f49517cca6a37e64",
+        "pages": 1
+      },
+      "paper/main.tex": {
+        "bytes": 2607,
+        "sha256": "17fad8439d76c9c84f6b8e921d42afe6f8d73f8d25d4068162258898c3a8eb46"
+      },
+      "paper/references.bib": {
+        "bytes": 16737,
+        "sha256": "d8375529891e156cb3164a412d96a70de2690ce5c5a6820d1aa40c6c06c8d361"
+      },
+      "paper/sections/artifact.tex": {
+        "bytes": 5588,
+        "sha256": "159322962986c69d67350bb12e77b30e1bdefea8d9ef7e34a5421b8338681da0"
+      },
+      "paper/sections/conclusion.tex": {
+        "bytes": 3583,
+        "sha256": "2eea8320c641b3334d83eb5f2aa8f694d359f2ec4f160fa281214d86ed2fcb06"
+      },
+      "paper/sections/declarations.tex": {
+        "bytes": 4588,
+        "sha256": "aa9889be5f937f9c923701f7d99afa01e82028d2c2ba65e0b0c6095c6dc386b7"
+      },
+      "paper/sections/discussion.tex": {
+        "bytes": 11159,
+        "sha256": "fef251290f818db2af0bce0ba1421042c98980d857ddc4209b2d4bcebe4d4ef9"
+      },
+      "paper/sections/introduction.tex": {
+        "bytes": 9696,
+        "sha256": "b3b68683b29b3e4f99667ff8d1c1657124e3755dd52e7d71d71a7223e54c30cd"
+      },
+      "paper/sections/limitations.tex": {
+        "bytes": 8712,
+        "sha256": "30455ac06c812fd95f797818f03e42ebd9858008476847db1207f124b39ad928"
+      },
+      "paper/sections/methodology.tex": {
+        "bytes": 21786,
+        "sha256": "54a67565a2dbe0f97337a88fbe0cc32e154dd49f6c96e2848079deba19a4d69e"
+      },
+      "paper/sections/real_system.tex": {
+        "bytes": 8594,
+        "sha256": "3cdde43adedd0e44582c16a4e1c07e608d0082e84fd5157454af71ccfecac1ba"
+      },
+      "paper/sections/related_work.tex": {
+        "bytes": 15339,
+        "sha256": "b8b260e55c539db1d640ca1cdfcffeb92f0b079a15c720f92e4ccd584b6c7846"
+      },
+      "paper/sections/results.tex": {
+        "bytes": 20608,
+        "sha256": "64c9731899a72ac9391c9d3bd42e121ba9e960a64b290efb4abe6efdb4a2af0a"
+      },
+      "paper/sections/sample_complexity.tex": {
+        "bytes": 5072,
+        "sha256": "cd1f233ddc6a5f15fa6734644b8174b4376a8422e6f90462d9b659bb82106d58"
+      },
+      "paper/sections/study_design.tex": {
+        "bytes": 5199,
+        "sha256": "2d99b4b67133cd404334b8a4cbd89fa4f3841a2036483099b0de685c4f7eab75"
+      },
+      "paper/sections/workloads.tex": {
+        "bytes": 9592,
+        "sha256": "87b1fdd17f1f585dc58e5d57d0892dd2e8b7ffe571522b8185b7497fabe88c58"
+      }
+    }
+  }
+}

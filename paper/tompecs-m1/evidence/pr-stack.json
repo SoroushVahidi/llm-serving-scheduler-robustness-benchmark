@@ -1,0 +1,56 @@
+[
+  {
+    "number": 3,
+    "url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/3",
+    "head": "research/lssp-mgpu05-measurement-20261021",
+    "head_sha": "b14992716c20b36d26e6f28e60b2c8e0b8b09a07",
+    "base": "research/lssp-protocol01-20261021",
+    "base_sha": "f88f6fb97be1e012573b8136507104f8d513e67d",
+    "draft": true
+  },
+  {
+    "number": 4,
+    "url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/4",
+    "head": "research/lssp-prefill-kv-fidelity-20261021",
+    "head_sha": "efc5243898d18bbb62ccb51dcf66a0767827dac6",
+    "base": "research/lssp-mgpu05-measurement-20261021",
+    "base_sha": "b14992716c20b36d26e6f28e60b2c8e0b8b09a07",
+    "draft": true
+  },
+  {
+    "number": 5,
+    "url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/5",
+    "head": "research/lssp-serving-contract-v2-draft",
+    "head_sha": "ee1868618db9afc89160e1d0daf92b54829a80bc",
+    "base": "research/lssp-prefill-kv-fidelity-20261021",
+    "base_sha": "efc5243898d18bbb62ccb51dcf66a0767827dac6",
+    "draft": true
+  },
+  {
+    "number": 6,
+    "url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/6",
+    "head": "research/lssp-v2-p1-ledger",
+    "head_sha": "810b987dd873215d1a872eca83fd5c50770ca434",
+    "base": "research/lssp-serving-contract-v2-draft",
+    "base_sha": "ee1868618db9afc89160e1d0daf92b54829a80bc",
+    "draft": true
+  },
+  {
+    "number": 7,
+    "url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/7",
+    "head": "research/lssp-v2-p2a-native-boundary",
+    "head_sha": "df4b13d269d64a949a9dd910b6a65e61718dbc29",
+    "base": "research/lssp-v2-p1-ledger",
+    "base_sha": "810b987dd873215d1a872eca83fd5c50770ca434",
+    "draft": true
+  },
+  {
+    "number": 8,
+    "url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/8",
+    "head": "research/lssp-v2-p2b-control",
+    "head_sha": "f1a22fc6d5b1610b1ba8ed9ad34fb68d1db82cb7",
+    "base": "research/lssp-v2-p2a-native-boundary",
+    "base_sha": "df4b13d269d64a949a9dd910b6a65e61718dbc29",
+    "draft": true
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "checks": {
+    "baseline_citations_resolve": true,
+    "baseline_figure_descriptions": true,
+    "baseline_no_layout_overrides": true,
+    "revised_refs_resolve": true,
+    "revised_unique_labels": true,
+    "revised_citations_resolve": true,
+    "revised_figure_descriptions": true,
+    "revised_no_layout_overrides": true,
+    "baseline_body_artifact": true,
+    "baseline_body_conclusion": true,
+    "baseline_body_declarations": true,
+    "baseline_body_discussion": true,
+    "baseline_body_introduction": true,
+    "baseline_body_limitations": true,
+    "baseline_body_methodology": true,
+    "baseline_body_real_system": true,
+    "baseline_body_related_work": true,
+    "baseline_body_results": true,
+    "baseline_body_sample_complexity": true,
+    "baseline_body_study_design": true,
+    "baseline_body_workloads": true,
+    "baseline_abstract_unchanged": true,
+    "baseline_bibliography_unchanged": true,
+    "original_tracked_files_unchanged": false
+  },
+  "passed": 23,
+  "failed": 1,
+  "details": {
+    "baseline": {
+      "missing_refs": [],
+      "duplicate_labels": [],
+      "cited_keys": 40,
+      "bib_entries": 40
+    },
+    "revised": {
+      "missing_refs": [],
+      "duplicate_labels": [],
+      "cited_keys": 25,
+      "bib_entries": 40
+    },
+    "preservation": {
+      "checked_original_files": 428,
+      "mismatches": [
+        "dataset/v1.1.0/data/tables/load_region_assignments.parquet",
+        "dataset/v1.1.0/data/tables/pairwise_reversals.parquet",
+        "dataset/v1.1.0/data/tables/policy_registry.parquet",
+        "dataset/v1.1.0/data/tables/ranking_correlations.parquet",
+        "dataset/v1.1.0/data/tables/sample_complexity.parquet",
+        "dataset/v1.1.0/data/tables/scheduler_outcomes.parquet",
+        "dataset/v1.1.0/data/tables/telemetry_explanation.parquet",
+        "dataset/v1.1.0/data/tables/temporal_robustness.parquet",
+        "dataset/v1.1.0/data/tables/topk_overlap.parquet",
+        "dataset/v1.1.0/data/tables/unique_configurations.parquet",
+        "dataset/v1.1.0/data/tables/workload_windows.parquet"
+      ],
+      "baseline_sha": "e73a3b711b65f9c181ff9a2674007efca22f1b65",
+      "note": "Raw Git blob comparison. The known consolidated.json LFS display anomaly is not a byte change."
+    }
+  }
+}

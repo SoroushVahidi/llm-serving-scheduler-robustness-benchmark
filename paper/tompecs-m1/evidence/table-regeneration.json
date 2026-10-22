@@ -1,0 +1,6 @@
+{
+  "rq1_rq2_portability": true,
+  "rq3_reversals": true,
+  "rq4_sample_complexity": true,
+  "rq5_temporal_robustness": true
+}

@@ -1,0 +1,43 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have formulated the portability of a comparative scheduler ranking,
+$R(W, M, L)$, as an object of simulation-based scheduler selection and
+comparison, distinct from both workload characterization and
+single-scheduler evaluation, and designed, froze, and executed a paired,
+multi-source trace-driven simulation protocol -- a mechanism-diverse fixed
+13-policy scheduler panel, a calibrated six-region operating grid, an
+explicit metric contract, and an uncertainty/reversal-detection methodology
+-- against $9{,}360$ structurally validated configurations before
+interpreting any comparative outcome. Across three measurably different
+workload sources (\S\ref{sec:workloads}), comparative rankings are portable
+in aggregate (Kendall's tau-b never below $0.55$) but source-pair-dependent:
+two sources agree almost perfectly, while the third is consistently less
+portable against either at every operating region (\S\ref{sec:results}).
+Supported practical reversals are uncommon ($3.6\%$ of pairwise
+comparisons) and concentrated: all involve the same policy pair and
+BurstGPT, at or above the pre-knee region (\S\ref{sec:reversals}).
+Exact-order recovery of the full-corpus ranking requires most or all of the
+40-window budget for two of three sources, whereas identifying the single
+best policy requires far fewer windows for those same two sources
+(\S\ref{sec:sample-complexity}).
+
+Two post-campaign extensions show that portability is substantially weaker
+across evaluation metrics than across sources (median $\tau_b = 0.419$;
+\S\ref{sec:results-cross-metric}) and only partly robust to the SLO
+definition (\S\ref{sec:results-slo}). RQ3 remains a pilot-scale engineering
+validation, not a transfer conclusion (\S\ref{sec:results-rq3-pilot}). A
+selected physical vLLM/GPU validation (RQ6) did not reproduce the largest
+simulated reversal, while a paired stable control retained its qualitative
+ordering -- a selected-case simulator-fidelity boundary, not a general
+estimate of hardware reversal prevalence (\S\ref{sec:real-system}).
+
+Ranking portability, in this simulation study, is therefore neither
+universal nor uniformly fragile: it is real, but conditional on the workload
+source, operating region, evaluation metric, SLO definition, and model
+fidelity context under which a comparison was established. The appropriate
+lesson is not to abandon simulation, but to report simulation-derived
+scheduler-selection claims with their experimental conditions and validity
+boundaries explicit. LSSP is released as a public, independently
+reproducible artifact (\S\ref{sec:artifact}) so that each result can be
+verified and extended.

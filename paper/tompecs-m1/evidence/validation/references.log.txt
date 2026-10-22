@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1/scripts/check_references.py", line 5, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'

@@ -1,0 +1,51 @@
+\section{Performance Within Operating Regions}\label{sec:within}
+The operating-region names identify FIFO-referenced arrival-rate settings,
+not independently measured physical saturation states. Each source has
+40 windows and every primary policy is observed on each window in each
+region. Comparisons within a source/region use matched windows; a policy
+is not calibrated separately to obtain a favorable operating point.
+
+The central quantity is relative order under ANWG, the fraction of arrival
+priority weight receiving deadline credit. Completion-conditioned latency
+and throughput can describe a different subset of requests. A policy that
+finishes only favorable requests can have a strong completion-conditioned
+metric while losing arrival-normalized utility; the common denominator
+and missing-value rules are therefore part of the comparison, not merely
+reporting details.
+
+Across the complete two-pass campaign, 211 of 9,360 unique configurations
+have zero completions; 48 of these belong to the 11-policy primary panel.
+The preserved FIFO calibration manifest instead has zero zero-completion records out of 720. Calibration records cannot be propagated as zero-completion
+outcomes for all other policies. The reported rankings retain defined
+policy/window observations and omit undefined conditional observations,
+so effective observation sets can differ even when a condition-level
+ranking remains estimable.
+
+\begin{table}[t]\centering
+\caption{Primary ANWG cross-source comparison records by region. Each row
+contains 55 policy pairs times three source pairs; these are overlapping
+comparisons, not independent experimental units.}\label{tab:region-counts}
+\begin{tabular}{lrrrr}\toprule
+Region & Stable & Microscopic & Supported & Total\\\midrule
+LOW & 161 & 4 & 0 & 165\\
+PRE\_KNEE & 149 & 10 & 6 & 165\\
+KNEE & 149 & 10 & 6 & 165\\
+POST\_KNEE & 147 & 12 & 6 & 165\\
+OVERLOAD & 147 & 8 & 10 & 165\\
+HIGH\_PRESSURE & 145 & 12 & 8 & 165\\\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:region-counts} separates small ordering changes from
+supported reversals. No primary record is unestimable or a practical sign
+change with a wide saved interval. This does not prove that every
+microscopic sign change is statistically insignificant: the frozen
+classification stops at the margin test and need not evaluate its interval.
+The absence of supported reversals at LOW is an observed result under the
+fixed metric and margin, not a reason to exclude that region.
+
+The full per-policy outcome matrix remains the record for within-region
+performance. This paper does not turn the panel into a universal winner
+recommendation: the policies share a simulator implementation boundary,
+and region names, synthesized deadlines and metric conditioning all
+constrain the interpretation of an ordering.

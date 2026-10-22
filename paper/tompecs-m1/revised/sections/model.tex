@@ -1,0 +1,200 @@
+\section{Evaluation Model and Assumptions}\label{sec:methodology}
+\subsection{Scheduler Panel}
+\label{sec:panel}
+
+The PRIMARY panel comprises 11 policies, executed alongside 2 additional
+\texttt{STYLE\_APPROXIMATION} policies used only for a mandatory robustness
+check (13 policies executed in total): a classical arrival-order baseline
+(\texttt{fifo}, also the load-calibration reference policy), a
+deadline-aware policy (\texttt{edf}), a slack/urgency-aware policy
+(\texttt{least\_laxity\_first}), a service-length-aware policy
+(\texttt{estimated\_service\_time\_first}), a fairness-aware policy
+(\texttt{weighted\_fair\_share}), a KV/memory-pressure-aware policy
+(\texttt{kv\_constrained\_online}), an admission-control/SLO-guard policy
+(\texttt{admission\_control}), and four historically named simulator implementations of
+external mechanisms: vLLM-style token-budget continuous batching in both
+its pre-chunked-prefill and chunked-prefill forms
+(\texttt{vllm\_faithful}, \texttt{vllm\_chunked\_prefill\_faithful}),
+Sarathi-style chunked prefill (\texttt{sarathi\_faithful}), and an
+SLO-aware scheduling policy in the SLAI/RAD family
+(\texttt{slai\_faithful}). The two \texttt{STYLE\_APPROXIMATION} robustness
+policies are a token-budget-proxy style approximation
+(\texttt{vllm\_style\_token\_budget}) and an SLO-guard-proxy style
+approximation (\texttt{scorpio\_style\_slo\_guard}); two further implementations requiring disaggregated/cross-instance simulator
+semantics (\texttt{distserve\_faithful}, \texttt{llumnix\_faithful}) are
+designated for a secondary stratum, never pooled with the single-GPU
+colocated PRIMARY leaderboard, and one candidate
+(\texttt{apt\_serve\_faithful}) is excluded entirely as
+\texttt{scaffolding\_only} -- not a validated reimplementation at the time
+of this freeze.
+
+A policy enters the PRIMARY panel only if, at the time it was added to the
+comparability audit -- frozen a full day before the discriminability
+pilot (\S\ref{sec:stage0}) executed -- it satisfies an outcome-independent
+selection rule: its mechanism predates this protocol's freeze, it
+occupies a mechanism family not already saturated by an existing panel
+member, it has adequate implementation fidelity and passes its own unit
+tests, it is simulator-semantically compatible with the single-GPU
+colocated execution model, and it is independently reproducible from a
+cited reference. No policy was added to or removed from the panel in
+response to the pilot's outcome, and mechanism families it identified as
+under-implemented (preemptive/multilevel scheduling in the FastServe
+sense, JITServe, LMetric) were deliberately left as documented future-work
+candidates rather than fast-tracked into the panel after seeing the
+pilot's BurstGPT collapse.
+
+\subsection{Execution Model}
+\label{sec:execution-model}
+
+Each (window, policy, operating-region) cell is executed as a deterministic
+discrete-event simulation. The entities are requests, one or more simulated
+GPU resources, a waiting queue, and policy-controlled active batches. Each
+request carries an arrival time, prompt-token count, target output-token
+count, priority weight, and, where required by a policy or metric, an
+SLO/deadline value. Simulator state includes the pending-arrival list,
+waiting queue, active requests per GPU, request phase and progress
+(prefill remaining, decoded tokens, first-token time), current KV-token
+footprint, per-step active-batch and utilization histories, completed and
+dropped requests, and observational mechanism telemetry
+(\S\ref{sec:telemetry}).
+
+Time advances in fixed serving steps. At each step, all requests with
+arrival time less than or equal to the current simulation time are enqueued;
+the simulator exposes an observable state to the scheduling policy; the
+policy returns an action specifying admissions and, for policies that support
+them, preemption, swapping, migration, held decodes, or prefill-control
+decisions; the simulator validates the action against the resource model and
+applies it; active requests then advance by one service step; completed
+requests are removed and recorded; and per-step utilization, batch, KV, and
+contention histories are updated. The primary benchmark uses the colocated
+single-GPU-compatible stratum of this model; disaggregated or cross-instance
+semantics exist for secondary policies but are not pooled with the PRIMARY
+leaderboard (\S\ref{sec:panel}).
+
+The resource model includes active-sequence capacity, batch/token-budget
+constraints where a faithful policy uses them, and KV-memory accounting.
+KV occupancy is tracked as demand relative to the configured nominal
+\texttt{max\_kv\_tokens}; only KV-aware policies enforce this limit at
+admission, so occupancy above 1.0 is interpreted as demand exceeding nominal
+capacity rather than as an instrumentation failure. In the default
+backward-compatible mode, prefill is instantaneous and each active decoding
+request produces one output token per step. In the prefill-aware mode used
+by faithful serving-style policies, requests may first consume prefill
+budget before decoding begins; decoding requests produce one token per step;
+chunked-prefill policies may limit the prefill work admitted into a step;
+and prefill/decode contention and token-budget saturation are recorded as
+diagnostics. Admission-control and SLO-aware policies may decline otherwise
+waiting requests or hold decode work according to their policy semantics;
+SLO/deadline outcomes are then evaluated through the metric contract
+(\S\ref{sec:metrics}).
+
+Simulation terminates when all arrivals have been processed and no request
+remains waiting, active, migrating, or relocating, or when the configured
+post-arrival drain limit is reached. Requests left in the waiting or
+transfer states at termination are treated as dropped. Metrics are computed
+from completed requests, dropped requests, the full arrival population, and
+the per-step histories; no completion-conditioned metric is imputed when no
+request completes (\S\ref{sec:metrics}). Given identical requests,
+configuration, policy, and operating region, the simulator consumes no
+randomness and produces bit-identical outputs; this was verified by a
+repeated-run determinism test. This determinism is what permits the paired
+design of \S\ref{sec:unit}: two policies' outcomes on the same window and
+region differ only because of the policy's own scheduling decisions, not
+because of independent sampling noise.
+
+\begin{table}[t]
+\centering
+\caption{Main simulation-model scope and assumptions used in the PRIMARY
+ranking-portability study.}
+\label{tab:model-assumptions}
+\small
+\begin{tabular}{p{0.25\linewidth}p{0.68\linewidth}}
+\toprule
+Model component & Treatment in this study \\
+\midrule
+Arrivals & Trace-driven request arrivals from frozen 200-request windows. \\
+Service progression & Fixed-step serving model; decode emits one token per active decoding request per step. \\
+Prefill/decode & Instant prefill in legacy mode; explicit prefill budget and contention diagnostics in prefill-aware modes. \\
+Resource limits & Active-sequence, token-budget, and KV-demand constraints as implemented by the configured policy/model. \\
+Scheduling decisions & Policies observe simulator state and decide admission, ordering, and supported control actions. \\
+Metrics & Computed from arrivals, completions, drops, deadlines, and per-step histories; undefined conditional metrics are excluded, not imputed. \\
+Omitted hardware effects & No claim of absolute latency or throughput fidelity to physical GPUs; kernel, networking, allocator, and hardware-noise effects are abstracted in the numerical campaign. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Historical fidelity labels and execution limits}\label{sec:fidelity}\label{sec:vv-structure}
+The frozen registry distinguishes repository-native classical policies,
+simulator proxies, style approximations and a class named
+\texttt{FAITHFUL\_EXTERNAL}. We retain identifiers such as
+\texttt{slai\_faithful} solely as immutable data keys. These names and their
+historical unit-test gates do not certify native execution equivalence.
+Policy-specific shadow progress and memory state need not equal the shared
+execution state. Per-request token intentions are not always carried as
+exact native runner plans; the resource model is not a native KV allocator.
+
+Source-verified follow-up work found different final-prefill sampling,
+admission and recomputation semantics in pinned vLLM 0.27.1. Native
+scheduling can advance optimistic progress before runner acknowledgment;
+recomputation retains previously emitted output for replay. Historical
+simulator eviction can instead reset output and first-token progress.
+These differences are plausible sources of comparative bias, but no
+measured ranking correction or reversal direction follows from discovering
+them. We neither repair historical outputs nor relabel them as v2 results.
+
+The numerical campaign remains useful as a controlled comparison of the
+specified implementations. Determinism verifies repeat execution within
+that model. It does not establish absolute hardware timing accuracy,
+mechanism equivalence to production systems, or physical portability of
+relative rankings.
+\subsection{Mechanism Telemetry}
+\label{sec:telemetry}
+
+Every cell records seven groups of simulator telemetry: queue depth;
+active-batch saturation; prefill/decode contention; KV occupancy;
+admission activations; preemption/reorder events; and token-budget
+saturation. Means and maxima supplement several groups. A zero can mean
+that an operation did not occur or that the configured model does not
+represent that mechanism. These are simulator observations, not GPU
+counters. The descriptor association analysis in
+Section~\ref{sec:telemetry-explanation} does not establish a causal
+explanation of the observed reversals.
+
+\subsection{Implementation identity and comparison scope}
+\begin{table}[t]\centering
+\caption{Frozen panel interpretation. Registry labels are historical
+identifiers; none of these rows certifies native serving equivalence.}\label{tab:panel}
+\begin{tabular}{p{0.40\linewidth}p{0.51\linewidth}}\toprule
+Policy or group & Historical comparison role\\\midrule
+\texttt{fifo} & Arrival-order baseline and FIFO calibration reference\\
+\texttt{edf}, \texttt{least\_laxity\_first} & Deadline and slack/urgency ordering\\
+\texttt{estimated\_service\_time\_first} & Service-length-aware ordering under the simulator's information model\\
+\texttt{weighted\_fair\_share} & Priority-weighted fairness discipline\\
+\texttt{kv\_constrained\_online} & Simulator KV-pressure proxy\\
+\texttt{admission\_control} & Admission/SLO guard\\
+\texttt{vllm\_faithful} & Historical continuous-batching implementation\\
+\texttt{vllm\_chunked\_prefill\_faithful} & Historical chunked-prefill implementation\\
+\texttt{sarathi\_faithful} & Historical Sarathi-inspired implementation\\
+\texttt{slai\_faithful} & Historical SLAI-inspired implementation\\
+\texttt{vllm\_style\_token\_budget}, \texttt{scorpio\_style\_slo\_guard} & Two style approximations outside the primary ranking panel\\\bottomrule
+\end{tabular}
+\end{table}
+A policy label is not a complete treatment definition. The shared simulator
+service model, admission constraints, policy-local shadow state and input
+information together determine the observed outcome. When a policy uses
+request-length information that is available in a trace-driven replay,
+that information is part of the historical experiment; it must not be
+represented as an online estimate validated on a production engine.
+Comparability therefore means controlled replay of the frozen inputs and
+implementations, not identical internal information or resource enforcement
+across every named mechanism.
+
+The execution schema records configuration, source, window, policy and
+repetition identities alongside simulator and manifest hashes. Reproducing
+a table requires those identities as well as its numerical values. A
+future corrected simulator or common-native adaptation must receive a
+separate version and evidence namespace. It cannot replace a policy's old
+implementation while retaining the old results as if they described the
+new semantics. That version boundary permits an honest historical
+comparison without freezing known limitations into future serving work.

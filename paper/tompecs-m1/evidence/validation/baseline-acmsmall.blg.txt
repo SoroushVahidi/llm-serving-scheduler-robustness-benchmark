@@ -1,0 +1,119 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: baseline-acmsmall.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: references.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty address in vidur2024
+Warning--page numbers missing in both pages and numpages fields in vidur2024
+Warning--empty address in agrawal2024sarathi
+Warning--page numbers missing in both pages and numpages fields in agrawal2024sarathi
+Warning--page numbers missing in both pages and numpages fields in llmservingsim2_2025
+Warning--empty address in llmservingsim2024
+Warning--page numbers missing in both pages and numpages fields in llmservingsim2024
+Warning--no number and no volume in ding2026cclbench
+Warning--page numbers missing in both pages and numpages fields in ding2026cclbench
+Warning--empty publisher in efficientllmscheduling2024
+Warning--empty address in efficientllmscheduling2024
+Warning--page numbers missing in both pages and numpages fields in efficientllmscheduling2024
+Warning--no number and no volume in proserve2025
+Warning--page numbers missing in both pages and numpages fields in proserve2025
+Warning--empty publisher in jin2023s3
+Warning--empty address in jin2023s3
+Warning--page numbers missing in both pages and numpages fields in jin2023s3
+Warning--empty address in kwon2023vllm
+Warning--page numbers missing in both pages and numpages fields in kwon2023vllm
+Warning--empty address in li2026beyond
+Warning--page numbers missing in both pages and numpages fields in li2026beyond
+Warning--empty address in liu2026hmas
+Warning--no number and no volume in ayearinllmserving2026
+Warning--page numbers missing in both pages and numpages fields in ayearinllmserving2026
+Warning--empty address in papaioannou2024workload
+Warning--empty address in patel2024splitwise
+Warning--page numbers missing in both pages and numpages fields in patel2024splitwise
+Warning--empty address in qin2025mooncake
+Warning--page numbers missing in both pages and numpages fields in qin2025mooncake
+Warning--empty address in libra2026
+Warning--page numbers missing in both pages and numpages fields in libra2026
+Warning--empty address in sheng2024vtc
+Warning--page numbers missing in both pages and numpages fields in sheng2024vtc
+Warning--empty address in stojkovic2025dynamollm
+Warning--page numbers missing in both pages and numpages fields in stojkovic2025dynamollm
+Warning--empty address in sun2024llumnix
+Warning--page numbers missing in both pages and numpages fields in sun2024llumnix
+Warning--no number and no volume in scorpio2025
+Warning--page numbers missing in both pages and numpages fields in scorpio2025
+Warning--no number and no volume in pars2025
+Warning--page numbers missing in both pages and numpages fields in pars2025
+Warning--no number and no volume in kvcache_wild2025
+Warning--page numbers missing in both pages and numpages fields in kvcache_wild2025
+Warning--no number and no volume in wang2026smetric
+Warning--page numbers missing in both pages and numpages fields in wang2026smetric
+Warning--no number and no volume in wang2026xperf
+Warning--page numbers missing in both pages and numpages fields in wang2026xperf
+Warning--empty address in burstgpt2025
+Warning--page numbers missing in both pages and numpages fields in burstgpt2025
+Warning--empty address in fastserve2024
+Warning--page numbers missing in both pages and numpages fields in fastserve2024
+Warning--empty address in servegen2026
+Warning--page numbers missing in both pages and numpages fields in servegen2026
+Warning--empty address in yu2022orca
+Warning--page numbers missing in both pages and numpages fields in yu2022orca
+Warning--empty address in lmetric2026
+Warning--page numbers missing in both pages and numpages fields in lmetric2026
+Warning--empty address in jitserve2025
+Warning--page numbers missing in both pages and numpages fields in jitserve2025
+Warning--empty address in zhong2024distserve
+Warning--page numbers missing in both pages and numpages fields in zhong2024distserve
+Warning--no number and no volume in tracelab2026
+Warning--page numbers missing in both pages and numpages fields in tracelab2026
+You've used 40 entries,
+            6335 wiz_defined-function locations,
+            1747 strings with 29853 characters,
+and the built_in function-call counts, 48908 in all, are:
+= -- 5640
+> -- 2376
+< -- 0
++ -- 836
+- -- 804
+* -- 4116
+:= -- 5014
+add.period$ -- 197
+call.type$ -- 40
+change.case$ -- 420
+chr.to.int$ -- 36
+cite$ -- 103
+duplicate$ -- 3990
+empty$ -- 2856
+format.name$ -- 952
+if$ -- 11684
+int.to.chr$ -- 6
+int.to.str$ -- 1
+missing$ -- 174
+newline$ -- 464
+num.names$ -- 276
+pop$ -- 1985
+preamble$ -- 1
+purify$ -- 732
+quote$ -- 0
+skip$ -- 1343
+stack$ -- 0
+substring$ -- 2522
+swap$ -- 280
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 958
+warning$ -- 63
+while$ -- 150
+width$ -- 0
+write$ -- 889
+(There were 63 warnings)

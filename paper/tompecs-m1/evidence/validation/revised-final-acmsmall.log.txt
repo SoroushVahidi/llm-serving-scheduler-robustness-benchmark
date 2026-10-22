@@ -1,0 +1,1072 @@
+cwd=/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1
+pid=524893
+variant=revised
+mode=acmsmall
+start=2026-10-22T02:29:06+00:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./revised/main.tex
+(/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1/tem
+plate/acmart.cls
+Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
+n for Computing Machinery
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/totpages/totpages.sty
+(/usr/share/texlive/texmf-dist/tex/latex/everyshi/everyshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperxmp/hyperxmp.sty
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/ifdraft.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/manyfoot.sty
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/nccfoots.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty<<t1.cmap>>)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fontaxes/fontaxes.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe))
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
+`newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/centernot.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kastrup/binhex.tex)
+amsthm NOT loaded
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-ams-smf.sto)))
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment') Excluding comment 'CCSXML'
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+Special comment 'acks'
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty)
+Include comment 'screenonly' Excluding comment 'printonly'
+Include comment 'anonsuppress'
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/revised-acmsmall/revised-acmsmall.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineT-TLF.fd)<<
+ot1.cmap>><<oml.cmap>>
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd)
+(build/revised-acmsmall/revised-acmsmall.out)
+(build/revised-acmsmall/revised-acmsmall.out)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/sl' undefined
+(Font)              using `T1/zi4/m/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
+(Font)              using `T1/zi4/b/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/sl' undefined
+(Font)              using `T1/zi4/b/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/it' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/sl' undefined
+(Font)              using `T1/zi4/bx/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbx/scit' undefined
+(Font)              using `T1/zi4/sb/scit' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/it' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sl' undefined
+(Font)              using `T1/zi4/sb/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/scit' undefined
+(Font)              using `T1/zi4/sb/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sc' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbc/sc' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/it' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sl' undefined
+(Font)              using `T1/zi4/c/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/scit' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sc' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/lc/sc' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/it' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sl' undefined
+(Font)              using `T1/zi4/l/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/scit' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sc' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/ui' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/ui' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/In' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(./revised/sections/introduction.tex [1.1{/var/lib/texmf/fonts/map/pdftex/updma
+p/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tc
+sq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc
+}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr
+/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share
+/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}])
+(./revised/sections/related_work.tex [2.2])
+(./revised/sections/research_questions.tex
+Overfull \hbox (4.54343pt too wide) in paragraph at lines 12--14
+[]\T1/LinuxLibertineT-TLF/m/n/10 (-20) Which source-native ob-serv-able work-lo
+ad char-ac-ter-is-tics are as-so-ci-ated with cross-distribution
+[3.3] [4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.
+enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
+Underfull \vbox (badness 3250) has occurred while \output is active [5.5]
+[6.6]) (./revised/sections/model.tex
+Underfull \vbox (badness 1466) has occurred while \output is active [7.7]
+[8.8] [9.9]
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+[]\T1/zi4/l/it/10 vllm_-style_-to-ken_-bud-get\T1/LinuxLibertineT-TLF/m/n/10 (+
+20) , \T1/zi4/l/it/10 scor-
+) (./revised/sections/workloads.tex [10.10] [11.11]
+Underfull \vbox (badness 1270) has occurred while \output is active [12.12])
+(./revised/sections/within.tex) (./revised/sections/portability.tex [13.13]
+[14.14 <./figures/fig1_portability_heatmap.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active [15.15])
+(./revised/sections/metrics.tex [16.16]
+Underfull \vbox (badness 1019) has occurred while \output is active [17.17])
+(./revised/sections/robustness.tex [18.18] [19.19 <./figures/fig3_sample_comple
+xity_curves.pdf>]) (./revised/sections/limitations.tex [20.20]
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [21.21])
+(./revised/sections/conclusion.tex)
+(build/revised-acmsmall/revised-acmsmall.bbl
+Underfull \vbox (badness 1997) has occurred while \output is active [22.22]
+Underfull \hbox (badness 4441) in paragraph at lines 80--88
+[]\T1/LinuxLibertineT-TLF/m/n/8 (+20) Alibaba Cloud. 2026.  \T1/LinuxLibertineT
+-TLF/m/it/8 (+20) qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/m/n/8 (+
+20) .   Anonymized Bail-ian/Qwen pro-duc-tion LLM-
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--88
+\T1/LinuxLibertineT-TLF/m/n/8 (+20) serving usage-trace re-lease; repos-i-tory 
+\T1/zi4/m/n/8 alibaba-edu/qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/
+m/n/8 (+20) , pinned com-mit
+
+Underfull \vbox (badness 6396) has occurred while \output is active [23.23])
+
+Class acmart Warning: ACM reference format is mandatory 
+(acmart)              for papers over one page. 
+(acmart)              Please add printacmref=true to the 
+(acmart)              \settopmatter command..
+
+[24.24]
+
+LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (21 not 24).
+               Rerun to correct this.
+
+(build/revised-acmsmall/revised-acmsmall.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `revised-acmsmall.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{section*.8} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.4} has been referenced but does not 
+exist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-z
+i4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/newtx/txsys.pfb>
+Output written on build/revised-acmsmall/revised-acmsmall.pdf (24 pages, 608894
+ bytes).
+Transcript written on build/revised-acmsmall/revised-acmsmall.log.
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+The top-level auxiliary file: revised-acmsmall.aux
+The style file: ACM-Reference-Format.bst
+Database file #1: revised/references.bib
+Warning--empty address in vidur2024
+Warning--page numbers missing in both pages and numpages fields in vidur2024
+Warning--empty address in agrawal2024sarathi
+Warning--page numbers missing in both pages and numpages fields in agrawal2024sarathi
+Warning--page numbers missing in both pages and numpages fields in llmservingsim2_2025
+Warning--empty address in llmservingsim2024
+Warning--page numbers missing in both pages and numpages fields in llmservingsim2024
+Warning--empty publisher in efficientllmscheduling2024
+Warning--empty address in efficientllmscheduling2024
+Warning--page numbers missing in both pages and numpages fields in efficientllmscheduling2024
+Warning--empty publisher in jin2023s3
+Warning--empty address in jin2023s3
+Warning--page numbers missing in both pages and numpages fields in jin2023s3
+Warning--empty address in kwon2023vllm
+Warning--page numbers missing in both pages and numpages fields in kwon2023vllm
+Warning--no number and no volume in ayearinllmserving2026
+Warning--page numbers missing in both pages and numpages fields in ayearinllmserving2026
+Warning--empty address in papaioannou2024workload
+Warning--empty address in patel2024splitwise
+Warning--page numbers missing in both pages and numpages fields in patel2024splitwise
+Warning--empty address in qin2025mooncake
+Warning--page numbers missing in both pages and numpages fields in qin2025mooncake
+Warning--empty address in sheng2024vtc
+Warning--page numbers missing in both pages and numpages fields in sheng2024vtc
+Warning--empty address in stojkovic2025dynamollm
+Warning--page numbers missing in both pages and numpages fields in stojkovic2025dynamollm
+Warning--empty address in sun2024llumnix
+Warning--page numbers missing in both pages and numpages fields in sun2024llumnix
+Warning--no number and no volume in kvcache_wild2025
+Warning--page numbers missing in both pages and numpages fields in kvcache_wild2025
+Warning--empty address in burstgpt2025
+Warning--page numbers missing in both pages and numpages fields in burstgpt2025
+Warning--empty address in servegen2026
+Warning--page numbers missing in both pages and numpages fields in servegen2026
+Warning--empty address in yu2022orca
+Warning--page numbers missing in both pages and numpages fields in yu2022orca
+Warning--empty address in zhong2024distserve
+Warning--page numbers missing in both pages and numpages fields in zhong2024distserve
+Warning--no number and no volume in tracelab2026
+Warning--page numbers missing in both pages and numpages fields in tracelab2026
+(There were 40 warnings)
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./revised/main.tex
+(/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1/tem
+plate/acmart.cls
+Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
+n for Computing Machinery
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/totpages/totpages.sty
+(/usr/share/texlive/texmf-dist/tex/latex/everyshi/everyshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperxmp/hyperxmp.sty
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/ifdraft.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/manyfoot.sty
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/nccfoots.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty<<t1.cmap>>)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fontaxes/fontaxes.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe))
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
+`newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/centernot.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kastrup/binhex.tex)
+amsthm NOT loaded
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-ams-smf.sto)))
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment') Excluding comment 'CCSXML'
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+Special comment 'acks'
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty)
+Include comment 'screenonly' Excluding comment 'printonly'
+Include comment 'anonsuppress'
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/revised-acmsmall/revised-acmsmall.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineT-TLF.fd)<<
+ot1.cmap>><<oml.cmap>>
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd)
+(build/revised-acmsmall/revised-acmsmall.out)
+(build/revised-acmsmall/revised-acmsmall.out)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/sl' undefined
+(Font)              using `T1/zi4/m/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
+(Font)              using `T1/zi4/b/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/sl' undefined
+(Font)              using `T1/zi4/b/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/it' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/sl' undefined
+(Font)              using `T1/zi4/bx/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbx/scit' undefined
+(Font)              using `T1/zi4/sb/scit' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/it' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sl' undefined
+(Font)              using `T1/zi4/sb/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/scit' undefined
+(Font)              using `T1/zi4/sb/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sc' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbc/sc' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/it' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sl' undefined
+(Font)              using `T1/zi4/c/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/scit' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sc' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/lc/sc' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/it' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sl' undefined
+(Font)              using `T1/zi4/l/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/scit' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sc' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/ui' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/ui' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/In' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(./revised/sections/introduction.tex [1.1{/var/lib/texmf/fonts/map/pdftex/updma
+p/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tc
+sq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc
+}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr
+/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share
+/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}])
+(./revised/sections/related_work.tex [2.2])
+(./revised/sections/research_questions.tex
+Overfull \hbox (4.54343pt too wide) in paragraph at lines 12--14
+[]\T1/LinuxLibertineT-TLF/m/n/10 (-20) Which source-native ob-serv-able work-lo
+ad char-ac-ter-is-tics are as-so-ci-ated with cross-distribution
+[3.3] [4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.
+enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
+Underfull \vbox (badness 3250) has occurred while \output is active [5.5]
+[6.6]) (./revised/sections/model.tex
+Underfull \vbox (badness 1466) has occurred while \output is active [7.7]
+[8.8] [9.9]
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+[]\T1/zi4/l/it/10 vllm_-style_-to-ken_-bud-get\T1/LinuxLibertineT-TLF/m/n/10 (+
+20) , \T1/zi4/l/it/10 scor-
+) (./revised/sections/workloads.tex [10.10] [11.11]
+Underfull \vbox (badness 1270) has occurred while \output is active [12.12])
+(./revised/sections/within.tex) (./revised/sections/portability.tex [13.13]
+[14.14 <./figures/fig1_portability_heatmap.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active [15.15])
+(./revised/sections/metrics.tex [16.16]
+Underfull \vbox (badness 1019) has occurred while \output is active [17.17])
+(./revised/sections/robustness.tex [18.18] [19.19 <./figures/fig3_sample_comple
+xity_curves.pdf>]) (./revised/sections/limitations.tex [20.20] [21.21])
+(./revised/sections/conclusion.tex)
+(build/revised-acmsmall/revised-acmsmall.bbl
+Underfull \vbox (badness 1997) has occurred while \output is active [22.22]
+Underfull \hbox (badness 4441) in paragraph at lines 80--88
+[]\T1/LinuxLibertineT-TLF/m/n/8 (+20) Alibaba Cloud. 2026.  \T1/LinuxLibertineT
+-TLF/m/it/8 (+20) qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/m/n/8 (+
+20) .   Anonymized Bail-ian/Qwen pro-duc-tion LLM-
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--88
+\T1/LinuxLibertineT-TLF/m/n/8 (+20) serving usage-trace re-lease; repos-i-tory 
+\T1/zi4/m/n/8 alibaba-edu/qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/
+m/n/8 (+20) , pinned com-mit
+
+Underfull \vbox (badness 6396) has occurred while \output is active [23.23])
+
+Class acmart Warning: ACM reference format is mandatory 
+(acmart)              for papers over one page. 
+(acmart)              Please add printacmref=true to the 
+(acmart)              \settopmatter command..
+
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [24.24]
+(build/revised-acmsmall/revised-acmsmall.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
+/txsys.pfb>
+Output written on build/revised-acmsmall/revised-acmsmall.pdf (24 pages, 609138
+ bytes).
+Transcript written on build/revised-acmsmall/revised-acmsmall.log.
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./revised/main.tex
+(/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1/tem
+plate/acmart.cls
+Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
+n for Computing Machinery
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/totpages/totpages.sty
+(/usr/share/texlive/texmf-dist/tex/latex/everyshi/everyshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperxmp/hyperxmp.sty
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/ifdraft.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/manyfoot.sty
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/nccfoots.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty<<t1.cmap>>)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fontaxes/fontaxes.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe))
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
+`newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/centernot.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kastrup/binhex.tex)
+amsthm NOT loaded
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-ams-smf.sto)))
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment') Excluding comment 'CCSXML'
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+Special comment 'acks'
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty)
+Include comment 'screenonly' Excluding comment 'printonly'
+Include comment 'anonsuppress'
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/revised-acmsmall/revised-acmsmall.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineT-TLF.fd)<<
+ot1.cmap>><<oml.cmap>>
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd)
+(build/revised-acmsmall/revised-acmsmall.out)
+(build/revised-acmsmall/revised-acmsmall.out)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/sl' undefined
+(Font)              using `T1/zi4/m/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
+(Font)              using `T1/zi4/b/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/sl' undefined
+(Font)              using `T1/zi4/b/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/it' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/sl' undefined
+(Font)              using `T1/zi4/bx/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbx/scit' undefined
+(Font)              using `T1/zi4/sb/scit' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/it' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sl' undefined
+(Font)              using `T1/zi4/sb/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/scit' undefined
+(Font)              using `T1/zi4/sb/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sc' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbc/sc' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/it' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sl' undefined
+(Font)              using `T1/zi4/c/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/scit' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sc' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/lc/sc' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/it' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sl' undefined
+(Font)              using `T1/zi4/l/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/scit' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sc' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/ui' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/ui' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/In' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(./revised/sections/introduction.tex [1.1{/var/lib/texmf/fonts/map/pdftex/updma
+p/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tc
+sq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc
+}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr
+/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share
+/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}])
+(./revised/sections/related_work.tex [2.2])
+(./revised/sections/research_questions.tex
+Overfull \hbox (4.54343pt too wide) in paragraph at lines 12--14
+[]\T1/LinuxLibertineT-TLF/m/n/10 (-20) Which source-native ob-serv-able work-lo
+ad char-ac-ter-is-tics are as-so-ci-ated with cross-distribution
+[3.3] [4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.
+enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
+Underfull \vbox (badness 3250) has occurred while \output is active [5.5]
+[6.6]) (./revised/sections/model.tex
+Underfull \vbox (badness 1466) has occurred while \output is active [7.7]
+[8.8] [9.9]
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+[]\T1/zi4/l/it/10 vllm_-style_-to-ken_-bud-get\T1/LinuxLibertineT-TLF/m/n/10 (+
+20) , \T1/zi4/l/it/10 scor-
+) (./revised/sections/workloads.tex [10.10] [11.11]
+Underfull \vbox (badness 1270) has occurred while \output is active [12.12])
+(./revised/sections/within.tex) (./revised/sections/portability.tex [13.13]
+[14.14 <./figures/fig1_portability_heatmap.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active [15.15])
+(./revised/sections/metrics.tex [16.16]
+Underfull \vbox (badness 1019) has occurred while \output is active [17.17])
+(./revised/sections/robustness.tex [18.18] [19.19 <./figures/fig3_sample_comple
+xity_curves.pdf>]) (./revised/sections/limitations.tex [20.20] [21.21])
+(./revised/sections/conclusion.tex)
+(build/revised-acmsmall/revised-acmsmall.bbl
+Underfull \vbox (badness 1997) has occurred while \output is active [22.22]
+Underfull \hbox (badness 4441) in paragraph at lines 80--88
+[]\T1/LinuxLibertineT-TLF/m/n/8 (+20) Alibaba Cloud. 2026.  \T1/LinuxLibertineT
+-TLF/m/it/8 (+20) qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/m/n/8 (+
+20) .   Anonymized Bail-ian/Qwen pro-duc-tion LLM-
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--88
+\T1/LinuxLibertineT-TLF/m/n/8 (+20) serving usage-trace re-lease; repos-i-tory 
+\T1/zi4/m/n/8 alibaba-edu/qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/
+m/n/8 (+20) , pinned com-mit
+
+Underfull \vbox (badness 6396) has occurred while \output is active [23.23])
+
+Class acmart Warning: ACM reference format is mandatory 
+(acmart)              for papers over one page. 
+(acmart)              Please add printacmref=true to the 
+(acmart)              \settopmatter command..
+
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [24.24]
+(build/revised-acmsmall/revised-acmsmall.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
+/txsys.pfb>
+Output written on build/revised-acmsmall/revised-acmsmall.pdf (24 pages, 609138
+ bytes).
+Transcript written on build/revised-acmsmall/revised-acmsmall.log.
+Title:           LLM-Serving Scheduler Ranking Portability Across Workloads, Operating Regions, and Metrics
+Subject:         -  Computing methodologies  ->  Simulation evaluation.-  Computer systems organization  ->  Cloud computing.
+Creator:         LaTeX with acmart 2026/08/16 v2.20 Typesetting articles for the Association for Computing Machinery and hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+Producer:        pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) kpathsea version 6.3.5
+CreationDate:    Thu Oct 22 00:00:00 2026 UTC
+ModDate:         Thu Oct 22 00:00:00 2026 UTC
+Custom Metadata: yes
+Metadata Stream: yes
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           24
+Encrypted:       no
+Page size:       486 x 720 pts
+Page rot:        0
+File size:       609138 bytes
+Optimized:       no
+PDF version:     1.5
+finish=2026-10-22T02:29:08+00:00

@@ -1,0 +1,366 @@
+{
+  "baseline-manuscript": {
+    "pages": 34,
+    "sha256": "e5e37f2792cca7b56ac9bd60e4ec9141252c11f13b89c6db617be9c956479e8f",
+    "sections": [
+      {
+        "title": "Front matter",
+        "starts_page": 1,
+        "visible_heading_y_pt": 0.0,
+        "estimated_page_extent": 0.453
+      },
+      {
+        "title": "Introduction",
+        "starts_page": 1,
+        "visible_heading_y_pt": 358.9959716796875,
+        "estimated_page_extent": 2.671
+      },
+      {
+        "title": "Related Work",
+        "starts_page": 4,
+        "visible_heading_y_pt": 98.30044555664062,
+        "estimated_page_extent": 3.074
+      },
+      {
+        "title": "Study Design",
+        "starts_page": 7,
+        "visible_heading_y_pt": 157.17098999023438,
+        "estimated_page_extent": 1.22
+      },
+      {
+        "title": "Workload Corpus and Characterization",
+        "starts_page": 8,
+        "visible_heading_y_pt": 331.1769714355469,
+        "estimated_page_extent": 2.299
+      },
+      {
+        "title": "Simulation and Scheduler-Comparison Methodology",
+        "starts_page": 10,
+        "visible_heading_y_pt": 567.9679565429688,
+        "estimated_page_extent": 6.645
+      },
+      {
+        "title": "Scheduler Ranking Portability",
+        "starts_page": 17,
+        "visible_heading_y_pt": 286.6569519042969,
+        "estimated_page_extent": 4.919
+      },
+      {
+        "title": "Benchmark Sample Complexity",
+        "starts_page": 22,
+        "visible_heading_y_pt": 222.27291870117188,
+        "estimated_page_extent": 1.423
+      },
+      {
+        "title": "Real-System Model-Fidelity Validation",
+        "starts_page": 23,
+        "visible_heading_y_pt": 557.117919921875,
+        "estimated_page_extent": 2.472
+      },
+      {
+        "title": "Discussion",
+        "starts_page": 26,
+        "visible_heading_y_pt": 139.01602172851562,
+        "estimated_page_extent": 2.236
+      },
+      {
+        "title": "Threats to Validity",
+        "starts_page": 28,
+        "visible_heading_y_pt": 325.9089660644531,
+        "estimated_page_extent": 2.295
+      },
+      {
+        "title": "Reproducibility and the LSSP Artifact",
+        "starts_page": 30,
+        "visible_heading_y_pt": 559.867919921875,
+        "estimated_page_extent": 0.652
+      },
+      {
+        "title": "Conclusion",
+        "starts_page": 31,
+        "visible_heading_y_pt": 283.9169921875,
+        "estimated_page_extent": 1.829
+      },
+      {
+        "title": "References",
+        "starts_page": 33,
+        "visible_heading_y_pt": 148.42501831054688,
+        "estimated_page_extent": 1.813
+      }
+    ],
+    "note": "Starts from exact visible PDF heading text, not potentially stale LaTeX bookmark destinations. Extents are geometric fractions of full media-box height, include intervening floats/white space, and are estimates."
+  },
+  "baseline-acmsmall": {
+    "pages": 35,
+    "sha256": "7631bc32f5f1179d05e69ddb55c83177267cd21211dd12f7cb42f40b17d66b01",
+    "sections": [
+      {
+        "title": "Front matter",
+        "starts_page": 1,
+        "visible_heading_y_pt": 0.0,
+        "estimated_page_extent": 0.517
+      },
+      {
+        "title": "Introduction",
+        "starts_page": 1,
+        "visible_heading_y_pt": 372.062255859375,
+        "estimated_page_extent": 2.604
+      },
+      {
+        "title": "Related Work",
+        "starts_page": 4,
+        "visible_heading_y_pt": 87.19718933105469,
+        "estimated_page_extent": 3.064
+      },
+      {
+        "title": "Study Design",
+        "starts_page": 7,
+        "visible_heading_y_pt": 133.2682342529297,
+        "estimated_page_extent": 1.153
+      },
+      {
+        "title": "Workload Corpus and Characterization",
+        "starts_page": 8,
+        "visible_heading_y_pt": 243.6112518310547,
+        "estimated_page_extent": 2.297
+      },
+      {
+        "title": "Simulation and Scheduler-Comparison Methodology",
+        "starts_page": 10,
+        "visible_heading_y_pt": 457.8072509765625,
+        "estimated_page_extent": 6.693
+      },
+      {
+        "title": "Scheduler Ranking Portability",
+        "starts_page": 17,
+        "visible_heading_y_pt": 236.63722229003906,
+        "estimated_page_extent": 4.976
+      },
+      {
+        "title": "Benchmark Sample Complexity",
+        "starts_page": 22,
+        "visible_heading_y_pt": 219.30223083496094,
+        "estimated_page_extent": 1.439
+      },
+      {
+        "title": "Real-System Model-Fidelity Validation",
+        "starts_page": 23,
+        "visible_heading_y_pt": 535.5162353515625,
+        "estimated_page_extent": 2.377
+      },
+      {
+        "title": "Discussion",
+        "starts_page": 26,
+        "visible_heading_y_pt": 87.19718933105469,
+        "estimated_page_extent": 2.322
+      },
+      {
+        "title": "Threats to Validity",
+        "starts_page": 28,
+        "visible_heading_y_pt": 319.12725830078125,
+        "estimated_page_extent": 2.254
+      },
+      {
+        "title": "Reproducibility and the LSSP Artifact",
+        "starts_page": 30,
+        "visible_heading_y_pt": 501.9752502441406,
+        "estimated_page_extent": 0.569
+      },
+      {
+        "title": "Conclusion",
+        "starts_page": 31,
+        "visible_heading_y_pt": 191.8052215576172,
+        "estimated_page_extent": 1.559
+      },
+      {
+        "title": "References",
+        "starts_page": 32,
+        "visible_heading_y_pt": 594.1852416992188,
+        "estimated_page_extent": 3.175
+      }
+    ],
+    "note": "Starts from exact visible PDF heading text, not potentially stale LaTeX bookmark destinations. Extents are geometric fractions of full media-box height, include intervening floats/white space, and are estimates."
+  },
+  "revised-manuscript": {
+    "pages": 24,
+    "sha256": "98746060b0219576da4d8b6f8d58af5d36adf185845723db46729cf968a8ec25",
+    "sections": [
+      {
+        "title": "Front matter",
+        "starts_page": 1,
+        "visible_heading_y_pt": 0.0,
+        "estimated_page_extent": 0.422
+      },
+      {
+        "title": "Introduction",
+        "starts_page": 1,
+        "visible_heading_y_pt": 334.4579772949219,
+        "estimated_page_extent": 1.014
+      },
+      {
+        "title": "Background and Related Work",
+        "starts_page": 2,
+        "visible_heading_y_pt": 345.56097412109375,
+        "estimated_page_extent": 0.848
+      },
+      {
+        "title": "Research Questions and Portability Measures",
+        "starts_page": 3,
+        "visible_heading_y_pt": 225.56295776367188,
+        "estimated_page_extent": 4.228
+      },
+      {
+        "title": "Evaluation Model and Assumptions",
+        "starts_page": 7,
+        "visible_heading_y_pt": 405.75494384765625,
+        "estimated_page_extent": 3.048
+      },
+      {
+        "title": "Workloads and Experimental Design",
+        "starts_page": 10,
+        "visible_heading_y_pt": 443.72296142578125,
+        "estimated_page_extent": 3.026
+      },
+      {
+        "title": "Performance Within Operating Regions",
+        "starts_page": 13,
+        "visible_heading_y_pt": 463.9349670410156,
+        "estimated_page_extent": 0.678
+      },
+      {
+        "title": "Portability Across Workloads and Regions",
+        "starts_page": 14,
+        "visible_heading_y_pt": 209.16995239257812,
+        "estimated_page_extent": 2.512
+      },
+      {
+        "title": "Portability Across Metrics",
+        "starts_page": 16,
+        "visible_heading_y_pt": 614.7399291992188,
+        "estimated_page_extent": 1.348
+      },
+      {
+        "title": "Robustness and Practical Implications",
+        "starts_page": 18,
+        "visible_heading_y_pt": 98.30044555664062,
+        "estimated_page_extent": 2.47
+      },
+      {
+        "title": "Threats to Validity",
+        "starts_page": 20,
+        "visible_heading_y_pt": 470.21795654296875,
+        "estimated_page_extent": 1.723
+      },
+      {
+        "title": "Conclusion",
+        "starts_page": 22,
+        "visible_heading_y_pt": 250.49795532226562,
+        "estimated_page_extent": 0.175
+      },
+      {
+        "title": "Artifact availability and declarations",
+        "starts_page": 22,
+        "visible_heading_y_pt": 388.9959411621094,
+        "estimated_page_extent": 0.244
+      },
+      {
+        "title": "References",
+        "starts_page": 22,
+        "visible_heading_y_pt": 582.2889404296875,
+        "estimated_page_extent": 2.265
+      }
+    ],
+    "note": "Starts from exact visible PDF heading text, not potentially stale LaTeX bookmark destinations. Extents are geometric fractions of full media-box height, include intervening floats/white space, and are estimates."
+  },
+  "revised-acmsmall": {
+    "pages": 24,
+    "sha256": "83068e61cc6e4a5a57a4f3adafe3dae7dba20a8b950928957ad968e1ee265240",
+    "sections": [
+      {
+        "title": "Front matter",
+        "starts_page": 1,
+        "visible_heading_y_pt": 0.0,
+        "estimated_page_extent": 0.495
+      },
+      {
+        "title": "Introduction",
+        "starts_page": 1,
+        "visible_heading_y_pt": 356.26422119140625,
+        "estimated_page_extent": 1.059
+      },
+      {
+        "title": "Background and Related Work",
+        "starts_page": 2,
+        "visible_heading_y_pt": 398.6292419433594,
+        "estimated_page_extent": 0.798
+      },
+      {
+        "title": "Research Questions and Portability Measures",
+        "starts_page": 3,
+        "visible_heading_y_pt": 253.2702178955078,
+        "estimated_page_extent": 4.239
+      },
+      {
+        "title": "Evaluation Model and Assumptions",
+        "starts_page": 7,
+        "visible_heading_y_pt": 425.4782409667969,
+        "estimated_page_extent": 3.119
+      },
+      {
+        "title": "Workloads and Experimental Design",
+        "starts_page": 10,
+        "visible_heading_y_pt": 511.07525634765625,
+        "estimated_page_extent": 2.937
+      },
+      {
+        "title": "Performance Within Operating Regions",
+        "starts_page": 13,
+        "visible_heading_y_pt": 466.0022277832031,
+        "estimated_page_extent": 0.643
+      },
+      {
+        "title": "Portability Across Workloads and Regions",
+        "starts_page": 14,
+        "visible_heading_y_pt": 208.63523864746094,
+        "estimated_page_extent": 2.831
+      },
+      {
+        "title": "Portability Across Metrics",
+        "starts_page": 17,
+        "visible_heading_y_pt": 87.19718933105469,
+        "estimated_page_extent": 1.0
+      },
+      {
+        "title": "Robustness and Practical Implications",
+        "starts_page": 18,
+        "visible_heading_y_pt": 87.19718933105469,
+        "estimated_page_extent": 2.451
+      },
+      {
+        "title": "Threats to Validity",
+        "starts_page": 20,
+        "visible_heading_y_pt": 412.1212463378906,
+        "estimated_page_extent": 1.631
+      },
+      {
+        "title": "Conclusion",
+        "starts_page": 22,
+        "visible_heading_y_pt": 146.26121520996094,
+        "estimated_page_extent": 0.202
+      },
+      {
+        "title": "Artifact availability and declarations",
+        "starts_page": 22,
+        "visible_heading_y_pt": 292.000244140625,
+        "estimated_page_extent": 0.269
+      },
+      {
+        "title": "References",
+        "starts_page": 22,
+        "visible_heading_y_pt": 485.56024169921875,
+        "estimated_page_extent": 2.326
+      }
+    ],
+    "note": "Starts from exact visible PDF heading text, not potentially stale LaTeX bookmark destinations. Extents are geometric fractions of full media-box height, include intervening floats/white space, and are estimates."
+  }
+}

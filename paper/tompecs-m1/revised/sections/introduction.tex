@@ -1,0 +1,66 @@
+\section{Introduction}\label{sec:introduction}
+A scheduler ranking is a conditional statement. It compares a fixed set of
+implementations under a workload, an operating region, an objective and an
+execution model. A ranking obtained from one trace cannot automatically be
+used to select a policy for another trace; nor does agreement on average
+throughput imply agreement on deadline attainment or tail latency. This
+paper studies how such comparative conclusions transfer, rather than
+introducing a new scheduler.
+
+LLM serving makes this question concrete. Continuous batching and paged
+key--value (KV) memory management permit concurrent requests
+\citep{kwon2023vllm,yu2022orca}. Chunked prefill changes competition between
+prompt processing and decoding \citep{agrawal2024sarathi}; disaggregation
+separates their resource requirements \citep{zhong2024distserve,patel2024splitwise}.
+Production traces differ in arrival bursts, prompt lengths and output lengths
+\citep{burstgpt2025,stojkovic2025dynamollm}. These established observations
+motivate testing the stability of a comparison across conditions. They do
+not establish which policies will reverse order, or even that reversals
+must occur in a particular evaluation.
+
+We study the LLM-Serving Scheduler Portability Benchmark (LSSP), a frozen,
+trace-driven simulator campaign. Its primary corpus contains 120 windows
+from three separately released trace sources. A 13-policy execution panel,
+including 11 primary policies and two style approximations, is evaluated
+in six FIFO-referenced operating regions. There are 9,360 distinct
+configurations and two deterministic verification passes per configuration.
+The passes check repeatability of the simulator; they are not independent
+samples. Uncertainty is instead assessed across workload windows, subject
+to the dependence limitations in Section~\ref{sec:threats}.
+
+The contribution is a reproducible evaluation methodology and an empirical
+characterization of \emph{simulated} scheduler-ranking portability. The
+methodology combines a fixed comparison panel, matched policy outcomes,
+explicit metric eligibility, rank agreement, practical-margin reversal
+classification and a finite-corpus ranking-recovery analysis. Kendall
+correlation, bootstrap intervals and false-discovery correction are
+standard statistical tools, not a new algorithm or theoretical result.
+The scientific object is the reliability and scope of the comparative
+conclusion produced by their application.
+
+The primary ANWG ranking correlations range from 0.551 to 1.000 across 18
+source-pair/region comparisons. Of 990 pairwise-policy comparison records,
+36 meet the saved practical-margin and confidence-interval reversal criteria;
+these span five policy pairs and all involve BurstGPT. Most comparisons
+therefore retain their order. A separately labeled post-campaign analysis
+shows a median cross-metric Kendall correlation of 0.419 and agreement of
+the deterministic top-choice rule in 316 of 990 conditions. Agreement
+and disagreement are both findings; neither is assumed in advance.
+
+These are observations of historical simulator implementations. Later
+source and engineering audits identified limits in partial-prefill
+execution, native admission, KV allocation, preemption and execution
+acknowledgment. The historical GPU comparison also has metadata and replay
+limitations. It cannot establish faithful native-policy ranking transfer.
+Accordingly, this paper neither claims physical validation of its simulated
+reversals nor generalizes them to GPU architectures or parallel deployments.
+The distinction is central to the domain of validity, not a qualification
+added after interpreting the numerical results.
+
+The original six research questions are retained in
+Section~\ref{sec:rq}. Sections~\ref{sec:execution-model} and
+\ref{sec:workloads} define the model and experimental design;
+Sections~\ref{sec:within}, \ref{sec:results} and
+\ref{sec:results-cross-metric} separate operating-region behavior,
+cross-source portability and cross-metric portability. Robustness and
+practical implications precede an explicit account of threats to validity.

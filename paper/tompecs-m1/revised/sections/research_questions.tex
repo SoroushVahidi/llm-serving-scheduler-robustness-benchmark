@@ -1,0 +1,257 @@
+\section{Research Questions and Portability Measures}\label{sec:study-design}\label{sec:rq}
+We preserve the original six questions, including those not answered by
+adequate evidence in this study:
+\begin{description}
+  \item[RQ1.] How stable are scheduler rankings across independent
+    workload sources?
+  \item[RQ2.] How stable are scheduler rankings under temporal, provider,
+    and domain shifts?
+  \item[RQ3.] To what extent do rankings obtained on synthetic stress
+    workloads transfer to rankings on independent real-trace-derived
+    workloads?
+  \item[RQ4.] Which source-native observable workload characteristics are
+    associated with cross-dis\-tribution scheduler rank reversals?
+  \item[RQ5.] How many independent workload windows are required before a
+    comparative scheduler ranking becomes statistically stable?
+  \item[RQ6.] Do representative simulated scheduler rankings and
+    cross-workload rank reversals reproduce on a real serving engine?
+\end{description}
+Here ``independent sources'' means separately released artifacts, not proven
+independence of providers or of every request. RQ1/RQ2 are the primary
+cross-source and temporal questions. RQ3 remains an engineering pilot,
+RQ4 a descriptive association analysis, RQ5 finite-reference recovery,
+and RQ6 unresolved as a faithful native-system comparison. Operating-region
+sensitivity is secondary. Cross-metric analysis is explicitly post-campaign;
+its prominence in this manuscript does not make it retrospectively preregistered.
+
+\subsection{Comparison object and statistical unit}\label{sec:unit}
+Let $R(W,M,L)$ denote the ordering of a fixed policy panel under workload
+source or window set $W$, metric $M$, and operating region $L$. Policy
+outcomes are paired within the same window and region. For source-level
+rankings, a policy's defined outcomes are averaged over windows, after the
+two identical deterministic execution passes are collapsed. Comparisons
+between sources use different window populations; they are not paired
+request-by-request across sources. The window is the resampling unit.
+Non-overlap and deterministic sampling do not prove statistical independence
+of windows drawn from a shared production stream.
+
+Tau-b is computed from the policy-level aggregate values, preserving equal
+values as ties. Top-$k$ summaries instead sort by value and then by policy
+identifier. In particular, the reported top-1 agreement is agreement of
+this deterministic tie-breaking rule, not overlap of all policies tied
+for the optimum. Exact-order recovery uses the same distinction. These
+conventions are retained for reproducibility and bound the interpretation
+of preferred-policy stability.
+\subsection{Metrics}
+\label{sec:metrics}
+
+Three metrics are always defined for every completed cell: completion
+fraction, weighted completion fraction, and Arrival-Normalized Weighted Goodput (ANWG, the primary metric). We formally define ANWG here because it is this benchmark's headline measure of system-level utility. For a set of arriving requests $R$, let $w_i \ge 1$ denote the priority weight assigned to request $i \in R$. Let $C \subseteq R$ be the subset of requests that successfully complete execution, and let $S \subseteq C$ be the subset of completed requests that also meet their latency deadline (SLO), with completion at or before the deadline. ANWG is defined as the priority-weighted sum of successfully attained deadlines divided by the total priority weight of all arrivals:
+\begin{equation}
+\text{ANWG} = \frac{\sum_{i \in S} w_i}{\sum_{i \in R} w_i}
+\end{equation}
+Because the denominator is the sum over all \emph{arrivals} rather than completions, rejected, dropped, unfinished, and SLO-missed requests all receive zero numerator credit while remaining in the denominator penalty. ANWG is always defined (the denominator is zero only if a workload window has no arrivals, which is prevented by construction); therefore, undefined-metric exclusions for ANWG are always exactly zero. A second group of metrics is defined
+only conditional on at least one request completing: SLO-violation rate,
+weighted goodput, mean/p95/p99 latency, and request/token throughput are
+each \texttt{NaN} if and only if completion fraction is exactly zero for
+that cell. Mean/p95 time-to-first-token (TTFT) is subject to a stricter,
+separately checked precondition (at least one completed request recorded a
+first-token time), because TTFT can be undefined even when completion
+fraction is positive. No undefined conditional-metric value is ever imputed
+as 0 or 1, in either direction, and never after inspecting which policy or
+source it would affect. Where a policy's value is undefined for a given
+(window, region, metric) condition, that policy is excluded from the
+ranking-derived statistic (Kendall's tau-b, Spearman's rho, top-$k$
+overlap, pairwise reversal detection) for that specific condition and
+metric only -- never scored as a loss or a tie, and never causing the whole
+condition to be dropped for policies that did complete. Every
+ranking-derived table reports its exclusion count
+(\texttt{n\_conditions\_excluded\_for\_undefined\_metric}) alongside the
+statistic itself, since a source-concentrated exclusion rate is itself a
+reportable finding under RQ4, not a footnote.
+
+\subsection{Ranking-Uncertainty Quantification and Reversal Classification}
+\label{sec:uncertainty}
+
+Because the statistical unit of analysis is the workload window
+(\S\ref{sec:unit}), ranking-uncertainty is quantified by a whole-window
+block bootstrap: windows, not individual requests, are resampled with
+replacement (preserving each window's internal request sequence intact),
+2{,}000 resamples are drawn per condition, and every reported confidence
+interval is a 95\% percentile interval over those resamples, using a
+deterministic, recorded seed so every interval is exactly reproducible from
+the frozen outcome matrix alone. This block structure exists because the
+requests within a window are not independent observations of scheduler
+behavior -- they share one arrival process, one prompt/output-length
+mixture, and one operating region -- so resampling at the request level
+would understate uncertainty; the window is the design's resampling unit. Residual temporal dependence between windows may still affect interval coverage; it is not removed merely by treating requests within a window as a block.
+
+Two further checks calibrate how the pairwise reversal statistics reported
+in \S\ref{sec:reversals} are interpreted, and it is important not to
+conflate them. The frozen output contains 66 Friedman omnibus records (11 metrics by six regions). Earlier manuscript text incorrectly described the omnibus test as unimplemented; this draft corrects that statement. The principal reversal findings below use the separately recorded pairwise procedure.
+Separately, because the panel and the (source, region, metric) grid
+together generate many pairwise comparisons, every pairwise reversal
+test's two-sided bootstrap sign-test $p$-value -- the intersection-union
+combination $\max(p_x, p_y)$ of the two compared conditions' sign-test
+$p$-values, read off the same resamples that back the ordinary CI rule
+below -- is additionally checked against a Benjamini--Hochberg
+false-discovery-rate (FDR) correction at $q = 0.05$, applied per family, where a
+family is all pairwise policy comparisons within a single (metric,
+load-region) combination. This produces a separate, multiplicity-corrected
+\texttt{supported\_after\_fdr} flag on every record. In the frozen
+benchmark artifact, all $36$ records that the five-class taxonomy below
+independently classifies as \texttt{SUPPORTED\_PRACTICAL\_REVERSAL} also
+satisfy \texttt{supported\_after\_fdr} -- the FDR check removes no headline
+reversal in this dataset -- but the two criteria are computed
+independently from each other and are not guaranteed to coincide in
+general.
+
+A numerical sign change in a point estimate is not, by itself, a meaningful
+scheduler reversal from a systems standpoint: two policies can swap
+point-estimate order by a magnitude far smaller than the benchmark's own
+chosen practical margin, in which case treating it as a reversal would overstate
+what the benchmark actually supports. The 10\% winning-margin threshold
+used throughout this test was fixed prospectively, before any
+reversal was observed, by reusing this project's own earlier
+discriminability-pilot criterion (\texttt{\_relative\_range\_qualifies},
+\S\ref{sec:stage0}) rather than adopting a threshold chosen after seeing
+these results or asserted as a domain-standard cutoff; it is an
+operational convention for separating materially sized ordering changes
+from microscopic sign changes, not a claim that 10\% is a universal
+practical-significance threshold for LLM serving, and every count labeled
+``practical'' in this manuscript is conditional on it. Every pairwise (policy A, policy B)
+comparison at a given (source, region, metric) condition is therefore
+classified into exactly one of five preregistered classes, combining the
+practical-margin test with the \emph{ordinary} (not FDR-adjusted) 95\%
+percentile bootstrap-CI test defined above; the
+FDR check described above is a separate, additional multiplicity
+safeguard applied on top of this classification for headline reporting,
+not an input the classification itself depends on:
+
+\begin{description}
+  \item[\texttt{UNDEFINED\_UNESTIMABLE}] At least one of the two policies'
+    metric values is undefined for this condition (\S\ref{sec:metrics});
+    no direction is estimated or claimed.
+  \item[\texttt{STABLE\_NO\_SIGN\_CHANGE}] The two policies' relative order
+    agrees across the compared conditions; no reversal occurred.
+  \item[\texttt{MICROSCOPIC\_SIGN\_CHANGE}] The point-estimate order
+    reverses, but the winning margin fails to exceed 10\% of the losing
+    policy's value in \emph{at least one} of the two compared conditions --
+    this includes both the case where the margin is negligible on both
+    sides and the asymmetric case where it exceeds 10\% on one side but not
+    the other. Either way the sign flip is reported here as numerically
+    real but practically negligible or unreliable, never pooled with the
+    classes below.
+  \item[\texttt{UNSUPPORTED\_SIGN\_CHANGE\_WIDE\_CI}] The point-estimate
+    order reverses and the winning margin exceeds 10\% of the losing
+    policy's value in \emph{both} compared conditions, but the
+    \emph{ordinary} (not FDR-adjusted) 95\% bootstrap interval for the
+    difference fails to
+    exclude zero in \emph{at least one} of the two conditions -- the
+    apparent reversal is not statistically distinguishable from bootstrap
+    noise, at the preregistered confidence level, in at least one of the
+    two conditions being compared.
+  \item[\texttt{SUPPORTED\_PRACTICAL\_REVERSAL}] The point-estimate order
+    reverses \emph{and} the winning margin exceeds 10\% of the losing
+    policy's value in both compared conditions \emph{and} the
+    \emph{ordinary} (not FDR-adjusted) 95\% bootstrap interval for the
+    direction excludes zero
+    in both conditions. Only this class is reported as a headline reversal
+    in \S\ref{sec:reversals}; the other four classes are always reported
+    alongside it, never omitted as a residual category. Every record in
+    this class additionally satisfies the separate FDR-corrected
+    \texttt{supported\_after\_fdr} check described above in the frozen
+    benchmark artifact.
+\end{description}
+
+These five classes are mutually exclusive and exhaustive by construction:
+\texttt{classify\_pairwise\_reversal} in the frozen analysis code evaluates
+undefined-value, sign-change, margin, and confidence-interval conditions as
+a strict if/elif/else chain with an unconditional final branch, so every
+possible (policy A, policy B, condition) input reaches exactly one class,
+including the asymmetric-margin and single-sided-wide-CI cases described
+above; no already-computed reversal record is at risk of being silently
+dropped or misclassified by a gap in this taxonomy.
+
+
+\subsection{Aggregation, eligibility and reproducible interpretation}
+Write $y_{w,p,m}$ for the defined metric value of policy $p$ on window $w$
+under metric $m$, with source and region fixed. Let
+$\mathcal W_{p,m}$ be the windows where that value is defined. The
+historical aggregate is
+\begin{equation}
+ \bar y_{p,m}=\frac{1}{|\mathcal W_{p,m}|}
+       \sum_{w\in\mathcal W_{p,m}} y_{w,p,m}.
+\end{equation}
+If this set is empty, the policy has no aggregate for that condition.
+Lower-is-better values are negated for cross-metric ranking comparison.
+Missing values never become a zero, a worst rank, or a tied rank. A
+consequence is that two policy means can describe different observed
+window subsets. The pairwise bootstrap difference instead uses the
+intersection of windows with both policy outcomes. Agreement of complete
+conditions does not remove this conditioning difference.
+
+For comparable policy-value vectors, let $C$ and $D$ be the numbers of
+concordant and discordant policy pairs, and $T_x,T_y$ the pairs tied only
+in the first or second vector. Kendall's tie-adjusted coefficient is
+\begin{equation}
+ \tau_b=\frac{C-D}{\sqrt{(C+D+T_x)(C+D+T_y)}}.
+\end{equation}
+A zero denominator leaves the coefficient undefined. A positive aggregate
+value allows individual discordant pairs. Sorting ties lexicographically
+for top-$k$ reporting is an implementation convention separate from this
+coefficient; it must not silently change the ties counted by tau-b.
+
+For two conditions $x,y$ and policy pair $a,b$, the recorded differences
+are $d_x=\bar y_{a,x}-\bar y_{b,x}$ and $d_y=\bar y_{a,y}-\bar y_{b,y}$.
+The implementation requires both nonzero and opposite in sign before
+considering a reversal. Its relative margin divides the absolute
+difference by the absolute aggregate value of the losing policy in that
+condition. A zero losing value makes that margin unestimable; it is not
+an automatic practical-significance pass. Equal values are assigned zero
+difference and zero margin and do not constitute a sign change. These
+edge cases matter particularly for bounded utility metrics with many
+exact ties.
+
+The saved procedure evaluates eligibility, sign, margin and then interval
+support in that order. Consequently, many stable or microscopic records
+have no bootstrap interval or $p$-value at all. The BH check is applied to
+tests that reach the statistical-support stage within the recorded family,
+not to invented $p$-values for every stable record. For the primary
+analysis the family is metric/region; for the cross-metric extension it
+is source/region/metric-pair. The reported flags are reproducible results
+of that procedure. Their interpretation is conditional on this screening,
+bootstrap construction and dependence structure; this paper does not prove
+unconditional false-discovery control for the entire research workflow.
+
+The saved two-sided bootstrap tail fraction is computed from the same
+2,000 resamples as the interval, and can equal zero at finite resolution.
+This is not evidence of zero probability of an incorrect scientific claim.
+Cross-source ranking bootstraps draw the two source window collections
+separately. Cross-metric bootstraps use a common sampled window sequence
+because both metrics describe the same outcomes. Repetition IDs are never
+resampled as additional windows. M1 verifies saved intervals' classification
+logic and point estimates, but does not rerun these stochastic resampling
+calculations or substitute new interval estimates for the frozen ones.
+
+\subsection{Evidence denominators}
+\begin{table}[t]\centering
+\caption{Units in the historical study. Numerically equal totals need not
+refer to the same evidence.}\label{tab:denominators}
+\begin{tabular}{p{0.43\linewidth}p{0.48\linewidth}}\toprule
+Quantity & Interpretation\\\midrule
+120 windows & 40 per source; 200 requests in each window\\
+9,360 configurations & 120 windows times six regions times 13 policies\\
+18,720 executions & Two deterministic passes per configuration\\
+18 primary ranking comparisons & Three source pairs times six regions\\
+990 primary reversal records & 18 conditions times 55 policy pairs\\
+990 cross-metric conditions & Three sources times six regions times 55 metric pairs\\
+54,450 metric disagreement records & 990 conditions times 55 policy pairs\\
+500 draws per recovery budget & Subsamples of a fixed reference corpus, not new executions\\
+240 legacy physical executions & Separate runner and fidelity limits; not included in the simulator matrix\\\bottomrule
+\end{tabular}
+\end{table}
+The inferential unit remains the window. Comparison records reuse its
+outcomes many times; their counts describe coverage rather than sample
+independence. A change in the number of policy pairs or metrics changes
+these denominators without acquiring any additional workload evidence.

@@ -1,0 +1,41 @@
+Entries 40
+kwon2023vllm RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2309.06180] Efficient Memory Management for Large Language Model Serving with PagedAttention
+yu2022orca RETRIEVED_REQUIRES_METADATA_REVIEW 200 Orca: A Distributed Serving System for Transformer-Based Generative Models | USENIX
+agrawal2024sarathi RETRIEVED_REQUIRES_METADATA_REVIEW 200 Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve | USENIX
+zhong2024distserve RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2401.09670] DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving
+sun2024llumnix RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2406.03243] Llumnix: Dynamic Scheduling for Large Language Model Serving
+burstgpt2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2401.17644] BurstGPT: A Real-world Workload Dataset to Optimize LLM Serving Systems
+azure2024trace RETRIEVED_REQUIRES_METADATA_REVIEW 200 AzurePublicDataset/AzureLLMInferenceDataset2024.md at master · Azure/AzurePublicDataset · GitHub
+patel2024splitwise RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2311.18677] Splitwise: Efficient generative LLM inference using phase splitting
+stojkovic2025dynamollm RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2408.00741] DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency
+sun2025geodistributed RETRIEVED_REQUIRES_METADATA_REVIEW 200 Redirecting
+jin2023s3 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2306.06000] S$^{3}$: Increasing GPU Utilization during Generative Inference for Higher Throughput
+qin2025mooncake RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2407.00079] Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving
+sheng2024vtc RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2401.00588] Fairness in Serving Large Language Models
+kvcache_wild2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2506.02634] KVCache Cache in the Wild: Characterizing and Optimizing KVCache Cache at a Large Cloud Provider
+ayearinllmserving2026 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2608.13573] A Year in LLM Serving: Workload Evolution, Caching and Load-Balancing
+proserve2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2512.12928] ProServe: Unified Multi-Priority Request Scheduling for LLM Serving
+aptserve2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2504.07494] Apt-Serve: Adaptive Request Scheduling on Hybrid Cache for Scalable LLM Inference Serving
+llmservingsim2_2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2511.07229] LLMServingSim2.0: A Unified Simulator for Heterogeneous Hardware and Serving Techniques in LLM In
+tracelab2026 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2606.30560] TraceLab: Characterizing Coding Agent Workloads for LLM Serving
+servegen2026 RETRIEVED_REQUIRES_METADATA_REVIEW 200 ServeGen: Workload Characterization and Generation of Large Language Model Serving in Production | USENIX
+vidur2024 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2405.05465] Vidur: A Large-Scale Simulation Framework For LLM Inference
+llmservingsim2024 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2408.05499] LLMServingSim: A HW/SW Co-Simulation Infrastructure for LLM Inference Serving at Scale
+pars2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2510.03243] Ranking Before Serving: Low-Latency LLM Serving via Pairwise Learning-to-Rank
+jitserve2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 JITServe: SLO-aware LLM Serving with Imprecise Request Information | USENIX
+fastserve2024 RETRIEVED_REQUIRES_METADATA_REVIEW 200 FastServe: Iteration-Level Preemptive Scheduling for Large Language Model Inference | USENIX
+efficientllmscheduling2024 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2408.15792] Efficient LLM Scheduling by Learning to Rank
+slai2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2508.01002] Optimal Scheduling Algorithms for LLM Inference: Theory and Practice
+scorpio2025 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2505.23022] Scorpio: Serving Right Requests at the Right Time for Heterogeneous SLOs in LLM Inference
+libra2026 RETRIEVED_REQUIRES_METADATA_REVIEW 200 Libra: Flexible Request Partitioning and Scheduling for Serving Unbalanced and Dynamic LLM Workloads | USENIX
+lmetric2026 RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2603.15202] Simple is Better: Multiplication May Be All You Need for LLM Request Scheduling
+zakay2014resampling UNVERIFIED 403 
+chen2026quickswap RETRIEVED_REQUIRES_METADATA_REVIEW 200 Redirecting
+yildiz2026dispatching RETRIEVED_REQUIRES_METADATA_REVIEW 200 Redirecting
+li2026beyond RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2606.18431] Beyond Prediction: Tail-Aware Scheduling for LLM Inference
+liu2026hmas RETRIEVED_REQUIRES_METADATA_REVIEW 200 H-MAS: Hierarchical Multi-Agent Scheduling for Multi-Tenant LLM Serving - ACL Anthology
+wang2026smetric RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2607.08565] SMetric: Rethink LLM Scheduling for Serving Agents with Balanced Session-centric Scheduling
+wang2026xperf RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2608.20370] Benchmarking LLM Serving Systems for Agentic AI Workloads with XPerf
+ding2026cclbench RETRIEVED_REQUIRES_METADATA_REVIEW 200 [2605.06544] CCL-Bench 1.0: A Trace-Based Benchmark for LLM Infrastructure
+papaioannou2024workload UNVERIFIED 403 
+bailianqwen2026 UNVERIFIED None 

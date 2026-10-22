@@ -1,0 +1,297 @@
+{
+  "baseline": {
+    "floats": [
+      {
+        "file": "baseline/sections/methodology.tex",
+        "kind": "table",
+        "label": "tab:model-assumptions",
+        "source_words": 153,
+        "caption_source": "Main simulation-model scope and assumptions used in the PRIMARY\nranking-portability study."
+      },
+      {
+        "file": "baseline/sections/sample_complexity.tex",
+        "kind": "table",
+        "label": "tab:rq4-first-n",
+        "source_words": 83,
+        "caption_source": "Smallest $n$ at which PRIMARY-metric recovery probability first\nexceeds $0.9$ ($n \\in \\{5,10,20,30,40\\"
+      },
+      {
+        "file": "baseline/sections/sample_complexity.tex",
+        "kind": "figure",
+        "label": "fig:sample-complexity",
+        "source_words": 63,
+        "caption_source": "Benchmark sample-complexity recovery curves, PRIMARY metric, 500\ndraws per $n$, sampling without replacement. Left: exact-order recovery of\nthe full $n=40$ reference ranking. Right: top-1 recovery. The $0.9$\nthreshold is marked. Computed from the frozen sample complexity artifact."
+      },
+      {
+        "file": "baseline/sections/results.tex",
+        "kind": "table",
+        "label": "tab:rq1-by-region",
+        "source_words": 90,
+        "caption_source": "Primary-metric (ANWG) Kendall's tau-b, mean across the three\nsource pairs, per operating region. ANWG is always defined; undefined-metric exclusions are 0."
+      },
+      {
+        "file": "baseline/sections/results.tex",
+        "kind": "figure",
+        "label": "fig:portability-heatmap",
+        "source_words": 60,
+        "caption_source": "Source-pair $\\times$ load-region ranking-portability: Kendall's\ntau-b between each pair of sources' PRIMARY-panel (11-policy) rankings on\nthe ANWG metric, at each of the six frozen operating regions\n(\\S\\ref{sec:calibration"
+      },
+      {
+        "file": "baseline/sections/results.tex",
+        "kind": "figure",
+        "label": "fig:reversal-matrix",
+        "source_words": 53,
+        "caption_source": "Reversal-class counts by operating region, PRIMARY metric (165\npairwise records per region: 55 policy pairs $\\times$ 3 source pairs).\nComputed from the frozen pairwise reversals artifact."
+      },
+      {
+        "file": "baseline/sections/real_system.tex",
+        "kind": "table",
+        "label": "tab:rq6-results",
+        "source_words": 142,
+        "caption_source": "Real-vLLM RQ6 outcomes against the simulator-selected cases (\\texttt{HIGH\\_PRESSURE"
+      }
+    ],
+    "largest_paragraphs": [
+      {
+        "file": "baseline/sections/methodology.tex",
+        "words": 362,
+        "beginning": "Three metrics are always defined for every completed cell: completion\nfraction, weighted completion fraction, and Arrival-Normalized Weighte"
+      },
+      {
+        "file": "baseline/sections/results.tex",
+        "words": 360,
+        "beginning": "\\S\\ref{sec:reversals} and \\S\\ref{sec:results-robustness} ask whether a\npolicy ranking under one fixed metric (ANWG) is portable across sourc"
+      },
+      {
+        "file": "baseline/sections/methodology.tex",
+        "words": 269,
+        "beginning": "Before the benchmark protocol described in the remainder of this section\nwas frozen, a preregistered discriminability pilot (internally labe"
+      },
+      {
+        "file": "baseline/sections/methodology.tex",
+        "words": 266,
+        "beginning": "\\begin{description}\n  \\item[\\texttt{UNDEFINED\\_UNESTIMABLE}] At least one of the two policies'\n    metric values is undefined for this condi"
+      },
+      {
+        "file": "baseline/sections/real_system.tex",
+        "words": 257,
+        "beginning": "\\begin{itemize}\n  \\item \\textbf{Inferential Unit:} The statistical unit of analysis is the workload window, preserving the methodology estab"
+      },
+      {
+        "file": "baseline/sections/introduction.tex",
+        "words": 248,
+        "beginning": "\\begin{itemize}\n  \\item a formulation of comparative scheduler-ranking portability,\n    $R(W, M, L)$, as an object of simulation-based selec"
+      },
+      {
+        "file": "baseline/sections/results.tex",
+        "words": 245,
+        "beginning": "\\begin{itemize}\n  \\item \\textbf{\\texttt{PRIMARY\\_ONLY}.} Identical to the headline result\n    by construction: the ranking correlations arti"
+      },
+      {
+        "file": "baseline/sections/related_work.tex",
+        "words": 240,
+        "beginning": "A parallel literature documents that LLM-serving workloads observed in\nproduction are themselves heterogeneous. BurstGPT releases 10.31 mill"
+      },
+      {
+        "file": "baseline/sections/related_work.tex",
+        "words": 231,
+        "beginning": "Vidur is the closest existing infrastructure precedent to LSSP: a\nlarge-scale simulation framework purpose-built for exploring LLM-inference"
+      },
+      {
+        "file": "baseline/sections/discussion.tex",
+        "words": 230,
+        "beginning": "The frozen, pre-specified explanatory model (\\S\\ref{sec:telemetry})\nassociates the five workload\ndescriptors with reversal sites at each (po"
+      },
+      {
+        "file": "baseline/sections/related_work.tex",
+        "words": 228,
+        "beginning": "Prior work generally studies a scheduler, a serving system, a\nsimulation environment, or a workload generator/characterization in its own\nri"
+      },
+      {
+        "file": "baseline/sections/related_work.tex",
+        "words": 225,
+        "beginning": "Prior work has already established, individually, that LLM-serving\nworkloads are heterogeneous (\\S\\ref{sec:related-workloads}) and that\nindi"
+      },
+      {
+        "file": "baseline/sections/workloads.tex",
+        "words": 217,
+        "beginning": "An attribution analysis triangulating held-out permutation importance,\nsingle-feature balanced accuracy, leave-one-feature-out deltas, and\nf"
+      },
+      {
+        "file": "baseline/sections/related_work.tex",
+        "words": 209,
+        "beginning": "A second cluster of work targets scheduling \\emph{policy} design more\nspecifically. VTC (Virtual Token Counter) defines an explicit token-le"
+      },
+      {
+        "file": "baseline/sections/methodology.tex",
+        "words": 201,
+        "beginning": "A numerical sign change in a point estimate is not, by itself, a meaningful\nscheduler reversal from a systems standpoint: two policies can s"
+      }
+    ],
+    "section_source_words": {
+      "artifact": 230,
+      "related_work": 1614,
+      "study_design": 581,
+      "limitations": 1150,
+      "methodology": 3530,
+      "declarations": 444,
+      "workloads": 1162,
+      "introduction": 1292,
+      "sample_complexity": 703,
+      "discussion": 1333,
+      "conclusion": 329,
+      "results": 2452,
+      "real_system": 1105
+    }
+  },
+  "revised": {
+    "floats": [
+      {
+        "file": "revised/sections/research_questions.tex",
+        "kind": "table",
+        "label": "tab:denominators",
+        "source_words": 129,
+        "caption_source": "Units in the historical study. Numerically equal totals need not\nrefer to the same evidence."
+      },
+      {
+        "file": "revised/sections/within.tex",
+        "kind": "table",
+        "label": "tab:region-counts",
+        "source_words": 92,
+        "caption_source": "Primary ANWG cross-source comparison records by region. Each row\ncontains 55 policy pairs times three source pairs; these are overlapping\ncomparisons, not independent experimental units."
+      },
+      {
+        "file": "revised/sections/workloads.tex",
+        "kind": "table",
+        "label": "tab:prompt-coverage",
+        "source_words": 52,
+        "caption_source": "Range of window-level median source-reported prompts in the\nfrozen 40-window/source corpus. These are not common-tokenizer counts."
+      },
+      {
+        "file": "revised/sections/portability.tex",
+        "kind": "figure",
+        "label": "fig:portability-heatmap",
+        "source_words": 60,
+        "caption_source": "Source-pair $\\times$ load-region ranking-portability: Kendall's\ntau-b between each pair of sources' PRIMARY-panel (11-policy) rankings on\nthe ANWG metric, at each of the six frozen operating regions\n(\\S\\ref{sec:calibration"
+      },
+      {
+        "file": "revised/sections/portability.tex",
+        "kind": "table",
+        "label": "tab:all-correlations",
+        "source_words": 183,
+        "caption_source": "All 18 primary source-pair comparisons. A=Azure, B=Bailian,\nG=BurstGPT. Intervals are the preserved 95\\% window-bootstrap intervals;\nM1 independently reproduced the point estimates but did not rerun intervals."
+      },
+      {
+        "file": "revised/sections/robustness.tex",
+        "kind": "figure",
+        "label": "fig:sample-complexity",
+        "source_words": 63,
+        "caption_source": "Benchmark sample-complexity recovery curves, PRIMARY metric, 500\ndraws per $n$, sampling without replacement. Left: exact-order recovery of\nthe full $n=40$ reference ranking. Right: top-1 recovery. The $0.9$\nthreshold is marked. Computed from the frozen sample complexity artifact."
+      },
+      {
+        "file": "revised/sections/model.tex",
+        "kind": "table",
+        "label": "tab:model-assumptions",
+        "source_words": 151,
+        "caption_source": "Main simulation-model scope and assumptions used in the PRIMARY\nranking-portability study."
+      },
+      {
+        "file": "revised/sections/model.tex",
+        "kind": "table",
+        "label": "tab:panel",
+        "source_words": 96,
+        "caption_source": "Frozen panel interpretation. Registry labels are historical\nidentifiers; none of these rows certifies native serving equivalence."
+      }
+    ],
+    "largest_paragraphs": [
+      {
+        "file": "revised/sections/research_questions.tex",
+        "words": 368,
+        "beginning": "Three metrics are always defined for every completed cell: completion\nfraction, weighted completion fraction, and Arrival-Normalized Weighte"
+      },
+      {
+        "file": "revised/sections/metrics.tex",
+        "words": 368,
+        "beginning": "\\S\\ref{sec:reversals} and \\S\\ref{sec:results-robustness} ask whether a\npolicy ranking under one fixed metric (ANWG) is portable across sourc"
+      },
+      {
+        "file": "revised/sections/research_questions.tex",
+        "words": 266,
+        "beginning": "\\begin{description}\n  \\item[\\texttt{UNDEFINED\\_UNESTIMABLE}] At least one of the two policies'\n    metric values is undefined for this condi"
+      },
+      {
+        "file": "revised/sections/portability.tex",
+        "words": 250,
+        "beginning": "\\subsection{Point estimates and saved uncertainty}\n\\begin{table}[t]\\centering\n\\caption{All 18 primary source-pair comparisons. A=Azure, B=Ba"
+      },
+      {
+        "file": "revised/sections/robustness.tex",
+        "words": 245,
+        "beginning": "\\begin{itemize}\n  \\item \\textbf{\\texttt{PRIMARY\\_ONLY}.} Identical to the headline result\n    by construction: the ranking correlations arti"
+      },
+      {
+        "file": "revised/sections/research_questions.tex",
+        "words": 202,
+        "beginning": "A numerical sign change in a point estimate is not, by itself, a meaningful\nscheduler reversal from a systems standpoint: two policies can s"
+      },
+      {
+        "file": "revised/sections/research_questions.tex",
+        "words": 200,
+        "beginning": "Two further checks calibrate how the pairwise reversal statistics reported\nin \\S\\ref{sec:reversals} are interpreted, and it is important not"
+      },
+      {
+        "file": "revised/sections/model.tex",
+        "words": 185,
+        "beginning": "\\subsection{Implementation identity and comparison scope}\n\\begin{table}[t]\\centering\n\\caption{Frozen panel interpretation. Registry labels a"
+      },
+      {
+        "file": "revised/sections/robustness.tex",
+        "words": 177,
+        "beginning": "Top-1 recovery (does the resampled subset identify the single\nbest-performing PRIMARY-panel policy correctly) is a materially easier\nquestio"
+      },
+      {
+        "file": "revised/sections/workloads.tex",
+        "words": 174,
+        "beginning": "\\subsection{Temporal partitions}\\label{sec:temporal-design}\nThe manifest assigns 20 EARLY, 10 MIDDLE and 10 LATE windows per source\n(60/30/3"
+      },
+      {
+        "file": "revised/sections/research_questions.tex",
+        "words": 173,
+        "beginning": "\\section{Research Questions and Portability Measures}\\label{sec:study-design}\\label{sec:rq}\nWe preserve the original six questions, includin"
+      },
+      {
+        "file": "revised/sections/research_questions.tex",
+        "words": 171,
+        "beginning": "\\subsection{Evidence denominators}\n\\begin{table}[t]\\centering\n\\caption{Units in the historical study. Numerically equal totals need not\nrefe"
+      },
+      {
+        "file": "revised/sections/portability.tex",
+        "words": 168,
+        "beginning": "Load-level dependence is a secondary robustness/sensitivity analysis\n(\\S\\ref{sec:rq}), reported here as a direct read of the same\n\\S\\ref{sec"
+      },
+      {
+        "file": "revised/sections/portability.tex",
+        "words": 164,
+        "beginning": "Across the 3 source pairs $\\times$ 6 operating regions (18 conditions),\nKendall's tau-b for the PRIMARY metric ranges from $0.55$ to $1.00$,"
+      },
+      {
+        "file": "revised/sections/workloads.tex",
+        "words": 157,
+        "beginning": "The benchmark corpus freezes exactly 120 windows of 200 requests each: 40\nper source (\\texttt{azure\\_llm\\_2024}, \\texttt{bailian\\_qwen},\n\\te"
+      }
+    ],
+    "section_source_words": {
+      "research_questions": 2247,
+      "within": 396,
+      "related_work": 357,
+      "limitations": 775,
+      "workloads": 1255,
+      "portability": 1264,
+      "introduction": 504,
+      "conclusion": 116,
+      "robustness": 1232,
+      "metrics": 588,
+      "model": 1463
+    }
+  }
+}

@@ -1,0 +1,15 @@
+\section{Conclusion}\label{sec:conclusion}
+LSSP treats the portability of a comparative scheduler ranking as an
+explicit evaluation output. Its historical simulator corpus shows strong
+but uneven cross-source agreement, a minority of practical reversals
+spanning five policy pairs, and more limited agreement across metrics.
+The contribution is the reproducible comparison design and the
+conditional empirical characterization, not a novel rank statistic or a
+universal scheduler recommendation.
+
+These findings apply to the frozen implementations, windows, regions and
+metric rules. Later audits narrow the native-system fidelity claims:
+the legacy physical comparison cannot establish faithful scheduler-ranking
+transfer, and CPU conformance is not physical execution evidence. Future
+serving measurements require separately validated admission, execution,
+KV, timing and output contracts before testing portability on hardware.

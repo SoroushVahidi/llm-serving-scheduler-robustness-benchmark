@@ -1,0 +1,2542 @@
+cwd=/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1
+pid=523361
+variant=baseline
+mode=manuscript
+start=2026-10-22T02:18:31+00:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./baseline/main.tex
+(/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1/tem
+plate/acmart.cls
+Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
+n for Computing Machinery
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/totpages/totpages.sty
+(/usr/share/texlive/texmf-dist/tex/latex/everyshi/everyshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperxmp/hyperxmp.sty
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/ifdraft.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/manyfoot.sty
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/nccfoots.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty<<t1.cmap>>)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fontaxes/fontaxes.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe))
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
+`newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/centernot.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kastrup/binhex.tex)
+amsthm NOT loaded
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-ams-smf.sto)))
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment') Excluding comment 'CCSXML'
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+Special comment 'acks'
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty)
+Include comment 'screenonly' Excluding comment 'printonly'
+Include comment 'anonsuppress'
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file baseline-manuscript.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineT-TLF.fd)<<
+ot1.cmap>><<oml.cmap>>
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/sl' undefined
+(Font)              using `T1/zi4/m/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
+(Font)              using `T1/zi4/b/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/sl' undefined
+(Font)              using `T1/zi4/b/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/it' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/sl' undefined
+(Font)              using `T1/zi4/bx/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbx/scit' undefined
+(Font)              using `T1/zi4/sb/scit' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/it' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sl' undefined
+(Font)              using `T1/zi4/sb/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/scit' undefined
+(Font)              using `T1/zi4/sb/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sc' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbc/sc' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/it' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sl' undefined
+(Font)              using `T1/zi4/c/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/scit' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sc' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/lc/sc' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/it' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sl' undefined
+(Font)              using `T1/zi4/l/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/scit' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sc' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/ui' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/ui' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/In' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd)
+(./baseline/sections/introduction.tex
+
+Package natbib Warning: Citation `kwon2023vllm' on page 1 undefined on input li
+ne 24.
+
+
+Package natbib Warning: Citation `yu2022orca' on page 1 undefined on input line
+ 24.
+
+
+Package natbib Warning: Citation `agrawal2024sarathi' on page 1 undefined on in
+put line 26.
+
+
+Package natbib Warning: Citation `zhong2024distserve' on page 1 undefined on in
+put line 27.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 1 undefined on in
+put line 27.
+
+
+Package natbib Warning: Citation `qin2025mooncake' on page 1 undefined on input
+ line 28.
+
+
+Package natbib Warning: Citation `sun2024llumnix' on page 1 undefined on input 
+line 29.
+
+
+Package natbib Warning: Citation `sheng2024vtc' on page 1 undefined on input li
+ne 30.
+
+
+Package natbib Warning: Citation `jin2023s3' on page 1 undefined on input line 
+31.
+
+
+Package natbib Warning: Citation `efficientllmscheduling2024' on page 1 undefin
+ed on input line 32.
+
+[1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/share/texlive/texmf-dist
+/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-dist/fonts
+/enc/dvips/libertine/lbtn_oexx6f.enc}{/usr/share/texlive/texmf-dist/fonts/enc/d
+vips/libertine/lbtn_naooyc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/l
+ibertine/lbtn_nh77jq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/liberti
+ne/lbtn_7grukw.enc}]
+
+Package natbib Warning: Citation `burstgpt2025' on page 2 undefined on input li
+ne 42.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 2 undefined on in
+put line 42.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 2 undefined o
+n input line 42.
+
+
+Package natbib Warning: Citation `kvcache_wild2025' on page 2 undefined on inpu
+t line 45.
+
+
+Package natbib Warning: Citation `ayearinllmserving2026' on page 2 undefined on
+ input line 45.
+
+
+Package natbib Warning: Citation `servegen2026' on page 2 undefined on input li
+ne 48.
+
+
+LaTeX Warning: Reference `sec:study-design' on page 2 undefined on input line 1
+02.
+
+
+Underfull \vbox (badness 3690) has occurred while \output is active [2.2]
+
+LaTeX Warning: Reference `sec:study-design' on page 3 undefined on input line 1
+24.
+
+
+LaTeX Warning: Reference `sec:execution-model' on page 3 undefined on input lin
+e 142.
+
+
+LaTeX Warning: Reference `sec:methodology' on page 3 undefined on input line 14
+8.
+
+
+LaTeX Warning: Reference `sec:sample-complexity' on page 3 undefined on input l
+ine 152.
+
+
+LaTeX Warning: Reference `sec:workloads' on page 3 undefined on input line 157.
+
+
+
+LaTeX Warning: Reference `sec:real-system' on page 3 undefined on input line 15
+9.
+
+
+LaTeX Warning: Reference `sec:artifact' on page 3 undefined on input line 165.
+
+
+LaTeX Warning: Reference `sec:results' on page 3 undefined on input line 170.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 3 undefined on input line 17
+0.
+
+
+LaTeX Warning: Reference `sec:discussion' on page 3 undefined on input line 171
+.
+
+) (./baseline/sections/related_work.tex
+
+Package natbib Warning: Citation `yu2022orca' on page 3 undefined on input line
+ 10.
+
+
+Package natbib Warning: Citation `kwon2023vllm' on page 3 undefined on input li
+ne 12.
+
+
+Package natbib Warning: Citation `agrawal2024sarathi' on page 3 undefined on in
+put line 14.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 3 undefined on in
+put line 17.
+
+
+Package natbib Warning: Citation `zhong2024distserve' on page 3 undefined on in
+put line 17.
+
+
+Package natbib Warning: Citation `qin2025mooncake' on page 3 undefined on input
+ line 19.
+
+
+Package natbib Warning: Citation `sun2024llumnix' on page 3 undefined on input 
+line 21.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 3 undefined o
+n input line 23.
+
+
+Package natbib Warning: Citation `sun2025geodistributed' on page 3 undefined on
+ input line 24.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [3.3]
+
+Package natbib Warning: Citation `sheng2024vtc' on page 4 undefined on input li
+ne 36.
+
+
+Package natbib Warning: Citation `jin2023s3' on page 4 undefined on input line 
+38.
+
+
+Package natbib Warning: Citation `efficientllmscheduling2024' on page 4 undefin
+ed on input line 39.
+
+
+Package natbib Warning: Citation `fastserve2024' on page 4 undefined on input l
+ine 44.
+
+
+Package natbib Warning: Citation `jitserve2025' on page 4 undefined on input li
+ne 44.
+
+
+Package natbib Warning: Citation `scorpio2025' on page 4 undefined on input lin
+e 44.
+
+
+Package natbib Warning: Citation `pars2025' on page 4 undefined on input line 4
+6.
+
+
+Package natbib Warning: Citation `slai2025' on page 4 undefined on input line 4
+6.
+
+
+Package natbib Warning: Citation `lmetric2026' on page 4 undefined on input lin
+e 46.
+
+
+Package natbib Warning: Citation `libra2026' on page 4 undefined on input line 
+49.
+
+
+Package natbib Warning: Citation `aptserve2025' on page 4 undefined on input li
+ne 49.
+
+
+Package natbib Warning: Citation `proserve2025' on page 4 undefined on input li
+ne 49.
+
+
+Package natbib Warning: Citation `li2026beyond' on page 4 undefined on input li
+ne 52.
+
+
+Package natbib Warning: Citation `liu2026hmas' on page 4 undefined on input lin
+e 54.
+
+
+Package natbib Warning: Citation `wang2026smetric' on page 4 undefined on input
+ line 55.
+
+
+LaTeX Warning: Reference `sec:related-position' on page 4 undefined on input li
+ne 61.
+
+
+Package natbib Warning: Citation `chen2026quickswap' on page 4 undefined on inp
+ut line 66.
+
+
+Package natbib Warning: Citation `burstgpt2025' on page 4 undefined on input li
+ne 81.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 4 undefined on in
+put line 84.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 4 undefined o
+n input line 86.
+
+
+Package natbib Warning: Citation `kvcache_wild2025' on page 4 undefined on inpu
+t line 86.
+
+
+Package natbib Warning: Citation `ayearinllmserving2026' on page 4 undefined on
+ input line 89.
+
+
+LaTeX Warning: Reference `sec:related-position' on page 4 undefined on input li
+ne 92.
+
+
+Package natbib Warning: Citation `servegen2026' on page 4 undefined on input li
+ne 96.
+
+
+LaTeX Warning: Reference `sec:workloads' on page 4 undefined on input line 98.
+
+
+Underfull \vbox (badness 1199) has occurred while \output is active [4.4]
+
+Package natbib Warning: Citation `vidur2024' on page 5 undefined on input line 
+110.
+
+
+Package natbib Warning: Citation `llmservingsim2024' on page 5 undefined on inp
+ut line 115.
+
+
+Package natbib Warning: Citation `llmservingsim2_2025' on page 5 undefined on i
+nput line 115.
+
+
+Package natbib Warning: Citation `ding2026cclbench' on page 5 undefined on inpu
+t line 117.
+
+
+Package natbib Warning: Citation `wang2026xperf' on page 5 undefined on input l
+ine 119.
+
+
+LaTeX Warning: Reference `sec:methodology' on page 5 undefined on input line 12
+9.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 5 undefined on input line 13
+3.
+
+
+LaTeX Warning: Reference `sec:related-workloads' on page 5 undefined on input l
+ine 139.
+
+
+LaTeX Warning: Reference `sec:related-serving' on page 5 undefined on input lin
+e 142.
+
+
+Package natbib Warning: Citation `papaioannou2024workload' on page 5 undefined 
+on input line 144.
+
+
+Package natbib Warning: Citation `yildiz2026dispatching' on page 5 undefined on
+ input line 149.
+
+[5.5]
+
+LaTeX Warning: Reference `sec:methodology' on page 6 undefined on input line 17
+3.
+
+
+Package natbib Warning: Citation `zakay2014resampling' on page 6 undefined on i
+nput line 179.
+
+
+LaTeX Warning: Reference `sec:sample-complexity' on page 6 undefined on input l
+ine 184.
+
+
+Package natbib Warning: Citation `yildiz2026dispatching' on page 6 undefined on
+ input line 206.
+
+
+Package natbib Warning: Citation `zakay2014resampling' on page 6 undefined on i
+nput line 210.
+
+
+LaTeX Warning: Reference `sec:related-methodology' on page 6 undefined on input
+ line 211.
+
+
+LaTeX Warning: Reference `sec:related-simulators' on page 6 undefined on input 
+line 214.
+
+
+LaTeX Warning: Reference `sec:related-workloads' on page 6 undefined on input l
+ine 215.
+
+) (./baseline/sections/study_design.tex
+Overfull \hbox (18.48767pt too wide) in paragraph at lines 194--1
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) Prior work gen-er-ally stud-ies a sched-ule
+r, a serv-ing sys-tem, a sim-u-la-tion en-vi-ron-ment, or a work-load gen-er-a-
+tor/characterization
+
+LaTeX Warning: Reference `sec:introduction' on page 6 undefined on input line 7
+.
+
+
+LaTeX Warning: Reference `sec:sources' on page 6 undefined on input line 11.
+
+
+LaTeX Warning: Reference `sec:results' on page 6 undefined on input line 13.
+
+
+LaTeX Warning: Reference `sec:evidence-boundaries' on page 6 undefined on input
+ line 17.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [6.6]
+
+LaTeX Warning: Reference `sec:panel' on page 7 undefined on input line 22.
+
+
+LaTeX Warning: Reference `sec:sources' on page 7 undefined on input line 24.
+
+
+LaTeX Warning: Reference `sec:calibration' on page 7 undefined on input line 25
+.
+
+
+LaTeX Warning: Reference `sec:metrics' on page 7 undefined on input line 26.
+
+
+LaTeX Warning: Reference `sec:paired' on page 7 undefined on input line 28.
+
+
+LaTeX Warning: Reference `sec:unit' on page 7 undefined on input line 33.
+
+
+LaTeX Warning: Reference `sec:prereg' on page 7 undefined on input line 34.
+
+
+LaTeX Warning: Reference `sec:windows' on page 7 undefined on input line 51.
+
+
+LaTeX Warning: Reference `sec:rq' on page 7 undefined on input line 53.
+
+
+LaTeX Warning: Reference `sec:calibration' on page 7 undefined on input line 54
+.
+
+
+LaTeX Warning: Reference `sec:methodology' on page 7 undefined on input line 58
+.
+
+
+LaTeX Warning: Reference `sec:windows' on page 7 undefined on input line 68.
+
+
+LaTeX Warning: Reference `sec:panel' on page 7 undefined on input line 69.
+
+
+LaTeX Warning: Reference `sec:calibration' on page 7 undefined on input line 70
+.
+
+[7.7]
+
+LaTeX Warning: Reference `sec:windows' on page 8 undefined on input line 82.
+
+
+LaTeX Warning: Reference `sec:panel' on page 8 undefined on input line 83.
+
+
+LaTeX Warning: Reference `sec:metrics' on page 8 undefined on input line 84.
+
+
+LaTeX Warning: Reference `sec:calibration' on page 8 undefined on input line 85
+.
+
+
+LaTeX Warning: Reference `sec:artifact' on page 8 undefined on input line 90.
+
+) (./baseline/sections/workloads.tex
+
+Package natbib Warning: Citation `burstgpt2025' on page 8 undefined on input li
+ne 8.
+
+
+Package natbib Warning: Citation `azure2024trace' on page 8 undefined on input 
+line 9.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 8 undefined o
+n input line 9.
+
+
+Package natbib Warning: Citation `bailianqwen2026' on page 8 undefined on input
+ line 11.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 8 undefined on in
+put line 12.
+
+
+LaTeX Warning: Reference `sec:stage0' on page 8 undefined on input line 13.
+
+
+Package natbib Warning: Citation `tracelab2026' on page 8 undefined on input li
+ne 15.
+
+
+LaTeX Warning: Reference `sec:stage0' on page 8 undefined on input line 48.
+
+[8.8{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
+
+LaTeX Warning: Reference `sec:separability' on page 9 undefined on input line 7
+3.
+
+
+LaTeX Warning: Reference `sec:sources' on page 9 undefined on input line 89.
+
+
+LaTeX Warning: Reference `sec:results' on page 9 undefined on input line 94.
+
+
+LaTeX Warning: Reference `sec:results-slo' on page 9 undefined on input line 94
+.
+
+
+LaTeX Warning: Reference `sec:descriptors' on page 9 undefined on input line 12
+1.
+
+
+LaTeX Warning: Reference `sec:descriptors' on page 9 undefined on input line 14
+5.
+
+
+Underfull \vbox (badness 6047) has occurred while \output is active [9.9]
+
+LaTeX Warning: Reference `sec:results-robustness' on page 10 undefined on input
+ line 162.
+
+
+LaTeX Warning: Reference `sec:threats' on page 10 undefined on input line 164.
+
+) (./baseline/sections/methodology.tex
+Underfull \vbox (badness 7012) has occurred while \output is active [10.10]
+
+LaTeX Warning: Reference `sec:stage0' on page 11 undefined on input line 36.
+
+
+LaTeX Warning: Reference `sec:telemetry' on page 11 undefined on input line 79.
+
+
+
+LaTeX Warning: Reference `sec:panel' on page 11 undefined on input line 92.
+
+
+LaTeX Warning: Reference `sec:metrics' on page 11 undefined on input line 109.
+
+[11.11]
+
+LaTeX Warning: Reference `sec:metrics' on page 12 undefined on input line 117.
+
+
+LaTeX Warning: Reference `sec:unit' on page 12 undefined on input line 121.
+
+
+LaTeX Warning: Reference `sec:fidelity' on page 12 undefined on input line 153.
+
+
+
+LaTeX Warning: Reference `sec:workloads' on page 12 undefined on input line 157
+.
+
+
+LaTeX Warning: Reference `sec:study-design' on page 12 undefined on input line 
+161.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 12 undefined on input line 1
+62.
+
+[12.12]
+
+LaTeX Warning: Reference `sec:calibration' on page 13 undefined on input line 1
+99.
+
+
+LaTeX Warning: Reference `sec:artifact' on page 13 undefined on input line 202.
+
+
+
+LaTeX Warning: Reference `sec:metrics' on page 13 undefined on input line 224.
+
+[13.13]
+
+LaTeX Warning: Reference `sec:execution-model' on page 14 undefined on input li
+ne 258.
+
+
+LaTeX Warning: Reference `sec:results' on page 14 undefined on input line 263.
+
+
+LaTeX Warning: Reference `sec:telemetry-explanation' on page 14 undefined on in
+put line 284.
+
+
+Overfull \hbox (4.43849pt too wide) in paragraph at lines 270--285
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) Every ex-e-cuted cell ad-di-tion-ally recor
+ds a seven-field mechanism-activation teleme-try sum-mary: queue-depth (mean/ma
+x),
+
+Overfull \hbox (5.5637pt too wide) in paragraph at lines 270--285
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) batch-saturation (mean/max frac-tion of \T1
+/zi4/l/it/9 max_-ac-tive_-se-quences \T1/LinuxLibertineT-TLF/m/n/9 (-20) in use
+), pre-fill/decode con-tention frac-tion, KV-occupancy
+
+LaTeX Warning: Reference `sec:unit' on page 14 undefined on input line 290.
+
+
+LaTeX Warning: Reference `sec:windows' on page 14 undefined on input line 301.
+
+[14.14]
+
+LaTeX Warning: Reference `sec:reversals' on page 15 undefined on input line 305
+.
+
+
+LaTeX Warning: Reference `sec:stage0' on page 15 undefined on input line 335.
+
+
+LaTeX Warning: Reference `sec:metrics' on page 15 undefined on input line 351.
+
+
+Underfull \vbox (badness 3690) has occurred while \output is active [15.15]
+
+LaTeX Warning: Reference `sec:reversals' on page 16 undefined on input line 378
+.
+
+
+LaTeX Warning: Reference `sec:sources' on page 16 undefined on input line 400.
+
+
+LaTeX Warning: Reference `sec:windows' on page 16 undefined on input line 402.
+
+
+LaTeX Warning: Reference `sec:robustness' on page 16 undefined on input line 40
+5.
+
+
+LaTeX Warning: Reference `sec:provenance' on page 16 undefined on input line 41
+1.
+
+
+LaTeX Warning: Reference `sec:temporal' on page 16 undefined on input line 417.
+
+
+
+LaTeX Warning: Reference `sec:results' on page 16 undefined on input line 424.
+
+
+LaTeX Warning: Reference `sec:temporal-design' on page 16 undefined on input li
+ne 430.
+
+
+LaTeX Warning: Reference `sec:results-robustness' on page 16 undefined on input
+ line 432.
+
+
+LaTeX Warning: Reference `sec:provenance' on page 16 undefined on input line 44
+3.
+
+
+LaTeX Warning: Reference `sec:results-slo' on page 16 undefined on input line 4
+51.
+
+
+LaTeX Warning: Reference `sec:threats' on page 16 undefined on input line 451.
+
+) (./baseline/sections/results.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [16.16]
+
+LaTeX Warning: Reference `sec:paired' on page 17 undefined on input line 6.
+
+
+LaTeX Warning: Reference `sec:artifact' on page 17 undefined on input line 7.
+
+
+LaTeX Warning: Reference `sec:metrics' on page 17 undefined on input line 9.
+
+
+LaTeX Warning: Reference `sec:results-cross-metric' on page 17 undefined on inp
+ut line 15.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 17 undefined on in
+put line 21.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 17 undefined on input line 21.
+
+
+
+LaTeX Warning: Reference `sec:results-cross-metric' on page 17 undefined on inp
+ut line 23.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 17 undefined on input line 2
+5.
+
+
+LaTeX Warning: Reference `tab:rq1-by-region' on page 17 undefined on input line
+ 32.
+
+
+LaTeX Warning: Reference `fig:portability-heatmap' on page 17 undefined on inpu
+t line 33.
+
+
+LaTeX Warning: Reference `sec:artifact' on page 17 undefined on input line 46.
+
+
+LaTeX Warning: Reference `sec:calibration' on page 17 undefined on input line 7
+2.
+
+
+LaTeX Warning: Reference `sec:calibration' on page 17 undefined on input line 7
+2.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `tab:rq1-by-region' on page 17 undefined on input line
+ 77.
+
+
+LaTeX Warning: Reference `sec:load-conditioning' on page 17 undefined on input 
+line 81.
+
+[17.17]
+
+LaTeX Warning: Reference `sec:rq' on page 18 undefined on input line 89.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 18 undefined on in
+put line 90.
+
+
+LaTeX Warning: Reference `tab:rq1-by-region' on page 18 undefined on input line
+ 91.
+
+
+LaTeX Warning: Reference `sec:robustness' on page 18 undefined on input line 97
+.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 18 undefined on input line 102
+.
+
+
+LaTeX Warning: Reference `sec:uncertainty' on page 18 undefined on input line 1
+11.
+
+[18.18 <./figures/fig1_portability_heatmap.pdf>]
+
+LaTeX Warning: Reference `fig:reversal-matrix' on page 19 undefined on input li
+ne 140.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 19 undefined on in
+put line 145.
+
+
+LaTeX Warning: Reference `sec:uncertainty' on page 19 undefined on input line 1
+50.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 19 undefined on input line 1
+54.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 19 undefined on input line 1
+58.
+
+
+LaTeX Warning: Reference `sec:temporal-design' on page 19 undefined on input li
+ne 166.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 19 undefined on in
+put line 175.
+
+
+LaTeX Warning: Reference `sec:sources' on page 19 undefined on input line 175.
+
+[19.19 <./figures/fig2_reversal_class_matrix.pdf>]
+
+LaTeX Warning: Reference `sec:robustness' on page 20 undefined on input line 18
+0.
+
+
+LaTeX Warning: Reference `sec:telemetry-explanation' on page 20 undefined on in
+put line 180.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 20 undefined on in
+put line 186.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 20 undefined on in
+put line 193.
+
+
+LaTeX Warning: Reference `sec:load-conditioning' on page 20 undefined on input 
+line 198.
+
+
+LaTeX Warning: Reference `sec:temporal' on page 20 undefined on input line 201.
+
+
+
+LaTeX Warning: Reference `sec:sample-complexity' on page 20 undefined on input 
+line 206.
+
+
+LaTeX Warning: Reference `sec:window-size' on page 20 undefined on input line 2
+07.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 20 undefined on in
+put line 215.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 20 undefined on input line 222
+.
+
+
+LaTeX Warning: Reference `sec:results-robustness' on page 20 undefined on input
+ line 222.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 20 undefined on input line 236
+.
+
+
+LaTeX Warning: Reference `sec:uncertainty' on page 20 undefined on input line 2
+37.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 20 undefined on input line 243
+.
+
+
+LaTeX Warning: Reference `sec:results' on page 20 undefined on input line 251.
+
+[20.20]
+
+LaTeX Warning: Reference `sec:slo-sensitivity-gap' on page 21 undefined on inpu
+t line 259.
+
+
+LaTeX Warning: Reference `sec:results' on page 21 undefined on input line 269.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 21 undefined on input line 278
+.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 21 undefined on input line 278
+.
+
+
+LaTeX Warning: Reference `sec:study-design' on page 21 undefined on input line 
+285.
+
+) (./baseline/sections/sample_complexity.tex [21.21]
+
+LaTeX Warning: Reference `sec:windows' on page 22 undefined on input line 9.
+
+
+LaTeX Warning: Reference `sec:results' on page 22 undefined on input line 23.
+
+
+LaTeX Warning: Reference `fig:sample-complexity' on page 22 undefined on input 
+line 36.
+
+
+LaTeX Warning: Reference `tab:rq4-first-n' on page 22 undefined on input line 3
+7.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 22 undefined on in
+put line 60.
+
+[22.22]
+
+LaTeX Warning: Reference `sec:rq' on page 23 undefined on input line 98.
+
+
+LaTeX Warning: Reference `sec:results' on page 23 undefined on input line 99.
+
+
+LaTeX Warning: Reference `sec:stage0' on page 23 undefined on input line 100.
+
+) (./baseline/sections/real_system.tex
+
+LaTeX Warning: Reference `sec:rq' on page 23 undefined on input line 7.
+
+
+LaTeX Warning: Reference `sec:calibration' on page 23 undefined on input line 1
+2.
+
+[23.23 <./figures/fig3_sample_complexity_curves.pdf>]
+
+LaTeX Warning: Reference `sec:methodology' on page 24 undefined on input line 3
+0.
+
+
+Overfull \hbox (27.84964pt too wide) in paragraph at lines 34--35
+[]\T1/LinuxLibertineT-TLF/b/n/9 (-20) Software and Hard-ware: \T1/LinuxLibertin
+eT-TLF/m/n/9 (-20) Ev-ery ex-e-cu-tion serves \T1/zi4/l/it/9 Qwen/Qwen2.5-0.5B-
+Instruct \T1/LinuxLibertineT-TLF/m/n/9 (-20) on \T1/zi4/l/it/9 vllm==0.27.1 \T1
+/LinuxLibertineT-TLF/m/n/9 (-20) (\T1/zi4/l/it/9 torch==2.13.0\T1/LinuxLibertin
+eT-TLF/m/n/9 (-20) ),
+
+LaTeX Warning: Reference `sec:reversals' on page 24 undefined on input line 41.
+
+
+
+LaTeX Warning: Reference `sec:real-system-design' on page 24 undefined on input
+ line 53.
+
+[24.24]
+
+LaTeX Warning: Reference `tab:rq6-results' on page 25 undefined on input line 5
+5.
+
+
+LaTeX Warning: Reference `sec:uncertainty' on page 25 undefined on input line 5
+5.
+
+
+LaTeX Warning: Reference `sec:uncertainty' on page 25 undefined on input line 1
+00.
+
+
+LaTeX Warning: Reference `sec:uncertainty' on page 25 undefined on input line 1
+10.
+
+
+LaTeX Warning: Reference `sec:threats' on page 25 undefined on input line 119.
+
+
+LaTeX Warning: Reference `sec:discussion' on page 25 undefined on input line 12
+0.
+
+) (./baseline/sections/discussion.tex
+
+LaTeX Warning: Reference `sec:results' on page 25 undefined on input line 4.
+
+
+Underfull \vbox (badness 2875) has occurred while \output is active [25.25]
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 26 undefined on in
+put line 14.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 26 undefined on in
+put line 20.
+
+
+LaTeX Warning: Reference `sec:results-robustness' on page 26 undefined on input
+ line 21.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 26 undefined on input line 36.
+
+
+
+LaTeX Warning: Reference `sec:calibration' on page 26 undefined on input line 4
+6.
+
+
+LaTeX Warning: Reference `sec:sample-complexity' on page 26 undefined on input 
+line 59.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 26 undefined on in
+put line 70.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 26 undefined on input line 70.
+
+
+
+LaTeX Warning: Reference `sec:results-cross-metric' on page 26 undefined on inp
+ut line 72.
+
+
+LaTeX Warning: Reference `sec:results-slo' on page 26 undefined on input line 7
+2.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [26.26]
+
+LaTeX Warning: Reference `sec:results-cross-metric' on page 27 undefined on inp
+ut line 84.
+
+
+LaTeX Warning: Reference `sec:metrics' on page 27 undefined on input line 89.
+
+
+LaTeX Warning: Reference `sec:results-slo' on page 27 undefined on input line 1
+02.
+
+
+LaTeX Warning: Reference `sec:cross-source-rankings' on page 27 undefined on in
+put line 107.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 27 undefined on input line 108
+.
+
+
+LaTeX Warning: Reference `sec:telemetry' on page 27 undefined on input line 118
+.
+
+
+LaTeX Warning: Reference `sec:drivers' on page 27 undefined on input line 130.
+
+
+LaTeX Warning: Reference `sec:separability' on page 27 undefined on input line 
+136.
+
+
+LaTeX Warning: Reference `sec:evidence-boundaries' on page 27 undefined on inpu
+t line 140.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 27 undefined on input line 1
+45.
+
+
+LaTeX Warning: Reference `sec:threats' on page 27 undefined on input line 149.
+
+
+LaTeX Warning: Reference `sec:results' on page 27 undefined on input line 153.
+
+
+Underfull \vbox (badness 4048) has occurred while \output is active [27.27]
+
+LaTeX Warning: Reference `sec:study-design' on page 28 undefined on input line 
+163.
+
+
+LaTeX Warning: Reference `sec:artifact' on page 28 undefined on input line 167.
+
+
+) (./baseline/sections/limitations.tex
+
+LaTeX Warning: Reference `sec:real-system' on page 28 undefined on input line 7
+.
+
+
+LaTeX Warning: Reference `sec:execution-model' on page 28 undefined on input li
+ne 8.
+
+
+LaTeX Warning: Reference `sec:panel' on page 28 undefined on input line 18.
+
+
+LaTeX Warning: Reference `sec:window-size' on page 28 undefined on input line 2
+5.
+
+
+LaTeX Warning: Reference `sec:fidelity' on page 28 undefined on input line 33.
+
+
+LaTeX Warning: Reference `sec:fidelity' on page 28 undefined on input line 39.
+
+
+LaTeX Warning: Reference `sec:vv-structure' on page 28 undefined on input line 
+43.
+
+[28.28]
+
+LaTeX Warning: Reference `sec:metrics' on page 29 undefined on input line 50.
+
+
+LaTeX Warning: Reference `sec:calibration' on page 29 undefined on input line 5
+6.
+
+
+LaTeX Warning: Reference `sec:results' on page 29 undefined on input line 58.
+
+
+LaTeX Warning: Reference `sec:uncertainty' on page 29 undefined on input line 6
+4.
+
+
+LaTeX Warning: Reference `sec:sample-complexity-design' on page 29 undefined on
+ input line 65.
+
+
+LaTeX Warning: Reference `sec:slo-sensitivity-gap' on page 29 undefined on inpu
+t line 75.
+
+
+LaTeX Warning: Reference `sec:results-slo' on page 29 undefined on input line 7
+7.
+
+
+LaTeX Warning: Reference `sec:results-slo' on page 29 undefined on input line 7
+7.
+
+
+LaTeX Warning: Reference `sec:sources' on page 29 undefined on input line 86.
+
+
+LaTeX Warning: Reference `sec:results' on page 29 undefined on input line 89.
+
+
+LaTeX Warning: Reference `sec:cross-source-diffs' on page 29 undefined on input
+ line 91.
+
+
+LaTeX Warning: Reference `sec:sources' on page 29 undefined on input line 96.
+
+
+LaTeX Warning: Reference `sec:descriptors' on page 29 undefined on input line 1
+06.
+
+
+LaTeX Warning: Reference `sec:windows' on page 29 undefined on input line 118.
+
+
+LaTeX Warning: Reference `sec:evidence-boundaries' on page 29 undefined on inpu
+t line 118.
+
+[29.29]
+
+LaTeX Warning: Reference `sec:results-cross-metric' on page 30 undefined on inp
+ut line 124.
+
+
+LaTeX Warning: Reference `sec:metrics' on page 30 undefined on input line 130.
+
+
+LaTeX Warning: Reference `sec:results' on page 30 undefined on input line 131.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 30 undefined on input line 1
+41.
+
+
+LaTeX Warning: Reference `sec:results' on page 30 undefined on input line 146.
+
+
+LaTeX Warning: Reference `sec:real-system-design' on page 30 undefined on input
+ line 158.
+
+
+LaTeX Warning: Reference `tab:rq6-results' on page 30 undefined on input line 1
+59.
+
+
+LaTeX Warning: Reference `sec:results' on page 30 undefined on input line 167.
+
+) (./baseline/sections/artifact.tex
+
+LaTeX Warning: Reference `sec:real-system-result' on page 30 undefined on input
+ line 12.
+
+
+LaTeX Warning: Reference `sec:provenance' on page 30 undefined on input line 15
+.
+
+[30.30]
+
+LaTeX Warning: Reference `sec:results' on page 31 undefined on input line 20.
+
+
+LaTeX Warning: Reference `sec:telemetry' on page 31 undefined on input line 23.
+
+
+
+LaTeX Warning: Reference `sec:results' on page 31 undefined on input line 27.
+
+
+LaTeX Warning: Reference `sec:sample-complexity' on page 31 undefined on input 
+line 27.
+
+) (./baseline/sections/conclusion.tex
+
+LaTeX Warning: Reference `sec:workloads' on page 31 undefined on input line 13.
+
+
+
+LaTeX Warning: Reference `sec:results' on page 31 undefined on input line 16.
+
+
+LaTeX Warning: Reference `sec:reversals' on page 31 undefined on input line 19.
+
+
+
+LaTeX Warning: Reference `sec:sample-complexity' on page 31 undefined on input 
+line 23.
+
+
+LaTeX Warning: Reference `sec:results-cross-metric' on page 31 undefined on inp
+ut line 27.
+
+
+LaTeX Warning: Reference `sec:results-slo' on page 31 undefined on input line 2
+8.
+
+
+LaTeX Warning: Reference `sec:results-rq3-pilot' on page 31 undefined on input 
+line 29.
+
+
+LaTeX Warning: Reference `sec:real-system' on page 31 undefined on input line 3
+3.
+
+
+LaTeX Warning: Reference `sec:artifact' on page 31 undefined on input line 42.
+
+) (./baseline/sections/declarations.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [31.31]
+
+LaTeX Warning: Reference `sec:artifact' on page 32 undefined on input line 30.
+
+
+LaTeX Warning: Reference `sec:provenance' on page 32 undefined on input line 32
+.
+
+
+LaTeX Warning: Reference `sec:artifact' on page 32 undefined on input line 48.
+
+)
+No file baseline-manuscript.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[32.32] [33.33]
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [34.33]
+(build/baseline-manuscript/baseline-manuscript.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+LaTeX Warning: Temporary extra page added at the end. Rerun to get it removed.
+
+
+Package rerunfilecheck Warning: File `baseline-manuscript.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
+/txsys.pfb>
+Output written on build/baseline-manuscript/baseline-manuscript.pdf (34 pages, 
+686153 bytes).
+Transcript written on build/baseline-manuscript/baseline-manuscript.log.
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+The top-level auxiliary file: baseline-manuscript.aux
+The style file: ACM-Reference-Format.bst
+Database file #1: references.bib
+Warning--empty address in vidur2024
+Warning--page numbers missing in both pages and numpages fields in vidur2024
+Warning--empty address in agrawal2024sarathi
+Warning--page numbers missing in both pages and numpages fields in agrawal2024sarathi
+Warning--page numbers missing in both pages and numpages fields in llmservingsim2_2025
+Warning--empty address in llmservingsim2024
+Warning--page numbers missing in both pages and numpages fields in llmservingsim2024
+Warning--no number and no volume in ding2026cclbench
+Warning--page numbers missing in both pages and numpages fields in ding2026cclbench
+Warning--empty publisher in efficientllmscheduling2024
+Warning--empty address in efficientllmscheduling2024
+Warning--page numbers missing in both pages and numpages fields in efficientllmscheduling2024
+Warning--no number and no volume in proserve2025
+Warning--page numbers missing in both pages and numpages fields in proserve2025
+Warning--empty publisher in jin2023s3
+Warning--empty address in jin2023s3
+Warning--page numbers missing in both pages and numpages fields in jin2023s3
+Warning--empty address in kwon2023vllm
+Warning--page numbers missing in both pages and numpages fields in kwon2023vllm
+Warning--empty address in li2026beyond
+Warning--page numbers missing in both pages and numpages fields in li2026beyond
+Warning--empty address in liu2026hmas
+Warning--no number and no volume in ayearinllmserving2026
+Warning--page numbers missing in both pages and numpages fields in ayearinllmserving2026
+Warning--empty address in papaioannou2024workload
+Warning--empty address in patel2024splitwise
+Warning--page numbers missing in both pages and numpages fields in patel2024splitwise
+Warning--empty address in qin2025mooncake
+Warning--page numbers missing in both pages and numpages fields in qin2025mooncake
+Warning--empty address in libra2026
+Warning--page numbers missing in both pages and numpages fields in libra2026
+Warning--empty address in sheng2024vtc
+Warning--page numbers missing in both pages and numpages fields in sheng2024vtc
+Warning--empty address in stojkovic2025dynamollm
+Warning--page numbers missing in both pages and numpages fields in stojkovic2025dynamollm
+Warning--empty address in sun2024llumnix
+Warning--page numbers missing in both pages and numpages fields in sun2024llumnix
+Warning--no number and no volume in scorpio2025
+Warning--page numbers missing in both pages and numpages fields in scorpio2025
+Warning--no number and no volume in pars2025
+Warning--page numbers missing in both pages and numpages fields in pars2025
+Warning--no number and no volume in kvcache_wild2025
+Warning--page numbers missing in both pages and numpages fields in kvcache_wild2025
+Warning--no number and no volume in wang2026smetric
+Warning--page numbers missing in both pages and numpages fields in wang2026smetric
+Warning--no number and no volume in wang2026xperf
+Warning--page numbers missing in both pages and numpages fields in wang2026xperf
+Warning--empty address in burstgpt2025
+Warning--page numbers missing in both pages and numpages fields in burstgpt2025
+Warning--empty address in fastserve2024
+Warning--page numbers missing in both pages and numpages fields in fastserve2024
+Warning--empty address in servegen2026
+Warning--page numbers missing in both pages and numpages fields in servegen2026
+Warning--empty address in yu2022orca
+Warning--page numbers missing in both pages and numpages fields in yu2022orca
+Warning--empty address in lmetric2026
+Warning--page numbers missing in both pages and numpages fields in lmetric2026
+Warning--empty address in jitserve2025
+Warning--page numbers missing in both pages and numpages fields in jitserve2025
+Warning--empty address in zhong2024distserve
+Warning--page numbers missing in both pages and numpages fields in zhong2024distserve
+Warning--no number and no volume in tracelab2026
+Warning--page numbers missing in both pages and numpages fields in tracelab2026
+(There were 63 warnings)
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./baseline/main.tex
+(/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1/tem
+plate/acmart.cls
+Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
+n for Computing Machinery
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/totpages/totpages.sty
+(/usr/share/texlive/texmf-dist/tex/latex/everyshi/everyshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperxmp/hyperxmp.sty
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/ifdraft.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/manyfoot.sty
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/nccfoots.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty<<t1.cmap>>)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fontaxes/fontaxes.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe))
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
+`newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/centernot.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kastrup/binhex.tex)
+amsthm NOT loaded
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-ams-smf.sto)))
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment') Excluding comment 'CCSXML'
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+Special comment 'acks'
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty)
+Include comment 'screenonly' Excluding comment 'printonly'
+Include comment 'anonsuppress'
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/baseline-manuscript/baseline-manuscript.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineT-TLF.fd)<<
+ot1.cmap>><<oml.cmap>>
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd)
+(build/baseline-manuscript/baseline-manuscript.out)
+(build/baseline-manuscript/baseline-manuscript.out)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/sl' undefined
+(Font)              using `T1/zi4/m/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
+(Font)              using `T1/zi4/b/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/sl' undefined
+(Font)              using `T1/zi4/b/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/it' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/sl' undefined
+(Font)              using `T1/zi4/bx/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbx/scit' undefined
+(Font)              using `T1/zi4/sb/scit' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/it' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sl' undefined
+(Font)              using `T1/zi4/sb/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/scit' undefined
+(Font)              using `T1/zi4/sb/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sc' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbc/sc' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/it' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sl' undefined
+(Font)              using `T1/zi4/c/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/scit' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sc' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/lc/sc' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/it' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sl' undefined
+(Font)              using `T1/zi4/l/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/scit' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sc' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/ui' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/ui' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/In' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd)
+(./baseline/sections/introduction.tex
+
+Package natbib Warning: Citation `kwon2023vllm' on page 1 undefined on input li
+ne 24.
+
+
+Package natbib Warning: Citation `yu2022orca' on page 1 undefined on input line
+ 24.
+
+
+Package natbib Warning: Citation `agrawal2024sarathi' on page 1 undefined on in
+put line 26.
+
+
+Package natbib Warning: Citation `zhong2024distserve' on page 1 undefined on in
+put line 27.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 1 undefined on in
+put line 27.
+
+
+Package natbib Warning: Citation `qin2025mooncake' on page 1 undefined on input
+ line 28.
+
+
+Package natbib Warning: Citation `sun2024llumnix' on page 1 undefined on input 
+line 29.
+
+
+Package natbib Warning: Citation `sheng2024vtc' on page 1 undefined on input li
+ne 30.
+
+
+Package natbib Warning: Citation `jin2023s3' on page 1 undefined on input line 
+31.
+
+
+Package natbib Warning: Citation `efficientllmscheduling2024' on page 1 undefin
+ed on input line 32.
+
+[1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/share/texlive/texmf-dist
+/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-dist/fonts
+/enc/dvips/libertine/lbtn_oexx6f.enc}{/usr/share/texlive/texmf-dist/fonts/enc/d
+vips/libertine/lbtn_naooyc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/l
+ibertine/lbtn_nh77jq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/liberti
+ne/lbtn_7grukw.enc}]
+
+Package natbib Warning: Citation `burstgpt2025' on page 2 undefined on input li
+ne 42.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 2 undefined on in
+put line 42.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 2 undefined o
+n input line 42.
+
+
+Package natbib Warning: Citation `kvcache_wild2025' on page 2 undefined on inpu
+t line 45.
+
+
+Package natbib Warning: Citation `ayearinllmserving2026' on page 2 undefined on
+ input line 45.
+
+
+Package natbib Warning: Citation `servegen2026' on page 2 undefined on input li
+ne 48.
+
+
+Underfull \vbox (badness 3690) has occurred while \output is active [2.2])
+(./baseline/sections/related_work.tex
+
+Package natbib Warning: Citation `yu2022orca' on page 3 undefined on input line
+ 10.
+
+
+Package natbib Warning: Citation `kwon2023vllm' on page 3 undefined on input li
+ne 12.
+
+
+Package natbib Warning: Citation `agrawal2024sarathi' on page 3 undefined on in
+put line 14.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 3 undefined on in
+put line 17.
+
+
+Package natbib Warning: Citation `zhong2024distserve' on page 3 undefined on in
+put line 17.
+
+
+Package natbib Warning: Citation `qin2025mooncake' on page 3 undefined on input
+ line 19.
+
+
+Package natbib Warning: Citation `sun2024llumnix' on page 3 undefined on input 
+line 21.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 3 undefined o
+n input line 23.
+
+
+Package natbib Warning: Citation `sun2025geodistributed' on page 3 undefined on
+ input line 24.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active [3.3]
+
+Package natbib Warning: Citation `sheng2024vtc' on page 4 undefined on input li
+ne 36.
+
+
+Package natbib Warning: Citation `jin2023s3' on page 4 undefined on input line 
+38.
+
+
+Package natbib Warning: Citation `efficientllmscheduling2024' on page 4 undefin
+ed on input line 39.
+
+
+Package natbib Warning: Citation `fastserve2024' on page 4 undefined on input l
+ine 44.
+
+
+Package natbib Warning: Citation `jitserve2025' on page 4 undefined on input li
+ne 44.
+
+
+Package natbib Warning: Citation `scorpio2025' on page 4 undefined on input lin
+e 44.
+
+
+Package natbib Warning: Citation `pars2025' on page 4 undefined on input line 4
+6.
+
+
+Package natbib Warning: Citation `slai2025' on page 4 undefined on input line 4
+6.
+
+
+Package natbib Warning: Citation `lmetric2026' on page 4 undefined on input lin
+e 46.
+
+
+Package natbib Warning: Citation `libra2026' on page 4 undefined on input line 
+49.
+
+
+Package natbib Warning: Citation `aptserve2025' on page 4 undefined on input li
+ne 49.
+
+
+Package natbib Warning: Citation `proserve2025' on page 4 undefined on input li
+ne 49.
+
+
+Package natbib Warning: Citation `li2026beyond' on page 4 undefined on input li
+ne 52.
+
+
+Package natbib Warning: Citation `liu2026hmas' on page 4 undefined on input lin
+e 54.
+
+
+Package natbib Warning: Citation `wang2026smetric' on page 4 undefined on input
+ line 55.
+
+
+Package natbib Warning: Citation `chen2026quickswap' on page 4 undefined on inp
+ut line 66.
+
+
+Package natbib Warning: Citation `burstgpt2025' on page 4 undefined on input li
+ne 81.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 4 undefined on in
+put line 84.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 4 undefined o
+n input line 86.
+
+
+Package natbib Warning: Citation `kvcache_wild2025' on page 4 undefined on inpu
+t line 86.
+
+
+Package natbib Warning: Citation `ayearinllmserving2026' on page 4 undefined on
+ input line 89.
+
+
+Package natbib Warning: Citation `servegen2026' on page 4 undefined on input li
+ne 96.
+
+
+Underfull \vbox (badness 1199) has occurred while \output is active [4.4]
+
+Package natbib Warning: Citation `vidur2024' on page 5 undefined on input line 
+110.
+
+
+Package natbib Warning: Citation `llmservingsim2024' on page 5 undefined on inp
+ut line 115.
+
+
+Package natbib Warning: Citation `llmservingsim2_2025' on page 5 undefined on i
+nput line 115.
+
+
+Package natbib Warning: Citation `ding2026cclbench' on page 5 undefined on inpu
+t line 117.
+
+
+Package natbib Warning: Citation `wang2026xperf' on page 5 undefined on input l
+ine 119.
+
+
+Package natbib Warning: Citation `papaioannou2024workload' on page 5 undefined 
+on input line 144.
+
+
+Package natbib Warning: Citation `yildiz2026dispatching' on page 5 undefined on
+ input line 149.
+
+[5.5]
+
+Package natbib Warning: Citation `zakay2014resampling' on page 6 undefined on i
+nput line 179.
+
+
+Package natbib Warning: Citation `yildiz2026dispatching' on page 6 undefined on
+ input line 206.
+
+
+Package natbib Warning: Citation `zakay2014resampling' on page 6 undefined on i
+nput line 210.
+
+) (./baseline/sections/study_design.tex
+Overfull \hbox (18.48767pt too wide) in paragraph at lines 194--1
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) Prior work gen-er-ally stud-ies a sched-ule
+r, a serv-ing sys-tem, a sim-u-la-tion en-vi-ron-ment, or a work-load gen-er-a-
+tor/characterization
+
+Underfull \vbox (badness 10000) has occurred while \output is active [6.6]
+[7.7]) (./baseline/sections/workloads.tex
+
+Package natbib Warning: Citation `burstgpt2025' on page 8 undefined on input li
+ne 8.
+
+
+Package natbib Warning: Citation `azure2024trace' on page 8 undefined on input 
+line 9.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 8 undefined o
+n input line 9.
+
+
+Package natbib Warning: Citation `bailianqwen2026' on page 8 undefined on input
+ line 11.
+
+
+Package natbib Warning: Citation `patel2024splitwise' on page 8 undefined on in
+put line 12.
+
+
+Package natbib Warning: Citation `tracelab2026' on page 8 undefined on input li
+ne 15.
+
+[8.8{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}]
+Underfull \vbox (badness 6047) has occurred while \output is active [9.9])
+(./baseline/sections/methodology.tex
+Underfull \vbox (badness 7012) has occurred while \output is active [10.10]
+[11.11] [12.12] [13.13]
+Overfull \hbox (4.43849pt too wide) in paragraph at lines 270--285
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) Every ex-e-cuted cell ad-di-tion-ally recor
+ds a seven-field mechanism-activation teleme-try sum-mary: queue-depth (mean/ma
+x),
+
+Overfull \hbox (5.5637pt too wide) in paragraph at lines 270--285
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) batch-saturation (mean/max frac-tion of \T1
+/zi4/l/it/9 max_-ac-tive_-se-quences \T1/LinuxLibertineT-TLF/m/n/9 (-20) in use
+), pre-fill/decode con-tention frac-tion, KV-occupancy
+[14.14]
+Underfull \vbox (badness 3690) has occurred while \output is active [15.15])
+(./baseline/sections/results.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [16.16]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17.17] [18.18 <./figures/fig1_portability_heatmap.pdf>] [19.19 <./figures/fig2
+_reversal_class_matrix.pdf>] [20.20])
+(./baseline/sections/sample_complexity.tex [21.21] [22.22])
+(./baseline/sections/real_system.tex [23.23 <./figures/fig3_sample_complexity_c
+urves.pdf>]
+Overfull \hbox (27.84964pt too wide) in paragraph at lines 34--35
+[]\T1/LinuxLibertineT-TLF/b/n/9 (-20) Software and Hard-ware: \T1/LinuxLibertin
+eT-TLF/m/n/9 (-20) Ev-ery ex-e-cu-tion serves \T1/zi4/l/it/9 Qwen/Qwen2.5-0.5B-
+Instruct \T1/LinuxLibertineT-TLF/m/n/9 (-20) on \T1/zi4/l/it/9 vllm==0.27.1 \T1
+/LinuxLibertineT-TLF/m/n/9 (-20) (\T1/zi4/l/it/9 torch==2.13.0\T1/LinuxLibertin
+eT-TLF/m/n/9 (-20) ),
+[24.24]) (./baseline/sections/discussion.tex
+Underfull \vbox (badness 2875) has occurred while \output is active [25.25]
+Underfull \vbox (badness 10000) has occurred while \output is active [26.26]
+Underfull \vbox (badness 4048) has occurred while \output is active [27.27])
+(./baseline/sections/limitations.tex [28.28] [29.29])
+(./baseline/sections/artifact.tex [30.30]) (./baseline/sections/conclusion.tex)
+(./baseline/sections/declarations.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [31.31])
+(build/baseline-manuscript/baseline-manuscript.bbl [32.32]
+Underfull \vbox (badness 10000) has occurred while \output is active
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [33.33])
+
+Package natbib Warning: There were undefined citations.
+
+
+Class acmart Warning: ACM reference format is mandatory 
+(acmart)              for papers over one page. 
+(acmart)              Please add printacmref=true to the 
+(acmart)              \settopmatter command..
+
+[34.34]
+
+LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (33 not 34).
+               Rerun to correct this.
+
+(build/baseline-manuscript/baseline-manuscript.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `baseline-manuscript.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
+/txsys.pfb>
+Output written on build/baseline-manuscript/baseline-manuscript.pdf (34 pages, 
+715391 bytes).
+Transcript written on build/baseline-manuscript/baseline-manuscript.log.
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./baseline/main.tex
+(/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m1/paper/tompecs-m1/tem
+plate/acmart.cls
+Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
+n for Computing Machinery
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2020/05/29 v2.20.6
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/totpages/totpages.sty
+(/usr/share/texlive/texmf-dist/tex/latex/everyshi/everyshi.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperxmp/hyperxmp.sty
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/ifdraft.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/manyfoot.sty
+(/usr/share/texlive/texmf-dist/tex/latex/ncctools/nccfoots.sty))
+(/usr/share/texlive/texmf-dist/tex/generic/pdftex/glyphtounicode.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty<<t1.cmap>>)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fontaxes/fontaxes.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe))
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
+`newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/centernot.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kastrup/binhex.tex)
+amsthm NOT loaded
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption-ams-smf.sto)))
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+Excluding comment 'comment') Excluding comment 'CCSXML'
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+Special comment 'acks'
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxLibertineT-TLF.fd))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+
+Package hyphenat Warning: *******************************
+(hyphenat)                * You have used the htt option.
+(hyphenat)                * You are likely to get many Font Warning messages.
+(hyphenat)                * These can usually be ignored.
+(hyphenat)                *******************************.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/seqsplit/seqsplit.sty)
+Include comment 'screenonly' Excluding comment 'printonly'
+Include comment 'anonsuppress'
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(build/baseline-manuscript/baseline-manuscript.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineT-TLF.fd)<<
+ot1.cmap>><<oml.cmap>>
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd)
+(build/baseline-manuscript/baseline-manuscript.out)
+(build/baseline-manuscript/baseline-manuscript.out)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/sl' undefined
+(Font)              using `T1/zi4/m/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
+(Font)              using `T1/zi4/b/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/b/sl' undefined
+(Font)              using `T1/zi4/b/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/it' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/sl' undefined
+(Font)              using `T1/zi4/bx/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbx/scit' undefined
+(Font)              using `T1/zi4/sb/scit' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/it' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sl' undefined
+(Font)              using `T1/zi4/sb/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/scit' undefined
+(Font)              using `T1/zi4/sb/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sb/sc' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/sbc/sc' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/it' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sl' undefined
+(Font)              using `T1/zi4/c/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/scit' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sc' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/lc/sc' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/it' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sl' undefined
+(Font)              using `T1/zi4/l/it' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/scit' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sc' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/ui' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/ui' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 19.
+
+
+LaTeX Font Warning: Font shape `T1/zi4/m/In' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd)
+(./baseline/sections/introduction.tex [1.1{/var/lib/texmf/fonts/map/pdftex/updm
+ap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76g
+pa5.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.en
+c}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/us
+r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/shar
+e/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share/texl
+ive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}]
+Underfull \vbox (badness 3690) has occurred while \output is active [2.2])
+(./baseline/sections/related_work.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [3.3]
+Underfull \vbox (badness 10000) has occurred while \output is active [4.4]
+[5.5]) (./baseline/sections/study_design.tex
+Overfull \hbox (18.48767pt too wide) in paragraph at lines 194--1
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) Prior work gen-er-ally stud-ies a sched-ule
+r, a serv-ing sys-tem, a sim-u-la-tion en-vi-ron-ment, or a work-load gen-er-a-
+tor/characterization
+[6.6]
+Underfull \vbox (badness 5316) has occurred while \output is active [7.7])
+(./baseline/sections/workloads.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [8.8]
+Underfull \vbox (badness 10000) has occurred while \output is active [9.9{/usr/
+share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}])
+(./baseline/sections/methodology.tex
+Underfull \vbox (badness 2556) has occurred while \output is active [10.10]
+[11.11] [12.12]
+Underfull \vbox (badness 2073) has occurred while \output is active [13.13]
+Overfull \hbox (4.43849pt too wide) in paragraph at lines 270--285
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) Every ex-e-cuted cell ad-di-tion-ally recor
+ds a seven-field mechanism-activation teleme-try sum-mary: queue-depth (mean/ma
+x),
+
+Overfull \hbox (5.5637pt too wide) in paragraph at lines 270--285
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) batch-saturation (mean/max frac-tion of \T1
+/zi4/l/it/9 max_-ac-tive_-se-quences \T1/LinuxLibertineT-TLF/m/n/9 (-20) in use
+), pre-fill/decode con-tention frac-tion, KV-occupancy
+[14.14]
+Underfull \vbox (badness 10000) has occurred while \output is active [15.15]
+[16.16]) (./baseline/sections/results.tex
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17.17] [18.18 <./figures/fig1_portability_heatmap.pdf>] [19.19 <./figures/fig2
+_reversal_class_matrix.pdf>] [20.20])
+(./baseline/sections/sample_complexity.tex [21.21] [22.22])
+(./baseline/sections/real_system.tex [23.23 <./figures/fig3_sample_complexity_c
+urves.pdf>]
+Overfull \hbox (27.84964pt too wide) in paragraph at lines 34--35
+[]\T1/LinuxLibertineT-TLF/b/n/9 (-20) Software and Hard-ware: \T1/LinuxLibertin
+eT-TLF/m/n/9 (-20) Ev-ery ex-e-cu-tion serves \T1/zi4/l/it/9 Qwen/Qwen2.5-0.5B-
+Instruct \T1/LinuxLibertineT-TLF/m/n/9 (-20) on \T1/zi4/l/it/9 vllm==0.27.1 \T1
+/LinuxLibertineT-TLF/m/n/9 (-20) (\T1/zi4/l/it/9 torch==2.13.0\T1/LinuxLibertin
+eT-TLF/m/n/9 (-20) ),
+[24.24]) (./baseline/sections/discussion.tex [25.25] [26.26]
+Underfull \vbox (badness 4048) has occurred while \output is active [27.27])
+(./baseline/sections/limitations.tex [28.28] [29.29])
+(./baseline/sections/artifact.tex [30.30]) (./baseline/sections/conclusion.tex)
+(./baseline/sections/declarations.tex
+Underfull \vbox (badness 10000) has occurred while \output is active [31.31])
+(build/baseline-manuscript/baseline-manuscript.bbl [32.32]
+Underfull \vbox (badness 10000) has occurred while \output is active [33.33])
+
+Class acmart Warning: ACM reference format is mandatory 
+(acmart)              for papers over one page. 
+(acmart)              Please add printacmref=true to the 
+(acmart)              \settopmatter command..
+
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [34.34]
+(build/baseline-manuscript/baseline-manuscript.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx
+/txsys.pfb>
+Output written on build/baseline-manuscript/baseline-manuscript.pdf (34 pages, 
+718170 bytes).
+Transcript written on build/baseline-manuscript/baseline-manuscript.log.
+Title:           Testing LLM-Serving Scheduler Ranking Portability with Trace-Driven Simulation
+Subject:         -  Computing methodologies  ->  Simulation evaluation.-  Computer systems organization  ->  Cloud computing.
+Creator:         LaTeX with acmart 2026/08/16 v2.20 Typesetting articles for the Association for Computing Machinery and hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+Producer:        pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) kpathsea version 6.3.5
+CreationDate:    Thu Oct 22 00:00:00 2026 UTC
+ModDate:         Thu Oct 22 00:00:00 2026 UTC
+Custom Metadata: yes
+Metadata Stream: yes
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           34
+Encrypted:       no
+Page size:       612 x 792 pts (letter)
+Page rot:        0
+File size:       718170 bytes
+Optimized:       no
+PDF version:     1.5
+finish=2026-10-22T02:18:33+00:00

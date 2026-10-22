@@ -1,0 +1,400 @@
+[
+  {
+    "key": "kwon2023vllm",
+    "bibliography_title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+    "url": "https://arxiv.org/abs/2309.06180",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2309.06180",
+    "response_sha256": "d607fc7e49fc35eb1eb848192093c46831a56d27d9b50e07f0d7a84e1ec45ce5",
+    "source_title": "[2309.06180] Efficient Memory Management for Large Language Model Serving with PagedAttention"
+  },
+  {
+    "key": "yu2022orca",
+    "bibliography_title": "Orca: A Distributed Serving System for Transformer-Based Generative Models",
+    "url": "https://www.usenix.org/conference/osdi22/presentation/yu",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://www.usenix.org/conference/osdi22/presentation/yu",
+    "response_sha256": "6b743875bf09dd5edb62b5f2091c9a5d9e25ac7c1687713dadd9dd09ba7e4cdb",
+    "source_title": "Orca: A Distributed Serving System for Transformer-Based Generative Models | USENIX"
+  },
+  {
+    "key": "agrawal2024sarathi",
+    "bibliography_title": "Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve",
+    "url": "https://www.usenix.org/conference/osdi24/presentation/agrawal",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://www.usenix.org/conference/osdi24/presentation/agrawal",
+    "response_sha256": "7b1460d6d1e539d2c7dded40e4867f20a6a6ded9981ad199ca83577e814b3808",
+    "source_title": "Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve | USENIX"
+  },
+  {
+    "key": "zhong2024distserve",
+    "bibliography_title": "DistServe: Disaggregating Prefill and Decoding for Goodput-Optimized Large Language Model Serving",
+    "url": "https://arxiv.org/abs/2401.09670",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2401.09670",
+    "response_sha256": "6087e937554ede0ead333b35e0fb43903d9f817100b91c970eca13132bca95bb",
+    "source_title": "[2401.09670] DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving"
+  },
+  {
+    "key": "sun2024llumnix",
+    "bibliography_title": "Llumnix: Dynamic Scheduling for Large Language Model Serving",
+    "url": "https://arxiv.org/abs/2406.03243",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2406.03243",
+    "response_sha256": "a3bec004b45022690f832376861413c75bc5d5ed024d252f682c57db5124abe3",
+    "source_title": "[2406.03243] Llumnix: Dynamic Scheduling for Large Language Model Serving"
+  },
+  {
+    "key": "burstgpt2025",
+    "bibliography_title": "BurstGPT: A Real-World Workload Dataset to Optimize LLM Serving Systems",
+    "url": "https://arxiv.org/abs/2401.17644",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2401.17644",
+    "response_sha256": "62a5cc76366ba5c487e2a2e43b44cf822846b65eaf8fb82b42854c78b432b763",
+    "source_title": "[2401.17644] BurstGPT: A Real-world Workload Dataset to Optimize LLM Serving Systems"
+  },
+  {
+    "key": "azure2024trace",
+    "bibliography_title": "AzureLLMInferenceDataset2024",
+    "url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md",
+    "response_sha256": "76b5de00db426e36fcd2780dea02ade2ae9438029c25e5db16843bed1bdea3c7",
+    "source_title": "AzurePublicDataset/AzureLLMInferenceDataset2024.md at master \u00b7 Azure/AzurePublicDataset \u00b7 GitHub"
+  },
+  {
+    "key": "patel2024splitwise",
+    "bibliography_title": "Splitwise: Efficient Generative LLM Inference Using Phase Splitting",
+    "url": "https://arxiv.org/abs/2311.18677",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2311.18677",
+    "response_sha256": "af80ff78fff4703df9764231542373665f092927d5414869fe3f5e8af629c1df",
+    "source_title": "[2311.18677] Splitwise: Efficient generative LLM inference using phase splitting"
+  },
+  {
+    "key": "stojkovic2025dynamollm",
+    "bibliography_title": "DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency",
+    "url": "https://arxiv.org/abs/2408.00741",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2408.00741",
+    "response_sha256": "8665e42ff9ef3a4fe7737f023c5e23ea4fe2cbb5dabb9f3e9b8d2da997ce856b",
+    "source_title": "[2408.00741] DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency"
+  },
+  {
+    "key": "sun2025geodistributed",
+    "bibliography_title": "Optimizing resource allocation for geographically-distributed inference by large language models",
+    "url": "https://doi.org/10.1016/j.peva.2025.102527",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://linkinghub.elsevier.com/retrieve/pii/S0166531625000616",
+    "response_sha256": "cadaf725142268275bd2826e76f0131f4d170181194a41a368eaf6188671008d",
+    "source_title": "Redirecting"
+  },
+  {
+    "key": "jin2023s3",
+    "bibliography_title": "S\\textsuperscript{3}: Increasing GPU Utilization during Generative Inference for Higher Throughput",
+    "url": "https://arxiv.org/abs/2306.06000",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2306.06000",
+    "response_sha256": "e3c79a8f44fcad4f40549ff76f676a54f99cad54c1c34da9ee2273cc88266164",
+    "source_title": "[2306.06000] S$^{3}$: Increasing GPU Utilization during Generative Inference for Higher Throughput"
+  },
+  {
+    "key": "qin2025mooncake",
+    "bibliography_title": "Mooncake: Trading More Storage for Less Computation --- A KVCache-centric Architecture for Serving LLM Chatbot",
+    "url": "https://arxiv.org/abs/2407.00079",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2407.00079",
+    "response_sha256": "bf71242acc6dc8920336aca56fe67df6a2f1ac5a46039909679af343cd46f3c9",
+    "source_title": "[2407.00079] Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving"
+  },
+  {
+    "key": "sheng2024vtc",
+    "bibliography_title": "Fairness in Serving Large Language Models",
+    "url": "https://arxiv.org/abs/2401.00588",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2401.00588",
+    "response_sha256": "2f6979a9145de321a97e88802c085217446dd8c586b88316fdf0816c10e1558c",
+    "source_title": "[2401.00588] Fairness in Serving Large Language Models"
+  },
+  {
+    "key": "kvcache_wild2025",
+    "bibliography_title": "KVCache Cache in the Wild: Characterizing and Optimizing KVCache Cache at a Large Cloud Provider",
+    "url": "https://arxiv.org/abs/2506.02634",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2506.02634",
+    "response_sha256": "e16e71ca03bd211ea40772b3493521503812a812f42a7399870ec5f9d579bf96",
+    "source_title": "[2506.02634] KVCache Cache in the Wild: Characterizing and Optimizing KVCache Cache at a Large Cloud Provider"
+  },
+  {
+    "key": "ayearinllmserving2026",
+    "bibliography_title": "A Year in LLM Serving: Workload Evolution, Caching and Load-Balancing",
+    "url": "https://arxiv.org/abs/2608.13573",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2608.13573",
+    "response_sha256": "da4aa632b6cfe15355fa16b1a320837775ed42dd3c347c5bdeb2e69e4fcc1c7d",
+    "source_title": "[2608.13573] A Year in LLM Serving: Workload Evolution, Caching and Load-Balancing"
+  },
+  {
+    "key": "proserve2025",
+    "bibliography_title": "ProServe: Unified Multi-Priority Request Scheduling for LLM Serving",
+    "url": "https://arxiv.org/abs/2512.12928",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2512.12928",
+    "response_sha256": "3d688b0ff565afb455221ed74881340ade787b9933001a456da056e78201d83d",
+    "source_title": "[2512.12928] ProServe: Unified Multi-Priority Request Scheduling for LLM Serving"
+  },
+  {
+    "key": "aptserve2025",
+    "bibliography_title": "Apt-Serve: Adaptive Request Scheduling on Hybrid Cache for Scalable LLM Inference Serving",
+    "url": "https://arxiv.org/abs/2504.07494",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2504.07494",
+    "response_sha256": "f8e65d7e7ae3c7e05962732eeeb14fcb9bec1c5a95fb933b718a9ef72b306be4",
+    "source_title": "[2504.07494] Apt-Serve: Adaptive Request Scheduling on Hybrid Cache for Scalable LLM Inference Serving"
+  },
+  {
+    "key": "llmservingsim2_2025",
+    "bibliography_title": "LLMServingSim2.0: A Unified Simulator for Heterogeneous Hardware and Serving Techniques in LLM Infrastructure",
+    "url": "https://arxiv.org/abs/2511.07229",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2511.07229",
+    "response_sha256": "68f60b168c8a676e1f0506a816c9b930302c8c97db51159fff75a587258613dd",
+    "source_title": "[2511.07229] LLMServingSim2.0: A Unified Simulator for Heterogeneous Hardware and Serving Techniques in LLM Infrastructure"
+  },
+  {
+    "key": "tracelab2026",
+    "bibliography_title": "TraceLab: Characterizing Coding Agent Workloads for LLM Serving",
+    "url": "https://arxiv.org/abs/2606.30560",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2606.30560",
+    "response_sha256": "ae4c5dc0282128a8d7f0f3b7c3369a80f7f8dc3882efb87c1529dcb7e62abdaa",
+    "source_title": "[2606.30560] TraceLab: Characterizing Coding Agent Workloads for LLM Serving"
+  },
+  {
+    "key": "servegen2026",
+    "bibliography_title": "ServeGen: Workload Characterization and Generation of Large Language Model Serving in Production",
+    "url": "https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen",
+    "response_sha256": "050e8adfb26ddbf2f4ef52b9db4cd7f87a092e8afb6ab596325184e074cdd4b9",
+    "source_title": "ServeGen: Workload Characterization and Generation of Large Language Model Serving in Production | USENIX"
+  },
+  {
+    "key": "vidur2024",
+    "bibliography_title": "VIDUR: A Large-Scale Simulation Framework for LLM Inference",
+    "url": "https://arxiv.org/abs/2405.05465",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2405.05465",
+    "response_sha256": "6f2d8d81e979aa10fa1fd696165bb09d6b7b85d786aa8a4ff29ea65ec9108d1a",
+    "source_title": "[2405.05465] Vidur: A Large-Scale Simulation Framework For LLM Inference"
+  },
+  {
+    "key": "llmservingsim2024",
+    "bibliography_title": "LLMServingSim: A HW/SW Co-Simulation Infrastructure for LLM Inference Serving at Scale",
+    "url": "https://arxiv.org/abs/2408.05499",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2408.05499",
+    "response_sha256": "38c8862e4090bd95cd2c4c1eb54de1da29db636a88d8007c31541f13e45fa173",
+    "source_title": "[2408.05499] LLMServingSim: A HW/SW Co-Simulation Infrastructure for LLM Inference Serving at Scale"
+  },
+  {
+    "key": "pars2025",
+    "bibliography_title": "Ranking Before Serving: Low-Latency LLM Serving via Pairwise Learning-to-Rank",
+    "url": "https://arxiv.org/abs/2510.03243",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2510.03243",
+    "response_sha256": "8d38c6adf75518fa6ad70466640a98993bf35ba42d1a4536c10eba18669cdec5",
+    "source_title": "[2510.03243] Ranking Before Serving: Low-Latency LLM Serving via Pairwise Learning-to-Rank"
+  },
+  {
+    "key": "jitserve2025",
+    "bibliography_title": "JITServe: SLO-aware LLM Serving with Imprecise Request Information",
+    "url": "https://www.usenix.org/conference/nsdi26/presentation/zhang-wei",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://www.usenix.org/conference/nsdi26/presentation/zhang-wei",
+    "response_sha256": "bf73e8350cf6da724699cba1d10c3fce7ab0ab39ce7562a86a9ce2884092b374",
+    "source_title": "JITServe: SLO-aware LLM Serving with Imprecise Request Information | USENIX"
+  },
+  {
+    "key": "fastserve2024",
+    "bibliography_title": "FastServe: Iteration-Level Preemptive Scheduling for Large Language Model Inference",
+    "url": "https://www.usenix.org/conference/nsdi26/presentation/wu-bingyang",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://www.usenix.org/conference/nsdi26/presentation/wu-bingyang",
+    "response_sha256": "1ebcd982b602cb00d89fb4cbd0926fe1611627e675b9c9825a309307da64ce7c",
+    "source_title": "FastServe: Iteration-Level Preemptive Scheduling for Large Language Model Inference | USENIX"
+  },
+  {
+    "key": "efficientllmscheduling2024",
+    "bibliography_title": "Efficient LLM Scheduling by Learning to Rank",
+    "url": "https://arxiv.org/abs/2408.15792",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2408.15792",
+    "response_sha256": "388ed9b4b56c312817815f22d88fa07e763f2c264cdbaaec5cb0f7275e3e14ae",
+    "source_title": "[2408.15792] Efficient LLM Scheduling by Learning to Rank"
+  },
+  {
+    "key": "slai2025",
+    "bibliography_title": "Optimal Scheduling Algorithms for LLM Inference: Theory and Practice",
+    "url": "https://arxiv.org/abs/2508.01002",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2508.01002",
+    "response_sha256": "397b2ff5ab62aaf91bebdf9747ba9fcf56db51a147a6e3cae621b05fc5fe4ae9",
+    "source_title": "[2508.01002] Optimal Scheduling Algorithms for LLM Inference: Theory and Practice"
+  },
+  {
+    "key": "scorpio2025",
+    "bibliography_title": "SCORPIO: Serving the Right Requests at the Right Time for Heterogeneous SLOs in LLM Inference",
+    "url": "https://arxiv.org/abs/2505.23022",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2505.23022",
+    "response_sha256": "b7904e38958141604fd7390d4da710df5b81508ebc67b5adcea4fc6ef18e7673",
+    "source_title": "[2505.23022] Scorpio: Serving Right Requests at the Right Time for Heterogeneous SLOs in LLM Inference"
+  },
+  {
+    "key": "libra2026",
+    "bibliography_title": "Libra: Flexible Request Partitioning and Scheduling for Serving Unbalanced and Dynamic LLM Workloads",
+    "url": "https://www.usenix.org/conference/nsdi26/presentation/ruan-libra",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://www.usenix.org/conference/nsdi26/presentation/ruan-libra",
+    "response_sha256": "a8aa8a215ad972adfd5ad2443e3e11ee7cd65fa5675087dfc78ace9badb9acf8",
+    "source_title": "Libra: Flexible Request Partitioning and Scheduling for Serving Unbalanced and Dynamic LLM Workloads | USENIX"
+  },
+  {
+    "key": "lmetric2026",
+    "bibliography_title": "Simple is Better: Multiplication May Be All You Need for LLM Request Scheduling",
+    "url": "https://arxiv.org/abs/2603.15202",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2603.15202",
+    "response_sha256": "9822ced087522e6f5cfb3af10a9f6a68bc6b9074bfb88a7865f3005e5419369a",
+    "source_title": "[2603.15202] Simple is Better: Multiplication May Be All You Need for LLM Request Scheduling"
+  },
+  {
+    "key": "zakay2014resampling",
+    "bibliography_title": "Workload resampling for performance evaluation of parallel job schedulers",
+    "url": "https://doi.org/10.1002/cpe.3240",
+    "status": "UNVERIFIED",
+    "http_status": 403,
+    "resolved_url": "https://onlinelibrary.wiley.com/doi/10.1002/cpe.3240",
+    "response_sha256": "553805a347b22bfebb17f4fbfafa044388608b3635f912d40b6c4e46ed4eae26"
+  },
+  {
+    "key": "chen2026quickswap",
+    "bibliography_title": "Improving nonpreemptive multiserver job scheduling with quickswap",
+    "url": "https://doi.org/10.1016/j.peva.2025.102525",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://linkinghub.elsevier.com/retrieve/pii/S0166531625000598",
+    "response_sha256": "d98c54e1290d96f5e9a3b4558266530576a48725a264d75e260d35a7b6b09d33",
+    "source_title": "Redirecting"
+  },
+  {
+    "key": "yildiz2026dispatching",
+    "bibliography_title": "Dispatching policies in data center clusters: Insights from {Google} and {Alibaba} workloads",
+    "url": "https://doi.org/10.1016/j.peva.2026.102551",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://linkinghub.elsevier.com/retrieve/pii/S0166531626000118",
+    "response_sha256": "04c736d94762ad4db403a095e2416a0608a84b793ac58bdb8dd74f19a13c1e95",
+    "source_title": "Redirecting"
+  },
+  {
+    "key": "li2026beyond",
+    "bibliography_title": "Beyond Prediction: Tail-Aware Scheduling for LLM Inference",
+    "url": "https://arxiv.org/abs/2606.18431",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2606.18431",
+    "response_sha256": "cc2665ed9edc9f41e0fb7e1080ea53920eec2c025bf87486e430c39e00567dca",
+    "source_title": "[2606.18431] Beyond Prediction: Tail-Aware Scheduling for LLM Inference"
+  },
+  {
+    "key": "liu2026hmas",
+    "bibliography_title": "H-MAS: Hierarchical Multi-Agent Scheduling for Multi-Tenant LLM Serving",
+    "url": "https://aclanthology.org/2026.findings-acl.1946/",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://aclanthology.org/2026.findings-acl.1946/",
+    "response_sha256": "e5cdb618d18bef5aaf27e759b13283e9ae9d8095f6651332b4211010e03548e5",
+    "source_title": "H-MAS: Hierarchical Multi-Agent Scheduling for Multi-Tenant LLM Serving - ACL Anthology"
+  },
+  {
+    "key": "wang2026smetric",
+    "bibliography_title": "SMetric: Rethink LLM Scheduling for Serving Agents with Balanced Session-centric Scheduling",
+    "url": "https://arxiv.org/abs/2607.08565",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2607.08565",
+    "response_sha256": "0022b4b08772768b705c1381fcbce9cb0c48f36200442f2d24b61238e3b9da1d",
+    "source_title": "[2607.08565] SMetric: Rethink LLM Scheduling for Serving Agents with Balanced Session-centric Scheduling"
+  },
+  {
+    "key": "wang2026xperf",
+    "bibliography_title": "Benchmarking LLM Serving Systems for Agentic AI Workloads with XPerf",
+    "url": "https://arxiv.org/abs/2608.20370",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2608.20370",
+    "response_sha256": "e979b16a41b57c4346d7244b1df39e6df82b47a1b53b96aca6c110c8b13d46a6",
+    "source_title": "[2608.20370] Benchmarking LLM Serving Systems for Agentic AI Workloads with XPerf"
+  },
+  {
+    "key": "ding2026cclbench",
+    "bibliography_title": "CCL-Bench 1.0: A Trace-Based Benchmark for LLM Infrastructure",
+    "url": "https://arxiv.org/abs/2605.06544",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://arxiv.org/abs/2605.06544",
+    "response_sha256": "1cca5a6e857d60300509b6e42d9ed809223e888a44577274f19e0f61de4d81cf",
+    "source_title": "[2605.06544] CCL-Bench 1.0: A Trace-Based Benchmark for LLM Infrastructure"
+  },
+  {
+    "key": "papaioannou2024workload",
+    "bibliography_title": "The Importance of Workload Choice in Evaluating LLM Inference Systems",
+    "url": "https://doi.org/10.1145/3642970.3655823",
+    "status": "UNVERIFIED",
+    "http_status": 403,
+    "resolved_url": "https://dl.acm.org/doi/10.1145/3642970.3655823",
+    "response_sha256": "01ef026aa6729e6d0d639883171a36b0ffee3aa408b037833189ab2e314ff158"
+  },
+  {
+    "key": "bailianqwen2026",
+    "bibliography_title": "qwen-bailian-usagetraces-anon",
+    "url": "https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon/tree/5f7439c51ec248a0c585f7d90a41a6f57773b912",
+    "status": "RETRIEVED_REQUIRES_METADATA_REVIEW",
+    "http_status": 200,
+    "resolved_url": "https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon/tree/5f7439c51ec248a0c585f7d90a41a6f57773b912",
+    "response_sha256": "01f4c8ba7029acaf0a4f43271edc00f80be038f830d84aafb45d05241a64bde7",
+    "note": "URL added from pinned dataset attribution; retrieval after initial bibliography check. No authorship/year conclusion inferred."
+  }
+]

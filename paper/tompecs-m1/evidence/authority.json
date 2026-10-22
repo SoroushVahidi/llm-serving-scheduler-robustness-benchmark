@@ -1,0 +1,26 @@
+{
+  "base_git": "e73a3b711b65f9c181ff9a2674007efca22f1b65",
+  "source_git": "cc25fcd14f6fe28ab30d9e46635a72c0d6285d00",
+  "source_files": {
+    "main.tex": "51b13b4d9bdd2efcd2b90fa2b5625ec5b673ad188085c8c3abe639c054edf1ef",
+    "references.bib": "3dcb27fc599861921dc7ebd2ca95de8fef59134ad32ee9bcb74f0dbca4b0b2ac",
+    "sections/artifact.tex": "5cc85a0b3bf3e40aac5e97b63fb5bd144d029cd04e039e370187627e093684d1",
+    "sections/conclusion.tex": "2ce3ad801cda755024debd184114e67e4fd91f1bf2e54f418cc2638b6803e69a",
+    "sections/declarations.tex": "298db9741dd64e45c5d862a60a01326ad42d76fdab35b5d150fba403084acf41",
+    "sections/discussion.tex": "15c0622a21b14c3be6a8747775d794a68241f34f07149152d89da7ed451fa941",
+    "sections/introduction.tex": "da66b6c94cac9160c42c1f518f51a71b08c98db70e12a528439ef547dac12f82",
+    "sections/limitations.tex": "7f48034f3fad32db0f25c58378ce657f73d6eeb019b51bacb1614d2d68da399b",
+    "sections/methodology.tex": "95f9727bdff94d1d3b244089846e59faf704dbcbd8364b66f6a38ff546437618",
+    "sections/real_system.tex": "87d66b062dd590f337c8788ea2d04a6ecae77a7328b674af9440404fc1c1f38a",
+    "sections/related_work.tex": "a83d4475ee8157d9b1e75d9c41a975bb65cc44885e8b5b26cec361a7482022d0",
+    "sections/results.tex": "fca8ee6a7912c8962d8f02e3f8d882c0446fd80fcfea1c107135c41951b7ae10",
+    "sections/sample_complexity.tex": "ad72586c021551ab62b674c2f0464c3282118250afc125d84b48a6cef4861ebb",
+    "sections/study_design.tex": "2ec1fe63b8c31fa525c1d1f5387034a737fb85678197bd92c7a35104aeab43e4",
+    "sections/workloads.tex": "eb72e07a8c8cf47471994ba8ccb80d647660cd9f64e0b91ca26fcf9aa8bf8a69",
+    "generated/figures/fig1_portability_heatmap.pdf": "6242d9020bac39a5d07a91dba4c972a02f727152b5cda9fe5c3c104ea21fb7cf",
+    "generated/figures/fig2_reversal_class_matrix.pdf": "66633312a3ec5a121b364bd0b32171cab73b4f477ddab1a1f285c96dc1be1c3a",
+    "generated/figures/fig3_sample_complexity_curves.pdf": "34383d6af7fe9116fe8fa75e989d895eeab1064aca9d6db3f49517cca6a37e64"
+  },
+  "ctan_url": "https://mirrors.rit.edu/CTAN/macros/latex/contrib/acmart.zip",
+  "ctan_zip_sha256": "93933ce58fbeffa13e23398bb523fcb68275ecc73369c6bc73b421eeef2c10de"
+}

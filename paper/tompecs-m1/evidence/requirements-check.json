@@ -1,0 +1,14 @@
+{
+  "observed_date_utc": "2026-10-22",
+  "journal_guideline_url": "https://dl.acm.org/journal/tompecs/author-guidelines",
+  "journal_guideline_http_status": 403,
+  "acm_submission_url": "https://www.acm.org/publications/authors/submissions",
+  "acm_submission_http_status": 403,
+  "page_limit_author_provided": 30,
+  "references_appendices_exemption": "UNVERIFIED; all pages counted",
+  "official_acm_authored_template": "https://www.overleaf.com/latex/templates/association-for-computing-machinery-acm-generic-journal-manuscript-template/yffvrvzbhhpt",
+  "production_template_url": "https://mirrors.rit.edu/CTAN/macros/latex/contrib/acmart.zip",
+  "production_template_version": "2.20 (2026-08-16)",
+  "local_installed_unused_template": "2.03 (2024-02-04)",
+  "note": "This record summarizes observed browser/HTTP results; it is not a fresh publisher policy certification. Download hash is in authority.json. No journal contacted."
+}

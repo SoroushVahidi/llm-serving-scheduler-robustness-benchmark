@@ -1,0 +1,4 @@
+build/
+template/*.log
+template/*.aux
+__pycache__/

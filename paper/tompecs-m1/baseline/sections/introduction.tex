@@ -1,0 +1,171 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Simulation studies are routinely used to compare scheduling policies when
+exhaustive real-system experimentation is too expensive, slow, or difficult
+to control. Such studies do not produce scheduler conclusions in the
+abstract: a comparative ordering is produced under a chosen workload,
+operating region, resource model, and evaluation metric. The same simulation
+campaign can therefore answer ``which scheduler is better'' only relative to
+the conditions under which that comparison was made. If the workload source,
+load region, metric, or simulator fidelity boundary changes, the comparative
+ranking may remain stable, degrade gradually, or reverse. This paper studies
+that portability problem as the primary output of a trace-driven simulation
+experiment, rather than treating it as a secondary sensitivity check after a
+single scheduler leaderboard has already been reported.
+
+LLM serving is a useful and practically important setting for this question.
+Modern LLM serving targets high-performance, GPU-resident inference systems
+whose scheduling decisions govern how requests share costly accelerator,
+memory, and batching resources, and serving stacks have grown increasingly
+sophisticated in how they make those decisions. Beyond simple
+first-come-first-served execution, modern serving stacks employ continuous
+batching and paged key-value (KV) cache management
+\citep{kwon2023vllm}, iteration-level scheduling \citep{yu2022orca}, chunked
+prefill to balance prefill and decode work within a batch
+\citep{agrawal2024sarathi}, disaggregated prefill/decode execution across
+dedicated hardware pools \citep{zhong2024distserve,patel2024splitwise},
+KV-cache-centric disaggregated architectures \citep{qin2025mooncake},
+dynamic instance-level rebalancing \citep{sun2024llumnix}, explicit
+fairness objectives \citep{sheng2024vtc}, output-length-aware admission and
+memory packing \citep{jin2023s3}, and learning-to-rank decode-priority
+policies \citep{efficientllmscheduling2024}. Each of these mechanisms was
+introduced, and evaluated, against a particular choice of simulation or
+experimental conditions: a specific trace, a specific arrival process, a
+specific mix of prompt and output lengths, a specific operating load, and a
+specific metric.
+
+A separate line of work has documented that these workloads are themselves
+far from uniform. Public production traces from different services and time
+periods differ substantially in burstiness, request concurrency, prompt and
+output length distributions, and failure characteristics
+\citep{burstgpt2025,patel2024splitwise,stojkovic2025dynamollm}; large-scale
+characterization studies of KV-cache reuse and of year-long production
+traffic report further axes of heterogeneity across clients, models, and
+time \citep{kvcache_wild2025,ayearinllmserving2026}; and dedicated
+workload-generation frameworks exist precisely because no single fixed trace
+is thought to be representative of production traffic in general
+\citep{servegen2026}. Individually, prior work has therefore already
+established two things: that LLM-serving mechanisms are numerous and
+mechanistically diverse, and that the workloads used to evaluate them are
+themselves heterogeneous and shift across source, time, and operating
+region.
+
+What has not been directly asked for LLM-serving scheduler comparisons is
+the simulation-comparison question that follows from combining these two
+observations: whether comparative scheduler conclusions transfer across
+contexts. The typical evaluation question in this literature is: \emph{how
+well does scheduler $A$ perform, relative to scheduler $B$, on the
+workload(s) chosen for this paper's experiments?} Because a simulation study
+necessarily uses only a finite, chosen set of heterogeneous workloads, a
+comparative claim of this form is only as useful as its
+\emph{portability}: does the same comparative ordering of schedulers hold if
+the workload distribution, the operating load, or the evaluation metric is
+changed to another one a practitioner might reasonably care about? This
+question differs both from workload heterogeneity itself and from any single
+scheduler's sensitivity to load or service-level objectives (SLOs): it
+concerns the reliability of the \emph{comparison}, not of any individual
+system. LSSP is designed to measure this transferability directly under a
+fixed simulation protocol.
+
+We formalize this as the portability of a comparative scheduler ranking
+$R(W, M, L)$, where $W$ denotes a workload distribution, window, or source;
+$M$ denotes an evaluation metric; and $L$ denotes an operating or load
+region. $R(W, M, L)$ is the ordering (full or partial) that a fixed panel of
+scheduling policies induces as the comparative output of a simulation
+experiment under a fixed protocol, holding $W$, $M$, and $L$ at specified
+values. Ranking portability asks how $R$ behaves as $W$, $M$, or $L$ is
+varied: whether the ordering of policies is preserved, where and how it
+reverses, and how much evidence (how many independent workload windows,
+drawn from how many sources) is required before a reported ranking can be
+trusted to generalize beyond the exact windows used to produce it.
+
+This question matters because a scheduler comparison is scientifically and
+practically useful only insofar as its comparative conclusion transfers to
+the workload distributions a reader actually cares about. A benchmark result
+of the form ``scheduler $A$ outperforms scheduler $B$'' is not a claim about
+$A$ and $B$ in the abstract; it is implicitly a claim about $A$ and $B$
+\emph{under the workload, metric, and load conditions the benchmark used}.
+If that comparative ordering is fragile under source, metric, or
+load-region substitution, then benchmark results risk being read as more
+general than they are, and evaluation effort risks being spent on a single
+workload family when the resulting conclusion may not transfer. Conversely,
+if comparative orderings are portable across independent sources, metrics,
+and load regions, that is itself a useful, non-obvious finding: it would
+mean a leaner benchmark protocol is sufficient for future scheduler
+comparisons, and it would give scheduler designers a much stronger warrant
+for claims of general improvement.
+
+We refer to the benchmark built around this question as the LLM-Serving
+Scheduler Portability Benchmark (LSSP). LSSP asks the following research
+questions, fixed under a preregistered protocol before any comparative
+outcome was generated (\S\ref{sec:study-design}):
+
+\begin{description}
+  \item[RQ1.] How stable are scheduler rankings across independent
+    workload sources?
+  \item[RQ2.] How stable are scheduler rankings under temporal, provider,
+    and domain shifts?
+  \item[RQ3.] To what extent do rankings obtained on synthetic stress
+    workloads transfer to rankings on independent real-trace-derived
+    workloads?
+  \item[RQ4.] Which source-native observable workload characteristics are
+    associated with cross-distribution scheduler rank reversals?
+  \item[RQ5.] How many independent workload windows are required before a
+    comparative scheduler ranking becomes statistically stable?
+  \item[RQ6.] Do representative simulated scheduler rankings and
+    cross-workload rank reversals reproduce on a real serving engine?
+\end{description}
+
+Load-level dependence is deliberately treated as a secondary
+robustness/sensitivity axis applied to RQ1--RQ4, rather than as a headline
+research question in its own right, to avoid duplicating a closely related
+prior load-scaling study on an overlapping window set
+(\S\ref{sec:study-design}).
+
+\paragraph{Contributions} This study executes that preregistered protocol
+and reports its structurally validated results. This work contributes:
+
+\begin{itemize}
+  \item a formulation of comparative scheduler-ranking portability,
+    $R(W, M, L)$, as an object of simulation-based selection and comparison
+    studies, distinct from both workload characterization and
+    single-scheduler evaluation;
+  \item a preregistered paired experimental design for comparing a fixed
+    panel of scheduling alternatives across independently sourced workload
+    windows, calibrated operating regions, and metrics, so that
+    ranking-portability statistics are computed on matched observations
+    rather than separately tuned per-source experiments;
+  \item a deterministic, trace-driven discrete-event simulation execution
+    model for LLM-serving scheduler comparisons, with repeated executions
+    used as verification of bit-identical outcomes rather than as
+    stochastic replicates (\S\ref{sec:execution-model});
+  \item an uncertainty-aware reversal-detection methodology that
+    distinguishes practically meaningful rank reversals from microscopic
+    sign changes, using preregistered practical-margin and
+    confidence-interval criteria, and that treats every
+    completion-conditioned metric's undefined cases explicitly rather than
+    by imputation (\S\ref{sec:methodology});
+  \item a benchmark sample-complexity analysis quantifying how many
+    independent workload windows are required before a comparative ranking
+    reproduces, applied to this study's own frozen 120-window corpus
+    (\S\ref{sec:sample-complexity});
+  \item a characterization of the workload corpus underlying the
+    simulation study, establishing that the three sources are measurably
+    different in observed descriptor distributions and strongly separable
+    under a leakage-resistant, chronologically blocked evaluation
+    (\S\ref{sec:workloads});
+  \item a selected-case physical validation on real vLLM/GPU hardware
+    (RQ6, \S\ref{sec:real-system}) used explicitly to characterize
+    simulator fidelity and domain of validity for the benchmark's largest
+    identified simulated reversal and a paired stable-control comparison;
+    and
+  \item a public artifact release of the benchmark's frozen workload
+    identities, policy panel, protocol, simulation outputs, and analysis
+    artifacts, to support independent reproduction (\S\ref{sec:artifact}).
+\end{itemize}
+
+Comparative rankings prove neither uniformly stable nor uniformly
+unstable, but source-pair- and load-region-dependent
+(Sections~\ref{sec:results}--\ref{sec:real-system}); we do not claim that
+any scheduler in the panel wins in general (\S\ref{sec:discussion}).

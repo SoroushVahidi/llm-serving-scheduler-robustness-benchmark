@@ -1,0 +1,64 @@
+\ifdefined\MOneSmall
+\documentclass[acmsmall,screen]{acmart}
+\else
+\documentclass[manuscript,screen,review]{acmart}
+\fi
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[htt]{hyphenat}
+\usepackage{seqsplit}
+\setcopyright{none}
+\settopmatter{printacmref=false}
+\acmJournal{TOMPECS}
+\acmDOI{}
+\acmYear{2026}
+\title{Testing LLM-Serving Scheduler Ranking Portability with Trace-Driven Simulation}
+\author{Soroush Vahidi}
+\email{sv96@njit.edu}
+\affiliation{\institution{New Jersey Institute of Technology}\city{Newark}\state{New Jersey}\country{USA}}
+\begin{document}
+\begin{abstract}
+Comparative conclusions from simulation studies can depend on the workload,
+operating condition, and metric used to produce them. We study this problem
+for large language model (LLM) serving schedulers through LSSP, a
+trace-driven deterministic discrete-event simulation study with a
+preregistered paired selection-and-comparison design. The evaluation uses
+three independently released workload sources, 120 workload windows, six
+calibrated operating regions, and a fixed scheduler panel, producing
+$9{,}360$ unique policy--window--region configurations and $18{,}720$
+deterministic executions. Methodologically, LSSP treats ranking portability
+$R(W,M,L)$ as the simulation output of interest, combines practical-margin
+and confidence-interval criteria for uncertainty-aware reversal detection,
+and estimates the workload sample complexity required for ranking recovery.
+Cross-source rank agreement is strong between two sources (Kendall's
+$\tau_b$ up to $1.0$) but lower when BurstGPT is involved (as low as
+$0.55$); $3.6\%$ of pairwise comparisons ($36/990$) show statistically
+supported reversals, all concentrated in one policy pair with BurstGPT on
+one side. Cross-metric portability is more limited: median rank correlation
+is $\tau_b=0.419$ and top-policy agreement is $31.9\%$. A selected physical
+vLLM/GPU validation did not reproduce the simulator-predicted major
+reversal, while the stable-control ordering qualitatively persisted.
+Simulation-derived scheduler rankings should therefore be treated as
+conditional on workload, operating region, metric, and model fidelity.
+\end{abstract}
+
+\ccsdesc[500]{Computing methodologies~Simulation evaluation}
+\ccsdesc[300]{Computer systems organization~Cloud computing}
+\keywords{LLM serving, scheduling, ranking portability, trace-driven simulation, performance evaluation}
+\maketitle
+\input{baseline/sections/introduction}
+\input{baseline/sections/related_work}
+\input{baseline/sections/study_design}
+\input{baseline/sections/workloads}
+\input{baseline/sections/methodology}
+\input{baseline/sections/results}
+\input{baseline/sections/sample_complexity}
+\input{baseline/sections/real_system}
+\input{baseline/sections/discussion}
+\input{baseline/sections/limitations}
+\input{baseline/sections/artifact}
+\input{baseline/sections/conclusion}
+\input{baseline/sections/declarations}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+\end{document}
