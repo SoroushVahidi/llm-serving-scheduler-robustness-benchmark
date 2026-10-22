@@ -1,0 +1,17 @@
+"""Verified upstream v0.27.1 source bytes; no native imports."""
+PINS = {'config/vllm.py': '66e82e95c5cdbb88715e25feb65f4cc2be83cd67bff5b5f703d52dea43a0815e',
+ 'v1/core/block_pool.py': '51cad2fd425128a0ff433ca4685acfc022e40659153ea5d7180fc586e1eebb6c',
+ 'v1/core/kv_cache_coordinator.py': 'cf1a92db18d079403d8d4c8c9e5b0b615d2a116e3e8ffb5ffb39352a01c04b29',
+ 'v1/core/kv_cache_manager.py': '70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6',
+ 'v1/core/sched/output.py': '51643386fab3a56b7747aa784ad657833966ebe823acee1f37222e33c1e5696a',
+ 'v1/core/sched/request_queue.py': '4b8d938e5fb8152fe61030b8aa991f983fcac9a405c37ed8908045e05e82ae5e',
+ 'v1/core/sched/scheduler.py': 'c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a',
+ 'v1/core/sched/utils.py': '85e82eae555a03497ad2ac1540ed562a6c36fc26185aa6233725c914816aa1b3',
+ 'v1/core/single_type_kv_cache_manager.py': '8c9030040cbc3b7176e228e10ff6491c3cf6c3e95bdfb573532fcf75f5385ebd',
+ 'v1/engine/core.py': '6fdd067f54e5d42c57ff413e292685f5bdf6f343498d85c9262567f1eb746916',
+ 'v1/outputs.py': '9860c23e2afab49933735ea14073e4f81a1732e4f8256b197cee5b19020345ac',
+ 'v1/request.py': '6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012',
+ 'v1/worker/gpu/async_utils.py': 'a39dc6cb9770ccc091a71abd056ab4543844b599aa572619acc3636fc03fcbe6',
+ 'v1/worker/gpu/input_batch.py': 'ee342759ffed07a72ae38df164f335fda14cedffe64833ceaa584115830f51a9',
+ 'v1/worker/gpu/model_runner.py': '60fb531a045d6879da25f57cdb95584cc5272e4ef33b69e6b9c2ff3acbd78f8a',
+ 'v1/worker/gpu_worker.py': '50134ca3a147f5470e556437cbd40a13ea05b098efbac6553d5ea2f3e5f7ff57'}
