@@ -1,0 +1,1114 @@
+{
+  "batch_size": 25,
+  "bootstrap_draws": 2000,
+  "campaign_namespace": 1,
+  "code_commit": "454168a005240341dc5a5ae88ac32c4b130f6bc5",
+  "engineering_namespace": 0,
+  "engineering_only": false,
+  "environment": {
+    "numpy": "2.5.2",
+    "python": "3.12.13",
+    "scipy": "1.18.1"
+  },
+  "files": {
+    "AMENDMENTS_BEFORE_LAUNCH.md": "033a93360f38de103b32f0f525b4062b261702bb46fbc8cfbad4764ad2def327",
+    "PROTOCOL.md": "509fd1910f12ad901a660226b9017e347a7e96b6ebca0b91b0cd74d405fb6409",
+    "benchmark_fixture.py": "be987cffa0bf4209d0559d580ac672da115adebf3dc7af9017ad19d5e3e5f6c6",
+    "campaign.sbatch": "540e6c0a8b85280d15d6ce38ac1961126439e8bacb14c1a71f05a7cbe0a01bd1",
+    "design.py": "5c22b5a314b129e0cbb90f8dbfa46f527e4352d47565064cb7bdda45b09368ce",
+    "experiment.py": "c5b341c1e76b6225cfdd4149460db00584fa24ab49ced5a06db35853e7ed8678",
+    "methods.py": "89dff9fd0533c6a6e4daf7fb37d21ad761a89330e4ea3673ddad1a3d692cd098",
+    "precision.py": "e2ff23e243c83f2720fc68ada098526b39a13684295f8198951434ce68a6ed5f",
+    "reference.py": "63dc0d17f9d31ed2da994cc28ded7f5843b34baed47f7c459ff2a9c3fe6d5b15",
+    "run.py": "389310617403a72db8acdb0456a78d3af46e03214bd764fb05e891947207d202",
+    "test_calibration.py": "c0b28b77cdd5680aafecbdf6768611b4f224d6ce22e68b3e8c208d763a35931f"
+  },
+  "historical_reference_files": {
+    "robustbench/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robustbench/ranking_portability/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robustbench/ranking_portability/analysis/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "robustbench/ranking_portability/analysis/contract.py": "3d409050a9011b4378cc481dec51f4a27cdccae89ed58ed0717b81a946ebf0c2",
+    "robustbench/ranking_portability/analysis/ranking_analysis.py": "449bce19f2d41143bb502e0cba87cb03f62645f4539c1c8b848a4349e357a243",
+    "robustbench/ranking_portability/analysis/reversal_analysis.py": "cde759b146ba51c3f5cb8674842ced6fc9198612254b00acc739a6c2b4d10b5f",
+    "robustbench/ranking_portability/analysis/stats.py": "76ecae65f800bebe2ecfed80efb9757428763423e8380203c0b3460e8cf00168"
+  },
+  "looks": [
+    500,
+    1000,
+    2000,
+    4000,
+    8000
+  ],
+  "master_seed": 2026102201,
+  "maximum_studies_per_scenario": 8000,
+  "methods": [
+    "historical_screened_BH",
+    "historical_full_BH",
+    "historical_plus1_BY",
+    "iid_t_Holm",
+    "cluster_t_Holm",
+    "oracle_normal_Holm",
+    "group_bootstrap_BY",
+    "bounded_Hoeffding_Holm"
+  ],
+  "no_observed_serving_inputs": true,
+  "protocol_commit": "edbcfdfce5649a0c53502f9cc67da6b91e02c3d8",
+  "resources": {
+    "account": "ikoutis",
+    "cpus": 4,
+    "gpus": 0,
+    "memory": "8G",
+    "partition": "general",
+    "qos": "standard",
+    "walltime": "09:00:00"
+  },
+  "scenarios": [
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "iid_equal_null",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.5,
+          0.51,
+          0.52,
+          0.53,
+          0.54,
+          0.55,
+          0.56,
+          0.57,
+          0.58,
+          0.59,
+          0.6
+        ],
+        [
+          0.5,
+          0.51,
+          0.52,
+          0.53,
+          0.54,
+          0.55,
+          0.56,
+          0.57,
+          0.58,
+          0.59,
+          0.6
+        ],
+        [
+          0.5,
+          0.51,
+          0.52,
+          0.53,
+          0.54,
+          0.55,
+          0.56,
+          0.57,
+          0.58,
+          0.59,
+          0.6
+        ]
+      ],
+      "n": 40,
+      "name": "iid_stable_null",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.5,
+          0.5002,
+          0.5004,
+          0.5006,
+          0.5008,
+          0.501,
+          0.5012,
+          0.5014,
+          0.5016,
+          0.5018,
+          0.502
+        ],
+        [
+          0.5,
+          0.5002,
+          0.5004,
+          0.5006,
+          0.5008,
+          0.501,
+          0.5012,
+          0.5014,
+          0.5016,
+          0.5018,
+          0.502
+        ],
+        [
+          0.5,
+          0.5002,
+          0.5004,
+          0.5006,
+          0.5008,
+          0.501,
+          0.5012,
+          0.5014,
+          0.5016,
+          0.5018,
+          0.502
+        ]
+      ],
+      "n": 40,
+      "name": "iid_near_tie_null",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "exact_ties_null",
+      "rho": 1.0,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.55,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.55,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "practical_boundary",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.515,
+          0.485,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.485,
+          0.515,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "small_sign_reversal",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.55,
+          0.45,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.45,
+          0.55,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "medium_reversal",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.65,
+          0.35,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.35,
+          0.65,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "large_reversal",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "block_null",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "block"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.575,
+          0.425,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.425,
+          0.575,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "block_reversal",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "block"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "ar_null",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "ar"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.575,
+          0.425,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.425,
+          0.575,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "ar_reversal",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "ar"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.575,
+          0.425,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.425,
+          0.575,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "unequal_variances",
+      "rho": 0.5,
+      "sigma": [
+        0.08,
+        0.25,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "t5",
+        "lognormal"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.575,
+          0.425,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.425,
+          0.575,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "mixed_distributions",
+      "rho": 0.5,
+      "sigma": [
+        0.08,
+        0.25,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "mcar",
+      "mu": [
+        [
+          0.575,
+          0.425,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.425,
+          0.575,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "mcar_reversal",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "missing": "selective",
+      "mu": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "selective_null",
+      "rho": 0.5,
+      "sigma": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "uniform",
+        "uniform",
+        "uniform"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.65,
+          0.35,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.35,
+          0.65,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 40,
+      "name": "bounded_reversal",
+      "rho": 0.5,
+      "sigma": [
+        0.08,
+        0.08,
+        0.08
+      ],
+      "temporal": "iid"
+    },
+    {
+      "distributions": [
+        "uniform",
+        "uniform",
+        "uniform"
+      ],
+      "missing": "complete",
+      "mu": [
+        [
+          0.65,
+          0.35,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.35,
+          0.65,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "n": 400,
+      "name": "bounded_reversal_n400",
+      "rho": 0.5,
+      "sigma": [
+        0.08,
+        0.08,
+        0.08
+      ],
+      "temporal": "iid"
+    }
+  ],
+  "schema": "LSSP-STAT01-launch-v1",
+  "scientific_base": "880a37e8e7c19d089be124291e288269966a9147",
+  "status": "PROSPECTIVE_FROZEN_BEFORE_CAMPAIGN"
+}
