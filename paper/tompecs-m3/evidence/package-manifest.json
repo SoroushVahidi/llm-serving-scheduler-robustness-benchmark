@@ -521,6 +521,10 @@
       "sha256": "44386fe345af4724ef4c091fcf7a8ee02d4c1883c0946668212afaa050db534a",
       "bytes": 5608
     },
+    "major-revision/FINAL_REPORT.md": {
+      "sha256": "d92a4b1497f113131b3e6602269ee4583c0b69d8f60467b1ad1915029868dd5b",
+      "bytes": 10335
+    },
     "major-revision/REFERENCES_AND_OFFICIAL_RULES.md": {
       "sha256": "06fe7c6284be065dd729d14b292ac9b5b32a71ce907f4f4f9e9b54e00ca030ce",
       "bytes": 2120
