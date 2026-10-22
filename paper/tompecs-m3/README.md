@@ -14,7 +14,7 @@ This directory is a new manuscript, stacked on final evidence-review commit `6b2
 - [Historical PR21 artifact-readiness assessment](artifact-release/READINESS.md): **NOT_READY** for submission; verified source licenses/statuses, complete local candidate, author/venue gates.
 - [Artifact inventory and access](artifact-release/INVENTORY.md), [portable candidate guide](artifact-release/CANDIDATE_README.md), and [PR21 verification](artifact-release/VERIFICATION.md).
 - [Historical final scientific and submission-readiness review](final-review/REFEREE_REPORT.md): **NOT_READY**; includes claim/novelty assessment, overlap and literature audit, author decisions, and correction validation. Its pending status/license questions are superseded by the current artifact-readiness assessment.
-- [ACM manuscript PDF](m3-manuscript.pdf) and [acmsmall PDF](m3-acmsmall.pdf).
+- [Canonical validated manuscript PDF — 24 pages](../../LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf) and [download provenance](download-manifest.json).
 - [LaTeX source](main.tex) and [bibliography](references.bib).
 - [M2-to-M3 changes](M2_TO_M3_CHANGES.md).
 - [Claim-to-evidence verification](CLAIM_TO_EVIDENCE.md).
@@ -22,7 +22,7 @@ This directory is a new manuscript, stacked on final evidence-review commit `6b2
 - [Remaining submission blockers](SUBMISSION_BLOCKERS.md).
 - [Reference checks and provenance clarification](REFERENCE_CHECKS.md).
 
-The two PDFs are review formats, not confirmation of current ToMPECS submission requirements. No journal-specific page limit is asserted.
+The canonical PDF is the unchanged, successfully validated PR #22 manuscript build. The alternate acmsmall build and older full-manuscript PDFs remain available at their commit-pinned historical locations in `download-manifest.json`. Figure PDFs and validation records remain in the current tree. The review format does not establish current ToMPECS submission requirements; no journal-specific page limit is asserted.
 
 ## Regenerate displays and build locally
 
@@ -35,7 +35,7 @@ bash paper/tompecs-m3/scripts/build.sh acmsmall
 python paper/tompecs-m3/scripts/validate.py
 ```
 
-These commands only read saved experimental summaries, render manuscript assets, compile LaTeX, and check saved evidence. They never invoke the simulator, synthetic-study generator, Slurm, or GitHub Actions. Both build workflows use the byte-preserved ACM template from M2. The output PDFs are under `build/<mode>/`; the reviewed copies at this directory's top level are packaged after checks.
+These commands only read saved experimental summaries, render manuscript assets, compile LaTeX, and check saved evidence. They never invoke the simulator, synthetic-study generator, Slurm, or GitHub Actions. Both build workflows use the byte-preserved ACM template from M2. The local output PDFs are under `build/<mode>/`. The single tracked manuscript download is `../../LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf`. Historical package manifests and reports retain the original PR #22 filenames and checksums; `download-manifest.json` records the unchanged-byte relocation and retired full-manuscript paths.
 
 `evidence/inputs/*.json.gz` are deterministic gzip containers of **unchanged source bytes**, verified against `evidence/input-hashes.json`. Absolute source paths identify the review cache; regeneration does not require that cache because all display inputs are bundled. The full raw request/journal/study archives are not republished in this manuscript packet. Their persistent run locations, execution commits, and access limits are documented in the inherited PR #17 review and this manuscript's Appendix B. Reviewer access remains an author-review gate.
 

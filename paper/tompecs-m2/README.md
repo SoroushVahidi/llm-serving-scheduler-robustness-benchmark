@@ -1,12 +1,14 @@
 # ToMPECS Phase M2 — independent adjudication and author review
 
+> Historical manuscript version. The [current M3 PDF](../../LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf) is the sole full-manuscript PDF on `main`; links below to older PDFs are pinned to their historical commit. Sources, figures and numerical validation records are retained.
+
 **COMPLETED_WITH_ISSUES. Scientific readiness: NO-GO for publication-level comparative/native claims. Submission readiness: NOT READY.** A conditional historical simulator case study is defensible for author review; unresolved scientific limitations are not repaired by formatting.
 
 Stack: `manuscript/lssp-tompecs-m2` directly on PR #9's verified `366752a76f86dec30190f3e7767124f684378de4` (`manuscript/lssp-tompecs-m1`). All M1 and earlier files are preserved.
 
 Start with:
 
-1. [Revised manuscript PDF](revised-manuscript.pdf), [source](revised/main.tex), and [acmsmall diagnostic PDF](revised-acmsmall.pdf).
+1. [Revised manuscript PDF](https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m2/revised-manuscript.pdf), [source](revised/main.tex), and [acmsmall diagnostic PDF](https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m2/revised-acmsmall.pdf).
 2. [Independent statistical audit](M2_STATISTICAL_AUDIT.md).
 3. [Research-question mapping](M2_RQ_ALIGNMENT.md).
 4. [Skeptical referee report and M3 recommendation](M2_REFEREE_REPORT.md).

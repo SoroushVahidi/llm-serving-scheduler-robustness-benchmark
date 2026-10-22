@@ -1,0 +1,82 @@
+{
+  "title": "Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation",
+  "path": "LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf",
+  "bytes": 728978,
+  "pages": 24,
+  "sha256": "a5e8d45d63bd404944a55c6efcb202b3fd52e06589ed7b64c90921eab0b6a39f",
+  "storage": "regular Git blob; not Git LFS",
+  "authoritative_commit": "dda5fcf0f8f2a6f543e799f20767c9272022afc8",
+  "authoritative_pr": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/22",
+  "authoritative_pdf_path": "paper/tompecs-m3/m3-manuscript.pdf",
+  "pdf_transformation": "none; byte-identical relocation",
+  "scientific_verdict": "READY_FOR_AUTHOR_AND_ADMINISTRATIVE_FINALIZATION",
+  "validation_record": "paper/tompecs-m3/evidence/validation/validation.json",
+  "historical_package_manifest": "paper/tompecs-m3/evidence/package-manifest.json",
+  "integration": {
+    "previous_main_commit": "e73a3b711b65f9c181ff9a2674007efca22f1b65",
+    "dependency_prs": [
+      9,
+      10,
+      16,
+      17,
+      19,
+      20,
+      21,
+      22
+    ],
+    "method": "Preserve the entire authoritative manuscript ancestry, then relocate the validated PDF and remove superseded full-manuscript copies. No experimental branch is merged."
+  },
+  "retired_pdf_paths": [
+    {
+      "path": "LLM_Scheduler_Portability.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/LLM_Scheduler_Portability.pdf"
+    },
+    {
+      "path": "SMPT_Manuscript_Blind.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/SMPT_Manuscript_Blind.pdf"
+    },
+    {
+      "path": "paper/tompecs-m1/baseline-acmsmall.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m1/baseline-acmsmall.pdf"
+    },
+    {
+      "path": "paper/tompecs-m1/baseline-manuscript.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m1/baseline-manuscript.pdf"
+    },
+    {
+      "path": "paper/tompecs-m1/evidence/initial-revision/revised-20-pages.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m1/evidence/initial-revision/revised-20-pages.pdf"
+    },
+    {
+      "path": "paper/tompecs-m1/revised-acmsmall.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m1/revised-acmsmall.pdf"
+    },
+    {
+      "path": "paper/tompecs-m1/revised-manuscript.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m1/revised-manuscript.pdf"
+    },
+    {
+      "path": "paper/tompecs-m2/revised-acmsmall.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m2/revised-acmsmall.pdf"
+    },
+    {
+      "path": "paper/tompecs-m2/revised-manuscript.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m2/revised-manuscript.pdf"
+    },
+    {
+      "path": "paper/tompecs-m3/m3-acmsmall.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m3/m3-acmsmall.pdf"
+    },
+    {
+      "path": "paper/tompecs-m3/m3-manuscript.pdf",
+      "historical_url": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/blob/dda5fcf0f8f2a6f543e799f20767c9272022afc8/paper/tompecs-m3/m3-manuscript.pdf"
+    }
+  ],
+  "preservation": "All manuscript sources, figure PDFs, bibliography, datasets, scripts and non-manuscript validation records are preserved. The initial-revision PDF is a superseded full-manuscript snapshot; its original bytes and compile evidence remain available via Git history.",
+  "remaining_blockers": [
+    "Author review and declarations",
+    "Reviewer access, archive, retention and license decisions",
+    "Related-manuscript version identities and overlap disclosures",
+    "Current official ToMPECS requirements remain unverified"
+  ]
+}
