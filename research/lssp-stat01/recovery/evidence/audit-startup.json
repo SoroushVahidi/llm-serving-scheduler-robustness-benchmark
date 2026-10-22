@@ -1,0 +1,139 @@
+{
+  "deployment": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-diagnosis-20261022",
+  "log": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-diagnosis-20261022/evidence/full-audit/console.log",
+  "log_tail": "heckpoint_studies\": 6625}, {\"scenario\": 11, \"finalized_studies\": 6625, \"checkpoint_studies\": 6625}, {\"scenario\": 12, \"finalized_studies\": 6650, \"checkpoint_studies\": 6625}, {\"scenario\": 13, \"finalized_studies\": 6625, \"checkpoint_studies\": 6625}, {\"scenario\": 14, \"finalized_studies\": 6625, \"checkpoint_studies\": 6625}, {\"scenario\": 15, \"finalized_studies\": 6625, \"checkpoint_studies\": 6625}, {\"scenario\": 16, \"finalized_studies\": 6625, \"checkpoint_studies\": 6625}, {\"scenario\": 17, \"finalized_studies\": 4000, \"checkpoint_studies\": 4000}], \"partials\": [\"/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524/runs/stat01-f97f91abe5da0bf5/batches/scenario-11/rep-006625.part-907491-1792644572882372394\"], \"alternative_study_counts\": {}, \"source_snapshot\": {\"checkpoint.json\": \"da4a4b0d339b2c1987ecf4ac4d94b42096f7968b13ebfdd5d84cf60d1673315f\", \"launch.json\": \"13a5985bf33659ff3e0372dfafcbe2c5bfb91f7ca79eff4c25c3fae1f6a84738\", \"failure-907454.json\": \"0f5747dbba310f248fb3a83d2c94c78634ef5097a0b25dc1331b76a4a081fd68\"}, \"reuse_authorized\": false, \"recovery_launched\": false}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:45:38.764518+00:00\", \"checked_batches\": 25, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:45:42.255860+00:00\", \"checked_batches\": 50, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:45:46.151141+00:00\", \"checked_batches\": 75, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:45:49.650749+00:00\", \"checked_batches\": 100, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:45:53.372419+00:00\", \"checked_batches\": 125, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:45:57.078762+00:00\", \"checked_batches\": 150, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:46:00.759878+00:00\", \"checked_batches\": 175, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:46:04.449550+00:00\", \"checked_batches\": 200, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:46:08.066215+00:00\", \"checked_batches\": 225, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:46:11.557722+00:00\", \"checked_batches\": 250, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:46:15.494538+00:00\", \"checked_batches\": 275, \"failed_batches\": 0}\n{\"event\": \"AUDIT_PROGRESS\", \"time\": \"2026-10-22T13:46:19.166604+00:00\", \"checked_batches\": 300, \"failed_batches\": 0}\n",
+  "observed_utc": "2026-10-22T13:46:20.261824+00:00",
+  "progress.json": {
+    "alternative_study_counts": {
+      "exact_bootstrap": 0,
+      "historical": 0
+    },
+    "checked_batches": 307,
+    "checked_studies": 7675,
+    "environment": {
+      "numpy": "2.5.2",
+      "python": "3.12.13",
+      "scipy": "1.18.1"
+    },
+    "expected_batches": 4491,
+    "expected_studies": 112275,
+    "failed_batches": [],
+    "identity": "f97f91abe5da0bf5566edcf7f0877e4df226cbea4b4b3966c467a33a970b5700",
+    "inventory": [
+      {
+        "checkpoint_studies": 6650,
+        "finalized_studies": 6650,
+        "scenario": 0
+      },
+      {
+        "checkpoint_studies": 6650,
+        "finalized_studies": 6650,
+        "scenario": 1
+      },
+      {
+        "checkpoint_studies": 6650,
+        "finalized_studies": 6650,
+        "scenario": 2
+      },
+      {
+        "checkpoint_studies": 2000,
+        "finalized_studies": 2000,
+        "scenario": 3
+      },
+      {
+        "checkpoint_studies": 6650,
+        "finalized_studies": 6650,
+        "scenario": 4
+      },
+      {
+        "checkpoint_studies": 6650,
+        "finalized_studies": 6650,
+        "scenario": 5
+      },
+      {
+        "checkpoint_studies": 6650,
+        "finalized_studies": 6650,
+        "scenario": 6
+      },
+      {
+        "checkpoint_studies": 6650,
+        "finalized_studies": 6650,
+        "scenario": 7
+      },
+      {
+        "checkpoint_studies": 6650,
+        "finalized_studies": 6650,
+        "scenario": 8
+      },
+      {
+        "checkpoint_studies": 6625,
+        "finalized_studies": 6650,
+        "scenario": 9
+      },
+      {
+        "checkpoint_studies": 6625,
+        "finalized_studies": 6650,
+        "scenario": 10
+      },
+      {
+        "checkpoint_studies": 6625,
+        "finalized_studies": 6625,
+        "scenario": 11
+      },
+      {
+        "checkpoint_studies": 6625,
+        "finalized_studies": 6650,
+        "scenario": 12
+      },
+      {
+        "checkpoint_studies": 6625,
+        "finalized_studies": 6625,
+        "scenario": 13
+      },
+      {
+        "checkpoint_studies": 6625,
+        "finalized_studies": 6625,
+        "scenario": 14
+      },
+      {
+        "checkpoint_studies": 6625,
+        "finalized_studies": 6625,
+        "scenario": 15
+      },
+      {
+        "checkpoint_studies": 6625,
+        "finalized_studies": 6625,
+        "scenario": 16
+      },
+      {
+        "checkpoint_studies": 4000,
+        "finalized_studies": 4000,
+        "scenario": 17
+      }
+    ],
+    "partials": [
+      "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524/runs/stat01-f97f91abe5da0bf5/batches/scenario-11/rep-006625.part-907491-1792644572882372394"
+    ],
+    "pid": 808734,
+    "recovery_launched": false,
+    "reuse_authorized": false,
+    "root": "/mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-stat01-454168a00524",
+    "source_snapshot": {
+      "checkpoint.json": "da4a4b0d339b2c1987ecf4ac4d94b42096f7968b13ebfdd5d84cf60d1673315f",
+      "failure-907454.json": "0f5747dbba310f248fb3a83d2c94c78634ef5097a0b25dc1331b76a4a081fd68",
+      "launch.json": "13a5985bf33659ff3e0372dfafcbe2c5bfb91f7ca79eff4c25c3fae1f6a84738"
+    },
+    "started": "2026-10-22T13:45:31.551545+00:00",
+    "status": "RUNNING",
+    "updated": "2026-10-22T13:46:20.152149+00:00"
+  },
+  "session": "stat01-integrity-20261022",
+  "session_alive": true,
+  "started_utc.txt": "2026-10-22T13:45:30Z",
+  "tool_hashes": {
+    "audit_existing.py": "ad61beea0237199b70e8046d4a92fead49c84d5d60300ffc4edc5fc3e4aec0ba",
+    "diagnose.py": "ed0cf696527f9caf57321c40c9c318fb2e3e613da011235999422adb20adacb9",
+    "test_diagnose.py": "6f49c8d063d546b1357b2060c4f19dcd7edece0334bc92b09065442f3a53b7c9"
+  },
+  "wrapper.pid": "808729"
+}
