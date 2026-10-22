@@ -1,0 +1,25 @@
+Working directory: /home/soroush/repos/llm-serving-scheduler-lssp-v2-p2a
+Base: 810b987dd873215d1a872eca83fd5c50770ca434
+Branch: research/lssp-v2-p2a-native-boundary
+
+Final combined test command (exit 0):
+CUDA_VISIBLE_DEVICES='' HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=src P2A_EVIDENCE_DIR=docs/serving-contract/p2a-0.1.0/evidence /home/soroush/modal-venv/bin/python -B -m pytest -q -s -p no:cacheprovider tests/mgpu00 tests/mgpu02 tests/mgpu05 tests/mgpu06 tests/test_anwg_metric.py tests/serving_v2 tests/serving_v2_p2a > docs/serving-contract/p2a-0.1.0/evidence/cpu-regression.raw.txt 2>&1
+
+Collection command (exit 0):
+CUDA_VISIBLE_DEVICES='' HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=src /home/soroush/modal-venv/bin/python -B -m pytest --collect-only -q -p no:cacheprovider tests/mgpu00 tests/mgpu02 tests/mgpu05 tests/mgpu06 tests/test_anwg_metric.py tests/serving_v2 tests/serving_v2_p2a > docs/serving-contract/p2a-0.1.0/evidence/test-collection.raw.txt 2>&1
+
+Other checks (exit 0):
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /home/soroush/modal-venv/bin/python -B docs/serving-contract/p2a-0.1.0/check_documents.py
+PYTHONDONTWRITEBYTECODE=1 /home/soroush/modal-venv/bin/python -B docs/serving-contract/p2a-0.1.0/check_packaging.py
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /home/soroush/modal-venv/bin/python -B docs/serving-contract/p1-0.1.0/check_documents.py
+git diff --cached --check -- . ':(exclude)docs/serving-contract/p2a-0.1.0/evidence/*.raw.txt'
+
+Upstream tag resolution (read-only):
+git ls-remote https://github.com/vllm-project/vllm.git refs/tags/v0.27.1 'refs/tags/v0.27.1^{}'
+Observed: 6e448d0ea9bf3d88d898b65449ca6dc2aec170ac refs/tags/v0.27.1
+
+Hash reproduction: SHA256 of installed source bytes must match evidence/source-hashes.json and exact pinned raw URLs. SLAI upstream bytes matched evidence/slai-source-hashes.json. No upstream runner/model was executed.
+
+Use a NEW evidence/log directory for reproduction; do not overwrite this committed record.
+
+Unfiltered git diff --cached --check reports two original pytest traceback trailing-space lines in development-regression.raw.txt. Raw bytes preserved; scoped source/docs/structured-evidence check passes.

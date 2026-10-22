@@ -1,0 +1,1037 @@
+{
+  "schema": "lssp-p2a-boundary/0.1.0",
+  "provenance": "synthetic_cpu",
+  "source_hashes": {
+    "config/vllm.py": "66e82e95c5cdbb88715e25feb65f4cc2be83cd67bff5b5f703d52dea43a0815e",
+    "v1/core/block_pool.py": "51cad2fd425128a0ff433ca4685acfc022e40659153ea5d7180fc586e1eebb6c",
+    "v1/core/kv_cache_coordinator.py": "cf1a92db18d079403d8d4c8c9e5b0b615d2a116e3e8ffb5ffb39352a01c04b29",
+    "v1/core/kv_cache_manager.py": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6",
+    "v1/core/sched/output.py": "51643386fab3a56b7747aa784ad657833966ebe823acee1f37222e33c1e5696a",
+    "v1/core/sched/request_queue.py": "4b8d938e5fb8152fe61030b8aa991f983fcac9a405c37ed8908045e05e82ae5e",
+    "v1/core/sched/scheduler.py": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+    "v1/core/sched/utils.py": "85e82eae555a03497ad2ac1540ed562a6c36fc26185aa6233725c914816aa1b3",
+    "v1/core/single_type_kv_cache_manager.py": "8c9030040cbc3b7176e228e10ff6491c3cf6c3e95bdfb573532fcf75f5385ebd",
+    "v1/engine/core.py": "6fdd067f54e5d42c57ff413e292685f5bdf6f343498d85c9262567f1eb746916",
+    "v1/outputs.py": "9860c23e2afab49933735ea14073e4f81a1732e4f8256b197cee5b19020345ac",
+    "v1/request.py": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012",
+    "v1/worker/gpu/async_utils.py": "a39dc6cb9770ccc091a71abd056ab4543844b599aa572619acc3636fc03fcbe6",
+    "v1/worker/gpu/input_batch.py": "ee342759ffed07a72ae38df164f335fda14cedffe64833ceaa584115830f51a9",
+    "v1/worker/gpu/model_runner.py": "60fb531a045d6879da25f57cdb95584cc5272e4ef33b69e6b9c2ff3acbd78f8a",
+    "v1/worker/gpu_worker.py": "50134ca3a147f5470e556437cbd40a13ea05b098efbac6553d5ea2f3e5f7ff57"
+  },
+  "configuration": {
+    "token_budget": 128,
+    "active_limit": 16,
+    "max_model_len": 512,
+    "block_size": 16,
+    "total_blocks": 10000,
+    "policy": "fcfs",
+    "runner": "v2",
+    "device": "cpu",
+    "prefix_caching": false,
+    "reserve_full_input": true,
+    "sampling": "fixed-output-synthetic",
+    "parallelism": [
+      1,
+      1,
+      1
+    ]
+  },
+  "registry": {
+    "a": "app-a",
+    "b": "app-b"
+  },
+  "batches": [
+    {
+      "proposal": {
+        "batch_id": "b0",
+        "spans": [
+          {
+            "request_id": "a",
+            "epoch": 0,
+            "start": 0,
+            "end": 2
+          },
+          {
+            "request_id": "b",
+            "epoch": 0,
+            "start": 0,
+            "end": 3
+          }
+        ],
+        "token_budget": 128,
+        "active_limit": 16
+      },
+      "before": {
+        "rows": {
+          "a": {
+            "prompt": 2,
+            "limit": 1,
+            "computed": 0,
+            "inflight": 0,
+            "output": [],
+            "status": "WAITING",
+            "arrival": 0.0,
+            "blocks": [],
+            "preemptions": 0
+          },
+          "b": {
+            "prompt": 3,
+            "limit": 1,
+            "computed": 0,
+            "inflight": 0,
+            "output": [],
+            "status": "WAITING",
+            "arrival": 0.0,
+            "blocks": [],
+            "preemptions": 0
+          }
+        },
+        "running": [],
+        "waiting": [
+          "a",
+          "b"
+        ],
+        "live": [
+          "a",
+          "b"
+        ],
+        "skipped": [],
+        "total_blocks": 10000,
+        "system_blocks": 1,
+        "free_blocks": 9999,
+        "block_size": 16
+      },
+      "ledger_start": 2,
+      "native": {
+        "counts": {
+          "a": 2,
+          "b": 3
+        },
+        "total": 5,
+        "new": [
+          {
+            "id": "a",
+            "start": 0
+          },
+          {
+            "id": "b",
+            "start": 0
+          }
+        ],
+        "cached": [],
+        "resumed": [],
+        "preempted": [],
+        "speculative": false,
+        "encoder": false,
+        "connector": false
+      },
+      "scheduled": {
+        "rows": {
+          "a": {
+            "prompt": 2,
+            "limit": 1,
+            "computed": 2,
+            "inflight": 2,
+            "output": [],
+            "status": "RUNNING",
+            "arrival": 0.0,
+            "blocks": [
+              1
+            ],
+            "preemptions": 0
+          },
+          "b": {
+            "prompt": 3,
+            "limit": 1,
+            "computed": 3,
+            "inflight": 3,
+            "output": [],
+            "status": "RUNNING",
+            "arrival": 0.0,
+            "blocks": [
+              2
+            ],
+            "preemptions": 0
+          }
+        },
+        "running": [
+          "a",
+          "b"
+        ],
+        "waiting": [],
+        "live": [
+          "a",
+          "b"
+        ],
+        "skipped": [],
+        "total_blocks": 10000,
+        "system_blocks": 1,
+        "free_blocks": 9997,
+        "block_size": 16
+      },
+      "step": 1,
+      "acceptance": {
+        "batch_id": "b0",
+        "native_step": 1,
+        "spans": [
+          {
+            "request_id": "a",
+            "epoch": 0,
+            "start": 0,
+            "end": 2
+          },
+          {
+            "request_id": "b",
+            "epoch": 0,
+            "start": 0,
+            "end": 3
+          }
+        ],
+        "tokens": 5,
+        "active_slots": 2,
+        "sample_mask": [
+          true,
+          true
+        ]
+      },
+      "ledger_planned": 6,
+      "ack_attempt": {
+        "batch_id": "b0",
+        "native_step": 1,
+        "spans": [
+          {
+            "request_id": "a",
+            "epoch": 0,
+            "start": 0,
+            "end": 2
+          },
+          {
+            "request_id": "b",
+            "epoch": 0,
+            "start": 0,
+            "end": 3
+          }
+        ],
+        "sample_mask": [
+          true,
+          true
+        ],
+        "provenance": "synthetic_cpu",
+        "success": true,
+        "quiescent": true
+      },
+      "runner": {
+        "ids": [
+          "a",
+          "b"
+        ],
+        "index": {
+          "a": 0,
+          "b": 1
+        },
+        "samples": [
+          [
+            41
+          ],
+          [
+            42
+          ]
+        ]
+      },
+      "executed": {
+        "rows": {
+          "a": {
+            "prompt": 2,
+            "limit": 1,
+            "computed": 2,
+            "inflight": 0,
+            "output": [
+              41
+            ],
+            "status": "FINISHED_LENGTH_CAPPED",
+            "arrival": 0.0,
+            "blocks": [],
+            "preemptions": 0
+          },
+          "b": {
+            "prompt": 3,
+            "limit": 1,
+            "computed": 3,
+            "inflight": 0,
+            "output": [
+              42
+            ],
+            "status": "FINISHED_LENGTH_CAPPED",
+            "arrival": 0.0,
+            "blocks": [],
+            "preemptions": 0
+          }
+        },
+        "running": [],
+        "waiting": [],
+        "live": [],
+        "skipped": [],
+        "total_blocks": 10000,
+        "system_blocks": 1,
+        "free_blocks": 9999,
+        "block_size": 16
+      },
+      "ack": {
+        "batch_id": "b0",
+        "native_step": 1,
+        "spans": [
+          {
+            "request_id": "a",
+            "epoch": 0,
+            "start": 0,
+            "end": 2
+          },
+          {
+            "request_id": "b",
+            "epoch": 0,
+            "start": 0,
+            "end": 3
+          }
+        ],
+        "sample_mask": [
+          true,
+          true
+        ],
+        "provenance": "synthetic_cpu",
+        "success": true,
+        "quiescent": true
+      },
+      "ledger_end": 10
+    }
+  ],
+  "faults": [],
+  "ledger": {
+    "schema": "lssp-p1-ledger/0.1.0",
+    "run_id": "complete",
+    "provenance": "cpu_fixture",
+    "events": [
+      {
+        "sequence": 0,
+        "kind": "enqueue",
+        "request_id": "app-a",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 0.0,
+          "category": "host_control"
+        },
+        "data": {
+          "spec": {
+            "request_id": "app-a",
+            "engine_id": "a",
+            "prompt_tokens": 2,
+            "output_limit": 1,
+            "prompt_digest": "b4851da6826ed11118b62811bd2dd033d5cc940d2e9ad1c530dde72b06a7f28c",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-a",
+            "engine_id": "a",
+            "prompt_tokens": 2,
+            "output_limit": 1,
+            "prompt_digest": "b4851da6826ed11118b62811bd2dd033d5cc940d2e9ad1c530dde72b06a7f28c",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "WAITING",
+          "epoch": 0,
+          "acknowledged": 0,
+          "planned": 0,
+          "pending": null,
+          "generated": [],
+          "emitted": 0,
+          "observed": 0,
+          "resident": false,
+          "allocation": null,
+          "replay_until": 0,
+          "seen_prompt": [],
+          "prompt_work": 0,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": null,
+          "disposition": null,
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 1,
+        "kind": "enqueue",
+        "request_id": "app-b",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 0.0,
+          "category": "host_control"
+        },
+        "data": {
+          "spec": {
+            "request_id": "app-b",
+            "engine_id": "b",
+            "prompt_tokens": 3,
+            "output_limit": 1,
+            "prompt_digest": "33434474faf8caf709337f8f06e15f6b9126e97e876097c286d8e0864041fc6a",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-b",
+            "engine_id": "b",
+            "prompt_tokens": 3,
+            "output_limit": 1,
+            "prompt_digest": "33434474faf8caf709337f8f06e15f6b9126e97e876097c286d8e0864041fc6a",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "WAITING",
+          "epoch": 0,
+          "acknowledged": 0,
+          "planned": 0,
+          "pending": null,
+          "generated": [],
+          "emitted": 0,
+          "observed": 0,
+          "resident": false,
+          "allocation": null,
+          "replay_until": 0,
+          "seen_prompt": [],
+          "prompt_work": 0,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": null,
+          "disposition": null,
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 2,
+        "kind": "admit",
+        "request_id": "app-a",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 1.0,
+          "category": "host_control"
+        },
+        "data": {
+          "allocation": {
+            "observation_id": "obs-1",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9997,
+            "owned_blocks": [
+              1
+            ],
+            "other_allocated_blocks": 1
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-a",
+            "engine_id": "a",
+            "prompt_tokens": 2,
+            "output_limit": 1,
+            "prompt_digest": "b4851da6826ed11118b62811bd2dd033d5cc940d2e9ad1c530dde72b06a7f28c",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "ADMITTED",
+          "epoch": 0,
+          "acknowledged": 0,
+          "planned": 0,
+          "pending": null,
+          "generated": [],
+          "emitted": 0,
+          "observed": 0,
+          "resident": true,
+          "allocation": {
+            "observation_id": "obs-1",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9997,
+            "owned_blocks": [
+              1
+            ],
+            "other_allocated_blocks": 1
+          },
+          "replay_until": 0,
+          "seen_prompt": [],
+          "prompt_work": 0,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": null,
+          "disposition": null,
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 3,
+        "kind": "plan",
+        "request_id": "app-a",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 1.0,
+          "category": "host_control"
+        },
+        "data": {
+          "plan": {
+            "plan_id": "b0/a",
+            "batch_id": "b0",
+            "epoch": 0,
+            "start": 0,
+            "end": 2
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-a",
+            "engine_id": "a",
+            "prompt_tokens": 2,
+            "output_limit": 1,
+            "prompt_digest": "b4851da6826ed11118b62811bd2dd033d5cc940d2e9ad1c530dde72b06a7f28c",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "IN_FLIGHT",
+          "epoch": 0,
+          "acknowledged": 0,
+          "planned": 2,
+          "pending": {
+            "plan_id": "b0/a",
+            "batch_id": "b0",
+            "epoch": 0,
+            "start": 0,
+            "end": 2
+          },
+          "generated": [],
+          "emitted": 0,
+          "observed": 0,
+          "resident": true,
+          "allocation": {
+            "observation_id": "obs-1",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9997,
+            "owned_blocks": [
+              1
+            ],
+            "other_allocated_blocks": 1
+          },
+          "replay_until": 0,
+          "seen_prompt": [],
+          "prompt_work": 0,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": null,
+          "disposition": null,
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 4,
+        "kind": "admit",
+        "request_id": "app-b",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 1.0,
+          "category": "host_control"
+        },
+        "data": {
+          "allocation": {
+            "observation_id": "obs-2",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9997,
+            "owned_blocks": [
+              2
+            ],
+            "other_allocated_blocks": 1
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-b",
+            "engine_id": "b",
+            "prompt_tokens": 3,
+            "output_limit": 1,
+            "prompt_digest": "33434474faf8caf709337f8f06e15f6b9126e97e876097c286d8e0864041fc6a",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "ADMITTED",
+          "epoch": 0,
+          "acknowledged": 0,
+          "planned": 0,
+          "pending": null,
+          "generated": [],
+          "emitted": 0,
+          "observed": 0,
+          "resident": true,
+          "allocation": {
+            "observation_id": "obs-2",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9997,
+            "owned_blocks": [
+              2
+            ],
+            "other_allocated_blocks": 1
+          },
+          "replay_until": 0,
+          "seen_prompt": [],
+          "prompt_work": 0,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": null,
+          "disposition": null,
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 5,
+        "kind": "plan",
+        "request_id": "app-b",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 1.0,
+          "category": "host_control"
+        },
+        "data": {
+          "plan": {
+            "plan_id": "b0/b",
+            "batch_id": "b0",
+            "epoch": 0,
+            "start": 0,
+            "end": 3
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-b",
+            "engine_id": "b",
+            "prompt_tokens": 3,
+            "output_limit": 1,
+            "prompt_digest": "33434474faf8caf709337f8f06e15f6b9126e97e876097c286d8e0864041fc6a",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "IN_FLIGHT",
+          "epoch": 0,
+          "acknowledged": 0,
+          "planned": 3,
+          "pending": {
+            "plan_id": "b0/b",
+            "batch_id": "b0",
+            "epoch": 0,
+            "start": 0,
+            "end": 3
+          },
+          "generated": [],
+          "emitted": 0,
+          "observed": 0,
+          "resident": true,
+          "allocation": {
+            "observation_id": "obs-2",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9997,
+            "owned_blocks": [
+              2
+            ],
+            "other_allocated_blocks": 1
+          },
+          "replay_until": 0,
+          "seen_prompt": [],
+          "prompt_work": 0,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": null,
+          "disposition": null,
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 6,
+        "kind": "ack",
+        "request_id": "app-a",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 2.0,
+          "category": "host_control"
+        },
+        "data": {
+          "ack": {
+            "plan_id": "b0/a",
+            "epoch": 0,
+            "start": 0,
+            "executed_end": 2,
+            "samples": [
+              41
+            ],
+            "success": true,
+            "quiescent": true,
+            "allocation": {
+              "observation_id": "obs-3",
+              "pool_id": "native-pool-0",
+              "total_blocks": 10000,
+              "system_blocks": 1,
+              "free_blocks": 9997,
+              "owned_blocks": [
+                1
+              ],
+              "other_allocated_blocks": 1
+            }
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-a",
+            "engine_id": "a",
+            "prompt_tokens": 2,
+            "output_limit": 1,
+            "prompt_digest": "b4851da6826ed11118b62811bd2dd033d5cc940d2e9ad1c530dde72b06a7f28c",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "TERMINAL",
+          "epoch": 0,
+          "acknowledged": 2,
+          "planned": 2,
+          "pending": null,
+          "generated": [
+            41
+          ],
+          "emitted": 0,
+          "observed": 0,
+          "resident": false,
+          "allocation": {
+            "observation_id": "obs-3",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9997,
+            "owned_blocks": [
+              1
+            ],
+            "other_allocated_blocks": 1
+          },
+          "replay_until": 0,
+          "seen_prompt": [
+            0,
+            1
+          ],
+          "prompt_work": 2,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": {
+            "domain": "fixture-host-monotonic",
+            "seconds": 2.0,
+            "category": "host_control"
+          },
+          "disposition": "COMPLETE",
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 7,
+        "kind": "ack",
+        "request_id": "app-b",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 2.0,
+          "category": "host_control"
+        },
+        "data": {
+          "ack": {
+            "plan_id": "b0/b",
+            "epoch": 0,
+            "start": 0,
+            "executed_end": 3,
+            "samples": [
+              42
+            ],
+            "success": true,
+            "quiescent": true,
+            "allocation": {
+              "observation_id": "obs-4",
+              "pool_id": "native-pool-0",
+              "total_blocks": 10000,
+              "system_blocks": 1,
+              "free_blocks": 9997,
+              "owned_blocks": [
+                2
+              ],
+              "other_allocated_blocks": 1
+            }
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-b",
+            "engine_id": "b",
+            "prompt_tokens": 3,
+            "output_limit": 1,
+            "prompt_digest": "33434474faf8caf709337f8f06e15f6b9126e97e876097c286d8e0864041fc6a",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "TERMINAL",
+          "epoch": 0,
+          "acknowledged": 3,
+          "planned": 3,
+          "pending": null,
+          "generated": [
+            42
+          ],
+          "emitted": 0,
+          "observed": 0,
+          "resident": false,
+          "allocation": {
+            "observation_id": "obs-4",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9997,
+            "owned_blocks": [
+              2
+            ],
+            "other_allocated_blocks": 1
+          },
+          "replay_until": 0,
+          "seen_prompt": [
+            0,
+            1,
+            2
+          ],
+          "prompt_work": 3,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": {
+            "domain": "fixture-host-monotonic",
+            "seconds": 2.0,
+            "category": "host_control"
+          },
+          "disposition": "COMPLETE",
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 8,
+        "kind": "release",
+        "request_id": "app-a",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 2.0,
+          "category": "host_control"
+        },
+        "data": {
+          "allocation": {
+            "observation_id": "obs-5",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9999,
+            "owned_blocks": [],
+            "other_allocated_blocks": 0
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-a",
+            "engine_id": "a",
+            "prompt_tokens": 2,
+            "output_limit": 1,
+            "prompt_digest": "b4851da6826ed11118b62811bd2dd033d5cc940d2e9ad1c530dde72b06a7f28c",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "TERMINAL",
+          "epoch": 0,
+          "acknowledged": 2,
+          "planned": 2,
+          "pending": null,
+          "generated": [
+            41
+          ],
+          "emitted": 0,
+          "observed": 0,
+          "resident": false,
+          "allocation": {
+            "observation_id": "obs-5",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9999,
+            "owned_blocks": [],
+            "other_allocated_blocks": 0
+          },
+          "replay_until": 0,
+          "seen_prompt": [
+            0,
+            1
+          ],
+          "prompt_work": 2,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": {
+            "domain": "fixture-host-monotonic",
+            "seconds": 2.0,
+            "category": "host_control"
+          },
+          "disposition": "COMPLETE",
+          "pending_disposition": null
+        }
+      },
+      {
+        "sequence": 9,
+        "kind": "release",
+        "request_id": "app-b",
+        "stamp": {
+          "domain": "fixture-host-monotonic",
+          "seconds": 2.0,
+          "category": "host_control"
+        },
+        "data": {
+          "allocation": {
+            "observation_id": "obs-6",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9999,
+            "owned_blocks": [],
+            "other_allocated_blocks": 0
+          }
+        },
+        "after": {
+          "spec": {
+            "request_id": "app-b",
+            "engine_id": "b",
+            "prompt_tokens": 3,
+            "output_limit": 1,
+            "prompt_digest": "33434474faf8caf709337f8f06e15f6b9126e97e876097c286d8e0864041fc6a",
+            "arrival": {
+              "domain": "fixture-host-monotonic",
+              "seconds": 0.0,
+              "category": "host_control"
+            },
+            "metadata": []
+          },
+          "state": "TERMINAL",
+          "epoch": 0,
+          "acknowledged": 3,
+          "planned": 3,
+          "pending": null,
+          "generated": [
+            42
+          ],
+          "emitted": 0,
+          "observed": 0,
+          "resident": false,
+          "allocation": {
+            "observation_id": "obs-6",
+            "pool_id": "native-pool-0",
+            "total_blocks": 10000,
+            "system_blocks": 1,
+            "free_blocks": 9999,
+            "owned_blocks": [],
+            "other_allocated_blocks": 0
+          },
+          "replay_until": 0,
+          "seen_prompt": [
+            0,
+            1,
+            2
+          ],
+          "prompt_work": 3,
+          "repeated_prompt_work": 0,
+          "retained_output_work": 0,
+          "decode_work": 0,
+          "discarded_samples": [],
+          "first_sample": {
+            "domain": "fixture-host-monotonic",
+            "seconds": 2.0,
+            "category": "host_control"
+          },
+          "disposition": "COMPLETE",
+          "pending_disposition": null
+        }
+      }
+    ],
+    "faults": []
+  }
+}

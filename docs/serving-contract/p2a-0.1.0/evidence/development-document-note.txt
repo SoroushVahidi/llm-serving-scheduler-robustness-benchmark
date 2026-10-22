@@ -1,0 +1,1 @@
+Initial document checker ran before linked evidence existed. Metadata inventory also encountered absent optional wheel distribution metadata (offline builds succeeded using installed setuptools). Creation order corrected and absent optional distribution recorded without installing packages. No source or test expectations changed.

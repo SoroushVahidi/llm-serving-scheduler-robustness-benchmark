@@ -1,0 +1,58 @@
+{
+  "schema": "lssp-p2a-implementation/0.1.0",
+  "baseline_commit": "810b987dd873215d1a872eca83fd5c50770ca434",
+  "branch": "research/lssp-v2-p2a-native-boundary",
+  "journal_schema": "lssp-p2a-boundary/0.1.0",
+  "vllm_release_commit": "6e448d0ea9bf3d88d898b65449ca6dc2aec170ac",
+  "slai_revision": "5098a7aba05e3edbcfa3a509d6cc9cd248fc4380",
+  "counts": {
+    "existing": 415,
+    "new": 93,
+    "passed": 508,
+    "failed": 0,
+    "skipped": 0
+  },
+  "test_nodes_sha256": "21f78d87646247ed9d137a6804f634ac56facc880279bb33b1e3235abdab4064",
+  "exhaustive": {
+    "cases": 216,
+    "pytest_nodes": 1,
+    "prompts": [
+      1,
+      2,
+      3
+    ],
+    "outputs": [
+      1,
+      2
+    ],
+    "budgets": [
+      2,
+      3,
+      4
+    ],
+    "active_slots": [
+      1,
+      2
+    ],
+    "requests": 2,
+    "max_steps": 10,
+    "seed": null,
+    "selection": "complete Cartesian product"
+  },
+  "decisions": {
+    "S01": "DELEGATED_P1_RETAINED",
+    "S02": "UNRESOLVED",
+    "S03": "DELEGATED_P1_RETAINED",
+    "S04": "UNRESOLVED",
+    "S05": "DELEGATED_P1_RETAINED",
+    "S06": "DELEGATED_P1_RETAINED",
+    "S07": "UNRESOLVED",
+    "S08": "UNRESOLVED"
+  },
+  "scope": "native FCFS CPU verification with synthetic ACKs; no arbitrary policy enforcement",
+  "arbitrary_policy_enforcement": "NO_GO",
+  "physical_evidence": "NOT_VERIFIED",
+  "gpu_hours": 0,
+  "mgpu06_replacement": false,
+  "ci_used": false
+}

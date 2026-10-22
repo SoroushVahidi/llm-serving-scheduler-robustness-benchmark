@@ -1,0 +1,1412 @@
+...............................................MGPU00_EVENT {"decoding": [{"class_id": "tight", "lst_s": 1.0960000000000005, "request_id": "r0", "scheduled": true}, {"class_id": "tight", "lst_s": 1.0960000000000005, "request_id": "r1", "scheduled": false}, {"class_id": "tight", "lst_s": 1.0960000000000005, "request_id": "r2", "scheduled": false}], "event": "decision_verified", "expected_tokens": {"0": 1}, "mechanism": "slai_mgpu00_checked", "monotonic_s": 1.002, "now_s": 1.002, "pid": 514153}
+MGPU00_EVENT {"class_id": "tight", "decode_limit": 1, "engine_id": "1", "event": "held", "lst_s": 1.0960000000000005, "mechanism": "slai_mgpu00_checked", "monotonic_s": 1.002, "now_s": 1.002, "pid": 514153, "request_id": "r1"}
+MGPU00_EVENT {"class_id": "tight", "decode_limit": 1, "engine_id": "2", "event": "held", "lst_s": 1.0960000000000005, "mechanism": "slai_mgpu00_checked", "monotonic_s": 1.002, "now_s": 1.002, "pid": 514153, "request_id": "r2"}
+MGPU00_EVENT {"class_id": "tight", "engine_id": "0", "event": "admitted", "mechanism": "slai_mgpu00_checked", "monotonic_s": 1.002, "pid": 514153, "request_id": "r0"}
+MGPU00_EVENT {"event": "scheduled", "mechanism": "slai_mgpu00_checked", "monotonic_s": 1.002, "pid": 514153, "request_ids": {"0": "r0"}, "tokens": {"0": 1}}
+MGPU00_EVENT {"actual": {}, "event": "semantic_mismatch", "expected": {"0": 1}, "mechanism": "slai_mgpu00_checked", "monotonic_s": 1.002, "pid": 514153}
+................{"stage": "python_module_imports_started", "time_ns": 1792631929056233513}
+{"stage": "python_module_imports_finished", "time_ns": 1792631929056334504}
+.{"stage": "python_module_imports_started", "time_ns": 1792631929070112772}
+{"stage": "python_module_imports_finished", "time_ns": 1792631929070147702}
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=4096.
+WARNING 10-21 21:18:49 [vllm.py:1194] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 10-21 21:18:49 [vllm.py:1247] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:49 [vllm.py:1426] Cudagraph is disabled under eager mode
+INFO 10-21 21:18:49 [compilation.py:329] Enabled custom fusions: norm_quant, act_quant
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.........{"stage": "python_module_imports_started", "time_ns": 1792631929378847082}
+{"stage": "python_module_imports_finished", "time_ns": 1792631929378871313}
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:49 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:49 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:49 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+..INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.......INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=128.
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:50 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (512). This may lead to unexpected behavior.
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:50 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (512). This may lead to unexpected behavior.
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:50 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:50 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:50 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:50 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:50 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:50 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:50 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:50 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:51 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:51 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:51 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:51 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (2560). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (1536). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (1536). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (1536). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+WARNING 10-21 21:18:52 [scheduler.py:271] max_num_batched_tokens (4096) exceeds max_num_seqs * max_model_len (1536). This may lead to unexpected behavior.
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:52 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:52 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:52 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.....INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:53 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:53 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:53 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+........................................................................INFO 10-21 21:18:54 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:54 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:54 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:54 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:54 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:54 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:54 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:54 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:54 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+MGPU05_EVENT {"clock_domain": {"boot_id": "7c320bda-dd5c-4886-ba01-99f08275fa52", "clock": "CLOCK_MONOTONIC", "host": "al-khwarizmi", "time_namespace": "time:[4026531834]"}, "kind": "measurement_contract", "mechanism": "native_fcfs", "provenance": "synthetic_test", "schema": "mgpu05-v1", "seq": 0, "time_s": 5452609.653805176}
+INFO 10-21 21:18:54 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:54 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:54 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+MGPU05_EVENT {"clock_domain": {"boot_id": "7c320bda-dd5c-4886-ba01-99f08275fa52", "clock": "CLOCK_MONOTONIC", "host": "al-khwarizmi", "time_namespace": "time:[4026531834]"}, "kind": "measurement_contract", "mechanism": "native_fcfs", "provenance": "synthetic_test", "schema": "mgpu05-v1", "seq": 0, "time_s": 5452609.682279895}
+MGPU05_EVENT {"boundary": "scheduler_add_request_entry_not_HTTP_ingress", "engine_id": "r0", "kind": "request_received", "mechanism": "native_fcfs", "metadata": {"lssp_arrival_s": 0.0, "lssp_class_id": "tight", "lssp_deadline_s": 30.0, "lssp_ordinal": 0, "lssp_request_id": "r0", "lssp_schema": "mgpu00-v1", "lssp_weight": 1.0}, "observed_s": 5452609.682324835, "output_limit": 8, "prompt_sha256": "d5fe838d62af6f31b30892695472044c0ff3233aa4f2f314b2c466fb0f3c56da", "prompt_tokens": 128, "request_id": "r0", "seq": 1, "time_s": 5452609.682353264}
+MGPU05_EVENT {"boundary": "host_runner_output_callback_not_GPU_generation_or_HTTP_emission", "kind": "runner_tokens", "mechanism": "native_fcfs", "observed_s": 5452609.682444596, "request_ids": {"r0": "r0"}, "seq": 2, "step": 1, "time_s": 5452609.682467424, "token_ids": {"r0": [42]}}
+.INFO 10-21 21:18:54 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:54 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:54 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+MGPU05_EVENT {"clock_domain": {"boot_id": "7c320bda-dd5c-4886-ba01-99f08275fa52", "clock": "CLOCK_MONOTONIC", "host": "al-khwarizmi", "time_namespace": "time:[4026531834]"}, "kind": "measurement_contract", "mechanism": "slai_mgpu00_checked", "provenance": "synthetic_test", "schema": "mgpu05-v1", "seq": 0, "time_s": 5452609.716029788}
+INFO 10-21 21:18:54 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:54 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:54 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+MGPU05_EVENT {"clock_domain": {"boot_id": "7c320bda-dd5c-4886-ba01-99f08275fa52", "clock": "CLOCK_MONOTONIC", "host": "al-khwarizmi", "time_namespace": "time:[4026531834]"}, "kind": "measurement_contract", "mechanism": "slai_mgpu00_checked", "provenance": "synthetic_test", "schema": "mgpu05-v1", "seq": 0, "time_s": 5452609.744476014}
+MGPU05_EVENT {"boundary": "scheduler_add_request_entry_not_HTTP_ingress", "engine_id": "r0", "kind": "request_received", "mechanism": "slai_mgpu00_checked", "metadata": {"lssp_arrival_s": 0.0, "lssp_class_id": "tight", "lssp_deadline_s": 30.0, "lssp_ordinal": 0, "lssp_request_id": "r0", "lssp_schema": "mgpu00-v1", "lssp_weight": 1.0}, "observed_s": 5452609.744519111, "output_limit": 8, "prompt_sha256": "d5fe838d62af6f31b30892695472044c0ff3233aa4f2f314b2c466fb0f3c56da", "prompt_tokens": 128, "request_id": "r0", "seq": 1, "time_s": 5452609.744552814}
+MGPU05_EVENT {"boundary": "host_runner_output_callback_not_GPU_generation_or_HTTP_emission", "kind": "runner_tokens", "mechanism": "slai_mgpu00_checked", "observed_s": 5452609.744645046, "request_ids": {"r0": "r0"}, "seq": 2, "step": 1, "time_s": 5452609.744673071, "token_ids": {"r0": [42]}}
+.INFO 10-21 21:18:54 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:54 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:54 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.............................................................................................................................................................................EXHAUSTIVE P=1 O=1 max_preemptions=2 histories=3 max_events=11 seed=none
+.EXHAUSTIVE P=1 O=2 max_preemptions=2 histories=11 max_events=18 seed=none
+.EXHAUSTIVE P=2 O=1 max_preemptions=2 histories=14 max_events=17 seed=none
+.EXHAUSTIVE P=2 O=2 max_preemptions=2 histories=70 max_events=24 seed=none
+.EXHAUSTIVE P=3 O=1 max_preemptions=1 histories=20 max_events=17 seed=none
+.EXHAUSTIVE P=3 O=2 max_preemptions=1 histories=52 max_events=22 seed=none
+.INFO 10-21 21:18:55 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:55 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:55 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:55 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:55 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:55 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:55 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:55 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:55 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:55 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:55 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:55 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:55 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:55 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:55 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:56 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:56 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:56 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:57 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:57 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:57 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:58 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:58 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:58 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:18:59 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:18:59 [model.py:1883] Using max model len 512
+INFO 10-21 21:18:59 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:00 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:00 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:00 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=2.
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=3.
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=4.
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:01 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:01 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:01 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:02 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:02 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:02 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:05 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:05 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:05 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:06 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:06 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:06 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:07 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:07 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:07 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:07 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:07 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:07 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:07 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:07 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:07 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:07 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:07 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:07 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:07 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:07 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:07 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:07 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:07 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:07 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:07 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:07 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:07 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:07 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:07 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:07 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:08 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:08 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:08 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:08 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:08 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:08 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:08 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:08 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:08 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:08 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:08 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:08 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:08 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:08 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:08 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:08 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:08 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:08 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:08 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:08 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:08 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:08 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:08 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:08 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:09 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:09 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:09 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:10 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:10 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:10 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:11 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:11 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:11 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:11 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:11 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:11 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:11 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:11 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:11 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:11 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:11 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:11 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:11 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:11 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:11 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:11 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:11 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:11 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:11 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:11 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:11 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:11 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:11 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:11 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:12 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:12 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:12 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:13 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:13 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:13 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:13 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:13 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:13 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:13 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:13 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:13 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:13 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:13 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:13 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:13 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:13 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:13 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:13 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:13 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:13 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:13 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:13 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:13 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:13 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:13 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:13 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:14 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:14 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:14 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:14 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:14 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:14 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:14 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:14 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:14 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:14 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:14 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:14 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:14 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:14 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:14 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:14 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:14 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:14 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:14 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:14 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:14 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:14 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:14 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:14 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:15 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:15 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:15 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:16 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:16 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:16 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:17 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:17 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:17 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:17 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:17 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:17 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:17 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:17 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:17 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:17 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:17 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:17 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:17 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:17 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:17 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:17 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:17 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:17 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:17 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:17 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:17 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:18 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:18 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:18 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:19 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:19 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:19 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:20 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:20 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:20 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:20 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:20 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:20 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:20 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:20 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:20 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:20 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:20 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:20 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:20 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:20 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:20 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:20 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:20 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:20 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:20 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:20 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:20 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:21 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:21 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:21 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:22 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:22 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:22 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:22 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:22 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:22 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:22 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:22 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:22 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:22 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:22 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:22 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:22 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:22 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:22 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:22 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:22 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:22 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:22 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:22 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:22 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:22 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:22 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:22 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:23 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:23 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:23 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:24 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:24 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:24 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:24 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:24 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:24 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:24 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:24 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:24 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:24 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:24 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:24 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:24 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:24 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:24 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:24 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:24 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:24 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:24 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:24 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:24 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:24 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:24 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:24 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:25 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:25 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:25 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:25 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:25 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:25 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:25 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:25 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:25 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:25 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:25 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:25 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:25 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:25 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:25 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:25 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:25 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:25 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:25 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:25 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:25 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:25 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:25 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:25 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:26 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:26 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:26 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+FINFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:19:27 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:19:27 [model.py:1883] Using max model len 512
+INFO 10-21 21:19:27 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+...
+=================================== FAILURES ===================================
+__________________ test_unsupported_configuration[<lambda>7] ___________________
+
+native_factory = <function native_factory.<locals>.make at 0x7c8dc2498540>
+mutator = <function <lambda> at 0x7c8dc4806980>
+
+    @pytest.mark.parametrize('mutator',[
+        lambda c:setattr(c.scheduler_config,'policy','priority'),
+        lambda c:setattr(c.scheduler_config,'async_scheduling',True),
+        lambda c:setattr(c.scheduler_config,'long_prefill_token_threshold',1),
+        lambda c:setattr(c.cache_config,'enable_prefix_caching',True),
+        lambda c:setattr(c.parallel_config,'tensor_parallel_size',2),
+        lambda c:setattr(c.parallel_config,'data_parallel_size',2),
+        lambda c:setattr(c.parallel_config,'pipeline_parallel_size',2),
+        lambda c:setattr(c,'use_v2_model_runner',False),
+    ])
+    def test_unsupported_configuration(native_factory,mutator):
+        s=native_factory()
+>       mutator(s.vllm_config)
+
+tests/serving_v2_p2a/test_boundary.py:362: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+c = VllmConfig(model_config=ModelConfig(model='/home/soroush/repos/llm-serving-scheduler-lssp-v2-p2a/tests/mgpu02/qwen-con...mization_level=<OptimizationLevel.O2: 2>, performance_mode='balanced', weight_transfer_config=None, shutdown_timeout=0)
+
+>       lambda c:setattr(c,'use_v2_model_runner',False),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ])
+E   AttributeError: property 'use_v2_model_runner' of 'VllmConfig' object has no setter
+
+tests/serving_v2_p2a/test_boundary.py:358: AttributeError
+=============================== warnings summary ===============================
+../../modal-venv/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/soroush/modal-venv/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/serving_v2_p2a/test_boundary.py::test_unsupported_configuration[<lambda>7]
+1 failed, 506 passed, 14 warnings in 45.18s
