@@ -1,0 +1,32 @@
+{
+  "state": "RUNNING_HEALTHY",
+  "observed_at_utc": "2026-10-22T15:38:48.675240+00:00",
+  "job_id": "1440402",
+  "run_id": "c01-full-167b9074e5711420",
+  "deployment": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-c01-full-20261022",
+  "squeue": "1440402|lssp-c01-full|RUNNING|n0006|0:52|9:00:00|1|4G",
+  "sacct": "JobID|JobName|State|Submit|Start|End|Elapsed|ExitCode|AllocCPUS|ReqMem\n1440402|lssp-c01-full|RUNNING|2026-10-22T15:37:41|2026-10-22T15:37:56|Unknown|00:00:00|0:0|1|4G\n",
+  "monitoring_seconds": 67.67524,
+  "checkpoint_path": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-c01-full-20261022/runs/c01-full-167b9074e5711420/checkpoint.json",
+  "checkpoint_status": "RUNNING",
+  "validated_so_far": 300,
+  "reused_so_far": 48,
+  "new_so_far": 252,
+  "checkpoint_updated": "2026-10-22T15:38:47.263232+00:00",
+  "stdout": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-c01-full-20261022/logs/c01-full-167b9074e5711420-1440402.out",
+  "stderr": "/project/ikoutis/sv96/github/llm-serving-scheduler-lssp-c01-full-20261022/logs/c01-full-167b9074e5711420-1440402.err",
+  "stdout_tail": [
+    "{\"event\": \"CELL_VALIDATED\", \"key\": \"burstgpt::burstgpt_stage0_w06::PRE_KNEE::kv131072::chunked_fcfs_c01\", \"origin\": \"FULL\", \"count\": 298, \"time\": \"2026-10-22T15:38:44.216046+00:00\"}",
+    "{\"event\": \"CELL_START\", \"key\": \"burstgpt::burstgpt_stage0_w06::PRE_KNEE::kv131072::decode_first_c01\", \"time\": \"2026-10-22T15:38:44.216541+00:00\"}",
+    "{\"event\": \"CELL_VALIDATED\", \"key\": \"burstgpt::burstgpt_stage0_w06::PRE_KNEE::kv131072::decode_first_c01\", \"origin\": \"FULL\", \"count\": 299, \"time\": \"2026-10-22T15:38:45.648054+00:00\"}",
+    "{\"event\": \"CELL_START\", \"key\": \"burstgpt::burstgpt_stage0_w06::PRE_KNEE::kv131072::slo_gated_c01\", \"time\": \"2026-10-22T15:38:45.668557+00:00\"}",
+    "{\"event\": \"CELL_VALIDATED\", \"key\": \"burstgpt::burstgpt_stage0_w06::PRE_KNEE::kv131072::slo_gated_c01\", \"origin\": \"FULL\", \"count\": 300, \"time\": \"2026-10-22T15:38:47.266832+00:00\"}",
+    "{\"event\": \"CELL_START\", \"key\": \"burstgpt::burstgpt_stage0_w06::PRE_KNEE::kv262144::whole_fcfs_c01\", \"time\": \"2026-10-22T15:38:47.267380+00:00\"}",
+    "{\"event\": \"CELL_VALIDATED\", \"key\": \"burstgpt::burstgpt_stage0_w06::PRE_KNEE::kv262144::whole_fcfs_c01\", \"origin\": \"FULL\", \"count\": 301, \"time\": \"2026-10-22T15:38:48.041680+00:00\"}",
+    "{\"event\": \"CELL_START\", \"key\": \"burstgpt::burstgpt_stage0_w06::PRE_KNEE::kv262144::chunked_fcfs_c01\", \"time\": \"2026-10-22T15:38:48.042203+00:00\"}"
+  ],
+  "stderr_tail": [],
+  "failure_records": [],
+  "monitoring_stopped": true,
+  "note": "Initial scheduler snapshot coincided with job start, before Python initialization; this is the single bounded application-health check. sacct is the preserved initial accounting snapshot."
+}

@@ -1,0 +1,26 @@
+{
+  "time_utc": "2026-10-22T15:16:03.256238+00:00",
+  "pilot_validated": 144,
+  "full_planned": 5760,
+  "new_required": 5616,
+  "invalidated": 0,
+  "equivalent_queued_or_active_found": false,
+  "search_scope": [
+    "local C01 worktree, named scheduler worktrees and cache",
+    "Git history and branches matching C01/common-model/full-corpus",
+    "GitHub PRs 1 through 14, including PR11 head and draft description",
+    "Wulver project github directories matching C01/common-model/full",
+    "squeue C01/common-model names; sacct matching jobs since 2026-10-20",
+    "inherited C01 reuse audit of historical/module/native experiments"
+  ],
+  "matching_slurm_record": "1438638|lssp-c01-cm-pilot|COMPLETED|2026-10-22T03:49:50|2026-10-22T03:49:51|2026-10-22T03:51:40",
+  "stat01": "not queried, touched or awaited",
+  "full_input_sha256": "a77bf5420ca8a55c3765919dbf42e774794f471da6ff404d0ad19a53c43a8c8c",
+  "pilot_execution_commit": "9aed0206de66886e9feb0b003b59f0b7dfea68c9",
+  "pilot_pr_head": "5ed2929d6012460ac43fd21730abd05ea45f9dcc",
+  "manifest_verified_windows": 120,
+  "requests_per_window": 200,
+  "matching_pilot_conditions": 18,
+  "row_coordinate_overlap_pairs": 0,
+  "limits": "No claim about inaccessible projects; equal source hashes/coordinates do not imply independent windows. Searches found no equivalent campaign."
+}
