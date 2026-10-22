@@ -1,0 +1,14 @@
+[
+  {
+    "file": "lssp-m3-rc1-20261022-evidence.tar.gz",
+    "bytes": 2597049129,
+    "sha256": "9543ed38051c95a3b781dd0bc1086e049d4d08b56aa0ad7e06d603dc93457e9b",
+    "uncompressed_file_bytes": 3280519268,
+    "files": 34006
+  },
+  {
+    "file": "lssp-m3-rc1-20261022-upstream-sources.tar.gz",
+    "bytes": 337808093,
+    "sha256": "a6d3ef2647492e79c580ab85eecf6cd47a9107d33ac4dc08757bda0900077853"
+  }
+]

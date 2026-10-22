@@ -1,0 +1,12 @@
+{
+  "manuscript": {
+    "pages": 22,
+    "bytes": 716931,
+    "sha256": "f78319d933c7d54044dd2e492917fa98821b225ed94e50366f19303259d2de81"
+  },
+  "acmsmall": {
+    "pages": 23,
+    "bytes": 715867,
+    "sha256": "947e7dc2d58d2d20c6eae4fe8ff512148e5d64b77fc14aa978fd3d5d85b2d822"
+  }
+}

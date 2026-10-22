@@ -1,0 +1,320 @@
+{
+  "local_repository": "/home/soroush/frontier-allocation-for-budgeted-llm-inference",
+  "local_commit": "87ecfacb97fdce519bb309c14d66eb909a758a4d",
+  "authority": "Local source identity only; uploaded version unverified. Editorial status supplied by user correspondence review.",
+  "files": {
+    "paper_performance_evaluation/main.tex": {
+      "sha256": "007801f18148047a0c5dc022fb6b79cce333e9b1279056c2f6e2961eca9c2d90",
+      "bytes": 4344
+    },
+    "paper_performance_evaluation/sections/01_introduction.tex": {
+      "sha256": "2dae96c0df76200a5df2fa2dbbecf0d8f14bda49ce8938ec00ab10a50bf32092",
+      "bytes": 6196
+    },
+    "paper_performance_evaluation/sections/02_related_work.tex": {
+      "sha256": "0eb737495e6181ea9cdfef87a1aa80f4cfdaa0c6ea86648244a4d411093dfee0",
+      "bytes": 5927
+    },
+    "paper_performance_evaluation/sections/03_problem_formulation.tex": {
+      "sha256": "610d00d8280c14a7ea3c54a3e3279580cfe6ff5509a06addafacc6b1df2b862a",
+      "bytes": 4079
+    },
+    "paper_performance_evaluation/sections/04_method.tex": {
+      "sha256": "31bb15a6f2dd69985aada460608609af18e5c256365a332438f85388bff9102b",
+      "bytes": 3720
+    },
+    "paper_performance_evaluation/sections/05_experimental_setup.tex": {
+      "sha256": "b4dc92eb23227cf68d9e1b9c4f1c350de670593c2641e514c0ca4014e53783a9",
+      "bytes": 4226
+    },
+    "paper_performance_evaluation/sections/06_main_results.tex": {
+      "sha256": "1a96c211f119449fb552c6962f1024e94f9e1620848014aea80bf35268993dd6",
+      "bytes": 3996
+    },
+    "paper_performance_evaluation/sections/07_search_vs_selection.tex": {
+      "sha256": "fe0a336c3db0f5ea0dd7e4b88f5670a5fe0a9ef41e86e143efa6120736247949",
+      "bytes": 5395
+    },
+    "paper_performance_evaluation/sections/08_provider_analysis.tex": {
+      "sha256": "f6ff988d06d1bb61cfe5df94c70accf60fdebf5a377a6bcdd8b904c14ea453ad",
+      "bytes": 2611
+    },
+    "paper_performance_evaluation/sections/09_compute_accounting.tex": {
+      "sha256": "8ca257281352be44ec210fa208304d38c1d8cd053a4054d5ac93fc271c6e4385",
+      "bytes": 3657
+    },
+    "paper_performance_evaluation/sections/10_ablations.tex": {
+      "sha256": "5d34b9fd8aaa84670c08610b7ece2435598a075d06d8633d2e4a2fcba363c2d3",
+      "bytes": 1426
+    },
+    "paper_performance_evaluation/sections/11_limitations.tex": {
+      "sha256": "664f865d53b6e50bb396f431fcd71934fe7276cd1cd1a1c19ac373fb1412804f",
+      "bytes": 1732
+    },
+    "paper_performance_evaluation/sections/12_discussion.tex": {
+      "sha256": "ffc1331c5a2335de563a061ea3da1ce783efd321606b851572c5603e74bda4c1",
+      "bytes": 2569
+    },
+    "paper_performance_evaluation/sections/13_conclusion.tex": {
+      "sha256": "ada00a8fa9ebd101cbd37dbc15796e205196e0816b0a3c3ad47e1b5cbefd67f8",
+      "bytes": 1075
+    },
+    "paper_performance_evaluation/sections/appendix.tex": {
+      "sha256": "b740c1d5b31c87383eb21110ca569381c62eccc57bfad8829dc8b948fb62bdfc",
+      "bytes": 10244
+    },
+    "paper_performance_evaluation/tables/table1_main_4x4_matrix.tex": {
+      "sha256": "09388e6bd94cf8162f95a8d614d06364e6f0ba51070cc5b6036e2b13088cdfba",
+      "bytes": 1953
+    },
+    "paper_performance_evaluation/tables/table2_provider_fix_analysis.tex": {
+      "sha256": "0b0d2dbe48f59cc7ad33027a5e0fcfeb4edd4fdf8d59511a34742424e97120aa",
+      "bytes": 922
+    },
+    "paper_performance_evaluation/tables/table3_resource_accounting.tex": {
+      "sha256": "0fcfba9d47d0e97e83b7673acb5adcdc6bca33ff4d7215a7f932a7fc022fc54c",
+      "bytes": 1155
+    },
+    "paper_performance_evaluation/tables/table4_baseline_fidelity.tex": {
+      "sha256": "555fb12a1fc9dcc20edcf9654e4b75fed6fa01c51306356f1f0333d80679062c",
+      "bytes": 1138
+    },
+    "paper_performance_evaluation/tables/table5_compute_matched_phase7.tex": {
+      "sha256": "45f1e57cc140b053c7e47529dd4d425c60f3e17cda62d78c6bbec8a00a0665e5",
+      "bytes": 1285
+    },
+    "paper_performance_evaluation/tables/table6_heldout_selector_phase8.tex": {
+      "sha256": "4cd425e1ac48642dc9d37e0cf6e900fac55ea4a82ec5fc14744105120fcc93db",
+      "bytes": 576
+    },
+    "paper_performance_evaluation/tables/table7_historical_component_ablation.tex": {
+      "sha256": "83078b8a211a57bbe79d40e979a0c0c24ee66e9b23c9c72159e4548681d6c97e",
+      "bytes": 691
+    },
+    "paper_performance_evaluation/tables/table8_non_math_pilot.tex": {
+      "sha256": "f1ff874c79cf72f240aac97eeaa2fcd89dc15beceb5d2a562747587eff64fdfa",
+      "bytes": 1168
+    },
+    "paper_performance_evaluation/tables/table9_accounting_status.tex": {
+      "sha256": "3bacc87b883d4c4a71b301e23155a3baac3975402703907cb15a9575c838cb8e",
+      "bytes": 1073
+    },
+    "paper_performance_evaluation/SUBMISSION_PACKAGE_MANIFEST.md": {
+      "sha256": "7c22c73a9af77a7d4ffb55d9ce361fad361338da9039ae600e2b181e00074a75",
+      "bytes": 4866
+    }
+  },
+  "package_comparison": {
+    "main.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/01_introduction.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/02_related_work.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/03_problem_formulation.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "sections/04_method.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/05_experimental_setup.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/06_main_results.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/07_search_vs_selection.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/08_provider_analysis.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/09_compute_accounting.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/10_ablations.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "sections/11_limitations.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/12_discussion.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/13_conclusion.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "sections/appendix.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "tables/table1_main_4x4_matrix.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "tables/table2_provider_fix_analysis.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "tables/table3_resource_accounting.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "tables/table4_baseline_fidelity.tex": {
+      "packaged_exists": true,
+      "same_bytes": false
+    },
+    "tables/table5_compute_matched_phase7.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "tables/table6_heldout_selector_phase8.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "tables/table7_historical_component_ablation.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "tables/table8_non_math_pilot.tex": {
+      "packaged_exists": true,
+      "same_bytes": true
+    },
+    "tables/table9_accounting_status.tex": {
+      "packaged_exists": false,
+      "same_bytes": null
+    }
+  },
+  "local_packaged_files": {
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/01_introduction.tex": {
+      "sha256": "ef780d8a797fb69008641abc6d469ed6c8eb5d7cc3d709c021b389f6351f8711",
+      "bytes": 3785
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/02_related_work.tex": {
+      "sha256": "d66cb8381bd52e8f17a4d93779a54b807bd743d2899a02632cccb20b5395aece",
+      "bytes": 5462
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/03_problem_formulation.tex": {
+      "sha256": "610d00d8280c14a7ea3c54a3e3279580cfe6ff5509a06addafacc6b1df2b862a",
+      "bytes": 4079
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/04_method.tex": {
+      "sha256": "d6cf01277e87975aadca7220bc3dd5a77485c7ad3e218d09c818d6f4cc333393",
+      "bytes": 3555
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/05_experimental_setup.tex": {
+      "sha256": "806ed99a32924327ca1a423382b2341028cc9c55d7344082df0a53b2e536f0b9",
+      "bytes": 3981
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/06_main_results.tex": {
+      "sha256": "aa601f0bf6d7d506d41aeed73ff97fbe84a69b1afef152a028ebc8cc3ff9309a",
+      "bytes": 3982
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/07_search_vs_selection.tex": {
+      "sha256": "40c736c86efe754960392e83a55e4a1a2219254db1b4d4e75a663e9db372cd48",
+      "bytes": 5080
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/08_provider_analysis.tex": {
+      "sha256": "f2fb8b3580f912a69b25476cfa7002e240c4d3aa96795830f968bd5c40d151cc",
+      "bytes": 2141
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/09_compute_accounting.tex": {
+      "sha256": "e96125b9a91829e3a28de8d6fa8141dd9fa14bda476390448fad8bfec55cffc1",
+      "bytes": 3043
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/10_ablations.tex": {
+      "sha256": "5d34b9fd8aaa84670c08610b7ece2435598a075d06d8633d2e4a2fcba363c2d3",
+      "bytes": 1426
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/11_limitations.tex": {
+      "sha256": "817b4bf7290f75516a1b11ff915490bb2dcef8c6fd9ca2c76e5752d47dddb470",
+      "bytes": 1686
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/12_discussion.tex": {
+      "sha256": "2f1e3a6cc97df121b5a3fa0b045f9b2095db8c15e97af3c6b27b8e6963793a17",
+      "bytes": 1709
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/13_conclusion.tex": {
+      "sha256": "f6d05b1fc1c25aa4a24cbce2ec0855dcc69808d97fb33a8724c90889c7fe3f1f",
+      "bytes": 507
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/appendix.tex": {
+      "sha256": "b740c1d5b31c87383eb21110ca569381c62eccc57bfad8829dc8b948fb62bdfc",
+      "bytes": 10244
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/figure1_protocol_schematic.tex": {
+      "sha256": "ffac85e6dd0f76d75e6594d79ba303b673eccb07ca66f32d856b81c5977d77a6",
+      "bytes": 1410
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/figure1_protocol_schematic_standalone.tex": {
+      "sha256": "94f78fdd80cd6d2ec12c1d1b7e96c157838395dce5f5f1006ffb3eeaba42a4e0",
+      "bytes": 174
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/main.tex": {
+      "sha256": "eb3fbae790e8b4274fe1f165d9b12283ce3c0ec547088925014749e9ff6ee60d",
+      "bytes": 4215
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/main_with_titlepage.tex": {
+      "sha256": "479983d6de50d9669fee0e1eb13470d6395e1b001324d3afa3e484fb5868d12f",
+      "bytes": 3971
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/table1_main_4x4_matrix.tex": {
+      "sha256": "09388e6bd94cf8162f95a8d614d06364e6f0ba51070cc5b6036e2b13088cdfba",
+      "bytes": 1953
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/table2_provider_fix_analysis.tex": {
+      "sha256": "0b0d2dbe48f59cc7ad33027a5e0fcfeb4edd4fdf8d59511a34742424e97120aa",
+      "bytes": 922
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/table3_resource_accounting.tex": {
+      "sha256": "0fcfba9d47d0e97e83b7673acb5adcdc6bca33ff4d7215a7f932a7fc022fc54c",
+      "bytes": 1155
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/table4_baseline_fidelity.tex": {
+      "sha256": "7ec7b267e089707b3c7d6e797e3b4104c1fe7ddae7501e54f3ce93caf80c7c2e",
+      "bytes": 896
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/table5_compute_matched_phase7.tex": {
+      "sha256": "45f1e57cc140b053c7e47529dd4d425c60f3e17cda62d78c6bbec8a00a0665e5",
+      "bytes": 1285
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/table6_heldout_selector_phase8.tex": {
+      "sha256": "4cd425e1ac48642dc9d37e0cf6e900fac55ea4a82ec5fc14744105120fcc93db",
+      "bytes": 576
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/table7_historical_component_ablation.tex": {
+      "sha256": "83078b8a211a57bbe79d40e979a0c0c24ee66e9b23c9c72159e4548681d6c97e",
+      "bytes": 691
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/table8_non_math_pilot.tex": {
+      "sha256": "f1ff874c79cf72f240aac97eeaa2fcd89dc15beceb5d2a562747587eff64fdfa",
+      "bytes": 1168
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/latex_flat/title_page.tex": {
+      "sha256": "38a9ab01ec649e8c36813397d0dac8b41c94e822585389641c9da1816bd6c4c3",
+      "bytes": 1879
+    },
+    "paper_performance_evaluation/submission_package_pass6_20260801T135817Z/anonymous_manuscript.pdf": {
+      "sha256": "7b6565ab4f0bdd5287c5f1325b53cb8d247617b655f5f23c84ba3ae3e9110a85",
+      "bytes": 243450
+    }
+  },
+  "local_worktree_changes_in_compared_source": []
+}

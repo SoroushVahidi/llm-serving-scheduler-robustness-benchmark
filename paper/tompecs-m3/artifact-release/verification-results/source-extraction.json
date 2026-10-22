@@ -1,0 +1,26 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "clean_source_extraction": true,
+  "manifest_files_checked": 16,
+  "raw_source_files": 3,
+  "full_raw_sha256_matches": {
+    "AzureLLMInferenceTrace_conv_2024.csv": {
+      "sha256": "a0cc9b969a9bbf0fd811802cbf4323edd3a209ace791e3799ad4f9207f213941",
+      "bytes": 1135195393,
+      "upstream_name": "AzureLLMInferenceTrace_conv_1week.csv",
+      "identity": "MATCH"
+    },
+    "BurstGPT_without_fails_2.csv": {
+      "sha256": "56193aa9b2bb26128ded43d2d29a960df6bf5af062bcfc9b005f3fcaa4e6e501",
+      "bytes": 142376815,
+      "upstream_name": "BurstGPT_without_fails_2.csv",
+      "identity": "MATCH"
+    },
+    "qwen_traceB_blksz_16.jsonl": {
+      "sha256": "68e3f98e2d601d60d0abf4b89bc8a3654372abab7b1cde6373a13d0054379d59",
+      "bytes": 96209982,
+      "upstream_name": "qwen_traceB_blksz_16.jsonl",
+      "identity": "MATCH"
+    }
+  }
+}

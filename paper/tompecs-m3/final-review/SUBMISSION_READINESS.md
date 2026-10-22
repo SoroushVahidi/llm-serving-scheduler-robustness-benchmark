@@ -1,3 +1,5 @@
+> **Historical PR20 assessment (retained).** Current status, provenance, artifact and readiness findings supersede the pending questions below: [artifact-readiness assessment](../artifact-release/READINESS.md), [verified related-manuscript statuses](../artifact-release/RELATED_MANUSCRIPTS.md), and [source provenance](../artifact-release/SOURCE_PROVENANCE.md). Rejected/withdrawn dispositions no longer require confirmation. This body records what was known in the earlier review.
+
 # Submission requirements, placeholders, and author decisions
 
 Review date: **2026-10-22**. Verdict: **NOT_READY**. These are unresolved gates and decisions, not newly authorized experiments or correspondence. They supersede the original checklist where verification has advanced.

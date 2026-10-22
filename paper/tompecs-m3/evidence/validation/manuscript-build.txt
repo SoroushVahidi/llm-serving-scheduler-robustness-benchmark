@@ -4,8 +4,8 @@ entering extended mode
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./main.tex
-(/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit/paper/tompecs-m3
-/template/acmart.cls
+(/home/soroush/repos/llm-serving-scheduler-lssp-m3-artifact-readiness/paper/tom
+pecs-m3/template/acmart.cls
 Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
 n for Computing Machinery
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -363,7 +363,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--77
 [4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/us
 r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}]
 
-LaTeX Warning: Reference `fig:contract' on page 5 undefined on input line 105.
+LaTeX Warning: Reference `fig:contract' on page 5 undefined on input line 118.
 
 ) (./sections/design.tex
 
@@ -390,83 +390,88 @@ Package natbib Warning: Citation `wang2025kvcache' on page 5 undefined on input
 LaTeX Warning: Reference `tab:provenance' on page 5 undefined on input line 10.
 
 
-[5.5] [6.6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.
-enc}]) (./sections/performance.tex
+[5.5]
+Underfull \vbox (badness 10000) has occurred while \output is active [6.6])
+(./sections/performance.tex
+Underfull \vbox (badness 7081) has occurred while \output is active [7.7{/usr/s
+hare/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.enc}]
 
-LaTeX Warning: Reference `tab:absolute' on page 7 undefined on input line 11.
+LaTeX Warning: Reference `tab:absolute' on page 8 undefined on input line 11.
 
-(./tables/absolute.tex) [7.7]
+(./tables/absolute.tex)
 
 LaTeX Warning: Reference `sec:contract' on page 8 undefined on input line 42.
 
+[8.8]
 
-LaTeX Warning: Reference `fig:absolute' on page 8 undefined on input line 75.
+LaTeX Warning: Reference `fig:absolute' on page 9 undefined on input line 86.
 
-[8.8] [9.9 <./figures/absolute.pdf>]
 
-LaTeX Warning: Reference `fig:matched' on page 10 undefined on input line 84.
+LaTeX Warning: Reference `fig:matched' on page 9 undefined on input line 95.
 
-[10.10 <./figures/matched.pdf>]) (./sections/rankings.tex
+) [9.9] [10.10 <./figures/absolute.pdf>] (./sections/rankings.tex
 
 LaTeX Warning: Reference `tab:reversals' on page 11 undefined on input line 3.
 
 (./tables/reversals.tex)
+Underfull \vbox (badness 6608) has occurred while \output is active [11.11 <./f
+igures/matched.pdf>]
 
-LaTeX Warning: Reference `tab:ties' on page 11 undefined on input line 45.
+LaTeX Warning: Reference `tab:ties' on page 12 undefined on input line 51.
 
-(./tables/ties.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active [11.11]
+(./tables/ties.tex) [12.12]
 
-LaTeX Warning: Reference `fig:chronology' on page 12 undefined on input line 84
+LaTeX Warning: Reference `fig:chronology' on page 13 undefined on input line 90
 .
 
-) [12.12] (./sections/inference.tex
+) (./sections/inference.tex [13.13 <./figures/chronology.pdf>]
 
-Package natbib Warning: Citation `benjamini1995' on page 13 undefined on input
+Package natbib Warning: Citation `benjamini1995' on page 14 undefined on input
 line 30.
 
 
-Package natbib Warning: Citation `benjamini2001dependency' on page 13 undefined
+Package natbib Warning: Citation `benjamini2001dependency' on page 14 undefined
  on input line 30.
 
 
-LaTeX Warning: Reference `app:stat' on page 13 undefined on input line 39.
+LaTeX Warning: Reference `app:stat' on page 14 undefined on input line 39.
 
-(./tables/calibration.tex) [13.13 <./figures/chronology.pdf>]
+(./tables/calibration.tex)
 
 LaTeX Warning: Reference `tab:calibration' on page 14 undefined on input line 5
 2.
 
-) (./sections/discussion.tex [14.14]
+
+Underfull \vbox (badness 1320) has occurred while \output is active [14.14])
+(./sections/discussion.tex
 
 Package natbib Warning: Citation `sargent2013' on page 15 undefined on input li
-ne 27.
+ne 34.
 
-) (./sections/declarations.tex
-Underfull \vbox (badness 5563) has occurred while \output is active [15.15])
+[15.15]) (./sections/declarations.tex [16.16])
 No file m3-manuscript.bbl.
-[16.16] (./sections/appendix.tex
+[17.17] (./sections/appendix.tex
 
-Package natbib Warning: Citation `holm1979' on page 17 undefined on input line
+Package natbib Warning: Citation `holm1979' on page 18 undefined on input line
 61.
 
-[17.17]
+[18.18]
 
-Package natbib Warning: Citation `hoeffding1963' on page 18 undefined on input
+Package natbib Warning: Citation `hoeffding1963' on page 19 undefined on input
 line 80.
 
 
-Package natbib Warning: Citation `maurer2009' on page 18 undefined on input lin
+Package natbib Warning: Citation `maurer2009' on page 19 undefined on input lin
 e 124.
 
 
-Underfull \vbox (badness 1694) has occurred while \output is active [18.18]
-(./tables/stat-scenarios.tex) [19.19])
+Underfull \vbox (badness 10000) has occurred while \output is active [19.19]
+(./tables/stat-scenarios.tex) [20.20])
 
 Package natbib Warning: There were undefined citations.
 
-[20.20] (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [21.20]
+[21.21] (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [22.21]
 (build/manuscript/m3-manuscript.aux)
 
 LaTeX Warning: There were undefined references.
@@ -499,7 +504,7 @@ s/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts
 ic/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmi
 aX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on build/manuscript/m3-manuscript.pdf (21 pages, 683435 bytes).
+Output written on build/manuscript/m3-manuscript.pdf (22 pages, 687673 bytes).
 Transcript written on build/manuscript/m3-manuscript.log.
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 The top-level auxiliary file: m3-manuscript.aux
@@ -515,8 +520,8 @@ entering extended mode
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./main.tex
-(/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit/paper/tompecs-m3
-/template/acmart.cls
+(/home/soroush/repos/llm-serving-scheduler-lssp-m3-artifact-readiness/paper/tom
+pecs-m3/template/acmart.cls
 Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
 n for Computing Machinery
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -888,28 +893,30 @@ n input line 6.
 Package natbib Warning: Citation `wang2025kvcache' on page 5 undefined on input
  line 7.
 
-[5.5] [6.6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.
-enc}]) (./sections/performance.tex (./tables/absolute.tex) [7.7] [8.8] [9.9 <./
-figures/absolute.pdf>] [10.10 <./figures/matched.pdf>])
-(./sections/rankings.tex (./tables/reversals.tex) (./tables/ties.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active [11.11])
-[12.12] (./sections/inference.tex
+[5.5]
+Underfull \vbox (badness 10000) has occurred while \output is active [6.6])
+(./sections/performance.tex
+Underfull \vbox (badness 7081) has occurred while \output is active [7.7{/usr/s
+hare/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.enc}]
+(./tables/absolute.tex) [8.8]) [9.9] [10.10 <./figures/absolute.pdf>]
+(./sections/rankings.tex (./tables/reversals.tex)
+Underfull \vbox (badness 6608) has occurred while \output is active [11.11 <./f
+igures/matched.pdf>] (./tables/ties.tex) [12.12]) (./sections/inference.tex
+[13.13 <./figures/chronology.pdf>]
 
-Package natbib Warning: Citation `benjamini1995' on page 13 undefined on input
+Package natbib Warning: Citation `benjamini1995' on page 14 undefined on input
 line 30.
 
 
-Package natbib Warning: Citation `benjamini2001dependency' on page 13 undefined
+Package natbib Warning: Citation `benjamini2001dependency' on page 14 undefined
  on input line 30.
 
-(./tables/calibration.tex) [13.13 <./figures/chronology.pdf>])
-(./sections/discussion.tex [14.14]
+(./tables/calibration.tex) [14.14]) (./sections/discussion.tex
 
 Package natbib Warning: Citation `sargent2013' on page 15 undefined on input li
-ne 27.
+ne 34.
 
-) (./sections/declarations.tex
-Underfull \vbox (badness 5563) has occurred while \output is active [15.15])
+[15.15]) (./sections/declarations.tex [16.16])
 (build/manuscript/m3-manuscript.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 99--112
 []\T1/LinuxLibertineT-TLF/m/n/7 (+20) Alibaba Cloud. 2026.  \T1/LinuxLibertineT
@@ -922,31 +929,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--112
 []  Anonymized Bail-ian/Qwen pro-duc-tion LLM-serving usage-trace re-lease; rep
 os-i-tory
 
-Underfull \hbox (badness 2828) in paragraph at lines 99--112
+Underfull \hbox (badness 6094) in paragraph at lines 99--112
 \T1/zi4/m/n/7 alibaba-edu/qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/
 m/n/7 (+20) , pinned com-mit \T1/zi4/m/n/7 5f7439c51ec248a0c585f7d90a41a6f57773
-b912\T1/LinuxLibertineT-TLF/m/n/7 (+20) ; release-specific li-cens-
+b912\T1/LinuxLibertineT-TLF/m/n/7 (+20) ; Apache Li-cense 2.0;
+[17.17]) [18.18] (./sections/appendix.tex
 
-Underfull \vbox (badness 10000) has occurred while \output is active [16.16])
-[17.17] (./sections/appendix.tex
-
-Package natbib Warning: Citation `holm1979' on page 18 undefined on input line
+Package natbib Warning: Citation `holm1979' on page 19 undefined on input line
 61.
 
-[18.18]
+[19.19]
 
-Package natbib Warning: Citation `hoeffding1963' on page 19 undefined on input
+Package natbib Warning: Citation `hoeffding1963' on page 20 undefined on input
 line 80.
 
 
-Package natbib Warning: Citation `maurer2009' on page 19 undefined on input lin
+Package natbib Warning: Citation `maurer2009' on page 20 undefined on input lin
 e 124.
 
 
-Underfull \vbox (badness 1694) has occurred while \output is active [19.19]
+Underfull \vbox (badness 10000) has occurred while \output is active [20.20]
 (./tables/stat-scenarios.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [20.20])
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [21.21])
 
 Package natbib Warning: There were undefined citations.
 
@@ -956,9 +961,9 @@ Class acmart Warning: ACM reference format is mandatory
 (acmart)              Please add printacmref=true to the
 (acmart)              \settopmatter command..
 
-[21.21]
+[22.22]
 
-LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (20 not 21).
+LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (21 not 22).
                Rerun to correct this.
 
 (build/manuscript/m3-manuscript.aux
@@ -992,7 +997,7 @@ s/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts
 ic/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmi
 aX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on build/manuscript/m3-manuscript.pdf (21 pages, 710921 bytes).
+Output written on build/manuscript/m3-manuscript.pdf (22 pages, 715129 bytes).
 Transcript written on build/manuscript/m3-manuscript.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1000,8 +1005,8 @@ entering extended mode
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./main.tex
-(/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit/paper/tompecs-m3
-/template/acmart.cls
+(/home/soroush/repos/llm-serving-scheduler-lssp-m3-artifact-readiness/paper/tom
+pecs-m3/template/acmart.cls
 Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
 n for Computing Machinery
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -1250,16 +1255,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--77
 []|\T1/LinuxLibertineT-TLF/m/n/8 (+20) vLLM-inspired chun-ked
 [4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/us
 r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}])
-(./sections/design.tex [5.5] [6.6{/usr/share/texlive/texmf-dist/fonts/enc/dvips
-/libertine/lbtn_fygcup.enc}]) (./sections/performance.tex
-(./tables/absolute.tex) [7.7] [8.8] [9.9 <./figures/absolute.pdf>] [10.10 <./fi
-gures/matched.pdf>]) (./sections/rankings.tex (./tables/reversals.tex)
-(./tables/ties.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active [11.11])
-[12.12] (./sections/inference.tex (./tables/calibration.tex) [13.13 <./figures/
-chronology.pdf>]) (./sections/discussion.tex [14.14])
-(./sections/declarations.tex
-Underfull \vbox (badness 5563) has occurred while \output is active [15.15])
+(./sections/design.tex [5.5]
+Underfull \vbox (badness 10000) has occurred while \output is active [6.6])
+(./sections/performance.tex
+Underfull \vbox (badness 7081) has occurred while \output is active [7.7{/usr/s
+hare/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.enc}]
+(./tables/absolute.tex) [8.8]) [9.9] [10.10 <./figures/absolute.pdf>]
+(./sections/rankings.tex (./tables/reversals.tex)
+Underfull \vbox (badness 6608) has occurred while \output is active [11.11 <./f
+igures/matched.pdf>] (./tables/ties.tex) [12.12]) (./sections/inference.tex
+[13.13 <./figures/chronology.pdf>] (./tables/calibration.tex) [14.14])
+(./sections/discussion.tex [15.15]) (./sections/declarations.tex [16.16])
 (build/manuscript/m3-manuscript.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 99--112
 []\T1/LinuxLibertineT-TLF/m/n/7 (+20) Alibaba Cloud. 2026.  \T1/LinuxLibertineT
@@ -1272,15 +1278,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--112
 []  Anonymized Bail-ian/Qwen pro-duc-tion LLM-serving usage-trace re-lease; rep
 os-i-tory
 
-Underfull \hbox (badness 2828) in paragraph at lines 99--112
+Underfull \hbox (badness 6094) in paragraph at lines 99--112
 \T1/zi4/m/n/7 alibaba-edu/qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/
 m/n/7 (+20) , pinned com-mit \T1/zi4/m/n/7 5f7439c51ec248a0c585f7d90a41a6f57773
-b912\T1/LinuxLibertineT-TLF/m/n/7 (+20) ; release-specific li-cens-
-
-Underfull \vbox (badness 10000) has occurred while \output is active [16.16])
-[17.17] (./sections/appendix.tex [18.18]
-Underfull \vbox (badness 1694) has occurred while \output is active [19.19]
-(./tables/stat-scenarios.tex) [20.20])
+b912\T1/LinuxLibertineT-TLF/m/n/7 (+20) ; Apache Li-cense 2.0;
+[17.17]) [18.18] (./sections/appendix.tex [19.19]
+Underfull \vbox (badness 10000) has occurred while \output is active [20.20]
+(./tables/stat-scenarios.tex) [21.21])
 
 Class acmart Warning: ACM reference format is mandatory
 (acmart)              for papers over one page.
@@ -1288,7 +1292,7 @@ Class acmart Warning: ACM reference format is mandatory
 (acmart)              \settopmatter command..
 
 (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [21.21]
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [22.22]
 (build/manuscript/m3-manuscript.aux) )
 (see the transcript file for additional information)</usr/share/texlive/texmf-d
 ist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/tex
@@ -1306,7 +1310,7 @@ s/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts
 ic/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmi
 aX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on build/manuscript/m3-manuscript.pdf (21 pages, 712686 bytes).
+Output written on build/manuscript/m3-manuscript.pdf (22 pages, 716931 bytes).
 Transcript written on build/manuscript/m3-manuscript.log.
 Title:           Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation
 Subject:         -  Computing methodologies  ->  Simulation evaluation.-  Computer systems organization  ->  Cloud computing.
@@ -1321,10 +1325,10 @@ UserProperties:  no
 Suspects:        no
 Form:            none
 JavaScript:      no
-Pages:           21
+Pages:           22
 Encrypted:       no
 Page size:       612 x 792 pts (letter)
 Page rot:        0
-File size:       712686 bytes
+File size:       716931 bytes
 Optimized:       no
 PDF version:     1.5

@@ -1,0 +1,18 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "manifest_files": 34005,
+  "c01_result_and_journal_hashes": 5760,
+  "stat_batches_all_three_payload_hashes": 5360,
+  "source_windows_checked": 120,
+  "input_conditions_checked": 720,
+  "pilot_input_conditions_matched": 18,
+  "historical_archived_rule_count": "36/990",
+  "checks": [
+    "check_c01.py",
+    "check_stat_inventory.py",
+    "check_c01_journals.py",
+    "check_stat_samples.py"
+  ],
+  "experiments_executed": 0,
+  "scope": "All hashes and terminal/summary records; fixed sample record referees only, not exhaustive fresh replay"
+}

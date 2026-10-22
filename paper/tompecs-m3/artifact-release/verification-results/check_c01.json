@@ -1,0 +1,32 @@
+{
+  "launch_hashes": 164,
+  "input_conditions": 720,
+  "expected_cells": 5760,
+  "terminal_metric_records_checked": 5760,
+  "reused": 144,
+  "distinct_records": 5760,
+  "mean_recomputation_max_absolute_difference": {
+    "num_total": 0.0,
+    "num_completed": 0.0,
+    "num_unfinished": 0.0,
+    "completion_fraction": 0.0,
+    "observed_seconds": 0.0,
+    "request_throughput": 0.0,
+    "token_throughput": 0.0,
+    "emitted_token_throughput": 0.0,
+    "prefill_work": 0.0,
+    "decode_work": 0.0,
+    "busy_device_seconds": 0.0,
+    "arrival_normalized_weighted_goodput": 0.0,
+    "n_latency": 0.0,
+    "p95_latency": 0.0,
+    "mean_latency": 0.0,
+    "n_ttft": 0.0,
+    "p95_ttft": 0.0,
+    "mean_ttft": 0.0,
+    "n_tpot": 0.0,
+    "p95_tpot": 0.0,
+    "mean_tpot": 0.0
+  },
+  "chunked_decode_terminal_equal": 1440
+}

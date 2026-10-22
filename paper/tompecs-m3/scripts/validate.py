@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Offline saved-evidence and manuscript validation; never executes a campaign."""
-import collections,csv,gzip,hashlib,importlib.util,itertools,json,math,pathlib,re,subprocess
+import argparse,collections,csv,gzip,hashlib,importlib.util,itertools,json,math,pathlib,re,subprocess
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--standalone',action='store_true',help='Validate an extracted manuscript without Git/history checkout checks')
+args=parser.parse_args()
 ROOT=pathlib.Path(__file__).resolve().parents[1];repo=ROOT.parents[1]
 hashes=json.loads((ROOT/'evidence/input-hashes.json').read_text())
 def read(n):
@@ -81,11 +84,15 @@ for mode in ['manuscript','acmsmall']:
  allowed={'empty address in vidur2024','empty publisher in maurer2009','empty address in maurer2009'}
  bib_warnings=re.findall(r'Warning--([^\n]+)',blg);assert set(bib_warnings)<=allowed,bib_warnings
  builds[mode]={'status':'PASS','pages':int(re.search(r'\((\d+) pages',log).group(1)),'overfull_boxes':0,'unresolved_references':0,'bibliography_optional_metadata_advisories':bib_warnings,'template_warning':'ACM reference-format block suppressed in author-review draft'}
-# No tracked historical change beyond the known pre-existing hydrated-LFS anomaly.
-changed=subprocess.check_output(['git','diff','--name-only','6b2eedd7aa254986b85c1bb901587641cbeac8b0'],cwd=repo,text=True).splitlines()
-assert all(p.startswith('paper/tompecs-m3/') or p=='dataset/v1.1.0/scientific/campaign/consolidated.json' for p in changed),changed
-old=repo/'dataset/v1.1.0/scientific/campaign/consolidated.json'
-h=hashlib.sha256(old.read_bytes()).hexdigest();check('historical_consolidated_sha256',h,'73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26')
-report=dict(status='PASS',independent_oracle=result,claims=claims,citation_keys=len(keys),labels=len(labels),builds=builds,historical_changes=changed,experiments_executed=0)
+# Checkout preservation is a separate check in standalone archives.
+changed=[]
+history_scope='NOT_RUN_STANDALONE' if args.standalone else 'CHECKED'
+if not args.standalone:
+ # No tracked historical change beyond the known pre-existing hydrated-LFS anomaly.
+ changed=subprocess.check_output(['git','diff','--name-only','6b2eedd7aa254986b85c1bb901587641cbeac8b0'],cwd=repo,text=True).splitlines()
+ assert all(p.startswith('paper/tompecs-m3/') or p=='dataset/v1.1.0/scientific/campaign/consolidated.json' for p in changed),changed
+ old=repo/'dataset/v1.1.0/scientific/campaign/consolidated.json'
+ h=hashlib.sha256(old.read_bytes()).hexdigest();check('historical_consolidated_sha256',h,'73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26')
+report=dict(status='PASS',independent_oracle=result,claims=claims,citation_keys=len(keys),labels=len(labels),builds=builds,historical_changes=changed,historical_checkout_check=history_scope,experiments_executed=0)
 (ROOT/'evidence/validation/validation.json').write_text(json.dumps(report,indent=2)+'\n')
 print(f'PASS: independent full C01 report oracle; {len(claims)} narrative checks; 7200 endpoint rows; {len(keys)} references; both builds; historical preservation')

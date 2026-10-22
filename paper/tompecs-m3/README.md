@@ -8,7 +8,9 @@ This directory is a new manuscript, stacked on final evidence-review commit `6b2
 
 ## Review entry points
 
-- [Final scientific and submission-readiness review](final-review/REFEREE_REPORT.md): **NOT_READY**; includes claim/novelty assessment, overlap and literature audit, author decisions, and correction validation. This supersedes the earlier readiness inventory where they differ.
+- [Current artifact-readiness assessment](artifact-release/READINESS.md): **NOT_READY** for submission; verified source licenses/statuses, complete local candidate, author/venue gates.
+- [Artifact inventory and access](artifact-release/INVENTORY.md), [portable candidate guide](artifact-release/CANDIDATE_README.md), and [current verification](artifact-release/VERIFICATION.md).
+- [Historical final scientific and submission-readiness review](final-review/REFEREE_REPORT.md): **NOT_READY**; includes claim/novelty assessment, overlap and literature audit, author decisions, and correction validation. Its pending status/license questions are superseded by the current artifact-readiness assessment.
 - [ACM manuscript PDF](m3-manuscript.pdf) and [acmsmall PDF](m3-acmsmall.pdf).
 - [LaTeX source](main.tex) and [bibliography](references.bib).
 - [M2-to-M3 changes](M2_TO_M3_CHANGES.md).

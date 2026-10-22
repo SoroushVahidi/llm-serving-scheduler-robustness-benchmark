@@ -8,6 +8,13 @@ decode-first to one behavior and leave the urgency gate inactive. Reporting
 four implementation names without these consequences would overstate
 mechanistic coverage. Absolute latency and throughput then reveal costs
 that a goodput-only or mean-latency-only ranking would miss.
+The comparison is informative partly because it identifies which nominal
+choices have no executable consequence under the stated constraints.
+Its remaining empirical question concerns admission order, chunked versus
+whole prefill, and residency, rather than a broad contest among native
+serving algorithms. Changing the budget, timing model, or resource contract
+could restore distinctions; this study makes no measured claim about those
+unevaluated configurations.
 
 Aggregation must be specified with the same care. A source mean answers a
 question about equal-window average performance; a cross-window reversal

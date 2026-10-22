@@ -1,0 +1,72 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "clean_extraction": true,
+  "archive": "lssp-m3-rc1-20261022-evidence.tar.gz",
+  "archive_sha256": "9543ed38051c95a3b781dd0bc1086e049d4d08b56aa0ad7e06d603dc93457e9b",
+  "regenerated_displays_byte_identical": {
+    "paper/tompecs-m3/tables/absolute.tex": "3c746d83e184e3f52157b0c6e4d4826b71f36c0aed36203821b6e491383f2e5d",
+    "paper/tompecs-m3/tables/calibration.tex": "6b28d623e8070a525e1d3985b0fc34a59989bf54197c5f65b891d974ec4cd5b8",
+    "paper/tompecs-m3/tables/reversals.tex": "ff85591fc6a666bc24a2799c3727311a1b5caaea86389138b756b205b9933ee4",
+    "paper/tompecs-m3/tables/stat-scenarios.tex": "2ac49ecdceb0da8fdbe38b6a89e052447201299c78a2edab53eb7afc9c8f6e9d",
+    "paper/tompecs-m3/tables/ties.tex": "ef759a3b80bf39a36724d47754134d1e30e74d8cd6a0681abca1167c1433031a",
+    "paper/tompecs-m3/figures/absolute.pdf": "0a05bcc3147f7fbf90857f406e2e24035e93da2d4bf7cd081094e5945c021ced",
+    "paper/tompecs-m3/figures/chronology.pdf": "23fb025be6f0ff067dd735028ea283edebaf35395614a032b8851eb708c60b30",
+    "paper/tompecs-m3/figures/matched.pdf": "48fb3476ded3af661e6f875e4adad4661cfcf820d472362522c7e9113b5cb317",
+    "paper/tompecs-m3/supplement/c01-all-cells.csv": "ff1e0e829fdf700692e67273e53c97f17dee65531084ab63bcb2922096003e3b",
+    "paper/tompecs-m3/supplement/c01-matched-window-differences.csv": "59be8310bae2f7f08626b5191070b7289bcc059e41749efb64f9d29aaf14f3ca",
+    "paper/tompecs-m3/supplement/c01-reversal-groups.csv": "c14c59a1866002420347684f97e2c2c65577399c77fcd72ce5941628f02fbd15",
+    "paper/tompecs-m3/supplement/c01-source-capacity-means.csv": "85e45e200574b1eacc086e4077a79ce80d58fff5d9f9abf1da6486ce5642d7e7",
+    "paper/tompecs-m3/supplement/c01-ties.csv": "eb61a7ff09269db6cdf91dc93991dad6ece3aae2ea4bbff6e551639c1f93de40",
+    "paper/tompecs-m3/supplement/c01-window-aggregates.csv": "4aa6a7fddbf38c3187dab6c21ee1c13b99db03b232c30043c3eef1ed983f4e54",
+    "paper/tompecs-m3/supplement/stat01-all-endpoints.csv": "9e705b41b39adbb21b739609457e609f9aa7a1504a817a8df84f30fee55ab33b",
+    "paper/tompecs-m3/supplement/stat01-stopping.csv": "e5ba7ba8835d62744e9f6792874d56e32dcf67ca89ff825dd38447c389755fb4"
+  },
+  "builds": {
+    "manuscript": {
+      "status": "PASS",
+      "pages": 22,
+      "overfull_boxes": 0,
+      "unresolved_references": 0,
+      "bibliography_optional_metadata_advisories": [
+        "empty address in vidur2024",
+        "empty publisher in maurer2009",
+        "empty address in maurer2009"
+      ],
+      "template_warning": "ACM reference-format block suppressed in author-review draft"
+    },
+    "acmsmall": {
+      "status": "PASS",
+      "pages": 23,
+      "overfull_boxes": 0,
+      "unresolved_references": 0,
+      "bibliography_optional_metadata_advisories": [
+        "empty address in vidur2024",
+        "empty publisher in maurer2009",
+        "empty address in maurer2009"
+      ],
+      "template_warning": "ACM reference-format block suppressed in author-review draft"
+    }
+  },
+  "historical_checkout_check": "NOT_RUN_STANDALONE",
+  "records": {
+    "state": "COMPLETED_SUCCESS",
+    "manifest_files": 34005,
+    "c01_result_and_journal_hashes": 5760,
+    "stat_batches_all_three_payload_hashes": 5360,
+    "source_windows_checked": 120,
+    "input_conditions_checked": 720,
+    "pilot_input_conditions_matched": 18,
+    "historical_archived_rule_count": "36/990",
+    "checks": [
+      "check_c01.py",
+      "check_stat_inventory.py",
+      "check_c01_journals.py",
+      "check_stat_samples.py"
+    ],
+    "experiments_executed": 0,
+    "scope": "All hashes and terminal/summary records; fixed sample record referees only, not exhaustive fresh replay"
+  },
+  "elapsed_seconds": 37.739198385737836,
+  "experiments_executed": 0,
+  "environment_installation": "existing pinned display environment; no fresh installation"
+}

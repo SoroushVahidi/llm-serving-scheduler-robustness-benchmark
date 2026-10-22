@@ -1,0 +1,22 @@
+{
+  "windows.json": {
+    "sha256": "97fbaf6a4b9b5f14cd19ce1c37193996c0758eebca73ab2adb1e944b404b3f4c",
+    "bytes": 52145952,
+    "source": "/home/soroush/lssp-c01-cache/windows.json"
+  },
+  "pilot-inputs.json": {
+    "sha256": "56b216fdfedf34ca8a959cb764c9896cf7f6351319259cba13dc8fb98df05f1c",
+    "bytes": 1513630,
+    "source": "/home/soroush/lssp-c01-cache/pilot-inputs.json"
+  },
+  "historical-consolidated.json": {
+    "sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "bytes": 37252923,
+    "source": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-artifact-readiness/dataset/v1.1.0/scientific/campaign/consolidated.json"
+  },
+  "historical-pairwise-reversals.json": {
+    "sha256": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde",
+    "bytes": 8022760,
+    "source": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-artifact-readiness/dataset/v1.1.0/scientific/analysis/pairwise_reversals.json"
+  }
+}

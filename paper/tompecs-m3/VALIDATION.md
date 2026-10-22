@@ -1,3 +1,5 @@
+> **Superseded checklist/report.** See [current artifact-readiness assessment](artifact-release/READINESS.md) and [current validation](artifact-release/VERIFICATION.md). This earlier record is retained as history.
+
 # M3 validation
 
 This records the original PR #19 rewrite. The [final review](final-review/REFEREE_REPORT.md), [reference audit](final-review/REFERENCES.md), and [final validation](final-review/VALIDATION.md) supersede it for the stacked correction.

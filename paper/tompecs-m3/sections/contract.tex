@@ -77,21 +77,34 @@ SLO-gated & SLAI-inspired implementation & Urgent decodes first; then resident p
 \end{tabularx}
 \end{table}
 
-Two consequences are essential to interpreting the results. At most eight
-requests can execute, and each chunked request uses at most 512 tokens.
-Their total work is therefore at most $8\times512=4,096$, below the shared
-32,768-token budget. Every selected chunk and resident decode fits.
-Chunked-FCFS and decode-first consequently make the same per-request
-progress despite ordering their work differently. The complete saved
-terminal records confirm this equivalence in all 1,440 matched conditions.
+Two consequences are essential to interpreting the results. Let $R$ be the
+resident count at a batch boundary and $K\in\{4,8\}$ the reservation limit.
+The planner offers at most $K-R$ waiting requests a slot; a completing
+request releases its slot only after that batch's work. Each selected
+request appears once, contributing at most 512 prefill tokens or one decode
+token. Thus the bound is $512[R+(K-R)]\leq4,096$, including both existing
+residents and new admissions, rather than a separate allowance for each.
+The 32,768-token budget cannot truncate this work.
 
-The same bound means that SLO-gated's residual decodes fit every batch.
-After prefill completion, a resident's anchor advances with every output;
-its elapsed time cannot reach the 0.495\,s urgency threshold in these
-executions. The distinctive behavior is principally prompt-length admission
-ordering with the frozen chunking rules. The results cannot be credited
-to an active urgency gate. Whole-FCFS can still defer decoding for admitted
-prefills; the work-bound equivalence does not apply to that rule.
+Starting from the same state, chunked-FCFS and decode-first select the same
+residents and the same stable-order waiting prefix. They execute identical
+per-request spans, although the span lists can have different orders.
+The engine gives every span the same batch-end timestamp and releases
+completed reservations afterward. Consequently their next states, admissions,
+and timestamps agree inductively. The complete saved terminal records
+confirm this configuration-specific equivalence in all 1,440 matched
+conditions; it is not a theorem about the original serving systems.
+
+The same work bound includes SLO-gated's residual decodes, even though they
+follow waiting prefills. A newly decode-ready resident's anchor is its
+prefill batch's end; every later decode resets it to the next batch end.
+There is no idle jump while such a resident exists. At each scheduling
+boundary its anchor age is therefore zero under the implemented clock
+updates, far below 0.495\,s. The urgency gate never binds. Prompt-length
+ordering of waiting admissions remains active; resident prefills still
+progress, and later arrivals cannot preempt admitted requests. Whole-FCFS
+also retains a distinct rule: admitting whole prefills defers all decodes
+in that batch. Neither mechanism is removed by the work bound.
 
 \subsection{Conformance evidence}
 The event referee reconstructs request states, token spans, timing,

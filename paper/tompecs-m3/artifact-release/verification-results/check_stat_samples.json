@@ -1,0 +1,18 @@
+{
+  "saved_studies_refereed": 200,
+  "frozen_source_BH_checks": 200,
+  "original_failure": {
+    "scenario": 11,
+    "replicate": 6628,
+    "index": 47,
+    "screened_family": 43,
+    "rank": 43,
+    "p": 0.05,
+    "p_hex": "0x1.999999999999ap-5",
+    "port_threshold": 0.049999999999999996,
+    "legacy_threshold": 0.05,
+    "port_reject": false,
+    "legacy_reject": true,
+    "exact_reject": true
+  }
+}
