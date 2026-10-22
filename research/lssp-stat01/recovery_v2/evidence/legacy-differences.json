@@ -1,0 +1,293 @@
+[
+  {
+    "differing_hypotheses": [
+      57
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 1164,
+    "scenario": 6
+  },
+  {
+    "differing_hypotheses": [
+      112
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 2839,
+    "scenario": 6
+  },
+  {
+    "differing_hypotheses": [
+      17
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 3913,
+    "scenario": 6
+  },
+  {
+    "differing_hypotheses": [
+      6,
+      35,
+      45,
+      47,
+      48,
+      116,
+      121
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 1437,
+    "scenario": 8
+  },
+  {
+    "differing_hypotheses": [
+      120
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 4842,
+    "scenario": 8
+  },
+  {
+    "differing_hypotheses": [
+      18
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 5059,
+    "scenario": 8
+  },
+  {
+    "differing_hypotheses": [
+      20
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 5433,
+    "scenario": 8
+  },
+  {
+    "differing_hypotheses": [
+      10
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 2844,
+    "scenario": 9
+  },
+  {
+    "differing_hypotheses": [
+      142
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 1091,
+    "scenario": 10
+  },
+  {
+    "differing_hypotheses": [
+      6
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 949,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      17
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 1138,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      13
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 3113,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      126
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 4066,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      10
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 4310,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      18
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 4370,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      3,
+      12
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 4529,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      6,
+      138
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 5368,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      63
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 5660,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      5,
+      11
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 5943,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      0
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 6054,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      8
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 6473,
+    "scenario": 12
+  },
+  {
+    "differing_hypotheses": [
+      18
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 174,
+    "scenario": 13
+  },
+  {
+    "differing_hypotheses": [
+      15
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 1124,
+    "scenario": 13
+  },
+  {
+    "differing_hypotheses": [
+      14
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 1748,
+    "scenario": 13
+  },
+  {
+    "differing_hypotheses": [
+      4,
+      116,
+      119
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 5339,
+    "scenario": 13
+  },
+  {
+    "differing_hypotheses": [
+      6,
+      11
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 5561,
+    "scenario": 13
+  },
+  {
+    "differing_hypotheses": [
+      10
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 6055,
+    "scenario": 13
+  },
+  {
+    "differing_hypotheses": [
+      1
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 2108,
+    "scenario": 14
+  },
+  {
+    "differing_hypotheses": [
+      6
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 2236,
+    "scenario": 14
+  },
+  {
+    "differing_hypotheses": [
+      104
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 2726,
+    "scenario": 14
+  },
+  {
+    "differing_hypotheses": [
+      10
+    ],
+    "interpretation": "historical",
+    "method": "historical_screened_BH",
+    "replicate": 4345,
+    "scenario": 14
+  }
+]
