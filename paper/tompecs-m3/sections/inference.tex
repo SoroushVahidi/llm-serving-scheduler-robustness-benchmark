@@ -1,0 +1,92 @@
+\section{Historical Interpretation and Calibration (RQ3)}\label{sec:inference}
+\subsection{What the historical comparison establishes}
+The historical analysis reported 36 of 990 policy-pair/source-pair/setting
+records meeting its practical-margin and nominal-interval rule. Numerical
+reproduction confirms that archived-rule count. It does not establish
+population reversals: the historical policy--model combinations differ,
+selected trace windows have no known population sampling law, and the
+inference procedure's calibration was unestablished. The C01 panel and
+execution model change the comparison object, so its zero source-mean
+practical reversals are not a like-for-like disappearance of those 36
+records. Historical and common-model outcomes are kept in separate evidence
+strata rather than combined into a leaderboard.
+
+\subsection{A focused known-truth diagnostic}
+STAT01 evaluates historical inference in synthetic studies whose population
+means, covariance, and missingness are specified. Each study has three
+sources, eleven policies, and normally 40 windows per source; one bounded
+scenario uses 400. The 165 source-pair/policy-pair hypotheses are dependent
+within a study. Independently generated studies, not their individual
+hypotheses, are the Monte Carlo units. The completed design contains
+134,000 studies across 18 scenarios, including IID, block-dependent,
+autoregressive, nonnormal, bounded, and missing-data cases.
+
+The primary truth is a population reversal exceeding 10\% relative to the
+losing mean in both sources. Sign reversals are a separate endpoint.
+The historical procedure first screens noisy point estimates at 10\%, then
+uses bootstrap intervals and zero-effect p-values on the selected contrasts.
+Testing a zero-effect null after such screening is not automatically a
+test of the practical-effect null. BH or BY alone cannot supply the missing
+calibration \citep{benjamini1995,benjamini2001dependency}.
+
+Three implementation identities are retained. The eight frozen original
+procedures include a port of the historical screened-BH procedure. A
+post-diagnosis comparator reproduces the actual historical source's
+floating-point evaluation order. Eight additional comparisons implement
+explicit mathematical threshold semantics. Thus the expanded family has
+17 methods, with nine additions identified as post-diagnosis. Arithmetic
+correction is not a new test and does not change the inferential assumptions.
+Appendix~\ref{app:stat} gives the definitions and the saved boundary case.
+
+\begin{table}[t]
+\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Compact calibration diagnostic for the actual historical-source
+screened-BH comparator. Each row has 8,000 studies; ordinary fixed-contrast
+interval coverage is available in all of them. Bounds are the expanded
+17-method simultaneous Monte Carlo bounds, not confidence intervals for
+C01 performance. These three null scenarios isolate IID, independent-block,
+and AR dependence; all 18 scenarios and methods remain in the supplement.}
+\label{tab:calibration}\input{tables/calibration}
+\end{table}
+
+Table~\ref{tab:calibration} shows that the actual historical-source procedure
+has practical FDR 0.09025 in the IID equal-null scenario, with an expanded
+Monte Carlo lower bound above 0.05. Independent-block and AR nulls show
+much larger false-discovery rates and poor ordinary interval coverage.
+These null examples already demonstrate a calibration concern without
+requiring interpretation of power or near-boundary alternatives. Other
+scenarios expose the practical-versus-sign target mismatch: practical FDR
+is 0.39500 at the exact practical boundary and approximately 0.73316 in the
+medium-reversal scenario. Full scenario results are retained rather than
+summarized as a single global error rate.
+
+These findings also have limits. Assumption-aligned Gaussian procedures
+frequently remain \emph{inconclusive} under the stringent simultaneous
+Monte Carlo screen; that is not evidence that they are miscalibrated.
+Conservative bounded Hoeffding--Holm comparisons have zero observed false
+discoveries and 100\% observed diagnostic coverage, but practical power is
+zero at 40 windows and approximately 0.05263 at 400. The campaign does not
+certify a generally useful replacement procedure. Of 144 original
+method/scenario classifications, 45 indicate concern, 74 are inconclusive,
+9 meet the empirical tolerance screen, and 16 abstain outside their domain.
+Seven of the nine compatible entries arise in the degenerate exact-ties
+scenario; the remaining two are bounded Hoeffding.
+
+Completion and precision must also be separated. Scenarios 3 and 17 stop
+at 2,000 and 4,000 studies; the other sixteen finish at 8,000. Six scenarios
+meet the original precision objective, while twelve stop at the maximum
+count with precision gaps. The original eight-method uncertainty family
+controls stopping. The expanded 17-method report has its own, wider
+allocation; additions do not retrospectively become prespecified. Neither
+maximum-count completion nor an inconclusive calibration screen is a
+successful calibration claim.
+
+\paragraph{Answer to RQ3.}
+Reproducing historical arithmetic establishes what its rule reported;
+execution conformance establishes that C01 follows its common model.
+Neither establishes valid statistical inference. STAT01 demonstrates
+calibration failures for historical procedures in explicit known-truth
+scenarios, while retaining uncertainty and assumption-specific limits.
+Those synthetic results do not automatically validate or invalidate every
+trace-specific historical conclusion. C01's finite-corpus descriptions do
+not depend on population significance tests.

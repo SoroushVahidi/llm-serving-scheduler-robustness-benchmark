@@ -1,0 +1,73 @@
+\section{Introduction}
+A serving scheduler can reduce average response time while making long
+requests slower or lowering aggregate throughput. Which scheduler appears
+best therefore depends on both the workload and the objective. There is a
+more basic difficulty in simulation-based comparisons: a policy label can
+select not only an ordering rule, but also a different prefill model,
+memory constraint, or information interface. An observed rank difference
+then combines scheduling decisions with differences in what the evaluator
+allows those decisions to accomplish.
+
+This problem arises in the historical LLM-Serving Scheduler Portability
+(LSSP) corpus that motivates our study. Its implementations shared request
+inputs, but did not uniformly enforce prefill work and KV capacity. Some
+comparisons therefore concerned policy--model combinations rather than
+scheduling alternatives within a common execution model. Repeating those
+runs or reproducing their ranking arithmetic cannot resolve that ambiguity.
+A useful comparison must first identify the execution contract: which
+requests are visible, which actions are legal, how work advances, and when
+resources are acquired and released.
+
+We evaluate four adaptations under such a contract, \cm. It is a CPU
+discrete-event model with common batch timing, token accounting,
+information restrictions, and conservative full-context KV reservations.
+The adaptations retain selected ideas from FCFS serving, chunked prefill,
+decode-first scheduling, and SLAI-inspired prompt ordering
+\citep{kwon2023vllm,agrawal2024sarathi,slai2025}. They have new implementation
+identities and a shared action space. The purpose is to measure their
+behavior under a controlled abstraction, not to reproduce the performance
+of their published systems.
+
+Workload-sensitive serving evaluations already establish that benchmark
+choice matters \citep{papaioannou2024workload}; predictive serving simulators
+address the cost of exploring configurations \citep{vidur2024,llmservingsim2024}.
+Our contribution is a different empirical object: a complete comparison
+of restricted adaptations across a fixed corpus, with absolute performance,
+matched differences, ties, and practical reversals reported together.
+This permits a reader to distinguish a useful performance difference from
+a rank change caused by aggregation, duplicate metrics, or an inactive
+scheduling distinction.
+
+The completed comparison changes the emphasis of the historical narrative.
+Across six source--capacity aggregates, SLO-gated improves mean latency but
+reduces throughput; BurstGPT also has worse mean window-p95 latency.
+Chunked-FCFS and decode-first are exactly equivalent in every matched
+condition. Source-mean comparisons have no strict 10\% practical reversals,
+whereas individual windows and different metrics do. These findings make
+an unconditional ``best scheduler'' an inadequate summary, without implying
+that rankings are unstable at every aggregation level.
+
+We ask three questions:
+\begin{description}[leftmargin=0pt,labelindent=0pt]
+\item[RQ1: Performance and operating conditions.] How do the absolute
+performances of four scheduler adaptations vary across workload windows,
+inherited arrival/deadline settings, and KV reservation capacities?
+\item[RQ2: Ranking stability and metric choice.] How do workload variation,
+aggregation, metric selection, ties, and practical performance differences
+affect scheduler rankings?
+\item[RQ3: Interpretation and inference.] What do the historical comparison
+audit and known-truth statistical calibration establish about the reliability
+and limitations of scheduler comparisons?
+\end{description}
+
+The paper makes four specific contributions. First, it specifies an
+executable comparison contract and identifies the departures of each
+adaptation from its published lineage. Second, it reports the complete
+5,760-cell evaluation, including absolute latency, throughput, goodput,
+and complete request accounting. Third, it quantifies how window variation,
+aggregation, ties, and metric choice change the interpretation of rankings,
+including the null source-mean reversal result. Fourth, it separates
+execution conformance from statistical calibration through a concise
+historical audit and a completed synthetic diagnostic. These contributions
+support finite-corpus conclusions under \cm; they make no new algorithmic,
+statistical-test, or native-performance claim.

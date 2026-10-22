@@ -1,0 +1,224 @@
+{
+  "c01-absolute_metrics.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/analysis/absolute_metrics.json",
+    "sha256_uncompressed": "5700c4bbd7386b7227d678b6b09a715010c29ccdbdb8654e7dd93bde1c585666",
+    "sha256_stored": "6f2242e8b3a9c17799720b66dc1d044e84f3fd10e30376c33a8af523d7a9dc88",
+    "bytes_uncompressed": 9293793
+  },
+  "c01-window_aggregates.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/analysis/window_aggregates.json",
+    "sha256_uncompressed": "f1f302eaa8177c9983bfc6833a34ccbfe0befcacaf0c9d57d2913a8f3a0381f2",
+    "sha256_stored": "80d5616d5ca4c94d1d935e46c3620b09155a1bc6221d939dca7e5a55c4c2c26f",
+    "bytes_uncompressed": 4417245
+  },
+  "c01-reversals.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/analysis/reversals.json",
+    "sha256_uncompressed": "511a14fc4ab78c0dfa38e3d9dc0406d4e24f3ffab1cd36bdcc7454e4e04aea94",
+    "sha256_stored": "7fe3c99f0986bd290bde76d46933331b7a02e681e1eef051cc45be23a85ee471",
+    "bytes_uncompressed": 7948241
+  },
+  "c01-source_mean_rankings.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/analysis/source_mean_rankings.json",
+    "sha256_uncompressed": "30fa6cc8d9d5d4e2249004c1dd80f6975d93d0b90ccdeb10d892b6ca6f4c8c6a",
+    "sha256_stored": "587af9d41635223397416f07ba2082e9270bc603901630908cad8d07cb25651b",
+    "bytes_uncompressed": 245463
+  },
+  "c01-independent_analysis_validation.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/analysis/independent_analysis_validation.json",
+    "sha256_uncompressed": "c48c0b8472c49309a0f7f3227ed2ea40c50345bfc93baa44d4f7347ae160df70",
+    "sha256_stored": "6aeb89a36faa8956e97b605d943a8f926b258601396de15e99a8f04955d61ca1",
+    "bytes_uncompressed": 345
+  },
+  "c01-rankings.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/analysis/rankings.json",
+    "sha256_uncompressed": "35de0c31eedbd2e5bcfcf4caa08de677bfb04ff99cb17ff813453d8aa0f89bf3",
+    "sha256_stored": "1b540589c084880cb72990092ad6f683c0565ea25ac954f91aa97e78ed752837",
+    "bytes_uncompressed": 10490145
+  },
+  "c01-ranking_frequencies.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/analysis/ranking_frequencies.json",
+    "sha256_uncompressed": "5696bd8ac55d94f52014db22228f82df1b865fc901e132b713a06499d1c13707",
+    "sha256_stored": "8ab53d853a3ccf1952c3053c7fe19d4bf01f7c459f56b468a324aeefcbacd4e7",
+    "bytes_uncompressed": 1448791
+  },
+  "c01-pairwise.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/analysis/pairwise.json",
+    "sha256_uncompressed": "824eb4d647abd261af05534f5dfa12b4b5d7ba36ba629d482e2ce63e216e51a8",
+    "sha256_stored": "6a4516df08cc9ac682cfb11ccda16ecce02f62ca59892cb2be25be54782cb276",
+    "bytes_uncompressed": 37175840
+  },
+  "c01-complete.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/complete.json",
+    "sha256_uncompressed": "11c9c08432878932c0fca0501b2befd83f333dedf2686d3a5693d27a7a3fea72",
+    "sha256_stored": "5f56df5c72690be86863691133988ff28928b58c4fb65e6e2816bc46adf39000",
+    "bytes_uncompressed": 639
+  },
+  "c01-checkpoint.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01/runs/c01-full-167b9074e5711420/checkpoint.json",
+    "sha256_uncompressed": "ca048261df58a5ae8b37467cc6b98cd93305811eea38bc9226c941c588b62550",
+    "sha256_stored": "3f7d9320c81959899d020cbc57ed157ec938bf8721e7117d59e1bb3125f8f39f",
+    "bytes_uncompressed": 728571
+  },
+  "stat-completion.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/completion.json",
+    "sha256_uncompressed": "a658e16039d5a9be8b496792e038637df1cdf7507ff16b7de3411a79ac15e01e",
+    "sha256_stored": "ebb4519b54c223ab03ad8e170bca4d5ea34ef0b40133a193235e39f3149a319a",
+    "bytes_uncompressed": 366
+  },
+  "stat-checkpoint.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/checkpoint.json",
+    "sha256_uncompressed": "a261866365b74bd6b240fb1916a0ce3c4bbc8ee76d08097b9dcb2048dc693c13",
+    "sha256_stored": "cd611505479eee8d654f7f0baf5f13455d229e362caba89f3d6ba2a1be2fa293",
+    "bytes_uncompressed": 2023
+  },
+  "stat-look-s00-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s00-n08000.json",
+    "sha256_uncompressed": "48e1afec6cf7eda785abdae1ee72adbfa3178f18068243997d5912db9dfecf17",
+    "sha256_stored": "7f2b012143a7a16d3dc9cc52f2d28782efc037e5e3383c0827015fd3d1b7dea5",
+    "bytes_uncompressed": 96724
+  },
+  "stat-look-s01-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s01-n08000.json",
+    "sha256_uncompressed": "c9717012bce62beced7185b3423d47051aa44f27b01a8dc521815c19bff8f19d",
+    "sha256_stored": "b0c0786e0bdcc2682b567b920a25a87b96247229beba50e472a3847b378d229c",
+    "bytes_uncompressed": 98494
+  },
+  "stat-look-s10-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s10-n08000.json",
+    "sha256_uncompressed": "9b1ea5181c7409365fd68187968df4a0a7a4dbd99863d05aa54217e58a469c2e",
+    "sha256_stored": "12d98b26210a91a592e81b8feaf40a1940ca40d00ace7886f079baf5b7c56bbc",
+    "bytes_uncompressed": 99203
+  },
+  "stat-look-s11-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s11-n08000.json",
+    "sha256_uncompressed": "45b8e65fd2430c4f8f415882211a3844c3da36e2cc0cbe5bdb171147d370aa96",
+    "sha256_stored": "51d9ceab5df48d8899572ac34d007964b60f51aa810600837d0c2c6d2d6c757a",
+    "bytes_uncompressed": 103505
+  },
+  "stat-look-s12-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s12-n08000.json",
+    "sha256_uncompressed": "2e4fa89fc9907c1090b7fea7007f98ed9113c1fede207077f826e27bacd2dbcb",
+    "sha256_stored": "4ca9322eda47c250f16e64419426a03bfe61d1d2c3b0bf65815aae9b912431f7",
+    "bytes_uncompressed": 101168
+  },
+  "stat-look-s13-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s13-n08000.json",
+    "sha256_uncompressed": "576c19cd8064145dacac85075fbea252db4016fe6e5f984322cc168225cb80e2",
+    "sha256_stored": "15751ddcdacdf184163c2b3b70b4f72142ea0832d1f24dd13452cde2bef38248",
+    "bytes_uncompressed": 101561
+  },
+  "stat-look-s14-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s14-n08000.json",
+    "sha256_uncompressed": "f33691f7f28eac594210738e5bc9081d0816e1b887d00acc802c87ed933f5d58",
+    "sha256_stored": "189e1b365b3028caa2431c6dab5a88e29fa46b7751b71d5e9422fe1d2d38587d",
+    "bytes_uncompressed": 100629
+  },
+  "stat-look-s15-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s15-n08000.json",
+    "sha256_uncompressed": "4040a706b0387f228d4564eaa4b4c31ae886af0431af3a45b530e0d8de418efd",
+    "sha256_stored": "43d6a919c9db2ff8f866e072d4812f79880af9a602628fe29c199b286689f38b",
+    "bytes_uncompressed": 97047
+  },
+  "stat-look-s16-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s16-n08000.json",
+    "sha256_uncompressed": "f4594cc066be3f5e3ee227203a66450f6a96884b9a253e08840a564d5da2384b",
+    "sha256_stored": "db2bc87b647f9859a17450ce94beaed5b79cd42664b29e96761c053102fc1ad5",
+    "bytes_uncompressed": 99763
+  },
+  "stat-look-s17-n04000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s17-n04000.json",
+    "sha256_uncompressed": "3cee8ab8b170f0480dc55c22baa714a693289e2130e8d4c6517c57fb115293a6",
+    "sha256_stored": "f20ba9cfdfb0a1f0f84902ca9b90306f0c3d64e1acb1af47a4e916cb059d7a3f",
+    "bytes_uncompressed": 97125
+  },
+  "stat-look-s02-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s02-n08000.json",
+    "sha256_uncompressed": "837e96be1fbca6db140198c8e02299c4c5b2f673995be56bdcec09405d15bca6",
+    "sha256_stored": "f952f4f6e55d5ec17af3d4dd737c98cd0574a65f134de3451cefb4f339ff2110",
+    "bytes_uncompressed": 98762
+  },
+  "stat-look-s03-n02000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s03-n02000.json",
+    "sha256_uncompressed": "077a23b7b2ac10fdc45fbbba1253dffea5fcff5c2fab2d1fe1228b71c794fd21",
+    "sha256_stored": "03316a6a011eefd8af8d67fb9aacc973e413f03e49fe6ff379b37470c4890b0a",
+    "bytes_uncompressed": 92463
+  },
+  "stat-look-s04-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s04-n08000.json",
+    "sha256_uncompressed": "fe82a7d53c02cecbf8b0a340715b543e90027275c72c88f84cfc400f7b4a1c3f",
+    "sha256_stored": "f6484526b14c3922ba1d303336bc868b21c73af86d0bf3960a1f14aa7bbab413",
+    "bytes_uncompressed": 99268
+  },
+  "stat-look-s05-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s05-n08000.json",
+    "sha256_uncompressed": "0739c882ca1aa019b390d8187202060e6ab774ba55c6e1d5984a296c10df86d2",
+    "sha256_stored": "b2936f8c9da1a7a01aa89738dc40a92e7d05f07be390bb27f89db924e2a56c1d",
+    "bytes_uncompressed": 99065
+  },
+  "stat-look-s06-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s06-n08000.json",
+    "sha256_uncompressed": "72a50a4ee27c4f9af9460b77531832ab819fb210262d47e93bd7e3b24b60152a",
+    "sha256_stored": "a2c06b0a705cb399212e9e6d4353b8a55b3a5e4cd7492353813d9b60a86dbce9",
+    "bytes_uncompressed": 100707
+  },
+  "stat-look-s07-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s07-n08000.json",
+    "sha256_uncompressed": "374fe5e6fd3042873c2724216daa0cd5db233f64113bc4b1f266f1e90275a54f",
+    "sha256_stored": "6f4ee8a2d3963cac1993e16ea9a30784b24f3d4444d58b955c79306c4e616eb1",
+    "bytes_uncompressed": 101734
+  },
+  "stat-look-s08-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s08-n08000.json",
+    "sha256_uncompressed": "76e933ecdd98772fdb9263a9d629a7ef2d1590dfef7dd567df76d076b0728e5e",
+    "sha256_stored": "26f0e6183955b38340418e3055a1357c39a3cc0bfb5514eebac58cf2b36422ea",
+    "bytes_uncompressed": 97605
+  },
+  "stat-look-s09-n08000.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat/runs/stat01-recovery-v2-061933a64e27da20/look-s09-n08000.json",
+    "sha256_uncompressed": "6b491809230e1a3df251deaadb098fbffca88d1317a687804a0a334574f810c4",
+    "sha256_stored": "4c121a6125bfd25f08272aab281915a25da966492191b5e43a2a10d9ba04e740",
+    "bytes_uncompressed": 102667
+  },
+  "stat-launch.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat-quick/launch.json",
+    "sha256_uncompressed": "28cc04b4820786b9c5879b5c34883fd4e3c0d6ceab9c25cbb07572525de14e25",
+    "sha256_stored": "4ba132cfe33c79f75f6fbcb2940cd1c35d99a1519796ac19106ef2678c90deca",
+    "bytes_uncompressed": 23804
+  },
+  "c01-manifest.json": {
+    "source": "/home/soroush/repos/llm-serving-scheduler-lssp-c01-full/research/lssp-c01-full/input_manifest.json",
+    "sha256_uncompressed": "11e00455a8986df15c44894677926cbde5ba6501cb4349a27c4302cfec75e6fe",
+    "sha256_stored": "dc820d1edcd8d5b486995113f655e3bb8952493c1096e3538ab1b9b40a7291bc",
+    "bytes_uncompressed": 322514
+  },
+  "c01-record-check.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01-record-check.json",
+    "sha256_uncompressed": "299af051c09f60acfec655f49ec968ecb98e90ed19467419c40ac77c78299dcf",
+    "sha256_stored": "5eb8c768451798943bc1f2e6633efb33439e36046b40d86a996ef397e6f79733",
+    "bytes_uncompressed": 819
+  },
+  "c01-independent-summary-check.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01-independent-summary-check.json",
+    "sha256_uncompressed": "b7166693d923eb2487f46be666b164e0483b6b94dada80ed823bc9e90acbd8d9",
+    "sha256_stored": "2ab48d566a0e01e56398ca32db8c1c9f14f7f599bcbd7222ee0ea79270e8ccb8",
+    "bytes_uncompressed": 383
+  },
+  "c01-sample-event-check.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/c01-sample-event-check.json",
+    "sha256_uncompressed": "ddd1dd62c95d29ddaed71341ba85887e9aa4c434320fd1e4937f3c7c79f7b72f",
+    "sha256_stored": "4e9aef52fda91242ed28827a8b29a0b8a7553a91e75c9b708caf323cdc142834",
+    "bytes_uncompressed": 200
+  },
+  "stat-inventory-check.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat-inventory-check.json",
+    "sha256_uncompressed": "e99f86351448072f1f298e93dcc4f57eb8ea6abe47a57d54ad54907c5d3ab8e6",
+    "sha256_stored": "ab7a6fe78d97e5fbd1f261b07b08b10c0544ef03b5cc0d64991da0566767f52c",
+    "bytes_uncompressed": 1925
+  },
+  "stat-sample-check.json": {
+    "source": "/home/soroush/lssp-m3-final-review-evidence-20261022/stat-sample-check.json",
+    "sha256_uncompressed": "c0b8644a43292c6021d2fc62c3a4093e979ad3b8156106fe4737db9e2cadb0a5",
+    "sha256_stored": "fa27b9a3a84e73085debef2dd9ff763569666f9b82b0f930b26d7e19a1e42089",
+    "bytes_uncompressed": 405
+  }
+}

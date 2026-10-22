@@ -1,0 +1,54 @@
+\section{Related Work and Evaluation Scope}
+\paragraph{Serving mechanisms.}
+Orca introduced iteration-level scheduling to change batches as requests
+progress \citep{yu2022orca}. vLLM's PagedAttention addresses KV-memory
+fragmentation and sharing \citep{kwon2023vllm}. Sarathi-Serve uses chunked
+prefill to manage throughput--latency trade-offs \citep{agrawal2024sarathi}.
+Bari et al. distinguish the throughput-optimal RAD construction from the
+practical SLAI scheduler, which uses measured decode urgency and known
+prompt lengths \citep{slai2025}. These are system and algorithm contributions
+with their own execution assumptions. Our whole-FCFS, chunked-FCFS,
+decode-first, and SLO-gated adaptations isolate a smaller set of admissible
+rules. In particular, full-context reservations do not reproduce
+PagedAttention, and an inactive urgency gate supplies no evidence for
+SLAI's complete design or RAD's theorem. Disaggregated serving and dynamic
+migration, exemplified by DistServe and Llumnix
+\citep{zhong2024distserve,sun2024llumnix}, are outside the single-device,
+nonpreemptive contract evaluated here.
+
+\paragraph{Workload-sensitive evaluation.}
+Papaioannou and Doudali explicitly examine how dataset and inference-scenario
+choice affect comparisons among LLM inference systems
+\citep{papaioannou2024workload}. Their work is a close precedent for the
+importance of workload choice, rather than a gap this paper first identifies.
+BurstGPT contributes production-derived workload characterization
+\citep{burstgpt2025}, and ServeGen studies production workloads and their
+generation \citep{servegen2026}. Workload resampling has a longer history
+in parallel-job scheduler evaluation \citep{zakay2014resampling}.
+Our analysis instead holds a selected trace corpus fixed, matches each
+adaptation on the same window and condition, and distinguishes source
+means from cross-window comparisons. We do not infer that the selected
+windows are independent draws from provider populations.
+
+\paragraph{Serving simulators and model credibility.}
+Vidur combines profiling and predictive models to explore LLM inference
+configurations \citep{vidur2024}; LLMServingSim develops HW/SW co-simulation
+for serving workloads \citep{llmservingsim2024}. Those frameworks target
+hardware-aware performance estimation and evaluate prediction accuracy.
+\cm\ uses fixed-duration batches and an explicit work ledger to make
+adaptations comparable and execution independently checkable. It cannot
+replace their predictive objectives or borrow their validation evidence.
+Following the distinction between verification and validation in simulation
+methodology \citep{sargent2013}, reconstructing an execution journal tests
+whether the program implements the declared model. Establishing adequacy
+for a physical serving system would require separate evidence.
+
+\paragraph{Statistical procedures.}
+The calibration diagnostic uses existing procedures: Benjamini--Hochberg
+(BH), Benjamini--Yekutieli (BY), Holm, and bounded concentration inequalities
+\citep{benjamini1995,benjamini2001dependency,holm1979,hoeffding1963}.
+Their assumptions do not follow from successful code execution. In
+particular, a multiplicity adjustment cannot establish validity of its
+input p-values or repair a mismatch between the tested null and a practical
+performance claim. STAT01 investigates those issues in specified synthetic
+scenarios; it does not propose a replacement test.
