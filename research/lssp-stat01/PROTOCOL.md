@@ -67,7 +67,7 @@ Ranking ties: preserve population maximizer sets and empirical exact-maximizer s
 
 ## Monte Carlo design, precision and stopping
 
-Master seed2026102201, NumPy PCG64/SeedSequence with explicit scenario index, replicate index and stream ID; separate streams for generator, missing mask, historical bootstrap, grouped bootstrap and unconditional coverage. Workers and resume order must not affect a replicate. Retain generated arrays/masks and per-study method results, not just aggregates.
+Master seed2026102201, NumPy PCG64/SeedSequence with explicit namespace (1=campaign,0=engineering), scenario index, replicate index and stream ID; separate streams for generator, missing mask, historical bootstrap, grouped bootstrap and unconditional coverage. Workers and resume order must not affect a replicate. Retain generated arrays/masks and per-study method results, not just aggregates.
 
 Batches of25 independent studies. Prespecified analysis looks at500,1000,2000,4000,8000 completed studies **per scenario**; maximum8,000. Stop a scenario early only when simultaneous Monte Carlo uncertainty half-widths meet: practical FDR/FWER/null rejection fraction≤.025; ordinary95% coverage≤.03; power≤.08 where defined. Coverage precision is required for available unconditional diagnostic intervals, not the rare selected intervals. Never stop because results favor a method or achieve nominal calibration.
 

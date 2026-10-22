@@ -1,0 +1,36 @@
+2026-10-22T04:15:48Z
+....................................F.                                   [100%]
+=================================== FAILURES ===================================
+__________ test_monte_carlo_bounds_optional_look_allocation_and_merge __________
+
+    def test_monte_carlo_bounds_optional_look_allocation_and_merge():
+        x=[0,0,1,0,1]*100
+        result=bound(x)
+        log=math.log(4/DELTA);variance=sum((v-np.mean(x))**2 for v in x)/(len(x)-1)
+        expected=math.sqrt(2*variance*log/len(x))+7*log/(3*(len(x)-1))
+        assert result['halfwidth']==pytest.approx(expected)
+        assert DELTA==.05/(18*8*16*5)
+        records=[study(7,999+i,b=30)[2] for i in range(3)]
+        combined=merge_stats(sufficient(records[:1]),sufficient(records[1:]))
+        whole=sufficient(records)
+        for m in METHODS:
+            for e in whole[m]:
+                assert combined[m][e]==pytest.approx(whole[m][e])
+        assert summarize_stats(whole,3,SCENARIOS[7])['precision_objective_met'] is False
+        summary=summarize(records);sums=summarize_stats(whole,3,SCENARIOS[7])
+        for m in METHODS:
+>           for e in whole[m]:assert sums['methods'][m]['endpoints'][e]==pytest.approx(summary['methods'][m]['endpoints'][e])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: assert {'halfwidth':...93939387, ...} == approx({'n': ...17 ± 1.0e-12})
+E             
+E             comparison failed. Mismatched elements: 1 / 6:
+E             Max absolute difference: 4.301594674000663e-09
+E             Max relative difference: 109588315.0118875
+E             Index | Obtained               | Expected                       
+E             mcse  | 4.3015947132529745e-09 | 3.925231146709438e-17 ± 1.0e-12
+
+research/lssp-stat01/test_calibration.py:180: AssertionError
+=========================== short test summary info ============================
+FAILED research/lssp-stat01/test_calibration.py::test_monte_carlo_bounds_optional_look_allocation_and_merge
+1 failed, 37 passed in 2.11s
+2026-10-22T04:15:50Z
