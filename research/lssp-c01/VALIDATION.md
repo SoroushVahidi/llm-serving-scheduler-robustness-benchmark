@@ -33,3 +33,11 @@ Synthetic test outputs are not scientific observations. No frozen-workload sched
 | Final regression/input check | lssp-c01-final-validation:cpu |540291| evidence/final-validation.txt |0|
 
 Remote staging and startup evidence are recorded separately. A passed local gate authorizes staging/remote engineering validation; submission occurs only after those checks pass. A successful submission does not establish valid outcomes, historical reversal persistence or publication readiness.
+
+## Remote gates — PASS
+
+Final staged-code check after the stable-control labeling correction: tmux `lssp-c01-remote-validation-2:cpu`, pane PID3045081; shell PID in `evidence/remote-validation.pid`; **42 tests passed**, exact code/protocol/input fingerprints passed, exit0. Initial remote validation is retained separately. Runtime code commit is9aed0206de66886e9feb0b003b59f0b7dfea68c9. Both remote checks ran only synthetic fixtures, with no real frozen-workload outcomes examined.
+
+Decision: **GO for one CM-0.1 CPU conformance pilot only.** NO-GO for full-corpus reversal persistence, native-policy equivalence, physical GPU performance, causal attribution of the entire historical-to-common-model change, publication readiness, or Job2 without result review/authorization. This is not an implementation of the complete original algorithms. The within-CM policy comparison isolates declared scheduling decisions; the paired KV-capacity contrast changes only the shared resource contract.
+
+The partition/account/QOS permit the one-CPU4GiB request. Default Python3.9 was detected before launch and avoided with an explicit3.12.13 executable. No packages installed. Source hash preservation check passed; only the inherited LFS working-tree anomaly remains. `git diff --check` flags whitespace in the preserved first pytest failure log only; source files have no whitespace errors.
