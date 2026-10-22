@@ -1,0 +1,1 @@
+{'input_sha256': 'a77bf5420ca8a55c3765919dbf42e774794f471da6ff404d0ad19a53c43a8c8c', 'cells': 5760, 'pilot_exact_matches': 144, 'row_overlap_pairs': 0}
