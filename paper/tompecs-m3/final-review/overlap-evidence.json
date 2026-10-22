@@ -1,0 +1,1779 @@
+{
+  "method": "Exact unique 12-word shingles after conservative TeX normalization; within-file only; not semantic similarity or a plagiarism score.",
+  "snapshots": {
+    "M3_reviewed": {
+      "commit": "ed24b2e8224ea88aa289b60dea6142beeea5330d",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/tompecs-m3/main.tex",
+          "sha256": "b8811d6be2654672f879949135bafaba4b1a4a29fd88dd33ec5063ef9cd67cb8",
+          "normalized_words": 247
+        },
+        {
+          "path": "paper/tompecs-m3/sections/appendix.tex",
+          "sha256": "ce1e20b4f61577023fdd583f5c67f119b995363be591ab17e1196baaee0a08ef",
+          "normalized_words": 2018
+        },
+        {
+          "path": "paper/tompecs-m3/sections/contract.tex",
+          "sha256": "cf5717c280290220a4bcaba18d9c3f16d06959bcd4b78ec20b56e1856b39975b",
+          "normalized_words": 1050
+        },
+        {
+          "path": "paper/tompecs-m3/sections/declarations.tex",
+          "sha256": "711e3be2cc4889f39c69b984e645185fd73630c20fc6f4155052f34de1b9ed23",
+          "normalized_words": 289
+        },
+        {
+          "path": "paper/tompecs-m3/sections/design.tex",
+          "sha256": "a6be60589ae09c240062a75b43c2ab0dccd60191e0847c79cdde924a9f52807d",
+          "normalized_words": 1069
+        },
+        {
+          "path": "paper/tompecs-m3/sections/discussion.tex",
+          "sha256": "69d452ae7a3ac527fee37aff69fd14c801917a29f0f98c775120f61b1bb09af4",
+          "normalized_words": 568
+        },
+        {
+          "path": "paper/tompecs-m3/sections/inference.tex",
+          "sha256": "1ec0c6683f310296ad183b12749874f7b0e28ca5a0ed5bec4e394bfbf13ba44a",
+          "normalized_words": 775
+        },
+        {
+          "path": "paper/tompecs-m3/sections/introduction.tex",
+          "sha256": "ad9d9f85054654eea427d8bc3fd67c58adb501278afaca2b227d69afd6a69679",
+          "normalized_words": 576
+        },
+        {
+          "path": "paper/tompecs-m3/sections/performance.tex",
+          "sha256": "d307f4a93467fa1331e375deb8d283bfe1efe363f51c8774b81fe2f1eae150bf",
+          "normalized_words": 1024
+        },
+        {
+          "path": "paper/tompecs-m3/sections/rankings.tex",
+          "sha256": "c9009ad6810f92b7498bd0b7e9269f77243967f193b95fbc23cbb8c1623fccb0",
+          "normalized_words": 894
+        },
+        {
+          "path": "paper/tompecs-m3/sections/related.tex",
+          "sha256": "fae96714a47828fadbabd4ee2ffb8dc59113f4e7e9a69abda67efb53a68ba5b7",
+          "normalized_words": 403
+        }
+      ],
+      "unique_12grams": 8792
+    },
+    "JSC": {
+      "commit": "b1f9a12021c25dff8ad7cc06ff9654b6a047c132",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/jsc_submission_package/artifact.tex",
+          "sha256": "159322962986c69d67350bb12e77b30e1bdefea8d9ef7e34a5421b8338681da0",
+          "normalized_words": 690
+        },
+        {
+          "path": "paper/jsc_submission_package/conclusion.tex",
+          "sha256": "2eea8320c641b3334d83eb5f2aa8f694d359f2ec4f160fa281214d86ed2fcb06",
+          "normalized_words": 483
+        },
+        {
+          "path": "paper/jsc_submission_package/declarations.tex",
+          "sha256": "aa9889be5f937f9c923701f7d99afa01e82028d2c2ba65e0b0c6095c6dc386b7",
+          "normalized_words": 595
+        },
+        {
+          "path": "paper/jsc_submission_package/discussion.tex",
+          "sha256": "fef251290f818db2af0bce0ba1421042c98980d857ddc4209b2d4bcebe4d4ef9",
+          "normalized_words": 1533
+        },
+        {
+          "path": "paper/jsc_submission_package/introduction.tex",
+          "sha256": "b3b68683b29b3e4f99667ff8d1c1657124e3755dd52e7d71d71a7223e54c30cd",
+          "normalized_words": 1237
+        },
+        {
+          "path": "paper/jsc_submission_package/limitations.tex",
+          "sha256": "30455ac06c812fd95f797818f03e42ebd9858008476847db1207f124b39ad928",
+          "normalized_words": 1135
+        },
+        {
+          "path": "paper/jsc_submission_package/main.tex",
+          "sha256": "0663b6f1b535172ae3218400f4f74fc2e256eea406ec2743f38c29b8218d4468",
+          "normalized_words": 228
+        },
+        {
+          "path": "paper/jsc_submission_package/methodology.tex",
+          "sha256": "54a67565a2dbe0f97337a88fbe0cc32e154dd49f6c96e2848079deba19a4d69e",
+          "normalized_words": 2976
+        },
+        {
+          "path": "paper/jsc_submission_package/real_system.tex",
+          "sha256": "3cdde43adedd0e44582c16a4e1c07e608d0082e84fd5157454af71ccfecac1ba",
+          "normalized_words": 1093
+        },
+        {
+          "path": "paper/jsc_submission_package/related_work.tex",
+          "sha256": "b8b260e55c539db1d640ca1cdfcffeb92f0b079a15c720f92e4ccd584b6c7846",
+          "normalized_words": 1880
+        },
+        {
+          "path": "paper/jsc_submission_package/results.tex",
+          "sha256": "ea16197b571aa5e27ae5afadc662f1b93aaaee55d64c6f00630a5a38a27596d2",
+          "normalized_words": 2719
+        },
+        {
+          "path": "paper/jsc_submission_package/sample_complexity.tex",
+          "sha256": "a0dfe74907b66044fc28a1e04e45b1c97824748d04eff017977222e6780d0330",
+          "normalized_words": 716
+        },
+        {
+          "path": "paper/jsc_submission_package/study_design.tex",
+          "sha256": "2d99b4b67133cd404334b8a4cbd89fa4f3841a2036483099b0de685c4f7eab75",
+          "normalized_words": 611
+        },
+        {
+          "path": "paper/jsc_submission_package/workloads.tex",
+          "sha256": "87b1fdd17f1f585dc58e5d57d0892dd2e8b7ffe571522b8185b7497fabe88c58",
+          "normalized_words": 1268
+        }
+      ],
+      "unique_12grams": 16880
+    },
+    "PEVA": {
+      "commit": "097547206b6e99286553f43190bfa14c5b542b35",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/peva_submission_package/artifact.tex",
+          "sha256": "d0822c9d9e2673ec0f125ab3ca8a1c76faa55127b7bc4bc78ce84f4edc4c5ac3",
+          "normalized_words": 453
+        },
+        {
+          "path": "paper/peva_submission_package/conclusion.tex",
+          "sha256": "1b7c6951618e3f5e8bed3c3726cffb792aebe694502772d9cfffe510962a195e",
+          "normalized_words": 323
+        },
+        {
+          "path": "paper/peva_submission_package/declarations.tex",
+          "sha256": "8c3bad869dfc08faf530f03244c934afb3da651495ac1c13ff99e20ce560ee9e",
+          "normalized_words": 520
+        },
+        {
+          "path": "paper/peva_submission_package/discussion.tex",
+          "sha256": "034ead79d4d916338b6028e4d59696e417c3eecf97fc2554ddecbd37ce92c40d",
+          "normalized_words": 1274
+        },
+        {
+          "path": "paper/peva_submission_package/introduction.tex",
+          "sha256": "5cc08376ee4f0109dc7fddfe2ef478092efaa3c869576746a7dca86122c93383",
+          "normalized_words": 1173
+        },
+        {
+          "path": "paper/peva_submission_package/limitations.tex",
+          "sha256": "c1e193085472c05dd6a9a9b084d37702bc193a4a21cc659b8d9c055464677979",
+          "normalized_words": 1126
+        },
+        {
+          "path": "paper/peva_submission_package/main.tex",
+          "sha256": "7ddcd5a88203e5e0b8a3fd2833d984ff3628f554422da9b9f830c5d75b3a34b4",
+          "normalized_words": 230
+        },
+        {
+          "path": "paper/peva_submission_package/methodology.tex",
+          "sha256": "ba83951a87d81044aac203f2c9afd65fec087802693e24f548629ec138d4f021",
+          "normalized_words": 3010
+        },
+        {
+          "path": "paper/peva_submission_package/real_system.tex",
+          "sha256": "3cdde43adedd0e44582c16a4e1c07e608d0082e84fd5157454af71ccfecac1ba",
+          "normalized_words": 1093
+        },
+        {
+          "path": "paper/peva_submission_package/related_work.tex",
+          "sha256": "735bf6f66252b69f91d2c3603f48587c201828e61a2e4012ed84b23cca6e79f0",
+          "normalized_words": 1679
+        },
+        {
+          "path": "paper/peva_submission_package/results.tex",
+          "sha256": "2d1c966a5424188bb68b9e18402d3b872f0d1b0c1ff30fb3cb703afbb2654025",
+          "normalized_words": 2564
+        },
+        {
+          "path": "paper/peva_submission_package/sample_complexity.tex",
+          "sha256": "a0dfe74907b66044fc28a1e04e45b1c97824748d04eff017977222e6780d0330",
+          "normalized_words": 716
+        },
+        {
+          "path": "paper/peva_submission_package/study_design.tex",
+          "sha256": "2ec1fe63b8c31fa525c1d1f5387034a737fb85678197bd92c7a35104aeab43e4",
+          "normalized_words": 593
+        },
+        {
+          "path": "paper/peva_submission_package/workloads.tex",
+          "sha256": "1a9e467d0ba69835c2c89ec52adb00f91ca661286850e264c6a797985af2abab",
+          "normalized_words": 1265
+        }
+      ],
+      "unique_12grams": 15843
+    },
+    "SMPT": {
+      "commit": "cc25fcd14f6fe28ab30d9e46635a72c0d6285d00",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/smpt_submission_package/artifact.tex",
+          "sha256": "5cc85a0b3bf3e40aac5e97b63fb5bd144d029cd04e039e370187627e093684d1",
+          "normalized_words": 261
+        },
+        {
+          "path": "paper/smpt_submission_package/conclusion.tex",
+          "sha256": "2ce3ad801cda755024debd184114e67e4fd91f1bf2e54f418cc2638b6803e69a",
+          "normalized_words": 343
+        },
+        {
+          "path": "paper/smpt_submission_package/declarations.tex",
+          "sha256": "298db9741dd64e45c5d862a60a01326ad42d76fdab35b5d150fba403084acf41",
+          "normalized_words": 504
+        },
+        {
+          "path": "paper/smpt_submission_package/discussion.tex",
+          "sha256": "15c0622a21b14c3be6a8747775d794a68241f34f07149152d89da7ed451fa941",
+          "normalized_words": 1362
+        },
+        {
+          "path": "paper/smpt_submission_package/introduction.tex",
+          "sha256": "da66b6c94cac9160c42c1f518f51a71b08c98db70e12a528439ef547dac12f82",
+          "normalized_words": 1327
+        },
+        {
+          "path": "paper/smpt_submission_package/limitations.tex",
+          "sha256": "7f48034f3fad32db0f25c58378ce657f73d6eeb019b51bacb1614d2d68da399b",
+          "normalized_words": 1213
+        },
+        {
+          "path": "paper/smpt_submission_package/main.tex",
+          "sha256": "0c71efbc57ab5737b3e82292f0e0f2016eee17beae827cee7c1b770f8a9d58f6",
+          "normalized_words": 295
+        },
+        {
+          "path": "paper/smpt_submission_package/methodology.tex",
+          "sha256": "95f9727bdff94d1d3b244089846e59faf704dbcbd8364b66f6a38ff546437618",
+          "normalized_words": 3807
+        },
+        {
+          "path": "paper/smpt_submission_package/real_system.tex",
+          "sha256": "87d66b062dd590f337c8788ea2d04a6ecae77a7328b674af9440404fc1c1f38a",
+          "normalized_words": 1199
+        },
+        {
+          "path": "paper/smpt_submission_package/related_work.tex",
+          "sha256": "a83d4475ee8157d9b1e75d9c41a975bb65cc44885e8b5b26cec361a7482022d0",
+          "normalized_words": 1702
+        },
+        {
+          "path": "paper/smpt_submission_package/results.tex",
+          "sha256": "7692c38df8cb923115ca65be95392be91af0f0c447cddc5b8aaa53dc3249ec4e",
+          "normalized_words": 2607
+        },
+        {
+          "path": "paper/smpt_submission_package/sample_complexity.tex",
+          "sha256": "7b7c544c4253c8d43ae03e28a687054181ee4cd36a209998b9439785ceb6c3c5",
+          "normalized_words": 737
+        },
+        {
+          "path": "paper/smpt_submission_package/study_design.tex",
+          "sha256": "2ec1fe63b8c31fa525c1d1f5387034a737fb85678197bd92c7a35104aeab43e4",
+          "normalized_words": 593
+        },
+        {
+          "path": "paper/smpt_submission_package/workloads.tex",
+          "sha256": "eb72e07a8c8cf47471994ba8ccb80d647660cd9f64e0b91ca26fcf9aa8bf8a69",
+          "normalized_words": 1273
+        }
+      ],
+      "unique_12grams": 17051
+    },
+    "SMPT_blind": {
+      "commit": "cc25fcd14f6fe28ab30d9e46635a72c0d6285d00",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/smpt_blind_submission_package/artifact.tex",
+          "sha256": "d41ddfbd76999e24b41d0b8a931b892bbf0249906bc274b8292de11e5a8207ec",
+          "normalized_words": 237
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/conclusion.tex",
+          "sha256": "2ce3ad801cda755024debd184114e67e4fd91f1bf2e54f418cc2638b6803e69a",
+          "normalized_words": 343
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/declarations.tex",
+          "sha256": "69ac3658bb738693ce997ccb59d57c5da4dac6726f5eb43010030f945db5074c",
+          "normalized_words": 362
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/discussion.tex",
+          "sha256": "15c0622a21b14c3be6a8747775d794a68241f34f07149152d89da7ed451fa941",
+          "normalized_words": 1362
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/introduction.tex",
+          "sha256": "da66b6c94cac9160c42c1f518f51a71b08c98db70e12a528439ef547dac12f82",
+          "normalized_words": 1327
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/limitations.tex",
+          "sha256": "7f48034f3fad32db0f25c58378ce657f73d6eeb019b51bacb1614d2d68da399b",
+          "normalized_words": 1213
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/main.tex",
+          "sha256": "a7554b4b3019d22bfddc0836e6654aedd471544fee7007046d82bdd2d411d08b",
+          "normalized_words": 269
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/methodology.tex",
+          "sha256": "95f9727bdff94d1d3b244089846e59faf704dbcbd8364b66f6a38ff546437618",
+          "normalized_words": 3807
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/real_system.tex",
+          "sha256": "87d66b062dd590f337c8788ea2d04a6ecae77a7328b674af9440404fc1c1f38a",
+          "normalized_words": 1199
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/related_work.tex",
+          "sha256": "a83d4475ee8157d9b1e75d9c41a975bb65cc44885e8b5b26cec361a7482022d0",
+          "normalized_words": 1702
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/results.tex",
+          "sha256": "7692c38df8cb923115ca65be95392be91af0f0c447cddc5b8aaa53dc3249ec4e",
+          "normalized_words": 2607
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/sample_complexity.tex",
+          "sha256": "7b7c544c4253c8d43ae03e28a687054181ee4cd36a209998b9439785ceb6c3c5",
+          "normalized_words": 737
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/study_design.tex",
+          "sha256": "d3533eef09ea456b809ff1ee15eb4cf93202e9785b62dcecc6935354c22cd5ca",
+          "normalized_words": 583
+        },
+        {
+          "path": "paper/smpt_blind_submission_package/workloads.tex",
+          "sha256": "eb72e07a8c8cf47471994ba8ccb80d647660cd9f64e0b91ca26fcf9aa8bf8a69",
+          "normalized_words": 1273
+        }
+      ],
+      "unique_12grams": 16831
+    },
+    "legacy_main": {
+      "commit": "e73a3b711b65f9c181ff9a2674007efca22f1b65",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/main.tex",
+          "sha256": "17fad8439d76c9c84f6b8e921d42afe6f8d73f8d25d4068162258898c3a8eb46",
+          "normalized_words": 228
+        },
+        {
+          "path": "paper/sections/artifact.tex",
+          "sha256": "159322962986c69d67350bb12e77b30e1bdefea8d9ef7e34a5421b8338681da0",
+          "normalized_words": 690
+        },
+        {
+          "path": "paper/sections/conclusion.tex",
+          "sha256": "2eea8320c641b3334d83eb5f2aa8f694d359f2ec4f160fa281214d86ed2fcb06",
+          "normalized_words": 483
+        },
+        {
+          "path": "paper/sections/declarations.tex",
+          "sha256": "aa9889be5f937f9c923701f7d99afa01e82028d2c2ba65e0b0c6095c6dc386b7",
+          "normalized_words": 595
+        },
+        {
+          "path": "paper/sections/discussion.tex",
+          "sha256": "fef251290f818db2af0bce0ba1421042c98980d857ddc4209b2d4bcebe4d4ef9",
+          "normalized_words": 1533
+        },
+        {
+          "path": "paper/sections/introduction.tex",
+          "sha256": "b3b68683b29b3e4f99667ff8d1c1657124e3755dd52e7d71d71a7223e54c30cd",
+          "normalized_words": 1237
+        },
+        {
+          "path": "paper/sections/limitations.tex",
+          "sha256": "30455ac06c812fd95f797818f03e42ebd9858008476847db1207f124b39ad928",
+          "normalized_words": 1135
+        },
+        {
+          "path": "paper/sections/methodology.tex",
+          "sha256": "54a67565a2dbe0f97337a88fbe0cc32e154dd49f6c96e2848079deba19a4d69e",
+          "normalized_words": 2976
+        },
+        {
+          "path": "paper/sections/real_system.tex",
+          "sha256": "3cdde43adedd0e44582c16a4e1c07e608d0082e84fd5157454af71ccfecac1ba",
+          "normalized_words": 1093
+        },
+        {
+          "path": "paper/sections/related_work.tex",
+          "sha256": "b8b260e55c539db1d640ca1cdfcffeb92f0b079a15c720f92e4ccd584b6c7846",
+          "normalized_words": 1880
+        },
+        {
+          "path": "paper/sections/results.tex",
+          "sha256": "64c9731899a72ac9391c9d3bd42e121ba9e960a64b290efb4abe6efdb4a2af0a",
+          "normalized_words": 2719
+        },
+        {
+          "path": "paper/sections/sample_complexity.tex",
+          "sha256": "cd1f233ddc6a5f15fa6734644b8174b4376a8422e6f90462d9b659bb82106d58",
+          "normalized_words": 716
+        },
+        {
+          "path": "paper/sections/study_design.tex",
+          "sha256": "2d99b4b67133cd404334b8a4cbd89fa4f3841a2036483099b0de685c4f7eab75",
+          "normalized_words": 611
+        },
+        {
+          "path": "paper/sections/workloads.tex",
+          "sha256": "87b1fdd17f1f585dc58e5d57d0892dd2e8b7ffe571522b8185b7497fabe88c58",
+          "normalized_words": 1268
+        }
+      ],
+      "unique_12grams": 16880
+    },
+    "M1_baseline": {
+      "commit": "366752a76f86dec30190f3e7767124f684378de4",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/tompecs-m1/baseline/main.tex",
+          "sha256": "b65138c49b343814d9e4618c609dcf9e506d962a034e81649f82e3290f025c8f",
+          "normalized_words": 248
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/artifact.tex",
+          "sha256": "5cc85a0b3bf3e40aac5e97b63fb5bd144d029cd04e039e370187627e093684d1",
+          "normalized_words": 261
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/conclusion.tex",
+          "sha256": "2ce3ad801cda755024debd184114e67e4fd91f1bf2e54f418cc2638b6803e69a",
+          "normalized_words": 343
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/declarations.tex",
+          "sha256": "298db9741dd64e45c5d862a60a01326ad42d76fdab35b5d150fba403084acf41",
+          "normalized_words": 504
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/discussion.tex",
+          "sha256": "15c0622a21b14c3be6a8747775d794a68241f34f07149152d89da7ed451fa941",
+          "normalized_words": 1362
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/introduction.tex",
+          "sha256": "da66b6c94cac9160c42c1f518f51a71b08c98db70e12a528439ef547dac12f82",
+          "normalized_words": 1327
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/limitations.tex",
+          "sha256": "7f48034f3fad32db0f25c58378ce657f73d6eeb019b51bacb1614d2d68da399b",
+          "normalized_words": 1213
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/methodology.tex",
+          "sha256": "95f9727bdff94d1d3b244089846e59faf704dbcbd8364b66f6a38ff546437618",
+          "normalized_words": 3807
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/real_system.tex",
+          "sha256": "87d66b062dd590f337c8788ea2d04a6ecae77a7328b674af9440404fc1c1f38a",
+          "normalized_words": 1199
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/related_work.tex",
+          "sha256": "a83d4475ee8157d9b1e75d9c41a975bb65cc44885e8b5b26cec361a7482022d0",
+          "normalized_words": 1702
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/results.tex",
+          "sha256": "ce21994c01d23d3491b98463c803487ef03bb8394745a3323adea6179398ba8b",
+          "normalized_words": 2655
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/sample_complexity.tex",
+          "sha256": "16e5f814f86ac1a16c90ab3e38ba72164366568f4f5c5e3d1f36d705394549a4",
+          "normalized_words": 761
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/study_design.tex",
+          "sha256": "2ec1fe63b8c31fa525c1d1f5387034a737fb85678197bd92c7a35104aeab43e4",
+          "normalized_words": 593
+        },
+        {
+          "path": "paper/tompecs-m1/baseline/sections/workloads.tex",
+          "sha256": "eb72e07a8c8cf47471994ba8ccb80d647660cd9f64e0b91ca26fcf9aa8bf8a69",
+          "normalized_words": 1273
+        }
+      ],
+      "unique_12grams": 17076
+    },
+    "M1_revised": {
+      "commit": "366752a76f86dec30190f3e7767124f684378de4",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/tompecs-m1/revised/main.tex",
+          "sha256": "c556f62423a4b344517f8906163c6606b37ef88123370fed47a444808749f970",
+          "normalized_words": 389
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/conclusion.tex",
+          "sha256": "8d466ce1cec3d5dfc27b1004911a72032b5e00dd4b978c6c8aafeeb2c353f633",
+          "normalized_words": 119
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/introduction.tex",
+          "sha256": "6538a9d40498f474bc3e800757eb87a7124f8019e6246a803542f304b19eca83",
+          "normalized_words": 524
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/limitations.tex",
+          "sha256": "e22dc027bcd571af4e2a8cba260e1cda17d76c89fdf3caac36197ab812452867",
+          "normalized_words": 829
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/metrics.tex",
+          "sha256": "5291a208a13c5d005761c44e7b99275de8bc8be29a64e60f11a5f19440eecbda",
+          "normalized_words": 641
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/model.tex",
+          "sha256": "a1bebd13602fb14004402e29704fa1672c14d3ab6d4a7b187faa9eb218d75613",
+          "normalized_words": 1600
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/portability.tex",
+          "sha256": "934ab4049e0ecd9cb90e05abc5dc3f8eae7bfcdf34b87a2363ac46618941193c",
+          "normalized_words": 1416
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/related_work.tex",
+          "sha256": "bf4cb582758afa0fc6284b06500b2d966a2d4f7eb0d0b1a6821b77d9f346cab3",
+          "normalized_words": 352
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/research_questions.tex",
+          "sha256": "1c3b01596dc9b12535e52e07ac52a0aca2dec1700b2f9b08a61ad867b09e2b9c",
+          "normalized_words": 2408
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/robustness.tex",
+          "sha256": "da8ae2eefdd0289ddb5fad2c0915ca3cf74d9401637e02732d6c84d25d995428",
+          "normalized_words": 1348
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/within.tex",
+          "sha256": "4d745b556c01da831d354e5c943707a223bdc6b9ebe4a70e13fbb77a65b5eaa8",
+          "normalized_words": 391
+        },
+        {
+          "path": "paper/tompecs-m1/revised/sections/workloads.tex",
+          "sha256": "12369c48be43617b466c24f63ab5cdec4eb31657258684f04e51ac04775fdb22",
+          "normalized_words": 1347
+        }
+      ],
+      "unique_12grams": 11223
+    },
+    "M2": {
+      "commit": "880a37e8e7c19d089be124291e288269966a9147",
+      "repository": "/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit",
+      "files": [
+        {
+          "path": "paper/tompecs-m2/revised/main.tex",
+          "sha256": "6bd496231990c8f89b0992b333ba4a28100c2ece5f042994c6810fb488a6e5ae",
+          "normalized_words": 420
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/conclusion.tex",
+          "sha256": "c407f6c3b7b6168a742fd0b2aaed7272197ad5fc9da02c5ef3f9694d4b108d81",
+          "normalized_words": 296
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/introduction.tex",
+          "sha256": "2b83714f5076adda4c6ebfe5d9594e7bf6e382442ecc7c1913cc46b04f32b685",
+          "normalized_words": 905
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/limitations.tex",
+          "sha256": "6faf984dfa580ebfeeca7108c327cbde12c28c7ca5e46689b87f3ca663f21bdc",
+          "normalized_words": 851
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/metrics.tex",
+          "sha256": "9b5689e4046b9aab8a88ef453c5fbc597ffa4fd1a8dbf54d9db3a8d9625d5e29",
+          "normalized_words": 1159
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/model.tex",
+          "sha256": "8d28e9d453c2b0cd43d6e21740f25bb3f33a7515b9f722e90634b819dd9959be",
+          "normalized_words": 1611
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/portability.tex",
+          "sha256": "3c4d0708157a66169904f0952f2c296b9023aee0c569e92faa0c065ece52657b",
+          "normalized_words": 1547
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/related_work.tex",
+          "sha256": "4d89378da063be4d88f35685d81ccb75fa9faa62ccb1a006a8632b767d274896",
+          "normalized_words": 709
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/research_questions.tex",
+          "sha256": "698af620ffd30355c3c18c61cb13cbeab3fc0e4015c0f57ced2954364261571d",
+          "normalized_words": 1336
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/robustness.tex",
+          "sha256": "3b23f6919cd177d08c51acf156f0b27485ecf8187bd65f5fa0bb62c0044798e6",
+          "normalized_words": 2061
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/within.tex",
+          "sha256": "887b8ac20f494f7c1b7ba1898d29ded632e703bca0d9a4279ef6af4c7548c10b",
+          "normalized_words": 937
+        },
+        {
+          "path": "paper/tompecs-m2/revised/sections/workloads.tex",
+          "sha256": "12369c48be43617b466c24f63ab5cdec4eb31657258684f04e51ac04775fdb22",
+          "normalized_words": 1347
+        }
+      ],
+      "unique_12grams": 13047
+    },
+    "headroom_PEVA": {
+      "commit": "327736bc07c79e9ac6a1f233473f5a289ca4438a",
+      "repository": "/home/soroush/llm-serving-heuristic-evolution",
+      "files": [
+        {
+          "path": "paper/performance_evaluation/main.tex",
+          "sha256": "d8ced7b07b30cbe6ffc0d75c510b33857867dab4476eba14d384160ce703f830",
+          "normalized_words": 8398
+        }
+      ],
+      "unique_12grams": 8380
+    },
+    "headroom_PEVA_package": {
+      "commit": "327736bc07c79e9ac6a1f233473f5a289ca4438a",
+      "repository": "/home/soroush/llm-serving-heuristic-evolution",
+      "files": [
+        {
+          "path": "paper/performance_evaluation/submission/main.tex",
+          "sha256": "d8ced7b07b30cbe6ffc0d75c510b33857867dab4476eba14d384160ce703f830",
+          "normalized_words": 8398
+        }
+      ],
+      "unique_12grams": 8380
+    },
+    "heuristic_LLM2026_history": {
+      "commit": "327736bc07c79e9ac6a1f233473f5a289ca4438a",
+      "repository": "/home/soroush/llm-serving-heuristic-evolution",
+      "files": [
+        {
+          "path": "paper/history/llm2026/submission_package/source/main.tex",
+          "sha256": "94a3af01d050585023b14a56caba28bf36464ac9b34eccafe2d7f4395205192c",
+          "normalized_words": 4489
+        }
+      ],
+      "unique_12grams": 4478
+    },
+    "module_intervention": {
+      "commit": "ffae40a1d470624b3dc1da7c48673b12c6556152",
+      "repository": "/home/soroush/repos/llm-serving-module-intervention-benchmark",
+      "files": [
+        {
+          "path": "paper/main.tex",
+          "sha256": "37d236a09a8d28b1b4bf66cd38cc0aafde7eea003358a9feb649febf40124e5f",
+          "normalized_words": 118
+        },
+        {
+          "path": "paper/sections/abstract.tex",
+          "sha256": "ebbb6969137139a743278929cb9f3df91a53837fd0de3bcb3de5227a6602e3fe",
+          "normalized_words": 371
+        },
+        {
+          "path": "paper/sections/appendix.tex",
+          "sha256": "bddfe0cc8f60d8afeb86579498da48a379446c729d9431ebde1b2c7ddc6cd4e5",
+          "normalized_words": 3036
+        },
+        {
+          "path": "paper/sections/background.tex",
+          "sha256": "a5058d567adfb5a867a461cc846165b9d012c0ea896ee6495f160b75d2def00b",
+          "normalized_words": 696
+        },
+        {
+          "path": "paper/sections/conclusion.tex",
+          "sha256": "4ff605728ac5408fd36acc82873922f600cf95a46727c9c2863551f389c7b7fd",
+          "normalized_words": 170
+        },
+        {
+          "path": "paper/sections/dataset.tex",
+          "sha256": "7db3cf47567394d836755402768bbf3963b0afd7b96204117ad801f666cbd8cb",
+          "normalized_words": 399
+        },
+        {
+          "path": "paper/sections/design.tex",
+          "sha256": "8a18aade3c6aa52bae713832865e4cf983fe3946433155763cef854fc81dd921",
+          "normalized_words": 389
+        },
+        {
+          "path": "paper/sections/intro.tex",
+          "sha256": "1875433a2b23751461a27bfc3b2eecdda5af1ab6b56b1239a08ea29b0ee782c4",
+          "normalized_words": 776
+        },
+        {
+          "path": "paper/sections/limitations.tex",
+          "sha256": "72f7f752706e6fdf08b5330e789f17470ddb7f7ce10e195fa15bbab8a13ef559",
+          "normalized_words": 540
+        },
+        {
+          "path": "paper/sections/method.tex",
+          "sha256": "75a27a6421dec562d5ab6c24f68024ef58b426b4fe1a86c3215cbe12db0c097e",
+          "normalized_words": 1393
+        },
+        {
+          "path": "paper/sections/related.tex",
+          "sha256": "6c8ffa81cd059d0d895caed8867aafbd0561f634e7a5c39190533d6c411601b1",
+          "normalized_words": 442
+        },
+        {
+          "path": "paper/sections/results.tex",
+          "sha256": "2a0943dfda4cc7723ce9cfa481bbc2fbbaa247e9fe88d0d1f63a5aa4dbce37be",
+          "normalized_words": 4013
+        }
+      ],
+      "unique_12grams": 12156
+    }
+  },
+  "comparisons": [
+    {
+      "a": "M3_reviewed",
+      "b": "JSC",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "PEVA",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "SMPT",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "SMPT_blind",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "legacy_main",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "M1_baseline",
+      "shared_unique_12grams": 3,
+      "fraction_a": 0.0003412192902638763,
+      "fraction_b": 0.00017568517217146873,
+      "file_pair_counts": [
+        {
+          "a_file": "paper/tompecs-m3/main.tex",
+          "b_file": "paper/tompecs-m1/baseline/main.tex",
+          "shared_12grams": 3
+        }
+      ],
+      "sample_matches": [
+        {
+          "words": "500 computing methodologies simulation evaluation 300 computer systems organization cloud computing llm",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m1/baseline/main.tex"
+          ]
+        },
+        {
+          "words": "abstract 500 computing methodologies simulation evaluation 300 computer systems organization cloud computing",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m1/baseline/main.tex"
+          ]
+        },
+        {
+          "words": "computing methodologies simulation evaluation 300 computer systems organization cloud computing llm serving",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m1/baseline/main.tex"
+          ]
+        }
+      ]
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "M1_revised",
+      "shared_unique_12grams": 3,
+      "fraction_a": 0.0003412192902638763,
+      "fraction_b": 0.0002673082063619353,
+      "file_pair_counts": [
+        {
+          "a_file": "paper/tompecs-m3/main.tex",
+          "b_file": "paper/tompecs-m1/revised/main.tex",
+          "shared_12grams": 3
+        }
+      ],
+      "sample_matches": [
+        {
+          "words": "500 computing methodologies simulation evaluation 300 computer systems organization cloud computing llm",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m1/revised/main.tex"
+          ]
+        },
+        {
+          "words": "abstract 500 computing methodologies simulation evaluation 300 computer systems organization cloud computing",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m1/revised/main.tex"
+          ]
+        },
+        {
+          "words": "computing methodologies simulation evaluation 300 computer systems organization cloud computing llm serving",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m1/revised/main.tex"
+          ]
+        }
+      ]
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "M2",
+      "shared_unique_12grams": 3,
+      "fraction_a": 0.0003412192902638763,
+      "fraction_b": 0.00022993791676247414,
+      "file_pair_counts": [
+        {
+          "a_file": "paper/tompecs-m3/main.tex",
+          "b_file": "paper/tompecs-m2/revised/main.tex",
+          "shared_12grams": 3
+        }
+      ],
+      "sample_matches": [
+        {
+          "words": "500 computing methodologies simulation evaluation 300 computer systems organization cloud computing llm",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m2/revised/main.tex"
+          ]
+        },
+        {
+          "words": "abstract 500 computing methodologies simulation evaluation 300 computer systems organization cloud computing",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m2/revised/main.tex"
+          ]
+        },
+        {
+          "words": "computing methodologies simulation evaluation 300 computer systems organization cloud computing llm serving",
+          "a_files": [
+            "paper/tompecs-m3/main.tex"
+          ],
+          "b_files": [
+            "paper/tompecs-m2/revised/main.tex"
+          ]
+        }
+      ]
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "headroom_PEVA",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "headroom_PEVA_package",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "heuristic_LLM2026_history",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "M3_reviewed",
+      "b": "module_intervention",
+      "shared_unique_12grams": 0,
+      "fraction_a": 0.0,
+      "fraction_b": 0.0,
+      "file_pair_counts": [],
+      "sample_matches": []
+    },
+    {
+      "a": "JSC",
+      "b": "PEVA",
+      "shared_unique_12grams": 13558,
+      "fraction_a": 0.8031990521327014,
+      "fraction_b": 0.855772265353784,
+      "file_pair_counts": [
+        {
+          "a_file": "paper/jsc_submission_package/artifact.tex",
+          "b_file": "paper/peva_submission_package/artifact.tex",
+          "shared_12grams": 265
+        },
+        {
+          "a_file": "paper/jsc_submission_package/artifact.tex",
+          "b_file": "paper/peva_submission_package/declarations.tex",
+          "shared_12grams": 9
+        },
+        {
+          "a_file": "paper/jsc_submission_package/conclusion.tex",
+          "b_file": "paper/peva_submission_package/conclusion.tex",
+          "shared_12grams": 132
+        },
+        {
+          "a_file": "paper/jsc_submission_package/conclusion.tex",
+          "b_file": "paper/peva_submission_package/introduction.tex",
+          "shared_12grams": 4
+        },
+        {
+          "a_file": "paper/jsc_submission_package/declarations.tex",
+          "b_file": "paper/peva_submission_package/artifact.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/jsc_submission_package/declarations.tex",
+          "b_file": "paper/peva_submission_package/declarations.tex",
+          "shared_12grams": 264
+        },
+        {
+          "a_file": "paper/jsc_submission_package/discussion.tex",
+          "b_file": "paper/peva_submission_package/discussion.tex",
+          "shared_12grams": 882
+        },
+        {
+          "a_file": "paper/jsc_submission_package/introduction.tex",
+          "b_file": "paper/peva_submission_package/conclusion.tex",
+          "shared_12grams": 4
+        },
+        {
+          "a_file": "paper/jsc_submission_package/introduction.tex",
+          "b_file": "paper/peva_submission_package/introduction.tex",
+          "shared_12grams": 1008
+        },
+        {
+          "a_file": "paper/jsc_submission_package/limitations.tex",
+          "b_file": "paper/peva_submission_package/limitations.tex",
+          "shared_12grams": 1051
+        },
+        {
+          "a_file": "paper/jsc_submission_package/limitations.tex",
+          "b_file": "paper/peva_submission_package/methodology.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/jsc_submission_package/limitations.tex",
+          "b_file": "paper/peva_submission_package/real_system.tex",
+          "shared_12grams": 4
+        },
+        {
+          "a_file": "paper/jsc_submission_package/limitations.tex",
+          "b_file": "paper/peva_submission_package/workloads.tex",
+          "shared_12grams": 5
+        },
+        {
+          "a_file": "paper/jsc_submission_package/main.tex",
+          "b_file": "paper/peva_submission_package/main.tex",
+          "shared_12grams": 158
+        },
+        {
+          "a_file": "paper/jsc_submission_package/methodology.tex",
+          "b_file": "paper/peva_submission_package/limitations.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/jsc_submission_package/methodology.tex",
+          "b_file": "paper/peva_submission_package/methodology.tex",
+          "shared_12grams": 2945
+        },
+        {
+          "a_file": "paper/jsc_submission_package/real_system.tex",
+          "b_file": "paper/peva_submission_package/limitations.tex",
+          "shared_12grams": 4
+        },
+        {
+          "a_file": "paper/jsc_submission_package/real_system.tex",
+          "b_file": "paper/peva_submission_package/real_system.tex",
+          "shared_12grams": 1082
+        },
+        {
+          "a_file": "paper/jsc_submission_package/related_work.tex",
+          "b_file": "paper/peva_submission_package/related_work.tex",
+          "shared_12grams": 928
+        },
+        {
+          "a_file": "paper/jsc_submission_package/results.tex",
+          "b_file": "paper/peva_submission_package/methodology.tex",
+          "shared_12grams": 10
+        },
+        {
+          "a_file": "paper/jsc_submission_package/results.tex",
+          "b_file": "paper/peva_submission_package/results.tex",
+          "shared_12grams": 2432
+        },
+        {
+          "a_file": "paper/jsc_submission_package/sample_complexity.tex",
+          "b_file": "paper/peva_submission_package/sample_complexity.tex",
+          "shared_12grams": 705
+        },
+        {
+          "a_file": "paper/jsc_submission_package/study_design.tex",
+          "b_file": "paper/peva_submission_package/introduction.tex",
+          "shared_12grams": 85
+        },
+        {
+          "a_file": "paper/jsc_submission_package/study_design.tex",
+          "b_file": "paper/peva_submission_package/study_design.tex",
+          "shared_12grams": 473
+        },
+        {
+          "a_file": "paper/jsc_submission_package/workloads.tex",
+          "b_file": "paper/peva_submission_package/workloads.tex",
+          "shared_12grams": 1243
+        }
+      ],
+      "sample_matches": [
+        {
+          "words": "0 000 a multinomial logistic regression reaches 0 988 balanced accuracy 0",
+          "a_files": [
+            "paper/jsc_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 000 accuracy because their signal is redundant with tier 1 includes",
+          "a_files": [
+            "paper/jsc_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 0025 window size sensitivity the benchmark corpus uses a fixed window",
+          "a_files": [
+            "paper/jsc_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 0051 consists of long prompt fraction 512 long prompt fraction 2048",
+          "a_files": [
+            "paper/jsc_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 007 across folds and a depth limited depth 3 decision tree",
+          "a_files": [
+            "paper/jsc_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 01 0 728 on the four region subset versus 0 733",
+          "a_files": [
+            "paper/jsc_submission_package/results.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/results.tex"
+          ]
+        },
+        {
+          "words": "0 01 between the four and six region grids temporal split sensitivity",
+          "a_files": [
+            "paper/jsc_submission_package/results.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/results.tex"
+          ]
+        },
+        {
+          "words": "0 018 across folds worst single fold 0 955 with late held",
+          "a_files": [
+            "paper/jsc_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 020 vllm disagrees burstgpt rev vllm 0 348 0 200 0",
+          "a_files": [
+            "paper/jsc_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 022 vllm consistent tabular 2pt the simulator's stable control quantity b",
+          "a_files": [
+            "paper/jsc_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 0235 and 0 0256 reproducing the qualitative stability that comparison was",
+          "a_files": [
+            "paper/jsc_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 024 0 027 0 020 vllm disagrees burstgpt rev vllm 0",
+          "a_files": [
+            "paper/jsc_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/peva_submission_package/real_system.tex"
+          ]
+        }
+      ]
+    },
+    {
+      "a": "PEVA",
+      "b": "SMPT",
+      "shared_unique_12grams": 14591,
+      "fraction_a": 0.9209745628984409,
+      "fraction_b": 0.8557269368365492,
+      "file_pair_counts": [
+        {
+          "a_file": "paper/peva_submission_package/artifact.tex",
+          "b_file": "paper/smpt_submission_package/artifact.tex",
+          "shared_12grams": 200
+        },
+        {
+          "a_file": "paper/peva_submission_package/artifact.tex",
+          "b_file": "paper/smpt_submission_package/declarations.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/peva_submission_package/conclusion.tex",
+          "b_file": "paper/smpt_submission_package/conclusion.tex",
+          "shared_12grams": 238
+        },
+        {
+          "a_file": "paper/peva_submission_package/declarations.tex",
+          "b_file": "paper/smpt_submission_package/artifact.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/peva_submission_package/declarations.tex",
+          "b_file": "paper/smpt_submission_package/declarations.tex",
+          "shared_12grams": 479
+        },
+        {
+          "a_file": "paper/peva_submission_package/discussion.tex",
+          "b_file": "paper/smpt_submission_package/discussion.tex",
+          "shared_12grams": 1174
+        },
+        {
+          "a_file": "paper/peva_submission_package/introduction.tex",
+          "b_file": "paper/smpt_submission_package/conclusion.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/peva_submission_package/introduction.tex",
+          "b_file": "paper/smpt_submission_package/introduction.tex",
+          "shared_12grams": 907
+        },
+        {
+          "a_file": "paper/peva_submission_package/limitations.tex",
+          "b_file": "paper/smpt_submission_package/limitations.tex",
+          "shared_12grams": 991
+        },
+        {
+          "a_file": "paper/peva_submission_package/limitations.tex",
+          "b_file": "paper/smpt_submission_package/methodology.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/peva_submission_package/limitations.tex",
+          "b_file": "paper/smpt_submission_package/real_system.tex",
+          "shared_12grams": 4
+        },
+        {
+          "a_file": "paper/peva_submission_package/main.tex",
+          "b_file": "paper/smpt_submission_package/main.tex",
+          "shared_12grams": 41
+        },
+        {
+          "a_file": "paper/peva_submission_package/methodology.tex",
+          "b_file": "paper/smpt_submission_package/limitations.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/peva_submission_package/methodology.tex",
+          "b_file": "paper/smpt_submission_package/methodology.tex",
+          "shared_12grams": 2948
+        },
+        {
+          "a_file": "paper/peva_submission_package/real_system.tex",
+          "b_file": "paper/smpt_submission_package/limitations.tex",
+          "shared_12grams": 4
+        },
+        {
+          "a_file": "paper/peva_submission_package/real_system.tex",
+          "b_file": "paper/smpt_submission_package/real_system.tex",
+          "shared_12grams": 1041
+        },
+        {
+          "a_file": "paper/peva_submission_package/related_work.tex",
+          "b_file": "paper/smpt_submission_package/related_work.tex",
+          "shared_12grams": 1551
+        },
+        {
+          "a_file": "paper/peva_submission_package/results.tex",
+          "b_file": "paper/smpt_submission_package/results.tex",
+          "shared_12grams": 2542
+        },
+        {
+          "a_file": "paper/peva_submission_package/sample_complexity.tex",
+          "b_file": "paper/smpt_submission_package/sample_complexity.tex",
+          "shared_12grams": 663
+        },
+        {
+          "a_file": "paper/peva_submission_package/study_design.tex",
+          "b_file": "paper/smpt_submission_package/study_design.tex",
+          "shared_12grams": 582
+        },
+        {
+          "a_file": "paper/peva_submission_package/workloads.tex",
+          "b_file": "paper/smpt_submission_package/workloads.tex",
+          "shared_12grams": 1240
+        }
+      ],
+      "sample_matches": [
+        {
+          "words": "0 000 a multinomial logistic regression reaches 0 988 balanced accuracy 0",
+          "a_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 000 accuracy because their signal is redundant with tier 1 includes",
+          "a_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 0025 window size sensitivity the benchmark corpus uses a fixed window",
+          "a_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 0051 consists of long prompt fraction 512 long prompt fraction 2048",
+          "a_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 007 across folds and a depth limited depth 3 decision tree",
+          "a_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 01 0 728 on the four region subset versus 0 733",
+          "a_files": [
+            "paper/peva_submission_package/results.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/results.tex"
+          ]
+        },
+        {
+          "words": "0 01 between the four and six region grids temporal split sensitivity",
+          "a_files": [
+            "paper/peva_submission_package/results.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/results.tex"
+          ]
+        },
+        {
+          "words": "0 018 across folds worst single fold 0 955 with late held",
+          "a_files": [
+            "paper/peva_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 020 vllm disagrees burstgpt rev vllm 0 348 0 200 0",
+          "a_files": [
+            "paper/peva_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 022 vllm consistent tabular 2pt the simulator's stable control quantity b",
+          "a_files": [
+            "paper/peva_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 0235 and 0 0256 reproducing the qualitative stability that comparison was",
+          "a_files": [
+            "paper/peva_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 024 0 027 0 020 vllm disagrees burstgpt rev vllm 0",
+          "a_files": [
+            "paper/peva_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/smpt_submission_package/real_system.tex"
+          ]
+        }
+      ]
+    },
+    {
+      "a": "SMPT",
+      "b": "SMPT_blind",
+      "shared_unique_12grams": 16604,
+      "fraction_a": 0.9737845287666412,
+      "fraction_b": 0.9865129819975046,
+      "file_pair_counts": [
+        {
+          "a_file": "paper/smpt_submission_package/artifact.tex",
+          "b_file": "paper/smpt_blind_submission_package/artifact.tex",
+          "shared_12grams": 150
+        },
+        {
+          "a_file": "paper/smpt_submission_package/conclusion.tex",
+          "b_file": "paper/smpt_blind_submission_package/conclusion.tex",
+          "shared_12grams": 332
+        },
+        {
+          "a_file": "paper/smpt_submission_package/declarations.tex",
+          "b_file": "paper/smpt_blind_submission_package/declarations.tex",
+          "shared_12grams": 226
+        },
+        {
+          "a_file": "paper/smpt_submission_package/discussion.tex",
+          "b_file": "paper/smpt_blind_submission_package/discussion.tex",
+          "shared_12grams": 1351
+        },
+        {
+          "a_file": "paper/smpt_submission_package/introduction.tex",
+          "b_file": "paper/smpt_blind_submission_package/introduction.tex",
+          "shared_12grams": 1316
+        },
+        {
+          "a_file": "paper/smpt_submission_package/limitations.tex",
+          "b_file": "paper/smpt_blind_submission_package/limitations.tex",
+          "shared_12grams": 1202
+        },
+        {
+          "a_file": "paper/smpt_submission_package/limitations.tex",
+          "b_file": "paper/smpt_blind_submission_package/methodology.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/smpt_submission_package/limitations.tex",
+          "b_file": "paper/smpt_blind_submission_package/real_system.tex",
+          "shared_12grams": 4
+        },
+        {
+          "a_file": "paper/smpt_submission_package/main.tex",
+          "b_file": "paper/smpt_blind_submission_package/main.tex",
+          "shared_12grams": 240
+        },
+        {
+          "a_file": "paper/smpt_submission_package/methodology.tex",
+          "b_file": "paper/smpt_blind_submission_package/limitations.tex",
+          "shared_12grams": 1
+        },
+        {
+          "a_file": "paper/smpt_submission_package/methodology.tex",
+          "b_file": "paper/smpt_blind_submission_package/methodology.tex",
+          "shared_12grams": 3787
+        },
+        {
+          "a_file": "paper/smpt_submission_package/real_system.tex",
+          "b_file": "paper/smpt_blind_submission_package/limitations.tex",
+          "shared_12grams": 4
+        },
+        {
+          "a_file": "paper/smpt_submission_package/real_system.tex",
+          "b_file": "paper/smpt_blind_submission_package/real_system.tex",
+          "shared_12grams": 1188
+        },
+        {
+          "a_file": "paper/smpt_submission_package/related_work.tex",
+          "b_file": "paper/smpt_blind_submission_package/related_work.tex",
+          "shared_12grams": 1691
+        },
+        {
+          "a_file": "paper/smpt_submission_package/results.tex",
+          "b_file": "paper/smpt_blind_submission_package/results.tex",
+          "shared_12grams": 2596
+        },
+        {
+          "a_file": "paper/smpt_submission_package/sample_complexity.tex",
+          "b_file": "paper/smpt_blind_submission_package/sample_complexity.tex",
+          "shared_12grams": 726
+        },
+        {
+          "a_file": "paper/smpt_submission_package/study_design.tex",
+          "b_file": "paper/smpt_blind_submission_package/study_design.tex",
+          "shared_12grams": 542
+        },
+        {
+          "a_file": "paper/smpt_submission_package/workloads.tex",
+          "b_file": "paper/smpt_blind_submission_package/workloads.tex",
+          "shared_12grams": 1262
+        }
+      ],
+      "sample_matches": [
+        {
+          "words": "0 000 a multinomial logistic regression reaches 0 988 balanced accuracy 0",
+          "a_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 000 accuracy because their signal is redundant with tier 1 includes",
+          "a_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 0025 window size sensitivity the benchmark corpus uses a fixed window",
+          "a_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 0051 consists of long prompt fraction 512 long prompt fraction 2048",
+          "a_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 007 across folds and a depth limited depth 3 decision tree",
+          "a_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 01 0 728 on the four region subset versus 0 733",
+          "a_files": [
+            "paper/smpt_submission_package/results.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/results.tex"
+          ]
+        },
+        {
+          "words": "0 01 between the four and six region grids temporal split sensitivity",
+          "a_files": [
+            "paper/smpt_submission_package/results.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/results.tex"
+          ]
+        },
+        {
+          "words": "0 018 across folds worst single fold 0 955 with late held",
+          "a_files": [
+            "paper/smpt_submission_package/workloads.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/workloads.tex"
+          ]
+        },
+        {
+          "words": "0 020 vllm disagrees burstgpt rev vllm 0 348 0 200 0",
+          "a_files": [
+            "paper/smpt_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 022 vllm consistent tabular 2pt the simulator's stable control quantity b",
+          "a_files": [
+            "paper/smpt_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 0235 and 0 0256 reproducing the qualitative stability that comparison was",
+          "a_files": [
+            "paper/smpt_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/real_system.tex"
+          ]
+        },
+        {
+          "words": "0 024 0 027 0 020 vllm disagrees burstgpt rev vllm 0",
+          "a_files": [
+            "paper/smpt_submission_package/real_system.tex"
+          ],
+          "b_files": [
+            "paper/smpt_blind_submission_package/real_system.tex"
+          ]
+        }
+      ]
+    },
+    {
+      "a": "headroom_PEVA",
+      "b": "headroom_PEVA_package",
+      "shared_unique_12grams": 8380,
+      "fraction_a": 1.0,
+      "fraction_b": 1.0,
+      "file_pair_counts": [
+        {
+          "a_file": "paper/performance_evaluation/main.tex",
+          "b_file": "paper/performance_evaluation/submission/main.tex",
+          "shared_12grams": 8380
+        }
+      ],
+      "sample_matches": [
+        {
+          "words": "0 0 033 0 02 2 azure code active cap 4 122",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 0 241 1 56 all selected regimes 720 36 81 9",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 000190884 0 003546196 s 0 1909 3 5462 ms the pre",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 001 against 100 of 100 127 0 0999 at a cap",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 0017 and 0 0038 with no active cap binding states and",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 001995791 s 1 9958 ms with a clustered 95 confidence interval",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 0027 0 0017 and 0 0038 with no active cap binding",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 003546196 s 0 1909 3 5462 ms the pre specified decision",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 0038 with no active cap binding states and the mean queue",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 004 ms standard deviation across 1000 seeds the bca interval is",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 0087 and 0 0091 requests so the replay was lightly loaded",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        },
+        {
+          "words": "0 0091 requests so the replay was lightly loaded policy ranking proxy",
+          "a_files": [
+            "paper/performance_evaluation/main.tex"
+          ],
+          "b_files": [
+            "paper/performance_evaluation/submission/main.tex"
+          ]
+        }
+      ]
+    }
+  ]
+}

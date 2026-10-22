@@ -21,6 +21,11 @@ Papaioannou and Doudali explicitly examine how dataset and inference-scenario
 choice affect comparisons among LLM inference systems
 \citep{papaioannou2024workload}. Their work is a close precedent for the
 importance of workload choice, rather than a gap this paper first identifies.
+Etalon identifies limitations of conventional latency and throughput
+metrics for streaming user experience and introduces a fluidity index
+\citep{agrawal2024etalon}. Our metric comparisons use the frozen aggregate
+endpoints; they neither introduce a new user-experience metric nor measure
+streaming fluidity.
 BurstGPT contributes production-derived workload characterization
 \citep{burstgpt2025}, and ServeGen studies production workloads and their
 generation \citep{servegen2026}. Workload resampling has a longer history
@@ -33,7 +38,9 @@ windows are independent draws from provider populations.
 \paragraph{Serving simulators and model credibility.}
 Vidur combines profiling and predictive models to explore LLM inference
 configurations \citep{vidur2024}; LLMServingSim develops HW/SW co-simulation
-for serving workloads \citep{llmservingsim2024}. Those frameworks target
+for serving workloads \citep{llmservingsim2024}. LLMServingSim 2.0 further
+models interactions among runtime scheduling, heterogeneous hardware, and
+disaggregated resources \citep{llmservingsim2026}. Those frameworks target
 hardware-aware performance estimation and evaluate prediction accuracy.
 \cm\ uses fixed-duration batches and an explicit work ledger to make
 adaptations comparable and execution independently checkable. It cannot

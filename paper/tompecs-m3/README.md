@@ -8,6 +8,7 @@ This directory is a new manuscript, stacked on final evidence-review commit `6b2
 
 ## Review entry points
 
+- [Final scientific and submission-readiness review](final-review/REFEREE_REPORT.md): **NOT_READY**; includes claim/novelty assessment, overlap and literature audit, author decisions, and correction validation. This supersedes the earlier readiness inventory where they differ.
 - [ACM manuscript PDF](m3-manuscript.pdf) and [acmsmall PDF](m3-acmsmall.pdf).
 - [LaTeX source](main.tex) and [bibliography](references.bib).
 - [M2-to-M3 changes](M2_TO_M3_CHANGES.md).
