@@ -1,0 +1,120 @@
+{
+  "DOI": "10.1109/hpca61900.2025.00102",
+  "title": [
+    "DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency"
+  ],
+  "author": [
+    {
+      "given": "Jovan",
+      "family": "Stojkovic",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "University of Illinois at Urbana-Champaign"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Chaojie",
+      "family": "Zhang",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Microsoft Azure Research - Systems"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "\u00cd\u00f1igo",
+      "family": "Goiri",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Microsoft Azure Research - Systems"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Josep",
+      "family": "Torrellas",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "University of Illinois at Urbana-Champaign"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Esha",
+      "family": "Choukse",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Microsoft Azure Research - Systems"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "page": "1348-1362",
+  "published": {
+    "date-parts": [
+      [
+        2025,
+        3,
+        1
+      ]
+    ]
+  },
+  "event": {
+    "name": "2025 IEEE International Symposium on High Performance Computer Architecture (HPCA)",
+    "location": "Las Vegas, NV, USA",
+    "start": {
+      "date-parts": [
+        [
+          2025,
+          3,
+          1
+        ]
+      ]
+    },
+    "end": {
+      "date-parts": [
+        [
+          2025,
+          3,
+          5
+        ]
+      ]
+    }
+  }
+}

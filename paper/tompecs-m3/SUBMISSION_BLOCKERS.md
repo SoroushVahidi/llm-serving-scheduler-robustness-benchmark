@@ -1,5 +1,7 @@
 # Remaining submission blockers
 
+This records the original PR #19 rewrite. The [final review](final-review/REFEREE_REPORT.md), [reference audit](final-review/REFERENCES.md), and [final validation](final-review/VALIDATION.md) supersede it for the stacked correction.
+
 The bounded scientific rewrite is ready for author review. This is **not submission readiness**. No additional experiment is required by this checklist, and none is authorized.
 
 - [ ] **Author scientific approval.** Review the complete text, figures, claim map, and narrow model scope. Approve the inactive-gate explanation, the joint arrival/deadline interpretation, and the distinction between zero source-mean practical reversals and window/metric heterogeneity.

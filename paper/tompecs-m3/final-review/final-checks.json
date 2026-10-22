@@ -1,0 +1,46 @@
+{
+  "reviewed_commit": "ed24b2e8224ea88aa289b60dea6142beeea5330d",
+  "frozen_subtrees": {
+    "evidence/inputs": {
+      "files": 37,
+      "byte_identity": "PASS"
+    },
+    "supplement": {
+      "files": 12,
+      "byte_identity": "PASS"
+    },
+    "tables": {
+      "files": 5,
+      "byte_identity": "PASS"
+    },
+    "figures": {
+      "files": 3,
+      "byte_identity": "PASS"
+    },
+    "template": {
+      "files": 5,
+      "byte_identity": "PASS"
+    },
+    "scripts": {
+      "files": 5,
+      "byte_identity": "PASS"
+    }
+  },
+  "changes_outside_M3": [],
+  "pdfs": {
+    "manuscript": {
+      "pages": 21,
+      "sha256": "4955dacaf190c9a8406a22731c80889079f79872ed84fc0095ec45c14d538cda",
+      "author_review_paragraphs": 4,
+      "text_outside_page": []
+    },
+    "acmsmall": {
+      "pages": 22,
+      "sha256": "13081b9101d5ae89857c00a5c1fb0e94be4c742bddc351fbd89aaa46cfa0afc3",
+      "author_review_paragraphs": 4,
+      "text_outside_page": []
+    }
+  },
+  "visual_review": "All 43 pages checked in contact sheets; enlarged checks of result figures, calibration/scenario tables, bibliography and declarations.",
+  "new_experiments": 0
+}

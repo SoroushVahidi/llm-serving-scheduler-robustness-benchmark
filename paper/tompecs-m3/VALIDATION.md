@@ -1,5 +1,7 @@
 # M3 validation
 
+This records the original PR #19 rewrite. The [final review](final-review/REFEREE_REPORT.md), [reference audit](final-review/REFERENCES.md), and [final validation](final-review/VALIDATION.md) supersede it for the stacked correction.
+
 **State: COMPLETED_SUCCESS.** The manuscript and author-review packet are complete; the separate submission checklist remains open.
 
 ## Scientific and numerical checks

@@ -4,8 +4,8 @@ entering extended mode
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./main.tex
-(/home/soroush/repos/llm-serving-scheduler-lssp-m3-rewrite/paper/tompecs-m3/tem
-plate/acmart.cls
+(/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit/paper/tompecs-m3
+/template/acmart.cls
 Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
 n for Computing Machinery
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -214,7 +214,7 @@ code.tex)
 zlibrarypositioning.code.tex) Include comment 'screenonly'
 Excluding comment 'printonly' Include comment 'anonsuppress'
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
-(build/acmsmall/m3-acmsmall.aux)
+No file m3-acmsmall.aux.
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd)
@@ -226,7 +226,6 @@ ot1.cmap>><<oml.cmap>>
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd)
-(build/acmsmall/m3-acmsmall.out) (build/acmsmall/m3-acmsmall.out)
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
@@ -238,61 +237,258 @@ ot1.cmap>><<oml.cmap>>
 (/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
-(./sections/introduction.tex [1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex
-.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{
-/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/s
-hare/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/t
-exlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share/texlive
-/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}])
-(./sections/related.tex [2.2]) (./sections/contract.tex
-Underfull \vbox (badness 1270) has occurred while \output is active [3.3]
+(./sections/introduction.tex
+
+Package natbib Warning: Citation `kwon2023vllm' on page 1 undefined on input li
+ne 26.
+
+
+Package natbib Warning: Citation `agrawal2024sarathi' on page 1 undefined on in
+put line 26.
+
+
+Package natbib Warning: Citation `slai2025' on page 1 undefined on input line 2
+6.
+
+[1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-dist
+/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/share/texlive/texmf-dist/fonts
+/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/d
+vips/libertine/lbtn_nh77jq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/l
+ibertine/lbtn_7grukw.enc}]
+
+Package natbib Warning: Citation `papaioannou2024workload' on page 2 undefined
+on input line 32.
+
+
+Package natbib Warning: Citation `vidur2024' on page 2 undefined on input line
+33.
+
+
+Package natbib Warning: Citation `llmservingsim2024' on page 2 undefined on inp
+ut line 33.
+
+) (./sections/related.tex
+
+Package natbib Warning: Citation `yu2022orca' on page 2 undefined on input line
+ 4.
+
+
+Package natbib Warning: Citation `kwon2023vllm' on page 2 undefined on input li
+ne 5.
+
+
+Package natbib Warning: Citation `agrawal2024sarathi' on page 2 undefined on in
+put line 6.
+
+
+Package natbib Warning: Citation `slai2025' on page 2 undefined on input line 9
+.
+
+
+Package natbib Warning: Citation `zhong2024distserve' on page 2 undefined on in
+put line 16.
+
+
+Package natbib Warning: Citation `sun2024llumnix' on page 2 undefined on input
+line 16.
+
+
+Package natbib Warning: Citation `papaioannou2024workload' on page 2 undefined
+on input line 22.
+
+
+Package natbib Warning: Citation `agrawal2024etalon' on page 2 undefined on inp
+ut line 26.
+
+
+Package natbib Warning: Citation `burstgpt2025' on page 2 undefined on input li
+ne 30.
+
+
+Package natbib Warning: Citation `servegen2026' on page 2 undefined on input li
+ne 31.
+
+
+Package natbib Warning: Citation `zakay2014resampling' on page 2 undefined on i
+nput line 32.
+
+[2.2]
+
+Package natbib Warning: Citation `vidur2024' on page 3 undefined on input line
+40.
+
+
+Package natbib Warning: Citation `llmservingsim2024' on page 3 undefined on inp
+ut line 41.
+
+
+Package natbib Warning: Citation `llmservingsim2026' on page 3 undefined on inp
+ut line 43.
+
+
+Package natbib Warning: Citation `sargent2013' on page 3 undefined on input lin
+e 49.
+
+
+Package natbib Warning: Citation `benjamini1995' on page 3 undefined on input l
+ine 56.
+
+
+Package natbib Warning: Citation `benjamini2001dependency' on page 3 undefined
+on input line 56.
+
+
+Package natbib Warning: Citation `holm1979' on page 3 undefined on input line 5
+6.
+
+
+Package natbib Warning: Citation `hoeffding1963' on page 3 undefined on input l
+ine 56.
+
+) (./sections/contract.tex
+
+LaTeX Warning: Reference `tab:objects' on page 3 undefined on input line 10.
+
+[3.3]
+
+LaTeX Warning: Reference `tab:policies' on page 4 undefined on input line 61.
+
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
-Underfull \hbox (badness 2065) in paragraph at lines 68--68
+Underfull \hbox (badness 2065) in paragraph at lines 69--69
 []\T1/LinuxBiolinumT-TLF/m/n/9 (+20) Table 2.|Project-maintained adap-ta-tions.
  Ar-ti-fact IDs ap-pend \T1/zi4/m/n/9 _c01 \T1/LinuxBiolinumT-TLF/m/n/9 (+20) t
 o \T1/zi4/m/n/9 whole_fcfs\T1/LinuxBiolinumT-TLF/m/n/9 (+20) , \T1/zi4/m/n/9 ch
 unked_fcfs\T1/LinuxBiolinumT-TLF/m/n/9 (+20) ,
 
-Underfull \hbox (badness 2343) in paragraph at lines 76--76
+Underfull \hbox (badness 2343) in paragraph at lines 77--77
 \T1/LinuxLibertineT-TLF/m/n/9 (+20) prompt im-ple-men-ta-
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
 []|\T1/LinuxLibertineT-TLF/m/n/9 (+20) Sarathi-inspired
 [4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/us
-r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}])
-(./sections/design.tex
-Underfull \hbox (badness 1635) in paragraph at lines 21--21
+r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}]
+
+LaTeX Warning: Reference `fig:contract' on page 5 undefined on input line 105.
+
+) (./sections/design.tex
+
+Package natbib Warning: Citation `azure2024trace' on page 5 undefined on input
+line 4.
+
+
+Package natbib Warning: Citation `bailianqwen2026' on page 5 undefined on input
+ line 4.
+
+
+Package natbib Warning: Citation `burstgpt2025' on page 5 undefined on input li
+ne 4.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 5 undefined o
+n input line 6.
+
+
+Package natbib Warning: Citation `wang2025kvcache' on page 5 undefined on input
+ line 7.
+
+
+LaTeX Warning: Reference `tab:provenance' on page 5 undefined on input line 10.
+
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 24--24
 []|\T1/zi4/m/n/9 AzureLLMInferenceTrace_conv_2024.csv\T1/LinuxLibertineT-TLF/m/
 n/9 (+20) ; source ar-rival and to-ken
 [5.5] [6.6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.
-enc}]) (./sections/performance.tex (./tables/absolute.tex) [7.7] [8.8] [9.9 <./
-figures/absolute.pdf>]) [10.10] (./sections/rankings.tex
-(./tables/reversals.tex) [11.11 <./figures/matched.pdf>] (./tables/ties.tex)
-[12.12]) (./sections/inference.tex [13.13 <./figures/chronology.pdf>]
-(./tables/calibration.tex) [14.14]) (./sections/discussion.tex [15.15])
-(./sections/declarations.tex) (build/acmsmall/m3-acmsmall.bbl
-Underfull \vbox (badness 1694) has occurred while \output is active [16.16]
-Underfull \hbox (badness 10000) in paragraph at lines 80--93
-[]\T1/LinuxLibertineT-TLF/m/n/8 (+20) Alibaba Cloud. 2026.  \T1/LinuxLibertineT
--TLF/m/it/8 (+20) qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/m/n/8 (+
-20) .   [][]$https : / / github . com / alibaba -[] edu / qwen -[] bailian -[]
+enc}]) (./sections/performance.tex
 
-Underfull \hbox (badness 6300) in paragraph at lines 80--93
-\T1/LinuxLibertineT-TLF/m/n/8 (+20) usagetraces -[] anon / tree / 5f7439c51ec24
-8a0c585f7d90a41a6f57773b912$[][]  Anonymized Bail-ian/Qwen pro-duc-tion
+LaTeX Warning: Reference `tab:absolute' on page 7 undefined on input line 11.
 
-Underfull \vbox (badness 10000) has occurred while \output is active [17.17])
-[18.18] (./sections/appendix.tex [19.19] [20.20] (./tables/stat-scenarios.tex)
-[21.21])
+(./tables/absolute.tex) [7.7]
 
-Class acmart Warning: ACM reference format is mandatory 
-(acmart)              for papers over one page. 
-(acmart)              Please add printacmref=true to the 
-(acmart)              \settopmatter command..
+LaTeX Warning: Reference `sec:contract' on page 8 undefined on input line 42.
 
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [22.22]
-(build/acmsmall/m3-acmsmall.aux) )
+
+LaTeX Warning: Reference `fig:absolute' on page 8 undefined on input line 75.
+
+[8.8] [9.9 <./figures/absolute.pdf>]
+
+LaTeX Warning: Reference `fig:matched' on page 10 undefined on input line 84.
+
+) [10.10] (./sections/rankings.tex
+
+LaTeX Warning: Reference `tab:reversals' on page 11 undefined on input line 3.
+
+(./tables/reversals.tex) [11.11 <./figures/matched.pdf>]
+
+LaTeX Warning: Reference `tab:ties' on page 12 undefined on input line 45.
+
+(./tables/ties.tex) [12.12]
+
+LaTeX Warning: Reference `fig:chronology' on page 13 undefined on input line 84
+.
+
+) (./sections/inference.tex [13.13 <./figures/chronology.pdf>]
+
+Package natbib Warning: Citation `benjamini1995' on page 14 undefined on input
+line 30.
+
+
+Package natbib Warning: Citation `benjamini2001dependency' on page 14 undefined
+ on input line 30.
+
+
+LaTeX Warning: Reference `app:stat' on page 14 undefined on input line 39.
+
+(./tables/calibration.tex)
+
+LaTeX Warning: Reference `tab:calibration' on page 14 undefined on input line 5
+2.
+
+[14.14]) (./sections/discussion.tex
+
+Package natbib Warning: Citation `sargent2013' on page 15 undefined on input li
+ne 27.
+
+[15.15]) (./sections/declarations.tex [16.16])
+No file m3-acmsmall.bbl.
+[17.17] (./sections/appendix.tex
+
+Package natbib Warning: Citation `holm1979' on page 18 undefined on input line
+61.
+
+[18.18]
+
+Package natbib Warning: Citation `hoeffding1963' on page 19 undefined on input
+line 80.
+
+
+Package natbib Warning: Citation `maurer2009' on page 19 undefined on input lin
+e 124.
+
+[19.19] (./tables/stat-scenarios.tex) [20.20])
+
+Package natbib Warning: There were undefined citations.
+
+[21.21] (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [22.21]
+(build/acmsmall/m3-acmsmall.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+LaTeX Warning: Temporary extra page added at the end. Rerun to get it removed.
+
+
+Package rerunfilecheck Warning: File `m3-acmsmall.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
 (see the transcript file for additional information)</usr/share/texlive/texmf-d
 ist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/texmf-
@@ -309,7 +505,7 @@ s/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts
 ic/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmi
 aX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on build/acmsmall/m3-acmsmall.pdf (22 pages, 707706 bytes).
+Output written on build/acmsmall/m3-acmsmall.pdf (22 pages, 682297 bytes).
 Transcript written on build/acmsmall/m3-acmsmall.log.
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 The top-level auxiliary file: m3-acmsmall.aux
@@ -325,8 +521,8 @@ entering extended mode
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./main.tex
-(/home/soroush/repos/llm-serving-scheduler-lssp-m3-rewrite/paper/tompecs-m3/tem
-plate/acmart.cls
+(/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit/paper/tompecs-m3
+/template/acmart.cls
 Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
 n for Computing Machinery
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -559,30 +755,153 @@ ot1.cmap>><<oml.cmap>>
 (/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
-(./sections/introduction.tex [1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex
-.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{
-/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/s
-hare/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/t
-exlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share/texlive
-/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}])
-(./sections/related.tex [2.2]) (./sections/contract.tex
-Underfull \vbox (badness 1270) has occurred while \output is active [3.3]
+(./sections/introduction.tex
+
+Package natbib Warning: Citation `kwon2023vllm' on page 1 undefined on input li
+ne 26.
+
+
+Package natbib Warning: Citation `agrawal2024sarathi' on page 1 undefined on in
+put line 26.
+
+
+Package natbib Warning: Citation `slai2025' on page 1 undefined on input line 2
+6.
+
+[1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-dist
+/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/share/texlive/texmf-dist/fonts
+/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/d
+vips/libertine/lbtn_nh77jq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/l
+ibertine/lbtn_7grukw.enc}]
+
+Package natbib Warning: Citation `papaioannou2024workload' on page 2 undefined
+on input line 32.
+
+
+Package natbib Warning: Citation `vidur2024' on page 2 undefined on input line
+33.
+
+
+Package natbib Warning: Citation `llmservingsim2024' on page 2 undefined on inp
+ut line 33.
+
+) (./sections/related.tex
+
+Package natbib Warning: Citation `yu2022orca' on page 2 undefined on input line
+ 4.
+
+
+Package natbib Warning: Citation `kwon2023vllm' on page 2 undefined on input li
+ne 5.
+
+
+Package natbib Warning: Citation `agrawal2024sarathi' on page 2 undefined on in
+put line 6.
+
+
+Package natbib Warning: Citation `slai2025' on page 2 undefined on input line 9
+.
+
+
+Package natbib Warning: Citation `zhong2024distserve' on page 2 undefined on in
+put line 16.
+
+
+Package natbib Warning: Citation `sun2024llumnix' on page 2 undefined on input
+line 16.
+
+
+Package natbib Warning: Citation `papaioannou2024workload' on page 2 undefined
+on input line 22.
+
+
+Package natbib Warning: Citation `agrawal2024etalon' on page 2 undefined on inp
+ut line 26.
+
+
+Package natbib Warning: Citation `burstgpt2025' on page 2 undefined on input li
+ne 30.
+
+
+Package natbib Warning: Citation `servegen2026' on page 2 undefined on input li
+ne 31.
+
+
+Package natbib Warning: Citation `zakay2014resampling' on page 2 undefined on i
+nput line 32.
+
+[2.2]
+
+Package natbib Warning: Citation `vidur2024' on page 3 undefined on input line
+40.
+
+
+Package natbib Warning: Citation `llmservingsim2024' on page 3 undefined on inp
+ut line 41.
+
+
+Package natbib Warning: Citation `llmservingsim2026' on page 3 undefined on inp
+ut line 43.
+
+
+Package natbib Warning: Citation `sargent2013' on page 3 undefined on input lin
+e 49.
+
+
+Package natbib Warning: Citation `benjamini1995' on page 3 undefined on input l
+ine 56.
+
+
+Package natbib Warning: Citation `benjamini2001dependency' on page 3 undefined
+on input line 56.
+
+
+Package natbib Warning: Citation `holm1979' on page 3 undefined on input line 5
+6.
+
+
+Package natbib Warning: Citation `hoeffding1963' on page 3 undefined on input l
+ine 56.
+
+) (./sections/contract.tex [3.3]
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
-Underfull \hbox (badness 2065) in paragraph at lines 68--68
+Underfull \hbox (badness 2065) in paragraph at lines 69--69
 []\T1/LinuxBiolinumT-TLF/m/n/9 (+20) Table 2.|Project-maintained adap-ta-tions.
  Ar-ti-fact IDs ap-pend \T1/zi4/m/n/9 _c01 \T1/LinuxBiolinumT-TLF/m/n/9 (+20) t
 o \T1/zi4/m/n/9 whole_fcfs\T1/LinuxBiolinumT-TLF/m/n/9 (+20) , \T1/zi4/m/n/9 ch
 unked_fcfs\T1/LinuxBiolinumT-TLF/m/n/9 (+20) ,
 
-Underfull \hbox (badness 2343) in paragraph at lines 76--76
+Underfull \hbox (badness 2343) in paragraph at lines 77--77
 \T1/LinuxLibertineT-TLF/m/n/9 (+20) prompt im-ple-men-ta-
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
 []|\T1/LinuxLibertineT-TLF/m/n/9 (+20) Sarathi-inspired
 [4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/us
 r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}])
 (./sections/design.tex
-Underfull \hbox (badness 1635) in paragraph at lines 21--21
+
+Package natbib Warning: Citation `azure2024trace' on page 5 undefined on input
+line 4.
+
+
+Package natbib Warning: Citation `bailianqwen2026' on page 5 undefined on input
+ line 4.
+
+
+Package natbib Warning: Citation `burstgpt2025' on page 5 undefined on input li
+ne 4.
+
+
+Package natbib Warning: Citation `stojkovic2025dynamollm' on page 5 undefined o
+n input line 6.
+
+
+Package natbib Warning: Citation `wang2025kvcache' on page 5 undefined on input
+ line 7.
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 24--24
 []|\T1/zi4/m/n/9 AzureLLMInferenceTrace_conv_2024.csv\T1/LinuxLibertineT-TLF/m/
 n/9 (+20) ; source ar-rival and to-ken
 [5.5] [6.6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.
@@ -590,30 +909,74 @@ enc}]) (./sections/performance.tex (./tables/absolute.tex) [7.7] [8.8] [9.9 <./
 figures/absolute.pdf>]) [10.10] (./sections/rankings.tex
 (./tables/reversals.tex) [11.11 <./figures/matched.pdf>] (./tables/ties.tex)
 [12.12]) (./sections/inference.tex [13.13 <./figures/chronology.pdf>]
-(./tables/calibration.tex) [14.14]) (./sections/discussion.tex [15.15])
-(./sections/declarations.tex) (build/acmsmall/m3-acmsmall.bbl
-Underfull \vbox (badness 1694) has occurred while \output is active [16.16]
-Underfull \hbox (badness 10000) in paragraph at lines 82--95
+
+Package natbib Warning: Citation `benjamini1995' on page 14 undefined on input
+line 30.
+
+
+Package natbib Warning: Citation `benjamini2001dependency' on page 14 undefined
+ on input line 30.
+
+(./tables/calibration.tex) [14.14]) (./sections/discussion.tex
+
+Package natbib Warning: Citation `sargent2013' on page 15 undefined on input li
+ne 27.
+
+[15.15]) (./sections/declarations.tex [16.16]) (build/acmsmall/m3-acmsmall.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 99--112
 []\T1/LinuxLibertineT-TLF/m/n/8 (+20) Alibaba Cloud. 2026.  \T1/LinuxLibertineT
 -TLF/m/it/8 (+20) qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/m/n/8 (+
 20) .   [][]$https : / / github . com / alibaba -[] edu / qwen -[] bailian -[]
 
-Underfull \hbox (badness 6300) in paragraph at lines 82--95
+Underfull \hbox (badness 6300) in paragraph at lines 99--112
 \T1/LinuxLibertineT-TLF/m/n/8 (+20) usagetraces -[] anon / tree / 5f7439c51ec24
 8a0c585f7d90a41a6f57773b912$[][]  Anonymized Bail-ian/Qwen pro-duc-tion
+[17.17]) [18.18] (./sections/appendix.tex
 
-Underfull \vbox (badness 1895) has occurred while \output is active [17.17])
-[18.18] (./sections/appendix.tex [19.19] [20.20] (./tables/stat-scenarios.tex)
-[21.21])
+Package natbib Warning: Citation `holm1979' on page 19 undefined on input line
+61.
 
-Class acmart Warning: ACM reference format is mandatory 
-(acmart)              for papers over one page. 
-(acmart)              Please add printacmref=true to the 
+[19.19]
+
+Package natbib Warning: Citation `hoeffding1963' on page 20 undefined on input
+line 80.
+
+
+Package natbib Warning: Citation `maurer2009' on page 20 undefined on input lin
+e 124.
+
+[20.20] (./tables/stat-scenarios.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [21.21])
+
+Package natbib Warning: There were undefined citations.
+
+
+Class acmart Warning: ACM reference format is mandatory
+(acmart)              for papers over one page.
+(acmart)              Please add printacmref=true to the
 (acmart)              \settopmatter command..
 
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
-(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def) [22.22]
-(build/acmsmall/m3-acmsmall.aux) )
+[22.22]
+
+LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (21 not 22).
+               Rerun to correct this.
+
+(build/acmsmall/m3-acmsmall.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `m3-acmsmall.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
 (see the transcript file for additional information)</usr/share/texlive/texmf-d
 ist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/texmf-
@@ -630,7 +993,7 @@ s/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts
 ic/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmi
 aX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on build/acmsmall/m3-acmsmall.pdf (22 pages, 707914 bytes).
+Output written on build/acmsmall/m3-acmsmall.pdf (22 pages, 709848 bytes).
 Transcript written on build/acmsmall/m3-acmsmall.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -638,8 +1001,8 @@ entering extended mode
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./main.tex
-(/home/soroush/repos/llm-serving-scheduler-lssp-m3-rewrite/paper/tompecs-m3/tem
-plate/acmart.cls
+(/home/soroush/repos/llm-serving-scheduler-lssp-m3-final-audit/paper/tompecs-m3
+/template/acmart.cls
 Document Class: acmart 2026/08/16 v2.20 Typesetting articles for the Associatio
 n for Computing Machinery
 (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -878,50 +1241,46 @@ ot1.cmap>><<oml.cmap>>
 hare/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/t
 exlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share/texlive
 /texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}])
-(./sections/related.tex [2.2]) (./sections/contract.tex
-Underfull \vbox (badness 1270) has occurred while \output is active [3.3]
+(./sections/related.tex [2.2]) (./sections/contract.tex [3.3]
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
-Underfull \hbox (badness 2065) in paragraph at lines 68--68
+Underfull \hbox (badness 2065) in paragraph at lines 69--69
 []\T1/LinuxBiolinumT-TLF/m/n/9 (+20) Table 2.|Project-maintained adap-ta-tions.
  Ar-ti-fact IDs ap-pend \T1/zi4/m/n/9 _c01 \T1/LinuxBiolinumT-TLF/m/n/9 (+20) t
 o \T1/zi4/m/n/9 whole_fcfs\T1/LinuxBiolinumT-TLF/m/n/9 (+20) , \T1/zi4/m/n/9 ch
 unked_fcfs\T1/LinuxBiolinumT-TLF/m/n/9 (+20) ,
 
-Underfull \hbox (badness 2343) in paragraph at lines 76--76
+Underfull \hbox (badness 2343) in paragraph at lines 77--77
 \T1/LinuxLibertineT-TLF/m/n/9 (+20) prompt im-ple-men-ta-
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
 []|\T1/LinuxLibertineT-TLF/m/n/9 (+20) Sarathi-inspired
 [4.4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/us
 r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}])
 (./sections/design.tex
-Underfull \hbox (badness 1635) in paragraph at lines 21--21
+Underfull \hbox (badness 1635) in paragraph at lines 24--24
 []|\T1/zi4/m/n/9 AzureLLMInferenceTrace_conv_2024.csv\T1/LinuxLibertineT-TLF/m/
 n/9 (+20) ; source ar-rival and to-ken
-[5.5] [6.6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.
-enc}]) (./sections/performance.tex (./tables/absolute.tex) [7.7] [8.8] [9.9 <./
+[5.5] [6.6]) (./sections/performance.tex (./tables/absolute.tex) [7.7{/usr/shar
+e/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_fygcup.enc}] [8.8] [9.9 <./
 figures/absolute.pdf>]) [10.10] (./sections/rankings.tex
 (./tables/reversals.tex) [11.11 <./figures/matched.pdf>] (./tables/ties.tex)
 [12.12]) (./sections/inference.tex [13.13 <./figures/chronology.pdf>]
 (./tables/calibration.tex) [14.14]) (./sections/discussion.tex [15.15])
-(./sections/declarations.tex) (build/acmsmall/m3-acmsmall.bbl
-Underfull \vbox (badness 1694) has occurred while \output is active [16.16]
-Underfull \hbox (badness 10000) in paragraph at lines 82--95
+(./sections/declarations.tex [16.16]) (build/acmsmall/m3-acmsmall.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 99--112
 []\T1/LinuxLibertineT-TLF/m/n/8 (+20) Alibaba Cloud. 2026.  \T1/LinuxLibertineT
 -TLF/m/it/8 (+20) qwen-bailian-usagetraces-anon\T1/LinuxLibertineT-TLF/m/n/8 (+
 20) .   [][]$https : / / github . com / alibaba -[] edu / qwen -[] bailian -[]
 
-Underfull \hbox (badness 6300) in paragraph at lines 82--95
+Underfull \hbox (badness 6300) in paragraph at lines 99--112
 \T1/LinuxLibertineT-TLF/m/n/8 (+20) usagetraces -[] anon / tree / 5f7439c51ec24
 8a0c585f7d90a41a6f57773b912$[][]  Anonymized Bail-ian/Qwen pro-duc-tion
+[17.17]) [18.18] (./sections/appendix.tex [19.19] [20.20]
+(./tables/stat-scenarios.tex) [21.21])
 
-Underfull \vbox (badness 1895) has occurred while \output is active [17.17])
-[18.18] (./sections/appendix.tex [19.19] [20.20] (./tables/stat-scenarios.tex)
-[21.21])
-
-Class acmart Warning: ACM reference format is mandatory 
-(acmart)              for papers over one page. 
-(acmart)              Please add printacmref=true to the 
+Class acmart Warning: ACM reference format is mandatory
+(acmart)              for papers over one page.
+(acmart)              Please add printacmref=true to the
 (acmart)              \settopmatter command..
 
 (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def)
@@ -943,7 +1302,7 @@ s/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts
 ic/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmi
 aX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on build/acmsmall/m3-acmsmall.pdf (22 pages, 707914 bytes).
+Output written on build/acmsmall/m3-acmsmall.pdf (22 pages, 711655 bytes).
 Transcript written on build/acmsmall/m3-acmsmall.log.
 Title:           Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation
 Subject:         -  Computing methodologies  ->  Simulation evaluation.-  Computer systems organization  ->  Cloud computing.
@@ -962,6 +1321,6 @@ Pages:           22
 Encrypted:       no
 Page size:       486 x 720 pts
 Page rot:        0
-File size:       707914 bytes
+File size:       711655 bytes
 Optimized:       no
 PDF version:     1.5

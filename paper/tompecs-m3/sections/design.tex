@@ -2,6 +2,9 @@
 \subsection{Trace and implementation provenance}
 The corpus comprises 40 windows of 200 requests from each of Azure 2024,
 Bailian/Qwen, and BurstGPT \citep{azure2024trace,bailianqwen2026,burstgpt2025}.
+The Azure release identifies DynamoLLM as its accompanying publication
+\citep{stojkovic2025dynamollm}; the pinned Bailian/Qwen release requests
+attribution to the KVCache workload study \citep{wang2025kvcache}.
 These are three separately released sources, not three independent provider
 populations: BurstGPT and Azure have Azure infrastructure in their collection
 provenance. Table~\ref{tab:provenance} identifies the consumed files and
@@ -75,6 +78,8 @@ by all arrivals. Token throughput is completed output tokens divided by
 elapsed time from first arrival to final completion, or to the horizon if
 unfinished. Emitted-token throughput also counts any output of unfinished
 requests. Request throughput uses the same time denominator.
+These are finite-window completion rates, including the drain period;
+they do not estimate a maximum sustainable arrival rate or system capacity.
 
 Arrival-normalized weighted goodput is
 \begin{equation}

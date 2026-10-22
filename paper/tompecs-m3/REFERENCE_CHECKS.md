@@ -1,5 +1,7 @@
 # Reference and provenance checks
 
+This records the original PR #19 rewrite. The [final review](final-review/REFEREE_REPORT.md), [reference audit](final-review/REFERENCES.md), and [final validation](final-review/VALIDATION.md) supersede it for the stacked correction.
+
 Checked 2026-10-22. M3 has 20 bibliography entries and 20 cited keys, with no unresolved or unused key. Primary publication pages, original papers, official dataset documentation, and publisher-deposited DOI metadata were used. A successful metadata check is not described as full-paper access.
 
 | Key(s) | Primary check and M3 disposition |
