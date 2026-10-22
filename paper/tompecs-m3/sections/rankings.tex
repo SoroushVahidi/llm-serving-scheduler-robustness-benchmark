@@ -1,0 +1,78 @@
+\section{Ranking Stability, Ties and Aggregation}\label{sec:rankings}
+\subsection{Practical reversals depend on the comparison level}
+Table~\ref{tab:reversals} retains every predeclared comparison axis and its
+eligible denominator. There are \textbf{zero source-mean strict-10\%
+practical reversals}. Nevertheless, source rankings need not coincide:
+of 396 source-pair/setting/capacity/metric comparisons, 307 have identical
+exact top sets, 323 have intersecting top sets and 247 have identical
+full average-rank vectors. Differences below the practical threshold and
+changes in ties coexist with the null practical-reversal result.
+
+\begin{table}[t]\centering\small
+\caption{Strict practical reversals across the complete panel. A reversal
+exceeds 10\% relative to the losing value on both sides and changes sign.
+Eligible counts retain nonzero ties; zero losing values are unestimable.
+All comparisons are dependent descriptive enumerations.}\label{tab:reversals}
+\input{tables/reversal-rows}
+\end{table}
+
+Window heterogeneity is not erased by stable source means. For ANWG alone,
+within-source window comparisons produce 8,472 reversals among 162,900
+eligible comparisons; cross-source windows produce 35,352/332,640.
+The latter is a Cartesian comparison of windows, not pairing by ordinal.
+ANWG setting and capacity comparisons yield 603/20,853 and 198/4,218,
+respectively. A corpus-average recommendation therefore does not describe
+every window or every utility. These are new adaptation/model estimands;
+they do not demonstrate persistence of the 36 historical-rule records.
+
+The raw pair counts must be interpreted with their constructions. Within
+source, there are $\binom{40}{2}=780$ window pairs per stratum; between
+sources there are $40^2=1600$. Settings generate 15 pairs, metrics 55,
+and every comparison retains six policy pairs. Including the equivalent
+chunked/decode-first pair preserves the frozen design, but its comparisons
+cannot be counted as additional independent behavioral evidence. Comparing
+these rates across axes is not a variance decomposition or a measure of
+causal importance.
+
+\subsection{Exact ties and metric redundancy}
+The exact top set is tied in 425/1,440 ANWG conditions, 289/1,440
+mean-latency conditions, 586/1,440 p95-latency conditions and 906/1,440
+token-throughput conditions. Completion is tied everywhere. With every
+request complete, emitted- and completed-token throughput coincide;
+request throughput differs by a workload-specific constant within each
+matched condition, so the three throughput rankings coincide as well.
+They are distinct recorded quantities, not three independent confirmations.
+
+Tiny timestamp differences create another reporting issue. The chunked
+rules generate each resident output at essentially 1-ms intervals. The
+largest cell mean-TPOT difference between chunked-FCFS and SLO-gated is
+$1.80\times10^{-16}$ seconds. The predeclared near-tie sensitivity changes
+the mean-TPOT maximizing set in 1,129/1,440 conditions and the p95-TPOT
+set in 104/1,440. Exact records are preserved; such distinctions have no
+practical performance interpretation. Appendix Table~\ref{tab:ties}
+reports all eleven endpoints.
+
+Across 79,200 metric-pair ranking comparisons, exact top sets agree in
+27,915 and intersect in 57,602. The difference between these counts shows
+why choosing one deterministic winner can obscure tied optima. Because
+these totals include redundant endpoints and numerical TPOT distinctions,
+the meaningful evidence is the absolute mean/tail/throughput trade-off,
+not the metric-pair disagreement count alone.
+
+\subsection{Chronological sensitivity}
+The four ten-window blocks preserve variation hidden by source-wide
+aggregation (Appendix Figure~\ref{fig:chronology}). SLO-gated minus
+chunked-FCFS ANWG block means range from $-0.0120$ to $0.2030$ for Azure,
+$-0.0300$ to $0.2330$ for Bailian and $0.0150$ to $0.3275$ for BurstGPT.
+Negative differences occur in 8/48, 24/48 and 0/48 block/setting/capacity
+combinations, respectively. The frozen early/middle/late partitions give
+negative differences in 6/36, 20/36 and 0/36 corresponding combinations.
+These partitions have unequal durations and related windows; the counts
+describe the corpus ordering, not confidence about future workload shifts.
+
+\paragraph{Answer to RQ2.}
+Practical ordering is stable across source means at the frozen threshold,
+but window and metric comparisons reveal changes that those means hide.
+Exact ties, equivalent adaptations and redundant or numerically sensitive
+metrics make a single leaderboard incomplete. Absolute differences and
+set-valued optima explain more than a count of nominal rank changes.

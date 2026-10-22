@@ -1,0 +1,73 @@
+\section{Introduction}
+LLM serving must reconcile prompt processing, incremental token generation
+and retained key--value (KV) state. Batching and memory-management choices
+change the feasible schedule; workload lengths and the chosen service
+objective change which schedule is preferable
+\citep{yu2022orca,kwon2023vllm,agrawal2024sarathi}. A comparison therefore
+needs more than a shared trace and a list of scheduler names. It needs an
+execution contract specifying what work a decision causes, how resources
+are reserved and what information is available when the decision is made.
+
+This issue arose in our historical LLM Serving Scheduler Portability
+(LSSP) comparison. Its saved implementations combined different prefill
+progression and KV-enforcement rules. Replaying those implementations
+reproduced their outcomes, but did not isolate scheduling under a common
+resource model. Moreover, practical ranking changes were filtered through
+an inferential procedure whose calibration had not been established.
+These are separate problems: harmonizing execution does not validate an
+inference procedure, and reproducing its arithmetic does not harmonize
+execution.
+
+We address the comparison problem with CM-0.1, a deliberately simple,
+fully specified discrete-event contract. Four adaptations share the same
+service clock, work budget, reservation rule, admissible actions and
+online information. Independent event checks reconstruct execution from
+journals rather than trusting the engine's summaries. We then evaluate
+the complete frozen corpus, retaining every condition and reporting
+absolute metrics before rankings. The analysis describes this corpus;
+requests and repeated settings do not become independent observations.
+
+Workload-sensitive serving evaluation is established
+\citep{papaioannou2024workload}, as are predictive serving simulators
+\citep{vidur2024,llmservingsim2024}. Our contribution is a different,
+bounded empirical object: the joint behavior of four identified
+adaptations under a fixed contract, with matched-window comparisons,
+explicit practical-reversal denominators and an account of which ranking
+distinctions the model can express. CM-0.1 uses a fixed batch cost rather
+than fitted GPU timings. It supports model-based comparison, not a claim
+to greater predictive accuracy than those simulators.
+
+The complete evaluation is informative partly because it limits the
+original portability narrative. Source-mean practical reversals are
+absent. Two adaptations execute equivalently. The nominally SLO-gated
+adaptation improves mean latency while losing throughput and sometimes
+tail performance; its urgency gate is inactive. Window and metric changes
+still produce practical reversals, so aggregate stability does not imply
+uniform performance. A separate known-truth study shows why the earlier
+inference pipeline cannot turn these descriptive comparisons into general
+calibration claims.
+
+We make four contributions:
+\begin{enumerate}
+\item An auditable execution, resource and information contract, with
+explicit adaptation identities and independent event conformance checks.
+\item A complete 5,760-cell evaluation over 120 workload windows, six
+inherited arrival/deadline settings and two reservation capacities,
+including absolute performance and matched-window trade-offs.
+\item A descriptive account of ranking stability that retains exact ties,
+structural equivalences, numerical near-ties and strict practical reversals
+at distinct aggregation levels.
+\item A scoped interpretation of historical comparisons, informed by a
+134,000-study calibration diagnostic that separates implementation fidelity
+from mathematical definitions and statistical validity.
+\end{enumerate}
+
+Three questions organize the paper. \textbf{RQ1:} How do the absolute
+performances of four adaptations vary across workload windows, inherited
+arrival/deadline settings and KV reservation capacities?
+\textbf{RQ2:} How do workload variation, aggregation, metric selection,
+ties and practical differences affect scheduler rankings?
+\textbf{RQ3:} What do the historical comparison audit and known-truth
+calibration establish about the reliability and limitations of these
+comparisons? Sections~\ref{sec:performance}--\ref{sec:inference} answer them
+in that order.

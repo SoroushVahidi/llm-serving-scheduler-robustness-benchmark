@@ -1,0 +1,51 @@
+\section{Discussion and Threats to Validity}\label{sec:discussion}
+\paragraph{What a ranking should communicate.}
+A practical recommendation should identify its objective and performance
+cost. In this corpus, recommending SLO-gated solely from its mean-latency
+wins conceals throughput losses and BurstGPT tail degradation. Conversely,
+zero source-mean practical reversals does not justify a window-invariant
+recommendation. A useful evaluation reports magnitudes, matched support,
+maximizing sets and the aggregation level together. This is a concrete
+reporting lesson from the completed comparison, not a new statistical test.
+
+\paragraph{Model adequacy and informative nulls.}
+Fixed batch duration, full-context reservation and a generous chunked-work
+budget remove hardware-dependent contention. They explain both the
+chunked/decode-first equivalence and the inactive urgency gate. These
+findings delimit what the model can distinguish; they are not evidence
+that the original systems behave alike. The remaining mean/tail/throughput
+trade-offs quantify consequences of the admitted schedules under that
+abstraction. Native GPU timing, memory allocators, preemption, migration,
+prefix reuse and multi-device effects remain outside the model. No model
+parameter was retuned after observing the campaign.
+
+\paragraph{Corpus and estimands.}
+The sources are released traffic samples, not randomized provider
+interventions. Token-count semantics differ, BurstGPT's selected release
+omits failed requests, and window selection includes historical pilot
+reuse. Earlier outcomes informed the project; only the full-campaign
+extension and its analysis were frozen before new full-campaign outcomes.
+Chronological order does not establish exchangeability. Synthetic deadlines
+and their joint transformation with arrivals limit ANWG's interpretation.
+All requests happen to complete here, eliminating censoring in these data,
+but the conditional latency definitions would need explicit support in a
+censored corpus. The 10\% convention is a frozen practical threshold, not
+an application-validated utility cutoff.
+
+\paragraph{Inference and selection.}
+STAT01's independent studies support Monte Carlo uncertainty for its
+specified generators. This differs from independence of trace windows or
+of the overlapping 165 hypotheses. Its post-diagnosis additions are useful
+comparisons, but their finite-family multiplicity accounting does not
+undo method selection after inspecting earlier records. Precision gaps
+and rare interval availability remain visible. Neither simulation
+conformance nor this finite scenario set proves general error control.
+
+\paragraph{Reproducibility and research scope.}
+Saved inputs, journals, result hashes, independent validation and complete
+summary tables provide an internally traceable chain. External reviewer
+access and release-specific permissions are separate submission obligations.
+Related manuscripts share code and workload lineage; their native probes
+or mechanism interventions are not validation of CM-0.1. This paper's
+contribution is the whole-window comparison of identified adaptations,
+not a claim of independent evidence from every related project.

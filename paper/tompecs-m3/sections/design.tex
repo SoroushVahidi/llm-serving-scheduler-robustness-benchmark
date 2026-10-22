@@ -1,0 +1,130 @@
+\section{Corpus, Metrics and Analysis Design}\label{sec:design}
+\subsection{Frozen inputs and provenance}
+The corpus comprises 40 windows of 200 requests from each of Azure 2024,
+Bailian/Qwen and BurstGPT: 120 windows and 24,000 underlying request
+records. Azure's official release, Alibaba's pinned usage traces and the
+BurstGPT dataset have distinct release provenance
+\citep{azure2024trace,bailianqwen2026,burstgpt2025}. BurstGPT traffic also
+originates on Azure infrastructure; the sources are not three independent
+providers. Source-reported lengths are not common-tokenizer measurements,
+and conversation/context semantics need not coincide. The Bailian adapter reads \texttt{input\_length} and
+\texttt{output\_length} directly as token counts; the release's 16-token
+block size describes prefix hashes, not a length conversion. Synthetic priorities and deadlines are benchmark
+attributes, not observed service commitments.
+
+Each source's 40 windows includes ten reused from the earlier historical
+pilot and thirty from a pinned extension sampler. Selection of the
+extension uses valid-row ranges and fixed seeds rather than scheduler
+outcomes. Historical pilot outcomes nevertheless preceded the expanded
+corpus and motivated subsequent work; this is not a new random confirmatory
+sample. The 144 reused C01 execution cells are a different reuse unit:
+one window per source, six settings, four adaptations and two capacities.
+They passed exact input, code, configuration and journal-identity checks
+before byte-for-byte reuse. C01-FULL adds 5,616 cells without changing the
+pilot's execution semantics.
+
+\begin{table}[t]\centering\small
+\caption{Input and execution provenance. Full SHA-256 values, per-window
+identities and source filenames are retained in the accompanying manifest;
+short prefixes here are navigational. Release-specific redistribution
+permissions and reviewer access remain author-review items.}\label{tab:provenance}
+\begin{tabularx}{\linewidth}{lX}
+\toprule Object & Frozen identity and transformation \\\midrule
+Azure 2024 & Official 2024 inference trace; arrival and source-reported
+prompt/output lengths; 40 windows. \\
+Bailian/Qwen & Upstream revision \texttt{5f7439c51ec2}; source token lengths
+read directly by the pinned adapter; 40 windows. \\
+BurstGPT & \texttt{BurstGPT\_without\_fails\_2.csv}; source hash
+\texttt{56193aa9b2bb}; 40 windows from the released successful-request file. \\
+Corpus & Physical hash \texttt{97fbaf6a4b9b}; canonical window hash
+\texttt{0d1aa06ccbee}; exact per-window source hashes and row positions retained. \\
+C01-FULL & Execution commit \texttt{2d8342e699f3}; pilot semantics
+\texttt{9aed0206de66}; 5,760 cells, 144 reused. \\
+STAT01 & Recovery execution \texttt{1ac4c8dd1421}; 112,275 reused and
+21,725 newly generated studies, original streams preserved. \\\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Inherited arrival/deadline settings}
+For window $w$ and inherited setting $r$, the frozen transformation uses
+$\lambda(w,r)=c_r\lambda_{\mathrm{FIFO}}(w)$, with
+the multipliers $c_r=0.5, 0.8, 1.0, 1.1, 1.2, 1.5$. The labels LOW, PRE\_KNEE,
+KNEE, POST\_KNEE, OVERLOAD and HIGH\_PRESSURE come from the earlier
+FIFO calibration. They are not newly measured saturation regions for
+CM-0.1, nor common absolute arrival rates across windows. Absolute factors
+range from 22.525--180.873 (Azure), 17.956--186.580 (Bailian) and
+102.884--725.020 (BurstGPT).
+
+Crucially, the frozen transformation scales both arrival gaps and
+synthetic deadline slack. If the unscaled arrival/deadline pair is
+$(a_i,d_i)$ and the first arrival is $a_0$, the transformed pair is
+\begin{equation}
+ a_i'=(a_i-a_0)/\lambda,\qquad
+ d_i'=a_i'+\max(0,d_i-a_i)/\lambda.
+\label{eq:scaling}
+\end{equation}
+Token lengths and priorities are unchanged. Thus comparisons across these
+settings describe joint arrival/deadline stress. In particular, ANWG
+changes do not identify an isolated arrival-load effect. The deadlines
+retain an output-derived historical construction in the metric layer;
+none is revealed to a policy. No request is truncated to make the design fit.
+
+\subsection{Metrics and support}\label{sec:metrics}
+Let $a_i$, $f_i$ and $c_i$ denote arrival, first-output and completion times,
+and $o_i$ output length. Completed-request latency is $c_i-a_i$; TTFT is
+$f_i-a_i$; TPOT is $(c_i-f_i)/(o_i-1)$ only for $o_i>1$. We report the mean
+and p95 of each population. The p95 linearly interpolates sorted values
+at position $0.95(n-1)$, using zero-based indexing. An average of window
+p95s is always named a \emph{mean window-level p95}; it is not a pooled
+request percentile.
+
+Completed-output token throughput is $\sum_{i\in C}o_i/T$,
+emitted-token throughput counts all executed output work over $T$, and
+request throughput is $|C|/T$, where $T$ runs from first arrival to final
+completion, or to the administrative horizon when unfinished. Completion
+fraction is $|C|/200$. With positive priority weights $v_i$, arrival-normalized
+weighted goodput is
+\begin{equation}
+ \anwg=\frac{\sum_{i\in C}v_i\,\mathbf{1}\{c_i\le d_i\}}
+ {\sum_{i\in A}v_i}.
+\end{equation}
+The frozen corpus uses uniform priorities, so ANWG here is the fraction
+of arrivals completed by their synthetic deadlines. These five larger-is-better
+endpoints and six smaller-is-better latency endpoints form eleven ranking
+metrics. Counts, busy-device time, executed work, observation time and
+used/reserved KV are retained as accounting measures. Undefined values
+would remain missing with their support counts, not be imputed as zero.
+
+\subsection{Analysis unit and comparison rules}\label{sec:rules}
+The whole workload window is the principal unit. Settings, capacities and
+adaptations are repeated conditions on it. Source means at a fixed setting
+and capacity weight all 40 windows equally. Source/capacity summaries
+first average six settings per window, then average windows equally.
+Matched differences subtract policy outcomes for the same window,
+setting and capacity; cross-source windows are not matched by ordinal.
+All statements are finite-corpus descriptions. No C01 confidence intervals,
+p-values or independent-window sampling assumptions are introduced.
+
+Exact equality defines ties and average ranks; maximizing sets are retained
+rather than resolved to a single policy ID. A frozen secondary top-set
+sensitivity admits values within $10^{-12}\max(1,|\mathrm{best}|)$ of the
+best. It does not replace exact rankings. For policies $A,B$, orient
+$D=x_A-x_B$ for a larger-is-better metric and $D=x_B-x_A$ for a
+smaller-is-better metric. The relative margin is
+$|x_A-x_B|/|x_{\mathrm{loser}}|$. A practical reversal between two
+conditions requires opposite signs of $D$ and margins \emph{strictly}
+greater than $1/10$ on both sides. Comparisons use exact rational
+representations of the saved binary values; equality is excluded without
+an arbitrary tolerance. A missing or zero losing value is unestimable;
+a nonzero tie is eligible with zero margin.
+
+Reversal tables distinguish within-source window pairs, cross-source
+window pairs, settings, capacities, metrics and source means. All six
+policy pairs remain, including the equivalent adaptations. These
+comparisons overlap and have different denominator constructions; their
+frequencies are neither independent trials nor a causal decomposition of
+source, setting and metric effects. Chronological sensitivities use frozen
+20/10/10 early/middle/late windows per source and four ordered ten-window
+blocks. Blocks follow source-file hash, raw time, row position and window
+ID, not equal-duration sampling. Appendix~\ref{app:results} supplies
+complete tabular views and supplementary displays.

@@ -1,0 +1,1086 @@
+[
+  {
+    "url": "https://www.usenix.org/conference/osdi22/presentation/yu",
+    "status": 200,
+    "bibtex": [
+      "@inproceedings {280922,<br />\n\tauthor = {Gyeong-In Yu and Joo Seong Jeong and Geon-Woo Kim and Soojeong Kim and Byung-Gon Chun},<br />\n\ttitle = {Orca: A Distributed Serving System for {Transformer-Based} Generative Models},<br />\n\tbooktitle = {16th USENIX Symposium on Operating Systems Design and Implementation (OSDI 22)},<br />\n\tyear = {2022},<br />\n\tisbn = {978-1-939133-28-1},<br />\n\taddress = {Carlsbad, CA},<br />\n\tpages = {521--538},<br />\n\turl = {https://www.usenix.org/conference/osdi22/presentation/yu},<br />\n\tpublisher = {USENIX Association},<br />\n\tmonth = jul<br />\n}"
+    ]
+  },
+  {
+    "url": "https://www.usenix.org/conference/osdi24/presentation/agrawal",
+    "status": 200,
+    "bibtex": [
+      "@inproceedings {298679,<br />\n\tauthor = {Amey Agrawal and Nitin Kedia and Ashish Panwar and Jayashree Mohan and Nipun Kwatra and Bhargav Gulavani and Alexey Tumanov and Ramachandran Ramjee},<br />\n\ttitle = {Taming {Throughput-Latency} Tradeoff in {LLM} Inference with {Sarathi-Serve}},<br />\n\tbooktitle = {18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)},<br />\n\tyear = {2024},<br />\n\tisbn = {978-1-939133-40-3},<br />\n\taddress = {Santa Clara, CA},<br />\n\tpages = {117--134},<br />\n\turl = {https://www.usenix.org/conference/osdi24/presentation/agrawal},<br />\n\tpublisher = {USENIX Association},<br />\n\tmonth = jul<br />\n}"
+    ]
+  },
+  {
+    "url": "https://www.usenix.org/conference/osdi24/presentation/sun-biao",
+    "status": 200,
+    "bibtex": [
+      "@inproceedings {298685,<br />\n\tauthor = {Biao Sun and Ziming Huang and Hanyu Zhao and Wencong Xiao and Xinyi Zhang and Yong Li and Wei Lin},<br />\n\ttitle = {Llumnix: Dynamic Scheduling for Large Language Model Serving},<br />\n\tbooktitle = {18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)},<br />\n\tyear = {2024},<br />\n\tisbn = {978-1-939133-40-3},<br />\n\taddress = {Santa Clara, CA},<br />\n\tpages = {173--191},<br />\n\turl = {https://www.usenix.org/conference/osdi24/presentation/sun-biao},<br />\n\tpublisher = {USENIX Association},<br />\n\tmonth = jul<br />\n}"
+    ]
+  },
+  {
+    "url": "https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin",
+    "status": 200,
+    "bibtex": [
+      "@inproceedings {298687,<br />\n\tauthor = {Yinmin Zhong and Shengyu Liu and Junda Chen and Jianbo Hu and Yibo Zhu and Xuanzhe Liu and Xin Jin and Hao Zhang},<br />\n\ttitle = {{DistServe}: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving},<br />\n\tbooktitle = {18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)},<br />\n\tyear = {2024},<br />\n\tisbn = {978-1-939133-40-3},<br />\n\taddress = {Santa Clara, CA},<br />\n\tpages = {193--210},<br />\n\turl = {https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin},<br />\n\tpublisher = {USENIX Association},<br />\n\tmonth = jul<br />\n}"
+    ]
+  },
+  {
+    "url": "https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen",
+    "status": 200,
+    "bibtex": [
+      "@inproceedings {316730,<br />\n\tauthor = {Yuxing Xiang and Xue Li and Kun Qian and Yan Zhang and Wenyuan Yu and Ennan Zhai and Xin Jin and Jingren Zhou},<br />\n\ttitle = {{ServeGen}: Workload Characterization and Generation of Large Language Model Serving in Production},<br />\n\tbooktitle = {23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI 26)},<br />\n\tyear = {2026},<br />\n\tisbn = {978-1-939133-54-0},<br />\n\taddress = {Renton, WA},<br />\n\tpages = {1845--1859},<br />\n\turl = {https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen},<br />\n\tpublisher = {USENIX Association},<br />\n\tmonth = may<br />\n}"
+    ]
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1145/3771574",
+    "status": 200,
+    "record": {
+      "publisher": "Association for Computing Machinery (ACM)",
+      "issue": "3",
+      "DOI": "10.1145/3771574",
+      "type": "journal-article",
+      "page": "1-43",
+      "title": [
+        "Optimal Scheduling Algorithms for LLM Inference: Theory and Practice"
+      ],
+      "volume": "9",
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0009-0003-1550-8683",
+          "authenticated-orcid": false,
+          "given": "Agrim",
+          "family": "Bari",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-3477-4947",
+          "authenticated-orcid": false,
+          "given": "Parikshit",
+          "family": "Hegde",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-1498-494X",
+          "authenticated-orcid": false,
+          "given": "Gustavo",
+          "family": "de Veciana",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Proceedings of the ACM on Measurement and Analysis of Computing Systems"
+      ],
+      "URL": "https://doi.org/10.1145/3771574",
+      "published": {
+        "date-parts": [
+          [
+            2025,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1145/3711896.3737413",
+    "status": 200,
+    "record": {
+      "publisher": "ACM",
+      "DOI": "10.1145/3711896.3737413",
+      "type": "proceedings-article",
+      "page": "5831-5841",
+      "title": [
+        "BurstGPT: A Real-World Workload Dataset to Optimize LLM Serving Systems"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0001-7680-1419",
+          "authenticated-orcid": false,
+          "given": "Yuxin",
+          "family": "Wang",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Huawei Hong Kong Research Center, Hong Kong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0002-0791-5361",
+          "authenticated-orcid": false,
+          "given": "Yuhan",
+          "family": "Chen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology (Guangzhou), Guangzhou, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0008-4381-0544",
+          "authenticated-orcid": false,
+          "given": "Zeyu",
+          "family": "Li",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology (Guangzhou), GuangZhou, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0008-4096-5698",
+          "authenticated-orcid": false,
+          "given": "Xueze",
+          "family": "Kang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology (Guangzhou), Guangzhou, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-5533-6367",
+          "authenticated-orcid": false,
+          "given": "Yuchu",
+          "family": "Fang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Huawei Technologies Ltd., Shenzhen, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-8157-7474",
+          "authenticated-orcid": false,
+          "given": "Yeju",
+          "family": "Zhou",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Huawei Technologies Ltd., Shenzhen, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-3775-6739",
+          "authenticated-orcid": false,
+          "given": "Yang",
+          "family": "Zheng",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Huawei Technologies Ltd., Shenzhen, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-8769-9974",
+          "authenticated-orcid": false,
+          "given": "Zhenheng",
+          "family": "Tang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology, Hong Kong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-8764-8157",
+          "authenticated-orcid": false,
+          "given": "Xin",
+          "family": "He",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Hong Kong Baptist University, Hong Kong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0002-1622-1572",
+          "authenticated-orcid": false,
+          "given": "Rui",
+          "family": "Guo",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Tsinghua University, Beijing, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0007-8513-0902",
+          "authenticated-orcid": false,
+          "given": "Xin",
+          "family": "Wang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Tsinghua University, Beijing, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-2986-967X",
+          "authenticated-orcid": false,
+          "given": "Qiang",
+          "family": "Wang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Harbin Institute of Technology (Shenzhen), Shenzhen, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-9773-9332",
+          "authenticated-orcid": false,
+          "given": "Amelie Chi",
+          "family": "Zhou",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Hong Kong Baptist University, Hong Kong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-9745-4372",
+          "authenticated-orcid": false,
+          "given": "Xiaowen",
+          "family": "Chu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology (Guangzhou), Guangzhou, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "event": {
+        "name": "KDD '25: The 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+        "location": "Toronto ON Canada",
+        "acronym": "KDD '25",
+        "sponsor": [
+          "SIGKDD ACM Special Interest Group on Knowledge Discovery in Data",
+          "SIGMOD ACM Special Interest Group on Management of Data"
+        ]
+      },
+      "container-title": [
+        "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2"
+      ],
+      "URL": "https://doi.org/10.1145/3711896.3737413",
+      "published": {
+        "date-parts": [
+          [
+            2025,
+            8,
+            3
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1145/3600006.3613165",
+    "status": 200,
+    "record": {
+      "publisher": "ACM",
+      "DOI": "10.1145/3600006.3613165",
+      "type": "proceedings-article",
+      "page": "611-626",
+      "title": [
+        "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0009-0008-8870-4892",
+          "authenticated-orcid": false,
+          "given": "Woosuk",
+          "family": "Kwon",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0004-1534-9106",
+          "authenticated-orcid": false,
+          "given": "Zhuohan",
+          "family": "Li",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0007-3787-0316",
+          "authenticated-orcid": false,
+          "given": "Siyuan",
+          "family": "Zhuang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-1883-2126",
+          "authenticated-orcid": false,
+          "given": "Ying",
+          "family": "Sheng",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley and Stanford University, Berkeley, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-6611-4612",
+          "authenticated-orcid": false,
+          "given": "Lianmin",
+          "family": "Zheng",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-9298-6254",
+          "authenticated-orcid": false,
+          "given": "Cody Hao",
+          "family": "Yu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Independent Researcher, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-2921-956X",
+          "authenticated-orcid": false,
+          "given": "Joseph",
+          "family": "Gonzalez",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0003-8392-3977",
+          "authenticated-orcid": false,
+          "given": "Hao",
+          "family": "Zhang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC San Diego, La Jolla, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-5373-0088",
+          "authenticated-orcid": false,
+          "given": "Ion",
+          "family": "Stoica",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "event": {
+        "name": "SOSP '23: 29th Symposium on Operating Systems Principles",
+        "location": "Koblenz Germany",
+        "acronym": "SOSP '23",
+        "sponsor": [
+          "SIGOPS ACM Special Interest Group on Operating Systems",
+          "USENIX"
+        ]
+      },
+      "container-title": [
+        "Proceedings of the 29th Symposium on Operating Systems Principles"
+      ],
+      "URL": "https://doi.org/10.1145/3600006.3613165",
+      "published": {
+        "date-parts": [
+          [
+            2023,
+            10,
+            23
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1109/IISWC63097.2024.00012",
+    "status": 200,
+    "record": {
+      "publisher": "IEEE",
+      "DOI": "10.1109/iiswc63097.2024.00012",
+      "type": "proceedings-article",
+      "page": "15-29",
+      "title": [
+        "LLMServingSim: A HW/SW Co-Simulation Infrastructure for LLM Inference Serving at Scale"
+      ],
+      "author": [
+        {
+          "given": "Jaehong",
+          "family": "Cho",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Minsu",
+          "family": "Kim",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hyunmin",
+          "family": "Choi",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Guseul",
+          "family": "Heo",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jongse",
+          "family": "Park",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "event": {
+        "name": "2024 IEEE International Symposium on Workload Characterization (IISWC)",
+        "location": "Vancouver, BC, Canada",
+        "start": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              15
+            ]
+          ]
+        },
+        "end": {
+          "date-parts": [
+            [
+              2024,
+              9,
+              17
+            ]
+          ]
+        }
+      },
+      "container-title": [
+        "2024 IEEE International Symposium on Workload Characterization (IISWC)"
+      ],
+      "URL": "https://doi.org/10.1109/iiswc63097.2024.00012",
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            9,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://proceedings.mlsys.org/paper_files/paper/575-/bibtex",
+    "status": 200,
+    "bibtex": "@inproceedings{MLSYS2024_b74a8de4,\n author = {Agrawal, Amey and Kedia, Nitin and Mohan, Jayashree and Panwar, Ashish and Kwatra, Nipun and Gulavani, Bhargav S. and Ramjee, Ramachandran and Tumanov, Alexey},\n booktitle = {Proceedings of Machine Learning and Systems},\n editor = {P. Gibbons and G. Pekhimenko and C. De Sa},\n pages = {351--366},\n title = {VIDUR: A LARGE-SCALE SIMULATION FRAMEWORK FOR LLM INFERENCE},\n url = {https://proceedings.mlsys.org/paper_files/paper/2024/file/b74a8de47d2b3c928360e0a011f48351-Paper-Conference.pdf},\n volume = {6},\n year = {2024}\n}\n"
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1057/jos.2012.20",
+    "status": 200,
+    "record": {
+      "publisher": "Informa UK Limited",
+      "issue": "1",
+      "DOI": "10.1057/jos.2012.20",
+      "type": "journal-article",
+      "page": "12-24",
+      "title": [
+        "Verification and validation of simulation models"
+      ],
+      "volume": "7",
+      "author": [
+        {
+          "given": "R G",
+          "family": "Sargent",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Syracuse University Syracuse USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Journal of Simulation"
+      ],
+      "URL": "https://doi.org/10.1057/jos.2012.20",
+      "published": {
+        "date-parts": [
+          [
+            2013,
+            2
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1111/j.2517-6161.1995.tb02031.x",
+    "status": 200,
+    "record": {
+      "publisher": "Oxford University Press (OUP)",
+      "issue": "1",
+      "DOI": "10.1111/j.2517-6161.1995.tb02031.x",
+      "type": "journal-article",
+      "page": "289-300",
+      "title": [
+        "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing"
+      ],
+      "volume": "57",
+      "author": [
+        {
+          "given": "Yoav",
+          "family": "Benjamini",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Tel Aviv University , Israel"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yosef",
+          "family": "Hochberg",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Tel Aviv University , Israel"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Journal of the Royal Statistical Society Series B: Statistical Methodology"
+      ],
+      "URL": "https://doi.org/10.1111/j.2517-6161.1995.tb02031.x",
+      "published": {
+        "date-parts": [
+          [
+            1995,
+            1,
+            1
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1214/aos/1013699998",
+    "status": 200,
+    "record": {
+      "publisher": "Institute of Mathematical Statistics",
+      "issue": "4",
+      "DOI": "10.1214/aos/1013699998",
+      "type": "journal-article",
+      "page": "1165-1188",
+      "title": [
+        "The control of the false discovery rate in multiple testing under dependency"
+      ],
+      "volume": "29",
+      "author": [
+        {
+          "given": "Yoav",
+          "family": "Benjamini",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Daniel",
+          "family": "Yekutieli",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "The Annals of Statistics"
+      ],
+      "URL": "https://doi.org/10.1214/aos/1013699998",
+      "published": {
+        "date-parts": [
+          [
+            2001,
+            8,
+            1
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1080/01621459.1963.10500830",
+    "status": 200,
+    "record": {
+      "publisher": "Informa UK Limited",
+      "issue": "301",
+      "DOI": "10.1080/01621459.1963.10500830",
+      "type": "journal-article",
+      "page": "13-30",
+      "title": [
+        "Probability Inequalities for Sums of Bounded Random Variables"
+      ],
+      "volume": "58",
+      "author": [
+        {
+          "given": "Wassily",
+          "family": "Hoeffding",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "University of North Carolina",
+              "place": [
+                "USA"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Journal of the American Statistical Association"
+      ],
+      "URL": "https://doi.org/10.1080/01621459.1963.10500830",
+      "published": {
+        "date-parts": [
+          [
+            1963,
+            3
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1145/3642970.3655823",
+    "status": 200,
+    "record": {
+      "publisher": "ACM",
+      "DOI": "10.1145/3642970.3655823",
+      "type": "proceedings-article",
+      "page": "39-46",
+      "title": [
+        "The Importance of Workload Choice in Evaluating LLM Inference Systems"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0009-0003-0573-3254",
+          "authenticated-orcid": false,
+          "given": "Konstantinos",
+          "family": "Papaioannou",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "IMDEA Software Institute, Universidad Polit\u00e9cnica de Madrid"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-3197-839X",
+          "authenticated-orcid": false,
+          "given": "Thaleia Dimitra",
+          "family": "Doudali",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "IMDEA Software Institute, Madrid, Spain"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "event": {
+        "name": "EuroSys '24: Nineteenth European Conference on Computer Systems",
+        "location": "Athens Greece",
+        "acronym": "EuroSys '24",
+        "sponsor": [
+          "SIGOPS ACM Special Interest Group on Operating Systems"
+        ]
+      },
+      "container-title": [
+        "Proceedings of the 4th Workshop on Machine Learning and Systems"
+      ],
+      "URL": "https://doi.org/10.1145/3642970.3655823",
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            4,
+            22
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://api.crossref.org/works/10.1002/cpe.3240",
+    "status": 200,
+    "record": {
+      "publisher": "Wiley",
+      "issue": "12",
+      "DOI": "10.1002/cpe.3240",
+      "type": "journal-article",
+      "page": "2079-2105",
+      "title": [
+        "Workload resampling for performance evaluation of parallel job schedulers"
+      ],
+      "volume": "26",
+      "author": [
+        {
+          "given": "Netanel",
+          "family": "Zakay",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "The Rachel and Selim Benin School of Computer Science and Engineering The Hebrew University of Jerusalem  91904 Jerusalem Israel"
+            }
+          ],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "given": "Dror G.",
+          "family": "Feitelson",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Rachel and Selim Benin School of Computer Science and Engineering The Hebrew University of Jerusalem  91904 Jerusalem Israel"
+            }
+          ],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Concurrency and Computation: Practice and Experience"
+      ],
+      "URL": "https://doi.org/10.1002/cpe.3240",
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            3,
+            14
+          ]
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "absolute_cells": 5760,
+  "rankings": 15840,
+  "pairwise_rows": 95040,
+  "reversal_groups": 26136,
+  "independent_method": "integer-ratio boundary arithmetic; rank sorting; direct enumeration of every comparison; independently grouped absolute-cell metrics",
+  "inference": "NONE",
+  "scientific_review_required": true,
+  "local_seconds": 3.3217384051531553
+}
