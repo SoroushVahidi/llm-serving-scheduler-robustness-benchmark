@@ -1,0 +1,56 @@
+payload 52145952 97fbaf6a4b9b5f14cd19ce1c37193996c0758eebca73ab2adb1e944b404b3f4c ['manifest_kind', 'dataset_name', 'dataset_short_name', 'generated_at_utc', 'repo_sha', 'window_size', 'n_windows_per_source', 'n_stage0_windows_per_source', 'n_new_windows_per_source', 'n_sources', 'n_windows_total', 'seed_extension_offset', 'burstgpt_independence_disclosure', 'stage0_windows_manifest_sha256', 'source_sampling_reports', 'windows', 'content_sha256']
+first_window_keys ['window_id', 'source_family', 'source_file', 'source_file_sha256', 'sampling_algorithm', 'sampling_seed', 'offset_valid_rows', 'start_index_in_valid_rows', 'request_count', 'arrival_time_s_min', 'arrival_time_s_max', 'descriptor', 'records', 'evidence_class', 'chronology_stratum', 'content_sha256']
+azure_llm_2024 windows 40 max_prompt 7978 max_output 1145 max_context 8659
+bailian_qwen windows 40 max_prompt 29067 max_output 8192 max_context 30053
+burstgpt windows 40 max_prompt 4287 max_output 1271 max_context 5153
+{
+  "source_dataset": "burstgpt",
+  "source_version": "v2.0",
+  "source_record_id": "BurstGPT_without_fails_2.csv:757794",
+  "derived_record_id": "6b736c851d8204b2fd07a614b4c77207",
+  "source_license": "CC-BY-4.0",
+  "source_url": "https://github.com/HPMLL/BurstGPT",
+  "conversion_version": "burstgpt_adapter_v1",
+  "arrival_time_s": 5950694.0,
+  "interarrival_time_s": null,
+  "session_relative_time_s": null,
+  "timestamp_provenance_kind": "real",
+  "input_tokens": 216,
+  "output_tokens": 7,
+  "total_tokens": 223,
+  "context_growth_tokens": null,
+  "sequence_position": null,
+  "session_id": null,
+  "tenant_id": null,
+  "synthetic_tenant_assigned": false,
+  "model_class": "ChatGPT",
+  "prefix_reuse_info": null,
+  "kv_block_hash": null,
+  "reuse_group_id": null,
+  "reuse_confidence_source": null,
+  "task_category": null,
+  "interaction_category": "api",
+  "model_family": null,
+  "extra": {},
+  "field_provenance": {
+    "arrival_time_s": "SOURCE_OBSERVED",
+    "input_tokens": "SOURCE_OBSERVED",
+    "output_tokens": "SOURCE_OBSERVED",
+    "total_tokens": "SOURCE_OBSERVED",
+    "session_id": "UNAVAILABLE",
+    "model_class": "SOURCE_OBSERVED",
+    "timestamp_provenance_kind": "SOURCE_OBSERVED",
+    "interaction_category": "SOURCE_OBSERVED",
+    "interarrival_time_s": "UNAVAILABLE",
+    "session_relative_time_s": "UNAVAILABLE",
+    "context_growth_tokens": "UNAVAILABLE",
+    "sequence_position": "UNAVAILABLE",
+    "tenant_id": "UNAVAILABLE",
+    "prefix_reuse_info": "UNAVAILABLE",
+    "kv_block_hash": "UNAVAILABLE",
+    "reuse_group_id": "UNAVAILABLE",
+    "reuse_confidence_source": "UNAVAILABLE",
+    "task_category": "UNAVAILABLE",
+    "model_family": "UNAVAILABLE"
+  }
+}

@@ -1,0 +1,91 @@
+35ecffc85cdaa1f39f680d430dd9ef4853d6c3b3
+b399154a13b8228d56c47e4ccdc401f55f1f121854d83220be805058a60b419e  configs/policy_separation_sobol_pilot_v1.yaml
+5c6e4ba827f6634d9528b9eb1e399773608e1567b151900869848b830e1fa3d7  configs/policy_separation_fairness_starvation_pilot_v2.yaml
+a56efab564144f06332a48bf379e4461aed45f7e571783f5e5b692e83c73bf64  experiments/policy_separation_sobol_pilot_20260816T183600Z_1182183/run_manifest.json
+51895c59b61c97278136aa44c06fa9d025a57c55eb0b7ff6fa1092bd287ec511  experiments/policy_separation_fairness_starvation_pilot_v2_20260816T220113Z_1182377/run_manifest.json
+{
+  "config_path": "/mmfs1/project/ikoutis/sv96/github/llm-serving-heuristic-evolution-policy-separation-v1/configs/policy_separation_sobol_pilot_v1.yaml",
+  "run_dir": "/mmfs1/scratch/ikoutis/sv96/policy_separation_sobol_pilot_20260816T183600Z_1182183",
+  "git_head": "b1181c6380029254080397c161d5dd281bbd6d89",
+  "git_branch": "policy-separation-v1-wulver-20260809",
+  "python_version": "3.10.20 (main, Mar 11 2026, 17:46:40) [GCC 14.3.0]",
+  "dry_run": false,
+  "workers": 8,
+  "n_scenarios": 1616,
+  "n_tasks": 6976,
+  "n_tasks_remaining_at_start": 6976,
+  "started_at": "2026-08-16T14:36:24",
+  "generator_families": [
+    "sobol_family_b_prediction_sensitive",
+    "sobol_family_c_deadline_admission",
+    "fcfs_categorical_add_on"
+  ]
+}# Policy Separation Family A v2 Pilot Configuration
+# Orthogonal size × priority fairness-vs-size design.
+# See docs/design/POLICY_SEPARATION_FAMILY_A_V2.md
+#
+# Production runs REQUIRE staged BurstGPT (no silent synthetic fallback).
+# Primary metric: RunMetrics.arrival_normalized_weighted_goodput
+
+pilot_metadata:
+  experiment_name: "policy_separation_fairness_starvation_pilot_v2"
+  version: "fairness_starvation_v2"
+  description: "Orthogonal size×priority fairness-vs-size pilot (ESTF↔WFS niches)"
+  predecessor_job: 1182306
+  predecessor_verdict: "USEFUL_DIAGNOSTIC_ONLY / REDESIGN_REQUIRED"
+  require_burstgpt: true
+
+sweep_grid:
+  favored_tenant_size: ["short", "long"]
+  tenant_weight_skew: [1.0, 5.0, 10.0]
+  # Calibrated 2026-08-16 local smoke: util band + tight favored SLO +
+  # max_active_sequences=1 reduced Aging monopoly while preserving ESTF↔WFS
+  # bidirectional niches (see design doc §10).
+  target_utilization: [1.10, 1.30, 1.50]
+  prediction_noise_sigma: [0.0, 0.30]
+  seeds: [20260816, 20260817]
+
+fixed:
+  n_total_jobs: 120
+  max_active_sequences: 1
+  favored_slo_slack_s: 1.0
+  other_slo_slack_s: 8.0
+
+policies:
+  - "fifo"
+  - "estimated_service_time_first"
+  - "aging_priority"
+  - "weighted_fair_share"
+
+# 2*3*3*2*2 = 72 scenarios × 4 policies = 288 evaluations
+#!/bin/bash
+#SBATCH --job-name=lssp-phase12-campaign
+#SBATCH --partition=general
+#SBATCH --qos=standard
+#SBATCH --account=ikoutis
+#SBATCH --array=0-63
+#SBATCH --time=02:00:00
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=4G
+#SBATCH --output=artifacts/phase12_campaign_logs/shard_%a.out
+#SBATCH --error=artifacts/phase12_campaign_logs/shard_%a.err
+
+# GENERATED FILE for real Phase-12C campaign execution.
+# campaign_manifest_freeze_sha256=81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a
+# shard_count=64, total_cells=18720, estimated ~31.66 CPU-hours total
+# (wall-clock planning figure only, not scientific-outcome-derived).
+
+module load slurm/wulver
+
+PYTHONPATH=src /project/ikoutis/sv96/github/llm-serving-scheduler-robustness-benchmark/.venv312/bin/python scripts/ranking_portability/run_phase12_campaign_shard.py \
+  --shard-id "${SLURM_ARRAY_TASK_ID}" \
+  --manifest artifacts/manifests/ranking_portability_phase12_campaign_freeze.json \
+  --shard-plan artifacts/manifests/ranking_portability_phase12_shard_plan.json \
+  --full-windows /mmfs1/project/ikoutis/sv96/github/llm-serving-scheduler-ranking-portability-windows/artifacts/manifests/ranking_portability_pilot_v2_windows.json \
+  --execute
+81fa3d9b48a22410
+fakefreezesha000
+shard_0.err
+shard_0.out
+shard_10.err
+shard_10.out
