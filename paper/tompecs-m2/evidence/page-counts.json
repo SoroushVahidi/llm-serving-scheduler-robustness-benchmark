@@ -1,0 +1,154 @@
+{
+  "manuscript": {
+    "pages": 27,
+    "sha256": "afb0c5c9b6c35a52307ed1993fe12b7764d07a8d95ebf68e9513184a8ce4473e",
+    "sections": [
+      {
+        "title": "Front matter",
+        "page": 1,
+        "extent": 0.447
+      },
+      {
+        "title": "Introduction",
+        "page": 1,
+        "extent": 1.82
+      },
+      {
+        "title": "Background and Related Work",
+        "page": 3,
+        "extent": 1.274
+      },
+      {
+        "title": "Research Questions and Portability Measures",
+        "page": 4,
+        "extent": 2.867
+      },
+      {
+        "title": "Evaluation Model and Assumptions",
+        "page": 7,
+        "extent": 3.018
+      },
+      {
+        "title": "Workloads and Experimental Design",
+        "page": 10,
+        "extent": 2.807
+      },
+      {
+        "title": "Performance Within Operating Regions",
+        "page": 13,
+        "extent": 1.505
+      },
+      {
+        "title": "Portability Across Workloads and Regions",
+        "page": 14,
+        "extent": 3.004
+      },
+      {
+        "title": "Portability Across Metrics",
+        "page": 17,
+        "extent": 2.383
+      },
+      {
+        "title": "Robustness and Practical Implications",
+        "page": 20,
+        "extent": 3.56
+      },
+      {
+        "title": "Threats to Validity",
+        "page": 23,
+        "extent": 1.774
+      },
+      {
+        "title": "Conclusion",
+        "page": 25,
+        "extent": 0.665
+      },
+      {
+        "title": "Artifact availability and declarations",
+        "page": 26,
+        "extent": 0.246
+      },
+      {
+        "title": "References",
+        "page": 26,
+        "extent": 1.63
+      }
+    ]
+  },
+  "acmsmall": {
+    "pages": 28,
+    "sha256": "08a06455111e1a60dd74d809c46a0b78a80edc2bf41e670c95ffd94f45499352",
+    "sections": [
+      {
+        "title": "Front matter",
+        "page": 1,
+        "extent": 0.504
+      },
+      {
+        "title": "Introduction",
+        "page": 1,
+        "extent": 1.788
+      },
+      {
+        "title": "Background and Related Work",
+        "page": 3,
+        "extent": 1.33
+      },
+      {
+        "title": "Research Questions and Portability Measures",
+        "page": 4,
+        "extent": 2.807
+      },
+      {
+        "title": "Evaluation Model and Assumptions",
+        "page": 7,
+        "extent": 3.194
+      },
+      {
+        "title": "Workloads and Experimental Design",
+        "page": 10,
+        "extent": 2.711
+      },
+      {
+        "title": "Performance Within Operating Regions",
+        "page": 13,
+        "extent": 1.788
+      },
+      {
+        "title": "Portability Across Workloads and Regions",
+        "page": 15,
+        "extent": 3.065
+      },
+      {
+        "title": "Portability Across Metrics",
+        "page": 18,
+        "extent": 2.098
+      },
+      {
+        "title": "Robustness and Practical Implications",
+        "page": 20,
+        "extent": 3.887
+      },
+      {
+        "title": "Threats to Validity",
+        "page": 24,
+        "extent": 1.491
+      },
+      {
+        "title": "Conclusion",
+        "page": 25,
+        "extent": 0.628
+      },
+      {
+        "title": "Artifact availability and declarations",
+        "page": 26,
+        "extent": 0.272
+      },
+      {
+        "title": "References",
+        "page": 26,
+        "extent": 2.438
+      }
+    ]
+  }
+}

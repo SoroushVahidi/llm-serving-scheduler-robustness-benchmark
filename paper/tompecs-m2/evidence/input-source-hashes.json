@@ -1,0 +1,89 @@
+{
+  "base": "366752a76f86dec30190f3e7767124f684378de4",
+  "files": {
+    "configs/analysis/cross_metric_analysis_20260903.json": {
+      "sha256": "33729102c2f8867cb521f8557cd51b42d8830811de8dea16cc7ab68d53b61fd9",
+      "bytes": 16064
+    },
+    "docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md": {
+      "sha256": "0a97bbfddb8ec1202200592d6a2172575649f53d6f579c1ad0e551ee567c5d7f",
+      "bytes": 10012
+    },
+    "docs/STATISTICAL_ANALYSIS_PLAN.md": {
+      "sha256": "6e57329b685b6bac17556c035bfb2f5be0f65d31692de2757f788f3731df3beb",
+      "bytes": 4017
+    },
+    "scripts/ranking_portability/run_cross_metric_analysis.py": {
+      "sha256": "ae4704404f0ab7589e622922d13ceadd199f118a0545dcfd607ba3d8f26e1a06",
+      "bytes": 11423
+    },
+    "scripts/ranking_portability/run_phase12_analysis.py": {
+      "sha256": "03098a8c2b3d91b7f55d7e964104a70efe6d7441e1184405830b38683bb6e061",
+      "bytes": 44579
+    },
+    "src/robustbench/analysis/cross_metric.py": {
+      "sha256": "30bf7a1e011ad9c980c2cb3a116d6096e5ecd6026988cbaeea5bfe9bdbfb4903",
+      "bytes": 18806
+    },
+    "src/robustbench/ranking_portability/analysis/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "src/robustbench/ranking_portability/analysis/consolidation.py": {
+      "sha256": "8fd0c6837ac32a2c5d775ff4b180d54e78b00508379c36829f6d25cce0d46b4c",
+      "bytes": 8162
+    },
+    "src/robustbench/ranking_portability/analysis/contract.py": {
+      "sha256": "3d409050a9011b4378cc481dec51f4a27cdccae89ed58ed0717b81a946ebf0c2",
+      "bytes": 7169
+    },
+    "src/robustbench/ranking_portability/analysis/input_manifest.py": {
+      "sha256": "a4e0deff7871b39c5dd346318663ccf9bddb89584504f0b3d8d996f493e95f3b",
+      "bytes": 3265
+    },
+    "src/robustbench/ranking_portability/analysis/matrix_validator.py": {
+      "sha256": "78d74f3e847090c3823daada175b616503e49b8a2ab366bba977130bb3810c7a",
+      "bytes": 8479
+    },
+    "src/robustbench/ranking_portability/analysis/omnibus.py": {
+      "sha256": "fb98372d4450e1006bbed5d850d4ea26b0a05e4eec743750bada3ee8d9ea0fd2",
+      "bytes": 1582
+    },
+    "src/robustbench/ranking_portability/analysis/output_writer.py": {
+      "sha256": "f4f3cb6441ab1e7a3af460c7484e5a916fff5379d77945245aace49ac451ce4b",
+      "bytes": 1945
+    },
+    "src/robustbench/ranking_portability/analysis/ranking_analysis.py": {
+      "sha256": "449bce19f2d41143bb502e0cba87cb03f62645f4539c1c8b848a4349e357a243",
+      "bytes": 6309
+    },
+    "src/robustbench/ranking_portability/analysis/result_blindness.py": {
+      "sha256": "8227cd9601ec2bd7b7d53534c68ad98c3e2d18bb1262d1abafee831e8475eead",
+      "bytes": 2384
+    },
+    "src/robustbench/ranking_portability/analysis/reversal_analysis.py": {
+      "sha256": "cde759b146ba51c3f5cb8674842ced6fc9198612254b00acc739a6c2b4d10b5f",
+      "bytes": 8151
+    },
+    "src/robustbench/ranking_portability/analysis/robustness.py": {
+      "sha256": "55f4898801f1049c02badfcb8f1f6bc92580d454577f9be40b25221ead1ddd69",
+      "bytes": 4740
+    },
+    "src/robustbench/ranking_portability/analysis/sample_complexity.py": {
+      "sha256": "36b53b1e6c63cfe6329e49ac7d8a08614623c51c6ad2f3ef3f5f7101ef390acf",
+      "bytes": 6779
+    },
+    "src/robustbench/ranking_portability/analysis/stats.py": {
+      "sha256": "76ecae65f800bebe2ecfed80efb9757428763423e8380203c0b3460e8cf00168",
+      "bytes": 7222
+    },
+    "src/robustbench/ranking_portability/analysis/telemetry_explanation.py": {
+      "sha256": "d5f534e6418d0fa93d72c192ed6de35925f87a10dfa697f8527b043464be5a98",
+      "bytes": 4086
+    },
+    "src/robustbench/ranking_portability/analysis/temporal_analysis.py": {
+      "sha256": "74b204c32c7358c659ab04ffec64c42a47d78cbafac39d826a48ca427d078aed",
+      "bytes": 3451
+    }
+  }
+}

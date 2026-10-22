@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "references_resolve": true,
+    "labels_unique": true,
+    "citations_resolve": true,
+    "bibliography_keys_unique": true,
+    "figure_descriptions": true,
+    "no_template_overrides": true,
+    "unchanged_class": true,
+    "all_inherited_files_unchanged": true,
+    "manuscript_pages_under_30": true,
+    "manuscript_no_unresolved_refs_or_overfull": true,
+    "manuscript_no_tex_error": true,
+    "acmsmall_pages_under_30": true,
+    "acmsmall_no_unresolved_refs_or_overfull": true,
+    "acmsmall_no_tex_error": true
+  },
+  "passed": 14,
+  "failed": 0,
+  "details": {
+    "preservation": {
+      "base": "366752a76f86dec30190f3e7767124f684378de4",
+      "files": 571,
+      "mismatches": [],
+      "hydrated_lfs": [
+        "dataset/v1.1.0/data/tables/load_region_assignments.parquet",
+        "dataset/v1.1.0/data/tables/pairwise_reversals.parquet",
+        "dataset/v1.1.0/data/tables/policy_registry.parquet",
+        "dataset/v1.1.0/data/tables/ranking_correlations.parquet",
+        "dataset/v1.1.0/data/tables/sample_complexity.parquet",
+        "dataset/v1.1.0/data/tables/scheduler_outcomes.parquet",
+        "dataset/v1.1.0/data/tables/telemetry_explanation.parquet",
+        "dataset/v1.1.0/data/tables/temporal_robustness.parquet",
+        "dataset/v1.1.0/data/tables/topk_overlap.parquet",
+        "dataset/v1.1.0/data/tables/unique_configurations.parquet",
+        "dataset/v1.1.0/data/tables/workload_windows.parquet"
+      ],
+      "consolidated_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26"
+    }
+  }
+}

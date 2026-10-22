@@ -1,0 +1,97 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: revised-manuscript.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: revised/references.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty address in vidur2024
+Warning--page numbers missing in both pages and numpages fields in vidur2024
+Warning--empty address in agrawal2024sarathi
+Warning--page numbers missing in both pages and numpages fields in agrawal2024sarathi
+Warning--page numbers missing in both pages and numpages fields in llmservingsim2_2025
+Warning--empty address in llmservingsim2024
+Warning--page numbers missing in both pages and numpages fields in llmservingsim2024
+Warning--empty publisher in efficientllmscheduling2024
+Warning--empty address in efficientllmscheduling2024
+Warning--page numbers missing in both pages and numpages fields in efficientllmscheduling2024
+Warning--empty publisher in jin2023s3
+Warning--empty address in jin2023s3
+Warning--page numbers missing in both pages and numpages fields in jin2023s3
+Warning--empty address in kwon2023vllm
+Warning--page numbers missing in both pages and numpages fields in kwon2023vllm
+Warning--no number and no volume in ayearinllmserving2026
+Warning--page numbers missing in both pages and numpages fields in ayearinllmserving2026
+Warning--empty address in papaioannou2024workload
+Warning--empty address in patel2024splitwise
+Warning--page numbers missing in both pages and numpages fields in patel2024splitwise
+Warning--empty address in qin2025mooncake
+Warning--page numbers missing in both pages and numpages fields in qin2025mooncake
+Warning--empty address in sheng2024vtc
+Warning--page numbers missing in both pages and numpages fields in sheng2024vtc
+Warning--empty address in stojkovic2025dynamollm
+Warning--page numbers missing in both pages and numpages fields in stojkovic2025dynamollm
+Warning--empty address in sun2024llumnix
+Warning--page numbers missing in both pages and numpages fields in sun2024llumnix
+Warning--no number and no volume in kvcache_wild2025
+Warning--page numbers missing in both pages and numpages fields in kvcache_wild2025
+Warning--empty address in burstgpt2025
+Warning--page numbers missing in both pages and numpages fields in burstgpt2025
+Warning--empty address in servegen2026
+Warning--page numbers missing in both pages and numpages fields in servegen2026
+Warning--empty address in yu2022orca
+Warning--page numbers missing in both pages and numpages fields in yu2022orca
+Warning--empty address in zakay2013resampling
+Warning--empty address in zhong2024distserve
+Warning--page numbers missing in both pages and numpages fields in zhong2024distserve
+Warning--no number and no volume in tracelab2026
+Warning--page numbers missing in both pages and numpages fields in tracelab2026
+You've used 28 entries,
+            6335 wiz_defined-function locations,
+            1696 strings with 26601 characters,
+and the built_in function-call counts, 33215 in all, are:
+= -- 3787
+> -- 1448
+< -- 0
++ -- 508
+- -- 500
+* -- 2662
+:= -- 3329
+add.period$ -- 137
+call.type$ -- 28
+change.case$ -- 264
+chr.to.int$ -- 26
+cite$ -- 69
+duplicate$ -- 2847
+empty$ -- 2036
+format.name$ -- 598
+if$ -- 7914
+int.to.chr$ -- 4
+int.to.str$ -- 1
+missing$ -- 121
+newline$ -- 335
+num.names$ -- 194
+pop$ -- 1369
+preamble$ -- 1
+purify$ -- 484
+quote$ -- 0
+skip$ -- 980
+stack$ -- 0
+substring$ -- 1862
+swap$ -- 202
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 705
+warning$ -- 41
+while$ -- 129
+width$ -- 0
+write$ -- 634
+(There were 41 warnings)

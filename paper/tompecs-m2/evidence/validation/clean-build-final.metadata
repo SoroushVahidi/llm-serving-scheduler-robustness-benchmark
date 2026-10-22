@@ -1,0 +1,7 @@
+session=lssp-tompecs-m2
+window=clean-build-final
+pid=535204
+start=2026-10-22T03:15:44+00:00
+command=bash paper/tompecs-m2/scripts/build_validate.sh 
+end=2026-10-22T03:15:53+00:00
+exit=0

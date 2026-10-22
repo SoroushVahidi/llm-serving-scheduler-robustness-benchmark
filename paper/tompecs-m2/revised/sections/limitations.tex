@@ -1,0 +1,96 @@
+\section{Threats to Validity}\label{sec:threats}
+\subsection{Simulator validity and policy comparability}
+The primary findings are conditional on a project-local, deterministic,
+fixed-step simulator. Native partial-prefill execution, allocation refusal,
+KV preemption and recomputation are not reproduced merely by a policy's
+name or unit-test success. Historical policies can maintain shadow progress
+and KV tables that differ from shared execution state. Some resource limits
+are policy-dependent; demand above nominal KV capacity is possible. The
+simulator is therefore a comparison of these implemented abstractions,
+not a controlled physical comparison isolating only production scheduler
+selection rules. Differences in abstraction can influence rankings.
+
+Later source audits reproduced discrepancies in final-prefill sampling,
+output-prefix retention under recomputation and admission accounting.
+Native scheduling counters are not execution acknowledgments. Intermediate
+prefill can produce no sample, while final prefill can produce the first
+output token. Restarting generated progress changes work and first-token
+accounting. No correction factor translates historical simulated timing
+to physical timing; no numerical ranking effect was measured by those audits.
+
+\subsection{Physical evidence boundary}\label{sec:real-system}\label{sec:real-system-objective}\label{sec:real-system-design}\label{sec:real-system-result}
+The legacy RQ6 artifact records 240 physical executions of two configured
+policy paths across three sources and 40 windows per source. A retrospective
+hardware audit established 10~GB A100 MIG allocations, with 9.5~GiB visible
+to CUDA, rather than full 80~GB devices. Parent-card names were not
+allocated-device identity evidence. Individual allocated UUIDs and exact
+compute-slice profiles were not preserved.
+
+More seriously, request class metadata was not transported to the legacy
+SLAI plugin; missing classes selected fallback behavior. Its deadline clock
+used a synthetic iteration-to-time conversion. Client worker limits and
+prompt construction could delay actual arrivals, which were not fully
+instrumented, and adapter plans could differ from native scheduled work.
+The saved numerical observations remain historical evidence of that runner.
+They do not establish faithful SLAI-versus-native ranking agreement or
+reversal non-reproduction. The mismatch cannot be attributed uniquely to
+simulator error. RQ6 remains unresolved at the intended fidelity level.
+
+A later full-A100 engineering smoke established bounded native/checked-SLAI
+serving on short synthetic fixtures. It is separate from this campaign and
+does not validate realistic-trace ranking portability. Subsequent CPU ledger
+and native-boundary conformance work uses synthetic execution replies;
+it is not GPU timing, numerical-output or performance evidence. The P2B
+control hook rejects selected waiting work preceding selected resident
+work in one batch and has no atomic native-state rollback on late allocation
+failure. General partial-prefill serving, KV pressure/preemption,
+recomputation and distributed TP2/DP2 remain separate gates. Nothing in
+this manuscript establishes cross-architecture or parallelism portability.
+
+\subsection{Statistical and construct validity}
+The 18,720 executions comprise 9,360 deterministic pairs, not stochastic
+replications. Window bootstrap intervals summarize resampling variation within the
+sampled trace corpus. Their nominal coverage requires assumptions not
+established here. Production
+traces can retain temporal or session dependence across windows. Independent
+publication of traces is not independent sampling of providers; BurstGPT and
+Azure share infrastructure lineage. Provider and domain effects are not
+causally isolated. The temporal definitions differ by source and should
+not be pooled into a common domain-shift statistic.
+
+Missing completion-conditioned observations are excluded, not imputed.
+An estimable aggregate does not imply that every policy/window observation
+exists. In the primary panel, 48 unique configurations have zero completions;
+the preserved calibration manifest has none. Earlier prose reporting 301 calibration zero-completion cells is disputed by that file. Survivorship
+conditioning, deterministic tie breaks and synthetic deadlines affect the
+meaning of a preferred policy. Practical-margin and recovery thresholds
+are reporting conventions, not universal systems standards. The raw-interval
+reversal taxonomy and within-family BH flags are historical procedural
+labels. Neither a calibrated significance level nor even within-family
+FDR control has been established. Increasing bootstrap draws cannot
+repair dependence, screening or a mismatch of estimands.
+
+The cross-metric and SLO extensions were conducted after primary results
+were available. Their frozen extension configurations support reproducibility,
+not retrospective preregistration. The descriptor regressions are sparse
+and descriptive. The finite-reference recovery curves do not prove that
+40 windows suffice for a new source or that a full-reference ordering is a
+population truth. Alternative requests-per-window sizes, held-out sources
+and a prospective transfer predictor are not evaluated.
+
+\subsection{Coverage, provenance and reproducibility}
+Source token counts may represent different context semantics and are not
+necessarily counts under a common tokenizer. Long prompts in the Azure and
+Bailian windows are outside the later 256-token engineering contract. No
+retokenization or context-eligibility audit can be inferred from the short
+smoke. The 120 selected windows are a finite corpus, not a representative
+sample of every production LLM service.
+
+Historical source, campaign and analysis files are preserved with hashes.
+M1 reconciled counts and point estimates; M2 independently reproduces all
+198 source-ranking tau intervals, 72 primary reversal intervals, 6,890
+cross-metric difference intervals, six cross-metric rank intervals and
+66 Friedman statistics. This does not establish interval coverage, fresh
+hardware reproducibility, source licensing or public release accessibility. Bibliography metadata and the prior
+manuscript overlap boundary require final author review. Unresolved
+checks are listed explicitly in the accompanying claim-to-evidence register.

@@ -1,0 +1,170 @@
+\section{Research Questions and Portability Measures}\label{sec:study-design}\label{sec:rq}
+We organize the manuscript around four questions that the frozen outcomes
+can address. This is a retrospective presentation change, not a new
+preregistration. ``Answer'' below means a conditional description of the
+specified implementations and corpus, not a population or native-system
+claim.
+\begin{description}
+\item[Q1: Source and region portability.] How much do aggregate policy
+orderings agree across the three released sources and six operating regions?
+\item[Q2: Practical pairwise reversals.] Which policy pairs change order
+with more than the frozen 10\% relative margin on both sides, and how
+sensitive is their saved interval support to the analysis assumptions?
+\item[Q3: Objective sensitivity.] How do metric choice, tied optima,
+observation support and the saved alternative SLO definitions change
+preferred-policy conclusions?
+\item[Q4: Temporal and finite-reference stability.] How stable are
+rankings across the available temporal splits and subsets of the
+40-window source reference?
+\end{description}
+
+\begin{table}[t]\centering
+\caption{Mapping to all six original protocol questions. The four manuscript
+questions above are retrospective; extension results remain post-campaign.}
+\label{tab:rq-map}
+\begin{tabular}{p{0.29\linewidth}p{0.60\linewidth}}\toprule
+Original protocol question & Evidence status and manuscript location\\\midrule
+RQ1: cross-source stability & Answered descriptively for this corpus (Q1, Q2); source release does not establish sampling independence.\\
+RQ2: temporal/provider/domain shifts & Partially answered (Q1, Q4). Temporal splits exist; provider and domain effects are not isolated.\\
+RQ3: synthetic-to-real transfer & Unanswered at the intended fidelity; pilot context only.\\
+RQ4: observable reversal characteristics & Partially answered descriptively; sparse association fits do not identify causes (Section~\ref{sec:telemetry-explanation}).\\
+RQ5: independent windows needed for stability & Partially answered (Q4): finite-reference recovery, not population sample complexity.\\
+RQ6: faithful native ranking transfer & Unanswered; legacy runner defects prevent that interpretation (Section~\ref{sec:real-system}).\\\bottomrule
+\end{tabular}
+\end{table}
+Q3 uses post-campaign cross-metric and SLO extension artifacts. Broad
+metric and SLO sensitivity were anticipated in the historical plans;
+that does not make the eventual extension implementation, its selected
+region coverage, or the present matched-support and set-valued analyses
+prospectively frozen primary results. The original questions and plans
+remain unchanged in the artifact.
+
+\subsection{Comparison object and statistical unit}\label{sec:unit}
+Let $R(W,M,L)$ denote the ordering of a fixed policy panel under source or
+window set $W$, metric $M$, and operating region $L$. Collapse the two
+identical deterministic passes before aggregation. Policies share windows
+within a source/region; different sources are not paired request by request.
+A whole window is the historical resampling unit. This preserves
+within-window policy dependence but assumes exchangeability between
+windows; non-overlap alone does not establish that assumption.
+
+For defined outcomes $y_{w,p,m}$, the historical aggregate is
+\begin{equation}
+ \bar y_{p,m}=|\mathcal W_{p,m}|^{-1}
+ \sum_{w\in\mathcal W_{p,m}} y_{w,p,m},
+\end{equation}
+where $\mathcal W_{p,m}$ contains the observed windows for policy $p$
+and metric $m$. Empty support gives no aggregate. Pairwise difference
+intervals instead use $\mathcal W_{a,m}\cap\mathcal W_{b,m}$. These
+estimands coincide for complete ANWG observations, but need not coincide
+for conditional metrics. Section~\ref{sec:results-cross-metric} examines
+this distinction without imputing unobserved outcomes.
+
+\subsection{Metrics}\label{sec:metrics}
+The primary metric, Arrival-Normalized Weighted Goodput (ANWG), is
+\begin{equation}
+ \mathrm{ANWG}=\frac{\sum_{i\in S} w_i}{\sum_{i\in R} w_i},
+\end{equation}
+where $R$ contains all arriving requests, $w_i\geq1$ is priority weight,
+and $S$ contains requests completed at or before their deadline. Dropped,
+unfinished and late requests retain denominator weight but receive no
+numerator credit. Every window has arrivals. ANWG, completion fraction
+and weighted completion fraction are therefore always defined.
+
+The other eligible metrics are SLO-violation rate, weighted goodput, mean
+and p95 latency, request and token throughput, and mean and p95 TTFT.
+The first six require a completion; TTFT additionally requires a recorded
+first-token time for a completed request. The executed ranking schema
+does not contain p99 latency or TPOT. Undefined observations are omitted,
+never assigned a zero, loss or tie. A condition can remain estimable even
+when its policy means use different window subsets. Lower-is-better
+metrics are negated for cross-metric comparisons.
+
+Kendall tau-b preserves equal values as ties. With concordant and
+discordant pair counts $C,D$ and one-sided tie counts $T_x,T_y$,
+\begin{equation}
+ \tau_b=\frac{C-D}{\sqrt{(C+D+T_x)(C+D+T_y)}}.
+\end{equation}
+A zero denominator is undefined. Top-$k$ and exact-order recovery instead
+sort by metric value and then policy ID. Thus a single top choice need
+not be a unique optimum. Q3 reports both the historical choice and a
+post-hoc maximizing-set comparison.
+
+\subsection{Saved uncertainty and reversal taxonomy}\label{sec:uncertainty}
+The historical procedure draws 2,000 samples of windows with replacement
+and records the 2.5th and 97.5th percentiles. We call these \emph{nominal
+95\% resampling intervals}; their reproduction does not establish 95\%
+coverage under temporal dependence or for discontinuous, tied rankings.
+Undefined rank statistics are discarded before percentile calculation.
+This occurs in 30 of 198 source comparisons; the two primary LOW
+comparisons involving BurstGPT discard 10 and 12 of 2,000 draws.
+The resulting intervals condition on an estimable resampled ranking,
+even though all primary ANWG cell values are observed.
+Cross-source ranking samples are drawn separately. Cross-metric ranking
+samples share window indices. Cross-metric pairwise difference intervals
+use separate seeded marginal draws for each metric, a distinct procedure
+from the paired ranking bootstrap.
+
+For policy pair $a,b$, the saved classification first compares separately
+aggregated differences $d_x=\bar y_{a,x}-\bar y_{b,x}$ and $d_y$.
+Opposite nonzero signs are required. Each absolute difference must exceed
+10\% of the absolute value of the losing policy in that condition. A zero
+loser makes this margin unestimable, except that an exact tie has zero
+difference and margin. The threshold is a historical operational
+convention, not an established deployment-utility cutoff or a confidence
+bound on the effect size.
+
+The five exclusive labels are: undefined/unestimable; stable (including
+exact ties); microscopic sign change (at least one margin at most 10\%);
+practical sign change with a saved interval including zero; and
+\texttt{SUPPORTED\_PRACTICAL\_REVERSAL} (both margins pass and both
+saved difference intervals exclude zero). We retain the final label only
+as an artifact category, abbreviated \emph{saved-supported}. It does not
+assert calibrated statistical significance. The sequential rule skips
+interval calculation for stable and microscopic records; absence of the
+wide-interval class does not establish equivalence between practical and
+statistical criteria.
+
+The saved tail quantity is
+\begin{equation}
+ p_s=\min\{1,2\min[\widehat P(d_s^*\leq0),
+                         \widehat P(d_s^*\geq0)]\},\qquad
+ p_{\mathrm{pair}}=\max(p_x,p_y).
+\end{equation}
+This is an empirical bootstrap tail fraction, not an exact binomial sign
+test. The maximum has an intersection--union interpretation only if its
+component tests are valid for the intended nulls. Here null calibration,
+data-dependent directional screening and window dependence are not
+established. Nor do zero-excluding intervals test the stronger hypothesis
+that both population margins exceed 10\%.
+
+The historical BH calculation uses only records reaching the interval
+stage: families are metric/region for cross-source reversals and
+source/region/metric-pair for cross-metric disagreements. Independence or
+the required positive dependence of valid null $p$-values is not shown
+\citep{benjamini2001dependency}. Consequently, the saved flags are
+reproduced bookkeeping results, \emph{not a verified 5\% FDR guarantee},
+even within families. Section~\ref{sec:audit-sensitivity} reports bounded
+alternative bookkeeping and dependence sensitivities; none repairs null
+calibration by changing a denominator alone.
+
+\subsection{Evidence denominators}
+\begin{table}[t]\centering
+\caption{Units in the frozen campaign. Comparison counts describe coverage,
+not independent replications.}\label{tab:denominators}
+\begin{tabular}{p{0.38\linewidth}p{0.53\linewidth}}\toprule
+Quantity & Interpretation\\\midrule
+120 windows & 40 per source, 200 requests per window\\
+9,360 configurations & 120 windows $\times$ six regions $\times$ 13 policies\\
+18,720 executions & Two deterministic passes per configuration\\
+18 primary rank comparisons & Three source pairs $\times$ six regions\\
+990 primary reversal records & 18 conditions $\times$ 55 policy pairs\\
+990 cross-metric conditions & Three sources $\times$ six regions $\times$ 55 metric pairs\\
+54,450 metric disagreements & 990 conditions $\times$ 55 policy pairs\\
+500 draws per recovery budget & Subsets of the fixed reference corpus\\\bottomrule
+\end{tabular}
+\end{table}
+All reported fractions condition on these enumerated comparison sets.
+Increasing the metric or policy panel creates more records without adding
+workload evidence. The separate 240 legacy physical executions do not
+enlarge the simulator's inferential sample.

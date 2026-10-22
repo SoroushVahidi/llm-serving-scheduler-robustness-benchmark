@@ -1,0 +1,1514 @@
+[
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "region": "LOW",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 738.9507266926615,
+    "p": 2.714773753334771e-152,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "LOW",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 2.714773753334771e-152,
+      "statistic": 738.9507266926615
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 713.9175396185866,
+    "p": 6.45531147676464e-147,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "PRE_KNEE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 6.45531147676464e-147,
+      "statistic": 713.9175396185866
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "region": "KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 813.8274818080422,
+    "p": 2.196268965838871e-168,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "KNEE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 2.196268965838871e-168,
+      "statistic": 813.8274818080422
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 865.477217050465,
+    "p": 1.708933605927088e-179,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "POST_KNEE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 1.708933605927088e-179,
+      "statistic": 865.477217050465
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 893.0076812289967,
+    "p": 2.03626712184864e-185,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "OVERLOAD",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 2.03626712184864e-185,
+      "statistic": 893.0076812289967
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "arrival_normalized_weighted_goodput",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 934.3393967303712,
+    "p": 2.5834006996351214e-194,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "arrival_normalized_weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 2.5834006996351214e-194,
+      "statistic": 934.3393967303712
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "completion_fraction",
+    "region": "LOW",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "LOW",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "completion_fraction",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "PRE_KNEE",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "completion_fraction",
+    "region": "KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "KNEE",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "completion_fraction",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "POST_KNEE",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "completion_fraction",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "OVERLOAD",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "completion_fraction",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "region": "LOW",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "LOW",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "PRE_KNEE",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "region": "KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "KNEE",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "POST_KNEE",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "OVERLOAD",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_completion_fraction",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 11,
+    "excluded": [],
+    "statistic": 829.999999999998,
+    "p": 7.31083860444496e-172,
+    "saved": {
+      "excluded_policies": [],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "weighted_completion_fraction",
+      "n_blocks": 120,
+      "n_treatments": 11,
+      "p_value": 7.31083860444496e-172,
+      "statistic": 829.999999999998
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "slo_violation_rate",
+    "region": "LOW",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 613.715629198387,
+    "p": 2.382022654939489e-126,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.382022654939489e-126,
+      "statistic": 613.715629198387
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "slo_violation_rate",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 622.1684836471753,
+    "p": 3.648859385603741e-128,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.648859385603741e-128,
+      "statistic": 622.1684836471753
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "slo_violation_rate",
+    "region": "KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 768.6236352906461,
+    "p": 1.2028459125360469e-159,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.2028459125360469e-159,
+      "statistic": 768.6236352906461
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "slo_violation_rate",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 838.8261390887287,
+    "p": 9.299326836193423e-175,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 9.299326836193423e-175,
+      "statistic": 838.8261390887287
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "slo_violation_rate",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 867.9781846513438,
+    "p": 4.897473475812325e-181,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.897473475812325e-181,
+      "statistic": 867.9781846513438
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "slo_violation_rate",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 907.3643973214283,
+    "p": 1.602017927784961e-189,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "slo_violation_rate",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.602017927784961e-189,
+      "statistic": 907.3643973214283
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_goodput",
+    "region": "LOW",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 613.715629198387,
+    "p": 2.382022654939489e-126,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.382022654939489e-126,
+      "statistic": 613.715629198387
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_goodput",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 622.1684836471753,
+    "p": 3.648859385603741e-128,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.648859385603741e-128,
+      "statistic": 622.1684836471753
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_goodput",
+    "region": "KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 768.6236352906461,
+    "p": 1.2028459125360469e-159,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.2028459125360469e-159,
+      "statistic": 768.6236352906461
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_goodput",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 838.8261390887287,
+    "p": 9.299326836193423e-175,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 9.299326836193423e-175,
+      "statistic": 838.8261390887287
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_goodput",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 867.9781846513438,
+    "p": 4.897473475812325e-181,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.897473475812325e-181,
+      "statistic": 867.9781846513438
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "weighted_goodput",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 907.3643973214283,
+    "p": 1.602017927784961e-189,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "weighted_goodput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.602017927784961e-189,
+      "statistic": 907.3643973214283
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_latency",
+    "region": "LOW",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 921.9613173026664,
+    "p": 1.146018505584788e-192,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.146018505584788e-192,
+      "statistic": 921.9613173026664
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_latency",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 926.1252505010018,
+    "p": 1.451575872879757e-193,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.451575872879757e-193,
+      "statistic": 926.1252505010018
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_latency",
+    "region": "KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 929.8688486265347,
+    "p": 2.2648862022568066e-194,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.2648862022568066e-194,
+      "statistic": 929.8688486265347
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_latency",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 928.6888473447449,
+    "p": 4.067751706985359e-194,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.067751706985359e-194,
+      "statistic": 928.6888473447449
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_latency",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 927.7697954902991,
+    "p": 6.418333233682278e-194,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 6.418333233682278e-194,
+      "statistic": 927.7697954902991
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_latency",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 926.1763404552595,
+    "p": 1.4152376292944254e-193,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "mean_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.4152376292944254e-193,
+      "statistic": 926.1763404552595
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_latency",
+    "region": "LOW",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 893.7883221948642,
+    "p": 1.348375905204265e-186,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.348375905204265e-186,
+      "statistic": 893.7883221948642
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_latency",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 842.1882826475854,
+    "p": 1.7556467339230917e-175,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.7556467339230917e-175,
+      "statistic": 842.1882826475854
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_latency",
+    "region": "KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 815.9199901677628,
+    "p": 7.951980886443484e-170,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.951980886443484e-170,
+      "statistic": 815.9199901677628
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_latency",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 812.2902693787795,
+    "p": 4.807272744578319e-169,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.807272744578319e-169,
+      "statistic": 812.2902693787795
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_latency",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 809.5922615403454,
+    "p": 1.8311295909565027e-168,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.8311295909565027e-168,
+      "statistic": 809.5922615403454
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_latency",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 801.4610633401957,
+    "p": 1.0305779672810153e-166,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "p95_latency",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.0305779672810153e-166,
+      "statistic": 801.4610633401957
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "request_throughput",
+    "region": "LOW",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 769.6445679718789,
+    "p": 7.253200326450312e-160,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.253200326450312e-160,
+      "statistic": 769.6445679718789
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "request_throughput",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 736.187703984819,
+    "p": 1.1434569763154334e-152,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1434569763154334e-152,
+      "statistic": 736.187703984819
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "request_throughput",
+    "region": "KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 750.0873194454531,
+    "p": 1.1703379185112316e-155,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1703379185112316e-155,
+      "statistic": 750.0873194454531
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "request_throughput",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 745.0653244806165,
+    "p": 1.4081207640961307e-154,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.4081207640961307e-154,
+      "statistic": 745.0653244806165
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "request_throughput",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 754.9534883720933,
+    "p": 1.0506043541727044e-156,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.0506043541727044e-156,
+      "statistic": 754.9534883720933
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "request_throughput",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 792.7765041036421,
+    "p": 7.627633820529078e-165,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "request_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.627633820529078e-165,
+      "statistic": 792.7765041036421
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "token_throughput",
+    "region": "LOW",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 769.6445679718789,
+    "p": 7.253200326450312e-160,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.253200326450312e-160,
+      "statistic": 769.6445679718789
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "token_throughput",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 736.187703984819,
+    "p": 1.1434569763154334e-152,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1434569763154334e-152,
+      "statistic": 736.187703984819
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "token_throughput",
+    "region": "KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 750.0873194454531,
+    "p": 1.1703379185112316e-155,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1703379185112316e-155,
+      "statistic": 750.0873194454531
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "token_throughput",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 745.0653244806165,
+    "p": 1.4081207640961307e-154,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.4081207640961307e-154,
+      "statistic": 745.0653244806165
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "token_throughput",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 754.9534883720933,
+    "p": 1.0506043541727044e-156,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.0506043541727044e-156,
+      "statistic": 754.9534883720933
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "token_throughput",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 792.7765041036421,
+    "p": 7.627633820529078e-165,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "token_throughput",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 7.627633820529078e-165,
+      "statistic": 792.7765041036421
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_ttft",
+    "region": "LOW",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 915.6748437394988,
+    "p": 2.5936106031793774e-191,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.5936106031793774e-191,
+      "statistic": 915.6748437394988
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_ttft",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 910.413387472383,
+    "p": 3.5291934758731153e-190,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.5291934758731153e-190,
+      "statistic": 910.413387472383
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_ttft",
+    "region": "KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 910.0597014925372,
+    "p": 4.2061821287400137e-190,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.2061821287400137e-190,
+      "statistic": 910.0597014925372
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_ttft",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 910.169024924516,
+    "p": 3.984106843302992e-190,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.984106843302992e-190,
+      "statistic": 910.169024924516
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_ttft",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 901.2763250883394,
+    "p": 3.2844674802143325e-188,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.2844674802143325e-188,
+      "statistic": 901.2763250883394
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "mean_ttft",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 904.4469089193012,
+    "p": 6.812515081383003e-189,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "mean_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 6.812515081383003e-189,
+      "statistic": 904.4469089193012
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_ttft",
+    "region": "LOW",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 878.678600269179,
+    "p": 2.4265425112558377e-183,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "LOW",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.4265425112558377e-183,
+      "statistic": 878.678600269179
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_ttft",
+    "region": "PRE_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 833.6984383414109,
+    "p": 1.1820056876853167e-173,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "PRE_KNEE",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 1.1820056876853167e-173,
+      "statistic": 833.6984383414109
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_ttft",
+    "region": "KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 838.8268911548492,
+    "p": 9.295859739744388e-175,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "KNEE",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 9.295859739744388e-175,
+      "statistic": 838.8268911548492
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_ttft",
+    "region": "POST_KNEE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 841.5855999999995,
+    "p": 2.367131882385435e-175,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "POST_KNEE",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 2.367131882385435e-175,
+      "statistic": 841.5855999999995
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_ttft",
+    "region": "OVERLOAD",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 835.4376632628832,
+    "p": 4.990129000279691e-174,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "OVERLOAD",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 4.990129000279691e-174,
+      "statistic": 835.4376632628832
+    },
+    "match": true,
+    "scipy_match": true
+  },
+  {
+    "metric": "p95_ttft",
+    "region": "HIGH_PRESSURE",
+    "n": 120,
+    "k": 10,
+    "excluded": [
+      "vllm_faithful"
+    ],
+    "statistic": 840.9525159461373,
+    "p": 3.240065305981409e-175,
+    "saved": {
+      "excluded_policies": [
+        "vllm_faithful"
+      ],
+      "load_region": "HIGH_PRESSURE",
+      "metric": "p95_ttft",
+      "n_blocks": 120,
+      "n_treatments": 10,
+      "p_value": 3.240065305981409e-175,
+      "statistic": 840.9525159461373
+    },
+    "match": true,
+    "scipy_match": true
+  }
+]

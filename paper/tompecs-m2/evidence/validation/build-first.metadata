@@ -1,0 +1,7 @@
+session=lssp-tompecs-m2
+window=build-first
+pid=532842
+start=2026-10-22T03:02:27+00:00
+command=bash paper/tompecs-m2/scripts/build.sh revised manuscript 
+end=2026-10-22T03:02:29+00:00
+exit=0

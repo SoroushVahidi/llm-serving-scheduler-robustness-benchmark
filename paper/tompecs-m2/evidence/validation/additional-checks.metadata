@@ -1,0 +1,7 @@
+session=lssp-tompecs-m2
+window=additional-checks
+pid=533898
+start=2026-10-22T03:05:37+00:00
+command=python paper/tompecs-m2/scripts/additional_checks.py 
+end=2026-10-22T03:05:44+00:00
+exit=0

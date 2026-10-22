@@ -1,0 +1,58 @@
+................................                                         [100%]
+=============================== warnings summary ===============================
+tests/test_ranking_portability_analysis_stats.py::test_case4_tied_policies_reported_not_crashed
+  /home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/src/robustbench/ranking_portability/analysis/stats.py:74: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+    rho, rho_p = scipy_stats.spearmanr(lv, rv)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+32 passed, 1 warning in 0.70s
+{
+  "canonical_analysis_counts": {
+    "pairwise_reversals": 10890,
+    "ranking_correlations": 198,
+    "sample_complexity": 33,
+    "telemetry_explanation": 990,
+    "temporal_robustness": 36,
+    "topk_overlap": 198
+  },
+  "frozen_scientific_file_hashes_valid": true,
+  "inventory": {
+    "allowlisted_files": 58,
+    "checksum_entries": 57,
+    "checksum_mismatches": 0
+  },
+  "matrix": {
+    "configurations": 9360,
+    "nonidentical_deterministic_pairs": 0,
+    "rows": 18720,
+    "undefined_metric_rows": 422,
+    "unique_cell_ids": 18720
+  },
+  "parquet_view_rows_checked": {
+    "load_region_assignments": 720,
+    "pairwise_reversals": 10890,
+    "policy_registry": 13,
+    "ranking_correlations": 198,
+    "sample_complexity": 33,
+    "scheduler_outcomes": 18720,
+    "telemetry_explanation": 990,
+    "temporal_robustness": 36,
+    "topk_overlap": 198,
+    "unique_configurations": 9360,
+    "workload_windows": 120
+  },
+  "problems": [],
+  "public_overlap": {
+    "matching_keyed_outcomes": 468,
+    "normalized_projection_sha256": "c46dc974064d375b9d19b0863cedc5a9fd86afda85344928f21aee180e2f7efb",
+    "pinned_public_source_fetched": false,
+    "previously_unavailable_keyed_outcomes": 18252
+  },
+  "release_candidate_valid": true,
+  "restricted_payload_scan": {
+    "flags": 0,
+    "json_files_scanned": 13
+  },
+  "v1_gitattributes_lfs_rule_append_only": true,
+  "v1_unchanged_files": 5
+}

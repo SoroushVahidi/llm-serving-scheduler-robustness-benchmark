@@ -1,0 +1,133 @@
+\section{Portability Across Metrics}\label{sec:results-cross-metric}
+Q3 asks whether a preferred-policy conclusion survives a change of objective.
+This section uses the saved post-campaign cross-metric extension and new,
+explicitly post-hoc M2 sensitivities on its frozen inputs. No serving
+execution is added. All 55 unordered pairs among the 11 eligible metrics
+are evaluated for each of three sources and six regions: 990 conditions.
+These conditions share outcomes and are not independent observations.
+
+\subsection{Historical correlations and classification counts}
+The historical median Kendall tau-b is 0.419, with range $[-0.506,1.000]$;
+202 of 990 conditions have negative correlation. The deterministic top
+choice agrees in 316 conditions (31.9\%). Thus the objective can change
+both the full ordering and the selected policy ID. The median describes
+this enumerated set of metric pairs; it is not an expectation over a
+population of future deployment objectives.
+
+The 54,450 policy-pair records divide into 45,800 same-order cases,
+5,205 microscopic sign changes, 201 practical sign changes with a wide
+saved interval, and 3,244 saved-supported practical disagreements. The
+historical screened BH procedure flags 3,207 of the last group, removing
+37. These are preserved procedural counts. M2 withdraws the stronger
+interpretation that they are statistically established practical effects
+at a controlled error rate. The limitations of the component tail
+quantities, selection and dependence apply here as in Q2.
+
+No condition-level ranking is undefined, but that does not imply complete
+policy/window observations. Nor do 54,450 records supply 54,450 samples:
+each window contributes to multiple policies, metrics and regions. The
+number of pairwise records is useful for describing the evaluation grid,
+not for justifying precision of a claim about general serving workloads.
+
+\subsection{Tied optima versus deterministic policy selection}
+Let $T_m=\{p:\bar y_{p,m}=\max_j\bar y_{j,m}\}$ after direction
+normalization. The historical rule selects the smallest policy ID in
+$T_m$. A set-based question instead asks whether $T_a\cap T_b$ is
+nonempty: is there any policy maximizing both observed objectives?
+Equality of the two sets asks a stricter question. Neither set criterion
+selects a policy without an additional preference rule.
+
+Among 1,980 metric sides, 1,010 have tied maxima. In the M2 post-hoc
+analysis, the maximizing sets intersect in 572/990 conditions (57.8\%),
+and are identical in 179/990 (18.1\%). Only 257 conditions have a unique
+maximizer on both sides. Mean Jaccard overlap,
+$|T_a\cap T_b|/|T_a\cup T_b|$, is 0.329. These statistics use exact
+aggregate equality, matching the historical arithmetic; no tolerance was
+tuned to improve agreement. Near-optimal sets under a deployment-specific
+utility tolerance are a different, unmeasured object.
+
+\begin{table}[t]\centering
+\caption{Historical and post-hoc agreement summaries on the same 990
+cross-metric conditions. Different definitions answer different questions.}
+\label{tab:top-sets}
+\begin{tabular}{p{0.58\linewidth}rr}\toprule
+Agreement definition & Count & Fraction\\\midrule
+Historical deterministic ID & 316 & 31.9\%\\
+Post-hoc nonempty maximizing-set intersection & 572 & 57.8\%\\
+Post-hoc equality of maximizing sets & 179 & 18.1\%\\
+Both objectives have unique maxima (eligibility) & 257 & 26.0\%\\\bottomrule
+\end{tabular}\end{table}
+The additional 256 intersecting-set conditions show why the complement
+of 31.9\% cannot be called disagreement between unique optima. A common
+best policy may exist even when the ID rule picks different members of
+unequal sets. Conversely, nonempty intersection can be permissive when
+one objective ties many policies. Reporting intersection alongside set
+size and equality avoids presenting 57.8\% as a corrected version of
+31.9\%. Both are valid descriptions of different selection questions.
+
+\subsection{Matched support and the meaning of a metric difference}
+Historical policy means omit undefined observations separately. To compare
+$a$ and $b$, the difference of those means is
+\begin{equation}
+ d_{\mathrm{sep}}=
+ \frac{\sum_{w\in\mathcal W_a}y_{w,a}}{|\mathcal W_a|}
+ -\frac{\sum_{w\in\mathcal W_b}y_{w,b}}{|\mathcal W_b|},
+\end{equation}
+whereas the bootstrap difference averages $y_{w,a}-y_{w,b}$ over
+$\mathcal W_a\cap\mathcal W_b$. Without equal support, its interval is
+not an interval for $d_{\mathrm{sep}}$. This is an estimand mismatch,
+not simply a wider or narrower error bar. M2 therefore avoids assigning
+that interval to the separately aggregated point difference.
+
+We perform two distinct post-hoc checks. First, each metric-pair ranking
+is recomputed over windows where all 11 policies have both metrics.
+This common-panel support retains 33--40 windows per condition. The
+median tau becomes 0.41849, 202 correlations remain negative, and the ID
+agreement remains 316/990. Individual tau values change in 81 conditions.
+The historical median remains reported as 0.419; the new value is a
+sensitivity estimate with a different eligibility rule.
+
+Second, for every policy-pair record, each metric's policy means are
+recomputed over that pair's observed-window intersection. This retains
+more observations than requiring the entire panel. Differences change
+in 5,890 of 54,450 records, including 2,720 of the 3,244 saved-supported
+records. All 3,244 retain opposite signs and both 10\% point-margin gates;
+for the affected saved-supported records, the matched signs also agree
+with the saved interval signs. This supports robustness of those
+\emph{descriptive gates} in this corpus. It neither validates their
+$p$-values nor supplies fresh intervals for newly eligible cases. We do
+not report a replacement total of statistically supported disagreements.
+
+Matching support also changes the scientific target. A latency comparison
+restricted to windows on which both policies finish requests does not
+represent windows where one finishes none. Within an observed window,
+each policy's latency may still describe a different set of completed
+requests. Matched windows therefore do not eliminate request-level
+survivorship selection. ANWG answers an arrival-based question; conditional
+latency answers a completion-based question. Neither should be silently
+substituted for the other.
+
+\subsection{Implications for objective-dependent selection}
+A policy can have low latency among its completed requests while providing
+little arrival-normalized deadline utility. Throughput and TTFT measure
+other aspects of service; priority weighting changes whose outcomes count
+most. Some disagreement between such rankings is consequently compatible
+with internally consistent measurements. Negative tau does not by itself
+identify a measurement error or a universally inferior scheduler.
+
+For evaluation practice, the objective, denominator and eligibility rule
+must accompany the selected policy. If the intended decision is to attain
+arrival deadlines, completion-conditioned speed is insufficient evidence.
+If several policies attain the same measured objective, the benchmark can
+report that set rather than implying that an arbitrary ID is uniquely
+best. A deployment may use another objective to break ties, but this
+corpus does not validate that decision rule, its cost or its portability.
+
+The saved SLO extension in Section~\ref{sec:results-slo} changes the
+benchmark's synthetic deadline convention rather than merely relabeling
+an unchanged latency statistic. Its 13/30 top-choice changes and six
+reversal-direction changes among 72 nonidentity checks show dependence on
+that convention within its selected scope. The extension excludes LOW
+because its design targeted saved reversal cases; no conclusion about
+LOW's deadline sensitivity follows. These distinctions answer Q3 without
+turning retrospective sensitivity into a prospective deployment guarantee.

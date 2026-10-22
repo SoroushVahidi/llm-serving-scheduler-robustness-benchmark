@@ -1,0 +1,8 @@
+{
+  "check": "all resampled tau values defined",
+  "state": "FAILED",
+  "affected_comparisons": 30,
+  "discarded_draws": 3287,
+  "max_discarded_per_comparison": 277,
+  "disposition": "Incorrect draft assumption removed. Audit correctly reproduced historical undefined-draw exclusion; no result computation changed. Added disclosure to manuscript, claim ledger and audit."
+}

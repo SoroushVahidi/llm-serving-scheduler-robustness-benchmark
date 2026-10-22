@@ -1,0 +1,105 @@
+{
+  "status": "POST_HOC_AUDIT_NOT_NEW_EXPERIMENT",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1"
+  },
+  "cross_metric_intervals": {
+    "correlations_tested": 6,
+    "correlations_matched": 6,
+    "differences_tested": 6890,
+    "differences_matched": 6890
+  },
+  "ranking_intervals": {
+    "tested": 198,
+    "matched": 198,
+    "primary_matched": 18
+  },
+  "primary_reversal_intervals": {
+    "tested": 72,
+    "matched": 72
+  },
+  "friedman": {
+    "tested": 66,
+    "matched": 66,
+    "treatment_counts": {
+      "11": 18,
+      "10": 48
+    }
+  },
+  "cross_metric": {
+    "n": 990,
+    "point_matches": 990,
+    "id_agreement": 316,
+    "set_intersection": 572,
+    "set_equality": 179,
+    "both_unique": 257,
+    "mean_jaccard": 0.3293462766190039,
+    "matched_id_agreement": 316,
+    "matched_median_tau": 0.41848860073577854,
+    "matched_negative_tau": 202,
+    "matched_tau_changes": 81,
+    "common_windows_min": 33
+  },
+  "matched_pairwise": {
+    "changed_records": 5890,
+    "saved_supported_affected": 2720,
+    "saved_supported_losing_practical_gate": 0,
+    "saved_supported_ci_sign_misaligned": 0
+  },
+  "multiplicity": {
+    "primary": {
+      "families": 6,
+      "tested": 36,
+      "zero_iut": 30,
+      "flag_mismatches": 0,
+      "saved_screened": 36,
+      "full_family": 30,
+      "plus_one_full": 30,
+      "plus_one_full_BY": 0
+    },
+    "cross_metric": {
+      "families": 990,
+      "tested": 3445,
+      "zero_iut": 2723,
+      "flag_mismatches": 0,
+      "saved_screened": 3207,
+      "full_family": 3006,
+      "plus_one_full": 2971,
+      "plus_one_full_BY": 1940
+    }
+  },
+  "chronological_block_sensitivity": {
+    "records": 36,
+    "both_exclude_zero": 30,
+    "block_length": 5,
+    "seed_base": 20261022
+  },
+  "inputs": {
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/dataset/v1.1.0/scientific/analysis/ranking_correlations.json": {
+      "sha256": "d77d5e973f70f8dfe443ebdf35b9c01e94adb84cc62cecef3a2c9afbb88773ff",
+      "bytes": 183103
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/dataset/v1.1.0/scientific/analysis/pairwise_reversals.json": {
+      "sha256": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde",
+      "bytes": 8022760
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/dataset/v1.1.0/scientific/campaign/consolidated.json": {
+      "sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+      "bytes": 37252923
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-tompecs-m2/dataset/v1.1.0/manifests/ranking_portability_pilot_v2_windows_index.json": {
+      "sha256": "d78ec1087fedae02174ca093a9860c70468be336ccb1d7e6de756c81ba331e53",
+      "bytes": 264916
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-cross-metric-analysis-extension/artifacts/analysis/cross_metric_extension/33729102c2f8867cb521f8557cd51b42d8830811de8dea16cc7ab68d53b61fd9/cross_metric_correlations.json": {
+      "sha256": "8fa69a9d87832436ba88e2ee2f0d8a3002e390269a8e9f37085860bb290ad1b2",
+      "bytes": 1142013
+    },
+    "/home/soroush/repos/llm-serving-scheduler-lssp-cross-metric-analysis-extension/artifacts/analysis/cross_metric_extension/33729102c2f8867cb521f8557cd51b42d8830811de8dea16cc7ab68d53b61fd9/cross_metric_pairwise_disagreements.json": {
+      "sha256": "122a3a7297d80f505cb8bdd48a2f89d068bdb69f88ef608d54b33f6e64e3af23",
+      "bytes": 41970872
+    }
+  }
+}
