@@ -1,0 +1,53 @@
+--- v0.27.1/Scheduler.schedule
++++ vllm-0.27.1-exact-span-hook/0.1.0
+@@ -46,6 +46,9 @@
+     req_index = 0
+     while req_index < len(self.running) and token_budget > 0:
+         request = self.running[req_index]
++        if request.request_id not in self._p2b_spans:
++            req_index += 1
++            continue
+ 
+         if (
+             request.num_output_placeholders > 0
+@@ -134,6 +137,7 @@
+             req_index += 1
+             continue
+ 
++        num_new_tokens = self._p2b_count(request, num_new_tokens)
+         # Schedule newly needed KV blocks for the request.
+         with record_function_or_nullcontext("schedule: allocate_slots"):
+             while True:
+@@ -147,6 +151,7 @@
+                     # The request can be scheduled.
+                     break
+ 
++                raise RuntimeError("P2B_NATIVE_ALLOCATION_REFUSAL_NO_RETRY")
+                 # The request cannot be scheduled.
+                 # Preempt the lowest-priority request.
+                 if self.policy == SchedulingPolicy.PRIORITY:
+@@ -257,6 +262,8 @@
+             assert request_queue is not None
+ 
+             request = request_queue.peek_request()
++            if request.request_id not in self._p2b_spans:
++                break
+             request_id = request.request_id
+ 
+             # try to promote blocked statuses while traversing skipped queue.
+@@ -524,6 +531,7 @@
+                     for i in encoder_inputs_to_schedule
+                 )
+ 
++            num_new_tokens = self._p2b_count(request, num_new_tokens)
+             reserved_blocks = 0
+             if load_kv_async:
+                 # An async load holds its blocks for the whole transfer with
+@@ -547,6 +555,7 @@
+             )
+ 
+             if new_blocks is None:
++                raise RuntimeError("P2B_NATIVE_ALLOCATION_REFUSAL_NO_RETRY")
+                 # The request cannot be scheduled.
+ 
+                 # NOTE: we need to untouch the request from the encode cache

@@ -1,0 +1,31 @@
+INFO 10-21 21:48:03 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:48:03 [model.py:1883] Using max model len 512
+INFO 10-21 21:48:03 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=128.
+WARNING 10-21 21:48:03 [vllm.py:1194] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 10-21 21:48:03 [vllm.py:1247] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 10-21 21:48:03 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:48:03 [vllm.py:1426] Cudagraph is disabled under eager mode
+INFO 10-21 21:48:03 [compilation.py:329] Enabled custom fusions: norm_quant, act_quant
+.INFO 10-21 21:48:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:48:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:48:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:48:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:48:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:48:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:48:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:48:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:48:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:48:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:48:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:48:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.INFO 10-21 21:48:04 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:48:04 [model.py:1883] Using max model len 512
+INFO 10-21 21:48:04 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+.
+=============================== warnings summary ===============================
+../../modal-venv/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/soroush/modal-venv/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 14 warnings in 0.72s

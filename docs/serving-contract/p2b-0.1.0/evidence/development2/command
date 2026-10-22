@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES='' HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=src /home/soroush/modal-venv/bin/python -B -m pytest -q -s -p no:cacheprovider tests/serving_v2_p2b

@@ -1,0 +1,1 @@
+/home/soroush/modal-venv/bin/python -B -m pytest -q -s -p no:cacheprovider tests/mgpu00 tests/mgpu02 tests/mgpu05 tests/mgpu06 tests/test_anwg_metric.py tests/serving_v2 tests/serving_v2_p2a tests/serving_v2_p2b 

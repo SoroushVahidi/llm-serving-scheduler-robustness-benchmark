@@ -1,0 +1,87 @@
+{
+  "config/vllm.py": {
+    "sha256": "66e82e95c5cdbb88715e25feb65f4cc2be83cd67bff5b5f703d52dea43a0815e",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/config/vllm.py",
+    "matches_prior_pin": true
+  },
+  "v1/core/block_pool.py": {
+    "sha256": "51cad2fd425128a0ff433ca4685acfc022e40659153ea5d7180fc586e1eebb6c",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/block_pool.py",
+    "matches_prior_pin": true
+  },
+  "v1/core/kv_cache_coordinator.py": {
+    "sha256": "cf1a92db18d079403d8d4c8c9e5b0b615d2a116e3e8ffb5ffb39352a01c04b29",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/kv_cache_coordinator.py",
+    "matches_prior_pin": true
+  },
+  "v1/core/kv_cache_manager.py": {
+    "sha256": "70f7f608c0963af155540630a5633483e5c19c0c0280dfd621760d5db2a419a6",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/kv_cache_manager.py",
+    "matches_prior_pin": true
+  },
+  "v1/core/sched/output.py": {
+    "sha256": "51643386fab3a56b7747aa784ad657833966ebe823acee1f37222e33c1e5696a",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/sched/output.py",
+    "matches_prior_pin": true
+  },
+  "v1/core/sched/request_queue.py": {
+    "sha256": "4b8d938e5fb8152fe61030b8aa991f983fcac9a405c37ed8908045e05e82ae5e",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/sched/request_queue.py",
+    "matches_prior_pin": true
+  },
+  "v1/core/sched/scheduler.py": {
+    "sha256": "c67bda2886b52865ddafabaae7d797c359e930752f374421a33e537d94a5f45a",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/sched/scheduler.py",
+    "matches_prior_pin": true
+  },
+  "v1/core/sched/utils.py": {
+    "sha256": "85e82eae555a03497ad2ac1540ed562a6c36fc26185aa6233725c914816aa1b3",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/sched/utils.py",
+    "matches_prior_pin": true
+  },
+  "v1/core/single_type_kv_cache_manager.py": {
+    "sha256": "8c9030040cbc3b7176e228e10ff6491c3cf6c3e95bdfb573532fcf75f5385ebd",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/core/single_type_kv_cache_manager.py",
+    "matches_prior_pin": true
+  },
+  "v1/engine/core.py": {
+    "sha256": "6fdd067f54e5d42c57ff413e292685f5bdf6f343498d85c9262567f1eb746916",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/engine/core.py",
+    "matches_prior_pin": true
+  },
+  "v1/outputs.py": {
+    "sha256": "9860c23e2afab49933735ea14073e4f81a1732e4f8256b197cee5b19020345ac",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/outputs.py",
+    "matches_prior_pin": true
+  },
+  "v1/request.py": {
+    "sha256": "6085b0668f41d56cd81ef483c06456f4ebe88bc1d46c8131d7134182d7893012",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/request.py",
+    "matches_prior_pin": true
+  },
+  "v1/worker/gpu/async_utils.py": {
+    "sha256": "a39dc6cb9770ccc091a71abd056ab4543844b599aa572619acc3636fc03fcbe6",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/worker/gpu/async_utils.py",
+    "matches_prior_pin": true
+  },
+  "v1/worker/gpu/input_batch.py": {
+    "sha256": "ee342759ffed07a72ae38df164f335fda14cedffe64833ceaa584115830f51a9",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/worker/gpu/input_batch.py",
+    "matches_prior_pin": true
+  },
+  "v1/worker/gpu/model_runner.py": {
+    "sha256": "60fb531a045d6879da25f57cdb95584cc5272e4ef33b69e6b9c2ff3acbd78f8a",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/worker/gpu/model_runner.py",
+    "matches_prior_pin": true
+  },
+  "v1/worker/gpu_worker.py": {
+    "sha256": "50134ca3a147f5470e556437cbd40a13ea05b098efbac6553d5ea2f3e5f7ff57",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/v1/worker/gpu_worker.py",
+    "matches_prior_pin": true
+  },
+  "config/scheduler.py": {
+    "sha256": "3cf5d41a5d662ab0eada6f3128e2538abc0a250d6aef82acab7df7dd84e498bc",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm/v0.27.1/vllm/config/scheduler.py",
+    "matches_prior_pin": true
+  }
+}

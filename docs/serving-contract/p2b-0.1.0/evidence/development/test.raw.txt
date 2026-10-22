@@ -1,0 +1,225 @@
+INFO 10-21 21:46:33 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:46:33 [model.py:1883] Using max model len 512
+INFO 10-21 21:46:33 [scheduler.py:242] Chunked prefill is enabled with max_num_batched_tokens=128.
+WARNING 10-21 21:46:33 [vllm.py:1194] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 10-21 21:46:33 [vllm.py:1247] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 10-21 21:46:33 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 10-21 21:46:33 [vllm.py:1426] Cudagraph is disabled under eager mode
+INFO 10-21 21:46:33 [compilation.py:329] Enabled custom fusions: norm_quant, act_quant
+FINFO 10-21 21:46:33 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:46:33 [model.py:1883] Using max model len 512
+INFO 10-21 21:46:33 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+FINFO 10-21 21:46:33 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:46:33 [model.py:1883] Using max model len 512
+INFO 10-21 21:46:33 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+FINFO 10-21 21:46:33 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:46:33 [model.py:1883] Using max model len 512
+INFO 10-21 21:46:33 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+FINFO 10-21 21:46:33 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:46:33 [model.py:1883] Using max model len 512
+INFO 10-21 21:46:33 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+FINFO 10-21 21:46:33 [model.py:645] Resolved architecture: Qwen2ForCausalLM
+INFO 10-21 21:46:33 [model.py:1883] Using max model len 512
+INFO 10-21 21:46:33 [kernel.py:306] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+F
+=================================== FAILURES ===================================
+__________________ test_p2a_substitutions_now_enforced[rows0] __________________
+
+native_factory = <function native_factory.<locals>.make at 0x7be781889f80>
+rows = [('b', 0, 2)]
+
+    @pytest.mark.parametrize('rows',[
+        [('b',0,2)], [('a',0,1)], [('a',0,2)], [('b',0,2),('a',0,2)],
+    ])
+    def test_p2a_substitutions_now_enforced(native_factory,rows):
+>       b=ControlledBoundary(native_factory(budget=128),'exact',enabled=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/serving_v2_p2b/test_control.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/robustbench/serving_v2/p2b/control.py:36: in __init__
+    self.hook = ControlHook(scheduler)
+                ^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:99: in __init__
+    self.function,self.patch,self.digest = patched_schedule()
+                                           ^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:38: in patched_schedule
+    require(source.count(anchor) == 1, f'patch anchor {index} changed')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+condition = False, message = 'patch anchor 2 changed'
+
+    def require(condition, message):
+        if not condition:
+>           raise BoundaryError(message)
+E           robustbench.serving_v2.p2a.types.BoundaryError: patch anchor 2 changed
+
+src/robustbench/serving_v2/p2a/native.py:24: BoundaryError
+__________________ test_p2a_substitutions_now_enforced[rows1] __________________
+
+native_factory = <function native_factory.<locals>.make at 0x7be77fceb740>
+rows = [('a', 0, 1)]
+
+    @pytest.mark.parametrize('rows',[
+        [('b',0,2)], [('a',0,1)], [('a',0,2)], [('b',0,2),('a',0,2)],
+    ])
+    def test_p2a_substitutions_now_enforced(native_factory,rows):
+>       b=ControlledBoundary(native_factory(budget=128),'exact',enabled=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/serving_v2_p2b/test_control.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/robustbench/serving_v2/p2b/control.py:36: in __init__
+    self.hook = ControlHook(scheduler)
+                ^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:99: in __init__
+    self.function,self.patch,self.digest = patched_schedule()
+                                           ^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:38: in patched_schedule
+    require(source.count(anchor) == 1, f'patch anchor {index} changed')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+condition = False, message = 'patch anchor 2 changed'
+
+    def require(condition, message):
+        if not condition:
+>           raise BoundaryError(message)
+E           robustbench.serving_v2.p2a.types.BoundaryError: patch anchor 2 changed
+
+src/robustbench/serving_v2/p2a/native.py:24: BoundaryError
+__________________ test_p2a_substitutions_now_enforced[rows2] __________________
+
+native_factory = <function native_factory.<locals>.make at 0x7be77fcea7a0>
+rows = [('a', 0, 2)]
+
+    @pytest.mark.parametrize('rows',[
+        [('b',0,2)], [('a',0,1)], [('a',0,2)], [('b',0,2),('a',0,2)],
+    ])
+    def test_p2a_substitutions_now_enforced(native_factory,rows):
+>       b=ControlledBoundary(native_factory(budget=128),'exact',enabled=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/serving_v2_p2b/test_control.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/robustbench/serving_v2/p2b/control.py:36: in __init__
+    self.hook = ControlHook(scheduler)
+                ^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:99: in __init__
+    self.function,self.patch,self.digest = patched_schedule()
+                                           ^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:38: in patched_schedule
+    require(source.count(anchor) == 1, f'patch anchor {index} changed')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+condition = False, message = 'patch anchor 2 changed'
+
+    def require(condition, message):
+        if not condition:
+>           raise BoundaryError(message)
+E           robustbench.serving_v2.p2a.types.BoundaryError: patch anchor 2 changed
+
+src/robustbench/serving_v2/p2a/native.py:24: BoundaryError
+__________________ test_p2a_substitutions_now_enforced[rows3] __________________
+
+native_factory = <function native_factory.<locals>.make at 0x7be77f6d0540>
+rows = [('b', 0, 2), ('a', 0, 2)]
+
+    @pytest.mark.parametrize('rows',[
+        [('b',0,2)], [('a',0,1)], [('a',0,2)], [('b',0,2),('a',0,2)],
+    ])
+    def test_p2a_substitutions_now_enforced(native_factory,rows):
+>       b=ControlledBoundary(native_factory(budget=128),'exact',enabled=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/serving_v2_p2b/test_control.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/robustbench/serving_v2/p2b/control.py:36: in __init__
+    self.hook = ControlHook(scheduler)
+                ^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:99: in __init__
+    self.function,self.patch,self.digest = patched_schedule()
+                                           ^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:38: in patched_schedule
+    require(source.count(anchor) == 1, f'patch anchor {index} changed')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+condition = False, message = 'patch anchor 2 changed'
+
+    def require(condition, message):
+        if not condition:
+>           raise BoundaryError(message)
+E           robustbench.serving_v2.p2a.types.BoundaryError: patch anchor 2 changed
+
+src/robustbench/serving_v2/p2a/native.py:24: BoundaryError
+_________________________ test_paused_prefill_and_hold _________________________
+
+native_factory = <function native_factory.<locals>.make at 0x7be77f6d0680>
+
+    def test_paused_prefill_and_hold(native_factory):
+>       b=ControlledBoundary(native_factory(budget=128),'hold',enabled=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/serving_v2_p2b/test_control.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/robustbench/serving_v2/p2b/control.py:36: in __init__
+    self.hook = ControlHook(scheduler)
+                ^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:99: in __init__
+    self.function,self.patch,self.digest = patched_schedule()
+                                           ^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:38: in patched_schedule
+    require(source.count(anchor) == 1, f'patch anchor {index} changed')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+condition = False, message = 'patch anchor 2 changed'
+
+    def require(condition, message):
+        if not condition:
+>           raise BoundaryError(message)
+E           robustbench.serving_v2.p2a.types.BoundaryError: patch anchor 2 changed
+
+src/robustbench/serving_v2/p2a/native.py:24: BoundaryError
+___________________________ test_s02_class_selection ___________________________
+
+native_factory = <function native_factory.<locals>.make at 0x7be77f6d1c60>
+
+    def test_s02_class_selection(native_factory):
+>       b=S02Boundary(native_factory(budget=128),'s02',enabled=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/serving_v2_p2b/test_control.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/robustbench/serving_v2/p2b/s02.py:108: in __init__
+    super().__init__(*args,**kwargs)
+src/robustbench/serving_v2/p2b/control.py:36: in __init__
+    self.hook = ControlHook(scheduler)
+                ^^^^^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:99: in __init__
+    self.function,self.patch,self.digest = patched_schedule()
+                                           ^^^^^^^^^^^^^^^^^^
+src/robustbench/serving_v2/p2b/hook.py:38: in patched_schedule
+    require(source.count(anchor) == 1, f'patch anchor {index} changed')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+condition = False, message = 'patch anchor 2 changed'
+
+    def require(condition, message):
+        if not condition:
+>           raise BoundaryError(message)
+E           robustbench.serving_v2.p2a.types.BoundaryError: patch anchor 2 changed
+
+src/robustbench/serving_v2/p2a/native.py:24: BoundaryError
+=============================== warnings summary ===============================
+../../modal-venv/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/soroush/modal-venv/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/serving_v2_p2b/test_control.py::test_p2a_substitutions_now_enforced[rows0]
+FAILED tests/serving_v2_p2b/test_control.py::test_p2a_substitutions_now_enforced[rows1]
+FAILED tests/serving_v2_p2b/test_control.py::test_p2a_substitutions_now_enforced[rows2]
+FAILED tests/serving_v2_p2b/test_control.py::test_p2a_substitutions_now_enforced[rows3]
+FAILED tests/serving_v2_p2b/test_control.py::test_paused_prefill_and_hold - r...
+FAILED tests/serving_v2_p2b/test_control.py::test_s02_class_selection - robus...
+6 failed, 14 warnings in 0.60s

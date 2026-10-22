@@ -1,0 +1,51 @@
+{
+  "schema": "lssp-p2b-implementation/0.1.0",
+  "baseline": "df4b13d269d64a949a9dd910b6a65e61718dbc29",
+  "branch": "research/lssp-v2-p2b-control",
+  "profiles": [
+    "lssp-native-span-control/0.1.0",
+    "lssp-slai-s02-prefill-control/0.1.0"
+  ],
+  "hook_id": "vllm-0.27.1-exact-span-hook/0.1.0",
+  "patch_sha256": "062195e45fa2fa4d16d68081a26ebf3dcc55fad1007e927e009a14b1dbd455e4",
+  "counts": {
+    "distinct": 583,
+    "inherited": 508,
+    "new": 75,
+    "passed": 583,
+    "failed": 0,
+    "skipped": 0
+  },
+  "exhaustive": {
+    "cases": 48,
+    "pytest_nodes": 1,
+    "prompts": [
+      1,
+      2
+    ],
+    "budgets": [
+      2,
+      3
+    ],
+    "active_limit": 2,
+    "seed": null,
+    "selection": "all nonempty ordered request subsets and feasible positive chunks"
+  },
+  "literal_cases_sha256": "8646656d17aea1f977ce9e39f81bf2ee61b54d2f467c0dc07d6550b97702b299",
+  "s02_status": "DELEGATED_APPROVAL_PROSPECTIVE_PARTIAL_PROFILE",
+  "s04_general": "UNRESOLVED",
+  "s05_numerical": "UNRESOLVED",
+  "s07": "UNRESOLVED",
+  "s08": "UNRESOLVED",
+  "physical_evidence": "NOT_VERIFIED",
+  "atomic_native_rollback": false,
+  "gpu_hours": 0,
+  "mgpu06_replacement": false,
+  "tmux": {
+    "session": "lssp-p2b-validation",
+    "window": "final3",
+    "worker_pid": "520614",
+    "persistent_directory": "/home/soroush/.local/state/lssp-p2b-validation/final3",
+    "exit": 0
+  }
+}
