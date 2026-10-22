@@ -99,7 +99,7 @@ def analyze(data,manifest,out,identity):
                 pilot_historical_margin_screen=None if historical_margin(*vx) is None or historical_margin(*vy) is None else dx*dy<0 and min(historical_margin(*vx),historical_margin(*vy))>.10,
                 alternative_max_denominator_screen=dx*dy<0 and min(abs(dx),abs(dy))>=.10,
                 full_36_persistence_status='NOT_EVALUABLE_PILOT_SUPPORT',matched_windows_per_source=1,
-                stable_control_candidate=not old['supported_after_fdr']))
+                stable_control_candidate=old['classification']=='STABLE_NO_SIGN_CHANGE'))
     atomic(out/'historical_comparison_descriptive.json',comparisons)
     sensitivity=[]
     for c in data['conditions']:
