@@ -1,0 +1,24 @@
+2026-10-22T03:39:14Z
+................F................                                        [100%]
+=================================== FAILURES ===================================
+______________ test_reservation_holds_and_release[slo_gated_c01] _______________
+
+policy = 'slo_gated_c01'
+
+    @pytest.mark.parametrize('policy',POLICIES)
+    def test_reservation_holds_and_release(policy):
+        cfg=Config(context=16,kv_capacity=16,budget=16)
+        ev,end,m=run([request(0,prompt=3,output=2),request(1,prompt=1,output=1)],policy,cfg)
+        assert all(e['reserved']==16 for e in ev)
+        assert all({s[0] for s in e['executed']} in ({0},{1}) for e in ev)
+>       assert ev[2]['completed']==[0] and ev[3]['executed']==[[1,'prefill',0,1]]
+E       assert ([] == [0]
+E         
+E         Right contains one more item: 0
+E         Use -v to get more diff)
+
+research/lssp-c01/test_contract.py:66: AssertionError
+=========================== short test summary info ============================
+FAILED research/lssp-c01/test_contract.py::test_reservation_holds_and_release[slo_gated_c01]
+1 failed, 32 passed in 0.05s
+2026-10-22T03:39:14Z
