@@ -1,0 +1,112 @@
+\section{Rankings, Aggregation, and Metric Choice (RQ2)}\label{sec:rankings}
+\subsection{Stable practical source comparisons and heterogeneous windows}
+Table~\ref{tab:reversals} reports the strict-10\% reversal rule with eligible
+and total denominators. Across all source-mean comparisons the count is
+\textbf{zero out of 2,376}. Each source mean uses all 40 windows at a fixed
+setting, capacity, and metric. The denominator is
+$3$ source pairs $\times6$ settings $\times2$ capacities $\times11$ endpoints
+$\times6$ policy pairs. The common-model study thus does not reproduce a
+broad claim of practical source-mean ranking reversals.
+
+This null result is compatible with smaller sign changes and different tie
+sets. Among 396 comparisons of source pairs at fixed settings, capacities,
+and metrics, exact top
+sets are equal in 307 and intersect in 323; complete average-rank vectors
+are equal in 247. Identical practical ordering and identical full rankings
+are different statements.
+
+\begin{table}[t]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Strict-10\% practical reversals. Nonzero ties remain in eligible
+denominators; a zero losing value is unestimable. All counts include six
+policy pairs and the declared endpoints. Reused windows and overlapping
+pairs make these dependent descriptive counts, not independent trials.}
+\label{tab:reversals}\input{tables/reversals}
+\end{table}
+
+Window-level variation remains visible. Within-source window comparisons
+yield 34,394 reversals among 1,847,700 eligible comparisons; Cartesian
+cross-source window comparisons yield 109,913 among 3,788,640. For \anwg\
+alone, the corresponding counts are 8,472/162,900 and 35,352/332,640.
+The larger window-pair denominators arise from comparing every unordered
+pair of 40 windows within a source (780) or every Cartesian pair across
+sources (1,600). They are not larger independent sample sizes. These
+summaries cannot establish that one axis causally contributes more
+instability than another.
+
+Within the same window, settings produce 920/236,853 eligible reversals,
+capacity changes 350/47,418, and metric choice 11,795/473,580. The last count
+compares policy-pair directions across endpoints; it demonstrates that a
+preference can depend on the objective even with the workload and resources
+fixed. It is distinct from comparing top sets, which asks whether at least
+one best policy is shared rather than whether a particular pair reverses.
+
+\subsection{Ties and redundant endpoints}
+Table~\ref{tab:ties} retains exact ties instead of breaking them by policy
+identifier. A unique mean-latency winner is not necessarily a unique
+throughput winner: SLO-gated is uniquely best in 1,146 and 482 conditions,
+respectively. Completion has a four-way tie everywhere. Treating an
+arbitrary deterministic tie-break as a scientific winner would discard
+that information.
+
+\begin{table}[t]
+\centering\small
+\caption{Ranking summaries, each out of 1,440 window/setting/capacity
+conditions. ``Near-tie change'' counts conditions whose top set changes
+under the predeclared $10^{-12}\max(1,|v_{\rm best}|)$ tolerance. No ranking
+is missing. ``SLO unique top'' always uses exact equality.}
+\label{tab:ties}\input{tables/ties}
+\end{table}
+
+Several endpoints provide the same ranking mechanically. All requests finish,
+so emitted-token and completed-token throughput are identical. At a fixed
+condition, request throughput differs from token throughput only by a
+workload-specific multiplier shared by every policy. All three throughput
+rankings therefore coincide. Counting them as independent evidence would
+exaggerate the breadth of a finding.
+
+TPOT supplies a different warning. Chunked-FCFS, decode-first, and SLO-gated
+produce essentially one output per millisecond once decoding begins.
+The largest chunked-versus-SLO difference in cell mean TPOT is
+$1.80\times10^{-16}$\,s. Floating-point timestamp subtraction can still
+change an exact winner. The near-tie sensitivity changes mean-TPOT top sets
+in 1,129/1,440 conditions and p95-TPOT top sets in 104/1,440. These differences
+carry no practical performance significance. The original exact values
+remain preserved, alongside the predeclared sensitivity.
+
+Across all 79,200 metric-pair ranking comparisons, exact top sets are equal
+in 27,915 and intersect in 57,602. These counts include redundant throughput
+endpoints, completion ties, and numerical TPOT distinctions. They summarize
+reporting consequences; they are not eleven independent tests of a
+scheduler's robustness.
+
+\subsection{Chronological summaries}
+Figure~\ref{fig:chronology} reports SLO-minus-chunked \anwg\ differences in
+four consecutive ten-window blocks. Across settings and capacities, block
+means range from $-0.0120$ to $+0.2030$ for Azure, $-0.0300$ to $+0.2330$
+for Bailian, and $+0.0150$ to $+0.3275$ for BurstGPT. Negative differences
+occur in 8/48 Azure and 24/48 Bailian block/setting/capacity combinations,
+and none of the 48 BurstGPT combinations. The frozen EARLY/MIDDLE/LATE
+summaries show the same qualitative contrast: negative differences in
+6/36, 20/36, and 0/36 combinations, respectively. These are corpus-order
+sensitivities, not estimates of a temporal process or guarantees for future
+traffic.
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{figures/chronology.pdf}
+\caption{Chronological block means of SLO-gated minus chunked-FCFS \anwg.
+Each block contains ten frozen windows. Colors identify inherited settings
+(L through H); solid circles and dashed squares denote four and eight
+slots. Blocks have unequal durations and are not independent temporal
+samples. The figure uses all 144 block/setting/capacity combinations.}
+\Description{Three source panels show goodput differences over four consecutive ten-window blocks, retaining all six settings and both capacities. Azure and Bailian include negative differences; BurstGPT differences are positive.}
+\label{fig:chronology}
+\end{figure}
+
+\paragraph{Answer to RQ2.}
+No source-mean policy comparison reverses by more than 10\% in both
+directions. Window-level and metric-dependent reversals nevertheless occur.
+Exact ties, duplicated throughput rankings, and negligible TPOT differences
+show why absolute magnitudes and top sets are needed alongside ranks.
+Aggregation changes the question being answered; stability at the source-mean
+level does not imply uniform preferences across its constituent windows.

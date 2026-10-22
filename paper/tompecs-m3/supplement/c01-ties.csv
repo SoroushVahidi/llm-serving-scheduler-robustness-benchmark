@@ -1,0 +1,12 @@
+metric,total,tied,slo_unique,near_changed,missing
+arrival_normalized_weighted_goodput,1440,425,1004,0,0
+completion_fraction,1440,1440,0,0,0
+token_throughput,1440,906,482,0,0
+emitted_token_throughput,1440,906,482,0,0
+request_throughput,1440,906,482,0,0
+mean_latency,1440,289,1146,6,0
+p95_latency,1440,586,834,0,0
+mean_ttft,1440,286,1142,2,0
+p95_ttft,1440,488,911,0,0
+mean_tpot,1440,979,461,1129,0
+p95_tpot,1440,1348,92,104,0

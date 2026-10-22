@@ -1,0 +1,271 @@
+[
+  {
+    "DOI": "10.1057/jos.2012.20",
+    "title": [
+      "Verification and validation of simulation models"
+    ],
+    "author": [
+      {
+        "given": "R G",
+        "family": "Sargent",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Syracuse University Syracuse USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of Simulation"
+    ],
+    "volume": "7",
+    "issue": "1",
+    "page": "12-24",
+    "published": {
+      "date-parts": [
+        [
+          2013,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "DOI": "10.1111/j.2517-6161.1995.tb02031.x",
+    "title": [
+      "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing"
+    ],
+    "author": [
+      {
+        "given": "Yoav",
+        "family": "Benjamini",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Tel Aviv University , Israel"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yosef",
+        "family": "Hochberg",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Tel Aviv University , Israel"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of the Royal Statistical Society Series B: Statistical Methodology"
+    ],
+    "volume": "57",
+    "issue": "1",
+    "page": "289-300",
+    "published": {
+      "date-parts": [
+        [
+          1995,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "DOI": "10.1080/01621459.1963.10500830",
+    "title": [
+      "Probability Inequalities for Sums of Bounded Random Variables"
+    ],
+    "author": [
+      {
+        "given": "Wassily",
+        "family": "Hoeffding",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of North Carolina",
+            "place": [
+              "USA"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of the American Statistical Association"
+    ],
+    "volume": "58",
+    "issue": "301",
+    "page": "13-30",
+    "published": {
+      "date-parts": [
+        [
+          1963,
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "DOI": "10.1145/3771574",
+    "title": [
+      "Optimal Scheduling Algorithms for LLM Inference: Theory and Practice"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0003-1550-8683",
+        "authenticated-orcid": false,
+        "given": "Agrim",
+        "family": "Bari",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-3477-4947",
+        "authenticated-orcid": false,
+        "given": "Parikshit",
+        "family": "Hegde",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-1498-494X",
+        "authenticated-orcid": false,
+        "given": "Gustavo",
+        "family": "de Veciana",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Proceedings of the ACM on Measurement and Analysis of Computing Systems"
+    ],
+    "volume": "9",
+    "issue": "3",
+    "page": "1-43",
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          12
+        ]
+      ]
+    }
+  },
+  {
+    "DOI": "10.1145/3642970.3655823",
+    "title": [
+      "The Importance of Workload Choice in Evaluating LLM Inference Systems"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0003-0573-3254",
+        "authenticated-orcid": false,
+        "given": "Konstantinos",
+        "family": "Papaioannou",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "IMDEA Software Institute, Universidad Polit\u00e9cnica de Madrid"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-3197-839X",
+        "authenticated-orcid": false,
+        "given": "Thaleia Dimitra",
+        "family": "Doudali",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "IMDEA Software Institute, Madrid, Spain"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Proceedings of the 4th Workshop on Machine Learning and Systems"
+    ],
+    "volume": null,
+    "issue": null,
+    "page": "39-46",
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          4,
+          22
+        ]
+      ]
+    }
+  }
+]

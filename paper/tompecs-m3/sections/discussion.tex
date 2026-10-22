@@ -1,0 +1,67 @@
+\section{Discussion and Threats to Validity}\label{sec:discussion}
+\paragraph{What an evaluator should report.}
+The useful comparison object is an adaptation together with its execution,
+resource, and information contract. A common contract exposes both
+nontrivial trade-offs and distinctions that cannot affect execution.
+Here, the budget and reservation rules collapse chunked-FCFS and
+decode-first to one behavior and leave the urgency gate inactive. Reporting
+four implementation names without these consequences would overstate
+mechanistic coverage. Absolute latency and throughput then reveal costs
+that a goodput-only or mean-latency-only ranking would miss.
+
+Aggregation must be specified with the same care. A source mean answers a
+question about equal-window average performance; a cross-window reversal
+asks whether two particular windows prefer different policies. Neither
+supersedes the other. A reader selecting a scheduler for variable traffic
+needs both the aggregate magnitude and its window-level variation. Exact
+top sets retain ties, and a practical margin prevents negligible numerical
+differences from becoming performance claims.
+
+\paragraph{Model adequacy and external validity.}
+\cm\ deliberately fixes batch duration, assigns equal work units to prompt
+and decode tokens, reserves a full context before execution, and omits
+preemption and migration. It does not model kernel costs, bandwidth,
+communication, native allocation, model-dependent token timing, or changing
+batch efficiency. Its latency and throughput values describe the abstraction.
+Independent event conformance and deterministic replay cannot establish
+physical prediction accuracy \citep{sargent2013}. Related native probes
+and other projects' mechanism studies do not validate this four-adaptation
+ranking matrix. No deployment recommendation follows directly from it.
+
+\paragraph{Corpus and construct validity.}
+The 120 selected windows are finite and temporally related. They represent
+particular files, valid-row filtering, and sampling rules rather than
+random samples of providers. The two Azure-linked sources should not be
+treated as independent providers, and cross-project overlap of some older
+BurstGPT selections is unresolved. Uniform priorities and synthetic,
+output-derived deadlines restrict the interpretation of \anwg. The inherited
+setting transformation changes deadlines together with arrivals. Full-context
+reservation capacity measures a residency constraint, and the panel excludes
+many mechanisms available to production engines. These restrictions bound
+which workload and resource questions the study answers.
+
+\paragraph{Verification and inferential validity.}
+Independent checks reduce the risk that reported metrics disagree with the
+model or saved records; they cannot remove assumptions shared by the model
+and the scientific question. The final review checked every result identity
+and metric summary, while fresh journal replay sampled 24 new cells in
+addition to the exhaustive in-campaign referee. C01's descriptive scope
+avoids unsupported sampling assumptions but does not imply population
+robustness. STAT01 supplies known truth only for its specified generators.
+Its post-diagnosis additions, finite study counts, conditional interval
+availability, and conservative power must remain visible when interpreting
+calibration screens.
+
+\section{Conclusion}
+Under a common execution contract, scheduler comparison is as much about
+performance magnitudes and inactive distinctions as about the rank order.
+For RQ1, SLO-gated reduces aggregate mean latency by 11.3--34.0\% but loses
+throughput, with worse BurstGPT mean window-p95 latency; chunked-FCFS and
+decode-first are identical throughout the evaluated matrix. For RQ2, no
+source-mean comparison has a strict 10\% practical reversal, while window
+and metric comparisons do, and many exact rankings are tied or redundant.
+For RQ3, the historical audit and synthetic diagnostic distinguish
+reproducible execution and arithmetic from calibrated inference. The
+result is a bounded, traceable performance evaluation: its strongest
+conclusions concern the measured trade-offs and invariances of these
+adaptations under \cm.

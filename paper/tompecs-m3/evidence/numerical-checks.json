@@ -1,0 +1,189 @@
+{
+  "status": "PASS",
+  "input_files": 37,
+  "cells": 5760,
+  "matched_equivalent": 1440,
+  "all_complete": true,
+  "request_executions": 1152000,
+  "reversal_counts": {
+    "window": {
+      "reversals": 34394,
+      "eligible": 1847700,
+      "total": 1853280,
+      "unestimable": 5580
+    },
+    "source": {
+      "reversals": 109913,
+      "eligible": 3788640,
+      "total": 3801600,
+      "unestimable": 12960
+    },
+    "load": {
+      "reversals": 920,
+      "eligible": 236853,
+      "total": 237600,
+      "unestimable": 747
+    },
+    "kv": {
+      "reversals": 350,
+      "eligible": 47418,
+      "total": 47520,
+      "unestimable": 102
+    },
+    "metric": {
+      "reversals": 11795,
+      "eligible": 473580,
+      "total": 475200,
+      "unestimable": 1620
+    },
+    "source_mean": {
+      "reversals": 0,
+      "eligible": 2376,
+      "total": 2376,
+      "unestimable": 0
+    }
+  },
+  "ties": {
+    "arrival_normalized_weighted_goodput": {
+      "total": 1440,
+      "tied": 425,
+      "slo_unique": 1004,
+      "near_changed": 0,
+      "missing": 0
+    },
+    "completion_fraction": {
+      "total": 1440,
+      "tied": 1440,
+      "slo_unique": 0,
+      "near_changed": 0,
+      "missing": 0
+    },
+    "token_throughput": {
+      "total": 1440,
+      "tied": 906,
+      "slo_unique": 482,
+      "near_changed": 0,
+      "missing": 0
+    },
+    "emitted_token_throughput": {
+      "total": 1440,
+      "tied": 906,
+      "slo_unique": 482,
+      "near_changed": 0,
+      "missing": 0
+    },
+    "request_throughput": {
+      "total": 1440,
+      "tied": 906,
+      "slo_unique": 482,
+      "near_changed": 0,
+      "missing": 0
+    },
+    "mean_latency": {
+      "total": 1440,
+      "tied": 289,
+      "slo_unique": 1146,
+      "near_changed": 6,
+      "missing": 0
+    },
+    "p95_latency": {
+      "total": 1440,
+      "tied": 586,
+      "slo_unique": 834,
+      "near_changed": 0,
+      "missing": 0
+    },
+    "mean_ttft": {
+      "total": 1440,
+      "tied": 286,
+      "slo_unique": 1142,
+      "near_changed": 2,
+      "missing": 0
+    },
+    "p95_ttft": {
+      "total": 1440,
+      "tied": 488,
+      "slo_unique": 911,
+      "near_changed": 0,
+      "missing": 0
+    },
+    "mean_tpot": {
+      "total": 1440,
+      "tied": 979,
+      "slo_unique": 461,
+      "near_changed": 1129,
+      "missing": 0
+    },
+    "p95_tpot": {
+      "total": 1440,
+      "tied": 1348,
+      "slo_unique": 92,
+      "near_changed": 104,
+      "missing": 0
+    }
+  },
+  "aggregate_percent_changes": [
+    {
+      "source": "azure_llm_2024",
+      "profile": "kv131072",
+      "arrival_normalized_weighted_goodput": 14.57885946074924,
+      "mean_latency": -34.0312720545399,
+      "p95_latency": -3.5500337416429995,
+      "mean_ttft": -35.403337483144604,
+      "token_throughput": -1.6484454179717556
+    },
+    {
+      "source": "azure_llm_2024",
+      "profile": "kv262144",
+      "arrival_normalized_weighted_goodput": 22.6547626862732,
+      "mean_latency": -31.328237950528425,
+      "p95_latency": -3.291341244940793,
+      "mean_ttft": -34.05299982371807,
+      "token_throughput": -2.7479977902187924
+    },
+    {
+      "source": "bailian_qwen",
+      "profile": "kv131072",
+      "arrival_normalized_weighted_goodput": -3.122507122507112,
+      "mean_latency": -24.05356402688318,
+      "p95_latency": -7.652997696508679,
+      "mean_ttft": -25.08754362932666,
+      "token_throughput": -1.9928754169964535
+    },
+    {
+      "source": "bailian_qwen",
+      "profile": "kv262144",
+      "arrival_normalized_weighted_goodput": 10.904654654654667,
+      "mean_latency": -22.36774233566591,
+      "p95_latency": -5.884625851323544,
+      "mean_ttft": -24.570028619997608,
+      "token_throughput": -4.006124243411813
+    },
+    {
+      "source": "burstgpt",
+      "profile": "kv131072",
+      "arrival_normalized_weighted_goodput": 125.4552812626467,
+      "mean_latency": -14.88241754144326,
+      "p95_latency": 3.7225323212531025,
+      "mean_ttft": -15.839553463949374,
+      "token_throughput": -3.9189522787501874
+    },
+    {
+      "source": "burstgpt",
+      "profile": "kv262144",
+      "arrival_normalized_weighted_goodput": 50.14239218877139,
+      "mean_latency": -11.264637185298165,
+      "p95_latency": 18.971403164045086,
+      "mean_ttft": -13.500314455352013,
+      "token_throughput": -3.7928939084623803
+    }
+  ],
+  "stat_studies": 134000,
+  "stat_endpoint_rows": 7200,
+  "screen_counts": {
+    "C": 45,
+    "I": 74,
+    "A": 16,
+    "E": 9
+  }
+}

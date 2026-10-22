@@ -1,0 +1,4 @@
+block scope groups ['1', '2', '3', '4']
+original methods ['historical_screened_BH', 'historical_full_BH', 'historical_plus1_BY', 'iid_t_Holm', 'cluster_t_Holm', 'oracle_normal_Holm', 'group_bootstrap_BY', 'bounded_Hoeffding_Holm']
+screen values ['ABSTAIN_OUTSIDE_DOMAIN', 'CALIBRATION_CONCERN', 'EMPIRICALLY_COMPATIBLE_WITH_TOLERANCE', 'INCONCLUSIVE']
+PASS: pinned inputs, complete coverage, equivalence, descriptive figures/tables, 7200 STAT endpoints

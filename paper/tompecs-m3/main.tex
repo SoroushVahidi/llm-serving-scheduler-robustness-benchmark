@@ -1,0 +1,75 @@
+\ifdefined\MThreeSmall
+\documentclass[acmsmall,screen]{acmart}
+\else
+\documentclass[manuscript,screen,review]{acmart}
+\fi
+\usepackage{booktabs,tabularx,enumitem,amsmath}
+\usepackage{seqsplit}
+\usepackage{placeins}
+\emergencystretch=1em
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\setcopyright{none}
+\settopmatter{printacmref=false}
+\acmJournal{TOMPECS}
+\acmDOI{}
+\acmYear{2026}
+\title{Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation}
+\author{Soroush Vahidi}
+\email{sv96@njit.edu}
+\affiliation{\institution{New Jersey Institute of Technology}\city{Newark}\state{New Jersey}\country{USA}}
+\newcommand{\cm}{CM-0.1}
+\newcommand{\anwg}{\ensuremath{\mathrm{ANWG}}}
+\newcommand{\authorreview}[1]{\par\noindent\textbf{AUTHOR REVIEW REQUIRED:} #1\par}
+\begin{document}
+\begin{abstract}
+A scheduler comparison is difficult to interpret when its implementations
+use different service, resource, or information rules. We evaluate four
+project-maintained LLM-serving scheduler adaptations under a shared,
+synthetic execution contract. The study covers 120 trace-derived windows
+from three sources, six inherited arrival/deadline settings, and two KV
+reservation capacities: 5,760 validated cells, all completing every request.
+Against chunked-FCFS, the SLO-gated adaptation reduces the six source/capacity
+aggregate mean latencies by 11.3--34.0\%, while reducing token throughput by
+1.65--4.01\%. On BurstGPT, its mean window-level p95 latency increases by
+3.72\% and 18.97\% at the two capacities. Its urgency gate does not bind;
+these results concern the adaptation's admission ordering and chunking,
+not the complete original SLAI algorithm. Chunked-FCFS and decode-first
+produce identical records in all 1,440 matched conditions. No source-mean
+comparison exhibits a strict 10\% practical reversal, although window-level
+and metric-dependent reversals occur. Exact ties and redundant rankings
+further limit what a leaderboard conveys. A separate 134,000-study
+known-truth calibration diagnostic identifies failures of historical
+inferential procedures under specified synthetic scenarios. The contribution
+is a finite-corpus performance evaluation that distinguishes measured
+trade-offs, model-implied invariances, and inferential limits; it is neither
+a new scheduler nor a validated native-GPU performance predictor.
+\end{abstract}
+\ccsdesc[500]{Computing methodologies~Simulation evaluation}
+\ccsdesc[300]{Computer systems organization~Cloud computing}
+\keywords{LLM serving, performance evaluation, scheduling, trace-driven simulation, ranking stability}
+\maketitle
+\input{sections/introduction}
+\FloatBarrier
+\input{sections/related}
+\FloatBarrier
+\input{sections/contract}
+\FloatBarrier
+\input{sections/design}
+\FloatBarrier
+\input{sections/performance}
+\FloatBarrier
+\input{sections/rankings}
+\FloatBarrier
+\input{sections/inference}
+\FloatBarrier
+\input{sections/discussion}
+\FloatBarrier
+\input{sections/declarations}
+\FloatBarrier
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+\clearpage
+\appendix
+\input{sections/appendix}
+\end{document}

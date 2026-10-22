@@ -1,0 +1,126 @@
+\section{A Common Execution Contract}\label{sec:contract}
+\subsection{Why the comparison object matters}
+The historical corpus contains 9,360 configurations and two deterministic
+verification passes per configuration. Its primary panel contains eleven
+policies, with two additional style approximations. The historical engine
+permits policy-dependent service modes: instantaneous prefill for some
+policies, explicit prefill work for others, and differing enforcement of KV
+limits. A policy's requested work can also differ from the engine's realized
+progress. Consequently, those outcomes cannot be interpreted as a controlled
+comparison of scheduling order. Table~\ref{tab:objects} distinguishes the
+three evidence objects used in this paper.
+
+\begin{table}[t]
+\caption{Evidence objects and the conclusions they support. Historical
+identifiers containing ``faithful'' are immutable names, not validation certificates.}
+\label{tab:objects}\small
+\begin{tabularx}{\linewidth}{@{}lXX@{}}\toprule
+Object & Comparison or check & Interpretation \\\midrule
+Historical LSSP & Policy-dependent service/resource modes; archived ranking arithmetic & Motivation and historical-rule counts \\
+C01-FULL & Four adaptations; common \cm\ execution and information & Descriptive finite-corpus performance \\
+STAT01 & Synthetic independent studies with known population truth & Scenario-specific inference calibration \\\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Service, resources, and information}
+\cm\ represents one abstract device. Each batch lasts 1\,ms and has a
+32,768-token work budget. Each executed prompt token consumes one unit;
+each selected decode request consumes one unit and emits one token.
+All policies share these rules. A prefill batch emits no output, including
+its final chunk: decoding can begin only in a later batch. Batch duration
+is independent of its composition. Thus seconds and tokens per second
+below are model quantities, not estimates for a particular GPU or LLM.
+
+Each resident request reserves the complete 32,768-token context bound.
+All frozen request lengths fit; the maximum prompt-plus-output length is
+30,053. Capacities of 131,072 and 262,144 tokens therefore permit
+\emph{four and eight resident requests}, respectively, even though the
+configured sequence limit is 64. Actual used KV follows executed prompt
+and output prefixes, rounded to 16-token blocks, and must remain within
+the reservation. Completion releases the reservation. Waiting requests own
+none. This conservative rule avoids output-length prediction and allocation
+deadlock; it does not model incremental native paging or cache eviction.
+
+There is no preemption, dropping, migration, prefix sharing, or recomputation.
+Requests arriving during a batch become eligible at its end. Idle time
+advances to the next arrival. The administrative horizon is the final
+arrival plus 50\,s; a batch cannot finish beyond it. Unfinished requests
+remain explicitly unfinished rather than contributing observed completion
+latencies.
+
+Policies see only arrived request identifiers, stable order, arrival time,
+prompt length, acknowledged progress, residency, last-output/prefill-completion
+anchor, and current time. Actual remaining output length, future arrivals,
+source identity, and output-derived metric deadlines are hidden. The engine
+either executes the exact proposed token spans or rejects the plan. The
+shared contract therefore fixes both the resources and the online
+information available to each adaptation.
+
+\subsection{Adaptation identities and structural consequences}
+Table~\ref{tab:policies} defines the four evaluated adaptations. Published
+systems are lineage references; historical project implementations and
+\cm\ adaptations are separate objects. The panel was targeted using the
+historical comparison questions, not sampled to represent all schedulers.
+
+\begin{table}[t]
+\caption{Project-maintained adaptations. Artifact IDs append \texttt{\_c01}
+to \texttt{whole\_fcfs}, \texttt{chunked\_fcfs}, \texttt{decode\_first}, and
+\texttt{slo\_gated}. All use the shared contract above.}
+\label{tab:policies}\small
+\begin{tabularx}{\linewidth}{@{}p{.18\linewidth}p{.20\linewidth}X@{}}\toprule
+Adaptation & Historical lineage & Executed ordering rule and principal restriction \\\midrule
+Whole-FCFS & vLLM-inspired whole-prompt implementation & Admit whole prompts in arrival order when feasible; otherwise decode residents. Admitting prefills defers all decodes that batch. No native paged allocator. \\
+Chunked-FCFS & vLLM-inspired chunked implementation & Resident work before waiting work in stable order; at most 512 prefill tokens per request per batch. \\
+Decode-first & Sarathi-inspired implementation & Resident decodes, then resident prefills, then waiting prefills; 512-token cap. No original engine timing. \\
+SLO-gated & SLAI-inspired implementation & Urgent decodes first; then resident prefills, waiting prefills by prompt length, and residual decodes. Fixed 0.495\,s gate; 512-token cap. No dynamic offset, heterogeneous classes, or full SLAI. \\\bottomrule
+\end{tabularx}
+\end{table}
+
+Two consequences are essential to interpreting the results. At most eight
+requests can execute, and each chunked request uses at most 512 tokens.
+Their total work is therefore at most $8\times512=4,096$, below the shared
+32,768-token budget. Every selected chunk and resident decode fits.
+Chunked-FCFS and decode-first consequently make the same per-request
+progress despite ordering their work differently. The complete saved
+terminal records confirm this equivalence in all 1,440 matched conditions.
+
+The same bound means that SLO-gated's residual decodes fit every batch.
+After prefill completion, a resident's anchor advances with every output;
+its elapsed time cannot reach the 0.495\,s urgency threshold in these
+executions. The distinctive behavior is principally prompt-length admission
+ordering with the frozen chunking rules. The results cannot be credited
+to an active urgency gate. Whole-FCFS can still defer decoding for admitted
+prefills; the work-bound equivalence does not apply to that rule.
+
+\subsection{Conformance evidence}
+The event referee reconstructs request states, token spans, timing,
+completion, and resource use from the inputs and execution journal without
+importing the engine or policy implementation. It checks that intended and
+executed work agree and recomputes the metrics. Every campaign cell passed
+this check; an independent analyzer also checked the complete ranking and
+reversal reports. The final evidence review additionally checked all result
+identities and terminal metrics and replayed 24 structurally selected new-cell
+journals. These checks establish conformance to \cm, not GPU fidelity.
+Figure~\ref{fig:contract} summarizes the evidence chain.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\small,node distance=5mm and 8mm,
+ box/.style={draw,rounded corners=2pt,align=center,text width=.23\linewidth,minimum height=12mm},
+ arr/.style={-{Latex[length=2mm]},thick}]
+\node[box] (input) {Frozen windows\\and six settings};
+\node[box,right=of input] (policy) {Four adaptations\\restricted online view};
+\node[box,right=of policy] (engine) {Shared \cm\ engine\\time, work, KV};
+\node[box,below=of input] (reports) {Absolute metrics\\matched comparisons};
+\node[box,below=of policy] (referee) {Independent referee\\reconstructs execution};
+\node[box,below=of engine] (journal) {Saved token journal\\and terminal records};
+\draw[arr] (input)--(policy);\draw[arr] (policy)--(engine);
+\draw[arr] (engine)--(journal);\draw[arr] (journal)--(referee);
+\draw[arr] (referee)--(reports);\draw[arr] (input)--(referee);
+\end{tikzpicture}
+\caption{Comparison and verification under one model. The independent
+analysis check recomputes aggregates, ranks, and reversals from the absolute
+metrics. No stage in this chain establishes physical-system accuracy.}
+\Description{Inputs pass through a restricted policy view and shared engine to a saved journal. An independent referee reconstructs execution before reporting metrics.}
+\label{fig:contract}
+\end{figure}
