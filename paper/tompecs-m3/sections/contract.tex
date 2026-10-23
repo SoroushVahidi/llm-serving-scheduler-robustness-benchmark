@@ -22,15 +22,11 @@ STAT01 & Synthetic independent studies with known population truth & Scenario-sp
 \end{tabularx}
 \end{table}
 
-The positive modeling question is whether admission and prefill/decode rules
-still produce different completion distributions when every adaptation faces
-the same online information and resource constraints. Fixing batch cost
-removes composition-dependent execution cost from this comparison; retaining
-four or eight resident slots preserves competition for admission. This
-makes it possible to distinguish a change in the order of work that all
-executes from a change in which requests can enter or progress. These are
-properties of the implemented abstraction. We do not claim that its settings
-were selected in advance to produce the equivalence or trade-offs found here.
+The common contract distinguishes changes in the order of work that all
+executes from changes in which requests enter or progress. Fixing batch cost
+removes composition-dependent execution cost; bounded residency retains
+admission competition. We do not claim prospective selection of these settings
+for the equivalence or trade-offs reported here.
 
 \subsection{Service, resources, and information}
 \cm\ represents one abstract device. Each batch lasts 1\,ms and has a
@@ -67,7 +63,7 @@ either executes the exact proposed token spans or rejects the plan. The
 shared contract therefore fixes both the resources and the online
 information available to each adaptation.
 
-\subsection{Adaptation identities and structural consequences}
+\subsection{Adaptation identities and effective behavior (RQ1)}
 Table~\ref{tab:policies} defines the four evaluated adaptations. Published
 systems are lineage references; historical project implementations and
 \cm\ adaptations are separate objects. The panel was targeted using the
@@ -87,7 +83,8 @@ SLO-gated & SLAI-inspired implementation & Urgent decodes first; then resident p
 \end{tabularx}
 \end{table}
 
-Two consequences are essential to interpreting the results. Let $R$ be the
+\paragraph{Conditional state-transition equivalence.}
+Let $R$ be the
 resident count at a batch boundary and $K\in\{4,8\}$ the reservation limit.
 The planner offers at most $K-R$ waiting requests a slot; a completing
 request releases its slot only after that batch's work. Each selected
@@ -103,7 +100,10 @@ The engine gives every span the same batch-end timestamp and releases
 completed reservations afterward. Consequently their next states, admissions,
 and timestamps agree inductively. The complete saved terminal records
 confirm this configuration-specific equivalence in all 1,440 matched
-conditions; it is not a theorem about the original serving systems.
+conditions. The inductive argument establishes the invariant; agreement
+of terminal records checks its realization in the selected corpus.
+Equality of aggregate metrics alone would establish neither. This is not
+a theorem about the original serving systems.
 
 The same work bound includes SLO-gated's residual decodes, even though they
 follow waiting prefills. A newly decode-ready resident's anchor is its
@@ -119,7 +119,7 @@ than give policies identical settings: it identifies which of their decision
 rules can change state transitions. The resulting finite-window completion
 distributions are the empirical object of Section~\ref{sec:performance}.
 
-\subsection{What can activate the urgency gate?}\label{sec:urgency}
+\subsection{Urgency inactivity and its sufficient condition (RQ2)}\label{sec:urgency}
 Urgency concerns a token gap, not a synthetic completion deadline. At a
 planning boundary $t$, an arrived, unfinished resident is critical exactly
 when its prefill is complete, its anchor $a_i$ is defined, and
@@ -131,6 +131,7 @@ estimated remaining service enters this predicate. The protocol interprets
 the implementation fixes the threshold: it exposes no SLO parameter.
 Changing finite metric deadlines alone cannot change execution.
 
+\paragraph{Finite-work inactivity certificate.}
 A finite-work argument also limits activation when the budget binds. Let
 $P$ be total prompt work, $B>K-1$ the integer budget, $K$ the residency
 limit, and $\delta$ the fixed batch duration. Suppose a first critical
@@ -143,7 +144,9 @@ jump while the decode remains resident, $m$ omitted batches imply
  m[B-(K-1)]\leq P,\qquad
  t-a_i\leq\delta\left\lfloor\frac{P}{B-(K-1)}\right\rfloor.
 \end{equation}
-An upper bound strictly below 0.495\,s rules out first activation.
+Thus $\delta\lfloor P/[B-(K-1)]\rfloor<0.495$\,s rules out first activation:
+the finite prompt work cannot sustain enough consecutive decode omissions
+to reach the urgency threshold.
 The common-domain restriction gives $P\leq NB$ for $N$ requests. For
 $N=200$, $B\geq1,024$, $K\leq8$ and $\delta=1$\,ms, the bound is at most
 201\,ms. This is a sufficient inactivity certificate for these assumptions,

@@ -1,0 +1,47 @@
+{
+  "method": "Whitespace-delimited LaTeX source tokens; abstract and main section sources, excluding declarations, references, appendices and input table/figure assets. Same files both versions; not a prose-only word count.",
+  "files": {
+    "main.tex": {
+      "before": 224,
+      "after": 199
+    },
+    "sections/introduction.tex": {
+      "before": 486,
+      "after": 431
+    },
+    "sections/related.tex": {
+      "before": 522,
+      "after": 514
+    },
+    "sections/contract.tex": {
+      "before": 1582,
+      "after": 1570
+    },
+    "sections/design.tex": {
+      "before": 1049,
+      "after": 1049
+    },
+    "sections/performance.tex": {
+      "before": 905,
+      "after": 906
+    },
+    "sections/sensitivity.tex": {
+      "before": 621,
+      "after": 621
+    },
+    "sections/rankings.tex": {
+      "before": 799,
+      "after": 828
+    },
+    "sections/inference.tex": {
+      "before": 509,
+      "after": 511
+    },
+    "sections/discussion.tex": {
+      "before": 587,
+      "after": 520
+    }
+  },
+  "total_before": 7284,
+  "total_after": 7149
+}

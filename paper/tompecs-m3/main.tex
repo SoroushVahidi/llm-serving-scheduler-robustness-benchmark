@@ -14,7 +14,7 @@
 \acmJournal{TOMPECS}
 \acmDOI{}
 \acmYear{2026}
-\title{Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation}
+\title{Scheduler Equivalence and Performance Trade-offs under a Common LLM-Serving Contract}
 \author{Soroush Vahidi}
 \email{sv96@njit.edu}
 \affiliation{\department{Department of Computer Science}\institution{New Jersey Institute of Technology}\city{Newark}\state{New Jersey}\country{USA}}
@@ -24,26 +24,23 @@
 \begin{abstract}
 Scheduler comparisons require more than identical inputs: the execution
 contract determines which policy distinctions can affect request outcomes.
-We connect those structural consequences to measured performance in a
-common-model evaluation of four LLM-serving adaptations. Under the original contract, fixed batch timing
+We examine four LLM-serving adaptations under a common contract. Under the original contract, fixed batch timing
 and a residency/work bound make chunked-FCFS and decode-first equivalent;
 complete terminal records confirm the equality in all 1,440 matched
-conditions, despite possible differences in journal ordering. An inactive
-urgency gate leaves prompt-length admission ordering as an active mechanism.
+conditions, despite possible differences in journal ordering. A finite-work
+bound certifies urgency inactivity in both the original and budget-perturbed
+regimes; prompt-length admission ordering remains active.
 Among the three distinct behaviors, SLO-gated reduces aggregate mean latency
 by 11.3--34.0\% against chunked-FCFS while reducing finite-window token
 throughput by 1.65--4.01\%; BurstGPT mean window-p95 latency increases by
-3.72\% and 18.97\%. Saved request timelines illustrate how these objectives
-can disagree. Source means exhibit no strict 10\% practical reversals,
-although window-level and metric-dependent reversals occur. A post hoc
-analysis removing duplicate behaviors and endpoints preserves that contrast.
-A prospective 72-cell budget sensitivity preserves the equivalence on three
-input-selected BurstGPT windows despite small changes in executed work.
-A finite-work certificate explains the urgency gate's continued inactivity.
-A separate known-truth diagnostic distinguishes historical arithmetic
-reproduction from statistical calibration. The contribution is a verified,
-contract-specific explanation of which scheduling differences remain
-meaningful and how their rankings depend on the comparison estimand.
+3.72\% and 18.97\%. Equal-window source means exhibit no strict-10\% practical
+reversals in 2,376 comparisons, or 864 after removing duplicate behaviors
+and endpoints. Window-level and metric-dependent reversals persist: aggregate
+stability does not imply a common preference for every window or objective.
+A separate 72-cell budget sensitivity preserves the pair's observed equality
+on three input-selected BurstGPT windows, without proving equivalence under
+arbitrary binding budgets. These results connect effective scheduling behavior to the
+interpretation of its performance comparisons.
 The model isolates execution semantics; its rates do not predict a
 production GPU or establish a universal scheduler ranking.
 \end{abstract}

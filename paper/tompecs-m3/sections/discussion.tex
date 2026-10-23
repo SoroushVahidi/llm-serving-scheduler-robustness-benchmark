@@ -1,46 +1,40 @@
 \section{Discussion and Threats to Validity}\label{sec:discussion}
-\paragraph{What is learned from controlling execution semantics?}
-The useful comparison unit is an executable behavior, not a policy name.
-Here that distinction has a concrete consequence: nominal priority changes
-can leave every request outcome unchanged while admission competition still
-changes the completion distribution. Section~\ref{sec:contract} establishes
-the structural conditions; Sections~\ref{sec:performance} and
-\ref{sec:rankings} quantify the remaining trade-offs. The post hoc reduction
-shows that the source-mean/window contrast survives removal of duplicated
-comparisons. These results go beyond a warning about unfair settings by
-identifying exactly which distinctions disappear in this implemented
-contract and what remains measurable.
+\paragraph{From policy labels to interpretable comparisons.}
+The structural analysis identifies which decision rules can change execution
+before interpreting their rankings. Nonbinding work and common batch-end
+updates erase the chunked/decode-first priority distinction; admission
+competition and whole-prefill/decode exclusion survive. The urgency
+certificate supplies a different kind of result: a bound on reachable
+anchor age rules out an otherwise implemented branch. Together these
+explain why a nominally richer policy panel need not represent more
+executed mechanisms.
 
-The competing objectives themselves are established scheduling ideas.
-The BurstGPT example contributes a traceable instance: many earlier
-completions lower the sum of latencies even as a delayed final completion
-extends the drain. It illustrates compatibility of the measured objectives,
-not optimality of prompt-length ordering or a corpus-wide causal effect.
-Similarly, source means answer an equal-window average question; window
-reversals describe variation concealed by that average. Neither summary
-supersedes the other, and exact top sets preserve information lost by
-arbitrary tie-breaking.
+The residual mean/tail/throughput trade-offs are established scheduling
+phenomena, measured here within that reduced behavior set. The saved
+BurstGPT timeline illustrates how many earlier completions can lower mean
+latency while a later final completion extends the drain. It does not
+establish optimality or a corpus-wide causal decomposition. Source means
+answer an equal-window average question; window reversals expose variation
+concealed by that average, while cross-metric reversals concern different
+objectives on the same workload. Their coexistence, even in the reduced
+analysis, shows why stable aggregate preferences cannot select a scheduler
+for every window and objective. Exact top sets further distinguish ties
+from strict preferences.
 
 \paragraph{Model adequacy and transfer.}
-Fixed batch timing removes composition-dependent cost, nonbinding token
-work exposes the role of admission, and conservative reservations provide
-a known residency constraint without output-length prediction. Together
-these choices support a precise analysis of state-transition distinctions.
-They omit kernel, bandwidth, communication, native allocation, and changing
-batch-efficiency costs. The proof's conditions delimit transfer: a binding
-work budget or composition-dependent timing can invalidate its argument,
-and loss of the nonbinding bound need not break equivalence. The focused
-budget sensitivity retains it while changing some admissions and decode
-service; budget saturation is rare in that short-prompt BurstGPT stratum.
-The finite-work certificate additionally rules out urgency activation
-there. Synthetic completion deadlines are hidden from this gate, so
-tightening them would change deadline attainment without testing urgency.
-Longer prompts fail the unchanged common-domain check at these budgets,
-and composition-dependent timing remains untested. Independent
-conformance checks establish implementation correctness for the abstraction,
-not physical prediction accuracy \citep{sargent2013}. The findings provide
-a comparison diagnostic to apply before interpreting a ranking, rather than
-a deployment recommendation.
+Fixed batch timing and conservative full-context reservations permit the
+state-transition argument but omit composition-dependent efficiency,
+kernel, bandwidth, communication, and native allocation costs. A binding
+work budget can invalidate the proof's premise without breaking equivalence:
+the focused sensitivity preserves terminal equality while changing some
+admissions and decode service. Budget saturation is rare in its short-prompt
+BurstGPT stratum. The finite-work certificate rules out urgency activation
+there; completion deadlines remain hidden from the gate. Longer prompts
+fail the unchanged common-domain check at these budgets, and
+composition-dependent timing remains untested. These restrictions are
+central to the explanation and limit its transfer to hardware-aware models
+and serving systems. Conformance checks establish implementation correctness
+for the abstraction, not physical prediction accuracy \citep{sargent2013}.
 
 \paragraph{Corpus and inference limits.}
 The selected windows are finite and temporally related, and the Azure-linked
@@ -60,16 +54,13 @@ checks reduce implementation and reporting risk without adding scientific
 novelty or resolving model adequacy by themselves.
 
 \section{Conclusion}
-This common-contract comparison links a structural reduction of scheduler
-labels to a smaller, interpretable performance problem. Two adaptations
-have identical terminal outcomes despite potentially different journal
-ordering; an inactive urgency gate leaves admission ordering as an active
-distinction. The surviving behaviors exhibit measured mean/tail/throughput
-trade-offs. The budget-only sensitivity retains the equivalent pair;
-a finite-work certificate also rules out urgency activation in its
-examined regimes.
-Source-mean practical stability coexists with window and metric
-reversals even after duplicated comparisons are removed. These bounded
-findings make explicit what the evaluator permits a scheduling choice to
-change. The supporting historical diagnostic separately shows why exact
-arithmetic reproduction is insufficient evidence of statistical calibration.
+Under the original common contract, a work bound and shared clock updates
+make two nominal adaptations state-equivalent. A separate finite-work
+certificate explains why decode urgency cannot activate in the examined
+regimes. The surviving behaviors retain mean/tail/throughput trade-offs,
+and their preferences depend on the comparison level: source-mean practical
+stability coexists with local and cross-metric reversals after demonstrated
+redundancies are removed. The budget sensitivity preserves the observed
+equivalence in a small selected stratum, without proving it for arbitrary
+binding budgets. The contribution connects model constraints, effective behavior,
+and the interpretation of performance comparisons.

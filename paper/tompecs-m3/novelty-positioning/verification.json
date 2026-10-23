@@ -1,0 +1,126 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "baseline": "d73192df32fd14ec025eb8b9dab72da401eb65ae",
+  "scientific_experiments_executed": 0,
+  "scientific_checks": 54,
+  "repository_tests": {
+    "passed": 378,
+    "warnings": 4
+  },
+  "frozen_contract_tests": 42,
+  "frozen_tracked_assets": 63,
+  "additional_preserved_files": [
+    "references.bib",
+    "sections/design.tex",
+    "sections/sensitivity.tex",
+    "sections/declarations.tex",
+    "sections/appendix.tex",
+    "urgency-analysis/independent-check.json",
+    "budget-sensitivity/independent-verification.json",
+    "editorial-revision/reduced-comparisons.json"
+  ],
+  "citation_keys": 28,
+  "all_citations_defined_and_used": true,
+  "urgency_equation_unchanged": true,
+  "pdfs": {
+    "manuscript": {
+      "path": "paper/tompecs-m3/m3-manuscript.pdf",
+      "pages": 26,
+      "sha256": "3eeffb5f34df88a12fff4903f0ab8f9a53e3b130d11b08eded1842f6ad2a9a5a",
+      "bytes": 726371
+    },
+    "acmsmall": {
+      "path": "paper/tompecs-m3/m3-acmsmall.pdf",
+      "pages": 26,
+      "sha256": "7ffe9cada9b96858b63b223f0b2cb493971b9e7f9413308da83ac2bba967f607",
+      "bytes": 722575
+    }
+  },
+  "visual_review": {
+    "pages_each_layout": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      26
+    ],
+    "result": "PASS: readable text, equations, tables and references; no clipping or overlap",
+    "final_minor_provenance_wording_page_reinspected": 3
+  },
+  "existing_budget_cells_reverified": 72,
+  "urgency_check": {
+    "state": "COMPLETED_SUCCESS",
+    "independent_method": "Per-request event-index intervals; integer inequalities",
+    "saved_cells": 18,
+    "ready_decode_opportunities": 107844,
+    "omitted_opportunities": 42,
+    "critical_opportunities": 0,
+    "certificate_rows_checked": 18,
+    "universal_bound_ms": 201,
+    "scientific_experiments_executed": 0
+  },
+  "independent_reduced_source_mean": {
+    "groups": 864,
+    "total": 864,
+    "eligible": 864,
+    "reversals": 0
+  },
+  "source_word_count": {
+    "method": "Whitespace-delimited LaTeX source tokens; abstract and main section sources, excluding declarations, references, appendices and input table/figure assets. Same files both versions; not a prose-only word count.",
+    "files": {
+      "main.tex": {
+        "before": 224,
+        "after": 199
+      },
+      "sections/introduction.tex": {
+        "before": 486,
+        "after": 431
+      },
+      "sections/related.tex": {
+        "before": 522,
+        "after": 514
+      },
+      "sections/contract.tex": {
+        "before": 1582,
+        "after": 1570
+      },
+      "sections/design.tex": {
+        "before": 1049,
+        "after": 1049
+      },
+      "sections/performance.tex": {
+        "before": 905,
+        "after": 906
+      },
+      "sections/sensitivity.tex": {
+        "before": 621,
+        "after": 621
+      },
+      "sections/rankings.tex": {
+        "before": 799,
+        "after": 828
+      },
+      "sections/inference.tex": {
+        "before": 509,
+        "after": 511
+      },
+      "sections/discussion.tex": {
+        "before": 587,
+        "after": 520
+      }
+    },
+    "total_before": 7284,
+    "total_after": 7149
+  }
+}
