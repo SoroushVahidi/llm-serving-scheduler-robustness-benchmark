@@ -1,0 +1,104 @@
+M3 scientific and editorial revision — 23 October 2026
+Revision task completed; journal submission is not performed or certified.
+Base: PR28,03efa8eabcf5304a514dfd002b70b05c042cde36, stacked on PR27.
+Branch: manuscript/m3-scientific-editorial-revision-20261023.
+
+Scientific improvements and section-by-section changes
+Abstract: self-contained problem/method/theory/evidence/limits; removed internal
+campaign labels and excessive counts. Preserved adverse throughput/tail outcomes.
+Introduction: explicit contribution is contract-induced behavioral equivalence,
+a mechanism-inactivity certificate, and interpretation of residual trade-offs.
+Known workload sensitivity and throughput/latency phenomena are not claimed new.
+Related Work: adds four primary-verified comparisons—FastServe, JITServe,
+PLA-Serve/LAPS and Ao et al.'s fluid-guided scheduling. Separates objectives,
+information, preemption, memory growth, timing and physical evaluations from CM.
+Contract: Lemma3.1 and Theorem3.2 integrate BOUND01, including full induction,
+common-transition coupling, a reachable binding example and explicit exclusions.
+Uses separate notation for arrival times, urgency anchors and work offers.
+Preserves the nonbinding corollary and distinct finite-work inactivity proof.
+Design: labels/references every displayed definition; defines ANWG and retains
+all original populations, units, weighting, zero/tie rules and strict margins.
+Performance: unchanged numerical conclusions and saved example; repairs clipped
+labels in Figures2/3, with unchanged plotted values. Budget discussion now explains
+its rejected hypothesis using the proof rather than claiming only finite agreement.
+Rankings: unchanged source, window, condition and metric comparisons; dependence
+and post hoc reduction qualifications retained. No statistical claims added.
+Statistical diagnostic: expands terminology; same134000studies,53checked
+narrative anchors and7200endpoint rows. Adds the missing scenario-table citation.
+Discussion/conclusion: consistent stronger theorem and sharp model boundaries;
+removes the obsolete dated assertion that no timing experiment exists. Distinguishes
+evidence presented here from future independently validated integrations.
+Availability/declarations: adds project source URL while keeping full campaign
+archives and reviewer packages explicitly private. Research/writing AI roles and
+human responsibility retained. AppendixB records proof provenance and scope.
+
+Mathematical evidence
+BOUND01 commit32426114d7a321de790a194c51aacbc23703975a and complete proof read.
+Independent induction/code review verdict VALID_WITHIN_STATED_SCOPE; see
+PROOF_REVIEW.txt and proof-verification.json. The authoritative engine/policy
+hashes match their saved validation identities. Seven earlier fixtures and
+36saved journals/37034boundaries support conformance; they are not a universal
+proof by testing. No simulator or policy was modified or executed for this revision.
+The source wording about in-batch arrivals is clarified as next-boundary
+eligibility. No substantive mathematical defect was found within stated scope.
+
+Validation and preservation
+See validation.json: full independent C01 report oracle (5760cells,15840rankings,
+95040pairwise rows,26136reversal groups),53narrative checks,7200statistical rows,
+32cited references, clean builds. Its standalone mode avoids mutating or depending
+on the user's hydrated-LFS working file; preservation is checked separately.
+See editorial-validation.json: unchanged numeric tokens in empirical sections,
+unchanged ranking text,9numbered/referenced equations,4figures,12tables, no missing
+cross-references, duplicate labels, overfull boxes or private submission identifiers.
+See preservation.json:152protected source/evidence files unchanged; only two
+figure PDFs have justified formatting changes. The original scientific inputs,
+CSV results, tables, analysis definitions and permanent paused handoff are intact.
+See regeneration.json:20numerical/table/reduced outputs reproduced byte-for-byte
+in an isolated copy. Existing numerical results were not rewritten.
+
+Formatting and visual review
+Main review PDF:29pages including all references and appendices, versus26pages
+in the previous verified PDF. Optional acmsmall build:30pages including everything.
+Both satisfy the user-specified30-page cap without exemptions or smaller body font.
+Uses bundled ACM acmartv2.20, single-column manuscript/screen/review/nonacm.
+Table row spacing increased12%; plots retain readable labels/legends and units.
+All29pages of the delivered review PDF were visually inspected, including every
+figure/table and mathematical display. No clipping or overlap remains. Float
+pages retain some whitespace; no decorative assets or unjustified compression.
+The optional production-layout build is not the sole cleared submission PDF.
+Final PDF identities and sizes are in editorial-validation.json and PDF_SHA256.txt.
+The baseline PDF and its SHA remain preserved at PR28 and in the private audit.
+
+References and journal requirements
+REFERENCES_AND_REQUIREMENTS.txt gives exact authors/titles/versions/URLs and
+scope comparisons for all additions, plus provenance of the retained28-reference
+audit. The PLA-Serve proceedings/PDF title discrepancy is disclosed.
+The official ACM template confirms single-column review formatting. The official
+TOMPECS author-guidelines endpoint returned403; anonymity, supplement/access
+rules and exact portal requirements remain independently unverified. No abstract
+word limit or appendix exemption is invented. The30-page cap is enforced as the
+user's explicit requirement. Verified author ORCID remains to be supplied.
+A revised cover letter preserving earlier-version and parallel-submission
+disclosures is prepared privately, not committed or submitted.
+
+Remaining scientific weaknesses and next steps
+- The theorem concerns two fixed adaptations from an empty system under CM;
+  it is not a native-system theorem, an optimality claim or a machine-checked proof.
+- Fixed-duration/full-context assumptions limit physical applicability.
+- The finite selected windows are temporally related; cross-project window
+  overlap remains partly unresolved. Deterministic cells are not replicates.
+- Synthetic deadlines, uniform priorities, joint arrival/deadline transformation,
+  an inactive urgency gate, and post hoc reductions constrain interpretation.
+- TIME01 and ABL01 numerical findings are deliberately excluded pending their
+  independent comparative review. A precise private integration handoff gives
+  frozen identities, paths, row counts, denominator rules and commands. No job
+  was submitted, rerun, cancelled or modified during this editorial task.
+- No extra experiment is needed to justify the current bounded claims. Complete
+  review of already produced analyses before deciding on any expanded claims.
+- Before submission: author review of this exact PDF/proof, current journal and
+  ORCID checks, confidential disclosure/access confirmation, and refreshed private
+  reviewer-package assembly. Do not mistake this editorial completion for journal
+  submission readiness or silently reuse the old26-page package.
+
+No main changes, merges, experiment evidence deletion, data release or journal
+submission. The new draft PR targets PR28's branch; PR27/28 are left unchanged.

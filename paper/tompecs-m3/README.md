@@ -1,10 +1,23 @@
 # M3 author-review manuscript
 
-**PAUSED — submission candidate prepared (2026-10-23).** Start with the [permanent project handoff](PROJECT_HANDOFF.md) for the verified manuscript, PR dependencies, preserved evidence, remaining submission decisions, and minimal resumption checklist. No journal submission has occurred; merge, submission, and public artifact release require separate author authorization.
+**Current revision: scientific and editorial review (2026-10-23), stacked on PR #28.**
+The current [29-page review PDF](m3-manuscript.pdf) integrates the fixed-policy,
+empty-initial-state BOUND01 theorem and four verified related-work additions.
+See [revision report](scientific-editorial-revision/REPORT.txt),
+[proof review](scientific-editorial-revision/PROOF_REVIEW.txt),
+[validation](scientific-editorial-revision/validation.json), and
+[reference/journal checks](scientific-editorial-revision/REFERENCES_AND_REQUIREMENTS.txt).
+TIME01 and ABL01 numerical findings are not integrated; their completion and
+independent scientific review are separate gates. No new experiments were run.
 
-**Final review paper: [m3-manuscript.pdf](m3-manuscript.pdf) (26 pages).** This is the sole tracked final M3 paper PDF. The optional ACM-small layout remains buildable locally; prior PDFs and verification records remain available in Git history.
+The permanent [project handoff](PROJECT_HANDOFF.md) remains an unchanged paused
+snapshot for PR #28 at `03efa8eabcf5304a514dfd002b70b05c042cde36`.
+Its verified 26-page PDF (SHA-256 `43af9fb9e3b77e4dac7f602e0a768d1e00554699bcc44287d33328e5e23da592`)
+and private reviewer package remain preserved. This branch supersedes that PDF
+for editorial review only; it does not silently update the private package or
+claim submission readiness. No merge, journal submission or data release occurs.
 
-**Current candidate: focused submission preparation (2026-10-23).** See the [manuscript changelog](submission-preparation/CHANGELOG.txt) and [validation record](submission-preparation/validation.json). The revised 26-page PDF has SHA-256 `43af9fb9e3b77e4dac7f602e0a768d1e00554699bcc44287d33328e5e23da592`; it is distinct from the previous cleared baseline. Its source starts from the verified ACM-compliance delivery commit `8bdf692f0432304002c64b23b7afef6ee3bc3617`. The compact reviewer archive reproduces this PDF byte-for-byte and remains private. No new experiments, public artifact release, or journal submission are authorized by this preparation. Journal-specific requirements and final author submission approval remain pending.
+The entries below describe earlier revisions and historical validation records.
 
 **Preceding revision: scientific contribution and novelty positioning (2026-10-23).** The three research questions now connect effective scheduling behavior, the mathematical explanation of inactivity, and comparison-level performance trade-offs. See the [revision report](novelty-positioning/REPORT.md), [contribution-to-evidence matrix](novelty-positioning/CONTRIBUTIONS.md), and [primary-literature comparison](novelty-positioning/PRIOR_WORK.md). This manuscript-only revision starts at actual PR #25 head `d73192df32fd14ec025eb8b9dab72da401eb65ae`; it adds no experiments.
 
@@ -39,7 +52,7 @@ The historical manuscript stack starts from final evidence-review commit `6b2eed
 - [Historical submission checklist](SUBMISSION_BLOCKERS.md).
 - [Reference checks and provenance clarification](REFERENCE_CHECKS.md).
 
-The final review PDF uses an ACM layout with the supported `nonacm` option to suppress untrue submission/publication boilerplate. It is a review copy, not confirmation of current ToMPECS submission requirements. No journal-specific page limit is asserted.
+The final review PDF uses an ACM layout with the supported `nonacm` option to suppress untrue submission/publication boilerplate. It is a review copy, not confirmation of current ToMPECS submission requirements. The current revision checks all pages against the user-specified 30-page cap; journal-specific rules remain independently unverified.
 
 ## Regenerate displays and build locally
 
@@ -50,7 +63,7 @@ python paper/tompecs-m3/scripts/render.py
 python paper/tompecs-m3/editorial-revision/reduced_comparisons.py
 bash paper/tompecs-m3/scripts/build.sh manuscript
 bash paper/tompecs-m3/scripts/build.sh acmsmall
-python paper/tompecs-m3/scripts/validate.py
+python paper/tompecs-m3/scripts/validate.py --standalone --report /tmp/m3-validation.json
 ```
 
 These commands only read saved experimental summaries, render manuscript assets, compile LaTeX, and check saved evidence. They never invoke the simulator, synthetic-study generator, Slurm, or GitHub Actions. Both build workflows use the byte-preserved ACM template from M2. The output PDFs are under `build/<mode>/`; only the reviewed manuscript-mode PDF is tracked at this directory's top level after checks.

@@ -1,8 +1,9 @@
 \section{Discussion and Threats to Validity}\label{sec:discussion}
 \paragraph{From policy labels to interpretable comparisons.}
 The structural analysis identifies which decision rules can change execution
-before interpreting their rankings. Nonbinding work and common batch-end
-updates erase the chunked/decode-first priority distinction; admission
+before interpreting their rankings. The resident-prefix invariant and common batch-end
+updates erase the chunked/decode-first priority distinction, even under
+binding budgets; admission
 competition and whole-prefill/decode exclusion survive. The urgency
 certificate supplies a different kind of result: a bound on reachable
 anchor age rules out an otherwise implemented branch. Together these
@@ -24,18 +25,18 @@ from strict preferences.
 \paragraph{Model adequacy and transfer.}
 Fixed batch timing and conservative full-context reservations permit the
 state-transition argument but omit composition-dependent efficiency,
-kernel, bandwidth, communication, and native allocation costs. A binding
-work budget can invalidate the proof's premise without breaking equivalence:
-the focused sensitivity preserves terminal equality while changing some
-admissions and decode service. Budget saturation is rare in its short-prompt
-BurstGPT stratum. The finite-work certificate rules out urgency activation
-there; completion deadlines remain hidden from the gate. Longer prompts
-fail the unchanged common-domain check at these budgets, and
-composition-dependent timing remains untested. The October 23, 2026 audit
-of workstation and Wulver records found no completed M3 experiment under
-a shared composition-dependent batch-duration model. M3's fixed-duration
-batches therefore limit transfer of its latency, tail, and throughput
-findings to hardware-aware models and serving systems. Historical GPU
+kernel, bandwidth, communication, and native allocation costs. Theorem~\ref{thm:equivalence} permits binding budgets but depends on fixed
+policies, an empty initial system, resident-first service, stable prefix
+admission, and the specified progress rules. It does not establish
+invariance under policy switching or arbitrary supplied states. The
+budget sensitivity changes some admissions and SLO-gated decode service;
+the finite-work certificate rules out urgency activation there. Longer
+prompts fail the unchanged domain check at these smaller budgets.
+The quantitative evidence presented here uses fixed-duration batches;
+composition-dependent timing and hardware costs remain outside its empirical
+scope. Nor does the comparison alone isolate every mechanism's causal effect:
+a matched prompt-ordering ablation requires its own validated analysis.
+Historical GPU
 studies do not validate M3's exact comparisons. Conformance checks establish implementation correctness
 for the abstraction, not physical prediction accuracy \citep{sargent2013}.
 
@@ -57,13 +58,14 @@ checks reduce implementation and reporting risk without adding scientific
 novelty or resolving model adequacy by themselves.
 
 \section{Conclusion}
-Under the original common contract, a work bound and shared clock updates
-make two nominal adaptations state-equivalent. A separate finite-work
-certificate explains why decode urgency cannot activate in the examined
-regimes. The surviving behaviors retain mean/tail/throughput trade-offs,
-and their preferences depend on the comparison level: source-mean practical
-stability coexists with local and cross-metric reversals after demonstrated
-redundancies are removed. The budget sensitivity preserves the observed
-equivalence in a small selected stratum, without proving it for arbitrary
-binding budgets. The contribution connects model constraints, effective behavior,
-and the interpretation of performance comparisons.
+An admission-and-progress invariant proves selected-work equivalence of
+fixed chunked-FCFS and decode-first adaptations from an empty serving
+system under the declared contract, including binding budgets. Common
+batch-end updates extend this equality to normalized transitions and
+terminal outcomes. A separate finite-work certificate explains urgency
+inactivity in the evaluated regimes. The remaining behaviors retain
+mean/tail/throughput trade-offs, while source-mean practical stability
+coexists with local and cross-metric reversals after demonstrated
+redundancies are removed. These results connect model constraints,
+effective behavior, and the interpretation of performance comparisons;
+they establish neither scheduler optimality nor hardware performance.

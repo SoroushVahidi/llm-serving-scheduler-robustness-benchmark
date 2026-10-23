@@ -79,9 +79,9 @@ for j,(s,sn) in enumerate(zip(S,SN)):
   if j==0:ax.set_ylabel(yl)
   if i==0:ax.set_title(sn,fontweight='bold')
   ax.set_xticks(range(6),LS)
-  if i==3:ax.set_xlabel('Inherited arrival/deadline setting')
+  if i==3:ax.set_xlabel('Arrival/deadline setting')
 handles,labs=axs[0,0].get_legend_handles_labels();fig.legend(handles,labs,loc='outside lower center',ncol=3,frameon=False)
-fig.savefig(ROOT/'figures/absolute.pdf',metadata={'CreationDate':None});plt.close(fig)
+fig.savefig(ROOT/'figures/absolute.pdf',bbox_inches='tight',pad_inches=.06,metadata={'CreationDate':None});plt.close(fig)
 # All 40 per-source windows: average six matched setting deltas within each window.
 fig,axs=plt.subplots(2,3,figsize=(6.2,4.7),layout='constrained');diffrows=[]
 for ki,k in enumerate(K):
@@ -97,7 +97,7 @@ for ki,k in enumerate(K):
   ax.set_title(f'{4+ki*4} slots\n'+('Lower favors SLO' if mi<2 else 'Higher favors SLO'),fontsize=8)
   if mi==0:ax.set_ylabel('Fraction of 40 windows')
 h,l=axs[0,0].get_legend_handles_labels();fig.legend(h,l,loc='outside lower center',ncol=3,frameon=False)
-fig.savefig(ROOT/'figures/matched.pdf',metadata={'CreationDate':None});plt.close(fig);csvout('c01-matched-window-differences',diffrows)
+fig.savefig(ROOT/'figures/matched.pdf',bbox_inches='tight',pad_inches=.06,metadata={'CreationDate':None});plt.close(fig);csvout('c01-matched-window-differences',diffrows)
 # Chronological diagnostic retains all four blocks, settings and capacities.
 fig,axs=plt.subplots(1,3,figsize=(6.2,2.65),sharey=True,layout='constrained')
 blocks=[x for x in agg if x['scope']=='block'];print('block scope groups',sorted({str(x['group']) for x in blocks}))

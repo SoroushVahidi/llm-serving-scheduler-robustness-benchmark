@@ -5,7 +5,8 @@ structural equivalence from coincidentally similar performance. Evaluation
 therefore requires establishing what the execution model allows each policy
 to change.
 
-Workload sensitivity, metric dependence, and throughput--latency trade-offs
+For large language model (LLM) serving, workload sensitivity, metric dependence,
+and throughput--latency trade-offs
 are already well established \citep{papaioannou2024workload,agrawal2024etalon,agrawal2024sarathi}.
 Vidur and Vidur-Bench support shared simulation and workload/policy comparisons
 \citep{vidur2024}; evaluation guidelines address baseline fairness and
@@ -17,7 +18,7 @@ transitions and mechanism activation alongside performance measurements.
 
 Our methodological approach is to derive effective scheduler behavior from
 the contract before interpreting performance differences: establish
-conditional equivalence where the assumptions permit it, determine whether
+reachable-state equivalence under explicit assumptions, determine whether
 the implemented mechanisms can activate, and measure the trade-offs that
 survive. The state-transition argument, inactivity certificate, and saved
 execution checks below support distinct parts of this analysis; observed
@@ -27,7 +28,7 @@ theorem.
 We investigate four project-maintained adaptations under \cm, a contract
 specifying online information, legal actions, work advancement, batch timing,
 and resource acquisition and release. The adaptations retain selected ideas
-from FCFS serving, chunked prefill, decode-first scheduling, and SLAI-inspired
+from first-come, first-served (FCFS) serving, chunked prefill, decode-first scheduling, and urgency-aware
 prompt ordering \citep{kwon2023vllm,agrawal2024sarathi,slai2025}.
 Fixed batch cost removes composition-dependent service costs; four or eight
 resident slots preserve admission competition. This abstraction permits a
@@ -39,14 +40,17 @@ and two residency capacities.
 The scientific contribution connects three questions and their answers:
 \begin{description}[leftmargin=0pt,labelindent=0pt]
 \item[RQ1: Effective behavior.] Which policy distinctions change request
-execution? A residency/work bound and common batch-end timestamps imply
-identical per-request transitions for chunked-FCFS and decode-first under
-the original contract. All 1,440 matched terminal comparisons confirm this
-invariant; four labels yield three observed behaviors. A separate 72-cell
-budget sensitivity preserves the pair's equality in its selected stratum,
-an empirical finding beyond the original proof's conditions.
+execution? We prove a resident-prefix invariant: all residents except the
+youngest collectively demand strictly less than the batch budget. This
+implies identical selected work for fixed chunked-FCFS and decode-first
+policies starting empty, including binding budgets. Common batch-end
+updates then give identical normalized transitions and terminal outcomes
+(Theorem~\ref{thm:equivalence}). The 1,440 matched terminal comparisons and
+a separate 72-cell budget sensitivity check implementation conformance;
+they are not the basis of the universal quantifier within the theorem's scope.
 \item[RQ2: Mechanism inactivity.] Why does SLO-gated's urgency rule not
-execute? Clock updates give zero anchor age in the original contract. A
+execute? The service-level-objective (SLO) adaptation uses a fixed token-gap
+threshold. Clock updates give zero anchor age in the original contract. A
 finite-work bound also rules out first activation under the examined binding
 budgets. Completion deadlines do not enter the gate. The measured SLO-gated
 effects consequently cannot be attributed to urgency; prompt-length

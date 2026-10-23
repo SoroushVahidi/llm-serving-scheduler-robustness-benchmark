@@ -12,11 +12,13 @@ $\sigma=0.15$. The exact-ties scenario uses $\rho=1$.
 
 Each family comprises $\binom{3}{2}\binom{11}{2}=165$ hypotheses.
 For a source pair $(s,t)$ and policy pair $(a,b)$, sign-reversal truth is
-$(\mu_{sa}-\mu_{sb})(\mu_{ta}-\mu_{tb})<0$. Practical-reversal truth is
-\begin{align}
- &(\mu_{sa}>1.1\mu_{sb}\ \land\ \mu_{tb}>1.1\mu_{ta})\nonumber\\
+$(\mu_{sa}-\mu_{sb})(\mu_{ta}-\mu_{tb})<0$. Practical-reversal truth is given by Equation~\ref{eq:truth}:
+\begin{equation}\label{eq:truth}
+\begin{aligned}
+ &(\mu_{sa}>1.1\mu_{sb}\ \land\ \mu_{tb}>1.1\mu_{ta})\\
  &\qquad\lor\ (\mu_{sb}>1.1\mu_{sa}\ \land\ \mu_{ta}>1.1\mu_{tb}).
-\end{align}
+\end{aligned}
+\end{equation}
 Equality at 10\% is null. Truth is enumerated from decimal/rational mean
 specifications, independently of estimated means and test decisions.
 
@@ -25,7 +27,7 @@ $0.5+0.0002j$, respectively. A reversal of size $\delta$ assigns source 0
 policies 0/1 means $0.5\pm\delta/2$, swaps them in source 1, and sets all
 other means to 0.5. Small, medium, and large IID reversal scenarios use
 $\delta=0.03,0.10,0.30$. The boundary scenario uses 0.55/0.50 and the reverse.
-Block, AR, unequal-variance, mixed-distribution, and MCAR reversal scenarios
+Block, AR, unequal-variance, mixed-distribution, and missing completely at random (MCAR) reversal scenarios
 use $\delta=0.15$. Unequal scales are $(0.08,0.25,0.15)$; mixed innovations
 are standardized normal, Student-$t_5$, and lognormal. MCAR retains each
 policy/window observation independently with probability 0.8. Selective
@@ -114,7 +116,8 @@ empirical maximizing sets are not confidence sets.
 The five possible analysis looks are 500, 1,000, 2,000, 4,000, and 8,000
 studies per scenario. For a bounded study-level endpoint with sample variance
 $s^2$ and available count $N$, the two-sided empirical Bernstein half-width is
-\begin{equation}
+Equation~\ref{eq:bernstein}:
+\begin{equation}\label{eq:bernstein}
  b=\sqrt{\frac{2s^2\log(4/\delta)}{N}}
  +\frac{7\log(4/\delta)}{3(N-1)}.
 \end{equation}
@@ -138,6 +141,9 @@ compatibility with tolerance requires FDR upper bound at most 0.06 and
 coverage lower bound at least 0.94 in relevant assumption-valid scenarios.
 All other estimable cases are inconclusive. The screen permits conservative
 overcoverage and is not a proof of exact nominal calibration.
+
+Table~\ref{tab:scenarios} summarizes the original-method scenario screens
+and stopping counts.
 
 \begin{table}[!htbp]
 \centering\small\setlength{\tabcolsep}{5pt}
@@ -273,6 +279,17 @@ limits claims of independent evidence across projects, not the recorded
 within-C01 nonoverlap check.
 
 \FloatBarrier
+\subsection{Reachable-state proof provenance}
+The proof integrated in Section~\ref{sec:equivalence} is preserved with its
+implementation-assumption checks at commit
+\texttt{\seqsplit{32426114d7a321de790a194c51aacbc23703975a}}.
+It leaves the authoritative engine and both policies byte-identical to
+C01-FULL. Seven hand-derived fixtures and 36 reused budget journals
+(37,034 checked boundaries) support conformance. This is a proof-first
+result, not an exhaustive state search or machine-checked formal proof.
+The proof explicitly excludes arbitrary policy switching and supplied
+mid-flight states; finite fixture agreement does not extend its scope.
+
 \section{Chronological Summaries}\label{app:chronology}
 Figure~\ref{fig:chronology} reports SLO-minus-chunked \anwg\ differences in
 four consecutive ten-window blocks. Across settings and capacities, block

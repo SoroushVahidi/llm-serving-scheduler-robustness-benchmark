@@ -1,5 +1,5 @@
 \subsection{A prospective token-budget sensitivity}\label{sec:budget}
-To test a boundary of the equivalence argument, we prospectively specified
+Before the reachable-state proof, we prospectively specified
 that reducing only the batch budget would make chunked-FCFS and decode-first
 execute different per-request spans in at least one matched condition.
 The predicted mechanism was prefill work exhausting the budget before
@@ -29,9 +29,9 @@ journals and terminal states agree for chunked-FCFS and decode-first in
 all 12 perturbed matches, and three distinct terminal behaviors remain in
 each of the 18 budget--condition combinations. Both policies serve every
 ready resident decode in these runs; budget exhaustion changes prefill
-progress without separating their transitions. This observation extends
-the tested operating region, not the nonbinding-bound proof to arbitrary
-budgets. Span-list ordering differs in four of six matches at every budget,
+progress without separating their transitions. Theorem~\ref{thm:equivalence} now explains this agreement: a binding
+budget can truncate only the youngest resident prefill, leaving every
+ready decode served. The empirical checks alone would not prove this claim. Span-list ordering differs in four of six matches at every budget,
 but causes no state or timing difference.
 
 The perturbation does affect execution. Across all four labels, exactly
@@ -68,7 +68,7 @@ its largest mean-TPOT increase is only 5.87\,$\mu$s. Whole-FCFS deadline
 attainment changes by $-0.005$ to $+0.010$, and SLO-gated by $-0.005$ to
 zero. All throughput changes are below 0.4\% in magnitude. These bounded
 findings preserve the tested equivalence while exposing small execution
-changes; they do not retest cross-source means or establish equivalence
-outside this stratum. Three selected, temporally related windows support
+changes; they do not retest cross-source means. Equivalence outside
+this stratum follows from Theorem~\ref{thm:equivalence} only within its assumptions. Three selected, temporally related windows support
 paired descriptive ranges, not population confidence intervals. The original
 C01 and reduced-comparison results remain separate and unchanged.
