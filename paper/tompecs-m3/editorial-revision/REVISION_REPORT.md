@@ -5,7 +5,7 @@ Task outcome: **COMPLETED_SUCCESS** for the requested revision and validation. T
 ## Baseline and integration
 
 - Exact scientific baseline: `dda5fcf0f8f2a6f543e799f20767c9272022afc8` (PR #22).
-- Final scientific-content commit: Recorded after the scientific-content commit; see delivery record and draft PR head.
+- Final scientific-content commit: c66ac7a9c895a0f52d9e33df2936b4274ac410b9
 - Branch: `manuscript/lssp-m3-focused-editorial-20261022`.
 - Draft PR target: `manuscript/lssp-m3-major-revision`, immediately above #22 (which targets #21's branch).
 - Dedicated worktree: `/home/soroush/repos/llm-serving-scheduler-lssp-m3-focused-editorial-20261022`.
