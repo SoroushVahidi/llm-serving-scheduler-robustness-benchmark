@@ -1,0 +1,383 @@
+{
+  "status": "PASS",
+  "independent_oracle": {
+    "status": "PASS",
+    "absolute_cells": 5760,
+    "rankings": 15840,
+    "pairwise_rows": 95040,
+    "reversal_groups": 26136,
+    "independent_method": "integer-ratio boundary arithmetic; rank sorting; direct enumeration of every comparison; independently grouped absolute-cell metrics",
+    "inference": "NONE",
+    "scientific_review_required": true
+  },
+  "claims": {
+    "mean_latency_min": {
+      "actual": 0.00831443955060996,
+      "expected": 0.008314,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "mean_latency_max": {
+      "actual": 3.8939234304963195,
+      "expected": 3.893923,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "p95_latency_min": {
+      "actual": 0.008560379007582017,
+      "expected": 0.00856,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "p95_latency_max": {
+      "actual": 7.3000519501221435,
+      "expected": 7.300052,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "token_throughput_min": {
+      "actual": 332.4890570016473,
+      "expected": 332.489,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "token_throughput_max": {
+      "actual": 7766.684901532348,
+      "expected": 7766.685,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "n_tpot_min": {
+      "actual": 103,
+      "expected": 103,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "n_tpot_max": {
+      "actual": 200,
+      "expected": 200,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "kv131072_peak_used": {
+      "actual": 47872,
+      "expected": 47872,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "kv262144_peak_used": {
+      "actual": 62880,
+      "expected": 62880,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "cell_count": {
+      "actual": 5760,
+      "expected": 5760,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "request_executions": {
+      "actual": 1152000,
+      "expected": 1152000,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "no_unfinished": {
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "pilot_reuse_cells": {
+      "actual": 144,
+      "expected": 144,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "chunk_decode_metric_equivalence": {
+      "actual": 1440,
+      "expected": 1440,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "mean_tpot_max_difference": {
+      "actual": 1.7997756063259374e-16,
+      "expected": 1.8e-16,
+      "tolerance": 5e-19,
+      "status": "PASS"
+    },
+    "azure_llm_2024_factor_min": {
+      "actual": 22.524938033124698,
+      "expected": 22.525,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "azure_llm_2024_factor_max": {
+      "actual": 180.87312549934697,
+      "expected": 180.873,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "bailian_qwen_factor_min": {
+      "actual": 17.95614025022757,
+      "expected": 17.956,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "bailian_qwen_factor_max": {
+      "actual": 186.57954477284133,
+      "expected": 186.58,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "burstgpt_factor_min": {
+      "actual": 102.88425093326315,
+      "expected": 102.884,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "burstgpt_factor_max": {
+      "actual": 725.0204080183256,
+      "expected": 725.02,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "source_mean_top_comparisons": {
+      "actual": {
+        "total": 396,
+        "top_equal": 307,
+        "top_intersect": 323,
+        "rank_equal": 247
+      },
+      "expected": {
+        "total": 396,
+        "top_equal": 307,
+        "top_intersect": 323,
+        "rank_equal": 247
+      },
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "metric_top_comparisons": {
+      "actual": {
+        "total": 79200,
+        "top_equal": 27915,
+        "top_intersect": 57602
+      },
+      "expected": {
+        "total": 79200,
+        "top_equal": 27915,
+        "top_intersect": 57602
+      },
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "azure_llm_2024_unique_mean_winner": {
+      "actual": 480,
+      "expected": 480,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "bailian_qwen_unique_mean_winner": {
+      "actual": 468,
+      "expected": 468,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "burstgpt_unique_mean_winner": {
+      "actual": 198,
+      "expected": 198,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "azure_llm_2024_block_negative": {
+      "actual": 8,
+      "expected": 8,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "azure_llm_2024_block_min": {
+      "actual": -0.01200000000000001,
+      "expected": -0.012,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "azure_llm_2024_block_max": {
+      "actual": 0.2029999999999999,
+      "expected": 0.203,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "bailian_qwen_block_negative": {
+      "actual": 24,
+      "expected": 24,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "bailian_qwen_block_min": {
+      "actual": -0.02999999999999997,
+      "expected": -0.03,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "bailian_qwen_block_max": {
+      "actual": 0.23299999999999998,
+      "expected": 0.233,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "burstgpt_block_negative": {
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "burstgpt_block_min": {
+      "actual": 0.015,
+      "expected": 0.015,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "burstgpt_block_max": {
+      "actual": 0.3275,
+      "expected": 0.3275,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "azure_llm_2024_stratum_negative": {
+      "actual": 6,
+      "expected": 6,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "bailian_qwen_stratum_negative": {
+      "actual": 20,
+      "expected": 20,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "burstgpt_stratum_negative": {
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_total": {
+      "actual": 134000,
+      "expected": 134000,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_4_legacy_source_screened_BH_fdp_practical": {
+      "actual": 0.3950000000000003,
+      "expected": 0.395,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_6_legacy_source_screened_BH_fdp_practical": {
+      "actual": 0.7331579504398684,
+      "expected": 0.73316,
+      "tolerance": 5e-06,
+      "status": "PASS"
+    },
+    "stat_8_historical_full_BH_fdp_practical": {
+      "actual": 0.5187499999999994,
+      "expected": 0.51875,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_10_historical_full_BH_fdp_practical": {
+      "actual": 0.7786250000000005,
+      "expected": 0.778625,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_0_group_bootstrap_BY_ci_coverage": {
+      "actual": 0.8877499999999997,
+      "expected": 0.88775,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_10_group_bootstrap_BY_ci_coverage": {
+      "actual": 0.7598750000000001,
+      "expected": 0.759875,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_10_cluster_t_Holm_ci_coverage": {
+      "actual": 0.8599999999999994,
+      "expected": 0.86,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_11_cluster_t_Holm_ci_coverage": {
+      "actual": 0.8643750000000001,
+      "expected": 0.864375,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_16_bounded_Hoeffding_Holm_power_practical": {
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_17_bounded_Hoeffding_Holm_power_practical": {
+      "actual": 0.05263157894736842,
+      "expected": 0.052632,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_14_cluster_coverage_n": {
+      "actual": 1676,
+      "expected": 1676,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_15_cluster_coverage_n": {
+      "actual": 202,
+      "expected": 202,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_csv_rows": {
+      "actual": 7200,
+      "expected": 7200,
+      "tolerance": 0,
+      "status": "PASS"
+    }
+  },
+  "citation_keys": 25,
+  "labels": 25,
+  "builds": {
+    "manuscript": {
+      "status": "PASS",
+      "pages": 24,
+      "overfull_boxes": 0,
+      "unresolved_references": 0,
+      "bibliography_optional_metadata_advisories": [
+        "empty address in vidur2024",
+        "empty publisher in maurer2009",
+        "empty address in maurer2009"
+      ],
+      "template_warning": "ACM reference-format block suppressed in author-review draft"
+    },
+    "acmsmall": {
+      "status": "PASS",
+      "pages": 26,
+      "overfull_boxes": 0,
+      "unresolved_references": 0,
+      "bibliography_optional_metadata_advisories": [
+        "empty address in vidur2024",
+        "empty publisher in maurer2009",
+        "empty address in maurer2009"
+      ],
+      "template_warning": "ACM reference-format block suppressed in author-review draft"
+    }
+  },
+  "historical_changes": [],
+  "historical_checkout_check": "NOT_RUN_STANDALONE",
+  "worked_example_check": "FRESH_EVENT_RECONSTRUCTION",
+  "experiments_executed": 0
+}

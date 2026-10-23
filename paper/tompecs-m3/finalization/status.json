@@ -1,0 +1,39 @@
+{
+  "checked_at_utc": "2026-10-23T00:31:41.440589+00:00",
+  "state": "BLOCKED",
+  "branch": "publication/lssp-m3-finalization-20261022",
+  "main_at_start": "1ed5d332e006fdd0bc3a59a403c9044a36ef6d29",
+  "authoritative_revision": "dda5fcf0f8f2a6f543e799f20767c9272022afc8",
+  "scientific_numerical_core": "PASS",
+  "full_submission_readiness": "NOT_CERTIFIED",
+  "publication_gate": "CLOSED_UNVERIFIED_TOMPECS_REQUIREMENTS",
+  "release_actions_performed": [],
+  "experiments_executed": 0,
+  "narrative_checks": {
+    "scientific": 53,
+    "separate_historical_preservation": 1,
+    "original_total_covered": 54
+  },
+  "validation_groups_passed": [
+    "C01 raw terminal/metric records",
+    "STAT01 inventory and decimal endpoint reconstruction",
+    "STAT01 200 saved studies and historical/exact procedures",
+    "C01 complete saved-analysis oracle and narrative checks",
+    "Worked-example independent event reconstruction",
+    "Abstract/conclusion effect sizes and reversal distinctions",
+    "Direct journal-order counterexample",
+    "Clean acmsmall reference convergence after build-script fix",
+    "Preservation of original worker checkout and dataset"
+  ],
+  "resolved_failures": [
+    "Clean acmsmall build needed additional reference-resolution passes; bounded five-pass convergence loop now passes from an empty build directory.",
+    "New abstract audit initially combined source and source_mean axes; corrected to the manuscript-defined source_mean estimand. No scientific output changed."
+  ],
+  "limits": [
+    "Exact submitted-version file identities remain unverified.",
+    "Fresh all-reference primary-source audit is incomplete; Dai v3 was freshly checked and all 25 citation keys resolve.",
+    "Final artifact sanitization, license-scope application, clean-environment full reproduction, publication and final-PDF visual/link audits were not performed after the policy gate remained unresolved.",
+    "Baseline rebuilt PDFs are not final submission manuscripts and retain unresolved historical declarations."
+  ],
+  "main_updated": false
+}
