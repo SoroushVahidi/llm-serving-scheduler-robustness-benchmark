@@ -29,7 +29,11 @@ these choices support a precise analysis of state-transition distinctions.
 They omit kernel, bandwidth, communication, native allocation, and changing
 batch-efficiency costs. The proof's conditions delimit transfer: a binding
 work budget or composition-dependent timing can invalidate its argument,
-but this study does not measure the resulting behavior. Independent
+and loss of the nonbinding bound need not break equivalence. The focused
+budget sensitivity retains it while changing some admissions and decode
+service; budget saturation is rare in that short-prompt BurstGPT stratum.
+Longer prompts fail the unchanged common-domain check at these budgets,
+and composition-dependent timing remains untested. Independent
 conformance checks establish implementation correctness for the abstraction,
 not physical prediction accuracy \citep{sargent2013}. The findings provide
 a comparison diagnostic to apply before interpreting a ranking, rather than
@@ -58,7 +62,9 @@ labels to a smaller, interpretable performance problem. Two adaptations
 have identical terminal outcomes despite potentially different journal
 ordering; an inactive urgency gate leaves admission ordering as an active
 distinction. The surviving behaviors exhibit measured mean/tail/throughput
-trade-offs. Source-mean practical stability coexists with window and metric
+trade-offs. A prospective budget-only sensitivity retains the equivalent
+pair despite small execution changes on three feasible BurstGPT windows.
+Source-mean practical stability coexists with window and metric
 reversals even after duplicated comparisons are removed. These bounded
 findings make explicit what the evaluator permits a scheduling choice to
 change. The supporting historical diagnostic separately shows why exact

@@ -1,0 +1,50 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "cells": 72,
+  "effects": 384,
+  "normalized_event_pairs": 18,
+  "display_rows": 6,
+  "top_set_comparisons": 96,
+  "top_set_changes": 5,
+  "rank_comparisons": 576,
+  "eligible": 576,
+  "practical_reversals": 0,
+  "tolerant_order_changes": 14,
+  "input_census": {
+    "azure_llm_2024": {
+      "windows": 40,
+      "min_window_max_prompt": 6180,
+      "max_window_max_prompt": 7978,
+      "feasible_counts": {
+        "512": 0,
+        "1024": 0,
+        "2048": 0,
+        "4096": 0
+      }
+    },
+    "bailian_qwen": {
+      "windows": 40,
+      "min_window_max_prompt": 5773,
+      "max_window_max_prompt": 29067,
+      "feasible_counts": {
+        "512": 0,
+        "1024": 0,
+        "2048": 0,
+        "4096": 0
+      }
+    },
+    "burstgpt": {
+      "windows": 40,
+      "min_window_max_prompt": 292,
+      "max_window_max_prompt": 4287,
+      "feasible_counts": {
+        "512": 17,
+        "1024": 27,
+        "2048": 36,
+        "4096": 39
+      }
+    }
+  },
+  "analyzer_not_imported": true,
+  "engine_policy_referee_not_imported": true
+}

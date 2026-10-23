@@ -25,7 +25,7 @@
 Scheduler comparisons require more than identical inputs: the execution
 contract determines which policy distinctions can affect request outcomes.
 We connect those structural consequences to measured performance in a
-common-model evaluation of four LLM-serving adaptations. Fixed batch timing
+common-model evaluation of four LLM-serving adaptations. Under the original contract, fixed batch timing
 and a residency/work bound make chunked-FCFS and decode-first equivalent;
 complete terminal records confirm the equality in all 1,440 matched
 conditions, despite possible differences in journal ordering. An inactive
@@ -37,6 +37,8 @@ throughput by 1.65--4.01\%; BurstGPT mean window-p95 latency increases by
 can disagree. Source means exhibit no strict 10\% practical reversals,
 although window-level and metric-dependent reversals occur. A post hoc
 analysis removing duplicate behaviors and endpoints preserves that contrast.
+A prospective 72-cell budget sensitivity preserves the equivalence on three
+input-selected BurstGPT windows despite small changes in executed work.
 A separate known-truth diagnostic distinguishes historical arithmetic
 reproduction from statistical calibration. The contribution is a verified,
 contract-specific explanation of which scheduling differences remain
