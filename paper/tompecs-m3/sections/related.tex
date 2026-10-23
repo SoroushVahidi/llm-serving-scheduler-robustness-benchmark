@@ -1,18 +1,31 @@
 \section{Related Work and Evaluation Scope}
-\paragraph{Evaluation methodology and the closest comparison.}
+\paragraph{Simulation and benchmark comparisons.}
+Vidur combines operator profiling and predictive modeling with hierarchical
+scheduling; its Vidur-Bench suite supplies workloads, scheduling/batching
+policies, and performance metrics, while Vidur-Search explores deployment
+configurations \citep[Sections~4--6]{vidur2024}. Beyond these established comparisons, we ask which policy distinctions
+the shared model preserves: Section~\ref{sec:contract} derives a conditional state-transition
+equivalence, and Section~\ref{sec:urgency} bounds mechanism activation.
+LLMServingSim and its heterogeneous/disaggregated successor also model
+hardware/software interactions \citep{llmservingsim2024,llmservingsim2026}.
+Our fixed-duration work ledger instead permits direct reasoning about
+execution semantics. Journal reconstruction verifies conformance to that
+model; physical prediction would require separate validation \citep{sargent2013}.
+
+\paragraph{Evaluation methodology and metrics.}
 Papaioannou and Doudali study how datasets and inference scenarios change
 LLM-system evaluations \citep{papaioannou2024workload}. Agrawal et al. identify
 anti-patterns in baseline comparisons, evaluation settings, and metric
-design \citep{agrawal2025evaluation}; Etalon introduces a fluidity index to
+design, with a speculative-decoding case study
+\citep[Sections~3--4]{agrawal2025evaluation}; Etalon introduces a fluidity index to
 capture streaming experience missed by conventional summaries
-\citep{agrawal2024etalon}. These works already establish that benchmark and
-metric choices matter. Our study adds a different object of analysis: executable
-behavior under shared timing, resource, and information rules. It derives
-an exact equivalence for two adaptations, verifies it over the complete
-matched matrix, and measures the trade-offs left after that equivalence.
-The source-mean/window contrast then shows how aggregation changes the
-interpretation of those surviving comparisons. This is a contract-specific
-case study, not a general evaluation methodology or a new streaming metric.
+\citep[Sections~3--5]{agrawal2024etalon}. We adopt their caution about
+benchmark and metric choices. Section~\ref{sec:rankings} adds a matched
+account of source-mean, window-level, and cross-metric preferences after
+demonstrated redundancies are removed. Its absence of source-mean practical
+reversals has a specified threshold and denominator; it does not establish
+universal portability. We introduce neither a new streaming metric nor a
+general evaluation checklist.
 
 \paragraph{Serving and scheduling mechanisms.}
 Orca introduces iteration-level scheduling \citep{yu2022orca}; vLLM's
@@ -22,14 +35,12 @@ Sarathi-Serve combines chunked prefill with stall-free batching
 approximate shortest-job-first scheduling \citep{fu2024ranking}. Our
 prompt-length ordering uses observed inputs, without predicting output
 length or claiming the same objective or optimality.
-Bari et al. distinguish the throughput-optimal RAD construction from
-practical SLAI, which combines decode urgency and known prompt lengths
+Bari et al. give a formal batching framework and distinguish the
+throughput-optimal RAD construction from practical SLAI, which combines
+decode urgency and known prompt lengths
 \citep{slai2025}. SOLA jointly considers request/system state and work
-allocation to improve SLO attainment \citep{hong2025sola}. Their active
-state-dependent mechanisms differ from the fixed, inactive urgency gate.
-The published systems establish the value of their mechanisms under their
-own execution assumptions; they do not establish this adaptation panel's
-state equivalence. Full-context reservations also omit native paging, while
+allocation to improve SLO attainment \citep{hong2025sola}. These systems evaluate active state-dependent mechanisms under their own
+execution assumptions; our adaptation has a fixed, inactive urgency gate. Full-context reservations also omit native paging, while
 disaggregation and migration, exemplified by DistServe and Llumnix
 \citep{zhong2024distserve,sun2024llumnix}, lie outside the evaluated contract.
 
@@ -44,27 +55,17 @@ Section~\ref{sec:budget} separately tests lower budgets. These drained
 rates are not a stability region, and the observed throughput losses neither
 refute Dai et al.'s results nor establish a new optimality theorem.
 
-\paragraph{Workloads and simulators.}
+\paragraph{Workload scope.}
 BurstGPT and ServeGen characterize production-derived workloads
 \citep{burstgpt2025,servegen2026}; resampling has a longer history in scheduler
 evaluation \citep{zakay2014resampling}. Our analysis instead conditions on a fixed
 selected corpus, with equal-window source means and explicit matched
-comparisons. Vidur combines profiling and prediction
-\citep{vidur2024}; LLMServingSim and its heterogeneous/disaggregated successor
-model hardware/software interactions \citep{llmservingsim2024,llmservingsim2026}.
-They pursue hardware-aware performance estimation. Our fixed-duration
-work ledger pursues checkable execution semantics. Following simulation
-verification/validation terminology \citep{sargent2013}, journal
-reconstruction verifies conformance to that model; physical prediction
-would require separate validation.
+comparisons. This supplies evidence within those windows, not a new workload
+generator or an estimate of production-wide scheduler preferences.
 
 \paragraph{Inference and evidence reuse.}
-STAT01 applies established BH, BY, Holm, and concentration methods
-\citep{benjamini1995,benjamini2001dependency,holm1979,hoeffding1963}.
-Multiplicity correction does not validate input p-values or turn a
-zero-effect test into a practical-effect test. The diagnostic investigates
-those distinctions under specified synthetic truth. This study reuses historical
-windows, reconstruction, and archived rule outputs, with separate execution
-identities for the common-model comparison (Appendix~\ref{app:evidence}).
-Shared infrastructure and related mechanism studies do not provide
-independent validation of its results.
+STAT01 diagnoses established inference procedures
+\citep{benjamini1995,benjamini2001dependency,holm1979,hoeffding1963};
+it introduces no new method. Historical inputs and rule outputs are reused,
+with separate common-model execution identities (Appendix~\ref{app:evidence}).
+Shared infrastructure does not constitute independent validation.

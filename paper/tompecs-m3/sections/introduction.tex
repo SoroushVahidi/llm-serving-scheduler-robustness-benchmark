@@ -1,68 +1,59 @@
 \section{Introduction}
-A scheduler comparison assumes that different policy labels denote different
-ways to execute the same workload. That assumption can fail even when every
-policy sees identical requests. A label may select a different prefill model
-or resource constraint; conversely, distinct priority lists may induce the
-same state transitions. Establishing the comparison object therefore precedes
-interpreting its winners.
+Distinct scheduling priority lists can select the same work and induce the
+same request-state transitions. Aggregate rankings cannot distinguish this
+structural equivalence from coincidentally similar performance. Evaluation
+therefore requires establishing what the execution model allows each policy
+to change.
 
-The historical LLM-Serving Scheduler Portability (LSSP) corpus illustrates
-the first problem: its implementations did not uniformly enforce prefill
-work and KV capacity. Reproducing their ranking arithmetic cannot separate
-scheduling decisions from policy-dependent execution semantics. We instead
-evaluate four adaptations under \cm, a common contract specifying online
-information, legal actions, work advancement, batch timing, and resource
-acquisition and release. The adaptations retain selected ideas from FCFS
-serving, chunked prefill, decode-first scheduling, and SLAI-inspired prompt
-ordering \citep{kwon2023vllm,agrawal2024sarathi,slai2025}.
+Workload sensitivity, metric dependence, and throughput--latency trade-offs
+are already well established \citep{papaioannou2024workload,agrawal2024etalon,agrawal2024sarathi}.
+Vidur and Vidur-Bench support shared simulation and workload/policy comparisons
+\citep{vidur2024}; evaluation guidelines address baseline fairness and
+misleading summaries \citep{agrawal2025evaluation}. Those contributions
+motivate a more specific question: \emph{which nominal scheduler distinctions
+survive a declared execution contract, why do others disappear, and what
+performance trade-offs remain?} Answering it requires examining state
+transitions and mechanism activation alongside performance measurements.
 
-Prior work already establishes the importance of workload choice
-\citep{papaioannou2024workload}, fair evaluation settings
-\citep{agrawal2025evaluation}, and user-relevant metrics
-\citep{agrawal2024etalon}. Our question is more specific: \emph{which nominal
-scheduler distinctions survive a declared execution contract, and what
-performance comparisons remain after equivalent behaviors are identified?}
-The contribution is an auditable connection between the contract's
-state-transition consequences and the residual empirical ranking problem.
-It has three parts:
-\begin{enumerate}[leftmargin=*]
-\item \textbf{Structural reduction.} A residency/work bound and common
-batch-end timestamps make chunked-FCFS and decode-first equivalent, despite
-possibly different event-span ordering. Clock updates keep the urgency gate
-inactive; prompt-length admission and whole-prefill/decode exclusion remain
-active distinctions. Four labels thus yield three observed behaviors in the
-original contract. A prospective budget-only sensitivity tests this reduction
-on an explicitly feasible input stratum (Section~\ref{sec:budget}); a
-finite-work certificate rules out urgency activation in the examined regimes.
-\item \textbf{Measured residual trade-offs.} Complete matched outcomes show
-how the surviving rules affect mean latency, tail latency, finite-window
-throughput, and deadline attainment. A retrospectively selected saved-record
-example explains their coexistence without treating it as a representative
-window or a causal decomposition.
-\item \textbf{Ranking interpretation.} Source-mean practical stability
-coexists with window-level and metric-dependent reversals. A post hoc view
-removing duplicate behaviors and endpoints checks that this contrast is not
-an artifact of the nominal comparison count.
-\end{enumerate}
+We investigate four project-maintained adaptations under \cm, a contract
+specifying online information, legal actions, work advancement, batch timing,
+and resource acquisition and release. The adaptations retain selected ideas
+from FCFS serving, chunked prefill, decode-first scheduling, and SLAI-inspired
+prompt ordering \citep{kwon2023vllm,agrawal2024sarathi,slai2025}.
+Fixed batch cost removes composition-dependent service costs; four or eight
+resident slots preserve admission competition. This abstraction permits a
+precise account of executable distinctions, without predicting a particular
+GPU or comparing native serving systems. The complete selected corpus has
+120 frozen production-derived windows, six joint arrival/deadline settings,
+and two residency capacities.
 
-The deliberately fixed batch cost removes composition-dependent service
-costs, while bounded residency preserves admission competition. This makes
-\cm\ useful for analyzing executable distinctions, rather than predicting
-a particular GPU. The results neither introduce a scheduling principle nor
-establish that prompt-length ordering is optimal. Their scope is this
-contract and the complete selected corpus; completeness makes the findings
-checkable, not general.
-
-Three questions organize the evidence:
+The scientific contribution connects three questions and their answers:
 \begin{description}[leftmargin=0pt,labelindent=0pt]
-\item[RQ1: Performance.] What trade-offs remain among the distinct behaviors
-across workload windows, arrival/deadline settings, and residency capacities?
-\item[RQ2: Rankings.] How do aggregation, metric choice, exact ties, and
-practical margins change the resulting preferences?
-\item[RQ3: Historical interpretation.] What separates reproducible historical
-arithmetic from calibrated inference?
+\item[RQ1: Effective behavior.] Which policy distinctions change request
+execution? A residency/work bound and common batch-end timestamps imply
+identical per-request transitions for chunked-FCFS and decode-first under
+the original contract. All 1,440 matched terminal comparisons confirm this
+invariant; four labels yield three observed behaviors. A separate 72-cell
+budget sensitivity preserves the pair's equality in its selected stratum,
+an empirical finding beyond the original proof's conditions.
+\item[RQ2: Mechanism inactivity.] Why does SLO-gated's urgency rule not
+execute? Clock updates give zero anchor age in the original contract. A
+finite-work bound also rules out first activation under the examined binding
+budgets. Completion deadlines do not enter the gate. The measured SLO-gated
+effects consequently cannot be attributed to urgency; prompt-length
+admission ordering remains an active distinction.
+\item[RQ3: Residual trade-offs and rankings.] What preferences remain, and
+at what comparison level? Measured mean-latency improvements coexist with
+throughput losses and, on BurstGPT, larger mean window-p95 latency.
+Source-mean practical stability coexists with window-level and
+metric-dependent reversals. Removing duplicate behaviors and endpoints
+preserves that contrast, delimiting what an aggregate ranking can establish.
 \end{description}
-The first two questions constitute the scheduler comparison. STAT01 supports
-the third through synthetic known-truth diagnostics; it supplies neither
-additional C01 performance observations nor population guarantees for its
-selected trace windows.
+
+Section~\ref{sec:contract} gives the structural arguments;
+Sections~\ref{sec:performance} and \ref{sec:rankings} quantify the surviving
+comparisons. Event reconstruction and numerical verification support the
+findings. The separate historical diagnostic in Section~\ref{sec:inference}
+examines statistical calibration; it adds no common-contract observations.
+The selected windows support finite-corpus conclusions. Transfer to other
+execution contracts remains an open modeling question.
