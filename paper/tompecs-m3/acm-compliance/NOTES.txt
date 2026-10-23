@@ -1,0 +1,46 @@
+ACM classification, acknowledgment and research-AI disclosure correction
+Scientific baseline: actual PR #26 head dab2b4302ce72cf5bdd35d952208481e910101f7
+Verification date: 2026-10-23 UTC
+
+Scope
+Only the CCS block, Wulver acknowledgment placement and AI-disclosure placement/wording change in manuscript source. The title, abstract, keywords, mathematical arguments, results, figures, tables, references, implementation and experimental evidence are preserved. Removing the added AI paragraph reproduces the original contract section exactly. Both existing author-review class option sets remain unchanged. No new scientific experiments were performed.
+
+CCS selection and validation
+Retain Computing methodologies~Simulation evaluation, significance 500:
+10010147.10010341.10010370.
+Replace Computer systems organization~Cloud computing with Software and its engineering~Software performance, significance 300:
+10011007.10010940.10011003.10011002.
+Simulation evaluation describes the contract-based simulator comparison and conformance work. Software performance describes measured latency/throughput and ranking trade-offs without suggesting new cloud architecture, machine-learning algorithms or physical GPU calibration. No additional broad concepts are added.
+
+Authoritative taxonomy: https://dl.acm.org/pb-assets/dl_ccs/acm_ccs2012-1626988337597.xml
+An ordinary urllib HTTPS GET returned HTTP 200, 613931 bytes, SHA-256 49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045. The interactive CCS page/browser fetch returned 403; the static official taxonomy was directly available. XML was generated locally from verified taxonomy identifiers, not claimed to be exported by the inaccessible interactive tool. Both identifiers, root/leaf labels, significance values and matching ccsdesc entries were checked. The well-formed CCSXML block appears after the abstract and before maketitle.
+
+Template guidance: https://mirrors.ctan.org/macros/latex/contrib/acmart/acmart.pdf
+Version 2.20, 2026/08/16, sections 2.3 and 2.13. The existing Wulver resource acknowledgment now uses acks before the bibliography. The no-external-funding and no-competing-interests statements remain intact. No grant identifier or new funding claim was added.
+
+AI policy and access qualification
+Canonical policy: https://www.acm.org/publications/policies/new-acm-policy-on-authorship
+Publisher-indexed text: https://prod-www.acm.bloomreach.cloud/publications/policies/new-acm-policy-on-authorship
+Current guidance endpoint: https://www.acm.org/publications/policies/frequently-asked-questions
+The publisher-indexed policy is marked updated May 14, 2026. Its research-AI provision asks for methods-level detail; its writing provision no longer mandates writing-only disclosure. Canonical policy and FAQ retrieval still returned HTTP 403. This correction follows the available publisher text and the author's explicit request, but does not certify live policy/FAQ or journal-specific submission compliance. No conference-specific rule is substituted. The approved writing disclosure is retained voluntarily.
+
+Research assistance is described in Section 3.5 (Conformance evidence), within the execution-model methodology. The paragraph identifies the confirmed Codex research activities and ChatGPT brainstorming, then describes the actual executable workflow. Writing roles and the complete human responsibility statement remain in Declarations, with a cross-reference to Section 3.5.
+
+Factual provenance and limits
+- Author-confirmed roles: baseline sections/declarations.tex and the explicit correction instruction establish Codex software development, experimental analysis/validation, figure/table preparation and manuscript revisions, plus ChatGPT brainstorming, organization and presentation suggestions. No renewed approval is needed.
+- scripts/render.py checks saved-input hashes and creates displays from frozen summaries.
+- scripts/validate.py checks reported quantities and supplementary rows against saved evidence and calls major-revision/verify_example.py to reconstruct the worked example from saved event journals.
+- sections/appendix.tex, evidence/input-hashes.json and novelty-positioning/COMMANDS.md document evidence identities, workflow and prior verification.
+These files document computational operations. They do not establish prompt-level attribution, exact model versions, or which tool wrote each line of code. The wording does not assign any such undocumented details, attribute a theorem/result to AI, or portray tool assistance as independent scientific validation. Model versions and prompts are not invented. No additional author factual input is essential to this bounded statement; any future request for finer attribution would require contemporaneous usage records or author clarification.
+
+Validation commands (all from this worktree; saved-evidence checks, not campaigns)
+PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
+PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider /home/soroush/artifacts/lssp-m3-rc1-20261022/clean-extraction/evidence/c01/research/lssp-c01/test_contract.py
+python paper/tompecs-m3/editorial-revision/verify_preservation.py
+bash paper/tompecs-m3/scripts/build.sh manuscript
+bash paper/tompecs-m3/scripts/build.sh acmsmall
+python paper/tompecs-m3/scripts/validate.py --artifact-root /home/soroush/artifacts/lssp-m3-rc1-20261022/clean-extraction
+
+Fresh verification is recorded in verification.json and scientific-validation.json here. Historical generated validation/preservation files are restored byte-for-byte after saving the new reports. Full logs and page renders remain local under /home/soroush/artifacts/lssp-m3-acm-compliance-20261023/. No private submission materials are included. ToMPECS-specific anonymity, upload and artifact-release requirements remain outside this correction.
+
+Final validation: 54/54 scientific checks; 378 repository tests (four existing numerical warnings); 42 frozen-contract tests; 63 frozen assets preserved. All 53 PDF pages visually inspected. Manuscript 26 pages, acmsmall 27 pages. No overfull boxes, unresolved references or citations. Three existing optional bibliography advisories remain. acmsmall p10 is sparse before the unchanged forced full-page Figure 2 on p11; no figure-placement or scientific content changes were made to hide the pagination effect.

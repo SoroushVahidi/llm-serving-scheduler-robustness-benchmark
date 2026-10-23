@@ -1,0 +1,129 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "baseline": "dab2b4302ce72cf5bdd35d952208481e910101f7",
+  "branch": "manuscript/lssp-m3-acm-compliance-20261023",
+  "scientific_experiments_executed": 0,
+  "scientific_checks": 54,
+  "repository_tests": {
+    "passed": 378,
+    "warnings": 4
+  },
+  "frozen_contract_tests": 42,
+  "preserved_frozen_assets": 63,
+  "scope_check": "PASS: main differs only in CCS; removal of new disclosure restores contract source byte-for-byte; all other tracked files unchanged except declarations, PDFs and existing hydrated-file anomaly. Added files are compliance notes/check records only.",
+  "confidential_material_and_original_worktree_preserved": true,
+  "ccs_validation": "Well-formed XML; both full IDs and root/leaf labels match official ACM taxonomy; XML significance agrees with ccsdesc; block before maketitle.",
+  "pdfs": {
+    "manuscript": {
+      "path": "paper/tompecs-m3/m3-manuscript.pdf",
+      "pages": 26,
+      "sha256": "cfbf6bce69feec09b6a1927c86e3a6b84b5e4561847466e9297844c7954d1eb2",
+      "all_pages_visually_inspected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "ai_methods_pages": [
+        6
+      ],
+      "acknowledgment_pages": [
+        19
+      ]
+    },
+    "acmsmall": {
+      "path": "paper/tompecs-m3/m3-acmsmall.pdf",
+      "pages": 27,
+      "sha256": "fc90b6e165e9bceaf41e69b1ca80c75e549a8e3ea938a9578bb0b11aa5fa9a92",
+      "all_pages_visually_inspected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "ai_methods_pages": [
+        6
+      ],
+      "acknowledgment_pages": [
+        20
+      ]
+    }
+  },
+  "visual_review": "All 53 pages inspected. No clipping, overlapping content or missing captions observed. CCS p1, methods p6, acks before bibliography on p19/p20. acmsmall p10 is sparse before existing forced full-page Figure 2 on p11; recorded pagination limitation, no scientific/figure-setting changes.",
+  "builds": {
+    "manuscript": {
+      "status": "PASS",
+      "pages": 26,
+      "overfull_boxes": 0,
+      "unresolved_references": 0,
+      "bibliography_optional_metadata_advisories": [
+        "empty address in vidur2024",
+        "empty publisher in maurer2009",
+        "empty address in maurer2009"
+      ],
+      "template_warning": "ACM reference-format block suppressed in author-review draft"
+    },
+    "acmsmall": {
+      "status": "PASS",
+      "pages": 27,
+      "overfull_boxes": 0,
+      "unresolved_references": 0,
+      "bibliography_optional_metadata_advisories": [
+        "empty address in vidur2024",
+        "empty publisher in maurer2009",
+        "empty address in maurer2009"
+      ],
+      "template_warning": "ACM reference-format block suppressed in author-review draft"
+    }
+  },
+  "remaining_limits": [
+    "Canonical authorship-policy and FAQ HTTP 403; alignment is with available indexed ACM May 2026 policy text, not certification of live guidance.",
+    "No prompt-level attribution or model-version records asserted.",
+    "Existing ToMPECS-specific requirements and artifact readiness remain outside this correction."
+  ]
+}
