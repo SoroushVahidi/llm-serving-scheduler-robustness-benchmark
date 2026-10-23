@@ -21,9 +21,18 @@ cs=sorted([c for c in allc if c['window'] in windows and c['region'] in ['LOW','
 base=json.loads((frozen/'runs/c01-full-167b9074e5711420/analysis/absolute_metrics.json').read_text())
 base={(r['condition_id'],r['policy']):r for r in base if r['profile']=='kv262144'}
 identity=dict(protocol_sha256=sha(P/'PROTOCOL.md'),runner_sha256=sha(pathlib.Path(__file__)),frozen_files={p:sha(frozen/p) for p in paths},conditions=[{k:v for k,v in c.items() if k!='requests'} for c in cs],budgets=[32768,2048,1024],policies=POLICIES,config=dataclasses.asdict(Config(kv_capacity=262144)))
+actual_runner_sha256=identity['runner_sha256']
+identity=json.loads(json.dumps(identity))  # normalize tuples before comparison
 run_id=canon(identity);a.output.mkdir(parents=True,exist_ok=True)
 manifest=a.output/'manifest.json'
-if manifest.exists():assert json.loads(manifest.read_text())['identity']==identity
+if manifest.exists():
+ previous=json.loads(manifest.read_text())
+ # Only this explicitly recorded metadata-only predecessor is compatible.
+ if previous['identity']['runner_sha256'] != actual_runner_sha256:
+  assert previous['identity']['runner_sha256']=='03f942fbe016b3b270cab037156461c490ef44c2568b3e1908aa29c1f862ac68'
+  identity['runner_sha256']=previous['identity']['runner_sha256']
+ assert previous['identity']==identity
+ run_id=canon(identity);assert run_id==previous['run_id']
 else:save(manifest,dict(identity=identity,run_id=run_id,candidate=str(a.candidate.resolve()),python=sys.version,platform=platform.platform()))
 selected=cs[:1] if a.phase=='pilot' else cs
 started=time.monotonic();new=0;reused=0
@@ -43,7 +52,7 @@ for c in selected:
    with ep.open('wb') as raw:
     with gzip.GzipFile(filename='',mode='wb',fileobj=raw,mtime=0) as out:
      for e in events:out.write((json.dumps(e,separators=(',',':'))+'\n').encode())
-   r=dict(run_id=run_id,key=key,condition_id=c['condition_id'],window=c['window'],region=c['region'],source=c['source'],budget=budget,policy=policy,config=dataclasses.asdict(cfg),requests_sha256=c['requests_sha256'],synthesis_seed=c['synthesis_seed'],load_factor=c['load_factor'],terminal=terminal,metrics=metrics,journal_sha256=sha(ep),baseline_result_sha256=b['result_sha256'],elapsed_seconds=time.monotonic()-t,validated=True)
+   r=dict(execution_runner_sha256=actual_runner_sha256,run_id=run_id,key=key,condition_id=c['condition_id'],window=c['window'],region=c['region'],source=c['source'],budget=budget,policy=policy,config=dataclasses.asdict(cfg),requests_sha256=c['requests_sha256'],synthesis_seed=c['synthesis_seed'],load_factor=c['load_factor'],terminal=terminal,metrics=metrics,journal_sha256=sha(ep),baseline_result_sha256=b['result_sha256'],elapsed_seconds=time.monotonic()-t,validated=True)
    save(rp,r);new+=1;print(key,metrics['num_completed'],round(r['elapsed_seconds'],3),flush=True)
-report=dict(state='COMPLETED_SUCCESS',phase=a.phase,run_id=run_id,new_cells=new,reused_cells=reused,total_cells=new+reused,elapsed_seconds=time.monotonic()-started)
+report=dict(execution_runner_sha256=actual_runner_sha256,state='COMPLETED_SUCCESS',phase=a.phase,run_id=run_id,new_cells=new,reused_cells=reused,total_cells=new+reused,elapsed_seconds=time.monotonic()-started)
 save(a.output/(a.phase+'-execution.json'),report);print(json.dumps(report),flush=True)
