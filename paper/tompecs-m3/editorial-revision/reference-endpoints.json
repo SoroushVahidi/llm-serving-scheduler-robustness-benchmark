@@ -1,0 +1,1258 @@
+[
+  {
+    "key": "kwon2023vllm",
+    "kind": "url",
+    "url": "https://arxiv.org/abs/2309.06180",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2309.06180",
+    "bytes": 44011,
+    "sha256": "d607fc7e49fc35eb1eb848192093c46831a56d27d9b50e07f0d7a84e1ec45ce5"
+  },
+  {
+    "key": "kwon2023vllm",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1145/3600006.3613165",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1145/3600006.3613165",
+    "bytes": 33494,
+    "sha256": "3d579109a75eef6a4039c11aeb4d2d1712c1e1fcfb134acc7631e845ad41576d",
+    "metadata": {
+      "title": [
+        "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0009-0008-8870-4892",
+          "authenticated-orcid": false,
+          "given": "Woosuk",
+          "family": "Kwon",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0004-1534-9106",
+          "authenticated-orcid": false,
+          "given": "Zhuohan",
+          "family": "Li",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0007-3787-0316",
+          "authenticated-orcid": false,
+          "given": "Siyuan",
+          "family": "Zhuang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-1883-2126",
+          "authenticated-orcid": false,
+          "given": "Ying",
+          "family": "Sheng",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley and Stanford University, Berkeley, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-6611-4612",
+          "authenticated-orcid": false,
+          "given": "Lianmin",
+          "family": "Zheng",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-9298-6254",
+          "authenticated-orcid": false,
+          "given": "Cody Hao",
+          "family": "Yu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Independent Researcher, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-2921-956X",
+          "authenticated-orcid": false,
+          "given": "Joseph",
+          "family": "Gonzalez",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0003-8392-3977",
+          "authenticated-orcid": false,
+          "given": "Hao",
+          "family": "Zhang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC San Diego, La Jolla, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-5373-0088",
+          "authenticated-orcid": false,
+          "given": "Ion",
+          "family": "Stoica",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "UC Berkeley, Berkeley, United States of America"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Proceedings of the 29th Symposium on Operating Systems Principles"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2023,
+            10,
+            23
+          ]
+        ]
+      },
+      "volume": null,
+      "issue": null,
+      "page": "611-626",
+      "article-number": null,
+      "DOI": "10.1145/3600006.3613165"
+    }
+  },
+  {
+    "key": "yu2022orca",
+    "kind": "url",
+    "url": "https://www.usenix.org/conference/osdi22/presentation/yu",
+    "status": 200,
+    "final_url": "https://www.usenix.org/conference/osdi22/presentation/yu",
+    "bytes": 38596,
+    "sha256": "0be5bc7ce4c8f91706c5b95dc4d6895e35d93737dc2d14b8c67c2787701a4955"
+  },
+  {
+    "key": "agrawal2024sarathi",
+    "kind": "url",
+    "url": "https://www.usenix.org/conference/osdi24/presentation/agrawal",
+    "status": 200,
+    "final_url": "https://www.usenix.org/conference/osdi24/presentation/agrawal",
+    "bytes": 41879,
+    "sha256": "a381fc13109f93672b460d18da6e571435e9805f81be92c27d1e0b5b0b17fd7f"
+  },
+  {
+    "key": "burstgpt2025",
+    "kind": "url",
+    "url": "https://arxiv.org/abs/2401.17644",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2401.17644",
+    "bytes": 45949,
+    "sha256": "62a5cc76366ba5c487e2a2e43b44cf822846b65eaf8fb82b42854c78b432b763"
+  },
+  {
+    "key": "burstgpt2025",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1145/3711896.3737413",
+    "status": "UNRESOLVED",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "azure2024trace",
+    "kind": "url",
+    "url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md",
+    "status": 200,
+    "final_url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md",
+    "bytes": 247149,
+    "sha256": "da3276028e6e374c1a2bbb5c0df02d6df4df005c525467015097ba4cd77453f3"
+  },
+  {
+    "key": "stojkovic2025dynamollm",
+    "kind": "url",
+    "url": "https://arxiv.org/abs/2408.00741",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2408.00741",
+    "bytes": 44550,
+    "sha256": "8665e42ff9ef3a4fe7737f023c5e23ea4fe2cbb5dabb9f3e9b8d2da997ce856b"
+  },
+  {
+    "key": "stojkovic2025dynamollm",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1109/HPCA61900.2025.00102",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1109/HPCA61900.2025.00102",
+    "bytes": 13235,
+    "sha256": "4dbf96ad7527119a5462dc47ed81903588ff97440441bd142c59c85e73526a5d",
+    "metadata": {
+      "title": [
+        "DynamoLLM: Designing LLM Inference Clusters for Performance and Energy Efficiency"
+      ],
+      "author": [
+        {
+          "given": "Jovan",
+          "family": "Stojkovic",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "University of Illinois at Urbana-Champaign"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Chaojie",
+          "family": "Zhang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Microsoft Azure Research - Systems"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "\u00cd\u00f1igo",
+          "family": "Goiri",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Microsoft Azure Research - Systems"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Josep",
+          "family": "Torrellas",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "University of Illinois at Urbana-Champaign"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Esha",
+          "family": "Choukse",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Microsoft Azure Research - Systems"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "2025 IEEE International Symposium on High Performance Computer Architecture (HPCA)"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2025,
+            3,
+            1
+          ]
+        ]
+      },
+      "volume": null,
+      "issue": null,
+      "page": "1348-1362",
+      "article-number": null,
+      "DOI": "10.1109/hpca61900.2025.00102"
+    }
+  },
+  {
+    "key": "wang2025kvcache",
+    "kind": "url",
+    "url": "https://www.usenix.org/conference/atc25/presentation/wang-jiahao",
+    "status": 200,
+    "final_url": "https://www.usenix.org/conference/atc25/presentation/wang-jiahao",
+    "bytes": 38707,
+    "sha256": "8b54b917a90c9a64ea6f5157ca0060651b43e257146806c32fe883362e926734"
+  },
+  {
+    "key": "bailianqwen2026",
+    "kind": "url",
+    "url": "https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon/tree/5f7439c51ec248a0c585f7d90a41a6f57773b912",
+    "status": 200,
+    "final_url": "https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon/tree/5f7439c51ec248a0c585f7d90a41a6f57773b912",
+    "bytes": 302785,
+    "sha256": "fce5d2c231e3dfc72b90da9191870bfa3241fb8f6c51ede515f1e79559c15e28"
+  },
+  {
+    "key": "vidur2024",
+    "kind": "url",
+    "url": "https://proceedings.mlsys.org/paper_files/paper/2024/hash/b74a8de47d2b3c928360e0a011f48351-Abstract-Conference.html",
+    "status": 200,
+    "final_url": "https://proceedings.mlsys.org/paper_files/paper/2024/hash/b74a8de47d2b3c928360e0a011f48351-Abstract-Conference.html",
+    "bytes": 10112,
+    "sha256": "2a61d0ce11e357faab60613a44fc16655054c4b8da29fb889546dee3a702d5c9"
+  },
+  {
+    "key": "llmservingsim2024",
+    "kind": "url",
+    "url": "https://arxiv.org/abs/2408.05499v1",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2408.05499v1",
+    "bytes": 45273,
+    "sha256": "97edf1baf5647570b172f1e69e1c44c37130070c9fce8f91df1497b1daee6cbe"
+  },
+  {
+    "key": "llmservingsim2024",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1109/IISWC63097.2024.00012",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1109/IISWC63097.2024.00012",
+    "bytes": 3176,
+    "sha256": "0a70fe7c75893d2a8147569704e44899a214d7f1d0145b1e0cd23708306f855a",
+    "metadata": {
+      "title": [
+        "LLMServingSim: A HW/SW Co-Simulation Infrastructure for LLM Inference Serving at Scale"
+      ],
+      "author": [
+        {
+          "given": "Jaehong",
+          "family": "Cho",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Minsu",
+          "family": "Kim",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hyunmin",
+          "family": "Choi",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Guseul",
+          "family": "Heo",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jongse",
+          "family": "Park",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "KAIST,School of Computing,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "2024 IEEE International Symposium on Workload Characterization (IISWC)"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            9,
+            15
+          ]
+        ]
+      },
+      "volume": null,
+      "issue": null,
+      "page": "15-29",
+      "article-number": null,
+      "DOI": "10.1109/iiswc63097.2024.00012"
+    }
+  },
+  {
+    "key": "agrawal2024etalon",
+    "kind": "url",
+    "url": "https://arxiv.org/abs/2407.07000v2",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2407.07000v2",
+    "bytes": 43477,
+    "sha256": "c173d3f2e3c4078279142d7fa248585dadbaa2444f03a0a2903db6d167323e72"
+  },
+  {
+    "key": "llmservingsim2026",
+    "kind": "url",
+    "url": "https://arxiv.org/abs/2602.23036",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2602.23036",
+    "bytes": 44656,
+    "sha256": "150ce307270ce2656eeddb80aa0980be6bad4a23f66c0abfc9fb40e68734b3d3"
+  },
+  {
+    "key": "llmservingsim2026",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1109/ISPASS69572.2026.00012",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1109/ISPASS69572.2026.00012",
+    "bytes": 10870,
+    "sha256": "36798a47c652f285bf67a1d86fd081cf71d0766fb63ead5437cde29484015f4b",
+    "metadata": {
+      "title": [
+        "LLMServingSim 2.0: A Unified Simulator for Heterogeneous and Disaggregated LLM Serving Infrastructure"
+      ],
+      "author": [
+        {
+          "given": "Jaehong",
+          "family": "Cho",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "School of Computing KAIST,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hyunmin",
+          "family": "Choi",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "School of Computing KAIST,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Guseul",
+          "family": "Heo",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "School of Computing KAIST,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jongse",
+          "family": "Park",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "School of Computing KAIST,Daejeon,South Korea"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "2026 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2026,
+            4,
+            26
+          ]
+        ]
+      },
+      "volume": null,
+      "issue": null,
+      "page": "1-14",
+      "article-number": null,
+      "DOI": "10.1109/ispass69572.2026.00012"
+    }
+  },
+  {
+    "key": "papaioannou2024workload",
+    "kind": "url",
+    "url": "https://doi.org/10.1145/3642970.3655823",
+    "status": "UNRESOLVED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "key": "papaioannou2024workload",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1145/3642970.3655823",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1145/3642970.3655823",
+    "bytes": 17545,
+    "sha256": "3e768979439ae5ed0ab71cfdc9adb825d268b140a7313cfee79ec33de8b0ad3e",
+    "metadata": {
+      "title": [
+        "The Importance of Workload Choice in Evaluating LLM Inference Systems"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0009-0003-0573-3254",
+          "authenticated-orcid": false,
+          "given": "Konstantinos",
+          "family": "Papaioannou",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "IMDEA Software Institute, Universidad Polit\u00e9cnica de Madrid"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-3197-839X",
+          "authenticated-orcid": false,
+          "given": "Thaleia Dimitra",
+          "family": "Doudali",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "IMDEA Software Institute, Madrid, Spain"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Proceedings of the 4th Workshop on Machine Learning and Systems"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            4,
+            22
+          ]
+        ]
+      },
+      "volume": null,
+      "issue": null,
+      "page": "39-46",
+      "article-number": null,
+      "DOI": "10.1145/3642970.3655823"
+    }
+  },
+  {
+    "key": "zakay2014resampling",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1002/cpe.3240",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1002/cpe.3240",
+    "bytes": 13710,
+    "sha256": "0668c529538fb2d12efc7050e1c27fafdf080b8ff551b9de306c8dfff444e131",
+    "metadata": {
+      "title": [
+        "Workload resampling for performance evaluation of parallel job schedulers"
+      ],
+      "author": [
+        {
+          "given": "Netanel",
+          "family": "Zakay",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "The Rachel and Selim Benin School of Computer Science and Engineering The Hebrew University of Jerusalem  91904 Jerusalem Israel"
+            }
+          ],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "given": "Dror G.",
+          "family": "Feitelson",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Rachel and Selim Benin School of Computer Science and Engineering The Hebrew University of Jerusalem  91904 Jerusalem Israel"
+            }
+          ],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Concurrency and Computation: Practice and Experience"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            3,
+            14
+          ]
+        ]
+      },
+      "volume": "26",
+      "issue": "12",
+      "page": "2079-2105",
+      "article-number": null,
+      "DOI": "10.1002/cpe.3240"
+    }
+  },
+  {
+    "key": "slai2025",
+    "kind": "url",
+    "url": "https://doi.org/10.1145/3771574",
+    "status": "UNRESOLVED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "key": "slai2025",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1145/3771574",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1145/3771574",
+    "bytes": 17356,
+    "sha256": "3ab52010aab9d83473698a23dc09e5ebaeeb6d9245f5ad8761fc0ca4bb989979",
+    "metadata": {
+      "title": [
+        "Optimal Scheduling Algorithms for LLM Inference: Theory and Practice"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0009-0003-1550-8683",
+          "authenticated-orcid": false,
+          "given": "Agrim",
+          "family": "Bari",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-3477-4947",
+          "authenticated-orcid": false,
+          "given": "Parikshit",
+          "family": "Hegde",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-1498-494X",
+          "authenticated-orcid": false,
+          "given": "Gustavo",
+          "family": "de Veciana",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Chandra Department of Electrical and Computer Engineering, The University of Texas at Austin, Austin, TX, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Proceedings of the ACM on Measurement and Analysis of Computing Systems"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2025,
+            12
+          ]
+        ]
+      },
+      "volume": "9",
+      "issue": "3",
+      "page": "1-43",
+      "article-number": null,
+      "DOI": "10.1145/3771574"
+    }
+  },
+  {
+    "key": "benjamini2001dependency",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1214/aos/1013699998",
+    "status": "UNRESOLVED",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "key": "servegen2026",
+    "kind": "url",
+    "url": "https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen",
+    "status": 200,
+    "final_url": "https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen",
+    "bytes": 38560,
+    "sha256": "d4eab2dfccf6eec913b90b007c9365f53cd3703f2a8aa9600f096503fe849d5f"
+  },
+  {
+    "key": "zhong2024distserve",
+    "kind": "url",
+    "url": "https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin",
+    "status": 200,
+    "final_url": "https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin",
+    "bytes": 41205,
+    "sha256": "e22f4714cd74d6b2c73b8cc7fa0650e2172793d1d90867626051bbb19773bdfe"
+  },
+  {
+    "key": "sun2024llumnix",
+    "kind": "url",
+    "url": "https://www.usenix.org/conference/osdi24/presentation/sun-biao",
+    "status": 200,
+    "final_url": "https://www.usenix.org/conference/osdi24/presentation/sun-biao",
+    "bytes": 40414,
+    "sha256": "fc71f8b715ec75374a0dc52beab54468741837c26d3c46227065cb13d42be549"
+  },
+  {
+    "key": "sargent2013",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1057/jos.2012.20",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1057/jos.2012.20",
+    "bytes": 9176,
+    "sha256": "5c429c046ac692b1e983b7c221e81dce92309a8c4158f01c093f9d687a64e925",
+    "metadata": {
+      "title": [
+        "Verification and validation of simulation models"
+      ],
+      "author": [
+        {
+          "given": "R G",
+          "family": "Sargent",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Syracuse University Syracuse USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Journal of Simulation"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2013,
+            2
+          ]
+        ]
+      },
+      "volume": "7",
+      "issue": "1",
+      "page": "12-24",
+      "article-number": null,
+      "DOI": "10.1057/jos.2012.20"
+    }
+  },
+  {
+    "key": "benjamini1995",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1111/j.2517-6161.1995.tb02031.x",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1111/j.2517-6161.1995.tb02031.x",
+    "bytes": 7792,
+    "sha256": "214c6fcb78014fad871f16022ddebd278d55d42acd219442aca5822491064b48",
+    "metadata": {
+      "title": [
+        "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing"
+      ],
+      "author": [
+        {
+          "given": "Yoav",
+          "family": "Benjamini",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Tel Aviv University , Israel"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yosef",
+          "family": "Hochberg",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Tel Aviv University , Israel"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Journal of the Royal Statistical Society Series B: Statistical Methodology"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1995,
+            1,
+            1
+          ]
+        ]
+      },
+      "volume": "57",
+      "issue": "1",
+      "page": "289-300",
+      "article-number": null,
+      "DOI": "10.1111/j.2517-6161.1995.tb02031.x"
+    }
+  },
+  {
+    "key": "holm1979",
+    "kind": "url",
+    "url": "https://www.jstor.org/stable/4615733",
+    "status": 200,
+    "final_url": "https://www.jstor.org/stable/4615733",
+    "bytes": 3038,
+    "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea"
+  },
+  {
+    "key": "hoeffding1963",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.1080/01621459.1963.10500830",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.1080/01621459.1963.10500830",
+    "bytes": 4986,
+    "sha256": "bbc358bb827387382fa0cf91cdc325fc4c3ada5d5a2f0e96b0ec65d3ef173ac3",
+    "metadata": {
+      "title": [
+        "Probability Inequalities for Sums of Bounded Random Variables"
+      ],
+      "author": [
+        {
+          "given": "Wassily",
+          "family": "Hoeffding",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "University of North Carolina",
+              "place": [
+                "USA"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Journal of the American Statistical Association"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1963,
+            3
+          ]
+        ]
+      },
+      "volume": "58",
+      "issue": "301",
+      "page": "13-30",
+      "article-number": null,
+      "DOI": "10.1080/01621459.1963.10500830"
+    }
+  },
+  {
+    "key": "maurer2009",
+    "kind": "url",
+    "url": "https://www.cs.mcgill.ca/~colt2009/papers/012.pdf",
+    "status": 200,
+    "final_url": "https://www.cs.mcgill.ca/~colt2009/papers/012.pdf",
+    "bytes": 152160,
+    "sha256": "4b06ea7eb3a832347df493948deb06a7053aa36d22eba6793d2a4e48ab3935c1"
+  },
+  {
+    "key": "dai2026throughput",
+    "kind": "url",
+    "url": "https://arxiv.org/abs/2504.07347v3",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2504.07347v3",
+    "bytes": 42835,
+    "sha256": "a43b09ac2fd6272d30998e8dfa70fa702611ebe5986c2b9309fe86da2e8c80fb"
+  },
+  {
+    "key": "agrawal2025evaluation",
+    "kind": "url",
+    "url": "https://arxiv.org/abs/2507.09019v1",
+    "status": 200,
+    "final_url": "https://arxiv.org/abs/2507.09019v1",
+    "bytes": 45371,
+    "sha256": "6d62008a3165e1121fb78b757eb573acf94f44383a33af8b5130d8a3864d4089"
+  },
+  {
+    "key": "agrawal2025evaluation",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.48550/arXiv.2507.09019",
+    "status": "UNRESOLVED",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "key": "fu2024ranking",
+    "kind": "url",
+    "url": "https://papers.nips.cc/paper_files/paper/2024/hash/6c8985579293e0209bdaa4f21bb1d237-Abstract-Conference.html",
+    "status": 200,
+    "final_url": "https://papers.nips.cc/paper_files/paper/2024/hash/6c8985579293e0209bdaa4f21bb1d237-Abstract-Conference.html",
+    "bytes": 9602,
+    "sha256": "055dded56258e9c409ce45b36348ab414d717932990fbf3cf7a20e5edb5f4d0c"
+  },
+  {
+    "key": "fu2024ranking",
+    "kind": "doi",
+    "url": "https://api.crossref.org/works/10.52202/079017-1882",
+    "status": 200,
+    "final_url": "https://api.crossref.org/works/10.52202/079017-1882",
+    "bytes": 2339,
+    "sha256": "277256d8a0bad4570ffe5d738b1b22a199063a3044cdbad7f67884c415e00e5d",
+    "metadata": {
+      "title": [
+        "Efficient LLM Scheduling by Learning to Rank"
+      ],
+      "author": [
+        {
+          "given": "Yichao",
+          "family": "Fu",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Siqi",
+          "family": "Zhu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Runlong",
+          "family": "Su",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Aurick",
+          "family": "Qiao",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ion",
+          "family": "Stoica",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hao",
+          "family": "Zhang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Advances in Neural Information Processing Systems 37"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      },
+      "volume": null,
+      "issue": null,
+      "page": "59006-59029",
+      "article-number": null,
+      "DOI": "10.52202/079017-1882"
+    }
+  },
+  {
+    "key": "hong2025sola",
+    "kind": "url",
+    "url": "https://proceedings.mlsys.org/paper_files/paper/2025/hash/bc82dbfbfa43232be85b8d9838f49c3e-Abstract-Conference.html",
+    "status": 200,
+    "final_url": "https://proceedings.mlsys.org/paper_files/paper/2025/hash/bc82dbfbfa43232be85b8d9838f49c3e-Abstract-Conference.html",
+    "bytes": 9905,
+    "sha256": "8ade3fb9e3ad2b7c72bc80ea3c770f9c7d893a38c89390cc523c1062bd3056ec"
+  },
+  {
+    "key": "slai-original",
+    "kind": "primary-pdf",
+    "url": "https://arxiv.org/pdf/2508.01002",
+    "status": 200,
+    "final_url": "https://arxiv.org/pdf/2508.01002",
+    "bytes": 4344829,
+    "sha256": "2dbb1637934e0b4104b18292ba2e98f8aa04c39e54146e837918e2daa7d513d3"
+  },
+  {
+    "key": "sargent-original",
+    "kind": "primary-pdf",
+    "url": "https://informs-sim.org/wsc13papers/includes/files/027.pdf",
+    "status": 200,
+    "final_url": "https://informs-sim.org/wsc13papers/includes/files/027.pdf",
+    "bytes": 392263,
+    "sha256": "acdab7b405c96b71b18d719b05175d2e05eadbc60bf13178420f2392ea491529"
+  },
+  {
+    "key": "workload-slides",
+    "kind": "primary-pdf",
+    "url": "https://www.cl.cam.ac.uk/research/srg/netos/euromlsys2024/slides/S2_3__03.pdf",
+    "status": 200,
+    "final_url": "https://www.cl.cam.ac.uk/research/srg/netos/euromlsys2024/slides/S2_3__03.pdf",
+    "bytes": 1917236,
+    "sha256": "9ac2bb13f5fe61d7fe23c0263f63b1e30f761a98392261251d82f2f426914688"
+  }
+]

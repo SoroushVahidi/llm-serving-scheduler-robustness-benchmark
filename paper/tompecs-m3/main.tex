@@ -1,7 +1,7 @@
 \ifdefined\MThreeSmall
-\documentclass[acmsmall,screen]{acmart}
+\documentclass[acmsmall,screen,nonacm]{acmart}
 \else
-\documentclass[manuscript,screen,review]{acmart}
+\documentclass[manuscript,screen,review,nonacm]{acmart}
 \fi
 \usepackage{booktabs,tabularx,enumitem,amsmath}
 \usepackage{seqsplit}
@@ -17,33 +17,32 @@
 \title{Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation}
 \author{Soroush Vahidi}
 \email{sv96@njit.edu}
-\affiliation{\institution{New Jersey Institute of Technology}\city{Newark}\state{New Jersey}\country{USA}}
+\affiliation{\department{Department of Computer Science}\institution{New Jersey Institute of Technology}\city{Newark}\state{New Jersey}\country{USA}}
 \newcommand{\cm}{CM-0.1}
 \newcommand{\anwg}{\ensuremath{\mathrm{ANWG}}}
-\newcommand{\authorreview}[1]{\par\noindent\textbf{AUTHOR REVIEW REQUIRED:} #1\par}
 \begin{document}
 \begin{abstract}
-A shared execution contract can change what a scheduler comparison means:
-nominally different policies may have the same executable consequences,
-while the remaining differences reward different objectives. We present a
-reproducible case study of four LLM-serving scheduler adaptations under
-CM-0.1, a synthetic model with fixed batch cost and bounded residency.
-The contract yields three observed behaviors: chunked-FCFS and decode-first
-produce identical per-request terminal states and metrics in all 1,440 matched conditions.
-Their priority lists can differ without changing executed work. SLO-gated's
-urgency gate is inactive, but prompt-length admission ordering remains active.
-Across six source/capacity aggregates from 120 trace-derived windows,
-SLO-gated reduces mean latency by 11.3--34.0\% against chunked-FCFS while
-reducing token throughput by 1.65--4.01\%; BurstGPT mean window-p95 latency
-increases by 3.72\% and 18.97\%. A saved-record example connects lower
-mean latency to earlier completions for many requests alongside a longer
-drain and worse p95. No source-mean comparison has a strict 10\% practical
-reversal, although window-level and metric-dependent reversals occur.
-A separate known-truth diagnostic identifies limitations of historical
-inference. The contribution is the explanation and measurement of which
-scheduler distinctions survive this contract and how they affect ranking
-interpretation, not a new scheduler, general scheduling principle, universal
-ranking, physical performance prediction, or statistical guarantee.
+Scheduler comparisons require more than identical inputs: the execution
+contract determines which policy distinctions can affect request outcomes.
+We connect those structural consequences to measured performance in a
+common-model evaluation of four LLM-serving adaptations. Fixed batch timing
+and a residency/work bound make chunked-FCFS and decode-first equivalent;
+complete terminal records confirm the equality in all 1,440 matched
+conditions, despite possible differences in journal ordering. An inactive
+urgency gate leaves prompt-length admission ordering as an active mechanism.
+Among the three distinct behaviors, SLO-gated reduces aggregate mean latency
+by 11.3--34.0\% against chunked-FCFS while reducing finite-window token
+throughput by 1.65--4.01\%; BurstGPT mean window-p95 latency increases by
+3.72\% and 18.97\%. Saved request timelines illustrate how these objectives
+can disagree. Source means exhibit no strict 10\% practical reversals,
+although window-level and metric-dependent reversals occur. A post hoc
+analysis removing duplicate behaviors and endpoints preserves that contrast.
+A separate known-truth diagnostic distinguishes historical arithmetic
+reproduction from statistical calibration. The contribution is a verified,
+contract-specific explanation of which scheduling differences remain
+meaningful and how their rankings depend on the comparison estimand.
+The model isolates execution semantics; its rates do not predict a
+production GPU or establish a universal scheduler ranking.
 \end{abstract}
 \ccsdesc[500]{Computing methodologies~Simulation evaluation}
 \ccsdesc[300]{Computer systems organization~Cloud computing}
@@ -67,9 +66,12 @@ ranking, physical performance prediction, or statistical guarantee.
 \FloatBarrier
 \input{sections/declarations}
 \FloatBarrier
+\begingroup
+\interlinepenalty=10000
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
-\clearpage
+\endgroup
+\FloatBarrier
 \appendix
 \input{sections/appendix}
 \end{document}

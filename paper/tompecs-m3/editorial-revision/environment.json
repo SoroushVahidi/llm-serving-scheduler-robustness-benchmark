@@ -1,0 +1,14 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9",
+    "PyMuPDF": "1.28.2"
+  },
+  "tex": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+  "clean_venv": "/home/soroush/lssp-m3-focused-editorial-20261022/venv",
+  "system_dependencies": "TeX Live and Poppler; OS not reprovisioned",
+  "experiments_executed": 0
+}
