@@ -1,0 +1,69 @@
+\subsection{A prospective token-budget sensitivity}\label{sec:budget}
+To test a boundary of the equivalence argument, we prospectively specified
+that reducing only the batch budget would make chunked-FCFS and decode-first
+execute different per-request spans in at least one matched condition.
+The predicted mechanism was prefill work exhausting the budget before
+later resident decodes. The unmodified engine requires every whole prompt
+to fit the budget for all policies. Full-corpus feasibility requires at least
+29,067 tokens, above the 4,096-token chunked-work bound. No intact Azure or
+Bailian window fits below 4,096 tokens; using them would require another
+contract or input change.
+We therefore selected the lexicographically first three frozen BurstGPT
+windows with maximum prompts strictly above 512 and at most 1,024 tokens:
+\texttt{pilot\_v2\_w16}, \texttt{w23}, and \texttt{w28}, with maxima
+1,005, 790, and 648. This input-selected stratum permits multi-batch
+prefills but is not representative of the full corpus.
+
+All 200 requests, frozen seeds and arrival/deadline transformations remain
+unchanged. We retain LOW and HIGH\_PRESSURE, eight resident slots, and
+all four adaptations. Budgets are the original 32,768, then 2,048 and
+1,024 tokens, corresponding to four and two 512-token chunks versus the
+4,096-token potential work bound. Timing, reservations, horizon and policy
+code are fixed. A 12-cell feasibility pilot precedes the remaining 60 cells;
+all 72 pass the independent event referee, complete all 14,400 request
+executions, and have independently recomputed terminal metrics. The 24
+baseline cells exactly reproduce their archived metrics and terminal states.
+
+The primary hypothesis is rejected for this design: normalized token-span
+journals and terminal states agree for chunked-FCFS and decode-first in
+all 12 perturbed matches, and three distinct terminal behaviors remain in
+each of the 18 budget--condition combinations. Both policies serve every
+ready resident decode in these runs; budget exhaustion changes prefill
+progress without separating their transitions. This observation extends
+the tested operating region, not the nonbinding-bound proof to arbitrary
+budgets. Span-list ordering differs in four of six matches at every budget,
+but causes no state or timing difference.
+
+The perturbation does affect execution. Across all four labels, exactly
+full-budget batches increase from 0/25,983 to 3/25,986 and 36/25,984 as the
+budget decreases. These counts include the equivalent labels and exclude
+whole-prompt packing that leaves unusable residual budget. At 1,024 tokens,
+SLO-gated's prefill-before-residual-decode rule omits 42 ready-decode
+opportunities out of 35,976; its maximum anchor age reaches 2\,ms, still below the
+unchanged 495\,ms urgency threshold. The gate never activates.
+Table~\ref{tab:budget} shows modest, sometimes nonmonotone terminal effects.
+Whole-FCFS changes which whole prompts fit and hence which batches defer
+decodes; a smaller budget need not worsen every completion time.
+
+\begin{table}[!htbp]
+\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Budget sensitivity: minimum and maximum paired changes from
+32,768 tokens across six fixed window--setting conditions. Latency columns
+are milliseconds; throughput is model tokens/s. Decode-first equals
+chunked-FCFS in every row. Ranges describe these conditions, not confidence
+intervals. All other contract parameters remain fixed.}
+\label{tab:budget}\input{budget-sensitivity/effects-table}
+\end{table}
+
+No strict-10\% policy-pair preference reverses across budgets
+($0/576$ eligible comparisons: six conditions, two perturbations, six
+policy pairs, eight endpoints). With the existing numerical-tie tolerance,
+5/96 top sets change, all involving TPOT as SLO-gated leaves a former tie;
+its largest mean-TPOT increase is only 5.87\,$\mu$s. Whole-FCFS deadline
+attainment changes by $-0.005$ to $+0.010$, and SLO-gated by $-0.005$ to
+zero. All throughput changes are below 0.4\% in magnitude. These bounded
+findings preserve the tested equivalence while exposing small execution
+changes; they do not retest cross-source means or establish equivalence
+outside this stratum. Three selected, temporally related windows support
+paired descriptive ranges, not population confidence intervals. The original
+C01 and reduced-comparison results remain separate and unchanged.

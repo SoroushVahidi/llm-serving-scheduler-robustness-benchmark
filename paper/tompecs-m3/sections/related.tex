@@ -39,7 +39,8 @@ dependent batch time and a maximal-request-batch-size extension
 \citep{dai2026throughput}. The binding constraint matters in both studies,
 but the estimands differ. Our contract fixes batch time, limits residency to four or
 eight requests, and measures output divided by finite-window completion
-duration. Its chunked work cannot exhaust the token budget. These drained
+duration. Its original-contract chunked work cannot exhaust the token budget;
+Section~\ref{sec:budget} separately tests lower budgets. These drained
 rates are not a stability region, and the observed throughput losses neither
 refute Dai et al.'s results nor establish a new optimality theorem.
 

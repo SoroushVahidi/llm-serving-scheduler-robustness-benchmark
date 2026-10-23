@@ -1,0 +1,604 @@
+{
+  "status": "PASS",
+  "independent_oracle": {
+    "status": "PASS",
+    "absolute_cells": 5760,
+    "rankings": 15840,
+    "pairwise_rows": 95040,
+    "reversal_groups": 26136,
+    "independent_method": "integer-ratio boundary arithmetic; rank sorting; direct enumeration of every comparison; independently grouped absolute-cell metrics",
+    "inference": "NONE",
+    "scientific_review_required": true
+  },
+  "claims": {
+    "mean_latency_min": {
+      "actual": 0.00831443955060996,
+      "expected": 0.008314,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "mean_latency_max": {
+      "actual": 3.8939234304963195,
+      "expected": 3.893923,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "p95_latency_min": {
+      "actual": 0.008560379007582017,
+      "expected": 0.00856,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "p95_latency_max": {
+      "actual": 7.3000519501221435,
+      "expected": 7.300052,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "token_throughput_min": {
+      "actual": 332.4890570016473,
+      "expected": 332.489,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "token_throughput_max": {
+      "actual": 7766.684901532348,
+      "expected": 7766.685,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "n_tpot_min": {
+      "actual": 103,
+      "expected": 103,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "n_tpot_max": {
+      "actual": 200,
+      "expected": 200,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "kv131072_peak_used": {
+      "actual": 47872,
+      "expected": 47872,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "kv262144_peak_used": {
+      "actual": 62880,
+      "expected": 62880,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "cell_count": {
+      "actual": 5760,
+      "expected": 5760,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "request_executions": {
+      "actual": 1152000,
+      "expected": 1152000,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "no_unfinished": {
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "pilot_reuse_cells": {
+      "actual": 144,
+      "expected": 144,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "chunk_decode_metric_equivalence": {
+      "actual": 1440,
+      "expected": 1440,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "mean_tpot_max_difference": {
+      "actual": 1.7997756063259374e-16,
+      "expected": 1.8e-16,
+      "tolerance": 5e-19,
+      "status": "PASS"
+    },
+    "azure_llm_2024_factor_min": {
+      "actual": 22.524938033124698,
+      "expected": 22.525,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "azure_llm_2024_factor_max": {
+      "actual": 180.87312549934697,
+      "expected": 180.873,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "bailian_qwen_factor_min": {
+      "actual": 17.95614025022757,
+      "expected": 17.956,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "bailian_qwen_factor_max": {
+      "actual": 186.57954477284133,
+      "expected": 186.58,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "burstgpt_factor_min": {
+      "actual": 102.88425093326315,
+      "expected": 102.884,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "burstgpt_factor_max": {
+      "actual": 725.0204080183256,
+      "expected": 725.02,
+      "tolerance": 0.0005,
+      "status": "PASS"
+    },
+    "source_mean_top_comparisons": {
+      "actual": {
+        "total": 396,
+        "top_equal": 307,
+        "top_intersect": 323,
+        "rank_equal": 247
+      },
+      "expected": {
+        "total": 396,
+        "top_equal": 307,
+        "top_intersect": 323,
+        "rank_equal": 247
+      },
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "metric_top_comparisons": {
+      "actual": {
+        "total": 79200,
+        "top_equal": 27915,
+        "top_intersect": 57602
+      },
+      "expected": {
+        "total": 79200,
+        "top_equal": 27915,
+        "top_intersect": 57602
+      },
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "azure_llm_2024_unique_mean_winner": {
+      "actual": 480,
+      "expected": 480,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "bailian_qwen_unique_mean_winner": {
+      "actual": 468,
+      "expected": 468,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "burstgpt_unique_mean_winner": {
+      "actual": 198,
+      "expected": 198,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "azure_llm_2024_block_negative": {
+      "actual": 8,
+      "expected": 8,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "azure_llm_2024_block_min": {
+      "actual": -0.01200000000000001,
+      "expected": -0.012,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "azure_llm_2024_block_max": {
+      "actual": 0.2029999999999999,
+      "expected": 0.203,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "bailian_qwen_block_negative": {
+      "actual": 24,
+      "expected": 24,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "bailian_qwen_block_min": {
+      "actual": -0.02999999999999997,
+      "expected": -0.03,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "bailian_qwen_block_max": {
+      "actual": 0.23299999999999998,
+      "expected": 0.233,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "burstgpt_block_negative": {
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "burstgpt_block_min": {
+      "actual": 0.015,
+      "expected": 0.015,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "burstgpt_block_max": {
+      "actual": 0.3275,
+      "expected": 0.3275,
+      "tolerance": 5e-05,
+      "status": "PASS"
+    },
+    "azure_llm_2024_stratum_negative": {
+      "actual": 6,
+      "expected": 6,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "bailian_qwen_stratum_negative": {
+      "actual": 20,
+      "expected": 20,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "burstgpt_stratum_negative": {
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_total": {
+      "actual": 134000,
+      "expected": 134000,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_4_legacy_source_screened_BH_fdp_practical": {
+      "actual": 0.3950000000000003,
+      "expected": 0.395,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_6_legacy_source_screened_BH_fdp_practical": {
+      "actual": 0.7331579504398684,
+      "expected": 0.73316,
+      "tolerance": 5e-06,
+      "status": "PASS"
+    },
+    "stat_8_historical_full_BH_fdp_practical": {
+      "actual": 0.5187499999999994,
+      "expected": 0.51875,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_10_historical_full_BH_fdp_practical": {
+      "actual": 0.7786250000000005,
+      "expected": 0.778625,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_0_group_bootstrap_BY_ci_coverage": {
+      "actual": 0.8877499999999997,
+      "expected": 0.88775,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_10_group_bootstrap_BY_ci_coverage": {
+      "actual": 0.7598750000000001,
+      "expected": 0.759875,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_10_cluster_t_Holm_ci_coverage": {
+      "actual": 0.8599999999999994,
+      "expected": 0.86,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_11_cluster_t_Holm_ci_coverage": {
+      "actual": 0.8643750000000001,
+      "expected": 0.864375,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_16_bounded_Hoeffding_Holm_power_practical": {
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_17_bounded_Hoeffding_Holm_power_practical": {
+      "actual": 0.05263157894736842,
+      "expected": 0.052632,
+      "tolerance": 5e-07,
+      "status": "PASS"
+    },
+    "stat_14_cluster_coverage_n": {
+      "actual": 1676,
+      "expected": 1676,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_15_cluster_coverage_n": {
+      "actual": 202,
+      "expected": 202,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "stat_csv_rows": {
+      "actual": 7200,
+      "expected": 7200,
+      "tolerance": 0,
+      "status": "PASS"
+    },
+    "historical_consolidated_sha256": {
+      "actual": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+      "expected": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+      "tolerance": 0,
+      "status": "PASS"
+    }
+  },
+  "citation_keys": 28,
+  "labels": 28,
+  "builds": {
+    "manuscript": {
+      "status": "PASS",
+      "pages": 26,
+      "overfull_boxes": 0,
+      "unresolved_references": 0,
+      "bibliography_optional_metadata_advisories": [
+        "empty address in vidur2024",
+        "empty publisher in maurer2009",
+        "empty address in maurer2009"
+      ],
+      "template_warning": "ACM reference-format block suppressed in author-review draft"
+    },
+    "acmsmall": {
+      "status": "PASS",
+      "pages": 26,
+      "overfull_boxes": 0,
+      "unresolved_references": 0,
+      "bibliography_optional_metadata_advisories": [
+        "empty address in vidur2024",
+        "empty publisher in maurer2009",
+        "empty address in maurer2009"
+      ],
+      "template_warning": "ACM reference-format block suppressed in author-review draft"
+    }
+  },
+  "historical_changes": [
+    "dataset/v1.1.0/scientific/campaign/consolidated.json",
+    "paper/tompecs-m3/.gitignore",
+    "paper/tompecs-m3/CLAIM_TO_EVIDENCE.md",
+    "paper/tompecs-m3/M2_TO_M3_CHANGES.md",
+    "paper/tompecs-m3/README.md",
+    "paper/tompecs-m3/REFERENCE_CHECKS.md",
+    "paper/tompecs-m3/SUBMISSION_BLOCKERS.md",
+    "paper/tompecs-m3/VALIDATION.md",
+    "paper/tompecs-m3/artifact-release/AUTHOR_DECLARATIONS.md",
+    "paper/tompecs-m3/artifact-release/CANDIDATE_README.md",
+    "paper/tompecs-m3/artifact-release/FINAL_REPORT.md",
+    "paper/tompecs-m3/artifact-release/INVENTORY.md",
+    "paper/tompecs-m3/artifact-release/READINESS.md",
+    "paper/tompecs-m3/artifact-release/README.md",
+    "paper/tompecs-m3/artifact-release/RELATED_MANUSCRIPTS.md",
+    "paper/tompecs-m3/artifact-release/SOURCE_PROVENANCE.md",
+    "paper/tompecs-m3/artifact-release/THIRD_PARTY_NOTICES.md",
+    "paper/tompecs-m3/artifact-release/VERIFICATION.md",
+    "paper/tompecs-m3/artifact-release/candidate-archives.json",
+    "paper/tompecs-m3/artifact-release/candidate-content-summary.json",
+    "paper/tompecs-m3/artifact-release/closed-api-local-provenance.json",
+    "paper/tompecs-m3/artifact-release/environment.json",
+    "paper/tompecs-m3/artifact-release/input-lineage.json",
+    "paper/tompecs-m3/artifact-release/official-sources/access-records.json",
+    "paper/tompecs-m3/artifact-release/official-sources/alibaba_license.txt",
+    "paper/tompecs-m3/artifact-release/official-sources/alibaba_pointer.json",
+    "paper/tompecs-m3/artifact-release/official-sources/alibaba_readme.txt",
+    "paper/tompecs-m3/artifact-release/official-sources/alibaba_tree.json",
+    "paper/tompecs-m3/artifact-release/official-sources/azure_commit.json",
+    "paper/tompecs-m3/artifact-release/official-sources/azure_license.txt",
+    "paper/tompecs-m3/artifact-release/official-sources/azure_readme.txt",
+    "paper/tompecs-m3/artifact-release/official-sources/azure_release.json",
+    "paper/tompecs-m3/artifact-release/official-sources/azure_tree.json",
+    "paper/tompecs-m3/artifact-release/official-sources/burst_commit.json",
+    "paper/tompecs-m3/artifact-release/official-sources/burst_license.txt",
+    "paper/tompecs-m3/artifact-release/official-sources/burst_readme.txt",
+    "paper/tompecs-m3/artifact-release/official-sources/burst_releases.json",
+    "paper/tompecs-m3/artifact-release/official-sources/burst_tree.json",
+    "paper/tompecs-m3/artifact-release/official-sources/checksums.json",
+    "paper/tompecs-m3/artifact-release/official-sources/hf-api.json",
+    "paper/tompecs-m3/artifact-release/official-sources/releases.json",
+    "paper/tompecs-m3/artifact-release/official-sources/zenodo-api.json",
+    "paper/tompecs-m3/artifact-release/pdf-checksums.json",
+    "paper/tompecs-m3/artifact-release/prepare_candidate.py",
+    "paper/tompecs-m3/artifact-release/preservation.json",
+    "paper/tompecs-m3/artifact-release/requirements-display.txt",
+    "paper/tompecs-m3/artifact-release/source-verification.json",
+    "paper/tompecs-m3/artifact-release/test_extraction.py",
+    "paper/tompecs-m3/artifact-release/verification-results/candidate-verification.json",
+    "paper/tompecs-m3/artifact-release/verification-results/check_c01.json",
+    "paper/tompecs-m3/artifact-release/verification-results/check_c01_journals.json",
+    "paper/tompecs-m3/artifact-release/verification-results/check_stat_inventory.json",
+    "paper/tompecs-m3/artifact-release/verification-results/check_stat_samples.json",
+    "paper/tompecs-m3/artifact-release/verification-results/clean-extraction.json",
+    "paper/tompecs-m3/artifact-release/verification-results/source-extraction.json",
+    "paper/tompecs-m3/artifact-release/verification/c01-journal-sample-index.json",
+    "paper/tompecs-m3/artifact-release/verification/check_c01.py",
+    "paper/tompecs-m3/artifact-release/verification/check_c01_journals.py",
+    "paper/tompecs-m3/artifact-release/verification/check_stat_inventory.py",
+    "paper/tompecs-m3/artifact-release/verification/check_stat_samples.py",
+    "paper/tompecs-m3/artifact-release/verification/stat-sample-index.json",
+    "paper/tompecs-m3/artifact-release/verify_candidate.py",
+    "paper/tompecs-m3/budget-sensitivity/EXECUTION_NOTE.md",
+    "paper/tompecs-m3/budget-sensitivity/PROTOCOL.md",
+    "paper/tompecs-m3/budget-sensitivity/run_study.py",
+    "paper/tompecs-m3/editorial-revision/CLAIM_TO_EVIDENCE.md",
+    "paper/tompecs-m3/editorial-revision/CLAIM_TO_REFERENCE.md",
+    "paper/tompecs-m3/editorial-revision/REVISION_REPORT.md",
+    "paper/tompecs-m3/editorial-revision/VISUAL_REVIEW.md",
+    "paper/tompecs-m3/editorial-revision/abstract-check.json",
+    "paper/tompecs-m3/editorial-revision/check_abstract_claims.py",
+    "paper/tompecs-m3/editorial-revision/clean-validation.json",
+    "paper/tompecs-m3/editorial-revision/environment.json",
+    "paper/tompecs-m3/editorial-revision/layout-comparison.json",
+    "paper/tompecs-m3/editorial-revision/pdf-link-check.json",
+    "paper/tompecs-m3/editorial-revision/pdf-metadata.json",
+    "paper/tompecs-m3/editorial-revision/preservation.json",
+    "paper/tompecs-m3/editorial-revision/reduced-comparisons.json",
+    "paper/tompecs-m3/editorial-revision/reduced-comparisons.tex",
+    "paper/tompecs-m3/editorial-revision/reduced_comparisons.py",
+    "paper/tompecs-m3/editorial-revision/reference-endpoints.json",
+    "paper/tompecs-m3/editorial-revision/reference-followup.json",
+    "paper/tompecs-m3/editorial-revision/regeneration-preservation.json",
+    "paper/tompecs-m3/editorial-revision/verify_preservation.py",
+    "paper/tompecs-m3/editorial-revision/word-counts.json",
+    "paper/tompecs-m3/editorial-revision/word_counts.py",
+    "paper/tompecs-m3/evidence/build-environment.json",
+    "paper/tompecs-m3/evidence/input-hashes.json",
+    "paper/tompecs-m3/evidence/inputs/c01-absolute_metrics.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-checkpoint.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-complete.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-independent-summary-check.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-independent_analysis_validation.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-manifest.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-pairwise.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-ranking_frequencies.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-rankings.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-record-check.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-reversals.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-sample-event-check.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-source_mean_rankings.json.gz",
+    "paper/tompecs-m3/evidence/inputs/c01-window_aggregates.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-checkpoint.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-completion.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-inventory-check.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-launch.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s00-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s01-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s02-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s03-n02000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s04-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s05-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s06-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s07-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s08-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s09-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s10-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s11-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s12-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s13-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s14-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s15-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s16-n08000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-look-s17-n04000.json.gz",
+    "paper/tompecs-m3/evidence/inputs/stat-sample-check.json.gz",
+    "paper/tompecs-m3/evidence/numerical-checks.json",
+    "paper/tompecs-m3/evidence/package-manifest.json",
+    "paper/tompecs-m3/evidence/reference-metadata-additional.json",
+    "paper/tompecs-m3/evidence/reference-metadata.json",
+    "paper/tompecs-m3/evidence/validation/acmsmall-build.txt",
+    "paper/tompecs-m3/evidence/validation/manuscript-build.txt",
+    "paper/tompecs-m3/evidence/validation/render.txt",
+    "paper/tompecs-m3/evidence/validation/validation.json",
+    "paper/tompecs-m3/figures/absolute.pdf",
+    "paper/tompecs-m3/figures/chronology.pdf",
+    "paper/tompecs-m3/figures/matched.pdf",
+    "paper/tompecs-m3/final-review/OVERLAP_AUDIT.md",
+    "paper/tompecs-m3/final-review/REFEREE_REPORT.md",
+    "paper/tompecs-m3/final-review/REFERENCES.md",
+    "paper/tompecs-m3/final-review/SUBMISSION_READINESS.md",
+    "paper/tompecs-m3/final-review/VALIDATION.md",
+    "paper/tompecs-m3/final-review/dynamollm-metadata.json",
+    "paper/tompecs-m3/final-review/final-checks.json",
+    "paper/tompecs-m3/final-review/overlap-evidence.json",
+    "paper/tompecs-m3/final-review/overlap_scan.py",
+    "paper/tompecs-m3/final-review/reference-metadata.json",
+    "paper/tompecs-m3/m3-acmsmall.pdf",
+    "paper/tompecs-m3/m3-manuscript.pdf",
+    "paper/tompecs-m3/main.tex",
+    "paper/tompecs-m3/major-revision/AUTHOR_DECISIONS.md",
+    "paper/tompecs-m3/major-revision/CHANGELOG.md",
+    "paper/tompecs-m3/major-revision/CLAIM_TO_EVIDENCE.md",
+    "paper/tompecs-m3/major-revision/COMPANION.md",
+    "paper/tompecs-m3/major-revision/EXAMPLE_PROVENANCE.md",
+    "paper/tompecs-m3/major-revision/FINAL_REPORT.md",
+    "paper/tompecs-m3/major-revision/REFERENCES_AND_OFFICIAL_RULES.md",
+    "paper/tompecs-m3/major-revision/RELATED_MANUSCRIPTS.md",
+    "paper/tompecs-m3/major-revision/REMAINING_BLOCKERS.md",
+    "paper/tompecs-m3/major-revision/VALIDATION.md",
+    "paper/tompecs-m3/major-revision/analyze_example.py",
+    "paper/tompecs-m3/major-revision/assemble_companion.py",
+    "paper/tompecs-m3/major-revision/environment.json",
+    "paper/tompecs-m3/major-revision/example-aggregates.csv",
+    "paper/tompecs-m3/major-revision/example-aggregates.tex",
+    "paper/tompecs-m3/major-revision/example-manifest.json",
+    "paper/tompecs-m3/major-revision/example-requests.csv",
+    "paper/tompecs-m3/major-revision/example-requests.tex",
+    "paper/tompecs-m3/major-revision/example-summary.json",
+    "paper/tompecs-m3/major-revision/example-verification.json",
+    "paper/tompecs-m3/major-revision/portable-example-check.json",
+    "paper/tompecs-m3/major-revision/preservation.json",
+    "paper/tompecs-m3/major-revision/related-local-identities.json",
+    "paper/tompecs-m3/major-revision/revision-verification.json",
+    "paper/tompecs-m3/major-revision/verify_example.py",
+    "paper/tompecs-m3/major-revision/verify_revision.py",
+    "paper/tompecs-m3/references.bib",
+    "paper/tompecs-m3/scripts/build.sh",
+    "paper/tompecs-m3/scripts/frozen_verify_analysis.py",
+    "paper/tompecs-m3/scripts/package.py",
+    "paper/tompecs-m3/scripts/render.py",
+    "paper/tompecs-m3/scripts/validate.py",
+    "paper/tompecs-m3/sections/appendix.tex",
+    "paper/tompecs-m3/sections/contract.tex",
+    "paper/tompecs-m3/sections/declarations.tex",
+    "paper/tompecs-m3/sections/design.tex",
+    "paper/tompecs-m3/sections/discussion.tex",
+    "paper/tompecs-m3/sections/example.tex",
+    "paper/tompecs-m3/sections/inference.tex",
+    "paper/tompecs-m3/sections/introduction.tex",
+    "paper/tompecs-m3/sections/performance.tex",
+    "paper/tompecs-m3/sections/rankings.tex",
+    "paper/tompecs-m3/sections/related.tex",
+    "paper/tompecs-m3/supplement/C01_FULL_PROTOCOL.md",
+    "paper/tompecs-m3/supplement/C01_PROTOCOL.md",
+    "paper/tompecs-m3/supplement/STAT01_AMENDMENT.md",
+    "paper/tompecs-m3/supplement/STAT01_PROTOCOL.md",
+    "paper/tompecs-m3/supplement/c01-all-cells.csv",
+    "paper/tompecs-m3/supplement/c01-matched-window-differences.csv",
+    "paper/tompecs-m3/supplement/c01-reversal-groups.csv",
+    "paper/tompecs-m3/supplement/c01-source-capacity-means.csv",
+    "paper/tompecs-m3/supplement/c01-ties.csv",
+    "paper/tompecs-m3/supplement/c01-window-aggregates.csv",
+    "paper/tompecs-m3/supplement/stat01-all-endpoints.csv",
+    "paper/tompecs-m3/supplement/stat01-stopping.csv",
+    "paper/tompecs-m3/tables/absolute.tex",
+    "paper/tompecs-m3/tables/calibration.tex",
+    "paper/tompecs-m3/tables/reversals.tex",
+    "paper/tompecs-m3/tables/stat-scenarios.tex",
+    "paper/tompecs-m3/tables/ties.tex",
+    "paper/tompecs-m3/template/ACM-Reference-Format.bst",
+    "paper/tompecs-m3/template/README",
+    "paper/tompecs-m3/template/acmart.cls",
+    "paper/tompecs-m3/template/acmart.dtx",
+    "paper/tompecs-m3/template/acmart.ins"
+  ],
+  "historical_checkout_check": "CHECKED",
+  "worked_example_check": "FRESH_EVENT_RECONSTRUCTION",
+  "experiments_executed": 0
+}

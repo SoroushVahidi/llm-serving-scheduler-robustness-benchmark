@@ -30,7 +30,9 @@ It has three parts:
 batch-end timestamps make chunked-FCFS and decode-first equivalent, despite
 possibly different event-span ordering. Clock updates keep the urgency gate
 inactive; prompt-length admission and whole-prefill/decode exclusion remain
-active distinctions. Four labels thus yield three observed behaviors.
+active distinctions. Four labels thus yield three observed behaviors in the
+original contract. A prospective budget-only sensitivity tests this reduction
+on an explicitly feasible input stratum (Section~\ref{sec:budget}).
 \item \textbf{Measured residual trade-offs.} Complete matched outcomes show
 how the surviving rules affect mean latency, tail latency, finite-window
 throughput, and deadline attainment. A retrospectively selected saved-record

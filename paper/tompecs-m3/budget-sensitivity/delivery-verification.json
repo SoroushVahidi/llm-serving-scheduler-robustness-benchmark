@@ -1,0 +1,72 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "baseline_commit": "4c08660eeb528a5a459800bbc79771f4b8e4dbfc",
+  "preregistration_commit": "5630bfd581c9ff231a09eedca7225fe9157a3a5c",
+  "metadata_fix_commit": "d6407cd9baead73d5c8db0c123f33b49eaf163eb",
+  "repo_regression_passed": 378,
+  "c01_regression_passed": 42,
+  "scientific_checks_passed": 54,
+  "independent_study_checks": "independent-verification.json",
+  "generated_outputs_byte_identical": 7,
+  "pdfs": {
+    "manuscript": {
+      "sha256": "8831430011fa6cecad83f348cd3ab6efadad1ac3eb15359223e55bf786e69708",
+      "bytes": 722390,
+      "pages": 26,
+      "valid_internal_destinations": 69,
+      "visual_pages": [
+        1,
+        2,
+        3,
+        13,
+        14,
+        18,
+        19,
+        25
+      ]
+    },
+    "acmsmall": {
+      "sha256": "5d771eee3579a21375ed50f09e558e8eb86e2b81b1ca54233a3a32f6e82182db",
+      "bytes": 718344,
+      "pages": 26,
+      "valid_internal_destinations": 69,
+      "visual_pages": [
+        1,
+        2,
+        3,
+        13,
+        14,
+        18,
+        19,
+        25
+      ]
+    }
+  },
+  "protected_hydrated_files": {
+    "/home/soroush/repos/llm-serving-scheduler-lssp-m3-focused-editorial-20261022/dataset/v1.1.0/scientific/campaign/consolidated.json": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "/home/soroush/repos/llm-serving-scheduler-lssp-m3-major-revision/dataset/v1.1.0/scientific/campaign/consolidated.json": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "/home/soroush/repos/llm-serving-scheduler-lssp-m3-budget-sensitivity/dataset/v1.1.0/scientific/campaign/consolidated.json": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26"
+  },
+  "logs": {
+    "/home/soroush/artifacts/lssp-m3-budget-study-corrected-20261022.log": "bafe4828ca9800387c48edb38749167d4165341f37cf87fe87c51402259ac942",
+    "/home/soroush/artifacts/lssp-m3-budget-study-20261022.log": "6d01212ac1955662a0ad4f69ca3e7e81d4cc599af88af9579622ed6b1f60ac43",
+    "/home/soroush/artifacts/lssp-m3-budget-independent-check.log": "296516e411cce00db7de90b2fb04be6f1d18fac7ff88166a8941e8e919c135f1",
+    "/home/soroush/artifacts/lssp-m3-budget-build-acmsmall.log": "e76821cc536d5c71dfa1982e209f4a76edd83ea311f3527cf00dbd26345348d1",
+    "/home/soroush/artifacts/lssp-m3-budget-scientific-validation.log": "b5b47459c0f186d874bccf502579aabe235934f9117bdc40ac674a4c232214b0",
+    "/home/soroush/artifacts/lssp-m3-budget-pilot-20261022.log": "24e86c29af47dbf5571e929183027d4f9576a807c33b9bc43ce8865e335484d3",
+    "/home/soroush/artifacts/lssp-m3-budget-build-manuscript.log": "649bdd429e34ba68137c7e6e0d64ae0fde23e08b80ee8d205f0d1f302ff5148c",
+    "/home/soroush/artifacts/lssp-m3-budget-reduced-check.log": "649884c5d6bb5f8de2ace7ab33c1b8233b83fea2205f787ea005df558ad1ae26",
+    "/home/soroush/artifacts/lssp-m3-budget-clean-analysis.log": "0f4401fcd6a7d088f4bce981b19433c744de766556508da7d561ed1cc0c66cbb",
+    "/home/soroush/artifacts/lssp-m3-budget-regression.log": "179a246f8c61527e543c2b3070324aaf87f863863cfc316720b53ace645b4ec9",
+    "/home/soroush/artifacts/lssp-m3-budget-analysis-20261022.log": "0f4401fcd6a7d088f4bce981b19433c744de766556508da7d561ed1cc0c66cbb",
+    "/home/soroush/artifacts/lssp-m3-budget-abstract.log": "ea6e603d649e1563ac7a65e213fa9334549ecfd5202e893a8385b89f5d4dffd9"
+  },
+  "code_hashes": {
+    "verify_study.py": "13947ce4d65e4564a23093505c5f66cdcc4c6102ec10f75118f23cf931c9a0d0",
+    "run_study.py": "5299850fbfd0aae618c8dd27a3a4d0655aaeaf86a7c92c69086e555970c81807",
+    "analyze_study.py": "7d9f5c7f9ac86efa62a8aee084b2e344cddc7d2fc1d68272595989a8af7870fe"
+  },
+  "pdf_visual_review": "All-page layout contact sheets plus full-resolution modified pages checked in both formats; no clipping, collisions or unresolved references.",
+  "publication_readiness": "Bounded scientific improvement; unconditional ToMPECS readiness not established.",
+  "active_jobs": []
+}
