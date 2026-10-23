@@ -354,8 +354,8 @@
       "status": "PASS"
     }
   },
-  "citation_keys": 25,
-  "labels": 25,
+  "citation_keys": 28,
+  "labels": 26,
   "builds": {
     "manuscript": {
       "status": "PASS",
@@ -371,7 +371,7 @@
     },
     "acmsmall": {
       "status": "PASS",
-      "pages": 26,
+      "pages": 24,
       "overfull_boxes": 0,
       "unresolved_references": 0,
       "bibliography_optional_metadata_advisories": [
@@ -513,6 +513,7 @@
     "paper/tompecs-m3/major-revision/CLAIM_TO_EVIDENCE.md",
     "paper/tompecs-m3/major-revision/COMPANION.md",
     "paper/tompecs-m3/major-revision/EXAMPLE_PROVENANCE.md",
+    "paper/tompecs-m3/major-revision/FINAL_REPORT.md",
     "paper/tompecs-m3/major-revision/REFERENCES_AND_OFFICIAL_RULES.md",
     "paper/tompecs-m3/major-revision/RELATED_MANUSCRIPTS.md",
     "paper/tompecs-m3/major-revision/REMAINING_BLOCKERS.md",

@@ -58,12 +58,7 @@ explain compatibility of the objectives in a real saved condition; the few
 displayed requests do not exhaustively decompose the aggregate change or
 estimate causal mechanism effects across the corpus.
 
-The source run is \texttt{c01-full-167b9074e5711420}, with cell IDs
-\texttt{ecec167d9fb8e426ac67298b} (\texttt{chunked\_fcfs\_c01}) and
-\texttt{9feed68339670e5b366d064f} (\texttt{slo\_gated\_c01}). The manifest
-and accompanying provenance give exact input/result/journal paths, full
-SHA-256 hashes and original source-record IDs. The read-only
-\texttt{analyze\_example.py} computes the tables from terminal records and
-journal admissions; \texttt{verify\_example.py} independently reconstructs
-all request timelines from events and checks array-based metrics and the
-displayed values. The raw records remain in the unchanged rc1 candidate.
+The example manifest records exact input/result/journal identities and
+SHA-256 hashes. Independent event reconstruction checks all 400 terminal
+states and 2,497 events against the displayed tables; the complete records
+support reproduction of the illustration without selecting a new condition.

@@ -1,0 +1,424 @@
+[
+  {
+    "key": "benjamini2001dependency",
+    "url": "https://api.crossref.org/works/10.1214/aos/1013699998",
+    "status": 200,
+    "metadata": {
+      "title": [
+        "The control of the false discovery rate in multiple testing under dependency"
+      ],
+      "author": [
+        {
+          "given": "Yoav",
+          "family": "Benjamini",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Daniel",
+          "family": "Yekutieli",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "The Annals of Statistics"
+      ],
+      "volume": "29",
+      "issue": "4",
+      "page": "1165-1188",
+      "published": {
+        "date-parts": [
+          [
+            2001,
+            8,
+            1
+          ]
+        ]
+      },
+      "DOI": "10.1214/aos/1013699998"
+    }
+  },
+  {
+    "key": "evaluation-datacite",
+    "status": 200,
+    "metadata": {
+      "title": null,
+      "titles": [
+        {
+          "title": "On Evaluating Performance of LLM Inference Serving Systems"
+        }
+      ],
+      "author": null,
+      "creators": [
+        {
+          "name": "Agrawal, Amey",
+          "nameType": "Personal",
+          "givenName": "Amey",
+          "familyName": "Agrawal",
+          "affiliation": [],
+          "nameIdentifiers": []
+        },
+        {
+          "name": "Kedia, Nitin",
+          "nameType": "Personal",
+          "givenName": "Nitin",
+          "familyName": "Kedia",
+          "affiliation": [],
+          "nameIdentifiers": []
+        },
+        {
+          "name": "Agarwal, Anmol",
+          "nameType": "Personal",
+          "givenName": "Anmol",
+          "familyName": "Agarwal",
+          "affiliation": [],
+          "nameIdentifiers": []
+        },
+        {
+          "name": "Mohan, Jayashree",
+          "nameType": "Personal",
+          "givenName": "Jayashree",
+          "familyName": "Mohan",
+          "affiliation": [],
+          "nameIdentifiers": []
+        },
+        {
+          "name": "Kwatra, Nipun",
+          "nameType": "Personal",
+          "givenName": "Nipun",
+          "familyName": "Kwatra",
+          "affiliation": [],
+          "nameIdentifiers": []
+        },
+        {
+          "name": "Kundu, Souvik",
+          "nameType": "Personal",
+          "givenName": "Souvik",
+          "familyName": "Kundu",
+          "affiliation": [],
+          "nameIdentifiers": []
+        },
+        {
+          "name": "Ramjee, Ramachandran",
+          "nameType": "Personal",
+          "givenName": "Ramachandran",
+          "familyName": "Ramjee",
+          "affiliation": [],
+          "nameIdentifiers": []
+        },
+        {
+          "name": "Tumanov, Alexey",
+          "nameType": "Personal",
+          "givenName": "Alexey",
+          "familyName": "Tumanov",
+          "affiliation": [],
+          "nameIdentifiers": []
+        }
+      ],
+      "container-title": null,
+      "volume": null,
+      "issue": null,
+      "page": null,
+      "published": "2025",
+      "publicationYear": 2025,
+      "DOI": null,
+      "doi": "10.48550/arxiv.2507.09019"
+    }
+  },
+  {
+    "key": "burstgpt-crossref",
+    "status": 200,
+    "metadata": {
+      "title": [
+        "BurstGPT: A Real-World Workload Dataset to Optimize LLM Serving Systems"
+      ],
+      "titles": null,
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0001-7680-1419",
+          "authenticated-orcid": false,
+          "given": "Yuxin",
+          "family": "Wang",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Huawei Hong Kong Research Center, Hong Kong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0002-0791-5361",
+          "authenticated-orcid": false,
+          "given": "Yuhan",
+          "family": "Chen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology (Guangzhou), Guangzhou, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0008-4381-0544",
+          "authenticated-orcid": false,
+          "given": "Zeyu",
+          "family": "Li",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology (Guangzhou), GuangZhou, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0008-4096-5698",
+          "authenticated-orcid": false,
+          "given": "Xueze",
+          "family": "Kang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology (Guangzhou), Guangzhou, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-5533-6367",
+          "authenticated-orcid": false,
+          "given": "Yuchu",
+          "family": "Fang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Huawei Technologies Ltd., Shenzhen, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-8157-7474",
+          "authenticated-orcid": false,
+          "given": "Yeju",
+          "family": "Zhou",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Huawei Technologies Ltd., Shenzhen, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-3775-6739",
+          "authenticated-orcid": false,
+          "given": "Yang",
+          "family": "Zheng",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Huawei Technologies Ltd., Shenzhen, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-8769-9974",
+          "authenticated-orcid": false,
+          "given": "Zhenheng",
+          "family": "Tang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology, Hong Kong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-8764-8157",
+          "authenticated-orcid": false,
+          "given": "Xin",
+          "family": "He",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Hong Kong Baptist University, Hong Kong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0002-1622-1572",
+          "authenticated-orcid": false,
+          "given": "Rui",
+          "family": "Guo",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Tsinghua University, Beijing, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0009-0007-8513-0902",
+          "authenticated-orcid": false,
+          "given": "Xin",
+          "family": "Wang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Tsinghua University, Beijing, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-2986-967X",
+          "authenticated-orcid": false,
+          "given": "Qiang",
+          "family": "Wang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Harbin Institute of Technology (Shenzhen), Shenzhen, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-9773-9332",
+          "authenticated-orcid": false,
+          "given": "Amelie Chi",
+          "family": "Zhou",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Hong Kong Baptist University, Hong Kong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-9745-4372",
+          "authenticated-orcid": false,
+          "given": "Xiaowen",
+          "family": "Chu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "The Hong Kong University of Science and Technology (Guangzhou), Guangzhou, Guangdong, China"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "creators": null,
+      "container-title": [
+        "Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2"
+      ],
+      "volume": null,
+      "issue": null,
+      "page": "5831-5841",
+      "published": {
+        "date-parts": [
+          [
+            2025,
+            8,
+            3
+          ]
+        ]
+      },
+      "publicationYear": null,
+      "DOI": "10.1145/3711896.3737413",
+      "doi": null
+    }
+  }
+]

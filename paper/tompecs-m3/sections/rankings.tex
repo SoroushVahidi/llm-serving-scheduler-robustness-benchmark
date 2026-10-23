@@ -5,11 +5,8 @@ and total denominators. Across all source-mean comparisons the count is
 \textbf{zero out of 2,376}. Each source mean uses all 40 windows at a fixed
 setting, capacity, and metric. The denominator is
 $3$ source pairs $\times6$ settings $\times2$ capacities $\times11$ endpoints
-$\times6$ policy pairs. The common-model study thus does not reproduce a
-broad claim of practical source-mean ranking reversals. For this equal-window estimand and restricted panel,
-changing the source does not overturn a policy-pair preference by more than
-the declared margin in both directions. That is useful stability information,
-not a failed search to be replaced by a favorable finer-scale count.
+$\times6$ policy pairs. For this equal-window estimand, changing source does not overturn a
+policy-pair preference by more than the declared margin in both directions.
 The 2,376 comparisons include the equivalent chunked/decode-first pair and
 redundant throughput endpoints; they do not constitute 2,376 independent
 confirmations or establish population equivalence.
@@ -49,11 +46,8 @@ one best policy is shared rather than whether a particular pair reverses.
 
 \subsection{Ties and redundant endpoints}
 Table~\ref{tab:ties} retains exact ties instead of breaking them by policy
-identifier. A unique mean-latency winner is not necessarily a unique
-throughput winner: SLO-gated is uniquely best in 1,146 and 482 conditions,
-respectively. Completion has a four-way tie everywhere. Treating an
-arbitrary deterministic tie-break as a scientific winner would discard
-that information.
+identifier. SLO-gated is uniquely best for mean latency in 1,146 conditions and for
+throughput in 482. Completion has a four-way tie everywhere.
 
 \begin{table}[t]
 \centering\small
@@ -64,21 +58,15 @@ is missing. ``SLO unique top'' always uses exact equality.}
 \label{tab:ties}\input{tables/ties}
 \end{table}
 
-Several endpoints provide the same ranking mechanically. All requests finish,
-so emitted-token and completed-token throughput are identical. At a fixed
-condition, request throughput differs from token throughput only by a
-workload-specific multiplier shared by every policy. All three throughput
-rankings therefore coincide. Counting them as independent evidence would
-exaggerate the breadth of a finding.
-
-TPOT supplies a different warning. Chunked-FCFS, decode-first, and SLO-gated
-produce essentially one output per millisecond once decoding begins.
-The largest chunked-versus-SLO difference in cell mean TPOT is
-$1.80\times10^{-16}$\,s. Floating-point timestamp subtraction can still
-change an exact winner. The near-tie sensitivity changes mean-TPOT top sets
-in 1,129/1,440 conditions and p95-TPOT top sets in 104/1,440. These differences
-carry no practical performance significance. The original exact values
-remain preserved, alongside the predeclared sensitivity.
+All requests finish, making emitted-token and completed-token throughput
+identical. Request throughput differs only by a workload-specific multiplier
+shared by all policies at a fixed condition. The three throughput rankings
+therefore coincide. Chunked-FCFS, decode-first, and SLO-gated also produce
+essentially one output per millisecond after decoding begins: the largest
+chunked-versus-SLO mean-TPOT difference is $1.80\times10^{-16}$\,s.
+Timestamp subtraction nevertheless changes exact top sets; the predeclared
+near-tie tolerance changes mean-TPOT top sets in 1,129 conditions and p95-TPOT
+top sets in 104. These tiny distinctions have no practical performance meaning.
 
 Across all 79,200 metric-pair ranking comparisons, exact top sets are equal
 in 27,915 and intersect in 57,602. These counts include redundant throughput
@@ -86,12 +74,38 @@ endpoints, completion ties, and numerical TPOT distinctions. They summarize
 reporting consequences; they are not eleven independent tests of a
 scheduler's robustness.
 
-Chronological sensitivities are retained in Appendix~\ref{app:chronology}.
+\subsection{Post hoc view of distinct behaviors and metric families}
+To test whether duplication drives the qualitative ranking conclusions,
+we project the saved outputs onto whole-FCFS, chunked-FCFS, and SLO-gated.
+We remove the universally tied completion endpoint and retain token
+throughput as the representative of the three identical throughput rankings.
+The resulting eight endpoints cover five families: latency, TTFT, TPOT,
+throughput, and deadline attainment. Both mean and p95 remain for the three
+time families because they describe different distributional features.
+TPOT remains informative for whole-FCFS: its mean and p95 exceed the best
+value by the same strict-10\% practical margin in 341 and 1,027 conditions,
+respectively. Removing TPOT altogether would discard that contrast.
+
+\begin{table}[t]
+\centering\small
+\caption{Post hoc reduced view: three behavior pairs and eight endpoints.
+The original strict-10\% rule is unchanged. These dependent descriptive
+counts supplement, rather than replace, Table~\ref{tab:reversals}.}
+\label{tab:reduced}\input{editorial-revision/reduced-comparisons}
+\end{table}
+
+This view contains 11,520 rankings, 34,560 matched pairwise records, and
+8,208 reversal groups. Independent exact-boundary calculations from absolute
+metrics reproduce every retained archived group. Table~\ref{tab:reduced}
+still has no source-mean practical reversals ($0/864$), but has window and
+metric reversals. The qualitative contrast therefore survives removal of
+these demonstrated redundancies. Rates change with the denominator;
+the remaining endpoints and overlapping comparisons are not independent
+replications. The original four-label, eleven-endpoint outputs remain intact.
+Chronological sensitivities appear in Appendix~\ref{app:chronology}.
 
 \paragraph{Answer to RQ2.}
-No source-mean policy comparison reverses by more than 10\% in both
-directions. Window-level and metric-dependent reversals nevertheless occur.
-Exact ties, duplicated throughput rankings, and negligible TPOT differences
-show why absolute magnitudes and top sets are needed alongside ranks.
-Aggregation changes the question being answered; stability at the source-mean
-level does not imply uniform preferences across its constituent windows.
+Source-mean practical stability does not imply uniform preferences across
+windows or objectives. This remains true after collapsing duplicate labels
+and endpoints; magnitudes and top sets distinguish meaningful preferences
+from ties and numerical noise.

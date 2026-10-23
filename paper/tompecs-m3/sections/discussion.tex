@@ -1,83 +1,65 @@
 \section{Discussion and Threats to Validity}\label{sec:discussion}
-\paragraph{What the common contract reveals.}
-This case study connects a contract's constraints to the comparison a ranking
-can support. The fixed timing and work bound remove composition costs and
-competition among feasible chunked spans; resident slots still make admission
-competitive. Consequently four named adaptations provide three observed
-behaviors, and a different priority-list order need not mean a different
-request outcome. The active admission and whole-prefill/decode rules still
-reshape completion distributions. The saved-record example makes that
-remaining sensitivity concrete: a lower sum of latencies can accompany a
-later final completion and a worse upper quantile. This is an empirical
-instance of familiar competing scheduling objectives, not a new general
-principle or an optimality result for short-prompt ordering.
+\paragraph{What is learned from controlling execution semantics?}
+The useful comparison unit is an executable behavior, not a policy name.
+Here that distinction has a concrete consequence: nominal priority changes
+can leave every request outcome unchanged while admission competition still
+changes the completion distribution. Section~\ref{sec:contract} establishes
+the structural conditions; Sections~\ref{sec:performance} and
+\ref{sec:rankings} quantify the remaining trade-offs. The post hoc reduction
+shows that the source-mean/window contrast survives removal of duplicated
+comparisons. These results go beyond a warning about unfair settings by
+identifying exactly which distinctions disappear in this implemented
+contract and what remains measurable.
 
-The incremental value is the connection between those exact structural
-consequences, the measured residual trade-offs and the estimands used to rank
-them. The adjacent headroom and module studies already examine inactive
-choices and metric sensitivity, but do not establish this common-contract
-matrix's equivalence and source-mean/window contrast. A count of policy names
-would overstate the behaviors compared; a source-mean leaderboard alone
-would omit the within-corpus variation. Changing the token budget, timing or
-reservation model could restore distinctions, but no measured result here
-is assigned to those unevaluated contracts.
+The competing objectives themselves are established scheduling ideas.
+The BurstGPT example contributes a traceable instance: many earlier
+completions lower the sum of latencies even as a delayed final completion
+extends the drain. It illustrates compatibility of the measured objectives,
+not optimality of prompt-length ordering or a corpus-wide causal effect.
+Similarly, source means answer an equal-window average question; window
+reversals describe variation concealed by that average. Neither summary
+supersedes the other, and exact top sets preserve information lost by
+arbitrary tie-breaking.
 
-Aggregation must be specified with the same care. A source mean answers a
-question about equal-window average performance; a cross-window reversal
-asks whether two particular windows prefer different policies. Neither
-supersedes the other. A reader selecting a scheduler for variable traffic
-needs both the aggregate magnitude and its window-level variation. Exact
-top sets retain ties, and a practical margin prevents negligible numerical
-differences from becoming performance claims.
+\paragraph{Model adequacy and transfer.}
+Fixed batch timing removes composition-dependent cost, nonbinding token
+work exposes the role of admission, and conservative reservations provide
+a known residency constraint without output-length prediction. Together
+these choices support a precise analysis of state-transition distinctions.
+They omit kernel, bandwidth, communication, native allocation, and changing
+batch-efficiency costs. The proof's conditions delimit transfer: a binding
+work budget or composition-dependent timing can invalidate its argument,
+but this study does not measure the resulting behavior. Independent
+conformance checks establish implementation correctness for the abstraction,
+not physical prediction accuracy \citep{sargent2013}. The findings provide
+a comparison diagnostic to apply before interpreting a ranking, rather than
+a deployment recommendation.
 
-\paragraph{Model adequacy and external validity.}
-\cm\ deliberately fixes batch duration, assigns equal work units to prompt
-and decode tokens, reserves a full context before execution, and omits
-preemption and migration. It does not model kernel costs, bandwidth,
-communication, native allocation, model-dependent token timing, or changing
-batch efficiency. Its latency and throughput values describe the abstraction.
-Independent event conformance and deterministic replay cannot establish
-physical prediction accuracy \citep{sargent2013}. Related native probes
-and other projects' mechanism studies do not validate this four-adaptation
-ranking matrix. No deployment recommendation follows directly from it.
+\paragraph{Corpus and inference limits.}
+The selected windows are finite and temporally related, and the Azure-linked
+sources are not independent provider populations. Nonoverlap inside the C01
+panel does not settle overlap with older cross-project BurstGPT selections.
+Uniform priorities and synthetic output-derived deadlines restrict goodput
+interpretation; the inherited transformation changes deadlines and arrivals
+together. C01 consequently reports descriptive finite-corpus effects.
+The reduced analysis is post hoc and removes only demonstrated redundancies;
+its remaining metric families and overlapping comparisons are still dependent.
 
-\paragraph{Corpus and construct validity.}
-The 120 selected windows are finite and temporally related. They represent
-particular files, valid-row filtering, and sampling rules rather than
-random samples of providers. The two Azure-linked sources should not be
-treated as independent providers, and cross-project overlap of some older
-BurstGPT selections is unresolved. Uniform priorities and synthetic,
-output-derived deadlines restrict the interpretation of \anwg. The inherited
-setting transformation changes deadlines together with arrivals. Full-context
-reservation capacity measures a residency constraint, and the panel excludes
-many mechanisms available to production engines. These restrictions bound
-which workload and resource questions the study answers.
-
-\paragraph{Verification and inferential validity.}
-Independent checks reduce the risk that reported metrics disagree with the
-model or saved records; they cannot remove assumptions shared by the model
-and the scientific question. The final review checked every result identity
-and metric summary, while fresh journal replay sampled 24 new cells in
-addition to the exhaustive in-campaign referee. C01's descriptive scope
-avoids unsupported sampling assumptions but does not imply population
-robustness. STAT01 supplies known truth only for its specified generators.
-Its post-diagnosis additions, finite study counts, conditional interval
-availability, and conservative power must remain visible when interpreting
-calibration screens.
+STAT01's known truth applies only to its generators. Post-diagnosis methods,
+finite study counts, conditional interval availability, and conservative
+power remain explicit in Appendix~\ref{app:stat}. Reproducible arithmetic
+and valid population inference are distinct requirements. The extensive
+checks reduce implementation and reporting risk without adding scientific
+novelty or resolving model adequacy by themselves.
 
 \section{Conclusion}
-The common execution contract changes the interpretation of this scheduler
-comparison before any winner is selected. Four adaptation names yield three
-observed behaviors: chunked-FCFS and decode-first have exactly equal
-per-request terminal states and metrics, while SLO-gated's inactive urgency
-gate leaves prompt-length admission ordering as an active distinction.
-The remaining behaviors have substantive, model-specific trade-offs:
-SLO-gated reduces aggregate mean latency by 11.3--34.0\% but loses throughput
-and has worse BurstGPT mean window-p95 latency. Saved request and event
-records illustrate how those objectives disagree despite constant output.
-Zero strict source-mean practical reversals coexist with window and metric
-reversals, exact ties and redundant rankings. STAT01 separately shows why
-historical inference requires more than reproducible arithmetic. Together,
-these results provide a reproducible case study of which scheduler
-comparisons a contract makes meaningful, with measured finite-corpus
-consequences rather than a universal ranking or physical prediction.
+This common-contract comparison links a structural reduction of scheduler
+labels to a smaller, interpretable performance problem. Two adaptations
+have identical terminal outcomes despite potentially different journal
+ordering; an inactive urgency gate leaves admission ordering as an active
+distinction. The surviving behaviors exhibit measured mean/tail/throughput
+trade-offs. Source-mean practical stability coexists with window and metric
+reversals even after duplicated comparisons are removed. These bounded
+findings make explicit what the evaluator permits a scheduling choice to
+change. The supporting historical diagnostic separately shows why exact
+arithmetic reproduction is insufficient evidence of statistical calibration.

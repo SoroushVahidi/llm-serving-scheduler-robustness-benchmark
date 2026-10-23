@@ -1,0 +1,224 @@
+{
+  "method": "Open every distinct external PDF annotation URL; internal destinations checked in pdf-metadata.json. Access-denied/challenge responses are unresolved full-text access, not claimed broken references.",
+  "results": [
+    {
+      "url": "https://arxiv.org/abs/2407.07000v2",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2407.07000v2",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 43477,
+      "html_title": "[2407.07000v2] Etalon: Holistic Performance Evaluation Framework for LLM Inference Systems",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.07347v3",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2504.07347v3",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 42835,
+      "html_title": "[2504.07347v3] Throughput-Optimal Scheduling Algorithms for LLM Inference and AI Agents",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://doi.org/10.1002/cpe.3240",
+      "status": "UNRESOLVED",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doi.org/10.1057/jos.2012.20",
+      "status": "UNRESOLVED",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doi.org/10.1080/01621459.1963.10500830",
+      "status": "UNRESOLVED",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doi.org/10.1109/HPCA61900.2025.00102",
+      "status": 202,
+      "final_url": "https://ieeexplore.ieee.org/document/10946802/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_inspected": 0,
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://doi.org/10.1109/IISWC63097.2024.00012",
+      "status": 202,
+      "final_url": "https://ieeexplore.ieee.org/document/10763697/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_inspected": 0,
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://doi.org/10.1109/ISPASS69572.2026.00012",
+      "status": 202,
+      "final_url": "https://ieeexplore.ieee.org/document/11527300/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_inspected": 0,
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://doi.org/10.1111/j.2517-6161.1995.tb02031.x",
+      "status": "UNRESOLVED",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doi.org/10.1145/3600006.3613165",
+      "status": "UNRESOLVED",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doi.org/10.1145/3642970.3655823",
+      "status": "UNRESOLVED",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doi.org/10.1145/3711896.3737413",
+      "status": "UNRESOLVED",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doi.org/10.1145/3771574",
+      "status": "UNRESOLVED",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doi.org/10.1214/aos/1013699998",
+      "status": 200,
+      "final_url": "https://projecteuclid.org/journals/annals-of-statistics/volume-29/issue-4/The-control-of-the-false-discovery-rate-in-multiple-testing/10.1214/aos/1013699998.full",
+      "content_type": "text/html",
+      "bytes_inspected": 1161,
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://doi.org/10.48550/arXiv.2507.09019",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2507.09019",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 45357,
+      "html_title": "[2507.09019] On Evaluating Performance of LLM Inference Serving Systems",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://doi.org/10.52202/079017-1882",
+      "status": 200,
+      "final_url": "https://www.proceedings.com/079017-1882.html",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes_inspected": 262144,
+      "html_title": "Efficient LLM Scheduling by Learning to Rank - proceedings.com",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md",
+      "status": 200,
+      "final_url": "https://github.com/Azure/AzurePublicDataset/blob/master/AzureLLMInferenceDataset2024.md",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 247150,
+      "html_title": "AzurePublicDataset/AzureLLMInferenceDataset2024.md at master \u00b7 Azure/AzurePublicDataset \u00b7 GitHub",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon/tree/5f7439c51ec248a0c585f7d90a41a6f57773b912",
+      "status": 200,
+      "final_url": "https://github.com/alibaba-edu/qwen-bailian-usagetraces-anon/tree/5f7439c51ec248a0c585f7d90a41a6f57773b912",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 262144,
+      "html_title": "GitHub - alibaba-edu/qwen-bailian-usagetraces-anon at 5f7439c51ec248a0c585f7d90a41a6f57773b912 \u00b7 GitHub",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://proceedings.mlsys.org/paper_files/paper/2024/hash/b74a8de47d2b3c928360e0a011f48351-Abstract-Conference.html",
+      "status": 200,
+      "final_url": "https://proceedings.mlsys.org/paper_files/paper/2024/hash/b74a8de47d2b3c928360e0a011f48351-Abstract-Conference.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 10112,
+      "html_title": "VIDUR: A LARGE-SCALE SIMULATION FRAMEWORK FOR LLM INFERENCE",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://proceedings.mlsys.org/paper_files/paper/2025/hash/bc82dbfbfa43232be85b8d9838f49c3e-Abstract-Conference.html",
+      "status": 200,
+      "final_url": "https://proceedings.mlsys.org/paper_files/paper/2025/hash/bc82dbfbfa43232be85b8d9838f49c3e-Abstract-Conference.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 9905,
+      "html_title": "SOLA: Optimizing SLO Attainment for Large Language Model Serving with State-Aware Scheduling",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://www.cs.mcgill.ca/~colt2009/papers/012.pdf",
+      "status": 200,
+      "final_url": "https://www.cs.mcgill.ca/~colt2009/papers/012.pdf",
+      "content_type": "application/pdf",
+      "bytes_inspected": 152160,
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://www.jstor.org/stable/4615733",
+      "status": 200,
+      "final_url": "https://www.jstor.org/stable/4615733",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 3038,
+      "html_title": "Client Challenge",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://www.usenix.org/conference/atc25/presentation/wang-jiahao",
+      "status": 200,
+      "final_url": "https://www.usenix.org/conference/atc25/presentation/wang-jiahao",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 38707,
+      "html_title": "KVCache Cache in the Wild: Characterizing and Optimizing KVCache Cache at a Large Cloud Provider | USENIX",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen",
+      "status": 200,
+      "final_url": "https://www.usenix.org/conference/nsdi26/presentation/xiang-servegen",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 38560,
+      "html_title": "ServeGen: Workload Characterization and Generation of Large Language Model Serving in Production | USENIX",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://www.usenix.org/conference/osdi22/presentation/yu",
+      "status": 200,
+      "final_url": "https://www.usenix.org/conference/osdi22/presentation/yu",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 38596,
+      "html_title": "Orca: A Distributed Serving System for Transformer-Based Generative Models | USENIX",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://www.usenix.org/conference/osdi24/presentation/agrawal",
+      "status": 200,
+      "final_url": "https://www.usenix.org/conference/osdi24/presentation/agrawal",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 41879,
+      "html_title": "Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve | USENIX",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://www.usenix.org/conference/osdi24/presentation/sun-biao",
+      "status": 200,
+      "final_url": "https://www.usenix.org/conference/osdi24/presentation/sun-biao",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 40414,
+      "html_title": "Llumnix: Dynamic Scheduling for Large Language Model Serving | USENIX",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin",
+      "status": 200,
+      "final_url": "https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin",
+      "content_type": "text/html; charset=utf-8",
+      "bytes_inspected": 41205,
+      "html_title": "DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving | USENIX",
+      "access": "RESPONSE_RECEIVED"
+    },
+    {
+      "url": "mailto:sv96@njit.edu",
+      "status": "MAILTO_NOT_SENT"
+    }
+  ]
+}

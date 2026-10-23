@@ -1,98 +1,69 @@
 \section{Related Work and Evaluation Scope}
-\paragraph{Serving mechanisms.}
-Orca introduced iteration-level scheduling to change batches as requests
-progress \citep{yu2022orca}. vLLM's PagedAttention addresses KV-memory
-fragmentation and sharing \citep{kwon2023vllm}. Sarathi-Serve uses chunked
-prefill to manage throughput--latency trade-offs \citep{agrawal2024sarathi}.
-Bari et al. distinguish the throughput-optimal RAD construction from the
-practical SLAI scheduler, which uses measured decode urgency and known
-prompt lengths \citep{slai2025}. These are system and algorithm contributions
-with their own execution assumptions. Our whole-FCFS, chunked-FCFS,
-decode-first, and SLO-gated adaptations isolate a smaller set of admissible
-rules. In particular, full-context reservations do not reproduce
-PagedAttention, and an inactive urgency gate supplies no evidence for
-SLAI's complete design or RAD's theorem. Disaggregated serving and dynamic
-migration, exemplified by DistServe and Llumnix
-\citep{zhong2024distserve,sun2024llumnix}, are outside the single-device,
-nonpreemptive contract evaluated here.
+\paragraph{Evaluation methodology and the closest comparison.}
+Papaioannou and Doudali study how datasets and inference scenarios change
+LLM-system evaluations \citep{papaioannou2024workload}. Agrawal et al. identify
+anti-patterns in baseline comparisons, evaluation settings, and metric
+design \citep{agrawal2025evaluation}; Etalon introduces a fluidity index to
+capture streaming experience missed by conventional summaries
+\citep{agrawal2024etalon}. These works already establish that benchmark and
+metric choices matter. Our study adds a different object of analysis: executable
+behavior under shared timing, resource, and information rules. It derives
+an exact equivalence for two adaptations, verifies it over the complete
+matched matrix, and measures the trade-offs left after that equivalence.
+The source-mean/window contrast then shows how aggregation changes the
+interpretation of those surviving comparisons. This is a contract-specific
+case study, not a general evaluation methodology or a new streaming metric.
 
-\paragraph{Workload-sensitive evaluation.}
-Papaioannou and Doudali explicitly examine how dataset and inference-scenario
-choice affect comparisons among LLM inference systems
-\citep{papaioannou2024workload}. Their work is a close precedent for the
-importance of workload choice, rather than a gap this paper first identifies.
-Etalon identifies limitations of conventional latency and throughput
-metrics for streaming user experience and introduces a fluidity index
-\citep{agrawal2024etalon}. Our metric comparisons use the frozen aggregate
-endpoints; they neither introduce a new user-experience metric nor measure
-streaming fluidity.
-BurstGPT contributes production-derived workload characterization
-\citep{burstgpt2025}, and ServeGen studies production workloads and their
-generation \citep{servegen2026}. Workload resampling has a longer history
-in parallel-job scheduler evaluation \citep{zakay2014resampling}.
-Our analysis instead holds a selected trace corpus fixed, matches each
-adaptation on the same window and condition, and distinguishes source
-means from cross-window comparisons. We do not infer that the selected
-windows are independent draws from provider populations.
+\paragraph{Serving and scheduling mechanisms.}
+Orca introduces iteration-level scheduling \citep{yu2022orca}; vLLM's
+PagedAttention addresses KV fragmentation and sharing \citep{kwon2023vllm};
+Sarathi-Serve combines chunked prefill with stall-free batching
+\citep{agrawal2024sarathi}. Fu et al. learn relative output-length order to
+approximate shortest-job-first scheduling \citep{fu2024ranking}. Our
+prompt-length ordering uses observed inputs, without predicting output
+length or claiming the same objective or optimality.
+Bari et al. distinguish the throughput-optimal RAD construction from
+practical SLAI, which combines decode urgency and known prompt lengths
+\citep{slai2025}. SOLA jointly considers request/system state and work
+allocation to improve SLO attainment \citep{hong2025sola}. Their active
+state-dependent mechanisms differ from the fixed, inactive urgency gate.
+The published systems establish the value of their mechanisms under their
+own execution assumptions; they do not establish this adaptation panel's
+state equivalence. Full-context reservations also omit native paging, while
+disaggregation and migration, exemplified by DistServe and Llumnix
+\citep{zhong2024distserve,sun2024llumnix}, lie outside the evaluated contract.
 
-\paragraph{Throughput optimality and finite-window completion.}
-Dai, Deng, Li, and Peng's May 18, 2026 revision studies batching and
-work-conserving scheduling through queueing stability
-\citep{dai2026throughput}. Their token-budget model has batch time depending
-on token load; their maximal-batch-size extension shows that request-count
-constraints materially change the stability analysis. This makes the
-binding constraint a substantive modeling choice, rather than an incidental
-configuration detail. In \cm, full-context reservations limit residency to
-four or eight requests, chunked work cannot exhaust the token budget, and
-every batch costs the same time. Moreover, our throughput is output from a
-finite, fully drained input divided by its completion duration. It is not
-their long-run stability criterion. Their work motivates examining batching
-and concurrency together, but its theorems do not certify these adaptations;
-our finite-window throughput losses neither refute their stability results
-nor establish a new scheduling principle.
+\paragraph{Binding constraints and throughput.}
+Dai et al.'s May 18, 2026 revision studies queueing stability with token-load-
+dependent batch time and a maximal-request-batch-size extension
+\citep{dai2026throughput}. The binding constraint matters in both studies,
+but the estimands differ. Our contract fixes batch time, limits residency to four or
+eight requests, and measures output divided by finite-window completion
+duration. Its chunked work cannot exhaust the token budget. These drained
+rates are not a stability region, and the observed throughput losses neither
+refute Dai et al.'s results nor establish a new optimality theorem.
 
-\paragraph{Related manuscripts and incremental question.}
-Related active manuscripts by the author already study inactive mechanisms
-and metric sensitivity. The action-opportunity/headroom manuscript asks when
-an executable alternative exists and measures reference-conditional,
-one-step causal value. The module-counterfactual manuscript studies typed
-transplants, downstream erasure and transplant fidelity. The closed-API
-resource-accounting manuscript separates nominal budgets, realized resources
-and answer selection on different tasks and data. M3 does not contribute
-those methods or reuse their quantitative results as validation. Its
-incremental object is a complete common-contract adaptation comparison:
-exact trajectory consequences for the chunked/decode pair, measured remaining
-trade-offs, and the contrast between source-mean stability and window/metric
-rankings, with a separate historical-inference diagnostic. The shared ideas
-of explicit accounting and conditional mechanisms are acknowledged, not
-claimed as unique to this paper. Appendix~\ref{app:evidence} and the related-
-manuscript disclosure identify inspected local versions; actual submitted
-versions and public citation identities require author confirmation.
-M3 also reuses windows, reconstruction and the archived 36/990 rule result
-from the earlier portability line, whose rejected/withdrawn submissions are
-not active concurrent work.
+\paragraph{Workloads and simulators.}
+BurstGPT and ServeGen characterize production-derived workloads
+\citep{burstgpt2025,servegen2026}; resampling has a longer history in scheduler
+evaluation \citep{zakay2014resampling}. Our analysis instead conditions on a fixed
+selected corpus, with equal-window source means and explicit matched
+comparisons. Vidur combines profiling and prediction
+\citep{vidur2024}; LLMServingSim and its heterogeneous/disaggregated successor
+model hardware/software interactions \citep{llmservingsim2024,llmservingsim2026}.
+They pursue hardware-aware performance estimation. Our fixed-duration
+work ledger pursues checkable execution semantics. Following simulation
+verification/validation terminology \citep{sargent2013}, journal
+reconstruction verifies conformance to that model; physical prediction
+would require separate validation.
 
-\paragraph{Serving simulators and model credibility.}
-Vidur combines profiling and predictive models to explore LLM inference
-configurations \citep{vidur2024}; LLMServingSim develops HW/SW co-simulation
-for serving workloads \citep{llmservingsim2024}. LLMServingSim 2.0 further
-models interactions among runtime scheduling, heterogeneous hardware, and
-disaggregated resources \citep{llmservingsim2026}. Those frameworks target
-hardware-aware performance estimation and evaluate prediction accuracy.
-\cm\ uses fixed-duration batches and an explicit work ledger to make
-adaptations comparable and execution independently checkable. It cannot
-replace their predictive objectives or borrow their validation evidence.
-Following the distinction between verification and validation in simulation
-methodology \citep{sargent2013}, reconstructing an execution journal tests
-whether the program implements the declared model. Establishing adequacy
-for a physical serving system would require separate evidence.
-
-\paragraph{Statistical procedures.}
-The calibration diagnostic uses existing procedures: Benjamini--Hochberg
-(BH), Benjamini--Yekutieli (BY), Holm, and bounded concentration inequalities
+\paragraph{Inference and evidence reuse.}
+STAT01 applies established BH, BY, Holm, and concentration methods
 \citep{benjamini1995,benjamini2001dependency,holm1979,hoeffding1963}.
-Their assumptions do not follow from successful code execution. In
-particular, a multiplicity adjustment cannot establish validity of its
-input p-values or repair a mismatch between the tested null and a practical
-performance claim. STAT01 investigates those issues in specified synthetic
-scenarios; it does not propose a replacement test.
+Multiplicity correction does not validate input p-values or turn a
+zero-effect test into a practical-effect test. The diagnostic investigates
+those distinctions under specified synthetic truth. This study reuses historical
+windows, reconstruction, and archived rule outputs, with separate execution
+identities for the common-model comparison (Appendix~\ref{app:evidence}).
+Shared infrastructure and related mechanism studies do not provide
+independent validation of its results.

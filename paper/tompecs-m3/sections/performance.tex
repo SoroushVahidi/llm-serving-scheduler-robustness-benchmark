@@ -10,9 +10,7 @@ from 332.489 to 7,766.685 tokens per simulated second.
 
 Table~\ref{tab:absolute} reports absolute source--capacity aggregates.
 Chunked-FCFS and decode-first share a row because their terminal records
-and all metrics are exactly equal; their separate identities remain in the
-artifact. Reporting this equivalence avoids treating duplicated outcomes
-as corroborating evidence from two different behaviors.
+and all metrics are exactly equal; their separate identities remain in the artifact.
 
 \begin{table}[t]
 \centering\small\setlength{\tabcolsep}{4pt}
@@ -113,9 +111,7 @@ differences are unfavorable to SLO-gated. All windows are retained.}
 \end{figure}
 
 \paragraph{Answer to RQ1.}
-Absolute performance varies with workload and permitted residency, and
-SLO-gated's aggregate mean-latency advantage coexists with throughput losses
-and BurstGPT tail-latency losses. Completion is uniformly one. The capacity
-contrast primarily reflects four versus eight full-context residents, and
-the setting contrast jointly changes arrival and deadline stress. Two
-nominal adaptations have identical behavior under the evaluated contract.
+The surviving behaviors exchange average response time against throughput,
+tail latency, and deadline attainment. The capacity contrast is principally
+a residency constraint; the setting contrast jointly stresses arrivals
+and deadlines. These are trade-offs within the declared model.
