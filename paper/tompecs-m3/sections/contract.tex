@@ -91,7 +91,12 @@ request releases its slot only after that batch's work. Each selected
 request appears once, contributing at most 512 prefill tokens or one decode
 token. Thus the bound is $512[R+(K-R)]\leq4,096$, including both existing
 residents and new admissions, rather than a separate allowance for each.
-The 32,768-token budget cannot truncate this work.
+In particular, at most eight residents, each offering at most 512 work
+tokens, give $8\times512=4,096<32,768$. The original budget cannot truncate
+this work. The 72-cell smaller-budget study tests a different budget regime;
+its observed agreement does not extend this proof to arbitrary binding
+budgets. Historical examples with different service or resource rules are
+not counterexamples under \cm.
 
 Starting from the same state, chunked-FCFS and decode-first select the same
 residents and the same stable-order waiting prefix. They execute identical
@@ -173,14 +178,20 @@ journals. These checks establish conformance to \cm, not GPU fidelity.
 Figure~\ref{fig:contract} summarizes the evidence chain.
 
 \paragraph{AI assistance in the research workflow.}\label{sec:research-ai}
-OpenAI Codex assisted with software development, experimental analysis and
-validation, and preparation of figures and tables. OpenAI ChatGPT assisted
-with scientific brainstorming. In this workflow, display scripts read
-hash-checked saved summaries, and validation scripts compare reported
-quantities with saved evidence and reconstruct the worked example from
-event journals (Appendix~\ref{app:evidence}). The author reviewed the resulting
-work; the declarations state the author's responsibility and describe
-writing assistance.
+OpenAI Codex assisted with software development for the research,
+experimental analysis and validation, and figure and table preparation.
+The associated computational workflow includes scripts that check saved
+input fingerprints, compute performance and ranking summaries, and render
+displays from frozen numerical evidence. Validation scripts compare reported
+quantities and supplementary endpoint rows with saved records; separate
+checks reconstruct request execution and the worked example from event
+journals (Appendix~\ref{app:evidence}). Codex also assisted with packaging
+and checking the saved-evidence reproduction materials. OpenAI ChatGPT
+assisted with scientific brainstorming. These are research-assistance roles;
+writing assistance is reported separately in the declarations. Tool
+assistance does not itself validate a scientific claim. The author reviewed
+the resulting work and retains responsibility for the methods, evidence,
+interpretations, and conclusions.
 
 \begin{figure}[!htbp]
 \centering

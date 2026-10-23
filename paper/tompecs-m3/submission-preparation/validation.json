@@ -1,0 +1,84 @@
+{
+  "preparation_verdict": "COMPLETED_WITH_BLOCKERS",
+  "document_and_saved_evidence_checks": "PASS",
+  "baseline_pdf_sha256": "cfbf6bce69feec09b6a1927c86e3a6b84b5e4561847466e9297844c7954d1eb2",
+  "baseline_source_commit": "33e1452696a513bb2ebe05ea2c803669293f3388",
+  "worktree_base_commit": "8bdf692f0432304002c64b23b7afef6ee3bc3617",
+  "baseline_rebuild_byte_identical": true,
+  "final_pdf_sha256": "43af9fb9e3b77e4dac7f602e0a768d1e00554699bcc44287d33328e5e23da592",
+  "final_pdf_pages": 26,
+  "final_pdf_bytes": 728953,
+  "clean_extracted_final_rebuild_byte_identical": true,
+  "c01_cells": 5760,
+  "terminal_equivalences": 1440,
+  "sensitivity_cells": 72,
+  "urgent_opportunities": {
+    "critical": 0,
+    "ready": 107844
+  },
+  "strict_practical_source_mean_reversals": {
+    "original": [
+      0,
+      2376
+    ],
+    "reduced": [
+      0,
+      864
+    ]
+  },
+  "strict_practical_budget_reversals": [
+    0,
+    576
+  ],
+  "mean_latency_reduction_percent": [
+    11.3,
+    34.0
+  ],
+  "token_throughput_reduction_percent": [
+    1.65,
+    4.01
+  ],
+  "burstgpt_mean_window_p95_increases_percent": [
+    3.72,
+    18.97
+  ],
+  "stat_endpoint_csv_rows": 7200,
+  "narrative_checks": 53,
+  "resolved_bibliography_entries": 28,
+  "latex_errors": 0,
+  "overfull_boxes": 0,
+  "unresolved_references": 0,
+  "all_fonts_embedded": true,
+  "all_26_pages_visually_inspected": true,
+  "clipped_text_blocks": 0,
+  "visible_review_placeholders": 0,
+  "false_publication_metadata": 0,
+  "internal_links_checked": 77,
+  "external_link_status_counts": {
+    "200": 16,
+    "403": 8,
+    "202": 3,
+    "timeout/error": 1
+  },
+  "metadata_notes": "Correct title, CCS subject and acmart version; author/keywords Info fields empty as inherited; author visible in manuscript. Fixed SOURCE_DATE_EPOCH retained for reproducible builds. No publication DOI, volume, issue or acceptance claim.",
+  "review_format": "acmart v2.20 manuscript, screen, review, nonacm; author identified; journal-specific requirements unverified",
+  "clean_extraction_files": 691,
+  "display_files_regenerated_byte_identically": 16,
+  "full_evidence_manifest_files_verified": 33977,
+  "full_evidence_archive_sha256": "10fbfb23b94edde7ec45a28ba98c15768b0b02252bb0beb2cabf7fee41087b5c",
+  "compact_archive_sha256": "2cac59c33134629a043e374c875bb05996e890f2df5e328a3f56c5d4295b9e4e",
+  "compact_archive_bytes": 23083319,
+  "experiments_executed": 0,
+  "uploads": 0,
+  "technical_limitations": [
+    "Existing Linux verification environment reused; no new OS/container test",
+    "Fixed 24-journal and 200-study independent referees; not exhaustive decision replay",
+    "Eight publisher URLs returned 403, three 202 and one request timed out; no 404; prior reference audit retained"
+  ],
+  "submission_blockers": [
+    "Official TOMPECS anonymity/page/supplement/portal rules unavailable (403)",
+    "Actual confidential reviewer delivery not yet performed; no hosted URL",
+    "Exact uploaded related-manuscript identities remain unverified",
+    "Final author review, required personal portal attestations and separate submission approval remain"
+  ]
+}
