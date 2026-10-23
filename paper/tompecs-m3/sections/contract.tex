@@ -119,6 +119,45 @@ than give policies identical settings: it identifies which of their decision
 rules can change state transitions. The resulting finite-window completion
 distributions are the empirical object of Section~\ref{sec:performance}.
 
+\subsection{What can activate the urgency gate?}\label{sec:urgency}
+Urgency concerns a token gap, not a synthetic completion deadline. At a
+planning boundary $t$, an arrived, unfinished resident is critical exactly
+when its prefill is complete, its anchor $a_i$ is defined, and
+$t-a_i\geq0.495$\,s. The anchor is the end of final prefill or the last
+executed decode; an omitted decode does not reset it. Waiting requests and
+unfinished prefills cannot qualify. Neither completion deadlines nor
+estimated remaining service enters this predicate. The protocol interprets
+0.495\,s as a uniform 0.5\,s token-gap allowance minus a 5\,ms margin, but
+the implementation fixes the threshold: it exposes no SLO parameter.
+Changing finite metric deadlines alone cannot change execution.
+
+A finite-work argument also limits activation when the budget binds. Let
+$P$ be total prompt work, $B>K-1$ the integer budget, $K$ the residency
+limit, and $\delta$ the fixed batch duration. Suppose a first critical
+decision exists. In each consecutive batch omitting that ready decode
+since its anchor, the residual loop must have exhausted $B$; at most
+$K-1$ other decodes consume one token each. Every such batch therefore
+executes at least $B-(K-1)$ prefill tokens. With no recomputation or idle
+jump while the decode remains resident, $m$ omitted batches imply
+\begin{equation}\label{eq:urgency-bound}
+ m[B-(K-1)]\leq P,\qquad
+ t-a_i\leq\delta\left\lfloor\frac{P}{B-(K-1)}\right\rfloor.
+\end{equation}
+An upper bound strictly below 0.495\,s rules out first activation.
+The common-domain restriction gives $P\leq NB$ for $N$ requests. For
+$N=200$, $B\geq1,024$, $K\leq8$ and $\delta=1$\,ms, the bound is at most
+201\,ms. This is a sufficient inactivity certificate for these assumptions,
+not a general waiting-time guarantee or a necessary condition for activation.
+The original nonbinding case has the tighter zero-age proof above.
+
+The fixed-threshold code agrees with its declared adaptation; configurable
+TBT classes in the historical scheduler are a different implementation.
+Engineering checks at the adjacent floating-point values below and above
+0.495, and at equality, confirm the predicate without establishing that
+such supplied states are reachable. No new SLO/deadline experiment is run:
+the available metric deadline cannot exercise the gate, and altering the
+policy literal would change the frozen comparison object.
+
 \subsection{Conformance evidence}
 The event referee reconstructs request states, token spans, timing,
 completion, and resource use from the inputs and execution journal without

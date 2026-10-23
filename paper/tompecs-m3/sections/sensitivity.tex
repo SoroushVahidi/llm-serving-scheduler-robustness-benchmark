@@ -41,6 +41,11 @@ whole-prompt packing that leaves unusable residual budget. At 1,024 tokens,
 SLO-gated's prefill-before-residual-decode rule omits 42 ready-decode
 opportunities out of 35,976; its maximum anchor age reaches 2\,ms, still below the
 unchanged 495\,ms urgency threshold. The gate never activates.
+Equation~\ref{eq:urgency-bound} strengthens this observation: total prompt
+work of 39,300, 52,250 and 44,765 tokens gives respective 38, 51 and
+44\,ms upper bounds at budget 1,024, ruling out first activation in
+each window. Independent reconstruction of all 18 saved SLO-gated cells
+finds zero urgent decisions in 107,844 ready-decode opportunities.
 Table~\ref{tab:budget} shows modest, sometimes nonmonotone terminal effects.
 Whole-FCFS changes which whole prompts fit and hence which batches defer
 decodes; a smaller budget need not worsen every completion time.

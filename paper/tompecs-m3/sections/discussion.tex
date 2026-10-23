@@ -32,6 +32,9 @@ work budget or composition-dependent timing can invalidate its argument,
 and loss of the nonbinding bound need not break equivalence. The focused
 budget sensitivity retains it while changing some admissions and decode
 service; budget saturation is rare in that short-prompt BurstGPT stratum.
+The finite-work certificate additionally rules out urgency activation
+there. Synthetic completion deadlines are hidden from this gate, so
+tightening them would change deadline attainment without testing urgency.
 Longer prompts fail the unchanged common-domain check at these budgets,
 and composition-dependent timing remains untested. Independent
 conformance checks establish implementation correctness for the abstraction,
@@ -62,8 +65,9 @@ labels to a smaller, interpretable performance problem. Two adaptations
 have identical terminal outcomes despite potentially different journal
 ordering; an inactive urgency gate leaves admission ordering as an active
 distinction. The surviving behaviors exhibit measured mean/tail/throughput
-trade-offs. A prospective budget-only sensitivity retains the equivalent
-pair despite small execution changes on three feasible BurstGPT windows.
+trade-offs. The budget-only sensitivity retains the equivalent pair;
+a finite-work certificate also rules out urgency activation in its
+examined regimes.
 Source-mean practical stability coexists with window and metric
 reversals even after duplicated comparisons are removed. These bounded
 findings make explicit what the evaluator permits a scheduling choice to
