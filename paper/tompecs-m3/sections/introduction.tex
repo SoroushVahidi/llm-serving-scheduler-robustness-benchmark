@@ -15,6 +15,15 @@ survive a declared execution contract, why do others disappear, and what
 performance trade-offs remain?} Answering it requires examining state
 transitions and mechanism activation alongside performance measurements.
 
+Our methodological approach is to derive effective scheduler behavior from
+the contract before interpreting performance differences: establish
+conditional equivalence where the assumptions permit it, determine whether
+the implemented mechanisms can activate, and measure the trade-offs that
+survive. The state-transition argument, inactivity certificate, and saved
+execution checks below support distinct parts of this analysis; observed
+agreement outside the proof's assumptions is not a general equivalence
+theorem.
+
 We investigate four project-maintained adaptations under \cm, a contract
 specifying online information, legal actions, work advancement, batch timing,
 and resource acquisition and release. The adaptations retain selected ideas

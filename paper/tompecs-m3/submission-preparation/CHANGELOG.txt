@@ -1,0 +1,36 @@
+Changes from validated 26-page M3 baseline
+Baseline PDF SHA-256: cfbf6bce69feec09b6a1927c86e3a6b84b5e4561847466e9297844c7954d1eb2
+Verified source: 33e1452696a513bb2ebe05ea2c803669293f3388; delivery successor 8bdf692f0432304002c64b23b7afef6ee3bc3617.
+The baseline rebuilt byte-identically before any manuscript edit.
+
+Every manuscript-source change (paper/tompecs-m3/):
+1. sections/introduction.tex: added one short paragraph connecting contract-derived
+   effective behavior, conditional equivalence, mechanism activation and surviving
+   trade-offs; explicitly distinguishes proof from observed agreement.
+2. sections/contract.tex: made 8 x 512 = 4096 < 32768 explicit; clarified that the
+   72-cell smaller-budget agreement is empirical and historical different-contract
+   examples are not CM-0.1 counterexamples. Expanded the existing research-AI methods
+   paragraph with documented code/analysis/validation/figure and packaging roles,
+   the saved-evidence workflow, and human scientific responsibility.
+3. sections/discussion.tex: states that the October 23 workstation/Wulver audit found
+   no completed M3 shared composition-dependent timing experiment, limits transfer
+   of latency/tail/throughput results, and disclaims historical GPU validation of
+   M3's exact comparisons. The dated audit result is supplied by the current author
+   instruction; no new remote campaign inventory or experiment is claimed here.
+4. sections/declarations.tex: replaces a pending public-release description with
+   the prepared confidential compact/full package relationship; explicitly asserts
+   no public release, M3 DOI or hosted reviewer URL. Approved funding, conflicts,
+   identity, Wulver acknowledgment and voluntary writing disclosure are retained.
+5. sections/appendix.tex: changes “scripts ... verifies” to “scripts ... verify”.
+6. m3-manuscript.pdf: regenerated from the verified source with the above edits;
+   remains 26 pages. No template, numerical threshold, definition, figure, table,
+   reference, abstract, experimental input or scientific output was changed.
+
+Additional preparation files:
+submission-preparation/CHANGELOG.txt and validation.json document the focused
+revision and checks. Reviewer packaging scripts/guides, private declarations,
+cover letter and manuscript-status disclosure remain outside the repository.
+The compact package contains revised source/PDF and unchanged eligible saved
+scientific evidence. It links by checksums to the unmodified full cleared archive.
+No experiments, publication uploads, journal submissions, main-branch updates,
+merges, or external correspondence were performed.
