@@ -1,5 +1,7 @@
 # M3 author-review manuscript
 
+**PAUSED — submission candidate prepared (2026-10-23).** Start with the [permanent project handoff](PROJECT_HANDOFF.md) for the verified manuscript, PR dependencies, preserved evidence, remaining submission decisions, and minimal resumption checklist. No journal submission has occurred; merge, submission, and public artifact release require separate author authorization.
+
 **Final review paper: [m3-manuscript.pdf](m3-manuscript.pdf) (26 pages).** This is the sole tracked final M3 paper PDF. The optional ACM-small layout remains buildable locally; prior PDFs and verification records remain available in Git history.
 
 **Current candidate: focused submission preparation (2026-10-23).** See the [manuscript changelog](submission-preparation/CHANGELOG.txt) and [validation record](submission-preparation/validation.json). The revised 26-page PDF has SHA-256 `43af9fb9e3b77e4dac7f602e0a768d1e00554699bcc44287d33328e5e23da592`; it is distinct from the previous cleared baseline. Its source starts from the verified ACM-compliance delivery commit `8bdf692f0432304002c64b23b7afef6ee3bc3617`. The compact reviewer archive reproduces this PDF byte-for-byte and remains private. No new experiments, public artifact release, or journal submission are authorized by this preparation. Journal-specific requirements and final author submission approval remain pending.
