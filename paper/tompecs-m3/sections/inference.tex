@@ -18,7 +18,7 @@ sources, eleven policies, and normally 40 windows per source; one bounded
 scenario uses 400. The 165 source-pair/policy-pair hypotheses are dependent
 within a study. Independently generated studies, not their individual
 hypotheses, are the Monte Carlo units. The completed design contains
-134,000 studies across 18 scenarios, including IID, block-dependent,
+134,000 studies across 18 scenarios, including independent and identically distributed (IID), block-dependent,
 autoregressive, nonnormal, bounded, and missing-data cases.
 
 The primary truth is a population reversal exceeding 10\% relative to the
@@ -26,7 +26,7 @@ losing mean in both sources. Sign reversals are a separate endpoint.
 The historical procedure first screens noisy point estimates at 10\%, then
 uses bootstrap intervals and zero-effect p-values on the selected contrasts.
 Testing a zero-effect null after such screening is not automatically a
-test of the practical-effect null. BH or BY alone cannot supply the missing
+test of the practical-effect null. Benjamini--Hochberg (BH) or Benjamini--Yekutieli (BY) adjustment alone cannot supply the missing
 calibration \citep{benjamini1995,benjamini2001dependency}.
 
 Three implementation identities are retained. The eight frozen original
@@ -45,12 +45,12 @@ screened-BH comparator. Each row has 8,000 studies; ordinary fixed-contrast
 interval coverage is available in all of them. Bounds are the expanded
 17-method simultaneous Monte Carlo bounds, not confidence intervals for
 C01 performance. These three null scenarios isolate IID, independent-block,
-and AR dependence; all 18 scenarios and methods remain in the supplement.}
+and autoregressive (AR) dependence; all 18 scenarios and methods remain in the supplement.}
 \label{tab:calibration}\input{tables/calibration}
 \end{table}
 
 Table~\ref{tab:calibration} shows that the actual historical-source procedure
-has practical FDR 0.09025 in the IID equal-null scenario, with an expanded
+has practical false-discovery rate (FDR) 0.09025 in the IID equal-null scenario, with an expanded
 Monte Carlo lower bound above 0.05. Independent-block and AR nulls show
 much larger false-discovery rates and poor ordinary interval coverage.
 These null examples already demonstrate a calibration concern without

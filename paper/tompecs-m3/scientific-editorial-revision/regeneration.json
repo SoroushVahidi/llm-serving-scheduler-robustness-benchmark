@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "method": "Saved-input rendering in isolated copy; no simulation or inference generation",
+  "unchanged_outputs": [
+    "tables/calibration.tex",
+    "tables/ties.tex",
+    "tables/stat-scenarios.tex",
+    "tables/absolute.tex",
+    "tables/reversals.tex",
+    "supplement/STAT01_PROTOCOL.md",
+    "supplement/stat01-all-endpoints.csv",
+    "supplement/c01-reversal-groups.csv",
+    "supplement/c01-window-aggregates.csv",
+    "supplement/c01-ties.csv",
+    "supplement/c01-all-cells.csv",
+    "supplement/C01_FULL_PROTOCOL.md",
+    "supplement/stat01-stopping.csv",
+    "supplement/c01-source-capacity-means.csv",
+    "supplement/c01-matched-window-differences.csv",
+    "supplement/C01_PROTOCOL.md",
+    "supplement/STAT01_AMENDMENT.md",
+    "evidence/numerical-checks.json",
+    "editorial-revision/reduced-comparisons.json",
+    "editorial-revision/reduced-comparisons.tex"
+  ],
+  "figure_changes": {
+    "figures/absolute.pdf": {
+      "baseline_sha256": "0a05bcc3147f7fbf90857f406e2e24035e93da2d4bf7cd081094e5945c021ced",
+      "revised_sha256": "176c00ee2349df0ad66874b11df13e3eb949c10cc9428f628beb9ea25094b94b",
+      "reason": "Repair clipped axis labels/export bounds; all numerical inputs and plotted values unchanged."
+    },
+    "figures/matched.pdf": {
+      "baseline_sha256": "48fb3476ded3af661e6f875e4adad4661cfcf820d472362522c7e9113b5cb317",
+      "revised_sha256": "aadd1b93b2286a1bb1f069da1fa178af56b3dab6688c017642cc61477616e238",
+      "reason": "Repair clipped axis labels/export bounds; all numerical inputs and plotted values unchanged."
+    }
+  }
+}

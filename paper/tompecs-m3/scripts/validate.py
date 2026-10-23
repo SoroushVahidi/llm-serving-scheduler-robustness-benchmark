@@ -4,6 +4,7 @@ import argparse,collections,csv,gzip,hashlib,importlib.util,itertools,json,math,
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--standalone',action='store_true',help='Validate an extracted manuscript without Git/history checkout checks')
 parser.add_argument('--artifact-root',type=pathlib.Path,help='Unchanged rc1 extraction for fresh independent worked-example reconstruction')
+parser.add_argument('--report',type=pathlib.Path,help='Write a new validation record without replacing an archived report')
 args=parser.parse_args()
 ROOT=pathlib.Path(__file__).resolve().parents[1];repo=ROOT.parents[1]
 hashes=json.loads((ROOT/'evidence/input-hashes.json').read_text())
@@ -102,5 +103,5 @@ for name,digest in example['support_sha256'].items():
  assert hashlib.sha256((ROOT/'major-revision'/name).read_bytes()).hexdigest()==digest,name
 example_scope='FRESH_EVENT_RECONSTRUCTION' if args.artifact_root else 'SAVED_REPORT_AND_SUPPORT_HASHES_ONLY'
 report=dict(status='PASS',independent_oracle=result,claims=claims,citation_keys=len(keys),labels=len(labels),builds=builds,historical_changes=changed,historical_checkout_check=history_scope,worked_example_check=example_scope,experiments_executed=0)
-(ROOT/'evidence/validation/validation.json').write_text(json.dumps(report,indent=2)+'\n')
+(args.report or ROOT/'evidence/validation/validation.json').write_text(json.dumps(report,indent=2)+'\n')
 print(f'PASS: independent full C01 report oracle; {len(claims)} narrative checks; 7200 endpoint rows; {len(keys)} references; both builds; historical preservation')

@@ -1,0 +1,82 @@
+Primary-source and submission-requirement verification — 23 October 2026
+
+Four additions (none was present among the28 inherited entries)
+1. Bingyang Wu, Yinmin Zhong, Zili Zhang, Shengyu Liu, Fangyue Liu,
+   Yuanhang Sun, Gang Huang, Xuanzhe Liu, Xin Jin.
+   FastServe: Iteration-Level Preemptive Scheduling for Large Language Model Inference.
+   NSDI2026, pp57–74, USENIX, May2026, Renton, WA.
+   https://www.usenix.org/conference/nsdi26/presentation/wu-bingyang
+   Publisher BibTeX verifies authors/title/venue/date/pages. Its mechanism combines
+   input-length-informed queues, token-level preemption and state movement;
+   CM-0.1 excludes the latter mechanisms. No reported hardware gain is transferred.
+2. Wei Zhang, Zhiyu Wu, Yi Mu, Rui Ning, Banruo Liu, Nikhil Sarda,
+   Myungjin Lee, Fan Lai.
+   JITServe: SLO-aware LLM Serving with Imprecise Request Information.
+   NSDI2026, pp825–848, USENIX, May2026, Renton, WA.
+   https://www.usenix.org/conference/nsdi26/presentation/zhang-wei
+   Publisher BibTeX and paper support the identity and objective-aware allocation
+   with evolving estimates. CM-0.1 hides metric deadlines and has a fixed gate.
+3. Jianshu She, Zonghang Li, Hongchao Du, Shangyu Wu, Wenhao Zheng,
+   Eric P. Xing, Zhengzhong Liu, Huaxiu Yao, Jason Xue, Qirong Ho.
+   PLA-Serve: A Prefill-Length-Aware LLM Serving System.
+   Proceedings of Machine Learning and Systems8,2026; linked PDF17pages.
+   https://proceedings.mlsys.org/paper_files/paper/2026/hash/bbb7506579431a85861a05fff048d3e1-Abstract-Conference.html
+   IMPORTANT: proceedings metadata says PLA-Serve; PDF title says
+   LAPS: A Length-Aware-Prefill LLM Serving System. Both describe the same
+   linked paper, not two independent studies. The bibliography uses the catalog
+   title and discloses the discrepancy. No unverified page range/DOI is added.
+   Dual queues, temporal/spatial separation and execution-aware batching differ
+   from CM's single waiting-list order and fixed-duration execution.
+   Conference dates/location: https://mlsys.org/Conferences/2026 (May18–22,Bellevue).
+4. Ruicheng Ao, Gan Luo, David Simchi-Levi, Xinshang Wang.
+   Optimizing LLM Inference: Fluid-Guided Online Scheduling with Memory Constraints.
+   https://arxiv.org/abs/2504.11320v4
+   First submitted April15,2025; pinned version4,June13,2026; DOI10.48550/arXiv.2504.11320.
+   No peer-reviewed venue is asserted. Fluid/stability objectives, endogenous KV
+   growth and output-information regimes differ from finite drained windows,
+   full-context reservations and behavioral equivalence. The manuscript does
+   not transfer an asymptotic guarantee or reported physical validation.
+
+Inherited references
+Reused the complete primary-source/metadata audit in
+editorial-revision/CLAIM_TO_REFERENCE.md, reference-endpoints.json and
+reference-followup.json, plus major-revision/REFERENCES_AND_OFFICIAL_RULES.md.
+Those records identify all28 original sources, source-specific access limits,
+publisher/author records, and the SOLA author-order discrepancy (PDF order used).
+Fresh primary checks of SLAI's original arXiv paper, Sarathi's USENIX entry and
+Vidur's MLSys entry agree with the narrow mechanism/simulator comparisons.
+Existing bibliographic identities are unchanged. Only the Bailian/Qwen note
+was shortened to remove a repeated repository/commit; its pinned URL is intact.
+All32 entries are cited; optional-address/publisher advisories for two inherited
+entries are documented rather than resolved with invented metadata. No cluster
+contains more than four references. Claims are contract-specific, not claims
+that these production systems are directly comparable implementations.
+
+Official requirements and remaining uncertainty
+The ACM-authored official template explicitly requires the manuscript option
+for single-column review and maps ordinary journals to acmsmall production:
+https://www.overleaf.com/latex/templates/acm-journals-primary-article-template/cpkjqttwbshg
+The current bundled acmart v2.20 is retained, with manuscript/screen/review,
+visible author identity and nonacm to avoid fictitious publication boilerplate.
+The optional acmsmall build remains available. No claim of accepted-paper/TAPS
+readiness follows from compilation.
+
+Fresh attempts at https://dl.acm.org/journal/tompecs/author-guidelines returned403;
+https://tompecs.acm.org/authors.cfm was unavailable. The canonical ACM submission
+and author-identifier endpoints were also inaccessible. Prior archived checks
+report the same limits. Other journals' anonymity or attachment rules were NOT
+substituted. No double-anonymous requirement is established.
+
+The user's30-page maximum is enforced conservatively across ALL PDF pages,
+including references and appendices. Its journal-specific counting rule could
+not be independently retrieved. No abstract word limit, appendix exemption,
+supplement permission or attachment cap is invented. The full proof remains
+in the paper; compliance does not depend on a supplement exemption.
+
+Cover-letter suitability, earlier-version and related-parallel-work disclosures
+are retained and updated in a PRIVATE draft. They are not in this branch.
+Author-specific ORCID is unverified and has not been fabricated or inserted.
+Before submission, verify current journal instructions/portal fields, identity
+and ORCID, current related-work statuses and exact submitted versions, and the
+permitted confidential reviewer-access route. A final author review remains
+necessary. No portal action, submission, publication or data release occurred.

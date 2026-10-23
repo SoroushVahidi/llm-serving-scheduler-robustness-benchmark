@@ -1,0 +1,36 @@
+Independent proof review — 23 October 2026
+Verdict: VALID_WITHIN_STATED_SCOPE.
+
+Read the entire frozen BOUND01 proof and the authoritative engine/policy code.
+Verified proof and source hashes against its saved PASS validation record.
+The central induction is conditional, not circular: prefix slack implies all
+old residents execute; only the last selected prefill can be truncated; all
+other survivors have next offer <= allocated work; subtracting the youngest
+survivor's positive integer allocation gives strict prefix slack again.
+Completion holes, simultaneous arrivals, boundary eligibility, partially served
+prefills, a unit budget, and horizon censoring do not invalidate this step.
+The coupled policies permute only fully served requests. Batch-end per-request
+updates commute; resource sums/completion enumeration and clocks therefore match.
+
+Necessary qualifications preserved in the manuscript:
+- Empty initial system; one fixed policy per run, no arbitrary switching.
+- Finite valid integer inputs, prompt <= B, prompt+output <= reserved context.
+- Fixed B, chunk cap512, unit decode work, constant full-context capacity K.
+- Resident-first, stable arrival-prefix admission, no bypass or preemption.
+- Ordinary exogenous arrivals during a batch become eligible next boundary.
+- Positive, finite advancing fixed timing and a common administrative horizon.
+- Equality means selected spans and normalized journals, not raw array order.
+- No extension to SLO-gated's waiting-before-residual-decode ordering.
+- No claim that the invariant characterizes all reachable states iff, or that
+  violating an assumption necessarily produces a counterexample.
+- No machine-checked verification or universal claim about production systems.
+
+The source proof's phrase excluding 'in-batch arrivals/admissions' is clarified:
+arrivals may occur inside a batch; eligibility and admissions occur at boundaries.
+Its code and the surrounding formal-state definition support this reading.
+The prior family-B clean-admission observation is a conceptual precursor;
+the contribution claimed here is this explicit CM-0.1 invariant and coupling,
+not the discovery that priorities can sometimes be observationally irrelevant.
+Seven earlier engineering fixtures and36 reused journals/37034 boundaries check
+implementation assumptions. They are not a proof by finite enumeration.
+No new fixtures, experiments, searches, or source-policy changes were made.

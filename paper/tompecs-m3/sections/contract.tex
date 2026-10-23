@@ -4,7 +4,7 @@ The historical corpus contains 9,360 configurations and two deterministic
 verification passes per configuration. Its primary panel contains eleven
 policies, with two additional style approximations. The historical engine
 permits policy-dependent service modes: instantaneous prefill for some
-policies, explicit prefill work for others, and differing enforcement of KV
+policies, explicit prefill work for others, and differing enforcement of KV cache
 limits. A policy's requested work can also differ from the engine's realized
 progress. Consequently, those outcomes cannot be interpreted as a controlled
 comparison of scheduling order. Table~\ref{tab:objects} distinguishes the
@@ -16,7 +16,7 @@ identifiers containing ``faithful'' are immutable names, not validation certific
 \label{tab:objects}\small
 \begin{tabularx}{\linewidth}{@{}lXX@{}}\toprule
 Object & Comparison or check & Interpretation \\\midrule
-Historical LSSP & Policy-dependent service/resource modes; archived ranking arithmetic & Motivation and historical-rule counts \\
+Historical corpus & Policy-dependent service/resource modes; archived ranking arithmetic & Motivation and historical-rule counts \\
 C01-FULL & Four adaptations; common \cm\ execution and information & Descriptive finite-corpus performance \\
 STAT01 & Synthetic independent studies with known population truth & Scenario-specific inference calibration \\\bottomrule
 \end{tabularx}
@@ -83,32 +83,124 @@ SLO-gated & SLAI-inspired implementation & Urgent decodes first; then resident p
 \end{tabularx}
 \end{table}
 
-\paragraph{Conditional state-transition equivalence.}
-Let $R$ be the
-resident count at a batch boundary and $K\in\{4,8\}$ the reservation limit.
-The planner offers at most $K-R$ waiting requests a slot; a completing
-request releases its slot only after that batch's work. Each selected
-request appears once, contributing at most 512 prefill tokens or one decode
-token. Thus the bound is $512[R+(K-R)]\leq4,096$, including both existing
-residents and new admissions, rather than a separate allowance for each.
-In particular, at most eight residents, each offering at most 512 work
-tokens, give $8\times512=4,096<32,768$. The original budget cannot truncate
-this work. The 72-cell smaller-budget study tests a different budget regime;
-its observed agreement does not extend this proof to arbitrary binding
-budgets. Historical examples with different service or resource rules are
-not counterexamples under \cm.
+\subsection{Reachable-state equivalence}\label{sec:equivalence}
+We distinguish four observations: candidate ordering; selected per-request
+work; state transitions and timestamps; and terminal outcomes and metrics.
+Equality at a later level alone does not imply equality at an earlier one.
+A \emph{normalized journal} sorts the selected and executed spans by request
+identifier, retaining their types, endpoints, and all other fields.
 
-Starting from the same state, chunked-FCFS and decode-first select the same
-residents and the same stable-order waiting prefix. They execute identical
-per-request spans, although the span lists can have different orders.
-The engine gives every span the same batch-end timestamp and releases
-completed reservations afterward. Consequently their next states, admissions,
-and timestamps agree inductively. The complete saved terminal records
-confirm this configuration-specific equivalence in all 1,440 matched
-conditions. The inductive argument establishes the invariant; agreement
-of terminal records checks its realization in the selected corpus.
-Equality of aggregate metrics alone would establish neither. This is not
-a theorem about the original serving systems.
+\paragraph{Assumptions and state.}
+Consider a finite valid trace with positive integer prompt and output lengths
+$p_i,o_i$, nondecreasing finite arrivals, and stable identifiers resolving
+simultaneous arrivals. Each prompt satisfies $p_i\leq B$ and each total
+length fits the reserved context. Both runs start empty and use one fixed
+policy throughout, the same fixed positive integer budget $B$, chunk cap
+$C=512$, unit decode work, and reservation capacity $K\geq1$. Admission
+occurs only on first positive prefill work; slots are released after batch
+completion. Residents precede waiting requests, admissions use a stable
+arrival-order prefix, and resident prefills retain that order. There is no
+preemption, bypass, or external admission. Exogenous arrivals during a batch
+become eligible at the next boundary. Batch duration is the same fixed
+positive value in both runs, with a finite, advancing clock and common horizon.
+
+At a boundary, a request has prefilled progress $x_i$, generated progress
+$y_i$, residency, an anchor, and first-output/completion timestamps. A
+resident is unfinished and either prefilling or decode-ready. Its work
+offer before batch-budget truncation is
+\begin{equation}\label{eq:offer}
+ q_i=\begin{cases}\min(C,p_i-x_i),&x_i<p_i,\\1,&x_i=p_i.\end{cases}
+\end{equation}
+An executable span records request, phase, and progress endpoints; a request
+appears at most once per batch. Chunked-FCFS visits residents in stable order,
+then waiting requests. Decode-first visits resident decodes, resident
+prefills, then waiting requests, preserving stable order within each group.
+Both allocate the minimum of an offer in Equation~\ref{eq:offer} and the
+remaining budget, subject to reservation capacity for new admissions.
+
+\begin{lemma}[Resident-prefix slack]\label{lem:prefix}
+At every reachable boundary, admissions have followed a stable arrival-order
+prefix. For residents $R=(r_1,\ldots,r_m)$ in that order, if $m>0$,
+\begin{equation}\label{eq:prefix}
+ \sum_{j<m}q_{r_j}\leq B-1.
+\end{equation}
+If total resident demand exceeds $B$, the youngest resident $r_m$ is prefilling.
+\end{lemma}
+\begin{proof}
+The empty initial state satisfies the claim. We give the conditional
+selection and preservation steps together to avoid assuming the invariant
+at an unproved successor. Under Equation~\ref{eq:prefix}, the earlier
+residents' offers fit and leave at least one token for the last resident.
+If total demand fits, both policies serve every offer fully. If it exceeds
+$B$, the last resident cannot be a unit-cost decode; it is a prefill and
+remains last under decode-first. Permuting the earlier residents therefore
+leaves exactly the same residual allocation to it. Both policies next
+admit the same waiting prefix with the same residual budget and slots.
+
+Use the resulting chunked-FCFS execution list $Q$, ordered by stable arrival.
+Each selected request receives an integer allocation $e_i\geq1$, with total
+at most $B$. Only the final entry can receive less than its offer: a
+truncated prefill exhausts the budget. A fully served survivor has next
+offer $q_i'\leq e_i$: remaining prefill decreases, a completed prefill
+becomes a unit-cost decode, and a continuing decode still costs one.
+A truncated final prefill survives and is the youngest resident; no
+admission follows it. If any resident survives, let $z$ be the youngest.
+All other survivors were fully served, including when completions leave
+holes in the resident order. Consequently,
+\begin{equation}\label{eq:prefix-preservation}
+ \sum_{i\in R'\setminus\{z\}}q_i'
+ \leq\sum_{i\in R'\setminus\{z\}}e_i
+ \leq\sum_{i\in Q}e_i-e_z\leq B-1.
+\end{equation}
+Equation~\ref{eq:prefix-preservation} proves the successor inequality; if
+$z$ were a decode, its unit offer would make total demand at most $B$.
+Empty successor states are immediate. Prefix admission and completion
+removal preserve arrival order; later arrivals cannot introduce an older
+identifier. Idle jumps and new waiting arrivals change no resident offer.
+Induction proves the claim, including simultaneous arrivals and partially
+processed prefills.
+\end{proof}
+
+\begin{theorem}[Fixed-policy equivalence from an empty system]\label{thm:equivalence}
+Under the assumptions above, chunked-FCFS and decode-first select identical
+per-request executable spans at every boundary. They have identical
+normalized journals, request states, timestamps, terminal outcomes, and
+metrics, for every valid trace and every fixed admissible $B$ and $K$.
+\end{theorem}
+\begin{proof}
+Couple the runs at the empty state. The conditional selection argument in
+Lemma~\ref{lem:prefix} gives the same spans at each coupled boundary.
+Per-request updates commute and share one batch-end timestamp; reservation
+sums and completion sets are order-independent. Thus successor states,
+anchors, first outputs, and completions coincide. The lemma preserves the
+induction hypothesis. Identical idle jumps, arrival eligibility, horizon
+checks, and stopping decisions also couple any unfinished outcomes.
+Applying the same metric definitions to identical terminal records proves
+the final assertion. Ordered span arrays may still differ.
+\end{proof}
+
+\paragraph{Binding example and scope.}
+For simultaneous arrivals with prompts $(1024,1,1024)$, outputs $(3,3,3)$,
+$B=1024$, and $K=4$, the first batch allocates prefills $(512,1,511)$.
+The next offers are $(512,1,512)$, totaling $1025>B$: a later ready decode
+coexists with an earlier unfinished prefill. Both policies allocate
+$(512,1,511)$, moving only the decode's position in the span list.
+Thus the theorem does not assume that all offers fit. It covers four/eight
+residents and budgets 1,024/2,048 when inputs satisfy the unchanged domain.
+It does not cover arbitrary injected states, policy switching, changing
+budgets/chunk rules, multi-token decode, waiting-before-resident policies,
+or asynchronous/preemptive systems. The invariant encloses reachable states;
+it is not a necessary-and-sufficient characterization of every possible
+state. Native serving systems are outside this theorem.
+
+\paragraph{Nonbinding corollary and remaining mechanisms.}
+In the original configuration, at most $K$ existing or newly admitted
+requests each offer at most 512 tokens, so $512K\leq4096<32768$.
+This simpler sufficient condition also proves equivalence; the theorem
+explains why reducing the budget alone cannot separate the fixed pair.
+All 1,440 matched terminal comparisons confirm its realization in the
+selected corpus. The proof, rather than these finite checks, establishes
+its scope over valid arrival histories.
 
 The same work bound includes SLO-gated's residual decodes, even though they
 follow waiting prefills. A newly decode-ready resident's anchor is its
@@ -127,8 +219,8 @@ distributions are the empirical object of Section~\ref{sec:performance}.
 \subsection{Urgency inactivity and its sufficient condition (RQ2)}\label{sec:urgency}
 Urgency concerns a token gap, not a synthetic completion deadline. At a
 planning boundary $t$, an arrived, unfinished resident is critical exactly
-when its prefill is complete, its anchor $a_i$ is defined, and
-$t-a_i\geq0.495$\,s. The anchor is the end of final prefill or the last
+when its prefill is complete, its anchor $\alpha_i$ is defined, and
+$t-\alpha_i\geq0.495$\,s. The anchor is the end of final prefill or the last
 executed decode; an omitted decode does not reset it. Waiting requests and
 unfinished prefills cannot qualify. Neither completion deadlines nor
 estimated remaining service enters this predicate. The protocol interprets
@@ -147,9 +239,9 @@ executes at least $B-(K-1)$ prefill tokens. With no recomputation or idle
 jump while the decode remains resident, $m$ omitted batches imply
 \begin{equation}\label{eq:urgency-bound}
  m[B-(K-1)]\leq P,\qquad
- t-a_i\leq\delta\left\lfloor\frac{P}{B-(K-1)}\right\rfloor.
+ t-\alpha_i\leq\delta\left\lfloor\frac{P}{B-(K-1)}\right\rfloor.
 \end{equation}
-Thus $\delta\lfloor P/[B-(K-1)]\rfloor<0.495$\,s rules out first activation:
+By Equation~\ref{eq:urgency-bound}, $\delta\lfloor P/[B-(K-1)]\rfloor<0.495$\,s rules out first activation:
 the finite prompt work cannot sustain enough consecutive decode omissions
 to reach the urgency threshold.
 The common-domain restriction gives $P\leq NB$ for $N$ requests. For
@@ -159,12 +251,11 @@ not a general waiting-time guarantee or a necessary condition for activation.
 The original nonbinding case has the tighter zero-age proof above.
 
 The fixed-threshold code agrees with its declared adaptation; configurable
-TBT classes in the historical scheduler are a different implementation.
+token-gap classes in the historical scheduler are a different implementation.
 Engineering checks at the adjacent floating-point values below and above
 0.495, and at equality, confirm the predicate without establishing that
-such supplied states are reachable. No new SLO/deadline experiment is run:
-the available metric deadline cannot exercise the gate, and altering the
-policy literal would change the frozen comparison object.
+such supplied states are reachable. The hidden metric deadline cannot exercise the gate; altering the policy
+literal would instead change the comparison object.
 
 \subsection{Conformance evidence}
 The event referee reconstructs request states, token spans, timing,
@@ -174,7 +265,13 @@ executed work agree and recomputes the metrics. Every campaign cell passed
 this check; an independent analyzer also checked the complete ranking and
 reversal reports. The final evidence review additionally checked all result
 identities and terminal metrics and replayed 24 structurally selected new-cell
-journals. These checks establish conformance to \cm, not GPU fidelity.
+journals. Seven previously validated hand-derived fixtures cover mixed binding work,
+completion holes, staggered arrivals, unit budget, and horizon censoring.
+Checks of 36 saved budget-study journals examine 37,034 boundaries and agree
+with Lemma~\ref{lem:prefix}; these finite checks support implementation
+conformance, not the theorem's universal quantifier. The authoritative
+engine and policies are unchanged. These checks establish conformance to
+\cm, not GPU fidelity.
 Figure~\ref{fig:contract} summarizes the evidence chain.
 
 \paragraph{AI assistance in the research workflow.}\label{sec:research-ai}

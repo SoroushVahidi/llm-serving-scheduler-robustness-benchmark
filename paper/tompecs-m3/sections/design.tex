@@ -56,8 +56,8 @@ not rerun to manufacture a sampling distribution.
 The six labels LOW, PRE\_KNEE, KNEE, POST\_KNEE, OVERLOAD, and HIGH\_PRESSURE
 come from historical calibration, not from a saturation analysis of \cm.
 For a window-specific compression factor $f$, rebased arrival gaps and
-synthetic deadline slack are both divided by $f$. In idealized notation,
-\begin{equation}
+synthetic deadline slack are both divided by $f$. Equation~\ref{eq:stress} expresses the joint transformation:
+\begin{equation}\label{eq:stress}
  a_i'=(a_i-a_1)/f,\qquad d_i'=a_i'+(d_i-a_i)/f.
 \end{equation}
 The implementation accumulates scaled nonnegative gaps in arrival order.
@@ -87,8 +87,9 @@ requests. Request throughput uses the same time denominator.
 These are finite-window completion rates, including the drain period;
 they do not estimate a maximum sustainable arrival rate or system capacity.
 
-Arrival-normalized weighted goodput is
-\begin{equation}
+Arrival-normalized weighted goodput (ANWG) is defined by
+Equation~\ref{eq:anwg}:
+\begin{equation}\label{eq:anwg}
  \anwg=\frac{\sum_i w_i\,\mathbf{1}\{i\text{ completes and }c_i\leq d_i'\}}
  {\sum_i w_i}.
 \end{equation}
@@ -117,8 +118,8 @@ replace exact rankings or the practical-margin rule.
 
 For policies $A,B$ and condition $c$, let
 $\Delta_c=q_m(v_{A,c}-v_{B,c})$, where $q_m=1$ for a larger-is-better
-endpoint and $q_m=-1$ otherwise. The relative margin is
-\begin{equation}
+endpoint and $q_m=-1$ otherwise. The relative margin in Equation~\ref{eq:margin} uses the losing value:
+\begin{equation}\label{eq:margin}
  r_c=\frac{|v_{A,c}-v_{B,c}|}{|v_{\mathrm{loser},c}|}.
 \end{equation}
 A practical reversal between $c$ and $c'$ requires
