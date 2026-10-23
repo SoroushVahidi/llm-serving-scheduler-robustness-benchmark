@@ -1,5 +1,7 @@
 # M3 author-review manuscript
 
+**Final review paper: [m3-manuscript.pdf](m3-manuscript.pdf) (26 pages).** This is the sole tracked final M3 paper PDF. The optional ACM-small layout remains buildable locally; prior PDFs and verification records remain available in Git history.
+
 **Current revision: scientific contribution and novelty positioning (2026-10-23).** The three research questions now connect effective scheduling behavior, the mathematical explanation of inactivity, and comparison-level performance trade-offs. See the [revision report](novelty-positioning/REPORT.md), [contribution-to-evidence matrix](novelty-positioning/CONTRIBUTIONS.md), and [primary-literature comparison](novelty-positioning/PRIOR_WORK.md). This manuscript-only revision starts at actual PR #25 head `d73192df32fd14ec025eb8b9dab72da401eb65ae`; it adds no experiments.
 
 **Preceding revision: structural urgency investigation (2026-10-23).** See the [urgency report](urgency-analysis/REPORT.md), [pre-experiment structural findings](urgency-analysis/STRUCTURAL_FINDINGS.md), and [decision not to run an invalid deadline-only experiment](urgency-analysis/EXPERIMENT_DECISION.md). The fixed gate agrees with its specification. A finite-work certificate rules out activation in the examined regimes; completion deadlines are metric-only. No new scientific experiments were run. This branch starts at actual PR #24 head `8a32ecf6e5e5dcca114594b320ac7c5210d8c543`.
@@ -25,7 +27,7 @@ The historical manuscript stack starts from final evidence-review commit `6b2eed
 - [Historical PR21 artifact-readiness assessment](artifact-release/READINESS.md): **NOT_READY** for submission; verified source licenses/statuses, complete local candidate, author/venue gates.
 - [Artifact inventory and access](artifact-release/INVENTORY.md), [portable candidate guide](artifact-release/CANDIDATE_README.md), and [PR21 verification](artifact-release/VERIFICATION.md).
 - [Historical final scientific and submission-readiness review](final-review/REFEREE_REPORT.md): **NOT_READY**; includes claim/novelty assessment, overlap and literature audit, author decisions, and correction validation. Its pending status/license questions are superseded by the current artifact-readiness assessment.
-- [ACM manuscript PDF](m3-manuscript.pdf) and [acmsmall PDF](m3-acmsmall.pdf).
+- [Final review manuscript PDF](m3-manuscript.pdf).
 - [LaTeX source](main.tex) and [bibliography](references.bib).
 - [M2-to-M3 changes](M2_TO_M3_CHANGES.md).
 - [Claim-to-evidence verification](CLAIM_TO_EVIDENCE.md).
@@ -33,7 +35,7 @@ The historical manuscript stack starts from final evidence-review commit `6b2eed
 - [Remaining submission blockers](SUBMISSION_BLOCKERS.md).
 - [Reference checks and provenance clarification](REFERENCE_CHECKS.md).
 
-The two PDFs use ACM layouts with the supported `nonacm` option to suppress untrue submission/publication boilerplate. They are review copies, not confirmation of current ToMPECS submission requirements. No journal-specific page limit is asserted.
+The final review PDF uses an ACM layout with the supported `nonacm` option to suppress untrue submission/publication boilerplate. It is a review copy, not confirmation of current ToMPECS submission requirements. No journal-specific page limit is asserted.
 
 ## Regenerate displays and build locally
 
@@ -47,7 +49,7 @@ bash paper/tompecs-m3/scripts/build.sh acmsmall
 python paper/tompecs-m3/scripts/validate.py
 ```
 
-These commands only read saved experimental summaries, render manuscript assets, compile LaTeX, and check saved evidence. They never invoke the simulator, synthetic-study generator, Slurm, or GitHub Actions. Both build workflows use the byte-preserved ACM template from M2. The output PDFs are under `build/<mode>/`; the reviewed copies at this directory's top level are packaged after checks.
+These commands only read saved experimental summaries, render manuscript assets, compile LaTeX, and check saved evidence. They never invoke the simulator, synthetic-study generator, Slurm, or GitHub Actions. Both build workflows use the byte-preserved ACM template from M2. The output PDFs are under `build/<mode>/`; only the reviewed manuscript-mode PDF is tracked at this directory's top level after checks.
 
 `evidence/inputs/*.json.gz` are deterministic gzip containers of **unchanged source bytes**, verified against `evidence/input-hashes.json`. Absolute source paths identify the review cache; regeneration does not require that cache because all display inputs are bundled. The full raw request/journal/study archives are not republished in this manuscript packet. Their persistent run locations, execution commits, and access limits are documented in the inherited PR #17 review and this manuscript's Appendix B. Complete-artifact reviewer access remains pending; release authorization itself has already been given.
 
