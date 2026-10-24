@@ -1,6 +1,6 @@
 # ToMPECS Phase M1 — author-review draft
 
-> Historical manuscript version. The [current M3 PDF](../../LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf) is the sole full-manuscript PDF on `main`; links below to older PDFs are pinned to their historical commit. Sources, figures and numerical validation records are retained.
+> Historical manuscript version. The [current M3 PDF](../tompecs-m3/LLM_Serving_Scheduler_Equivalence_and_Performance_Tradeoffs.pdf) is the sole full-manuscript PDF on `main`; links below to older PDFs are pinned to their historical commit. Sources, figures and numerical validation records are retained.
 
 **Preparation only. Not submission-ready. No journal submission, experiment, GPU allocation, CI run or merge.**
 

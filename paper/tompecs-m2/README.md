@@ -1,6 +1,6 @@
 # ToMPECS Phase M2 — independent adjudication and author review
 
-> Historical manuscript version. The [current M3 PDF](../../LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf) is the sole full-manuscript PDF on `main`; links below to older PDFs are pinned to their historical commit. Sources, figures and numerical validation records are retained.
+> Historical manuscript version. The [current M3 PDF](../tompecs-m3/LLM_Serving_Scheduler_Equivalence_and_Performance_Tradeoffs.pdf) is the sole full-manuscript PDF on `main`; links below to older PDFs are pinned to their historical commit. Sources, figures and numerical validation records are retained.
 
 **COMPLETED_WITH_ISSUES. Scientific readiness: NO-GO for publication-level comparative/native claims. Submission readiness: NOT READY.** A conditional historical simulator case study is defensible for author review; unresolved scientific limitations are not repaired by formatting.
 

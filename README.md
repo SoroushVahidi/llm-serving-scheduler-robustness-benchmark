@@ -1,12 +1,12 @@
 # LLM-Serving Scheduler Portability Benchmark (LSSP)
 
-**Latest manuscript:** *Scheduler Rankings and Performance Trade-offs in a Common-Model LLM-Serving Evaluation*.
+**Latest manuscript:** *Scheduler Equivalence and Performance Trade-offs under a Common LLM-Serving Contract*.
 
-[View the validated 24-page PDF](LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf) · [Download PDF](https://raw.githubusercontent.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/main/LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf) · [M3 source and review records](paper/tompecs-m3/README.md).
+[View the validated 29-page PDF](paper/tompecs-m3/LLM_Serving_Scheduler_Equivalence_and_Performance_Tradeoffs.pdf) · [Download PDF](https://raw.githubusercontent.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/main/paper/tompecs-m3/LLM_Serving_Scheduler_Equivalence_and_Performance_Tradeoffs.pdf) · [PDF provenance and source distinction](paper/tompecs-m3/README.md).
 
-This is the scientifically revised manuscript from [PR #22](https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/22), commit `dda5fcf0f8f2a6f543e799f20767c9272022afc8`. Recorded verdict: **READY_FOR_AUTHOR_AND_ADMINISTRATIVE_FINALIZATION**; author review and submission blockers remain. The PDF bytes are unchanged; [download provenance](paper/tompecs-m3/download-manifest.json) records its checksum and historical PDF locations.
+This is the final author-review manuscript from [PR #31](https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/31), source commit `8e9e23914c7b9298f1335005a1ef86851b5ef8cb`. The PDF is published unchanged; [download provenance](paper/tompecs-m3/download-manifest.json) records its SHA-256. The LaTeX source on `main` is an earlier revision and does **not** reproduce this final PDF. Use the [exact PR #31 source](https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/tree/8e9e23914c7b9298f1335005a1ef86851b5ef8cb/paper/tompecs-m3) for the corresponding manuscript source. The manuscript PR stack has not been merged, and the paper has not been submitted to TOMPECS.
 
-The study and archival descriptions below document the earlier artifact; use the M3 source and review records above for the current manuscript's claims and scope.
+The study and archival descriptions below document the earlier LSSP artifact; use the final M3 PDF and its pinned source above for the current manuscript's claims and scope.
 
 **How portable are LLM-serving scheduler rankings across workloads,
 operating regions, and metrics?** LSSP measures whether the best-ranked
@@ -23,7 +23,7 @@ Scheduler Rankings Across Workloads, Operating Regions, and Metrics?"*
 
 | | |
 |---|---|
-| Manuscript (PDF, in this repository) | [`LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf`](./LLM_Serving_Scheduler_Rankings_and_Performance_Tradeoffs.pdf) |
+| Manuscript (PDF, in this repository) | [`LLM_Serving_Scheduler_Equivalence_and_Performance_Tradeoffs.pdf`](./paper/tompecs-m3/LLM_Serving_Scheduler_Equivalence_and_Performance_Tradeoffs.pdf) |
 | GitHub release | [`v1.0.0`](https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/releases/tag/v1.0.0) |
 | Archived snapshot (Zenodo) | [10.5281/zenodo.22306798](https://doi.org/10.5281/zenodo.22306798) |
 | Derived dataset (Hugging Face) | [`SoroushVahidi/llm-serving-scheduler-portability`](https://huggingface.co/datasets/SoroushVahidi/llm-serving-scheduler-portability) |
