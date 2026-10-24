@@ -70,7 +70,7 @@ for row in csvrows:
  endpoint=final[int(row['scenario_id'])][row['family']]['methods'][row['method']]['endpoints'][row['endpoint']]
  for key,value in endpoint.items():assert (row[key]=='' if value is None else float(row[key])==value),(row,key)
 # Bibliography completeness and final TeX build diagnostics.
-tex='\n'.join(p.read_text() for p in [ROOT/'main.tex',*sorted((ROOT/'sections').glob('*.tex'))])
+tex='\n'.join(p.read_text() for p in [ROOT/'main.tex',ROOT/'tables/time01.tex',*sorted((ROOT/'sections').glob('*.tex'))])
 keys=set(re.findall(r'@\w+\{([^,]+),',(ROOT/'references.bib').read_text()))
 cited={k for v in re.findall(r'\\cite\w*\{([^}]+)\}',tex) for k in v.split(',')}
 assert cited==keys,{'uncited':keys-cited,'undefined':cited-keys}
@@ -86,6 +86,7 @@ for mode in ['manuscript','acmsmall']:
  allowed={'empty address in vidur2024','empty publisher in maurer2009','empty address in maurer2009'}
  bib_warnings=re.findall(r'Warning--([^\n]+)',blg);assert set(bib_warnings)<=allowed,bib_warnings
  builds[mode]={'status':'PASS','pages':int(re.search(r'\((\d+) pages',log).group(1)),'overfull_boxes':0,'unresolved_references':0,'bibliography_optional_metadata_advisories':bib_warnings,'template_warning':'ACM reference-format block suppressed in author-review draft'}
+assert all(b['pages'] <= 30 for b in builds.values()),builds
 # Checkout preservation is a separate check in standalone archives.
 changed=[]
 history_scope='NOT_RUN_STANDALONE' if args.standalone else 'CHECKED'

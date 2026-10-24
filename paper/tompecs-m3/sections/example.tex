@@ -31,19 +31,6 @@ one slot; requests 13 and 14 have both arrived. Chunked-FCFS admits request
 13 (214 prompt tokens), whereas SLO-gated admits request 14 (201 tokens).
 The other request enters at 16\,ms in each run. This is the first difference
 in admitted membership, not merely in the order of spans within a batch.
-Table~\ref{tab:example-requests} includes this pair, the request with the
-largest completion delay (26), and the request with the largest improvement
-(196). Waiting here means arrival to the start of first prefill, not TTFT
-or total latency; completion timestamps are measured from the common origin.
-
-\begin{table}[!htbp]
-\centering\small\setlength{\tabcolsep}{3pt}
-\caption{Selected request timelines from the same journals. C: chunked-FCFS;
-S: SLO-gated. Request IDs are zero-based saved input IDs. Output lengths
-are used retrospectively for explanation and were hidden from both policies.}
-\label{tab:example-requests}\input{major-revision/example-requests}
-\end{table}
-
 Request 26 has a 1,976-token prompt and 1,120 output tokens. Its first prefill
 starts at 26\,ms under chunked-FCFS and 223\,ms under SLO-gated; its first
 output occurs at 31 and 228\,ms, respectively. It completes last in both
@@ -53,11 +40,10 @@ The admission rule observes its prompt length, not its output demand.
 Across all requests, 151 complete earlier under SLO-gated, 29 later and
 20 at the same time; the sum of latency changes is $-5.008$\,s. Mean latency
 therefore improves even while the last completion and upper quantile worsen.
-The p95 brackets involve other requests (191/195 under C and 139/68 under S),
-so the final request alone does not explain the p95 change. These timelines
-explain compatibility of the objectives in a real saved condition; the few
-displayed requests do not exhaustively decompose the aggregate change or
-estimate causal mechanism effects across the corpus.
+The p95 brackets involve other requests, so the final request alone does
+not explain the p95 change. This illustration explains compatibility of
+the objectives; ABL01 supplies the controlled intervention across the corpus.
+The full request timeline remains in the supplementary evidence.
 
 The example manifest records exact input/result/journal identities and
 SHA-256 hashes. Independent event reconstruction checks all 400 terminal

@@ -1,0 +1,9 @@
+Scientific limits retained in the final candidate
+1. Both timing models are synthetic; the composition-dependent rule has no hardware calibration, kernel/memory-transfer interaction or native allocator model.
+2. TIME01 covers 24 purposively selected windows and two joint arrival/deadline settings. It is not a probability sample, equal-utilization experiment or population estimator. The BurstGPT subset regresses under both clocks; this is not a timing-induced reversal.
+3. Two strict tail reversals are correlated endpoints in one condition, not independent replications; zero source-mean strict >10% reversals is weaker than unchanged rankings.
+4. ABL01 is a controlled single-expression intervention in the nonbinding deterministic simulator. Its reused, derived controls are not new simulations or independent replication. Effects vary by source/window/objective and do not establish universal optimality or hardware benefit.
+5. The BOUND01 theorem remains fixed-duration, fixed-policy, empty-start and subject to every original admission/progress assumption. The timing observation does not silently extend it.
+6. The corpus is finite and temporally related; source/condition/metric comparisons share inputs. Uniform priorities and synthetic deadlines limit SLO interpretation; throughput is a finite drained-window rate, not a stability region.
+7. ABL01's independent semantic replay covers 36 stratified controls and 72 original/source journals; remaining journals rely on the reviewed coupling, frozen full verification and exact byte hashes. Complete numerical records are independently checked.
+8. Saved-evidence analysis reproducibility is supported; a fresh upstream-to-campaign rerun, second architecture, hardware validation and all hosted platform acceptance remain uncertified. Earlier cross-project BurstGPT overlap and provider identifier linkability limits remain explicit.
