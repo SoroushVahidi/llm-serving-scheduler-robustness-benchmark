@@ -30,7 +30,8 @@ specifying online information, legal actions, work advancement, batch timing,
 and resource acquisition and release. The adaptations retain selected ideas
 from first-come, first-served (FCFS) serving, chunked prefill, decode-first scheduling, and urgency-aware
 prompt ordering \citep{kwon2023vllm,agrawal2024sarathi,slai2025}.
-Fixed batch cost removes composition-dependent service costs; four or eight
+The baseline fixes batch cost; a separate sensitivity varies it with executed
+work. Four or eight
 resident slots preserve admission competition. This abstraction permits a
 precise account of executable distinctions, without predicting a particular
 GPU or comparing native serving systems. The complete selected corpus has
@@ -54,13 +55,17 @@ threshold. Clock updates give zero anchor age in the original contract. A
 finite-work bound also rules out first activation under the examined binding
 budgets. Completion deadlines do not enter the gate. The measured SLO-gated
 effects consequently cannot be attributed to urgency; prompt-length
-admission ordering remains an active distinction.
+admission ordering remains an active distinction. A controlled ablation
+isolates its latency--throughput--deadline trade-off under the original
+nonbinding budget, using proven-equivalent existing controls.
 \item[RQ3: Residual trade-offs and rankings.] What preferences remain, and
 at what comparison level? Measured mean-latency improvements coexist with
 throughput losses and, on BurstGPT, larger mean window-p95 latency.
 Source-mean practical stability coexists with window-level and
 metric-dependent reversals. Removing duplicate behaviors and endpoints
-preserves that contrast, delimiting what an aggregate ranking can establish.
+preserves that contrast. A synthetic timing sensitivity retains the
+chunked/decode-first equivalence while demonstrating that full-corpus
+mean-latency gains need not hold on a selected window subset.
 \end{description}
 
 Section~\ref{sec:contract} gives the structural arguments;

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "principal_pages": 30,
+  "acmsmall_pages": 30,
+  "inspection": "All 60 rendered pages inspected; detailed timing/ablation pages and tables checked. No clipped content or overfull boxes. Normal ACM font sizes and arraystretch 1.12 retained.",
+  "time01_figure": "Inspected proposed PNG/vector figure; scientifically interpretable but omitted in favor of the more informative six-row timing table. Original review exhibit retained in independent review.",
+  "equations": 10,
+  "tables": 11,
+  "figures": 4,
+  "references": 32
+}

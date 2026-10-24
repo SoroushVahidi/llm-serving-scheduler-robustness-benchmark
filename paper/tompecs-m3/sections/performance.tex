@@ -47,6 +47,29 @@ average window rates and are not inverses of mean durations. The following
 saved-record illustration connects these distinct objectives to the active
 admission ordering identified in Section~\ref{sec:contract}.
 
+\subsection{Controlled prompt-ordering ablation}\label{sec:ablation}
+ABL01 replaces only SLO-gated's prompt-length sorting of waiting requests
+with FCFS order, retaining its urgency, resident-prefill, and residual-decode
+logic. Under the original nonbinding budget, all resident work fits and
+waiting admissions cannot displace reservations. The control and
+chunked-FCFS consequently select the same work and share each batch end;
+induction from the empty state gives normalized trajectory equivalence.
+This conditional coupling permits reuse of 1,440 existing controls, not
+new simulations or independent replication of the C01 contrasts.
+
+Removing prompt ordering increases equally weighted aggregate mean latency
+from 0.9891 to 1.3660\,s (38.10\%), raises token throughput by 3.21\%, and
+reduces deadline attainment by 6.85 percentage points. Percent changes use
+the original SLO-gated aggregate as denominator; all 200 requests complete
+in every pair. Both arms have zero urgency activations. The intervention
+therefore attributes these trade-offs to waiting-request prompt ordering
+within this deterministic contract, rather than to urgency. Effects vary:
+in BurstGPT the control improves mean latency in 211 pairs, worsens it in
+198, and ties in 71 under the exact rule. Six nominally nonzero mean-latency
+differences across the full panel are within $10^{-12}$\,s; TPOT differences
+of order $10^{-16}$\,s are roundoff. Prompt ordering is neither uniformly
+beneficial nor established as optimal.
+
 \begin{figure}[!htbp]
 \centering\includegraphics[width=\linewidth]{figures/absolute.pdf}
 \caption{Absolute performance across all six inherited settings, equally

@@ -8,7 +8,8 @@ policies, explicit prefill work for others, and differing enforcement of KV cach
 limits. A policy's requested work can also differ from the engine's realized
 progress. Consequently, those outcomes cannot be interpreted as a controlled
 comparison of scheduling order. Table~\ref{tab:objects} distinguishes the
-three evidence objects used in this paper.
+principal evidence objects used in this paper; the budget, timing, and
+prompt-ordering studies are controlled extensions of C01-FULL.
 
 \begin{table}[t]
 \caption{Evidence objects and the conclusions they support. Historical
@@ -34,9 +35,10 @@ for the equivalence or trade-offs reported here.
 each selected decode request consumes one unit and emits one token.
 All policies share these rules. A request emits no output during its own
 prefill, including its final chunk; its decoding starts in a later batch.
-Other resident requests may decode in the same batch. Batch duration
-is independent of its composition. Thus seconds and tokens per second
-below are model quantities, not estimates for a particular GPU or LLM.
+Other resident requests may decode in the same batch. Baseline batch duration
+is independent of composition; Section~\ref{sec:timing} varies this rule.
+All reported seconds and tokens per second are model quantities, not
+estimates for a particular GPU or LLM.
 
 Each resident request reserves the complete 32,768-token context bound.
 All frozen request lengths fit; the maximum prompt-plus-output length is

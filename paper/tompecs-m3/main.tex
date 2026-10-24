@@ -32,17 +32,19 @@ select identical per-request work from an empty system, even with binding
 work budgets. Their normalized transitions and terminal outcomes coincide;
 the order of entries in an execution journal need not. A separate finite-work
 certificate rules out activation of the implemented decode-urgency gate
-in the evaluated regimes. These results identify which nominal mechanisms
-can affect execution before interpreting their performance.
+in the evaluated fixed-duration regimes. A controlled prompt-ordering
+ablation identifies the source of the remaining performance trade-offs.
 Across 120 production-derived windows, the prompt-ordered adaptation reduces
 aggregate mean latency by 11.3--34.0\% relative to chunked first-come,
 first-served, alongside throughput losses and, on one source, increased
 mean window-p95 latency. Source-mean preferences exhibit no reversals
 exceeding the declared 10\% margin in both directions, while window-level
-and cross-metric reversals persist. The theoretical results concern fixed
-policies under the stated contract; the empirical results describe a finite,
-temporally related corpus. Neither the fixed-duration model nor these
-comparisons establish hardware performance or universal scheduler rankings.
+and cross-metric reversals persist. A composition-dependent timing study
+preserves the pair's equivalence on a selected subset but exposes
+window-sensitive mean-latency effects under both clocks. The theorem assumes
+fixed-duration batches; the empirical results describe a finite, temporally
+related corpus. The synthetic timing models establish neither hardware
+performance nor universal scheduler rankings.
 \end{abstract}
 \begin{CCSXML}
 <ccs2012>

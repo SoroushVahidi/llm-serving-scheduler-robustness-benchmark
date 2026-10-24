@@ -1,74 +1,66 @@
 \subsection{A prospective token-budget sensitivity}\label{sec:budget}
-Before the reachable-state proof, we prospectively specified
-that reducing only the batch budget would make chunked-FCFS and decode-first
-execute different per-request spans in at least one matched condition.
-The predicted mechanism was prefill work exhausting the budget before
-later resident decodes. The unmodified engine requires every whole prompt
-to fit the budget for all policies. Full-corpus feasibility requires at least
-29,067 tokens, above the 4,096-token chunked-work bound. No intact Azure or
-Bailian window fits below 4,096 tokens; using them would require another
-contract or input change.
-We therefore selected the lexicographically first three frozen BurstGPT
-windows with maximum prompts strictly above 512 and at most 1,024 tokens:
-\texttt{pilot\_v2\_w16}, \texttt{w23}, and \texttt{w28}, with maxima
-1,005, 790, and 648. This input-selected stratum permits multi-batch
-prefills but is not representative of the full corpus.
+Before the reachable-state proof, we prospectively predicted that a smaller
+batch budget would separate chunked-FCFS from decode-first by allowing
+prefills to displace resident decodes. The unchanged engine requires every
+whole prompt to fit the budget. We therefore selected the first three
+BurstGPT windows in lexical order with maximum prompts above 512 and at
+most 1,024 tokens: \texttt{w16}, \texttt{w23}, and \texttt{w28}.
+All 200 requests, seeds, timing, and reservation rules remain fixed. The
+72 cells combine these windows, LOW/HIGH\_PRESSURE, eight slots, budgets
+32,768/2,048/1,024, and four adaptations; the 12 pilot cells are reused.
+Every cell passes the event referee and completes all requests; the 24
+baseline cells reproduce their archived outcomes.
 
-All 200 requests, frozen seeds and arrival/deadline transformations remain
-unchanged. We retain LOW and HIGH\_PRESSURE, eight resident slots, and
-all four adaptations. Budgets are the original 32,768, then 2,048 and
-1,024 tokens, corresponding to four and two 512-token chunks versus the
-4,096-token potential work bound. Timing, reservations, horizon and policy
-code are fixed. A 12-cell feasibility pilot precedes the remaining 60 cells;
-all 72 pass the independent event referee, complete all 14,400 request
-executions, and have independently recomputed terminal metrics. The 24
-baseline cells exactly reproduce their archived metrics and terminal states.
+The prediction is rejected: all 12 perturbed chunked/decode-first matches
+retain identical normalized journals and terminal states. Theorem~\ref{thm:equivalence}
+now explains why truncation can affect only the youngest resident prefill.
+The perturbation nevertheless changes execution. At budget 1,024,
+SLO-gated omits 42 of 35,976 ready-decode opportunities, with maximum anchor
+age 2\,ms. Equation~\ref{eq:urgency-bound} gives respective 38, 51, and
+44\,ms upper bounds, below the 495\,ms gate. Independent reconstruction
+finds no activation in any of its 18 cells. No strict 10\% reversal occurs
+in 576 eligible budget comparisons, and all throughput changes are below
+0.4\% in magnitude. Complete effects and diagnostics remain in the
+supplement. These selected-window observations check conformance; the
+fixed-duration theorem supplies the broader equivalence result only under
+its stated assumptions.
 
-The primary hypothesis is rejected for this design: normalized token-span
-journals and terminal states agree for chunked-FCFS and decode-first in
-all 12 perturbed matches, and three distinct terminal behaviors remain in
-each of the 18 budget--condition combinations. Both policies serve every
-ready resident decode in these runs; budget exhaustion changes prefill
-progress without separating their transitions. Theorem~\ref{thm:equivalence} now explains this agreement: a binding
-budget can truncate only the youngest resident prefill, leaving every
-ready decode served. The empirical checks alone would not prove this claim. Span-list ordering differs in four of six matches at every budget,
-but causes no state or timing difference.
+\subsection{Composition-dependent timing sensitivity}\label{sec:timing}
+TIME01 changes batch progression to
+\begin{equation}\label{eq:composition-time}
+ T(P_b,D_b)=\left(0.5+0.5\frac{P_b}{512}+0.5\frac{D_b}{8}\right)\mathrm{ms},
+\end{equation}
+where $P_b$ and $D_b$ are executed prefill and decode tokens after resource
+constraints. Arrivals within a batch become eligible at its actual end;
+completion and anchor updates use that end. Equation~\ref{eq:composition-time}
+is a synthetic timing function, not hardware-calibrated.
+The study pairs 384 variable-duration executions with existing fixed-duration
+results: eight deterministically selected windows per source, two settings
+(LOW/HIGH\_PRESSURE), two capacities, and four adaptations. Recursive
+stratification by mean prompt length, mean output length, and simultaneous
+arrival fraction selects a median window identifier per bin. This is
+purposive descriptor coverage, not a probability sample or evidence of
+blinding to prior outcomes; settings are not recalibrated for equal utilization.
 
-The perturbation does affect execution. Across all four labels, exactly
-full-budget batches increase from 0/25,983 to 3/25,986 and 36/25,984 as the
-budget decreases. These counts include the equivalent labels and exclude
-whole-prompt packing that leaves unusable residual budget. At 1,024 tokens,
-SLO-gated's prefill-before-residual-decode rule omits 42 ready-decode
-opportunities out of 35,976; its maximum anchor age reaches 2\,ms, still below the
-unchanged 495\,ms urgency threshold. The gate never activates.
-Equation~\ref{eq:urgency-bound} strengthens this observation: total prompt
-work of 39,300, 52,250 and 44,765 tokens gives respective 38, 51 and
-44\,ms upper bounds at budget 1,024, ruling out first activation in
-each window. Independent reconstruction of all 18 saved SLO-gated cells
-finds zero urgent decisions in 107,844 ready-decode opportunities.
-Table~\ref{tab:budget} shows modest, sometimes nonmonotone terminal effects.
-Whole-FCFS changes which whole prompts fit and hence which batches defer
-decodes; a smaller budget need not worsen every completion time.
+All 96 chunked-FCFS/decode-first pairs retain exactly equal normalized event
+trajectories, timestamps, and terminal metrics. In this nonbinding-budget
+design, common selected work has the same order-invariant duration and
+hence the same successor state. This explains the observed coupling
+without extending the fixed-duration Theorem~\ref{thm:equivalence}.
+Table~\ref{tab:time-sensitivity} separates timing effects from policy contrasts.
+Using the strict loser-relative $>10\%$ rule of Section~\ref{sec:rankings},
+there are no timing reversals in 792 eligible source-mean comparisons.
+At window level, two of 6,309 eligible comparisons reverse (27 zero-denominator
+exclusions). Both compare whole-FCFS with SLO-gated in BurstGPT window
+\texttt{w30}, LOW, eight slots: p95 latency and p95 TTFT. They are correlated
+tail endpoints in one condition, not independent replications. Absence of
+strict reversals does not imply identical rankings.
 
-\begin{table}[!htbp]
-\centering\small\setlength{\tabcolsep}{3pt}
-\caption{Budget sensitivity: minimum and maximum paired changes from
-32,768 tokens across six fixed window--setting conditions. Latency columns
-are milliseconds; throughput is model tokens/s. Decode-first equals
-chunked-FCFS in every row. Ranges describe these conditions, not confidence
-intervals. All other contract parameters remain fixed.}
-\label{tab:budget}\input{budget-sensitivity/effects-table}
-\end{table}
+\input{tables/time01}
 
-No strict-10\% policy-pair preference reverses across budgets
-($0/576$ eligible comparisons: six conditions, two perturbations, six
-policy pairs, eight endpoints). With the existing numerical-tie tolerance,
-5/96 top sets change, all involving TPOT as SLO-gated leaves a former tie;
-its largest mean-TPOT increase is only 5.87\,$\mu$s. Whole-FCFS deadline
-attainment changes by $-0.005$ to $+0.010$, and SLO-gated by $-0.005$ to
-zero. All throughput changes are below 0.4\% in magnitude. These bounded
-findings preserve the tested equivalence while exposing small execution
-changes; they do not retest cross-source means. Equivalence outside
-this stratum follows from Theorem~\ref{thm:equivalence} only within its assumptions. Three selected, temporally related windows support
-paired descriptive ranges, not population confidence intervals. The original
-C01 and reduced-comparison results remain separate and unchanged.
+On the selected BurstGPT windows, SLO-gated mean latency is 2.12\% and
+1.88\% higher at four/eight slots under variable timing; it is already
+2.41\% and 2.29\% higher under fixed timing. This is subset sensitivity,
+not a timing-induced policy reversal. SLO-gated urgency remains inactive;
+the timing study establishes neither hardware benefits nor performance
+outside the selected windows.

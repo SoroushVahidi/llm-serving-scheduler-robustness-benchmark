@@ -1,3 +1,9 @@
+# Current M3 candidate: final TIME01/ABL01 integration
+
+The [30-page manuscript](m3-manuscript.pdf) integrates the independently reviewed timing sensitivity and prompt-ordering ablation. The alternative ACM-small build also has 30 pages. See [section changes and validation](final-integration/REPORT.txt), [new numerical checks](final-integration/time01-abl01-numerical.json), and [scientific limitations](final-integration/LIMITATIONS.txt). BOUND01 and original evidence are preserved. This branch is stacked on PR #29; it does not modify its parent, main or PRs #27–#29. rc3 packaging is separately tracked; no release, dataset publication, DOI or submission is asserted.
+
+The material below is historical revision context.
+
 # M3 author-review manuscript
 
 **Current revision: scientific and editorial review (2026-10-23), stacked on PR #28.**
