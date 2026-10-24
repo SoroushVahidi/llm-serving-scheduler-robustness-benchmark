@@ -38,7 +38,7 @@ Observed values cannot identify that target merely by ignoring missingness.
 The bounded scenarios use IID standardized uniform innovations,
 $\sigma=0.08$, and $\delta=0.30$, giving scores in $[0,1]$ analytically,
 without clipping. All scenarios have 40 windows per source except the last,
-which has 400. Raw arrays and masks are retained in the full local artifact candidate.
+which has 400. Raw arrays and masks are retained in the complete evidence archive.
 The 112,275 reused and 21,725 subsequently generated studies sum to the
 completed 134,000-study design; no study was removed because of a numerical
 disagreement between implementations.
@@ -249,7 +249,7 @@ including the original failing record. It did not claim to rerun all raw
 studies. Recovery preserves original bytes and labels post-diagnosis
 comparisons separately. Full raw-record validation and display regeneration
 are different reproducibility tasks. The manuscript packet supplies the
-latter, and the separate local candidate contains the complete saved raw
+latter, and the complete evidence archive contains the saved raw
 records with verification recipes; neither workflow generates new outcomes.
 
 The separate budget sensitivity uses the same pinned C01 engine and
@@ -258,8 +258,8 @@ runner hashes, per-cell outcomes, and independent analysis are retained in
 \texttt{budget-sensitivity/}. Its run hash begins \texttt{f19883ccf2c4}.
 The 12 pilot cells are reused in the 72-cell total, not independent
 replicates. A documented JSON resume-metadata correction changes no policy,
-engine, input or configuration. Full new journals remain in the local
-sensitivity artifact; no new dataset release is asserted.
+engine, input or configuration. Full new journals are retained in the
+complete evidence archive.
 The subsequent \texttt{urgency-analysis/} audit reconstructs these 18
 SLO-gated histories and checks the finite-work certificate using separate
 event-ledger and per-request-interval implementations. It executes no new
