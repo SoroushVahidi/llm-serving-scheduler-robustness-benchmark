@@ -1,0 +1,468 @@
+{
+  "base_sealed_phase12_analysis_code_git_sha": "eb574a8ce5c34a80fddbcfd4417f6626fbdddfd1",
+  "base_sealed_phase12_analysis_doc_child_sha": "bd641d4902431b821cd7eb4ce9ad236955cec45d",
+  "bootstrap": {
+    "ci_level": 0.95,
+    "n_resamples": 2000,
+    "resampling_design": "PAIRED per (source, region, metric_a, metric_b): metric_a and metric_b are computed from the SAME physical windows (same underlying rows), so each bootstrap iteration draws ONE shared window resample and re-derives both metrics' aggregate rankings from it -- unlike the sealed cross-source comparison, which resamples two genuinely independent window populations independently.",
+    "seed_rule": "deterministic: zlib.crc32('|'.join([source, region, metric_a, metric_b])) -- depends only on the condition/metric-pair identity, not on iteration order, so re-running any subset of conditions reproduces identical seeds.",
+    "unit": "whole_workload_window"
+  },
+  "contract_kind": "cross_metric_analysis_v1",
+  "direction_rule": "Every metric value is direction-normalized so HIGHER is always better before any ranking comparison: HIGHER_BETTER metrics pass through unchanged; LOWER_BETTER metrics are negated. compare_rankings() is then always invoked with higher_is_better=True. This is a pure value transform applied independently per metric; it never changes which (window, policy) observations are defined.",
+  "disagreement_classification": {
+    "bh_fdr": {
+      "family_definition": "All PRIMARY policy-pair disagreement tests that reached the statistical-support stage (both p_a and p_b computed) within ONE (source, region, metric_a, metric_b) condition -- i.e. up to C(11,2)=55 policy pairs per family. Mirrors the sealed reversal contract's family definition (\"all pairwise reversal tests within one load level\"), generalized from \"one condition, fixed metric\" to \"one metric-pair, fixed condition\".",
+      "per_pair_p_value": "max(p_a, p_b) -- intersection-union combination of the two metrics' block-bootstrap sign-test p-values, read off the same resamples as the CI rule (no new inferential procedure), mirroring reversal_analysis.py's p_x/p_y convention.",
+      "q": 0.05
+    },
+    "ci_level": 0.95,
+    "classes": [
+      "UNDEFINED",
+      "SAME_ORDER",
+      "SIGN_CHANGE_MICROSCOPIC",
+      "UNSUPPORTED_SIGN_CHANGE_WIDE_CI",
+      "SUPPORTED_PRACTICAL_DISAGREEMENT"
+    ],
+    "enabled": true,
+    "practical_margin_fraction": 0.1,
+    "threshold_dimensional_justification": "The margin is winning_value_minus_losing_value / |losing_value|, computed independently within EACH metric's own units -- a dimensionless, self-relative ratio. Requiring both metric_a's own margin and metric_b's own margin to exceed 10% (an intersection-union test) never compares metric_a's units to metric_b's units directly, so heterogeneous units (seconds vs a fraction vs requests/second) do not invalidate the threshold. Verified before adoption, not mechanically assumed.",
+    "threshold_reused_from": "docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md \u00a7A reversal practical-margin rule (REVERSAL_PRACTICAL_MARGIN_FRACTION = 0.10), reused unchanged."
+  },
+  "does_not_invoke_slai_or_any_new_execution": true,
+  "does_not_modify_sealed_phase12_outputs": true,
+  "eligible_metrics": [
+    {
+      "conditioning": "ALL_REQUESTS",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "arrival_normalized_weighted_goodput",
+      "optimization_direction": "HIGHER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "Never NaN for a real window (ALWAYS_DEFINED)."
+    },
+    {
+      "conditioning": "ALL_REQUESTS",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "completion_fraction",
+      "optimization_direction": "HIGHER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "Never NaN for a real window (ALWAYS_DEFINED); num_total > 0 always."
+    },
+    {
+      "conditioning": "ALL_REQUESTS",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "weighted_completion_fraction",
+      "optimization_direction": "HIGHER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "Never NaN for a real window (ALWAYS_DEFINED)."
+    },
+    {
+      "conditioning": "COMPLETED_ONLY",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "slo_violation_rate",
+      "optimization_direction": "LOWER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "NaN iff completion_fraction == 0.0."
+    },
+    {
+      "conditioning": "COMPLETED_ONLY",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "weighted_goodput",
+      "optimization_direction": "HIGHER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "NaN iff completion_fraction == 0.0."
+    },
+    {
+      "conditioning": "COMPLETED_ONLY",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "mean_latency",
+      "optimization_direction": "LOWER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "NaN iff completion_fraction == 0.0."
+    },
+    {
+      "conditioning": "COMPLETED_ONLY",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "p95_latency",
+      "optimization_direction": "LOWER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "NaN iff completion_fraction == 0.0."
+    },
+    {
+      "conditioning": "COMPLETED_ONLY",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "request_throughput",
+      "optimization_direction": "HIGHER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "NaN iff completion_fraction == 0.0 (given sim_duration > 0)."
+    },
+    {
+      "conditioning": "COMPLETED_ONLY",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "token_throughput",
+      "optimization_direction": "HIGHER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "NaN iff completion_fraction == 0.0 (given sim_duration > 0)."
+    },
+    {
+      "conditioning": "OTHER",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "mean_ttft",
+      "optimization_direction": "LOWER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "NaN iff no completed request recorded a first-token time (independent precondition, may be undefined even when completion_fraction > 0)."
+    },
+    {
+      "conditioning": "OTHER",
+      "eligible_for_cross_metric": "YES",
+      "metric_name": "p95_ttft",
+      "optimization_direction": "LOWER_BETTER",
+      "reason": "supports per-policy ranking under the frozen metric contract (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md) with a defined optimization direction and a documented undefined-value rule; no a priori exclusion applies.",
+      "undefined_semantics": "NaN iff no completed request recorded a first-token time (independent precondition, may be undefined even when completion_fraction > 0)."
+    }
+  ],
+  "expected_campaign_freeze_sha256": "81fa3d9b48a2241001e6820942d4542dcc5b5e30973ad9d2786e72972494f57a",
+  "expected_canonical_normalized_input_sha256": "09db0f1d285f830e054dfd5f3876eff94caa08ea1ca982828d5e228d1b3350b9",
+  "expected_consolidated_artifact_raw_bytes_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+  "expected_correlation_record_count": 990,
+  "frozen_before_execution": true,
+  "label": "POST_PHASE12_RESULT_INDEPENDENT_ANALYSIS_EXTENSION",
+  "load_regions": [
+    "LOW",
+    "PRE_KNEE",
+    "KNEE",
+    "POST_KNEE",
+    "OVERLOAD",
+    "HIGH_PRESSURE"
+  ],
+  "metric_pair_selection_rule": "ALL unordered pairs among eligible metrics; no pair added, removed, or reordered based on any observed correlation, reversal, or disagreement magnitude.",
+  "metric_pairs": [
+    [
+      "arrival_normalized_weighted_goodput",
+      "completion_fraction"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "mean_latency"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "mean_ttft"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "p95_latency"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "p95_ttft"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "request_throughput"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "slo_violation_rate"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "token_throughput"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "weighted_completion_fraction"
+    ],
+    [
+      "arrival_normalized_weighted_goodput",
+      "weighted_goodput"
+    ],
+    [
+      "completion_fraction",
+      "mean_latency"
+    ],
+    [
+      "completion_fraction",
+      "mean_ttft"
+    ],
+    [
+      "completion_fraction",
+      "p95_latency"
+    ],
+    [
+      "completion_fraction",
+      "p95_ttft"
+    ],
+    [
+      "completion_fraction",
+      "request_throughput"
+    ],
+    [
+      "completion_fraction",
+      "slo_violation_rate"
+    ],
+    [
+      "completion_fraction",
+      "token_throughput"
+    ],
+    [
+      "completion_fraction",
+      "weighted_completion_fraction"
+    ],
+    [
+      "completion_fraction",
+      "weighted_goodput"
+    ],
+    [
+      "mean_latency",
+      "mean_ttft"
+    ],
+    [
+      "mean_latency",
+      "p95_latency"
+    ],
+    [
+      "mean_latency",
+      "p95_ttft"
+    ],
+    [
+      "mean_latency",
+      "request_throughput"
+    ],
+    [
+      "mean_latency",
+      "slo_violation_rate"
+    ],
+    [
+      "mean_latency",
+      "token_throughput"
+    ],
+    [
+      "mean_latency",
+      "weighted_completion_fraction"
+    ],
+    [
+      "mean_latency",
+      "weighted_goodput"
+    ],
+    [
+      "mean_ttft",
+      "p95_latency"
+    ],
+    [
+      "mean_ttft",
+      "p95_ttft"
+    ],
+    [
+      "mean_ttft",
+      "request_throughput"
+    ],
+    [
+      "mean_ttft",
+      "slo_violation_rate"
+    ],
+    [
+      "mean_ttft",
+      "token_throughput"
+    ],
+    [
+      "mean_ttft",
+      "weighted_completion_fraction"
+    ],
+    [
+      "mean_ttft",
+      "weighted_goodput"
+    ],
+    [
+      "p95_latency",
+      "p95_ttft"
+    ],
+    [
+      "p95_latency",
+      "request_throughput"
+    ],
+    [
+      "p95_latency",
+      "slo_violation_rate"
+    ],
+    [
+      "p95_latency",
+      "token_throughput"
+    ],
+    [
+      "p95_latency",
+      "weighted_completion_fraction"
+    ],
+    [
+      "p95_latency",
+      "weighted_goodput"
+    ],
+    [
+      "p95_ttft",
+      "request_throughput"
+    ],
+    [
+      "p95_ttft",
+      "slo_violation_rate"
+    ],
+    [
+      "p95_ttft",
+      "token_throughput"
+    ],
+    [
+      "p95_ttft",
+      "weighted_completion_fraction"
+    ],
+    [
+      "p95_ttft",
+      "weighted_goodput"
+    ],
+    [
+      "request_throughput",
+      "slo_violation_rate"
+    ],
+    [
+      "request_throughput",
+      "token_throughput"
+    ],
+    [
+      "request_throughput",
+      "weighted_completion_fraction"
+    ],
+    [
+      "request_throughput",
+      "weighted_goodput"
+    ],
+    [
+      "slo_violation_rate",
+      "token_throughput"
+    ],
+    [
+      "slo_violation_rate",
+      "weighted_completion_fraction"
+    ],
+    [
+      "slo_violation_rate",
+      "weighted_goodput"
+    ],
+    [
+      "token_throughput",
+      "weighted_completion_fraction"
+    ],
+    [
+      "token_throughput",
+      "weighted_goodput"
+    ],
+    [
+      "weighted_completion_fraction",
+      "weighted_goodput"
+    ]
+  ],
+  "min_common_policies": 3,
+  "min_common_policies_rationale": "At n=2 common policies, Kendall tau-b is degenerate (only +1/-1 possible, no real distribution). n=3 is the smallest common-policy count at which tau-b is non-degenerate. Frozen before any real Phase-12 row was read by this extension's code.",
+  "n_eligible_metrics": 11,
+  "n_metric_pairs": 55,
+  "n_policy_panel": 11,
+  "n_source_region_conditions": 18,
+  "output_files": [
+    "cross_metric_correlations.json",
+    "cross_metric_topk.json",
+    "cross_metric_status.json",
+    "cross_metric_pairwise_disagreements.json"
+  ],
+  "output_namespace_template": "artifacts/analysis/cross_metric_extension/<contract_sha256>/",
+  "policy_panel": [
+    "admission_control",
+    "edf",
+    "estimated_service_time_first",
+    "fifo",
+    "kv_constrained_online",
+    "least_laxity_first",
+    "sarathi_faithful",
+    "slai_faithful",
+    "vllm_chunked_prefill_faithful",
+    "vllm_faithful",
+    "weighted_fair_share"
+  ],
+  "policy_panel_note": "PRIMARY_ONLY (11); STYLE_APPROXIMATION policies excluded from headline cross-metric results, per docs/RANKING_PORTABILITY_ANALYSIS_PLAN.md's robustness stratum rule.",
+  "source_region_conditions": [
+    [
+      "azure_llm_2024",
+      "LOW"
+    ],
+    [
+      "azure_llm_2024",
+      "PRE_KNEE"
+    ],
+    [
+      "azure_llm_2024",
+      "KNEE"
+    ],
+    [
+      "azure_llm_2024",
+      "POST_KNEE"
+    ],
+    [
+      "azure_llm_2024",
+      "OVERLOAD"
+    ],
+    [
+      "azure_llm_2024",
+      "HIGH_PRESSURE"
+    ],
+    [
+      "bailian_qwen",
+      "LOW"
+    ],
+    [
+      "bailian_qwen",
+      "PRE_KNEE"
+    ],
+    [
+      "bailian_qwen",
+      "KNEE"
+    ],
+    [
+      "bailian_qwen",
+      "POST_KNEE"
+    ],
+    [
+      "bailian_qwen",
+      "OVERLOAD"
+    ],
+    [
+      "bailian_qwen",
+      "HIGH_PRESSURE"
+    ],
+    [
+      "burstgpt",
+      "LOW"
+    ],
+    [
+      "burstgpt",
+      "PRE_KNEE"
+    ],
+    [
+      "burstgpt",
+      "KNEE"
+    ],
+    [
+      "burstgpt",
+      "POST_KNEE"
+    ],
+    [
+      "burstgpt",
+      "OVERLOAD"
+    ],
+    [
+      "burstgpt",
+      "HIGH_PRESSURE"
+    ]
+  ],
+  "sources": [
+    "azure_llm_2024",
+    "bailian_qwen",
+    "burstgpt"
+  ],
+  "undefined_rule": "Never zero-imputed. A policy with an undefined (NaN/None) value for a metric in a given condition is excluded from that metric's aggregate only (docs/RANKING_PORTABILITY_METRIC_DEFINITIONS.md, reused unchanged). If the resulting common-defined-policy count is below min_common_policies, the record's status is UNDEFINED_INSUFFICIENT_COMMON_POLICIES and all statistics are null -- the record is still emitted, never omitted."
+}

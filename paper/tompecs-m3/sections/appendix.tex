@@ -1,0 +1,329 @@
+\section{Statistical Diagnostic: Definitions and Complete Scenario Summary}\label{app:stat}
+\subsection{Study construction and truth}
+A study draws a latent array $Y\in\mathbb{R}^{3\times n\times11}$, with
+positive population means $\mu_{sj}$. Sources are independent within this
+synthetic design. Dependence across policies is
+$C(\rho)=(1-\rho)I+\rho\mathbf{1}\mathbf{1}^{\mathsf T}$, usually with
+$\rho=0.5$. Temporal covariance is identity, independent five-window blocks
+with within-block correlation 0.7, or AR(1) with correlation $0.7^{|i-j|}$.
+Source-specific innovations have mean zero and variance one; a Cholesky
+transformation imposes the specified covariance, with default scale
+$\sigma=0.15$. The exact-ties scenario uses $\rho=1$.
+
+Each family comprises $\binom{3}{2}\binom{11}{2}=165$ hypotheses.
+For a source pair $(s,t)$ and policy pair $(a,b)$, sign-reversal truth is
+$(\mu_{sa}-\mu_{sb})(\mu_{ta}-\mu_{tb})<0$. Practical-reversal truth is given by Equation~\ref{eq:truth}:
+\begin{equation}\label{eq:truth}
+\begin{aligned}
+ &(\mu_{sa}>1.1\mu_{sb}\ \land\ \mu_{tb}>1.1\mu_{ta})\\
+ &\qquad\lor\ (\mu_{sb}>1.1\mu_{sa}\ \land\ \mu_{ta}>1.1\mu_{tb}).
+\end{aligned}
+\end{equation}
+Equality at 10\% is null. Truth is enumerated from decimal/rational mean
+specifications, independently of estimated means and test decisions.
+
+Equal-null means are 0.5. Stable and near-tie means are $0.5+0.01j$ and
+$0.5+0.0002j$, respectively. A reversal of size $\delta$ assigns source 0
+policies 0/1 means $0.5\pm\delta/2$, swaps them in source 1, and sets all
+other means to 0.5. Small, medium, and large IID reversal scenarios use
+$\delta=0.03,0.10,0.30$. The boundary scenario uses 0.55/0.50 and the reverse.
+Block, AR, unequal-variance, mixed-distribution, and missing completely at random (MCAR) reversal scenarios
+use $\delta=0.15$. Unequal scales are $(0.08,0.25,0.15)$; mixed innovations
+are standardized normal, Student-$t_5$, and lognormal. MCAR retains each
+policy/window observation independently with probability 0.8. Selective
+missingness removes source 0/policy 0 and source 1/policy 1 observations
+below their respective latent means; truth remains the unconditional mean.
+Observed values cannot identify that target merely by ignoring missingness.
+
+The bounded scenarios use IID standardized uniform innovations,
+$\sigma=0.08$, and $\delta=0.30$, giving scores in $[0,1]$ analytically,
+without clipping. All scenarios have 40 windows per source except the last,
+which has 400. Raw arrays and masks are retained in the full local artifact candidate.
+The 112,275 reused and 21,725 subsequently generated studies sum to the
+completed 134,000-study design; no study was removed because of a numerical
+disagreement between implementations.
+
+\subsection{Frozen methods and post-diagnosis additions}
+All methods use nominal level $\alpha=q=0.05$.
+The historical screened procedure uses 2,000 bootstrap draws of matched
+observed per-window policy differences, percentile intervals, and
+$p=\min\{1,2\min[\Pr_{\rm boot}(\bar D\leq0),\Pr_{\rm boot}(\bar D\geq0)]\}$.
+It combines source-side p-values by their maximum, applies BH to the
+point-screened family, and requires both intervals to exclude zero.
+The full-family variant assigns untested hypotheses p-value one and applies
+BH over all 165. The historical plus-one BY variant transforms the
+component bootstrap p-value as $\min\{1,(2000p+2)/2001\}$ before source
+combination and applies BY over 165. These modifications do not make
+selection or the original p-values valid by definition.
+
+The analytic practical-effect methods use paired contrasts
+$Z=Y_a-1.1Y_b$ and their reversed orientation. Each orientation combines the
+two one-sided source tests by a maximum (an intersection--union test).
+The union over orientations uses $\min\{1,2\min(p_1,p_2)\}$ before Holm
+correction over 165 hypotheses \citep{holm1979}.
+IID t-Holm uses paired Student tests; cluster t-Holm uses independent
+five-window cluster averages, retaining only completely observed clusters.
+Fewer than two complete clusters causes abstention. Their finite-sample
+Gaussian justifications apply to their respective independent sampling
+units with complete or MCAR observations, not arbitrary temporal dependence.
+The covariance-oracle normal variant uses the known Gaussian covariance
+of each observed matched sample mean. It does not access missing latent
+outcomes and is not deployable without that covariance information.
+
+Grouped-bootstrap BY resamples nonoverlapping five-window groups jointly
+across policies, preserving masks and pairing. Its centered one-sided
+component p-value is
+$(1+\#\{\bar Z^*-\bar Z\geq\bar Z\})/2001$.
+A zero-observation resample causes component abstention; it is not silently
+excluded. The same orientation construction is followed by full-family BY.
+No finite-sample guarantee was prespecified for this procedure. Bounded
+Hoeffding--Holm applies only to the bounded IID scenarios. Since
+$Z\in[-1.1,1]$, its component p-value is
+$\exp[-2m\max(\bar Z,0)^2/2.1^2]$ \citep{hoeffding1963}, followed by the same
+orientation and Holm construction. It abstains outside that domain.
+
+The eight original identities are retained unchanged. The ninth method,
+\path{legacy_source_screened_BH}, reproduces the actual frozen
+historical source's arithmetic. Eight \texttt{exact\_} counterparts of the
+original methods use explicit rational critical thresholds and exact
+bootstrap-count grids. Analytic p-values are treated as the exact dyadic
+values represented by their finite floats, not as infinitely accurate
+analytic probabilities. Rational harmonic constants define BY thresholds.
+These additions change numerical semantics, not the sampling assumptions,
+screening target, or statistical validity of a component test.
+
+\subsection{Coverage, availability, power, and Monte Carlo accounting}
+For each independent study, let $R$ be discoveries and $V$ false discoveries.
+False-discovery proportion is $V/\max(R,1)$; its expectation is FDR.
+Familywise error is $\mathbf{1}\{V>0\}$, and power is true discoveries
+relative to the number of alternatives when alternatives exist. Both
+practical and sign truth are retained. Ordinary interval coverage uses a
+fixed source 0/policy 0-minus-policy 1 contrast. For historical methods,
+that interval is generated in a separate unconditional diagnostic stream.
+Coverage of actually selected intervals is a different, selection-conditional
+endpoint; it is not replaced by ordinary coverage.
+
+Interval availability is reported separately. In the MCAR and selectively
+missing scenarios, cluster-t ordinary coverage is based on 1,676 and 202
+of 8,000 studies, respectively. Historical selected-interval coverage in
+the IID equal null is 0.123834 over 958 studies emitting selected intervals,
+whereas ordinary fixed-contrast coverage is 0.941875 over 8,000 studies.
+These are study-level averages, not independent interval observations.
+The complete endpoint CSV also includes null rejection fractions,
+maximizer-set coverage and size, and deterministic-ID correctness; exact
+empirical maximizing sets are not confidence sets.
+
+The five possible analysis looks are 500, 1,000, 2,000, 4,000, and 8,000
+studies per scenario. For a bounded study-level endpoint with sample variance
+$s^2$ and available count $N$, the two-sided empirical Bernstein half-width is
+Equation~\ref{eq:bernstein}:
+\begin{equation}\label{eq:bernstein}
+ b=\sqrt{\frac{2s^2\log(4/\delta)}{N}}
+ +\frac{7\log(4/\delta)}{3(N-1)}.
+\end{equation}
+The bounds clip $\bar X\pm b$ to $[0,1]$; empty endpoints are unestimated
+with the full range. The construction uses the empirical Bernstein bound
+and a finite union over both tails and all reported looks
+\citep{maurer2009}. Conditional coverage uses the count of IID studies
+emitting an interval, with that availability explicit.
+The original allocation is $\delta=0.05/(18\cdot8\cdot16\cdot5)$;
+the expanded report uses $0.05/(18\cdot17\cdot16\cdot5)$.
+Dependence among methods and endpoints does not invalidate the union bound.
+The wider accounting does not erase post-diagnosis method selection.
+
+Stopping uses only the original eight methods. Required half-widths are
+0.025 for practical FDR, familywise error, and null rejection fraction;
+0.03 for ordinary interval coverage; and 0.08 for defined power.
+Selected-interval coverage is not a stopping target.
+The calibration screen flags concern if the practical-FDR lower bound
+exceeds 0.05 or ordinary-coverage upper bound is below 0.95. Empirical
+compatibility with tolerance requires FDR upper bound at most 0.06 and
+coverage lower bound at least 0.94 in relevant assumption-valid scenarios.
+All other estimable cases are inconclusive. The screen permits conservative
+overcoverage and is not a proof of exact nominal calibration.
+
+Table~\ref{tab:scenarios} summarizes the original-method scenario screens
+and stopping counts.
+
+\begin{table}[!htbp]
+\centering\small\setlength{\tabcolsep}{5pt}
+\caption{Complete original-eight scenario screen and stopping counts.
+C: calibration concern; I: inconclusive; E: empirical compatibility with
+tolerance; A: outside-domain abstention. P: original precision objective
+met; M: maximum-count stop with gaps. H-S/H-F/H-BY: historical screened
+BH/full BH/plus-one BY; t/c-t/O/G/Hf: IID t/cluster t/oracle normal/grouped
+bootstrap/bounded Hoeffding. These use the \emph{original-eight} uncertainty
+family. Full numerical results for all 17 methods and both families are
+in \texttt{stat01-all-endpoints.csv}.}
+\label{tab:scenarios}\input{tables/stat-scenarios}
+\end{table}
+
+\subsection{Diagnostic outcomes and stopping interpretation}
+Other
+scenarios expose the practical-versus-sign target mismatch: practical FDR
+is 0.39500 at the exact practical boundary and approximately 0.73316 in the
+medium-reversal scenario. Full scenario results are retained rather than
+summarized as a single global error rate.
+
+These findings also have limits. Assumption-aligned Gaussian procedures
+frequently remain \emph{inconclusive} under the stringent simultaneous
+Monte Carlo screen; that is not evidence that they are miscalibrated.
+Conservative bounded Hoeffding--Holm comparisons have zero observed false
+discoveries and 100\% observed diagnostic coverage, but practical power is
+zero at 40 windows and approximately 0.05263 at 400. The campaign does not
+certify a generally useful replacement procedure. Of 144 original
+method/scenario classifications, 45 indicate concern, 74 are inconclusive,
+9 meet the empirical tolerance screen, and 16 abstain outside their domain.
+Seven of the nine compatible entries arise in the degenerate exact-ties
+scenario; the remaining two are bounded Hoeffding.
+
+Completion and precision must also be separated. Scenarios 3 and 17 stop
+at 2,000 and 4,000 studies; the other sixteen finish at 8,000. Six scenarios
+meet the original precision objective, while twelve stop at the maximum
+count with precision gaps. The original eight-method uncertainty family
+controls stopping. The expanded 17-method report has its own, wider
+allocation; additions do not retrospectively become prespecified. Neither
+maximum-count completion nor an inconclusive calibration screen is a
+successful calibration claim.
+
+\subsection{Numerical boundary case and substantive limitations}
+The saved scenario 11, replicate 6628, comparison index 47 has a screened
+family of 43 entries. At rank 43 the stored p-value is 0.05. The original
+port evaluates $0.05\times43/43$ as 0.049999999999999996 and does not reject;
+the actual source evaluates $(43/43)\times0.05$ as 0.05 and rejects.
+The mathematical bootstrap-grid comparison is $1/20\leq1/20$ and rejects.
+The old referee still reproduces its mismatch on this preserved record;
+the recovery contracts explicitly distinguish all three identities.
+
+The reuse audit found 31 port-versus-source differences among the original
+112,275 studies. At final aggregation, the largest difference in endpoint
+means between those implementations is 0.00025. Only the exact screened-BH
+addition changes final endpoint means relative to its original counterpart,
+with maximum change $8.56\times10^{-7}$; the other seven exact variants'
+endpoint means match their originals. Aggregate equality does not establish
+identity of every rejection vector.
+
+These small arithmetic differences do not repair the larger statistical
+problems. Full-family historical BH has practical FDR 0.51875 in the block
+null and 0.778625 in the AR null. Grouped-bootstrap BY has ordinary coverage
+0.88775 in the IID equal null and 0.759875 in the AR null. Under AR,
+cluster-t coverage is 0.8600 in the null and 0.864375 in the reversal
+scenario because fixed five-window clusters remain dependent. Conversely,
+low FDR can coexist with negligible power: in the block-reversal scenario,
+cluster-t practical power is approximately 0.00000658, oracle-normal
+0.000296, and grouped-bootstrap zero. Bounded Hoeffding power is zero at
+$n=40$ and 0.052632 at $n=400$, with original-family bounds approximately
+$[0,0.00401]$ and $[0.04462,0.06065]$. Inconclusiveness, abstention, and
+conservatism remain findings rather than reasons to select a new reporting
+threshold.
+
+\FloatBarrier
+\section{Evidence Identities and Reproduction Scope}\label{app:evidence}
+The C01 full run is \path{c01-full-167b9074e5711420}; the recovery run is
+\path{stat01-recovery-v2-061933a64e27da20}. Execution commits are
+\texttt{\seqsplit{2d8342e699f35044044ac518c0b75a3c4a1c768c}} and
+\texttt{\seqsplit{1ac4c8dd1421aabad05e6ce243cb911a6ed6c8e1}}, respectively.
+The independent evidence check is pinned at commit
+\texttt{\seqsplit{6b2eedd7aa254986b85c1bb901587641cbeac8b0}}; the supporting analysis at
+\texttt{\seqsplit{d22c7751af9c563d5a4d8a304c007f26112c4d12}}.
+The canonical frozen-window hash begins \texttt{0d1aa06ccbee}; the physical
+window-file hash begins \texttt{97fbaf6a4b9b}; absolute C01 metrics begin
+\texttt{5700c4bbd738}. Full hashes, source paths, and stored-copy hashes
+are supplied in \texttt{evidence/input-hashes.json} and the input manifest.
+
+The completed C01 campaign performed exhaustive event verification during execution. The final review separately checked all
+5,760 terminal records and recomputed their metrics, all 164 launch-file
+fingerprints, all 144 reused identities, and all 720 request-condition
+records. Its fresh event replay covered 24 new-cell journals, structurally
+chosen from the first nonpilot window per source at HIGH\_PRESSURE, both
+capacities, and all adaptations. Independent report checking covers
+5,760 absolute rows, 15,840 rankings, 95,040 matched differences, and
+26,136 reversal groups. The reproduction scripts regenerate displays only from those saved
+summaries and verify their fingerprints.
+
+STAT01's recovery validated all 5,360 batches during execution. The final
+review checked the complete batch inventory and independently recombined
+all final endpoint moments with high-precision arithmetic; its fresh
+record-level check covered 200 saved studies across eight scenarios,
+including the original failing record. It did not claim to rerun all raw
+studies. Recovery preserves original bytes and labels post-diagnosis
+comparisons separately. Full raw-record validation and display regeneration
+are different reproducibility tasks. The manuscript packet supplies the
+latter, and the separate local candidate contains the complete saved raw
+records with verification recipes; neither workflow generates new outcomes.
+
+The separate budget sensitivity uses the same pinned C01 engine and
+referee. Its prospective protocol, exact condition identities, source and
+runner hashes, per-cell outcomes, and independent analysis are retained in
+\texttt{budget-sensitivity/}. Its run hash begins \texttt{f19883ccf2c4}.
+The 12 pilot cells are reused in the 72-cell total, not independent
+replicates. A documented JSON resume-metadata correction changes no policy,
+engine, input or configuration. Full new journals remain in the local
+sensitivity artifact; no new dataset release is asserted.
+The subsequent \texttt{urgency-analysis/} audit reconstructs these 18
+SLO-gated histories and checks the finite-work certificate using separate
+event-ledger and per-request-interval implementations. It executes no new
+scientific cells; supplied-state predicate tests are engineering checks.
+
+The historical evidence remains under \texttt{paper/tompecs-m2}, including
+its statistical audit, claim changes, cross-metric set comparisons, and
+finite-reference ranking-recovery analyses. Those materials remain archived
+support rather than additional independent experiments. Related headroom
+and module-intervention projects share some infrastructure and topics, but
+their causal or native-engine results are not used as evidence for this
+paper. Historical windows, input reconstruction, and the archived 36/990
+rule result are reused explicitly; C01 has separate execution semantics
+and STAT01 separate synthetic truth. Exact overlap with some older
+cross-project BurstGPT selections remains unresolved. This uncertainty
+limits claims of independent evidence across projects, not the recorded
+within-C01 nonoverlap check.
+
+\FloatBarrier
+\subsection{Timing and ablation evidence}
+TIME01 and ABL01 execution sources are pinned at
+\texttt{\seqsplit{f0d9e525fa99c960129a999993e91bd7a554e997}} and
+\texttt{\seqsplit{f0142a669488fe184b175828a922128d63c1bc03}}.
+Independent checking recomputed both studies' complete numerical summaries
+and replayed all 384 TIME01 journals. For ABL01 it verified all 1,440 result
+pairs and the one-expression intervention, reviewed the conditional coupling,
+and replayed 36 controls with their 72 source journals, covering every
+source--setting--capacity stratum. The remaining controls rely on that
+coupling and frozen full verification; all journal bytes are checked at
+packaging. The eight frozen ABL01 analysis tables reproduce byte-for-byte.
+Complete source manifests, comparison families, rounding diagnostics, and
+all-source effects accompany the artifact. Reused rows and dependent
+summaries do not enlarge the independent evidence base.
+
+\subsection{Reachable-state proof provenance}
+The proof integrated in Section~\ref{sec:equivalence} is preserved with its
+implementation-assumption checks at commit
+\texttt{\seqsplit{32426114d7a321de790a194c51aacbc23703975a}}.
+It leaves the authoritative engine and both policies byte-identical to
+C01-FULL. Seven hand-derived fixtures and 36 reused budget journals
+(37,034 checked boundaries) support conformance. This is a proof-first
+result, not an exhaustive state search or machine-checked formal proof.
+The proof explicitly excludes arbitrary policy switching and supplied
+mid-flight states; finite fixture agreement does not extend its scope.
+
+\section{Chronological Summaries}\label{app:chronology}
+Figure~\ref{fig:chronology} reports SLO-minus-chunked \anwg\ differences in
+four consecutive ten-window blocks. Across settings and capacities, block
+means range from $-0.0120$ to $+0.2030$ for Azure, $-0.0300$ to $+0.2330$
+for Bailian, and $+0.0150$ to $+0.3275$ for BurstGPT. Negative differences
+occur in 8/48 Azure and 24/48 Bailian block/setting/capacity combinations,
+and none of the 48 BurstGPT combinations. The frozen EARLY/MIDDLE/LATE
+summaries show the same qualitative contrast: negative differences in
+6/36, 20/36, and 0/36 combinations, respectively. These are corpus-order
+sensitivities, not estimates of a temporal process or guarantees for future
+traffic.
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{figures/chronology.pdf}
+\caption{Chronological block means of SLO-gated minus chunked-FCFS \anwg.
+Each block contains ten frozen windows. Colors identify inherited settings
+(L through H); solid circles and dashed squares denote four and eight
+slots. Blocks have unequal durations and are not independent temporal
+samples. The figure uses all 144 block/setting/capacity combinations.}
+\Description{Three source panels show goodput differences over four consecutive ten-window blocks, retaining all six settings and both capacities. Azure and Bailian include negative differences; BurstGPT differences are positive.}
+\label{fig:chronology}
+\end{figure}

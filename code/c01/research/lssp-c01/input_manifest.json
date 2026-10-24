@@ -1,0 +1,248 @@
+{
+  "campaign_manifest_sha256": "44a81e98d9a3fa6646bd716125726bf732530d243a54d0952e98b20fda1d564a",
+  "conditions": [
+    {
+      "condition_id": "burstgpt::burstgpt_stage0_w00::LOW",
+      "load_factor": 206.44247792572583,
+      "region": "LOW",
+      "requests_sha256": "d62f8437281e0b7cfbbe2326f6db993d3fa7c7872d06d51a82c8ec88f13fc3f4",
+      "source": "burstgpt",
+      "synthesis_seed": 900000,
+      "window": "burstgpt_stage0_w00"
+    },
+    {
+      "condition_id": "burstgpt::burstgpt_stage0_w00::PRE_KNEE",
+      "load_factor": 330.30796468116137,
+      "region": "PRE_KNEE",
+      "requests_sha256": "1d75e825e79e138e41166d1b53469d60d9ced2e4f6158d86a64bc1c144a9e209",
+      "source": "burstgpt",
+      "synthesis_seed": 900000,
+      "window": "burstgpt_stage0_w00"
+    },
+    {
+      "condition_id": "burstgpt::burstgpt_stage0_w00::KNEE",
+      "load_factor": 412.88495585145165,
+      "region": "KNEE",
+      "requests_sha256": "07b85a7e26d6e8f4760a2795d7a09f68539c4f135e94407a986b0f34d3cc9808",
+      "source": "burstgpt",
+      "synthesis_seed": 900000,
+      "window": "burstgpt_stage0_w00"
+    },
+    {
+      "condition_id": "burstgpt::burstgpt_stage0_w00::POST_KNEE",
+      "load_factor": 454.17345143659685,
+      "region": "POST_KNEE",
+      "requests_sha256": "91f9aa46150a921ee2b499c5b4b305b44207942f03e5b1f4f9bd18d0f9b3581b",
+      "source": "burstgpt",
+      "synthesis_seed": 900000,
+      "window": "burstgpt_stage0_w00"
+    },
+    {
+      "condition_id": "burstgpt::burstgpt_stage0_w00::OVERLOAD",
+      "load_factor": 495.46194702174193,
+      "region": "OVERLOAD",
+      "requests_sha256": "4b9f8c0f5cf5dc744873267779cc8ac578c31d7079ea70f3d6abe88f709e8eda",
+      "source": "burstgpt",
+      "synthesis_seed": 900000,
+      "window": "burstgpt_stage0_w00"
+    },
+    {
+      "condition_id": "burstgpt::burstgpt_stage0_w00::HIGH_PRESSURE",
+      "load_factor": 619.3274337771775,
+      "region": "HIGH_PRESSURE",
+      "requests_sha256": "90ff46a9530dda6416a7a7dade1b4d12bff85a3abf5bb43cec81254960cc922e",
+      "source": "burstgpt",
+      "synthesis_seed": 900000,
+      "window": "burstgpt_stage0_w00"
+    },
+    {
+      "condition_id": "azure_llm_2024::azure_llm_2024_stage0_w00::LOW",
+      "load_factor": 44.031500611729854,
+      "region": "LOW",
+      "requests_sha256": "5adc15f2b74788792389003b761348de9f2c4270175c7ecd05a24a7eb5c61c47",
+      "source": "azure_llm_2024",
+      "synthesis_seed": 900000,
+      "window": "azure_llm_2024_stage0_w00"
+    },
+    {
+      "condition_id": "azure_llm_2024::azure_llm_2024_stage0_w00::PRE_KNEE",
+      "load_factor": 70.45040097876777,
+      "region": "PRE_KNEE",
+      "requests_sha256": "5d5221badb427802307360eb2d44d52388661b9675adf162f3e8a50c393b3322",
+      "source": "azure_llm_2024",
+      "synthesis_seed": 900000,
+      "window": "azure_llm_2024_stage0_w00"
+    },
+    {
+      "condition_id": "azure_llm_2024::azure_llm_2024_stage0_w00::KNEE",
+      "load_factor": 88.06300122345971,
+      "region": "KNEE",
+      "requests_sha256": "a782ff1954f3ca5dcbd92d0f211139ce2c148f32e8899e332e22bf9d6b9064c6",
+      "source": "azure_llm_2024",
+      "synthesis_seed": 900000,
+      "window": "azure_llm_2024_stage0_w00"
+    },
+    {
+      "condition_id": "azure_llm_2024::azure_llm_2024_stage0_w00::POST_KNEE",
+      "load_factor": 96.86930134580568,
+      "region": "POST_KNEE",
+      "requests_sha256": "b855fdc3df5581d29276aa421bb18d80353cb09707b77d9c5e5dc1c3c785ac72",
+      "source": "azure_llm_2024",
+      "synthesis_seed": 900000,
+      "window": "azure_llm_2024_stage0_w00"
+    },
+    {
+      "condition_id": "azure_llm_2024::azure_llm_2024_stage0_w00::OVERLOAD",
+      "load_factor": 105.67560146815164,
+      "region": "OVERLOAD",
+      "requests_sha256": "8cf2b8595f427a96318a117b678f9a8d96a88efcf48d096c1505b40e5997f91f",
+      "source": "azure_llm_2024",
+      "synthesis_seed": 900000,
+      "window": "azure_llm_2024_stage0_w00"
+    },
+    {
+      "condition_id": "azure_llm_2024::azure_llm_2024_stage0_w00::HIGH_PRESSURE",
+      "load_factor": 132.09450183518956,
+      "region": "HIGH_PRESSURE",
+      "requests_sha256": "1a129a9c105cc50751882dbc2e4a900b338d9cf4aebf500ac518218a77e25472",
+      "source": "azure_llm_2024",
+      "synthesis_seed": 900000,
+      "window": "azure_llm_2024_stage0_w00"
+    },
+    {
+      "condition_id": "bailian_qwen::bailian_qwen_stage0_w00::LOW",
+      "load_factor": 27.282352869946564,
+      "region": "LOW",
+      "requests_sha256": "573dd2fb48e98c8eb215f8da6768531c112d2e38071329a4e06ceb38f9c9009d",
+      "source": "bailian_qwen",
+      "synthesis_seed": 900000,
+      "window": "bailian_qwen_stage0_w00"
+    },
+    {
+      "condition_id": "bailian_qwen::bailian_qwen_stage0_w00::PRE_KNEE",
+      "load_factor": 43.65176459191451,
+      "region": "PRE_KNEE",
+      "requests_sha256": "96bcb8e789a38e918276a235b9a726a8290da932387ee4435f12702f1b1e41bd",
+      "source": "bailian_qwen",
+      "synthesis_seed": 900000,
+      "window": "bailian_qwen_stage0_w00"
+    },
+    {
+      "condition_id": "bailian_qwen::bailian_qwen_stage0_w00::KNEE",
+      "load_factor": 54.56470573989313,
+      "region": "KNEE",
+      "requests_sha256": "e8672e4e4c49233952ffcf598f962feb7fd74808aba609c1c44ee9ce955928f5",
+      "source": "bailian_qwen",
+      "synthesis_seed": 900000,
+      "window": "bailian_qwen_stage0_w00"
+    },
+    {
+      "condition_id": "bailian_qwen::bailian_qwen_stage0_w00::POST_KNEE",
+      "load_factor": 60.02117631388244,
+      "region": "POST_KNEE",
+      "requests_sha256": "1873ba4422a74b629309f57c0f807fb416bad4febd0a7a466fb2669de53b79b5",
+      "source": "bailian_qwen",
+      "synthesis_seed": 900000,
+      "window": "bailian_qwen_stage0_w00"
+    },
+    {
+      "condition_id": "bailian_qwen::bailian_qwen_stage0_w00::OVERLOAD",
+      "load_factor": 65.47764688787176,
+      "region": "OVERLOAD",
+      "requests_sha256": "1cc0f3f6293748eab9b1365c30014f7154cb4eba275e799d79362fee8c8945ea",
+      "source": "bailian_qwen",
+      "synthesis_seed": 900000,
+      "window": "bailian_qwen_stage0_w00"
+    },
+    {
+      "condition_id": "bailian_qwen::bailian_qwen_stage0_w00::HIGH_PRESSURE",
+      "load_factor": 81.84705860983969,
+      "region": "HIGH_PRESSURE",
+      "requests_sha256": "82280fc004297f4e47ff9c06ad5fdb218e6ca6cf19fa2d72c506f6665572d5e6",
+      "source": "bailian_qwen",
+      "synthesis_seed": 900000,
+      "window": "bailian_qwen_stage0_w00"
+    }
+  ],
+  "expected_cells": 144,
+  "full_windows_canonical": "0d1aa06ccbee352207327ea369ae75f12e91c0cda006c813a41b381effd29eef",
+  "full_windows_sha256": "97fbaf6a4b9b5f14cd19ce1c37193996c0758eebca73ab2adb1e944b404b3f4c",
+  "historical_comparisons_sha256": "c90619e822925146ad4395deebbf0cc8ccd0fd66cc13a8aa84202fc39a5cfdde",
+  "historical_policy_mapping": {
+    "chunked_fcfs_c01": "vllm_chunked_prefill_faithful",
+    "decode_first_c01": "sarathi_faithful",
+    "slo_gated_c01": "slai_faithful",
+    "whole_fcfs_c01": "vllm_faithful"
+  },
+  "historical_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+  "inference": "DESCRIPTIVE_ONLY",
+  "input_sha256": "56b216fdfedf34ca8a959cb764c9896cf7f6351319259cba13dc8fb98df05f1c",
+  "policies": [
+    "whole_fcfs_c01",
+    "chunked_fcfs_c01",
+    "decode_first_c01",
+    "slo_gated_c01"
+  ],
+  "profiles": [
+    {
+      "config": {
+        "block": 16,
+        "budget": 32768,
+        "context": 32768,
+        "drain": 50.0,
+        "dt": 0.001,
+        "kv_capacity": 131072,
+        "max_sequences": 64
+      },
+      "name": "kv131072"
+    },
+    {
+      "config": {
+        "block": 16,
+        "budget": 32768,
+        "context": 32768,
+        "drain": 50.0,
+        "dt": 0.001,
+        "kv_capacity": 262144,
+        "max_sequences": 64
+      },
+      "name": "kv262144"
+    }
+  ],
+  "rng": "No scheduling RNG; historical synthesis seeds recorded per condition",
+  "schema": "lssp-c01-manifest/0.1.0",
+  "scientific_base": "880a37e8e7c19d089be124291e288269966a9147",
+  "selected_windows": [
+    {
+      "chronology_stratum": "EARLY",
+      "content_sha256": "73a99f07ae10bd332307cf3b9383d8c99c2a88adc35020f37c122a752400f54f",
+      "sampling_seed": 20260901,
+      "source_family": "burstgpt",
+      "source_file": "BurstGPT_without_fails_2.csv",
+      "source_file_sha256": "56193aa9b2bb26128ded43d2d29a960df6bf5af062bcfc9b005f3fcaa4e6e501",
+      "start_index_in_valid_rows": 757794,
+      "window_id": "burstgpt_stage0_w00"
+    },
+    {
+      "chronology_stratum": "EARLY",
+      "content_sha256": "4b428dca04a17119a165374edd3ff67026f60f203bfa523a9476c987a0a8d5aa",
+      "sampling_seed": 20260902,
+      "source_family": "azure_llm_2024",
+      "source_file": "AzureLLMInferenceTrace_conv_2024.csv",
+      "source_file_sha256": "a0cc9b969a9bbf0fd811802cbf4323edd3a209ace791e3799ad4f9207f213941",
+      "start_index_in_valid_rows": 543015,
+      "window_id": "azure_llm_2024_stage0_w00"
+    },
+    {
+      "chronology_stratum": "EARLY",
+      "content_sha256": "47a85f452235531bed55a3ea3f41a5c5a226c374d2656e1e2f8cd451325d01fb",
+      "sampling_seed": 20260903,
+      "source_family": "bailian_qwen",
+      "source_file": "qwen_traceB_blksz_16.jsonl",
+      "source_file_sha256": "68e3f98e2d601d60d0abf4b89bc8a3654372abab7b1cde6373a13d0054379d59",
+      "start_index_in_valid_rows": 52305,
+      "window_id": "bailian_qwen_stage0_w00"
+    }
+  ],
+  "status": "PROSPECTIVE_CONFORMANCE_PILOT"
+}

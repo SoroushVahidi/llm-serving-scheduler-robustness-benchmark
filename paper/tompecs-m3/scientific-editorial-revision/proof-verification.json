@@ -1,0 +1,15 @@
+{
+  "verdict": "VALID_WITHIN_STATED_SCOPE",
+  "proof_sha256": "d1e86dce6c998d88457460dae92e59aa115776d0c7f771e0b5147e0f9f46cde9",
+  "commit": "32426114d7a321de790a194c51aacbc23703975a",
+  "source_hashes": {
+    "engine.py": "2907a198a3ede133000429c57aec3269faf47ac96e019b19302dcae3ccbc6836",
+    "policies.py": "d54e96880afb9001dc0fbc19511bb6338367eb828948a48cd68a516e871fdbb1",
+    "validator.py": "9d0fe6862cfa5952ca89ed421cd1b8b923e03ad09dd7fe50dcb29595d66bb08b"
+  },
+  "fixtures": 7,
+  "saved_journals": 36,
+  "saved_boundaries": 37034,
+  "experiments_executed_this_revision": 0,
+  "clarification": "Exogenous in-batch arrivals are allowed but become eligible at the next scheduling boundary. Empty initial state and one fixed policy per run are explicit. This is a mathematical induction, not a finite-test proof or a machine-checked proof."
+}

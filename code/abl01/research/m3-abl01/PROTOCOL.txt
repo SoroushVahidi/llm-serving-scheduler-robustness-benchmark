@@ -1,0 +1,67 @@
+M3-ABL01 — preregistered controlled waiting-order ablation / evidence reuse
+Question: what changes when ONLY SLO-gated's prompt-length waiting order is
+replaced by deterministic arrival/ordinal FCFS under the C01-FULL contract?
+No timing/KV/workload/deadline/seed/information/urgency/resident/residual changes.
+
+Read PROOF.txt. The complete requested control set is already represented by
+1440 C01-FULL chunked-FCFS trajectories under proved semantic equivalence.
+Reuse1440 SLO baselines and1440 equivalent controls; 0 new simulation cells.
+Validate and reconstruct1440 exact control journals into a new project directory,
+then analyze. Original artifacts retain policy labels and bytes. Derived records
+explicitly identify their original policy, result/journal SHA and reconstruction;
+do not pretend they were executed by a newly submitted simulator.
+120 original windows (40 each source),6 original regions,2 original capacities.
+No window selection, RNG, resynthesis, tuning or outcome-based exclusions.
+
+Execution:1CPU,4GiB,2h,ikoutis/general/standard,no GPU,no requeue. Stop starting
+new reconstruction pairs after105min and retain explicit partial record. No
+automatic resubmission, simulation fallback or overwriting. Focused pilots use
+saved journals only. Production validates every reused SLO/control journal with
+the unmodified independent referee plus original-policy replay; reconstructed
+control journal gets the same independent referee and exact terminal comparison.
+Run manifest freezes source SHA, all source hashes, full request and result
+index hashes,1440 pair identities, original C01 origin/configuration provenance,
+proof hash, reuse/missing counts and execution/output paths.
+
+Analysis definitions (freeze before reading new paired outcomes):
+Primary unchanged11 endpoints: mean/p95 latency, mean/p95 TTFT, mean/p95 TPOT,
+request/token/emitted-token throughput, completion fraction and arrival-normalized
+weighted goodput (ANWG). Additional descriptive endpoints: unweighted deadline
+attainment / all arrivals and / completed requests, explicitly labeled additional.
+Report censoring/completion and metric population denominators before conditional
+latency. Keep zero denominators/undefined values unestimable, never zero-impute.
+
+Paired differences are FCFS-waiting control minus original SLO; relative change
+uses abs(original SLO), undefined for zero/missing. Equal-window source-region-
+capacity means require all40 windows; report also min/max changes, favorable,
+adverse and tied counts by endpoint direction. Global means are descriptive
+1440 matched setting cells, not1440 independent statistical replicates.
+Mean-window p95 is NOT a pooled p95. TTFT/TPOT are frozen completed populations;
+TPOT excludes output length1. No newly invented p-values/confidence intervals.
+
+Rankings: retain original four policy slots. Compare original panel with the
+same panel replacing only SLO metrics by control metrics; other policies use
+validated saved C01 index. Include ties and top-set changes; no artificial fifth
+independent policy replicate. Per-source/condition/capacity and per-window panels.
+Strict practical reversal: opposite winner AND >10% loser-relative advantage at
+BOTH endpoints, exact rational comparison of stored numeric values, unchanged
+from declared M3 margin. Distinguish these comparison families:
+(1) intervention reversal: same panel/policy pair, original versus ablated SLO;
+(2) cross-source reversal: same condition/capacity, source pair, separately by arm;
+(3) cross-condition reversal: same source/capacity, condition pair, by arm.
+Report reversals/eligible/total/unestimable per metric and family. Never pool
+these denominators or interpret a tie/top-set change as a strict reversal.
+
+Telemetry: ready/critical/selected-critical/omitted decode counts and ages,
+admission wait, same-state original-vs-control selected-work differences, plus
+serialized control-vs-chunked array permutations. Urgency source remains active
+in implementation; observed zero activation cannot be assumed or attributed.
+Causal attribution is within this simulator/intervention: downstream changes in
+admitted composition, ages and outcomes are consequences, not extra interventions.
+Do not extrapolate to population rankings, native schedulers or physical GPUs.
+
+After completed validation, independently reconcile tables with hashes and raw
+records, check strict-margin boundary cases and denominators, report null/adverse
+heterogeneity. Scientific review remains necessary even after code reports PASS.
+No manuscript change, PR/main merge, data release or journal submission.
+BOUND01 and TIME01 files/jobs remain untouched. Their results are separate.

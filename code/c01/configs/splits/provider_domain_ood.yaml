@@ -1,0 +1,6 @@
+schema_version: 1
+split_name: provider-domain-OOD
+construction_rule: "Group windows by provider/domain identity (azure, alibaba_bailian, hpmll_burstgpt, uw_syfi_tracelab) rather than by time; hold out one provider entirely from exploration."
+constructed_at: null
+window_ids: []
+manifest_sha256: null

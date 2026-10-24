@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Prepared artifact citation; no M3 DOI or publication date has been assigned. Cite the verified archival version after authorized publication."
+title: "Scheduler Equivalence and Performance Trade-offs under a Common LLM-Serving Contract: Reproducibility Artifact"
+type: dataset
+authors:
+  - family-names: Vahidi
+    given-names: Soroush
+version: m3-v1.0.0
+repository-code: "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark"
+abstract: "Saved common-contract simulation evidence, statistical calibration studies, budget and composition-dependent timing sensitivities, a controlled prompt-ordering ablation, an equivalence proof, analysis tools and scoped provenance. Component-specific licenses apply; this is a prepared, unpublished candidate."

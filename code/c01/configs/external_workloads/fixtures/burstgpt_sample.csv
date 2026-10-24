@@ -1,0 +1,5 @@
+Timestamp,Model,Request tokens,Response tokens,Total tokens,Session ID,Elapsed time
+0.0,GPT-4,120,340,460,s0001,2.31
+4.2,GPT-3.5,45,90,135,s0001,0.87
+9.8,GPT-4,890,1200,2090,s0002,5.44
+15.1,GPT-4,60,,60,s0003,

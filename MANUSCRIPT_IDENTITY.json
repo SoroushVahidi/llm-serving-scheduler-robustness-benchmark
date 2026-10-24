@@ -1,0 +1,14 @@
+{
+  "pages": {
+    "manuscript": 30,
+    "acmsmall": 30
+  },
+  "sha256": {
+    "manuscript": "af88bceb95e5aa23f31088f8834a6d5f58540f3531156d7a707e34e852507319",
+    "acmsmall": "ac521e937c183c3f7db7816a65b332761d337a5719b9eaf06c92b5ec4b1b6792"
+  },
+  "parent": "4c87f7172a17a50b18b83d21d7c8850c0cfbce60",
+  "branch": "manuscript/m3-final-integration-rc3-20261024",
+  "commit": "42170fdcdc7c4b68ae2639b319a4892d097532a0",
+  "draft_pr": "https://github.com/SoroushVahidi/llm-serving-scheduler-robustness-benchmark/pull/30"
+}

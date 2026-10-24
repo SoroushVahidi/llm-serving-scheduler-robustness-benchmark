@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "source": "https://dl.acm.org/pb-assets/dl_ccs/acm_ccs2012-1626988337597.xml",
+  "retrieval": "HTTP 200 via ordinary urllib HTTPS request, 2026-10-23",
+  "sha256": "49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045",
+  "concepts": [
+    {
+      "id": "10010147.10010341.10010370",
+      "description": "Computing methodologies~Simulation evaluation",
+      "significance": 500
+    },
+    {
+      "id": "10011007.10010940.10011003.10011002",
+      "description": "Software and its engineering~Software performance",
+      "significance": 300
+    }
+  ]
+}

@@ -1,0 +1,816 @@
+{
+  "baseline_comparisons": {
+    "eligible": 576,
+    "strict_practical_reversals": 0,
+    "tolerant_order_changes": 14,
+    "total": 576
+  },
+  "cells": 72,
+  "completed_request_executions": 14400,
+  "independent_terminal_metric_max_error": {
+    "arrival_normalized_weighted_goodput": 0.0,
+    "completion_fraction": 0.0,
+    "emitted_token_throughput": 0.0,
+    "mean_latency": 0.0,
+    "mean_tpot": 0.0,
+    "mean_ttft": 0.0,
+    "n_latency": 0.0,
+    "n_tpot": 0.0,
+    "n_ttft": 0.0,
+    "num_completed": 0.0,
+    "num_unfinished": 0.0,
+    "observed_seconds": 0.0,
+    "p95_latency": 0.0,
+    "p95_tpot": 0.0,
+    "p95_ttft": 0.0,
+    "request_throughput": 0.0,
+    "token_throughput": 0.0
+  },
+  "per_budget": [
+    {
+      "batches": 25983,
+      "budget": 32768,
+      "cells": 24,
+      "distinct_terminal_behavior_counts": {
+        "3": 6
+      },
+      "effects_by_policy": {},
+      "full_budget_batches": 0,
+      "matched_conditions": 6,
+      "max_anchor_age_s": 0.0010000000000000009,
+      "normalized_events_equal": 6,
+      "raw_order_equal": 2,
+      "terminal_equal": 6,
+      "urgent_decode_opportunities": 0
+    },
+    {
+      "batches": 25986,
+      "budget": 2048,
+      "cells": 24,
+      "distinct_terminal_behavior_counts": {
+        "3": 6
+      },
+      "effects_by_policy": {
+        "chunked_fcfs_c01": {
+          "arrival_normalized_weighted_goodput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_latency": {
+            "absolute_range": [
+              0.0,
+              0.00013499999999999623
+            ],
+            "relative_range": [
+              0.0,
+              0.001027935890278877
+            ]
+          },
+          "mean_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_ttft": {
+            "absolute_range": [
+              0.0,
+              0.00013499999999998236
+            ],
+            "relative_range": [
+              0.0,
+              0.0013166730630247002
+            ]
+          },
+          "p95_latency": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "p95_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "p95_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0010000000000000009
+            ],
+            "relative_range": [
+              0.0,
+              0.002565398576320238
+            ]
+          },
+          "token_throughput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "decode_first_c01": {
+          "arrival_normalized_weighted_goodput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_latency": {
+            "absolute_range": [
+              0.0,
+              0.00013499999999999623
+            ],
+            "relative_range": [
+              0.0,
+              0.001027935890278877
+            ]
+          },
+          "mean_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_ttft": {
+            "absolute_range": [
+              0.0,
+              0.00013499999999998236
+            ],
+            "relative_range": [
+              0.0,
+              0.0013166730630247002
+            ]
+          },
+          "p95_latency": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "p95_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "p95_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0010000000000000009
+            ],
+            "relative_range": [
+              0.0,
+              0.002565398576320238
+            ]
+          },
+          "token_throughput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "slo_gated_c01": {
+          "arrival_normalized_weighted_goodput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_latency": {
+            "absolute_range": [
+              0.0,
+              1.4999999999994185e-05
+            ],
+            "relative_range": [
+              0.0,
+              0.00029362167126888535
+            ]
+          },
+          "mean_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_ttft": {
+            "absolute_range": [
+              0.0,
+              1.5000000000001124e-05
+            ],
+            "relative_range": [
+              0.0,
+              0.0006730638401062631
+            ]
+          },
+          "p95_latency": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "p95_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "p95_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "token_throughput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "whole_fcfs_c01": {
+          "arrival_normalized_weighted_goodput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_latency": {
+            "absolute_range": [
+              0.0,
+              0.0005650000000000099
+            ],
+            "relative_range": [
+              0.0,
+              0.003920993100125005
+            ]
+          },
+          "mean_tpot": {
+            "absolute_range": [
+              0.0,
+              8.397284675006056e-06
+            ],
+            "relative_range": [
+              0.0,
+              0.007573077558423102
+            ]
+          },
+          "mean_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0004849999999999993
+            ],
+            "relative_range": [
+              0.0,
+              0.004283273735360808
+            ]
+          },
+          "p95_latency": {
+            "absolute_range": [
+              0.0,
+              0.0010000000000000009
+            ],
+            "relative_range": [
+              0.0,
+              0.0022809849860471253
+            ]
+          },
+          "p95_tpot": {
+            "absolute_range": [
+              0.0,
+              0.00016666666666666696
+            ],
+            "relative_range": [
+              0.0,
+              0.142857142857143
+            ]
+          },
+          "p95_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0010000000000000009
+            ],
+            "relative_range": [
+              0.0,
+              0.0023661980756890175
+            ]
+          },
+          "token_throughput": {
+            "absolute_range": [
+              -10.930655467355791,
+              0.0
+            ],
+            "relative_range": [
+              -0.00234288651149688,
+              0.0
+            ]
+          }
+        }
+      },
+      "full_budget_batches": 3,
+      "matched_conditions": 6,
+      "max_anchor_age_s": 0.0010000000000000009,
+      "normalized_events_equal": 6,
+      "raw_order_equal": 2,
+      "terminal_equal": 6,
+      "urgent_decode_opportunities": 0
+    },
+    {
+      "batches": 25984,
+      "budget": 1024,
+      "cells": 24,
+      "distinct_terminal_behavior_counts": {
+        "3": 6
+      },
+      "effects_by_policy": {
+        "chunked_fcfs_c01": {
+          "arrival_normalized_weighted_goodput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_latency": {
+            "absolute_range": [
+              0.0,
+              0.0005199999999999927
+            ],
+            "relative_range": [
+              0.0,
+              0.00395945676255573
+            ]
+          },
+          "mean_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0005199999999999927
+            ],
+            "relative_range": [
+              0.0,
+              0.005071629576095733
+            ]
+          },
+          "p95_latency": {
+            "absolute_range": [
+              0.0,
+              0.001897175365867032
+            ],
+            "relative_range": [
+              0.0,
+              0.004750176074027944
+            ]
+          },
+          "p95_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "p95_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0017493532028209913
+            ],
+            "relative_range": [
+              0.0,
+              0.004487788215998216
+            ]
+          },
+          "token_throughput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "decode_first_c01": {
+          "arrival_normalized_weighted_goodput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_latency": {
+            "absolute_range": [
+              0.0,
+              0.0005199999999999927
+            ],
+            "relative_range": [
+              0.0,
+              0.00395945676255573
+            ]
+          },
+          "mean_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "mean_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0005199999999999927
+            ],
+            "relative_range": [
+              0.0,
+              0.005071629576095733
+            ]
+          },
+          "p95_latency": {
+            "absolute_range": [
+              0.0,
+              0.001897175365867032
+            ],
+            "relative_range": [
+              0.0,
+              0.004750176074027944
+            ]
+          },
+          "p95_tpot": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          },
+          "p95_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0017493532028209913
+            ],
+            "relative_range": [
+              0.0,
+              0.004487788215998216
+            ]
+          },
+          "token_throughput": {
+            "absolute_range": [
+              0.0,
+              0.0
+            ],
+            "relative_range": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "slo_gated_c01": {
+          "arrival_normalized_weighted_goodput": {
+            "absolute_range": [
+              -0.0049999999999999975,
+              0.0
+            ],
+            "relative_range": [
+              -0.09090909090909087,
+              0.0
+            ]
+          },
+          "mean_latency": {
+            "absolute_range": [
+              0.0,
+              0.00036499999999999033
+            ],
+            "relative_range": [
+              0.0,
+              0.007144794000878791
+            ]
+          },
+          "mean_tpot": {
+            "absolute_range": [
+              0.0,
+              5.865504773272089e-06
+            ],
+            "relative_range": [
+              0.0,
+              0.005865504773272085
+            ]
+          },
+          "mean_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0003050000000000032
+            ],
+            "relative_range": [
+              0.0,
+              0.013685631415493135
+            ]
+          },
+          "p95_latency": {
+            "absolute_range": [
+              0.0,
+              0.0020000000000000018
+            ],
+            "relative_range": [
+              0.0,
+              0.008047226558168297
+            ]
+          },
+          "p95_tpot": {
+            "absolute_range": [
+              0.0,
+              3.024911032028371e-06
+            ],
+            "relative_range": [
+              0.0,
+              0.0030249110320283686
+            ]
+          },
+          "p95_ttft": {
+            "absolute_range": [
+              0.0,
+              0.0010000000000000009
+            ],
+            "relative_range": [
+              0.0,
+              0.01416536714400941
+            ]
+          },
+          "token_throughput": {
+            "absolute_range": [
+              -4.502700865031329,
+              0.0
+            ],
+            "relative_range": [
+              -0.0008688097306687848,
+              0.0
+            ]
+          }
+        },
+        "whole_fcfs_c01": {
+          "arrival_normalized_weighted_goodput": {
+            "absolute_range": [
+              -0.0049999999999999975,
+              0.010000000000000009
+            ],
+            "relative_range": [
+              -0.12499999999999993,
+              0.013698630136986314
+            ]
+          },
+          "mean_latency": {
+            "absolute_range": [
+              -0.0022449999999999692,
+              0.002559999999999979
+            ],
+            "relative_range": [
+              -0.015579875238549312,
+              0.012162540125179854
+            ]
+          },
+          "mean_tpot": {
+            "absolute_range": [
+              -4.714396524624397e-06,
+              1.1697772122168902e-05
+            ],
+            "relative_range": [
+              -0.004251670855985972,
+              0.009269995285231447
+            ]
+          },
+          "mean_ttft": {
+            "absolute_range": [
+              -0.0019600000000000034,
+              0.002475000000000005
+            ],
+            "relative_range": [
+              -0.017309724786200433,
+              0.01387080331219109
+            ]
+          },
+          "p95_latency": {
+            "absolute_range": [
+              -0.007000000000000006,
+              0.0040000000000000036
+            ],
+            "relative_range": [
+              -0.015966894902329876,
+              0.006615302655864536
+            ]
+          },
+          "p95_tpot": {
+            "absolute_range": [
+              -1.5797101449275316e-05,
+              0.00016666666666666696
+            ],
+            "relative_range": [
+              -0.012479963361575405,
+              0.142857142857143
+            ]
+          },
+          "p95_ttft": {
+            "absolute_range": [
+              -0.007000000000000006,
+              0.0040000000000000036
+            ],
+            "relative_range": [
+              -0.016563386529823122,
+              0.006755767546281518
+            ]
+          },
+          "token_throughput": {
+            "absolute_range": [
+              -18.60436078724979,
+              18.332293735507847
+            ],
+            "relative_range": [
+              -0.0035273368606698,
+              0.003929360306524248
+            ]
+          }
+        }
+      },
+      "full_budget_batches": 36,
+      "matched_conditions": 6,
+      "max_anchor_age_s": 0.0040000000000000036,
+      "normalized_events_equal": 6,
+      "raw_order_equal": 2,
+      "terminal_equal": 6,
+      "urgent_decode_opportunities": 0
+    }
+  ],
+  "state": "COMPLETED_SUCCESS",
+  "substantive_endpoint_changes": 32,
+  "tolerant_top_set_comparisons": {
+    "changed_cases": [
+      {
+        "baseline": [
+          "chunked_fcfs_c01",
+          "decode_first_c01",
+          "slo_gated_c01"
+        ],
+        "budget": 1024,
+        "condition_id": "burstgpt::burstgpt_pilot_v2_w23::HIGH_PRESSURE",
+        "metric": "mean_tpot",
+        "perturbed": [
+          "chunked_fcfs_c01",
+          "decode_first_c01"
+        ]
+      },
+      {
+        "baseline": [
+          "chunked_fcfs_c01",
+          "decode_first_c01",
+          "slo_gated_c01"
+        ],
+        "budget": 1024,
+        "condition_id": "burstgpt::burstgpt_pilot_v2_w23::LOW",
+        "metric": "mean_tpot",
+        "perturbed": [
+          "chunked_fcfs_c01",
+          "decode_first_c01"
+        ]
+      },
+      {
+        "baseline": [
+          "chunked_fcfs_c01",
+          "decode_first_c01",
+          "slo_gated_c01"
+        ],
+        "budget": 1024,
+        "condition_id": "burstgpt::burstgpt_pilot_v2_w28::HIGH_PRESSURE",
+        "metric": "mean_tpot",
+        "perturbed": [
+          "chunked_fcfs_c01",
+          "decode_first_c01"
+        ]
+      },
+      {
+        "baseline": [
+          "chunked_fcfs_c01",
+          "decode_first_c01",
+          "slo_gated_c01"
+        ],
+        "budget": 1024,
+        "condition_id": "burstgpt::burstgpt_pilot_v2_w28::LOW",
+        "metric": "mean_tpot",
+        "perturbed": [
+          "chunked_fcfs_c01",
+          "decode_first_c01"
+        ]
+      },
+      {
+        "baseline": [
+          "chunked_fcfs_c01",
+          "decode_first_c01",
+          "slo_gated_c01"
+        ],
+        "budget": 1024,
+        "condition_id": "burstgpt::burstgpt_pilot_v2_w28::LOW",
+        "metric": "p95_tpot",
+        "perturbed": [
+          "chunked_fcfs_c01",
+          "decode_first_c01"
+        ]
+      }
+    ],
+    "changes": 5,
+    "total": 96
+  },
+  "uncertainty": "Finite, input-selected three-window corpus; paired ranges, no population confidence intervals or IID tests."
+}

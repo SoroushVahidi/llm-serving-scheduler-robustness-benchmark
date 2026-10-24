@@ -1,0 +1,60 @@
+M3-ABL01 semantic deduplication, 2026-10-23
+
+Read permanent PROJECT_HANDOFF and live draft PR27/28. Heads remain8bdf692f and
+03efa8ea, open/unmerged. User's current explicit research authorization supersedes
+the paused snapshot for this isolated task only. No manuscript/PR/main change.
+
+Audit scope: local branches and semantic Git history sinceAug1; local C01-FULL
+source/manifest/5760-row absolute index/completion records; M3 budget and urgency
+protocol/implementation/report; TIME01/BOUND01 handoffs; legacy heuristic SCORPIO
+ablation implementation/configuration, Family-B evidence and serving-contract-v2
+specification. Wulver current queue; all-state SLURM accounting sinceAug1 filtered
+for serving/ablation campaigns (including failed entries); project/scratch/home
+experiment-name inventory and relevant repository document/manifest semantic
+search. No broad raw-trace scan. Private command outputs are in the task audit/
+folder; missing metadata alone never invalidates existing evidence.
+
+1. C01-FULL c01-full-167b9074e5711420, job1440402 COMPLETED0:0:
+   EXACT_COMPLETED for1440 SLO-gated baseline cells.
+   EXACT_COMPLETED_BY_PROVEN_EQUIVALENCE for1440 requested control trajectories,
+   using original chunked-FCFS records. PROOF.txt establishes all executable/
+   state/time/terminal/metric semantics for exactB32768,K4/8,C512 settings.
+   This exception is explicitly permitted by the user's instruction. Raw array
+   order is reconstructed as the actual new control, not falsely relabeled.
+   Existing C01 outcome tables remain authoritative; new paired interpretation
+   and explicit intervention conformance have not previously been completed.
+   Index has1440 cells per original policy,120windows x6regions x2capacities.
+   SHA match requested inputs, seeds, arrivals/deadlines, config, execution code,
+   source results and journals. Pilot reuse records retain original provenance.
+2. Original C01 pilot: exact subset already included/referenced in C01-FULL;
+   reuse via C01-FULL index rather than count twice.
+3. Budget sensitivity72cells: RELATED_DIFFERENT_CONFIGURATION for changed budgets
+   and no prompt-order control. Do NOT apply the new nonbinding equivalence
+   theorem blindly at1024/2048. Original four policies are unchanged there.
+4. Urgency study: RELATED_DIFFERENT_QUESTION; saved-state certificate/replay, no
+   intervention changing prompt ordering. Inactive urgency is not itself the
+   proof of control equivalence used here; budget/reservations provide that proof.
+5. BOUND01: RELATED_DIFFERENT_QUESTION, original chunked/decode pair, fixed-policy
+   empty-state theorem. Preserve proof; do not extend it to the new control at
+   arbitrary budgets. No job was launched for that study.
+6. TIME01 and analysis job1444698: RELATED_DIFFERENT_TIMING_AND_QUESTION. No
+   prompt-order intervention,384 composition-duration cells only. Accounting now
+   reports1444698 completed; this task does not inspect/modify its results/files.
+7. Historical SCORPIO Phase2B.14 ablations: RELATED_DIFFERENT_CONTRACT. Variants
+   remove rejection/deadline/KV/credit guards in ScorpioStyleSloGuardPolicy with
+   credit/admission parameters, rather than the CM-0.1 frozen SLO adaptation.
+   Family-B prefill/decode and physical/module-intervention campaigns likewise
+   differ in execution, policies and inputs. Their outcomes are not ablation cells.
+8. Serving-contract-v2 draft: specification, not an implemented completed control;
+   native execution boundaries differ. Failed GPU-smoke and STAT01 jobs are
+   different execution contracts/questions, not incomplete M3-ABL01 cells.
+9. No matching ABL01/prompt-order analysis or reconstruction is active/pending/
+   failed/partial in the inspected inventories. Absence is scoped to inspected
+   sources; it is not an assertion about every raw file on the machines.
+
+Decision: 0 missing scientific simulations. Reuse1440 SLO baselines plus1440
+proven-equivalent chunked trajectories. Launch only bounded independent replay,
+exact control-order reconstruction, and descriptive paired analysis. This adds
+new intervention verification without duplicate simulator computation. Preserve
+all original records and evidence paths. If any equivalence/identity validation
+fails, STOP; never silently substitute a new simulation or repair prior evidence.

@@ -1,0 +1,7 @@
+schema_version: 1
+split_name: final-untouched-test
+construction_rule: "Fixed fraction (target 20%) of windows from every source, held out from all exploratory analysis; used only for the single confirmatory report per RQ."
+target_fraction: 0.2
+constructed_at: null
+window_ids: []
+manifest_sha256: null

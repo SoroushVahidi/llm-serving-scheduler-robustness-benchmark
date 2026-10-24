@@ -1,0 +1,273 @@
+{
+  "status": "PASS",
+  "checks": {
+    "mean_latency_pairs": {
+      "actual": 1440,
+      "expected": 1440,
+      "status": "PASS"
+    },
+    "mean_latency_means_and_original_relative_pct": {
+      "actual": [
+        "0.9891",
+        "1.3660",
+        "38.10"
+      ],
+      "expected": [
+        "0.9891",
+        "1.3660",
+        "38.10"
+      ],
+      "status": "PASS"
+    },
+    "token_throughput_pairs": {
+      "actual": 1440,
+      "expected": 1440,
+      "status": "PASS"
+    },
+    "token_throughput_means_and_original_relative_pct": {
+      "actual": [
+        "4753.827",
+        "4906.403",
+        "3.21"
+      ],
+      "expected": [
+        "4753.827",
+        "4906.403",
+        "3.21"
+      ],
+      "status": "PASS"
+    },
+    "arrival_deadline_attainment_pairs": {
+      "actual": 1440,
+      "expected": 1440,
+      "status": "PASS"
+    },
+    "arrival_deadline_attainment_means_and_original_relative_pct": {
+      "actual": [
+        "0.304865",
+        "0.236333",
+        "-22.48"
+      ],
+      "expected": [
+        "0.304865",
+        "0.236333",
+        "-22.48"
+      ],
+      "status": "PASS"
+    },
+    "deadline_control_minus_original_pp": {
+      "actual": "-6.85",
+      "expected": "-6.85",
+      "status": "PASS"
+    },
+    "burst_control_better_worse_tied": {
+      "actual": [
+        211,
+        198,
+        71
+      ],
+      "expected": [
+        211,
+        198,
+        71
+      ],
+      "status": "PASS"
+    },
+    "mean_latency_nonzero_roundoff": {
+      "actual": 6,
+      "expected": 6,
+      "status": "PASS"
+    },
+    "abl01_critical_activations": {
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    "time01_slo_critical_activations": {
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    "burst_fixed_kv131072": {
+      "actual": "2.41",
+      "expected": "2.41",
+      "status": "PASS"
+    },
+    "burst_fixed_kv262144": {
+      "actual": "2.29",
+      "expected": "2.29",
+      "status": "PASS"
+    },
+    "time_table": {
+      "status": "PASS",
+      "rows": [
+        {
+          "source": "azure_llm_2024",
+          "slots": 4,
+          "values": [
+            "-20.35",
+            "+26.82",
+            "-35.70",
+            "-3.64",
+            "-0.92"
+          ]
+        },
+        {
+          "source": "azure_llm_2024",
+          "slots": 8,
+          "values": [
+            "+10.57",
+            "-4.17",
+            "-33.47",
+            "-3.81",
+            "-1.61"
+          ]
+        },
+        {
+          "source": "bailian_qwen",
+          "slots": 4,
+          "values": [
+            "-22.38",
+            "+32.27",
+            "-28.27",
+            "-9.88",
+            "-2.18"
+          ]
+        },
+        {
+          "source": "bailian_qwen",
+          "slots": 8,
+          "values": [
+            "+7.86",
+            "+4.55",
+            "-24.95",
+            "-4.70",
+            "-3.93"
+          ]
+        },
+        {
+          "source": "burstgpt",
+          "slots": 4,
+          "values": [
+            "-27.24",
+            "+28.21",
+            "+2.12",
+            "+9.68",
+            "-2.43"
+          ]
+        },
+        {
+          "source": "burstgpt",
+          "slots": 8,
+          "values": [
+            "+1.85",
+            "+4.71",
+            "+1.88",
+            "+12.73",
+            "-2.90"
+          ]
+        }
+      ],
+      "weighting": "16 cells/source/capacity = 8 windows x 2 settings; ratios of means"
+    },
+    "time_reversals_window": {
+      "actual": [
+        6336,
+        6309,
+        2
+      ],
+      "expected": [
+        6336,
+        6309,
+        2
+      ],
+      "status": "PASS"
+    },
+    "time_reversals_source_mean": {
+      "actual": [
+        792,
+        792,
+        0
+      ],
+      "expected": [
+        792,
+        792,
+        0
+      ],
+      "status": "PASS"
+    },
+    "two_tail_contexts": {
+      "actual": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    "two_tail_metrics": {
+      "actual": [
+        "p95_latency",
+        "p95_ttft"
+      ],
+      "expected": [
+        "p95_latency",
+        "p95_ttft"
+      ],
+      "status": "PASS"
+    },
+    "time01_equal_normalized_pairs": {
+      "actual": 96,
+      "expected": 96,
+      "status": "PASS"
+    },
+    "time01_normalized_equivalence_review": {
+      "status": "PASS",
+      "review_sha256": "2be2bd05e0c8041ffec987ae252d0e97f2bbd2d05d3b380dbf8d27790885e79f",
+      "scope": "96 pairs; independent replay reused; no simulator rerun"
+    },
+    "burst_full_same_settings": {
+      "actual": [
+        "-15.24",
+        "-11.99"
+      ],
+      "expected": [
+        "-15.24",
+        "-11.99"
+      ],
+      "status": "PASS"
+    },
+    "bound01_and_urgency_proof_byte_preserved": {
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    },
+    "numbered_display_equations": {
+      "actual": 10,
+      "expected": 10,
+      "status": "PASS"
+    },
+    "unchanged_references.bib": {
+      "actual": "38de3634644b4ed78b29328b221669afd8fc00f0f5c833cbfde73276ca3a59cd",
+      "expected": "38de3634644b4ed78b29328b221669afd8fc00f0f5c833cbfde73276ca3a59cd",
+      "status": "PASS"
+    },
+    "unchanged_figures/absolute.pdf": {
+      "actual": "176c00ee2349df0ad66874b11df13e3eb949c10cc9428f628beb9ea25094b94b",
+      "expected": "176c00ee2349df0ad66874b11df13e3eb949c10cc9428f628beb9ea25094b94b",
+      "status": "PASS"
+    },
+    "unchanged_figures/matched.pdf": {
+      "actual": "aadd1b93b2286a1bb1f069da1fa178af56b3dab6688c017642cc61477616e238",
+      "expected": "aadd1b93b2286a1bb1f069da1fa178af56b3dab6688c017642cc61477616e238",
+      "status": "PASS"
+    },
+    "unchanged_figures/chronology.pdf": {
+      "actual": "23fb025be6f0ff067dd735028ea283edebaf35395614a032b8851eb708c60b30",
+      "expected": "23fb025be6f0ff067dd735028ea283edebaf35395614a032b8851eb708c60b30",
+      "status": "PASS"
+    },
+    "reference_scope": {
+      "status": "PASS",
+      "method": "Reuse PR29 verified bibliography/claim-to-reference audit; no citation added or edited."
+    }
+  },
+  "simulations": 0,
+  "scope": "New claims recalculated from hash-linked tables; original independent raw-result/journal review inherited only for unchanged bytes."
+}

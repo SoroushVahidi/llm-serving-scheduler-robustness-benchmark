@@ -1,0 +1,64 @@
+{
+  "version": "m3-v1.0.0",
+  "candidate": "rc3",
+  "status": "PREPARED_NOT_PUBLISHED",
+  "manuscript_commit": "42170fdcdc7c4b68ae2639b319a4892d097532a0",
+  "doi": null,
+  "published_at": null,
+  "counts": {
+    "budget-cells.csv": 72,
+    "budget-effects.csv": 384,
+    "budget-equivalence.csv": 18,
+    "budget-rank-comparisons.csv": 576,
+    "c01-all-cells.csv": 5760,
+    "c01-conditions.csv": 720,
+    "c01-matched-window-differences.csv": 720,
+    "c01-pairwise.csv": 95040,
+    "c01-rankings.csv": 15840,
+    "c01-reversal-groups.csv": 26136,
+    "c01-source-capacity-means.csv": 24,
+    "c01-ties.csv": 11,
+    "c01-window-aggregates.csv": 12672,
+    "stat01-all-endpoints.csv": 7200,
+    "stat01-stopping.csv": 18,
+    "urgency-certificates.csv": 18,
+    "urgency-omission-episodes.csv": 38,
+    "time01-aggregate-paired.csv": 44,
+    "time01-cells.csv": 768,
+    "time01-paired-differences.csv": 4224,
+    "time01-policy-comparisons.csv": 7128,
+    "time01-rankings.csv": 4752,
+    "time01-reversal-counts.csv": 22,
+    "time01-source-means.csv": 1056,
+    "time01-telemetry.csv": 384,
+    "abl01-aggregate-paired.csv": 13,
+    "abl01-cells.csv": 2880,
+    "abl01-paired-differences.csv": 18720,
+    "abl01-policy-comparisons.csv": 114048,
+    "abl01-rankings.csv": 64944,
+    "abl01-reversal-counts.csv": 66,
+    "abl01-source-condition-means.csv": 468,
+    "abl01-telemetry.csv": 2880
+  },
+  "excluded": [
+    "original upstream raw traces",
+    "private reviewer and audit packages"
+  ],
+  "included_extensions": {
+    "time01": {
+      "new_simulations": 384,
+      "reused_fixed_baselines": 384,
+      "selected_windows": 24
+    },
+    "abl01": {
+      "pairs": 1440,
+      "new_simulations": 0,
+      "controls": "derived, simulated:false"
+    }
+  },
+  "independent_review": {
+    "verdict_sha256": "afaffe4cb321093bd0d3ea06644a12f2d32bd7daecae0d8d651798bb4ac6b964",
+    "time01": "VALID_WITH_QUALIFICATIONS",
+    "abl01": "VALIDATED_AND_READY_TO_INTEGRATE"
+  }
+}

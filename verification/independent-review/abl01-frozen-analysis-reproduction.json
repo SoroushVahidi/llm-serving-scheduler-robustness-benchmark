@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "seconds": 2.859182539395988,
+  "simulations": 0,
+  "journal_reconstruction_rerun": false,
+  "columns": "Frozen telemetry header restored after JSON deserialization; no values changed",
+  "files": {
+    "source-condition-means.csv": {
+      "expected_sha256": "d190e2c9e85563bbbec216c9a44fcc077876ee6b6fe7f332117b2f80e13fa908",
+      "regenerated_sha256": "d190e2c9e85563bbbec216c9a44fcc077876ee6b6fe7f332117b2f80e13fa908",
+      "identical": true
+    },
+    "cells.csv": {
+      "expected_sha256": "55cbe93aa18ffc0899d62491062a2f0fa525cd510e4c8fd8a0d5b5108b0a6bf1",
+      "regenerated_sha256": "55cbe93aa18ffc0899d62491062a2f0fa525cd510e4c8fd8a0d5b5108b0a6bf1",
+      "identical": true
+    },
+    "aggregate-paired.csv": {
+      "expected_sha256": "6d5c14ccf62639b6ec793dc68fa929f4de5d975807510f1078c17bcc59485298",
+      "regenerated_sha256": "6d5c14ccf62639b6ec793dc68fa929f4de5d975807510f1078c17bcc59485298",
+      "identical": true
+    },
+    "policy-comparisons.csv": {
+      "expected_sha256": "b74c76bb13901d03cc3cc68a1aa882f1e88f52c0cf7be01817eca8965708c786",
+      "regenerated_sha256": "b74c76bb13901d03cc3cc68a1aa882f1e88f52c0cf7be01817eca8965708c786",
+      "identical": true
+    },
+    "telemetry.csv": {
+      "expected_sha256": "d1be80580eb1dcbc692dc2ea09f35279d5c94a92e187444ae043b76d45a7b4d8",
+      "regenerated_sha256": "d1be80580eb1dcbc692dc2ea09f35279d5c94a92e187444ae043b76d45a7b4d8",
+      "identical": true
+    },
+    "verification.json": {
+      "expected_sha256": "3e25fdacebd9e02f8cd3daa57a16528c289a4d9f31b35afb32951cb305d7f10b",
+      "regenerated_sha256": "3e25fdacebd9e02f8cd3daa57a16528c289a4d9f31b35afb32951cb305d7f10b",
+      "identical": true
+    },
+    "reversal-counts.csv": {
+      "expected_sha256": "3005b376541dd410ba13718ecceec46f88f37921d40e328816f89fc44c49b9a5",
+      "regenerated_sha256": "3005b376541dd410ba13718ecceec46f88f37921d40e328816f89fc44c49b9a5",
+      "identical": true
+    },
+    "paired-differences.csv": {
+      "expected_sha256": "f03937f71f20fd96f6da8fcc1c75b0cee3920046c6db90800c20d05df1a077ff",
+      "regenerated_sha256": "f03937f71f20fd96f6da8fcc1c75b0cee3920046c6db90800c20d05df1a077ff",
+      "identical": true
+    },
+    "rankings.csv": {
+      "expected_sha256": "26538256fcb639ef1130f04b6d724e132835c22df9683e0050bc30afedaad5ca",
+      "regenerated_sha256": "26538256fcb639ef1130f04b6d724e132835c22df9683e0050bc30afedaad5ca",
+      "identical": true
+    }
+  }
+}

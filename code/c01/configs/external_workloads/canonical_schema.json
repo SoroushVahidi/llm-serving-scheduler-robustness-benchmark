@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "record_type": "ExternalWorkloadRecord",
+  "description": "Machine-readable mirror of src/module_intervention_benchmark/workloads/schema.py -- see docs/EXTERNAL_WORKLOAD_CANONICAL_SCHEMA.md.",
+  "provenance_values": ["SOURCE_OBSERVED", "DETERMINISTIC_DERIVED", "SYNTHESIZED_IMPUTED", "UNAVAILABLE"],
+  "field_groups": {
+    "identity": ["source_dataset", "source_version", "source_record_id", "derived_record_id", "source_license", "source_url", "conversion_version"],
+    "timing": ["arrival_time_s", "interarrival_time_s", "session_relative_time_s", "timestamp_provenance_kind"],
+    "request_shape": ["input_tokens", "output_tokens", "total_tokens", "context_growth_tokens", "sequence_position"],
+    "session_tenant": ["session_id", "tenant_id", "synthetic_tenant_assigned", "model_class"],
+    "kv_reuse": ["prefix_reuse_info", "kv_block_hash", "reuse_group_id", "reuse_confidence_source"],
+    "task": ["task_category", "interaction_category", "model_family"]
+  },
+  "pressure_derivative_fields_layer2": [
+    "arrival_pressure_proxy", "request_size_category", "prefill_pressure_proxy",
+    "decode_pressure_proxy", "kv_reuse_proxy", "tenant_skew_proxy",
+    "burstiness_feature", "long_context_flag"
+  ],
+  "layer3_not_implemented": ["slo_deadline", "assigned_tenant_class", "load_scaling_factor", "replay_speed_factor"]
+}

@@ -1,0 +1,23 @@
+M3 final scientific integration and rc3 preparation
+
+The manuscript integrates the independently reviewed TIME01 and ABL01 findings on one branch stacked on PR #29 at 4c87f7172a17a50b18b83d21d7c8850c0cfbce60. No simulations, new statistical inference, merges, dataset publication, DOI creation or journal submission are part of this revision.
+
+SECTION CHANGES
+Abstract: replaces generic mechanism wording with the controlled prompt-ordering interpretation; adds bounded timing/subset sensitivity without repeating numerical results.
+Introduction: states the controlled ablation and synthetic timing contribution, preserving the original three research questions.
+Execution contract: distinguishes the original fixed-duration model from the separately tested timing function. The BOUND01 assumptions, lemma, theorem, proofs, exclusions, and urgency certificate are byte-preserved.
+Performance section 5.3: explains the one-expression intervention, conditional reuse of 1,440 controls, aggregate latency/throughput/deadline effects and BurstGPT heterogeneity. Denominators, full completion, inactive urgency and roundoff are explicit.
+Worked example: retains its aggregate table and mechanistic account, removes the redundant request timeline table from the paper; the original table and reconstruction evidence remain in the supplement.
+Budget sensitivity: consolidates protocol, negative hypothesis result and proof connection; complete numeric tables and source records remain preserved outside the typeset article.
+Timing section 5.8: adds a numbered executed-work timing equation; selection, actual clock progression, 96 normalized equivalences, zero source-mean practical reversals, two correlated window-tail reversals, and the selected BurstGPT regression under both clocks. The six-row table separates absolute timing and relative policy effects.
+Discussion: distinguishes total model intervention effects from mediation and hardware effects; compares the BurstGPT subset with the full forty-window panel at the same settings.
+Conclusion: aligns the equivalence, inactivity, ablation and bounded timing findings.
+Availability: uses the real identifying repository link under the author's single-blind preparation instruction; accurately labels rc3/HF/Kaggle/Zenodo as prepared, unpublished artifacts without inventing URLs or a DOI.
+Appendix: records source commits and the exact independent-review coverage, including sampled ABL01 journal semantics versus complete numerical/byte checks.
+
+FOCUSED VALIDATION
+Both ACM formats: 30 pages including references/appendices; zero overfull boxes or unresolved references. All 60 rendered pages inspected. Ten display equations numbered and referenced; 11 tables, four figures, 32 unchanged cited references.
+Original 53 numerical checks, complete C01 summary oracle and all 7,200 statistical endpoint rows pass. New claims and timing-table entries independently recomputed from the reviewed frozen tables. The control-relative inverse latency percentage is not confused with the reported original-relative 38.10%. Deadline change is 6.85 percentage points. Original figures, bibliography, BOUND01 proof and empirical evidence are preserved.
+
+RC3 STATUS
+The separately staged rc3 adds the reviewed source/results, 16 table views, data dictionary, schema keys, provenance and portable analysis mapping. The complete archive is a separate deliverable and must pass acquisition of all remaining derived ABL01 journal bytes, checksum inventories, privacy scan and archive verification before it is marked complete. This report certifies the manuscript integration, not a publication or a prematurely completed bulk transfer. rc2 and original evidence are preserved. See the durable preparation handoff for actual final package/job state and exact hashes.

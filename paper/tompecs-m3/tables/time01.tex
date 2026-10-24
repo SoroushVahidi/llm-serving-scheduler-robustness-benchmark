@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Timing sensitivity: percentage changes in chunked-FCFS means from fixed to variable timing (left), and SLO-gated relative to chunked-FCFS under variable timing (right). Means equally weight eight windows and two settings per source at each capacity. The p95 column averages window latency p95s. Negative latency and positive token-rate changes are favorable; entries are ratios of means.}
+\label{tab:time-sensitivity}
+\begin{tabular}{llrrrrr}
+\toprule
+ & & \multicolumn{2}{c}{Timing change (\%)} & \multicolumn{3}{c}{SLO vs.\ chunked, variable (\%)}\\
+Source & Slots & Mean & Token rate & Mean & p95 & Token rate\\
+\midrule
+Azure & 4 & -20.35 & +26.82 & -35.70 & -3.64 & -0.92\\
+Azure & 8 & +10.57 & -4.17 & -33.47 & -3.81 & -1.61\\
+Bailian & 4 & -22.38 & +32.27 & -28.27 & -9.88 & -2.18\\
+Bailian & 8 & +7.86 & +4.55 & -24.95 & -4.70 & -3.93\\
+BurstGPT & 4 & -27.24 & +28.21 & +2.12 & +9.68 & -2.43\\
+BurstGPT & 8 & +1.85 & +4.71 & +1.88 & +12.73 & -2.90\\
+\bottomrule
+\end{tabular}
+\end{table}

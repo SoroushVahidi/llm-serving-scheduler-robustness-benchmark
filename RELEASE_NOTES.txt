@@ -1,0 +1,3 @@
+M3 v1.0.0 — Source, Verification Tools and Analysis Tables
+
+Prepared release notes. No tag or release exists. Supports manuscript PR29 at 42170fdcdc7c4b68ae2639b319a4892d097532a0. The compact asset and table mirror use the same source/table identities as the complete archival artifact. Full saved experimental evidence is intended for the new M3 Zenodo record; add only its real verified DOI after authorized publication. Prior LSSP releases are preserved. TIME01/ABL01 are excluded from finalized evidence. Author approval must also cover the exact tag commit and automatic GitHub source archives.

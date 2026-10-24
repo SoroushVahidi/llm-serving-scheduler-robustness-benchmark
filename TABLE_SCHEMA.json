@@ -1,0 +1,2407 @@
+{
+  "budget-cells.csv": {
+    "rows": 72,
+    "primary_key": [
+      "condition_id",
+      "budget",
+      "policy"
+    ],
+    "sha256": "56a09c06d5a2d3c1d3b8a9460718b7d2790d9324f525f6129d4f5eb74bd7c806",
+    "bytes": 39493,
+    "source": {
+      "path": "paper/tompecs-m3/budget-sensitivity/cells.csv",
+      "sha256": "56a09c06d5a2d3c1d3b8a9460718b7d2790d9324f525f6129d4f5eb74bd7c806",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "condition_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "budget": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "requests_sha256": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "synthesis_seed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "load_factor": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "arrival_normalized_weighted_goodput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "busy_device_seconds": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "completion_fraction": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "decode_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "emitted_token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_tpot": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "n_latency": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_tpot": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_ttft": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_completed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_unfinished": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "observed_seconds": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_tpot": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "peak_reserved_kv": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "peak_used_kv": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "prefill_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "request_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "full_budget_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "omitted_ready_decode_opportunities": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "ready_decode_opportunities": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "urgent_decode_opportunities": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "max_anchor_age_s": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "admissions_sha256": {
+        "observed_type": "string",
+        "missing_count": 0
+      }
+    }
+  },
+  "budget-effects.csv": {
+    "rows": 384,
+    "primary_key": [
+      "condition_id",
+      "budget",
+      "policy",
+      "metric"
+    ],
+    "sha256": "125619f5e93beb85ae50c214a36eb9e9af70790d29e2adfc8cc9bc34077cc950",
+    "bytes": 54702,
+    "source": {
+      "path": "paper/tompecs-m3/budget-sensitivity/effects.csv",
+      "sha256": "125619f5e93beb85ae50c214a36eb9e9af70790d29e2adfc8cc9bc34077cc950",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "condition_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "budget": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "baseline": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "perturbed": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "absolute_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "relative_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "execution_changed": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      },
+      "substantive": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      }
+    }
+  },
+  "budget-equivalence.csv": {
+    "rows": 18,
+    "primary_key": [
+      "condition_id",
+      "budget"
+    ],
+    "sha256": "2c8ba3bd1d086ec710236b3e426f1b6c2a61276a514183b4f013d5312b0bd285",
+    "bytes": 1342,
+    "source": {
+      "path": "paper/tompecs-m3/budget-sensitivity/equivalence.csv",
+      "sha256": "2c8ba3bd1d086ec710236b3e426f1b6c2a61276a514183b4f013d5312b0bd285",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "condition_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "budget": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "terminal_equal": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      },
+      "normalized_events_equal": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      },
+      "raw_order_equal": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      },
+      "different_request_terminal_count": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "distinct_terminal_behaviors": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "budget-rank-comparisons.csv": {
+    "rows": 576,
+    "primary_key": [
+      "condition_id",
+      "budget",
+      "p",
+      "q",
+      "metric"
+    ],
+    "sha256": "88c4d1695dafecee89c1badb65d37c6ef98d2ecd2105a65046d2152ba467deb5",
+    "bytes": 63435,
+    "source": {
+      "path": "paper/tompecs-m3/budget-sensitivity/rank-comparisons.csv",
+      "sha256": "88c4d1695dafecee89c1badb65d37c6ef98d2ecd2105a65046d2152ba467deb5",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "condition_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "budget": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "p": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "q": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "eligible": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      },
+      "strict_practical_reversal": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      },
+      "tolerant_order_changed": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-all-cells.csv": {
+    "rows": 5760,
+    "primary_key": [
+      "source",
+      "window",
+      "region",
+      "profile",
+      "policy"
+    ],
+    "sha256": "ff1e0e829fdf700692e67273e53c97f17dee65531084ab63bcb2922096003e3b",
+    "bytes": 3154546,
+    "source": {
+      "path": "paper/tompecs-m3/supplement/c01-all-cells.csv",
+      "sha256": "ff1e0e829fdf700692e67273e53c97f17dee65531084ab63bcb2922096003e3b",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "load_factor": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "reused": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      },
+      "requests_sha256": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "result_sha256": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "journal_sha256": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "arrival_normalized_weighted_goodput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "busy_device_seconds": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "completion_fraction": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "decode_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "emitted_token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_tpot": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "n_latency": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_tpot": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_ttft": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_completed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_unfinished": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "observed_seconds": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_tpot": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "peak_reserved_kv": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "peak_used_kv": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "prefill_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "request_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-conditions.csv": {
+    "rows": 720,
+    "primary_key": [
+      "condition_id"
+    ],
+    "sha256": "129a7bb5e6f9fb169705a71d30e2b4a0fb6807a5400bbecbcf8735eaf1185b86",
+    "bytes": 133013,
+    "source": {
+      "path": "evidence/c01/research/lssp-c01-full/input_manifest.json",
+      "sha256": "11e00455a8986df15c44894677926cbde5ba6501cb4349a27c4302cfec75e6fe",
+      "transformation": "conditions array to CSV"
+    },
+    "fields": {
+      "condition_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "load_factor": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "requests_sha256": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "synthesis_seed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-matched-window-differences.csv": {
+    "rows": 720,
+    "primary_key": [
+      "source",
+      "window",
+      "profile",
+      "metric"
+    ],
+    "sha256": "59be8310bae2f7f08626b5191070b7289bcc059e41749efb64f9d29aaf14f3ca",
+    "bytes": 58187,
+    "source": {
+      "path": "paper/tompecs-m3/supplement/c01-matched-window-differences.csv",
+      "sha256": "59be8310bae2f7f08626b5191070b7289bcc059e41749efb64f9d29aaf14f3ca",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "slo_minus_chunked": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-pairwise.csv": {
+    "rows": 95040,
+    "primary_key": [
+      "source",
+      "window",
+      "region",
+      "profile",
+      "metric",
+      "policy_a",
+      "policy_b"
+    ],
+    "sha256": "af47f28d9f24d29922017c81c95bc47c5f9909630ebe8f8204aaf12e2ae57df5",
+    "bytes": 16646641,
+    "source": {
+      "path": "paper/tompecs-m3/evidence/inputs/c01-pairwise.json.gz",
+      "sha256": "6a4516df08cc9ac682cfb11ccda16ecce02f62ca59892cb2be25be54782cb276",
+      "transformation": "JSON objects to CSV; nested values as canonical JSON; no new results"
+    },
+    "fields": {
+      "a": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "b": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "margin": {
+        "observed_type": "number",
+        "missing_count": 162
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy_a": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy_b": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "practical": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "sign": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-rankings.csv": {
+    "rows": 15840,
+    "primary_key": [
+      "source",
+      "window",
+      "region",
+      "profile",
+      "metric"
+    ],
+    "sha256": "9dabd4365f2022f8afc1cf459c26f340a0cf3f3b3b76115307c42af04bb5e502",
+    "bytes": 6475015,
+    "source": {
+      "path": "paper/tompecs-m3/evidence/inputs/c01-rankings.json.gz",
+      "sha256": "1b540589c084880cb72990092ad6f683c0565ea25ac954f91aa97e78ed752837",
+      "transformation": "JSON objects to CSV; nested values as canonical JSON; no new results"
+    },
+    "fields": {
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "missing": {
+        "observed_type": "JSON-encoded string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "ranks": {
+        "observed_type": "JSON-encoded string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "sensitivity_top": {
+        "observed_type": "JSON-encoded string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "top": {
+        "observed_type": "JSON-encoded string",
+        "missing_count": 0
+      },
+      "values": {
+        "observed_type": "JSON-encoded string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-reversal-groups.csv": {
+    "rows": 26136,
+    "primary_key": [
+      "axis",
+      "labels"
+    ],
+    "sha256": "c14c59a1866002420347684f97e2c2c65577399c77fcd72ce5941628f02fbd15",
+    "bytes": 2920682,
+    "source": {
+      "path": "paper/tompecs-m3/supplement/c01-reversal-groups.csv",
+      "sha256": "c14c59a1866002420347684f97e2c2c65577399c77fcd72ce5941628f02fbd15",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "axis": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "eligible": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "frequency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "labels": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "reversals": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "unestimable": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-source-capacity-means.csv": {
+    "rows": 24,
+    "primary_key": [
+      "source",
+      "profile",
+      "policy"
+    ],
+    "sha256": "85e45e200574b1eacc086e4077a79ce80d58fff5d9f9abf1da6486ce5642d7e7",
+    "bytes": 3195,
+    "source": {
+      "path": "paper/tompecs-m3/supplement/c01-source-capacity-means.csv",
+      "sha256": "85e45e200574b1eacc086e4077a79ce80d58fff5d9f9abf1da6486ce5642d7e7",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "arrival_normalized_weighted_goodput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-ties.csv": {
+    "rows": 11,
+    "primary_key": [
+      "metric"
+    ],
+    "sha256": "eb61a7ff09269db6cdf91dc93991dad6ece3aae2ea4bbff6e551639c1f93de40",
+    "bytes": 436,
+    "source": {
+      "path": "paper/tompecs-m3/supplement/c01-ties.csv",
+      "sha256": "eb61a7ff09269db6cdf91dc93991dad6ece3aae2ea4bbff6e551639c1f93de40",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "tied": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "slo_unique": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "near_changed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "missing": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "c01-window-aggregates.csv": {
+    "rows": 12672,
+    "primary_key": [
+      "scope",
+      "group",
+      "source",
+      "region",
+      "profile",
+      "policy",
+      "metric"
+    ],
+    "sha256": "4aa6a7fddbf38c3187dab6c21ee1c13b99db03b232c30043c3eef1ed983f4e54",
+    "bytes": 1667511,
+    "source": {
+      "path": "paper/tompecs-m3/supplement/c01-window-aggregates.csv",
+      "sha256": "4aa6a7fddbf38c3187dab6c21ee1c13b99db03b232c30043c3eef1ed983f4e54",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "group": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "maximum": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "minimum": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "missing": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "observed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "scope": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "stat01-all-endpoints.csv": {
+    "rows": 7200,
+    "primary_key": [
+      "scenario_id",
+      "family",
+      "method",
+      "endpoint"
+    ],
+    "sha256": "9e705b41b39adbb21b739609457e609f9aa7a1504a817a8df84f30fee55ab33b",
+    "bytes": 1073989,
+    "source": {
+      "path": "paper/tompecs-m3/supplement/stat01-all-endpoints.csv",
+      "sha256": "9e705b41b39adbb21b739609457e609f9aa7a1504a817a8df84f30fee55ab33b",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "scenario_id": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "scenario": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "studies": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "family": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "method": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "endpoint": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "halfwidth": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "lower": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mcse": {
+        "observed_type": "number",
+        "missing_count": 1292
+      },
+      "mean": {
+        "observed_type": "number",
+        "missing_count": 1292
+      },
+      "n": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "upper": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "stat01-stopping.csv": {
+    "rows": 18,
+    "primary_key": [
+      "sid"
+    ],
+    "sha256": "e5ba7ba8835d62744e9f6792874d56e32dcf67ca89ff825dd38447c389755fb4",
+    "bytes": 804,
+    "source": {
+      "path": "paper/tompecs-m3/supplement/stat01-stopping.csv",
+      "sha256": "e5ba7ba8835d62744e9f6792874d56e32dcf67ca89ff825dd38447c389755fb4",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "sid": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "name": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "n": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "stop": {
+        "observed_type": "string",
+        "missing_count": 0
+      }
+    }
+  },
+  "urgency-certificates.csv": {
+    "rows": 18,
+    "primary_key": [
+      "condition_id",
+      "budget"
+    ],
+    "sha256": "ddcf3038d63b4aeef465a9562f93f144d43b5825585f787e3e95c81fa42789d2",
+    "bytes": 5356,
+    "source": {
+      "path": "paper/tompecs-m3/urgency-analysis/certificates.csv",
+      "sha256": "ddcf3038d63b4aeef465a9562f93f144d43b5825585f787e3e95c81fa42789d2",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "condition_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "budget": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "slots": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "requests": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "prompt_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "work_per_omitted_batch_lower_bound": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "certified_max_omitted_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "certified_max_age_ms": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "ready_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "ready_opportunities": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "critical_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "critical_opportunities": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "omitted_opportunities": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "pre_first_output_omissions": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "between_output_omissions": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "max_consecutive_omissions": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "observed_max_age_ms": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "max_observed_batch_duration_s": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "completed_inter_output_gaps": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "gaps_within_0_5s": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "max_inter_output_gap_ms": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "max_post_prefill_first_decode_gap_ms": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "requests_sha256": {
+        "observed_type": "string",
+        "missing_count": 0
+      }
+    }
+  },
+  "urgency-omission-episodes.csv": {
+    "rows": 38,
+    "primary_key": [
+      "condition_id",
+      "budget",
+      "request_id",
+      "resumed_batch"
+    ],
+    "sha256": "fc650dd23e8e15c3a94f60219e7e5107548f0b5696d3324cdca3beae8c11225e",
+    "bytes": 2938,
+    "source": {
+      "path": "paper/tompecs-m3/urgency-analysis/omission-episodes.csv",
+      "sha256": "fc650dd23e8e15c3a94f60219e7e5107548f0b5696d3324cdca3beae8c11225e",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "condition_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "budget": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "request_id": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "omitted_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "resumed_batch": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "anchor_age_s": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "time01-aggregate-paired.csv": {
+    "rows": 44,
+    "primary_key": [
+      "metric",
+      "policy"
+    ],
+    "sha256": "923185aa6e5154dc2c2218b791d95ce9e0df9ae18d64f798d16b6222a4176140",
+    "bytes": 2614,
+    "source": {
+      "path": "evidence/time01/analysis-v1/aggregate-paired.csv",
+      "sha256": "923185aa6e5154dc2c2218b791d95ce9e0df9ae18d64f798d16b6222a4176140",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "n_cells": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_observed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "mean_paired_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "time01-cells.csv": {
+    "rows": 768,
+    "primary_key": [
+      "cell_id",
+      "mode"
+    ],
+    "sha256": "fece483da6d0556ff95f2b86e2cf23b9c4a52efd4de280570db1de8273d52417",
+    "bytes": 315061,
+    "source": {
+      "path": "evidence/time01/analysis-v1/cells.csv",
+      "sha256": "fece483da6d0556ff95f2b86e2cf23b9c4a52efd4de280570db1de8273d52417",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "cell_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "mode": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "arrival_normalized_weighted_goodput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "busy_device_seconds": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "completion_fraction": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "decode_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "emitted_token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_tpot": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "n_latency": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_tpot": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_ttft": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_completed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_unfinished": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "observed_seconds": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_tpot": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "peak_reserved_kv": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "peak_used_kv": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "prefill_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "request_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "time01-paired-differences.csv": {
+    "rows": 4224,
+    "primary_key": [
+      "cell_id",
+      "metric"
+    ],
+    "sha256": "0938d664cb515c35c2d4c71cb30b8057f3199b9c235bdca58c93cf5f3fc14599",
+    "bytes": 945938,
+    "source": {
+      "path": "evidence/time01/analysis-v1/paired-differences.csv",
+      "sha256": "0938d664cb515c35c2d4c71cb30b8057f3199b9c235bdca58c93cf5f3fc14599",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "cell_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "fixed": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "variable": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "relative_change": {
+        "observed_type": "number",
+        "missing_count": 12
+      }
+    }
+  },
+  "time01-policy-comparisons.csv": {
+    "rows": 7128,
+    "primary_key": [
+      "level",
+      "source",
+      "window",
+      "region",
+      "profile",
+      "metric",
+      "policy_a",
+      "policy_b"
+    ],
+    "sha256": "d24e98a8ee2204ce75ac2ea0dfa471cae1c036115f367afe5362965fd8d63726",
+    "bytes": 1855444,
+    "source": {
+      "path": "evidence/time01/analysis-v1/policy-comparisons.csv",
+      "sha256": "d24e98a8ee2204ce75ac2ea0dfa471cae1c036115f367afe5362965fd8d63726",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "level": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy_a": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy_b": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "fixed_a": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "fixed_b": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "variable_a": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "variable_b": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "fixed_a_minus_b": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "variable_a_minus_b": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "fixed_margin": {
+        "observed_type": "string",
+        "missing_count": 24
+      },
+      "variable_margin": {
+        "observed_type": "string",
+        "missing_count": 15
+      },
+      "strict_practical_reversal": {
+        "observed_type": "boolean",
+        "missing_count": 27
+      }
+    }
+  },
+  "time01-rankings.csv": {
+    "rows": 4752,
+    "primary_key": [
+      "level",
+      "source",
+      "window",
+      "region",
+      "profile",
+      "metric",
+      "policy"
+    ],
+    "sha256": "7e8aa82288b18194e56eaf42f49c606fda0fc4067828e7d38eceb3c0ec579662",
+    "bytes": 787106,
+    "source": {
+      "path": "evidence/time01/analysis-v1/rankings.csv",
+      "sha256": "7e8aa82288b18194e56eaf42f49c606fda0fc4067828e7d38eceb3c0ec579662",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "level": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "fixed_rank": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "variable_rank": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "fixed_top_set": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "variable_top_set": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "top_set_changed": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      }
+    }
+  },
+  "time01-reversal-counts.csv": {
+    "rows": 22,
+    "primary_key": [
+      "level",
+      "metric"
+    ],
+    "sha256": "2bd70814296e0a23683ca0aa53aeb50c4bccafea4b4c8577090ab74815861a19",
+    "bytes": 885,
+    "source": {
+      "path": "evidence/time01/analysis-v1/reversal-counts.csv",
+      "sha256": "2bd70814296e0a23683ca0aa53aeb50c4bccafea4b4c8577090ab74815861a19",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "level": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "reversals": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "eligible": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "unestimable": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "time01-source-means.csv": {
+    "rows": 1056,
+    "primary_key": [
+      "source",
+      "region",
+      "profile",
+      "policy",
+      "mode",
+      "metric"
+    ],
+    "sha256": "d47cee7744fa6f949efe9f7df2a5a51b76c5a177f8c33c116149ec365d199c7c",
+    "bytes": 135304,
+    "source": {
+      "path": "evidence/time01/analysis-v1/source-means.csv",
+      "sha256": "d47cee7744fa6f949efe9f7df2a5a51b76c5a177f8c33c116149ec365d199c7c",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "mode": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "n_windows": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_observed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "mean": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "min": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "max": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "time01-telemetry.csv": {
+    "rows": 384,
+    "primary_key": [
+      "cell_id"
+    ],
+    "sha256": "7ec358406dbaa81b960f26c77ec3d93958bbbfb077d999e7f80b88b0e0353ed8",
+    "bytes": 110981,
+    "source": {
+      "path": "evidence/time01/analysis-v1/telemetry.csv",
+      "sha256": "7ec358406dbaa81b960f26c77ec3d93958bbbfb077d999e7f80b88b0e0353ed8",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "cell_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "duration_max": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "duration_mean": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "duration_min": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "duration_n": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "duration_p50": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "duration_p95": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "composition_decode_only_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "composition_decode_tokens": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "composition_mixed_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "composition_prefill_only_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "composition_prefill_tokens": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "urgency_critical": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "urgency_max_age": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "urgency_omitted": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "urgency_ready": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "urgency_selected_critical": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "admission_mean_wait_to_admission": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "admission_n_admitted": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "abl01-aggregate-paired.csv": {
+    "rows": 13,
+    "primary_key": [
+      "metric"
+    ],
+    "sha256": "6d5c14ccf62639b6ec793dc68fa929f4de5d975807510f1078c17bcc59485298",
+    "bytes": 1812,
+    "source": {
+      "path": "evidence/abl01/analysis/aggregate-paired.csv",
+      "sha256": "6d5c14ccf62639b6ec793dc68fa929f4de5d975807510f1078c17bcc59485298",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "n_cells": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_observed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "mean_original": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_control": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_paired_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "minimum_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "maximum_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "favorable": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "adverse": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "ties": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "abl01-cells.csv": {
+    "rows": 2880,
+    "primary_key": [
+      "cell_id",
+      "arm"
+    ],
+    "sha256": "55cbe93aa18ffc0899d62491062a2f0fa525cd510e4c8fd8a0d5b5108b0a6bf1",
+    "bytes": 1168816,
+    "source": {
+      "path": "evidence/abl01/analysis/cells.csv",
+      "sha256": "55cbe93aa18ffc0899d62491062a2f0fa525cd510e4c8fd8a0d5b5108b0a6bf1",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "cell_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "arm": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "arrival_normalized_weighted_goodput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "busy_device_seconds": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "completion_fraction": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "decode_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "emitted_token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_tpot": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "n_latency": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_tpot": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_ttft": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_completed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "num_unfinished": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "observed_seconds": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_latency": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_tpot": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "p95_ttft": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "peak_reserved_kv": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "peak_used_kv": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "prefill_work": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "request_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "token_throughput": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "arrival_deadline_attainment": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "completed_deadline_attainment": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  },
+  "abl01-paired-differences.csv": {
+    "rows": 18720,
+    "primary_key": [
+      "cell_id",
+      "metric"
+    ],
+    "sha256": "f03937f71f20fd96f6da8fcc1c75b0cee3920046c6db90800c20d05df1a077ff",
+    "bytes": 4010319,
+    "source": {
+      "path": "evidence/abl01/analysis/paired-differences.csv",
+      "sha256": "f03937f71f20fd96f6da8fcc1c75b0cee3920046c6db90800c20d05df1a077ff",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "cell_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "endpoint_family": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "original": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "control": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "relative_change": {
+        "observed_type": "number",
+        "missing_count": 18
+      },
+      "improvement_direction": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "abl01-policy-comparisons.csv": {
+    "rows": 114048,
+    "primary_key": [
+      "family",
+      "level",
+      "source",
+      "window",
+      "region",
+      "profile",
+      "context2",
+      "arm",
+      "metric",
+      "policy_a",
+      "policy_b"
+    ],
+    "sha256": "b74c76bb13901d03cc3cc68a1aa882f1e88f52c0cf7be01817eca8965708c786",
+    "bytes": 28297821,
+    "source": {
+      "path": "evidence/abl01/analysis/policy-comparisons.csv",
+      "sha256": "b74c76bb13901d03cc3cc68a1aa882f1e88f52c0cf7be01817eca8965708c786",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "family": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "level": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "context2": {
+        "observed_type": "string",
+        "missing_count": 97416
+      },
+      "arm": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy_a": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy_b": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "value1_a": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "value1_b": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "value2_a": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "value2_b": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "margin1": {
+        "observed_type": "string",
+        "missing_count": 162
+      },
+      "margin2": {
+        "observed_type": "string",
+        "missing_count": 162
+      },
+      "strict_practical_reversal": {
+        "observed_type": "boolean",
+        "missing_count": 162
+      }
+    }
+  },
+  "abl01-rankings.csv": {
+    "rows": 64944,
+    "primary_key": [
+      "level",
+      "source",
+      "window",
+      "region",
+      "profile",
+      "metric",
+      "policy"
+    ],
+    "sha256": "26538256fcb639ef1130f04b6d724e132835c22df9683e0050bc30afedaad5ca",
+    "bytes": 12088342,
+    "source": {
+      "path": "evidence/abl01/analysis/rankings.csv",
+      "sha256": "26538256fcb639ef1130f04b6d724e132835c22df9683e0050bc30afedaad5ca",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "level": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "policy": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "original_rank": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "ablated_rank": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "original_top": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "ablated_top": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "top_changed": {
+        "observed_type": "boolean",
+        "missing_count": 0
+      }
+    }
+  },
+  "abl01-reversal-counts.csv": {
+    "rows": 66,
+    "primary_key": [
+      "family",
+      "level",
+      "arm",
+      "metric"
+    ],
+    "sha256": "3005b376541dd410ba13718ecceec46f88f37921d40e328816f89fc44c49b9a5",
+    "bytes": 4351,
+    "source": {
+      "path": "evidence/abl01/analysis/reversal-counts.csv",
+      "sha256": "3005b376541dd410ba13718ecceec46f88f37921d40e328816f89fc44c49b9a5",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "family": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "level": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "arm": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "reversals": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "eligible": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "total": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "unestimable": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "abl01-source-condition-means.csv": {
+    "rows": 468,
+    "primary_key": [
+      "source",
+      "region",
+      "profile",
+      "metric"
+    ],
+    "sha256": "d190e2c9e85563bbbec216c9a44fcc077876ee6b6fe7f332117b2f80e13fa908",
+    "bytes": 67775,
+    "source": {
+      "path": "evidence/abl01/analysis/source-condition-means.csv",
+      "sha256": "d190e2c9e85563bbbec216c9a44fcc077876ee6b6fe7f332117b2f80e13fa908",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "metric": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "n_cells": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_observed": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "mean_original": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_control": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "mean_paired_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "minimum_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "maximum_difference": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "favorable": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "adverse": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "ties": {
+        "observed_type": "integer",
+        "missing_count": 0
+      }
+    }
+  },
+  "abl01-telemetry.csv": {
+    "rows": 2880,
+    "primary_key": [
+      "cell_id",
+      "arm"
+    ],
+    "sha256": "d1be80580eb1dcbc692dc2ea09f35279d5c94a92e187444ae043b76d45a7b4d8",
+    "bytes": 582101,
+    "source": {
+      "path": "evidence/abl01/analysis/telemetry.csv",
+      "sha256": "d1be80580eb1dcbc692dc2ea09f35279d5c94a92e187444ae043b76d45a7b4d8",
+      "transformation": "byte-identical copy"
+    },
+    "fields": {
+      "cell_id": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "source": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "window": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "region": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "profile": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "arm": {
+        "observed_type": "string",
+        "missing_count": 0
+      },
+      "batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "ready": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "critical": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "selected_critical": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "omitted": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "max_age": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "serialized_order_changed_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "same_state_slo_control_work_difference_batches": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "n_admitted": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "mean_admission_wait": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "deadline_met": {
+        "observed_type": "integer",
+        "missing_count": 0
+      },
+      "arrival_deadline_attainment": {
+        "observed_type": "number",
+        "missing_count": 0
+      },
+      "completed_deadline_attainment": {
+        "observed_type": "number",
+        "missing_count": 0
+      }
+    }
+  }
+}

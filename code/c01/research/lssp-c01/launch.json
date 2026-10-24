@@ -1,0 +1,30 @@
+{
+  "code_commit": "9aed0206de66886e9feb0b003b59f0b7dfea68c9",
+  "files": {
+    "CHANGES_BEFORE_LAUNCH.md": "2c8bf76f7392c73678be708903d9200940bb38a97f3c92505e59929a9659087b",
+    "PROTOCOL.md": "1c25680e611d497ac09c20a8eb8e80c4399fce394cae2c3aea51f84df7fb677b",
+    "analyze.py": "93d61b5a2eb7abd010e382da5f6c05e561aa1a14930d6e1590ca7e0b4da78ffe",
+    "engine.py": "2907a198a3ede133000429c57aec3269faf47ac96e019b19302dcae3ccbc6836",
+    "input_manifest.json": "333520dc116be0edd0708470dffe4524821a349e418bb8a0b9618e6590ed5b45",
+    "pilot.sbatch": "6f75a7ff7528fa588b9d7d476ebee1068852365bb11a16e378f78fd5b5bcffae",
+    "policies.py": "d54e96880afb9001dc0fbc19511bb6338367eb828948a48cd68a516e871fdbb1",
+    "prepare.py": "f5febcba32153e26b96f19e5f1d7f38bfa4a695809ebf313ae55acde0c74dc8d",
+    "run.py": "13893a8a8a40d3f63d593a17751400bcc7e90e97a1801a21af1b1b550d6900d2",
+    "test_contract.py": "be334df9728f13d35be49b217378657231fd60716f6dd5669d4cc2af86128360",
+    "validator.py": "9d0fe6862cfa5952ca89ed421cd1b8b923e03ad09dd7fe50dcb29595d66bb08b"
+  },
+  "input_sha256": "56b216fdfedf34ca8a959cb764c9896cf7f6351319259cba13dc8fb98df05f1c",
+  "protocol_initial_commit": "8dd2c37",
+  "python_executable": "/project/ikoutis/sv96/github/llm-serving-scheduler-robustness-benchmark/.venv312/bin/python",
+  "python_version": "3.12.13",
+  "schema": "lssp-c01-launch/0.1.0",
+  "slurm": {
+    "account": "ikoutis",
+    "cpus": 1,
+    "gpus": 0,
+    "memory": "4G",
+    "partition": "general",
+    "qos": "standard",
+    "time": "02:00:00"
+  }
+}

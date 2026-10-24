@@ -1,0 +1,11 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "independent_method": "Per-request event-index intervals; integer inequalities",
+  "saved_cells": 18,
+  "ready_decode_opportunities": 107844,
+  "omitted_opportunities": 42,
+  "critical_opportunities": 0,
+  "certificate_rows_checked": 18,
+  "universal_bound_ms": 201,
+  "scientific_experiments_executed": 0
+}

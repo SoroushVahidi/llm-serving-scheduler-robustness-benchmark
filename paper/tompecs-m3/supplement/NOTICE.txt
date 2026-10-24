@@ -1,0 +1,1 @@
+TRANSFORMED RESEARCH DATA / GENERATED MODEL OUTPUT. Frozen content is unchanged. See PROVENANCE_AND_RIGHTS.md and licenses/upstream/ at the artifact root for original creators, source identities, transformations, and component-specific terms. Upstream inputs are not relicensed as original project data.

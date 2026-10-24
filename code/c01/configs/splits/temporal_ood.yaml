@@ -1,0 +1,8 @@
+schema_version: 1
+split_name: temporal-OOD
+construction_rule: "Azure 2023 windows for exploration, Azure 2024 windows held out as the temporal-OOD test (or vice versa, frozen before any ranking is computed)."
+exploration_source: azure_llm_2023
+held_out_source: azure_llm_2024
+constructed_at: null
+window_ids: []
+manifest_sha256: null

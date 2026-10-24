@@ -1,0 +1,232 @@
+M3-BOUND01: reachable selection equivalence under CM-0.1
+Proof-first result, 2026-10-23. No computational search is necessary.
+
+QUESTION AND ANSWER
+Does an ordinary trace starting from an empty serving system reach a batch at
+which chunked_fcfs_c01 and decode_first_c01 select different executable work?
+No, under the assumptions below. The result covers the original B=32768,
+K=4/8 settings AND every fixed positive integer B with the unchanged CM-0.1
+input domain and these two unchanged adaptations, including B=1024 and2048.
+The proof uses an admission/progress invariant, not the sufficient512K<=B bound.
+It proves equality of normalized work, state transitions, event times, terminal
+request records and declared metrics. Ordered journal arrays may differ.
+
+This is a theorem about the specified implementation. It is not a theorem about
+native Sarathi/vLLM, historical simulator modes, other policies, arbitrary supplied
+internal states, or general serving systems. The invariant is a sufficient
+reachable-state enclosure, not a necessary-and-sufficient characterization of
+all conceivable reachable states. Within that enclosure the selection-divergence
+boundary is empty. No finite search is being promoted to a universal proof.
+
+ASSUMPTIONS AND CODE IDENTITY
+The three unchanged files in frozen_c01 are byte-identical to the C01-FULL
+deployment and the local C01 implementation. SHA256:
+ engine.py    2907a198a3ede133000429c57aec3269faf47ac96e019b19302dcae3ccbc6836
+ policies.py  d54e96880afb9001dc0fbc19511bb6338367eb828948a48cd68a516e871fdbb1
+ validator.py 9d0fe6862cfa5952ca89ed421cd1b8b923e03ad09dd7fe50dcb29595d66bb08b
+C01 pilot execution9aed0206de66886e9feb0b003b59f0b7dfea68c9;
+C01-FULL launcher2d8342e699f35044044ac518c0b75a3c4a1c768c.
+
+A1. Finite, nonempty request trace with canonical IDs/ordinals0..n-1,
+nondecreasing finite nonnegative arrival times; equal arrivals tie by ordinal.
+Prompt p_i and output o_i are positive integers, p_i<=B and p_i+o_i<=context.
+All metric inputs are valid finite CM-0.1 values. Work quantities, B, capacity,
+context, block and sequence limits are positive integers as in the scientific
+contract. This is not a statement about malformed float token counts accepted
+by some incomplete Python input checks. No injected prefills/decodes/residents.
+A2. A fixed B>=1, common chunk cap C=512, unit decode work, same fixed config
+for both policies. K=min(max_sequences,floor(kv_capacity/context))>=1 is fixed.
+No evictions, recomputation, migration, cancellation, external admissions or
+in-batch arrivals/admissions. Each ID can be served at most once per batch.
+A3. Both policies place all residents before all waiting requests. All resident
+prefills retain ordinal order. All waiting admissions use ordinal order and are
+prefix admissions: admission starts only on first positive executed prefill work.
+There is no prompt-dependent bypass in these two policies. Capacity is reserved
+for the entire context then; completing requests release only at batch end.
+A4. Every prefill span is min(remaining prompt,C,remaining batch budget).
+Every decode span has length1. Integer budget is debited by exactly that length.
+A5. Both runs share initial state, trace, fixed positive batch duration dt and
+administrative horizon H=last arrival+drain. dt/time arithmetic and the horizon
+are well-defined, finite, and advance the clock (the scientific dt is0.001s);
+reported rate metrics have a positive observation duration. All selected spans are acknowledged at the same t+dt; updates
+for different requests commute. A request cannot prefill and decode in one batch.
+No per-policy time or hidden output information changes selection.
+
+FORMAL STATE AND TRANSITION
+Request input:(i,a_i,p_i,o_i,deadline_i,priority_i). Online view excludes o_i,
+deadline and priority and contains ordinal,arrival,prompt,prefilled,generated,
+resident,anchor (policies.py18–27; engine.py35–37).
+State at a boundary:(clock t; for each i, prefilled x_i,generated y_i,resident r_i,
+anchor,first-output time,completion time). Initially x=y=0,r=false and timestamps
+are None (engine.py22–23). t begins at the first arrival, equivalent to an empty
+system idling until then. Eligible means a_i<=t and no completion (line28).
+Residents form R sorted by ordinal; eligible nonresidents form W sorted likewise.
+A resident is prefilling if x_i<p_i, decode-ready if x_i=p_i and unfinished.
+Its uncapped-by-budget offer is w_i=min(C,p_i-x_i) for prefill, and w_i=1 for decode.
+
+Chunked-FCFS iterates R then W. Decode-first iterates resident decodes D, resident
+prefills F, then W, each sublist in ordinal order (policies.py33–44). Both stop
+when remaining budget is zero, skip waiting entries if no reservation slot,
+and otherwise append a positive executable span using A4 (lines49–69).
+A chosen prefill span is(i,prefill,x_i,x_i+n); decode is(i,decode,y_i,y_i+1).
+Selection equality means equality of these labeled spans after sorting by ID,
+not equality of the sequence in which spans are listed.
+
+Executor acknowledges at t+dt (engine.py43–64), validates resources (65–69),
+releases all completed outputs afterward (70–75), then sets t=end (81).
+Prefill completion sets anchor=end. Decode sets anchor=end, first if unset, and
+completion=end on the o_i-th token. Resident count never exceeds K; actual block
+usage cannot exceed full-context reservations. If no eligible unfinished request,
+clock jumps to the next arrival (29–34). The loop stops when no future work or
+when t+dt>H. Unfinished requests are censored at H (82–85). Finite traces have
+finite total integer work; with positive progress there is no internal deadlock,
+although the fixed horizon can truncate execution. Coupling covers that case too.
+
+FOUR OBSERVATIONAL LEVELS
+L1: candidate/list priority differs (e.g., a later decode moves ahead of an
+older prefill). This is reachable.
+L2: normalized selected per-request spans or batch membership differ. Impossible
+on the reachable traces/configurations covered by the theorem.
+L3: ordered raw intent/executed arrays can differ solely because of L1. Thus
+literal journal-byte equality is NOT claimed. Once these arrays are normalized,
+all journal fields, states and timestamps agree. There is no causal state/time
+L3 divergence in the theorem scope.
+L4: per-request terminal outcomes and all existing metrics agree exactly for the
+paired executions. This includes completed/unfinished populations and horizon.
+Do not use raw array permutation as an L2 witness.
+
+INVARIANT I: ORDINAL ADMISSION
+At every boundary every resident's ordinal is smaller than every eligible
+never-admitted waiting ordinal. Equivalently, first admissions are monotone in
+ordinal; completed requests can leave holes. Canonical arrival order ensures
+future arrivals cannot introduce an older ordinal behind already admitted work.
+Proof: initially empty. Both policies consider the same ordinal waiting list
+only after residents. A positive-work admission consumes one slot and budget;
+there is no skipping a waiting entry to admit a later one when slots/budget fail.
+At zero budget the loop ends; at zero slots all later waiting entries are skipped.
+Thus each batch admits a prefix of W. Removal of completions preserves the order.
+
+INVARIANT II: RESIDENT PREFIX SLACK AND THE ONLY POSSIBLE EXCESS
+For nonempty R=(r_1,...,r_m) in ordinal order, at each boundary:
+ (IIa) S=sum_{j<m}w_{r_j} <= B-1 (equivalently S<B).
+ (IIb) if sum_{j<=m}w_{r_j}>B, r_m is prefilling, not decode-ready.
+The empty resident list satisfies these conditions vacuously. IIb also follows
+directly from IIa and unit integer decode cost; it is stated explicitly to
+identify which request can cause excess.
+This allows binding work and real mixed prefill/decode states. It does NOT assert
+that every full resident offer fits, or that ready decodes must be older than
+all unfinished prefills. The last resident's offer can exceed residual budget.
+
+LEMMA 1: SELECTION AT A STATE SATISFYING I AND II
+For empty R both policies run the same W loop. Otherwise both policies select
+all current residents for positive work. For chunked-FCFS,
+IIa makes every r_1..r_{m-1} offer fit, leaving at least1 token for r_m. If r_m
+is decode-ready, IIb makes its one token fit. If it is prefilling it receives
+min(w_{r_m}, B-S). There can be truncation only at this final resident.
+
+If total resident offer<=B, every resident gets its full offer irrespective of
+permutation. If it exceeds B, IIb makes the final resident a prefill; decode-first
+keeps it last among resident prefills, hence last among all residents. It merely
+permutes r_1..r_{m-1}. Their total S fits by IIa, so they all get identical full
+spans and leave the same residual for r_m. All ready decodes are among this fully
+served prefix. Both policies then have the same residual budget and slots for W.
+They apply the identical waiting-prefix loop, so admissions and their spans also
+agree. This proves L2 equality. It does not equate candidate/serialization order.
+
+LEMMA 2: PRESERVATION OF II BY THE COMMON TRANSITION
+Use the chunked-FCFS ordinal execution list Q. By Lemma1, it contains all old
+residents followed by any admitted waiting prefix, hence is in ordinal order by I.
+Every q in Q receives an integer e_q>=1 and sum e_q<=B. Every selected request
+except possibly the final element q* receives its full offer. A smaller-than-offer
+prefill allocation consumes all remaining budget, so no request can follow it.
+There is no truncated decode because its positive integer demand is1.
+
+For any fully served request that survives, its next offer w'_q<=e_q:
+- continued prefill: min(C,remaining-e_q)<=min(C,remaining)=e_q;
+- newly complete prefill: next offer1<=e_q;
+- continued decode: next offer1=e_q;
+- a completed decode disappears.
+Only a truncated final prefill can have w'_q>e_q; it is still prefilling, survives,
+and remains the greatest-ordinal resident after the transition. No request was
+admitted behind it. New arrivals are waiting and cannot alter resident offers.
+
+If survivors R' are nonempty, let z be their greatest ordinal. Every survivor
+other than z is therefore fully served and satisfies w'_q<=e_q. Consequently
+ sum_{q in R',q!=z} w'_q <= sum_{q in R',q!=z}e_q
+                         <= sum_{q in Q}e_q-e_z <= B-1,
+which proves IIa, including completion/removal holes. If total successor offer>B,
+at least one surviving offer must exceed its allocation e_q. The preceding cases
+show that only q* can do so; it is z and remains a prefill. This proves IIb.
+If no resident survives, II is vacuous. Idle time and new arrivals change no
+resident offer. Lemma1 also ensures no resident was omitted and invalidates no
+part of this preservation argument. The reasoning is not circular: it is a
+one-step lemma conditional on II, followed by induction from the empty base.
+
+MAIN PROPOSITION AND COMPLETE COUPLING
+Start both executions from the same legitimate empty state. I and II hold.
+Assume coupled states/timestamps at a boundary and I,II. Arrivals give identical
+eligible inputs. Lemma1 yields the same normalized selected work. The common
+executor applies disjoint per-request updates with the same batch end; resource
+sums and completion sets are order-independent. Thus next request states,
+reservations, first/completion/anchor times and clock are equal. Lemma2 and I
+preservation establish the next induction hypothesis. Idle jumps are identical,
+as are horizon comparisons and stopping decisions. Induct over all executed
+batches and idle jumps. This proves normalized journals and terminal equality;
+the unchanged independent metric definitions yield equal metrics.
+
+COROLLARIES / QUESTIONS ANSWERED
+1. Ready decodes CAN coexist with older partially completed prefills.
+2. Their combined uncapped resident offer CAN exceed B. This is not enough for
+   policy separation: only the final prefill bears the truncation.
+3. All ready decodes are served in every executed batch under either policy.
+   All residents make positive progress; the last prefill need not get512 tokens.
+4. A later ready decode cannot remain unserved while older prefill work exhausts
+   its budget. It is either in the strictly fitting prefix or the fitting last
+   decode. Ordinary arrivals cannot reach the necessary competing state.
+5. Prefill/decode priorities can differ, but their executable spans cannot.
+6. B=1024/2048 agreement now has a general CM-0.1 budget-only explanation rather
+   than just the prior finite-window observation. B=32768 is included without
+   needing512K<=B. The original nonbinding proof remains correct but sufficient
+   rather than necessary. K=4/8 are included; proof does not require K<=8.
+7. This theorem is only for the two named policies. It does not transfer the
+   every-decode-served conclusion to SLO-gated, whose waiting work can precede
+   residual decodes. Its previously observed omissions remain valid.
+
+HAND-DERIVED REACHABLE BINDING EXAMPLE (NOT A COUNTEREXAMPLE)
+B=1024,K=4,C=512; simultaneous arrivals; prompts(1024,1,1024), outputs(3,3,3).
+First batch admits three requests with prefill lengths(512,1,511), exactly1024.
+At the second boundary offers are(512,1,512), total1025>B. Request1 is a later
+ready decode while request0 is still prefilling. Chunked-FCFS selects
+ [(0,prefill,512,1024),(1,decode,0,1),(2,prefill,511,1022)].
+Decode-first lists the second span first, with exactly the same three spans.
+Only final request2 is truncated; no decode is omitted. Both use end=.002.
+This example explicitly falsifies the tempting but unnecessary claims that
+resident offers never bind or that all decodes always precede every prefill.
+It validates a logical case, not a workload population claim or search result.
+
+LIMITS AND PROOF FAILURE POINTS
+Different/dynamic budgets, growing or heterogeneous chunk rules, multi-token or
+variable-cost decode, admission before work, non-FIFO bypass, waiting-before-
+resident priority, asynchronous execution, preemption/recompute/migration or
+injected mid-flight states are excluded. Removing an assumption invalidates this
+proof, but does not itself prove a counterexample. Full-prompt<=B and full-context
+reservation remain part of the accepted domain; no illegal long-prompt witness
+is used. Numeric overflow/malformed inputs are not valid-contract witnesses.
+M3-TIME01 is a separate experiment: no timing extension is imported, executed,
+read for outcomes or modified here. This document makes no timing-result claim.
+No claim of a necessary-and-sufficient reachability characterization outside this
+contract, machine-checked formal proof, universal scheduler optimality or physical
+prediction follows. Mathematical peer review remains appropriate.
+
+EVIDENCE REUSE AND NOVELTY SCOPE
+Existing C01-FULL proves/tests the nonbinding sufficient case (1440 matches).
+The existing72-cell budget study observed normalized equality in18 paired
+conditions, including12 at reduced budgets, without a general binding proof.
+Family-B's older report/test explains a self-limiting decode cohort on clean
+admission traces and explicitly distinguishes injected mid-flight divergence.
+That is a conceptual precursor, credited here; it does not establish this exact
+CM-0.1 invariant or coupling for arbitrary valid traces/configurations.
+New information is the explicit IIa/IIb invariant and inductive CM-0.1 proof,
+including budget-truncated admissions, completion holes, mixed ready states and
+horizon termination. Engineering fixtures and saved-journal checks validate code
+assumptions; they are neither a reachability search nor the basis of universality.

@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "post_hoc": true,
+  "policies": [
+    "whole_fcfs_c01",
+    "chunked_fcfs_c01",
+    "slo_gated_c01"
+  ],
+  "metrics": [
+    "arrival_normalized_weighted_goodput",
+    "token_throughput",
+    "mean_latency",
+    "p95_latency",
+    "mean_ttft",
+    "p95_ttft",
+    "mean_tpot",
+    "p95_tpot"
+  ],
+  "metric_families": 5,
+  "conditions": 1440,
+  "rankings": 11520,
+  "pairwise": 34560,
+  "reversal_groups": 8208,
+  "axes": {
+    "kv": {
+      "groups": 432,
+      "total": 17280,
+      "eligible": 17219,
+      "reversals": 240
+    },
+    "load": {
+      "groups": 2160,
+      "total": 86400,
+      "eligible": 85962,
+      "reversals": 629
+    },
+    "metric": {
+      "groups": 3024,
+      "total": 120960,
+      "eligible": 120288,
+      "reversals": 4492
+    },
+    "source": {
+      "groups": 864,
+      "total": 1382400,
+      "eligible": 1374720,
+      "reversals": 61880
+    },
+    "source_mean": {
+      "groups": 864,
+      "total": 864,
+      "eligible": 864,
+      "reversals": 0
+    },
+    "window": {
+      "groups": 864,
+      "total": 673920,
+      "eligible": 670637,
+      "reversals": 18732
+    }
+  },
+  "tpot": {
+    "mean_tpot": {
+      "top_set_changes": 1129,
+      "whole_fcfs_worse_beyond_tolerance": 1430,
+      "whole_fcfs_worse_strict_10pct": 341,
+      "max_chunked_slo_gap_seconds": 1.7997756063259374e-16
+    },
+    "p95_tpot": {
+      "top_set_changes": 104,
+      "whole_fcfs_worse_beyond_tolerance": 1425,
+      "whole_fcfs_worse_strict_10pct": 1027,
+      "max_chunked_slo_gap_seconds": 3.3306690738754696e-16
+    }
+  },
+  "original_counts": {
+    "cells": 5760,
+    "rankings": 15840,
+    "pairwise": 95040,
+    "reversal_groups": 26136
+  },
+  "input_sha256": {
+    "c01-absolute_metrics.json.gz": "6f2242e8b3a9c17799720b66dc1d044e84f3fd10e30376c33a8af523d7a9dc88",
+    "c01-checkpoint.json.gz": "3f7d9320c81959899d020cbc57ed157ec938bf8721e7117d59e1bb3125f8f39f",
+    "c01-complete.json.gz": "5f56df5c72690be86863691133988ff28928b58c4fb65e6e2816bc46adf39000",
+    "c01-independent-summary-check.json.gz": "2ab48d566a0e01e56398ca32db8c1c9f14f7f599bcbd7222ee0ea79270e8ccb8",
+    "c01-independent_analysis_validation.json.gz": "6aeb89a36faa8956e97b605d943a8f926b258601396de15e99a8f04955d61ca1",
+    "c01-manifest.json.gz": "dc820d1edcd8d5b486995113f655e3bb8952493c1096e3538ab1b9b40a7291bc",
+    "c01-pairwise.json.gz": "6a4516df08cc9ac682cfb11ccda16ecce02f62ca59892cb2be25be54782cb276",
+    "c01-ranking_frequencies.json.gz": "8ab53d853a3ccf1952c3053c7fe19d4bf01f7c459f56b468a324aeefcbacd4e7",
+    "c01-rankings.json.gz": "1b540589c084880cb72990092ad6f683c0565ea25ac954f91aa97e78ed752837",
+    "c01-record-check.json.gz": "5eb8c768451798943bc1f2e6633efb33439e36046b40d86a996ef397e6f79733",
+    "c01-reversals.json.gz": "7fe3c99f0986bd290bde76d46933331b7a02e681e1eef051cc45be23a85ee471",
+    "c01-sample-event-check.json.gz": "4e9aef52fda91242ed28827a8b29a0b8a7553a91e75c9b708caf323cdc142834",
+    "c01-source_mean_rankings.json.gz": "587af9d41635223397416f07ba2082e9270bc603901630908cad8d07cb25651b",
+    "c01-window_aggregates.json.gz": "80d5616d5ca4c94d1d935e46c3620b09155a1bc6221d939dca7e5a55c4c2c26f"
+  },
+  "verification": "Every selected archived reversal group independently recomputed from absolute cells with Fraction.from_float-equivalent exact dyadic arithmetic; no imports from either original analyzer or oracle. Near-tie tolerance used only for TPOT top-set diagnostics, never to change practical-reversal rule."
+}

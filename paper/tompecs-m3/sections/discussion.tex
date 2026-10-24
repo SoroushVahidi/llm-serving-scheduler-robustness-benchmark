@@ -1,0 +1,81 @@
+\section{Discussion and Threats to Validity}\label{sec:discussion}
+\paragraph{From policy labels to interpretable comparisons.}
+The structural analysis identifies which decision rules can change execution
+before interpreting their rankings. The resident-prefix invariant and common batch-end
+updates erase the chunked/decode-first priority distinction, even under
+binding budgets; admission
+competition and whole-prefill/decode exclusion survive. The urgency
+certificate supplies a different kind of result: a bound on reachable
+anchor age rules out an otherwise implemented branch. Together these
+explain why a nominally richer policy panel need not represent more
+executed mechanisms.
+
+ABL01 identifies prompt ordering as the source of the residual
+latency--throughput--deadline trade-off within the nonbinding contract.
+This is a total intervention effect, not a decomposition of admission,
+queueing, and batch-count mediators or a hardware-level causal claim. The saved
+BurstGPT timeline illustrates how many earlier completions can lower mean
+latency while a later final completion extends the drain. It does not
+establish optimality or a corpus-wide causal decomposition. Source means
+answer an equal-window average question; window reversals expose variation
+concealed by that average, while cross-metric reversals concern different
+objectives on the same workload. Their coexistence, even in the reduced
+analysis, shows why stable aggregate preferences cannot select a scheduler
+for every window and objective. Exact top sets further distinguish ties
+from strict preferences.
+
+\paragraph{Model adequacy and transfer.}
+Fixed batch timing and conservative full-context reservations permit the
+state-transition argument but omit composition-dependent efficiency,
+kernel, bandwidth, communication, and native allocation costs. Theorem~\ref{thm:equivalence} permits binding budgets but depends on fixed
+policies, an empty initial system, resident-first service, stable prefix
+admission, and the specified progress rules. It does not establish
+invariance under policy switching or arbitrary supplied states. The
+budget sensitivity changes some admissions and SLO-gated decode service;
+the finite-work certificate rules out urgency activation there. Longer
+prompts fail the unchanged domain check at these smaller budgets.
+TIME01 tests one synthetic composition-dependent timing function on
+24 selected windows. It neither calibrates hardware costs nor establishes
+robustness to arbitrary timing functions. ABL01's control coupling is
+restricted to the original nonbinding budget and admission semantics;
+it does not automatically extend to binding-budget SLO-gated execution.
+Historical GPU studies do not validate M3's exact comparisons. Conformance checks establish implementation correctness
+for the abstraction, not physical prediction accuracy \citep{sargent2013}.
+
+\paragraph{Corpus and inference limits.}
+The selected windows are finite and temporally related, and the Azure-linked
+sources are not independent provider populations. Nonoverlap inside the C01
+panel does not settle overlap with older cross-project BurstGPT selections.
+Uniform priorities and synthetic output-derived deadlines restrict goodput
+interpretation; the inherited transformation changes deadlines and arrivals
+together. C01 consequently reports descriptive finite-corpus effects.
+The timing subset makes this limit concrete: on all forty BurstGPT windows
+at the same two settings, fixed-duration SLO-gated improves mean latency
+by 15.24\% and 11.99\% at four/eight slots. The eight selected windows
+instead worsen it under both clocks (Section~\ref{sec:timing}). Input
+composition differences are descriptive, not an identified explanation;
+neither subset nor full-corpus averages estimate an unmeasured population.
+The reduced analysis is post hoc and removes only demonstrated redundancies;
+its remaining metric families and overlapping comparisons are still dependent.
+
+STAT01's known truth applies only to its generators. Post-diagnosis methods,
+finite study counts, conditional interval availability, and conservative
+power remain explicit in Appendix~\ref{app:stat}. Reproducible arithmetic
+and valid population inference are distinct requirements. The extensive
+checks reduce implementation and reporting risk without adding scientific
+novelty or resolving model adequacy by themselves.
+
+\section{Conclusion}
+An admission-and-progress invariant proves selected-work equivalence of
+fixed chunked-FCFS and decode-first adaptations from an empty serving
+system under the declared contract, including binding budgets. Common
+batch-end updates extend this equality to normalized transitions and
+terminal outcomes. A separate finite-work certificate explains urgency
+inactivity in the evaluated fixed-duration regimes. The controlled ablation
+attributes the remaining trade-offs to prompt ordering within the original
+contract. Synthetic timing sensitivity preserves observed pair equivalence
+but reveals window-sensitive policy effects. Source-mean practical stability
+coexists with local and cross-metric reversals after demonstrated
+redundancies are removed. These results connect model constraints,
+effective behavior, and the interpretation of performance comparisons;
+they establish neither scheduler optimality nor hardware performance.

@@ -1,0 +1,98 @@
+M3-ABL01 — exact control and reuse theorem (2026-10-23)
+
+The intervention is ONLY SLO-gated waiting-order expression:
+  critical + prefills + sorted(waiting,key=(prompt,ordinal)) + residual
+becomes
+  critical + prefills + waiting + residual.
+Here waiting is already sorted by canonical ordinal. Input IDs follow increasing
+arrival time with deterministic input-order ties. Thus this is stable-arrival
+FCFS. control_policies.py differs from frozen_c01/policies.py in exactly that
+expression, checked byte-for-byte and structurally. It does NOT replace the
+priority phases by chunked-FCFS, remove urgency, or move residual decodes.
+Internal call name remains slo_gated_c01 so every other branch is unchanged;
+the evidence identity is explicitly slo_gated_fcfs_c01.
+
+Claim. Under the exact C01-FULL configurations (B32768,C512,K4 or8, unit decode,
+fixed1ms batches, full-context reservations, same domain/inputs), the new control
+and original chunked_fcfs_c01 are fully equivalent in executable work, admission,
+progress, resource ledger, clocks, arrivals, first/completion/anchor times,
+terminal records, and all declared performance metrics. Priority/list order may
+differ. The control's ordered journal can be reconstructed exactly from each
+chunked-FCFS journal by recomputing control intent and permuting only the span
+arrays. This is not a claim that their unmodified raw journal bytes are equal.
+
+Assumptions. Valid positive-integer prompt/output workloads in original domain;
+canonical IDs0..n-1 ordered by finite nonnegative arrival; p<=B,p+o<=context;
+context32768/block16; max_sequences64; KV131072/262144. Empty initial system,
+no eviction, preemption, external admission/cancellation or per-policy timestamps;
+positive finite advancing dt=.001; same drain50s/horizon. No prefill and decode
+of one request in the same batch. Input/output/deadline/priority and every seed
+are unchanged. None of the theorem assumes urgency is empirically inactive.
+
+One-state lemma. At any valid common reachable state let R be its residents,
+W its eligible waiting requests and r=|R|<=K. Both planners eventually select
+all R plus the first min(K-r,|W|) waiting IDs. Each selected request offers at
+most512 tokens (prefill min(remaining,512), decode1), so combined work <=512K,
+which is <=4096 <32768. No earlier positive span can consume the budget needed
+by a later eligible selected request. Waiting candidates beyond the available
+reservation slots are skipped without spending work. Slots are charged at
+positive prefill selection and completions release slots only at batch END.
+There is consequently no prompt-dependent admission bypass or reuse of a
+completing resident's slot within a batch.
+
+Chunked-FCFS considers residents in ordinal order then W. The control considers
+critical resident decodes, resident prefills, W, then residual resident decodes.
+Critical/residual form a disjoint partition of resident decodes. Every resident
+appears exactly once; each order selects the same R and waiting prefix. Moving
+residual decodes after W cannot omit or truncate them because the complete
+possible selected work fits. Each selected prefill gets min(remaining,512),
+each selected decode one token; labeled executable spans therefore agree.
+This argument also covers no waiting, full/empty capacity, tied arrivals,
+partial prefills, mixed stages, urgent/nonurgent anchors, and completed-ID holes.
+
+Transition lemma. The frozen engine advances all spans at the common end t+dt.
+Each request is updated once, with no shared mutable per-request state. The
+integer KV sum and resident count are computed after all spans, independently
+of their array order. Completed IDs are collected by enumeration of the state
+array (canonical IDs), not intent order. Full-context release is at this end.
+Thus all request fields, resource journals and event times coincide. Subsequent
+arrival eligibility and policy ages coincide. This is actual simulation-time
+coupling, not a postprocessing latency adjustment.
+
+Induction. Empty states agree. At each boundary both see identical eligible
+requests. Apply the two lemmas; equality is preserved. When no live requests
+exist, the identical next-arrival jump is taken. Horizon comparisons are equal,
+including a censoring stop. The induction proves full normalized execution and
+terminal equality, including incomplete populations. Independent referee metrics
+use these same completion sets/times and input requests; their arithmetic/order
+also agree because completion enumeration agrees.
+
+Exact ordered-journal reconstruction. For each saved chunked-FCFS boundary,
+rebuild online views from initial-empty progress and prior acknowledged spans;
+verify original chunked intent exactly; compute new control intent; require
+sorted(control spans)==sorted(saved spans). Copy all event fields, replacing
+intent/executed arrays by the computed control arrays. Reconstruct progress,
+anchors and completion states; run the unmodified independent event referee
+on both original and reconstructed journals and require identical saved metrics
+and terminal records. This produces the exact control serialization that the
+unchanged engine would emit, while preserving original scientific evidence.
+No new serving trajectory, arrival sequence or simulation is generated.
+
+Limits. This is not unconditional policy equivalence: at B512, one resident
+nonurgent decode and a waiting512-token prompt with a free slot give control
+waiting512/no decode versus chunked decode1/waiting511. This internal-state unit
+fixture illustrates why the budget guard matters; it is not an empty-start
+reachable witness. Do not import the BOUND01 fixed-policy theorem to remove the
+guard. Dynamic budgets, multi-token decode, policy-dependent/async timing,
+heterogeneous chunk caps, different admission/release, and malformed inputs are
+excluded. This proof applies to the exact1440 requested C01-FULL control cells,
+not to arbitrary hardware systems or prompt-ordering ablations elsewhere.
+
+Scientific implication. C01-FULL already contains all1440 equivalent control
+trajectories and all1440 SLO baselines. These are EXACT_COMPLETED_BY_PROVEN_
+EQUIVALENCE for requested executable semantics, not newly simulated results.
+The new work is an explicit one-factor implementation, proof, differential
+conformance, revalidation/order reconstruction and causal paired interpretation.
+No1440-cell simulation campaign is scientifically necessary or submitted.
+The proof does not assert a numerical advantage, ranking, urgency outcome, or
+population-significance result; analysis must retain null/adverse outcomes.

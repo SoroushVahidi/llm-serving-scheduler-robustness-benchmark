@@ -1,0 +1,77 @@
+\section{Introduction}
+Distinct scheduling priority lists can select the same work and induce the
+same request-state transitions. Aggregate rankings cannot distinguish this
+structural equivalence from coincidentally similar performance. Evaluation
+therefore requires establishing what the execution model allows each policy
+to change.
+
+For large language model (LLM) serving, workload sensitivity, metric dependence,
+and throughput--latency trade-offs
+are already well established \citep{papaioannou2024workload,agrawal2024etalon,agrawal2024sarathi}.
+Vidur and Vidur-Bench support shared simulation and workload/policy comparisons
+\citep{vidur2024}; evaluation guidelines address baseline fairness and
+misleading summaries \citep{agrawal2025evaluation}. Those contributions
+motivate a more specific question: \emph{which nominal scheduler distinctions
+survive a declared execution contract, why do others disappear, and what
+performance trade-offs remain?} Answering it requires examining state
+transitions and mechanism activation alongside performance measurements.
+
+Our methodological approach is to derive effective scheduler behavior from
+the contract before interpreting performance differences: establish
+reachable-state equivalence under explicit assumptions, determine whether
+the implemented mechanisms can activate, and measure the trade-offs that
+survive. The state-transition argument, inactivity certificate, and saved
+execution checks below support distinct parts of this analysis; observed
+agreement outside the proof's assumptions is not a general equivalence
+theorem.
+
+We investigate four project-maintained adaptations under \cm, a contract
+specifying online information, legal actions, work advancement, batch timing,
+and resource acquisition and release. The adaptations retain selected ideas
+from first-come, first-served (FCFS) serving, chunked prefill, decode-first scheduling, and urgency-aware
+prompt ordering \citep{kwon2023vllm,agrawal2024sarathi,slai2025}.
+The baseline fixes batch cost; a separate sensitivity varies it with executed
+work. Four or eight
+resident slots preserve admission competition. This abstraction permits a
+precise account of executable distinctions, without predicting a particular
+GPU or comparing native serving systems. The complete selected corpus has
+120 frozen production-derived windows, six joint arrival/deadline settings,
+and two residency capacities.
+
+The scientific contribution connects three questions and their answers:
+\begin{description}[leftmargin=0pt,labelindent=0pt]
+\item[RQ1: Effective behavior.] Which policy distinctions change request
+execution? We prove a resident-prefix invariant: all residents except the
+youngest collectively demand strictly less than the batch budget. This
+implies identical selected work for fixed chunked-FCFS and decode-first
+policies starting empty, including binding budgets. Common batch-end
+updates then give identical normalized transitions and terminal outcomes
+(Theorem~\ref{thm:equivalence}). The 1,440 matched terminal comparisons and
+a separate 72-cell budget sensitivity check implementation conformance;
+they are not the basis of the universal quantifier within the theorem's scope.
+\item[RQ2: Mechanism inactivity.] Why does SLO-gated's urgency rule not
+execute? The service-level-objective (SLO) adaptation uses a fixed token-gap
+threshold. Clock updates give zero anchor age in the original contract. A
+finite-work bound also rules out first activation under the examined binding
+budgets. Completion deadlines do not enter the gate. The measured SLO-gated
+effects consequently cannot be attributed to urgency; prompt-length
+admission ordering remains an active distinction. A controlled ablation
+isolates its latency--throughput--deadline trade-off under the original
+nonbinding budget, using proven-equivalent existing controls.
+\item[RQ3: Residual trade-offs and rankings.] What preferences remain, and
+at what comparison level? Measured mean-latency improvements coexist with
+throughput losses and, on BurstGPT, larger mean window-p95 latency.
+Source-mean practical stability coexists with window-level and
+metric-dependent reversals. Removing duplicate behaviors and endpoints
+preserves that contrast. A synthetic timing sensitivity retains the
+chunked/decode-first equivalence while demonstrating that full-corpus
+mean-latency gains need not hold on a selected window subset.
+\end{description}
+
+Section~\ref{sec:contract} gives the structural arguments;
+Sections~\ref{sec:performance} and \ref{sec:rankings} quantify the surviving
+comparisons. Event reconstruction and numerical verification support the
+findings. The separate historical diagnostic in Section~\ref{sec:inference}
+examines statistical calibration; it adds no common-contract observations.
+The selected windows support finite-corpus conclusions. Transfer to other
+execution contracts remains an open modeling question.

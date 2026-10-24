@@ -1,0 +1,27 @@
+{
+  "verification_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9",
+    "pandas": "3.0.2",
+    "PyYAML": "6.0.3",
+    "pytest": "9.0.3"
+  },
+  "frozen_execution": {
+    "c01_python": "3.12.13",
+    "stat01_python": "3.12.13",
+    "stat01_numpy": "2.5.2",
+    "stat01_scipy": "1.18.1",
+    "authority": "frozen launch manifests; not a fresh environment reproduction"
+  },
+  "fresh_installation_tested": false,
+  "isolation": "Disposable filesystem copy; existing Python environment, PYTHONPATH removed; not containerized/air-gapped.",
+  "extensions": {
+    "analysis_python": "3.12.3",
+    "dependency": "standard library for independent numerical checks; Matplotlib only for exhibits",
+    "frozen_execution_authority": "evidence/time01/manifest.json and evidence/abl01/manifest.json",
+    "new_simulations_this_integration": 0
+  }
+}

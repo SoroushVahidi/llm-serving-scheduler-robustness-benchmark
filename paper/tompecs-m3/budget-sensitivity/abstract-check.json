@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "cells": 5760,
+  "completed_request_executions": 1152000,
+  "matched_metric_equivalences": 1440,
+  "differing_compressed_journal_hashes": 1207,
+  "journal_caveat": "Different compressed hashes alone do not identify ordering differences; terminal equality was independently checked against all raw terminal records by check_c01.py.",
+  "source_capacity_effects": [
+    {
+      "source": "azure_llm_2024",
+      "profile": "kv131072",
+      "latency_reduction_percent": 34.0312720545399,
+      "throughput_reduction_percent": 1.6484454179717556,
+      "mean_window_p95_increase_percent": -3.5500337416429995
+    },
+    {
+      "source": "azure_llm_2024",
+      "profile": "kv262144",
+      "latency_reduction_percent": 31.328237950528425,
+      "throughput_reduction_percent": 2.7479977902187924,
+      "mean_window_p95_increase_percent": -3.291341244940793
+    },
+    {
+      "source": "bailian_qwen",
+      "profile": "kv131072",
+      "latency_reduction_percent": 24.05356402688318,
+      "throughput_reduction_percent": 1.9928754169964535,
+      "mean_window_p95_increase_percent": -7.652997696508679
+    },
+    {
+      "source": "bailian_qwen",
+      "profile": "kv262144",
+      "latency_reduction_percent": 22.36774233566591,
+      "throughput_reduction_percent": 4.006124243411813,
+      "mean_window_p95_increase_percent": -5.884625851323544
+    },
+    {
+      "source": "burstgpt",
+      "profile": "kv131072",
+      "latency_reduction_percent": 14.88241754144326,
+      "throughput_reduction_percent": 3.9189522787501874,
+      "mean_window_p95_increase_percent": 3.7225323212531025
+    },
+    {
+      "source": "burstgpt",
+      "profile": "kv262144",
+      "latency_reduction_percent": 11.264637185298165,
+      "throughput_reduction_percent": 3.7928939084623803,
+      "mean_window_p95_increase_percent": 18.971403164045086
+    }
+  ],
+  "reversal_summary": {
+    "window": {
+      "groups": 2376,
+      "total": 1853280,
+      "reversals": 34394
+    },
+    "source": {
+      "groups": 2376,
+      "total": 3801600,
+      "reversals": 109913
+    },
+    "source_mean": {
+      "groups": 2376,
+      "total": 2376,
+      "reversals": 0
+    },
+    "load": {
+      "groups": 5940,
+      "total": 237600,
+      "reversals": 920
+    },
+    "kv": {
+      "groups": 1188,
+      "total": 47520,
+      "reversals": 350
+    },
+    "metric": {
+      "groups": 11880,
+      "total": 475200,
+      "reversals": 11795
+    }
+  },
+  "experiments_executed": 0
+}

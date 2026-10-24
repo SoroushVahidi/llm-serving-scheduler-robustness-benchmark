@@ -1,0 +1,16 @@
+{
+  "paper_base": "42170fdcdc7c4b68ae2639b319a4892d097532a0",
+  "paper_identity": "Integrated manuscript stacked on exact PR29; see RELEASE.json for immutable candidate commit.",
+  "c01": "2d8342e699f35044044ac518c0b75a3c4a1c768c",
+  "c01_pilot": "9aed0206de66886e9feb0b003b59f0b7dfea68c9",
+  "stat01": "1ac4c8dd1421aabad05e6ce243cb911a6ed6c8e1",
+  "stat01_original": "454168a005240341dc5a5ae88ac32c4b130f6bc5",
+  "evidence_review": "6b2eedd7aa254986b85c1bb901587641cbeac8b0",
+  "prewrite_audit": "d22c7751af9c563d5a4d8a304c007f26112c4d12",
+  "delivery_only_successor": "8bdf692f0432304002c64b23b7afef6ee3bc3617",
+  "bound01": "32426114d7a321de790a194c51aacbc23703975a",
+  "prior_package_paper": "33e1452696a513bb2ebe05ea2c803669293f3388",
+  "time01": "f0d9e525fa99c960129a999993e91bd7a554e997",
+  "abl01": "f0142a669488fe184b175828a922128d63c1bc03",
+  "paper_parent": "4c87f7172a17a50b18b83d21d7c8850c0cfbce60"
+}

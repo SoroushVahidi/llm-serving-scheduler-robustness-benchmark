@@ -1,0 +1,62 @@
+{
+  "time01": {
+    "status": "PASS",
+    "cells_or_pairs": 384,
+    "raw_terminal_metric_sets_recomputed": 768,
+    "unique_analysis_rows": 768,
+    "paired_rows": 4224,
+    "comparison_rows": 7128,
+    "source_files_checked": 19,
+    "input_conditions": 48,
+    "policy_panels": 96,
+    "code_sha": "f0d9e525fa99c960129a999993e91bd7a554e997",
+    "manifest_sha256": "d285be5066d727bf93c6e5266181b134e76dcaab371889a00ac6d5d7c10a57a2",
+    "all_hashes_and_pairing_checks": "PASS",
+    "analysis_verdict": "all cells, paired values, source means, rank rows, rational margins and reversal totals match raw saved results"
+  },
+  "abl01": {
+    "status": "PASS",
+    "cells_or_pairs": 1440,
+    "raw_terminal_metric_sets_recomputed": 2880,
+    "unique_analysis_rows": 2880,
+    "paired_rows": 18720,
+    "comparison_rows": 114048,
+    "source_files_checked": 17,
+    "input_conditions": 720,
+    "policy_panels": 1440,
+    "code_sha": "f0142a669488fe184b175828a922128d63c1bc03",
+    "manifest_sha256": "aab60f02878174cf4e72167295586e2c4187f09c57affd149bbc79aac5f67fc0",
+    "all_hashes_and_pairing_checks": "PASS",
+    "analysis_verdict": "all cells, paired values, source means, rank rows, rational margins and reversal totals match raw saved results"
+  },
+  "selection": {
+    "input_only_stratification": "PASS",
+    "selected_windows": [
+      "azure_llm_2024_pilot_v2_w22",
+      "azure_llm_2024_pilot_v2_w35",
+      "azure_llm_2024_pilot_v2_w15",
+      "azure_llm_2024_stage0_w02",
+      "azure_llm_2024_pilot_v2_w18",
+      "azure_llm_2024_stage0_w04",
+      "azure_llm_2024_pilot_v2_w24",
+      "azure_llm_2024_pilot_v2_w39",
+      "bailian_qwen_pilot_v2_w25",
+      "bailian_qwen_pilot_v2_w35",
+      "bailian_qwen_stage0_w03",
+      "bailian_qwen_pilot_v2_w31",
+      "bailian_qwen_pilot_v2_w19",
+      "bailian_qwen_pilot_v2_w18",
+      "bailian_qwen_pilot_v2_w21",
+      "bailian_qwen_pilot_v2_w29",
+      "burstgpt_pilot_v2_w18",
+      "burstgpt_pilot_v2_w36",
+      "burstgpt_pilot_v2_w15",
+      "burstgpt_pilot_v2_w30",
+      "burstgpt_pilot_v2_w27",
+      "burstgpt_pilot_v2_w33",
+      "burstgpt_pilot_v2_w38",
+      "burstgpt_pilot_v2_w29"
+    ],
+    "statistical_design": "Purposive deterministic selection; no random probability sample"
+  }
+}

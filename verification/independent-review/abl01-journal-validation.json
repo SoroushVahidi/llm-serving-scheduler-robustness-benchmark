@@ -1,0 +1,3250 @@
+{
+  "status": "PASS",
+  "pairs_sampled": 36,
+  "selection": "first lexical window in each source/region/capacity stratum",
+  "source_journals": 72,
+  "derived_journals": 36,
+  "records": [
+    {
+      "cell_id": "9de7f79f43be26839ac8ea131963da0f173200b27d683d300e184ffb177a916b",
+      "source": "azure_llm_2024",
+      "region": "HIGH_PRESSURE",
+      "profile": "kv131072",
+      "control": {
+        "events": 6207,
+        "normalized_sha256": "4c46b1ccbb19197497b780fcb6dc2a705eea9d2855a0d84a36dcda668101c785",
+        "array_order_not_id_sorted_events": 760,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5446
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6207,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 6683,
+        "normalized_sha256": "3b189515cb13f82491f9d3e87e9a7283e7597066db18aa3acbe8edcd7478497a",
+        "array_order_not_id_sorted_events": 616,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 769,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5913
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6683,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 6207,
+        "normalized_sha256": "4c46b1ccbb19197497b780fcb6dc2a705eea9d2855a0d84a36dcda668101c785",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5446
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6207,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "1a2bd22fc8704e91f283a620b80d2871e197fcdfbc3e1df5f083bea7869d1227",
+      "source": "azure_llm_2024",
+      "region": "HIGH_PRESSURE",
+      "profile": "kv262144",
+      "control": {
+        "events": 3208,
+        "normalized_sha256": "52323553ae033b68a5a23b9ea41f6629ca83ee62d583bbed13bc431428815289",
+        "array_order_not_id_sorted_events": 690,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 690,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2517
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 3643,
+        "normalized_sha256": "61883fac3b5367a8349082ec4d5e414e621b34722776427fd5e6af1358e27f8f",
+        "array_order_not_id_sorted_events": 640,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 712,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2930
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3643,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3208,
+        "normalized_sha256": "52323553ae033b68a5a23b9ea41f6629ca83ee62d583bbed13bc431428815289",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 690,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2517
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "e9e9f3043efa17efef9d3a299d4011c69d5cec75088eaa3bc1937a2054dbdfec",
+      "source": "azure_llm_2024",
+      "region": "KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 6208,
+        "normalized_sha256": "b9b9187798c78f9a58fb324839fcd5c2d0a107edc1e2ffc99b594d21639aaba0",
+        "array_order_not_id_sorted_events": 760,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5447
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 6679,
+        "normalized_sha256": "e90c97de414b30ffe4c6293ae44ff3fd0438bc09beefc09e529edd9968f6c5df",
+        "array_order_not_id_sorted_events": 600,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 759,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5919
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6679,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 6208,
+        "normalized_sha256": "b9b9187798c78f9a58fb324839fcd5c2d0a107edc1e2ffc99b594d21639aaba0",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5447
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "d6c03599a8a6c21fa51a16d8d0eae1db9a1c13025ae5ecf79ca2c4ab57219b59",
+      "source": "azure_llm_2024",
+      "region": "KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 3209,
+        "normalized_sha256": "a6870bb994a001b012869a5b2f27b825da5816882e6e899e0cd2363063e2f25f",
+        "array_order_not_id_sorted_events": 691,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 691,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2517
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 3644,
+        "normalized_sha256": "64882271e0b22772d16ff5cedc52e82e6cee46c7f3d0ae20d67d257eaf54e736",
+        "array_order_not_id_sorted_events": 638,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 705,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2938
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3644,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3209,
+        "normalized_sha256": "a6870bb994a001b012869a5b2f27b825da5816882e6e899e0cd2363063e2f25f",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 691,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2517
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "999014598d4e82cb0ab145cfb3cf17c8dcdacc85937d90ba5e88a9446d5b1f40",
+      "source": "azure_llm_2024",
+      "region": "LOW",
+      "profile": "kv131072",
+      "control": {
+        "events": 6208,
+        "normalized_sha256": "1688fee4ac18b49bf60b3fec96ae5b126d904e513e942206c0c3a3cc3f07ee7a",
+        "array_order_not_id_sorted_events": 763,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 763,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5444
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 6680,
+        "normalized_sha256": "fd3755bcf71086da5c4beafef3f60e9997d692441383565a07a13062eb783367",
+        "array_order_not_id_sorted_events": 610,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 764,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5915
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6680,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 6208,
+        "normalized_sha256": "1688fee4ac18b49bf60b3fec96ae5b126d904e513e942206c0c3a3cc3f07ee7a",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 763,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5444
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "4cf7f60f59c4f488395c0a2a983c6429e1c70fe1bfc228f33edfcc82265b199c",
+      "source": "azure_llm_2024",
+      "region": "LOW",
+      "profile": "kv262144",
+      "control": {
+        "events": 3210,
+        "normalized_sha256": "81fd466649bcf7544224d84805b219eee26ee2579390b92d04a12d73ec5b25f7",
+        "array_order_not_id_sorted_events": 686,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 686,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2523
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3210,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 3644,
+        "normalized_sha256": "33016c5d285573e2a9dbf6eb9e4fee4387ca6dd714b692b54ece6bb38382e9b5",
+        "array_order_not_id_sorted_events": 650,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 716,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2927
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3644,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3210,
+        "normalized_sha256": "81fd466649bcf7544224d84805b219eee26ee2579390b92d04a12d73ec5b25f7",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 686,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2523
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3210,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "35d79d0952abb44622bbc7627623619805ffa3468eae52471ba18ed55090c677",
+      "source": "azure_llm_2024",
+      "region": "OVERLOAD",
+      "profile": "kv131072",
+      "control": {
+        "events": 6208,
+        "normalized_sha256": "b9b9187798c78f9a58fb324839fcd5c2d0a107edc1e2ffc99b594d21639aaba0",
+        "array_order_not_id_sorted_events": 760,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5447
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 6679,
+        "normalized_sha256": "e90c97de414b30ffe4c6293ae44ff3fd0438bc09beefc09e529edd9968f6c5df",
+        "array_order_not_id_sorted_events": 600,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 759,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5919
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6679,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 6208,
+        "normalized_sha256": "b9b9187798c78f9a58fb324839fcd5c2d0a107edc1e2ffc99b594d21639aaba0",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5447
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "8c21cf0fb1a43782d611471378149b579a304b59ac120ba06b6440776b0c88c5",
+      "source": "azure_llm_2024",
+      "region": "OVERLOAD",
+      "profile": "kv262144",
+      "control": {
+        "events": 3209,
+        "normalized_sha256": "a6870bb994a001b012869a5b2f27b825da5816882e6e899e0cd2363063e2f25f",
+        "array_order_not_id_sorted_events": 691,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 691,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2517
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 3644,
+        "normalized_sha256": "3e5a24bfe76371d3b313d386f96aed74a98c553437c00dc1a5e22a9e0173941f",
+        "array_order_not_id_sorted_events": 635,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 706,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2937
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3644,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3209,
+        "normalized_sha256": "a6870bb994a001b012869a5b2f27b825da5816882e6e899e0cd2363063e2f25f",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 691,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2517
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "a4ebf81fb2f4982037cc05dfff992be9bd48d7d3129326e0611f4fe43444a81d",
+      "source": "azure_llm_2024",
+      "region": "POST_KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 6208,
+        "normalized_sha256": "b9b9187798c78f9a58fb324839fcd5c2d0a107edc1e2ffc99b594d21639aaba0",
+        "array_order_not_id_sorted_events": 760,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5447
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 6679,
+        "normalized_sha256": "e90c97de414b30ffe4c6293ae44ff3fd0438bc09beefc09e529edd9968f6c5df",
+        "array_order_not_id_sorted_events": 600,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 759,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5919
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6679,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 6208,
+        "normalized_sha256": "b9b9187798c78f9a58fb324839fcd5c2d0a107edc1e2ffc99b594d21639aaba0",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5447
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "ac535ee1f88775b79f31d7dfc0d33e372c3b7d3406d7a260a452b68a08eb9be6",
+      "source": "azure_llm_2024",
+      "region": "POST_KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 3209,
+        "normalized_sha256": "a6870bb994a001b012869a5b2f27b825da5816882e6e899e0cd2363063e2f25f",
+        "array_order_not_id_sorted_events": 691,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 691,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2517
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 3644,
+        "normalized_sha256": "7efa3a60c64fffc609167f3a3b7387d6007e755bcaac98a2c8e764277602d019",
+        "array_order_not_id_sorted_events": 637,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 706,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2937
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3644,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3209,
+        "normalized_sha256": "a6870bb994a001b012869a5b2f27b825da5816882e6e899e0cd2363063e2f25f",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 691,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2517
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "b94e9c5ca6766b02e857374c44737a1e51482d3cda1110a817796669255801b3",
+      "source": "azure_llm_2024",
+      "region": "PRE_KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 6208,
+        "normalized_sha256": "b9b9187798c78f9a58fb324839fcd5c2d0a107edc1e2ffc99b594d21639aaba0",
+        "array_order_not_id_sorted_events": 760,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5447
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 6679,
+        "normalized_sha256": "79b5b9b1018a066448afbf7fa08e2ce3cb87bef822ef2636216fad36fc1e8296",
+        "array_order_not_id_sorted_events": 602,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 757,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5921
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6679,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 6208,
+        "normalized_sha256": "b9b9187798c78f9a58fb324839fcd5c2d0a107edc1e2ffc99b594d21639aaba0",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 760,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 5447
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 6208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "c23a1b6d463b001948573c2779fb7d1dcb16de170a8113a41aada706118a689f",
+      "source": "azure_llm_2024",
+      "region": "PRE_KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 3209,
+        "normalized_sha256": "f937df5d5089e31d8707394cc06d7e74a34522a473206fdbb0b9ed1a0088da6c",
+        "array_order_not_id_sorted_events": 686,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 686,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2522
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 3645,
+        "normalized_sha256": "8d210b18777f057e8fe263b5a83230e9cf17f111d816c972c7c5fc4c40426ec8",
+        "array_order_not_id_sorted_events": 642,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 712,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2932
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3645,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3209,
+        "normalized_sha256": "f937df5d5089e31d8707394cc06d7e74a34522a473206fdbb0b9ed1a0088da6c",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 359026,
+          "decode_tokens": 23349,
+          "mixed_batches": 686,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2522
+        },
+        "urgency": {
+          "ready": 23349,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "aa37a6b0d3c6b0617254c9d33da7bfcca9121f821a2ba01a7bceb235a6a99e5e",
+      "source": "bailian_qwen",
+      "region": "HIGH_PRESSURE",
+      "profile": "kv131072",
+      "control": {
+        "events": 4985,
+        "normalized_sha256": "876d0c9b9dae620a1d97e10fc5cc00921010ec0c50b9e24b81394ab793bdc65e",
+        "array_order_not_id_sorted_events": 465,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 4747,
+        "normalized_sha256": "b54732d6370eb48f9574759df68639d7c2615314f16b7b75190b3dc83eeb5248",
+        "array_order_not_id_sorted_events": 321,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 468,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4278
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4747,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 4985,
+        "normalized_sha256": "876d0c9b9dae620a1d97e10fc5cc00921010ec0c50b9e24b81394ab793bdc65e",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "ce5f195402b0a7bee0ce4f2527cca438c03c25c480a9751076dc532acdcf4305",
+      "source": "bailian_qwen",
+      "region": "HIGH_PRESSURE",
+      "profile": "kv262144",
+      "control": {
+        "events": 3081,
+        "normalized_sha256": "3009fed320f8f8cb4971f58e012090bb9cb6dd5105380555954599a1c8462e29",
+        "array_order_not_id_sorted_events": 431,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 431,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2649
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3081,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 2831,
+        "normalized_sha256": "8a12fb1905d1b924c2643868860ede56649f30a65b4d533b445efc018cdf0e0a",
+        "array_order_not_id_sorted_events": 349,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 430,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2400
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 2831,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3081,
+        "normalized_sha256": "3009fed320f8f8cb4971f58e012090bb9cb6dd5105380555954599a1c8462e29",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 431,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2649
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3081,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "de3f6ef3128bd627aadb74cef3ba325df63ca710c901fcb53817c216fd6f3742",
+      "source": "bailian_qwen",
+      "region": "KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 4985,
+        "normalized_sha256": "b55077f1c65ab7ed3a1bccfe1b402df45a4995f17b1410590e70e9dcc7854072",
+        "array_order_not_id_sorted_events": 465,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 4748,
+        "normalized_sha256": "fb8391b358d605ba1a69576f9ecfd7851c1257a7bb2d9123f75f781e0d5bf702",
+        "array_order_not_id_sorted_events": 321,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 463,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4284
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4748,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 4985,
+        "normalized_sha256": "b55077f1c65ab7ed3a1bccfe1b402df45a4995f17b1410590e70e9dcc7854072",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "3d2649f666464cf3d0c3125365f018c31624e01f7abfd7f18c76599dd090e5b3",
+      "source": "bailian_qwen",
+      "region": "KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 3082,
+        "normalized_sha256": "bee11a656b820ca79b20762408939f8c1ad80a09b28da81e1b993206f50acfb7",
+        "array_order_not_id_sorted_events": 431,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 431,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2650
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3082,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 2833,
+        "normalized_sha256": "76a5f72d06b3e05232cbf99467669398e0041bc14a19a8ef06a5919eb7eac1d1",
+        "array_order_not_id_sorted_events": 347,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 417,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2415
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 2833,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3082,
+        "normalized_sha256": "bee11a656b820ca79b20762408939f8c1ad80a09b28da81e1b993206f50acfb7",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 431,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2650
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3082,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "0ce41eee3a0b54740fd8906bdae805d14ebf8647c317944d36980b86c29aa978",
+      "source": "bailian_qwen",
+      "region": "LOW",
+      "profile": "kv131072",
+      "control": {
+        "events": 4986,
+        "normalized_sha256": "51e491c0c499d6d414a076df94ef4e5d149044c1cc897da54e8837ac30582ce4",
+        "array_order_not_id_sorted_events": 464,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 464,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4521
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4986,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 4748,
+        "normalized_sha256": "e852f14183cb084a30f47978e8c9a25149aa2480f55de3131101f6ae8c25e941",
+        "array_order_not_id_sorted_events": 328,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 467,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4280
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4748,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 4986,
+        "normalized_sha256": "51e491c0c499d6d414a076df94ef4e5d149044c1cc897da54e8837ac30582ce4",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 464,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4521
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4986,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "97bce24dfbf83479d5e18153c7bb69268d580c546ea906f96d41d727f02d7b63",
+      "source": "bailian_qwen",
+      "region": "LOW",
+      "profile": "kv262144",
+      "control": {
+        "events": 3086,
+        "normalized_sha256": "0abec46488371011742391f42a994d8971270c9c688048921773f85be20c1a8e",
+        "array_order_not_id_sorted_events": 432,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 432,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2653
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3086,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 2824,
+        "normalized_sha256": "2cf7569f92e79ff067574a734ac895afe4d3f1f9e713e28249975088550fb2f4",
+        "array_order_not_id_sorted_events": 347,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 408,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2415
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 2824,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3086,
+        "normalized_sha256": "0abec46488371011742391f42a994d8971270c9c688048921773f85be20c1a8e",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 432,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2653
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3086,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "e7ad9b0890bed9bf389a635c1623889810c3171f4e1911e503e2150e2162f703",
+      "source": "bailian_qwen",
+      "region": "OVERLOAD",
+      "profile": "kv131072",
+      "control": {
+        "events": 4985,
+        "normalized_sha256": "876d0c9b9dae620a1d97e10fc5cc00921010ec0c50b9e24b81394ab793bdc65e",
+        "array_order_not_id_sorted_events": 465,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 4746,
+        "normalized_sha256": "e104d9ae401e238619a8e1da7930efa8042513af4b2a77a72dac228ab9bdc365",
+        "array_order_not_id_sorted_events": 317,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 460,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4285
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4746,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 4985,
+        "normalized_sha256": "876d0c9b9dae620a1d97e10fc5cc00921010ec0c50b9e24b81394ab793bdc65e",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "de9f9b3e9672afc6c7b9f4a9959fcbe0023a7c0691315a27bf8ea995b718360d",
+      "source": "bailian_qwen",
+      "region": "OVERLOAD",
+      "profile": "kv262144",
+      "control": {
+        "events": 3081,
+        "normalized_sha256": "0fb9127d2940f53eabb330d823ed99b8de9cad234b81f7dc2e9c22bc6ebac504",
+        "array_order_not_id_sorted_events": 431,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 431,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2649
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3081,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 2833,
+        "normalized_sha256": "56566fc3ea35741701be942178eccb869f719e2f6bf788498403947eda9b5e57",
+        "array_order_not_id_sorted_events": 352,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 425,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2407
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 2833,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3081,
+        "normalized_sha256": "0fb9127d2940f53eabb330d823ed99b8de9cad234b81f7dc2e9c22bc6ebac504",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 431,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2649
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3081,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "31d1c7f1b3820d512d8cf70299249454264e4247de85250fd5936f0d690caaa1",
+      "source": "bailian_qwen",
+      "region": "POST_KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 4985,
+        "normalized_sha256": "876d0c9b9dae620a1d97e10fc5cc00921010ec0c50b9e24b81394ab793bdc65e",
+        "array_order_not_id_sorted_events": 465,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 4747,
+        "normalized_sha256": "c8abc56458901d18df65768850a561e073cd38d565d70071d3c2ac2d861b4e6a",
+        "array_order_not_id_sorted_events": 316,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 461,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4285
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4747,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 4985,
+        "normalized_sha256": "876d0c9b9dae620a1d97e10fc5cc00921010ec0c50b9e24b81394ab793bdc65e",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "20519b8ecd2de6e1c5f49de9dbbc1ae2e90c03991a893f3d11d2bdca505bc880",
+      "source": "bailian_qwen",
+      "region": "POST_KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 3082,
+        "normalized_sha256": "2a81726cd67758312b64bdcd4f4b723299479a0a5f30c35e047cdc9709c6b6e8",
+        "array_order_not_id_sorted_events": 433,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 433,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2648
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3082,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 2831,
+        "normalized_sha256": "e6837a0bfc79f45789ae399b401541eba0b4ce6a601fff06dcfacdbabe34121b",
+        "array_order_not_id_sorted_events": 337,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 407,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2423
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 2831,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3082,
+        "normalized_sha256": "2a81726cd67758312b64bdcd4f4b723299479a0a5f30c35e047cdc9709c6b6e8",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 433,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2648
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3082,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "a3d7c190f0453c906708fbeeb0ce21cb503e2dbe836623062a35309e1c4b0a4a",
+      "source": "bailian_qwen",
+      "region": "PRE_KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 4985,
+        "normalized_sha256": "b55077f1c65ab7ed3a1bccfe1b402df45a4995f17b1410590e70e9dcc7854072",
+        "array_order_not_id_sorted_events": 465,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 4748,
+        "normalized_sha256": "367c41a98ff94cf95b0918073f4eea97dda9244b145f509884a0beaf9108dbcc",
+        "array_order_not_id_sorted_events": 321,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 459,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4288
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4748,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 4985,
+        "normalized_sha256": "b55077f1c65ab7ed3a1bccfe1b402df45a4995f17b1410590e70e9dcc7854072",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 465,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 4519
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 4985,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "bc9361956b0ca2dd32511be72b366fffdd57451110dcecb3b22d7a1a35811ad7",
+      "source": "bailian_qwen",
+      "region": "PRE_KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 3083,
+        "normalized_sha256": "2c9b38002ec07975192ac1cfc3c969634998b89783bddc74dbefc7f8b81adc10",
+        "array_order_not_id_sorted_events": 430,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 430,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2652
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3083,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 2830,
+        "normalized_sha256": "309f71dda62ea80675489ae04d71ae0e18fe3cfbf30e480fac929bf029d904b8",
+        "array_order_not_id_sorted_events": 345,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 414,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2415
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 2830,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 3083,
+        "normalized_sha256": "2c9b38002ec07975192ac1cfc3c969634998b89783bddc74dbefc7f8b81adc10",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 193848,
+          "decode_tokens": 17472,
+          "mixed_batches": 430,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 2652
+        },
+        "urgency": {
+          "ready": 17472,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 3083,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "9a386b44e94e89f733d4e7d8ed550e9230265f9d862958fb28766fc2939c807d",
+      "source": "burstgpt",
+      "region": "HIGH_PRESSURE",
+      "profile": "kv131072",
+      "control": {
+        "events": 408,
+        "normalized_sha256": "60a3697d12a4b43da48f0f39f4e24c9376dd593412cdb1e1f28b29cc9a7066aa",
+        "array_order_not_id_sorted_events": 131,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 131,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 276
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 408,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 408,
+        "normalized_sha256": "0c9cac89fb926c8c5b34bcfeeadf4d202969207c007c72dc7ce31b39588dcc38",
+        "array_order_not_id_sorted_events": 124,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 150,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 257
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 408,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 408,
+        "normalized_sha256": "60a3697d12a4b43da48f0f39f4e24c9376dd593412cdb1e1f28b29cc9a7066aa",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 131,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 276
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 408,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "6733991b2c35b22c84cfffe87b38fb7292491a1f172912427bca46cca327d7d6",
+      "source": "burstgpt",
+      "region": "HIGH_PRESSURE",
+      "profile": "kv262144",
+      "control": {
+        "events": 209,
+        "normalized_sha256": "887929a457d8bf03e5e0d20aa488c1a7c7e4e24c5fa401903a33913106d9c9a7",
+        "array_order_not_id_sorted_events": 102,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 102,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 106
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 208,
+        "normalized_sha256": "f9415f16ecfc81ceb62a0fc14ba98e9914295ae67e1f9845a5bac857ee62459f",
+        "array_order_not_id_sorted_events": 108,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 110,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 97
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 208,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 209,
+        "normalized_sha256": "887929a457d8bf03e5e0d20aa488c1a7c7e4e24c5fa401903a33913106d9c9a7",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 102,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 106
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 209,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "c5e44706ba77770669f830d96b8f5129c5f216bb452979075345d7e1d72d7494",
+      "source": "burstgpt",
+      "region": "KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 409,
+        "normalized_sha256": "909659a326e21abe2db8a35c203f01cca1ead8a82b95430884565f05ebc0485f",
+        "array_order_not_id_sorted_events": 149,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 149,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 259
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 409,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 408,
+        "normalized_sha256": "7da5b0ee7859f1026d878d8508caaeb0126d2725d00bef71d4eee09a94d0ddfd",
+        "array_order_not_id_sorted_events": 127,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 150,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 257
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 408,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 409,
+        "normalized_sha256": "909659a326e21abe2db8a35c203f01cca1ead8a82b95430884565f05ebc0485f",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 149,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 259
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 409,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "7f73b7745499b46f1b898a040eb2283fc967ad592d28c8399e7459948add9ee3",
+      "source": "burstgpt",
+      "region": "KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 272,
+        "normalized_sha256": "5cf273a09bf7a4d972dd060d29fc161efe2ee639dcf31c3cf631ce008c185f2d",
+        "array_order_not_id_sorted_events": 114,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 114,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 157
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 272,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 272,
+        "normalized_sha256": "5cf273a09bf7a4d972dd060d29fc161efe2ee639dcf31c3cf631ce008c185f2d",
+        "array_order_not_id_sorted_events": 114,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 114,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 157
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 272,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 272,
+        "normalized_sha256": "5cf273a09bf7a4d972dd060d29fc161efe2ee639dcf31c3cf631ce008c185f2d",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 114,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 157
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 272,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "480c03411e8d3b1596c962d0c9f969b31557fb8b7fdc51047dcbec45222b15bc",
+      "source": "burstgpt",
+      "region": "LOW",
+      "profile": "kv131072",
+      "control": {
+        "events": 533,
+        "normalized_sha256": "de058c6f1eb4a1b6ed020a9f9eaec285d23378c1066a1c2b4c8725ef20842928",
+        "array_order_not_id_sorted_events": 113,
+        "arrivals_inside_batches": 194,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 113,
+          "prefill_only_batches": 4,
+          "decode_only_batches": 416
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 533,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 533,
+        "normalized_sha256": "ad608fc1fcaaeda8fad204bdcbfe83f22b18e4caea7514aab796c7ecea23d652",
+        "array_order_not_id_sorted_events": 112,
+        "arrivals_inside_batches": 194,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 113,
+          "prefill_only_batches": 4,
+          "decode_only_batches": 416
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 533,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 533,
+        "normalized_sha256": "de058c6f1eb4a1b6ed020a9f9eaec285d23378c1066a1c2b4c8725ef20842928",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 194,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 113,
+          "prefill_only_batches": 4,
+          "decode_only_batches": 416
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 533,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "a85c4d10f06d53734785a1accfe407f197f0ff0388d10493ecda1ef7dab83f73",
+      "source": "burstgpt",
+      "region": "LOW",
+      "profile": "kv262144",
+      "control": {
+        "events": 533,
+        "normalized_sha256": "f0d3642d725cb80ccfe697e72541f6d91a7816ad43d5206d50087e8189a1aaef",
+        "array_order_not_id_sorted_events": 111,
+        "arrivals_inside_batches": 194,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 111,
+          "prefill_only_batches": 4,
+          "decode_only_batches": 418
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 533,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 533,
+        "normalized_sha256": "f0d3642d725cb80ccfe697e72541f6d91a7816ad43d5206d50087e8189a1aaef",
+        "array_order_not_id_sorted_events": 111,
+        "arrivals_inside_batches": 194,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 111,
+          "prefill_only_batches": 4,
+          "decode_only_batches": 418
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 533,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 533,
+        "normalized_sha256": "f0d3642d725cb80ccfe697e72541f6d91a7816ad43d5206d50087e8189a1aaef",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 194,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 111,
+          "prefill_only_batches": 4,
+          "decode_only_batches": 418
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 533,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "63d9bebe764c30b8cab7aa2dc8878b62a41d668b12261dad413df1c8c3b460e9",
+      "source": "burstgpt",
+      "region": "OVERLOAD",
+      "profile": "kv131072",
+      "control": {
+        "events": 409,
+        "normalized_sha256": "927ca86cbaec750f38f2bbe9689d0ec9bea76d57631930fb92f06dd1d47f5a23",
+        "array_order_not_id_sorted_events": 122,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 122,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 286
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 409,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 408,
+        "normalized_sha256": "21785b4801c120f18f85d97864d55f963421be2ddd3196821c28a79a2b20bbb2",
+        "array_order_not_id_sorted_events": 128,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 151,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 256
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 408,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 409,
+        "normalized_sha256": "927ca86cbaec750f38f2bbe9689d0ec9bea76d57631930fb92f06dd1d47f5a23",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 122,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 286
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 409,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "ba39648fd3550195566fd78c4fd05600141906286c2a21e2b61bbee3baa5c13d",
+      "source": "burstgpt",
+      "region": "OVERLOAD",
+      "profile": "kv262144",
+      "control": {
+        "events": 229,
+        "normalized_sha256": "a08f9ac9436fa800500a13d81a00884145bf5981fa35da2e9da607682ef45317",
+        "array_order_not_id_sorted_events": 136,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 136,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 92
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 229,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 229,
+        "normalized_sha256": "775d7bf96871fc1a6dcaa45630428fd9b36a89d70831250d87add962857dcbc3",
+        "array_order_not_id_sorted_events": 136,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 136,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 92
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 229,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 229,
+        "normalized_sha256": "a08f9ac9436fa800500a13d81a00884145bf5981fa35da2e9da607682ef45317",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 136,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 92
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 229,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "23bbc6183de9047c21f7bf9e8db39b8d8c44bbf4d8c82f2d073f9c137feef6dd",
+      "source": "burstgpt",
+      "region": "POST_KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 409,
+        "normalized_sha256": "909659a326e21abe2db8a35c203f01cca1ead8a82b95430884565f05ebc0485f",
+        "array_order_not_id_sorted_events": 149,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 149,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 259
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 409,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 408,
+        "normalized_sha256": "c7cd89b2fa8a342d6e50310978a4c6c41d83932b994c40aca3f42e80994cf93e",
+        "array_order_not_id_sorted_events": 154,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 184,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 223
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 408,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 409,
+        "normalized_sha256": "909659a326e21abe2db8a35c203f01cca1ead8a82b95430884565f05ebc0485f",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 149,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 259
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 409,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "04d06342f9a660b391f9b7bd13e5ebfdce76a19c5a494d48646b00bd6ed7ebce",
+      "source": "burstgpt",
+      "region": "POST_KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 248,
+        "normalized_sha256": "c8b72a92762fd9fcc672ca49012379e16b3cf553b98e2d355725976b8d2f0016",
+        "array_order_not_id_sorted_events": 115,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 115,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 132
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 248,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 248,
+        "normalized_sha256": "bc0af44774a6a0e51b4c2c5ac203b986f3d911b8bbbfddd9b580d55cc6495f81",
+        "array_order_not_id_sorted_events": 115,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 115,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 132
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 248,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 248,
+        "normalized_sha256": "c8b72a92762fd9fcc672ca49012379e16b3cf553b98e2d355725976b8d2f0016",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 115,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 132
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 248,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "ce833befe7619ee6785a97306b60db88fac028f6a9d95e8585811ad6d4b004b5",
+      "source": "burstgpt",
+      "region": "PRE_KNEE",
+      "profile": "kv131072",
+      "control": {
+        "events": 409,
+        "normalized_sha256": "20531b884a14eab78c584fcde2c244158573c2b71ebcb7b492566d4fbf9a35e0",
+        "array_order_not_id_sorted_events": 104,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 104,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 304
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 409,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 408,
+        "normalized_sha256": "fc9b082bd98e766772996e05f4fc28cab0c9f1ffd5be81bd37450e6cbe70f13c",
+        "array_order_not_id_sorted_events": 155,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 181,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 226
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 408,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 409,
+        "normalized_sha256": "20531b884a14eab78c584fcde2c244158573c2b71ebcb7b492566d4fbf9a35e0",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 104,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 304
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 409,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    },
+    {
+      "cell_id": "6d1c3cfdcb138181e9f29b812470778343360444a003d066232f869974050101",
+      "source": "burstgpt",
+      "region": "PRE_KNEE",
+      "profile": "kv262144",
+      "control": {
+        "events": 337,
+        "normalized_sha256": "615ae7ea5e94243cb6194b2a5a81201e2674639b165bbfa0988dda36cfae1921",
+        "array_order_not_id_sorted_events": 114,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 114,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 222
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 337,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "baseline": {
+        "events": 337,
+        "normalized_sha256": "615ae7ea5e94243cb6194b2a5a81201e2674639b165bbfa0988dda36cfae1921",
+        "array_order_not_id_sorted_events": 114,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 114,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 222
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 337,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      },
+      "equivalent_source": {
+        "events": 337,
+        "normalized_sha256": "615ae7ea5e94243cb6194b2a5a81201e2674639b165bbfa0988dda36cfae1921",
+        "array_order_not_id_sorted_events": 0,
+        "arrivals_inside_batches": 199,
+        "composition": {
+          "prefill_tokens": 44852,
+          "decode_tokens": 1406,
+          "mixed_batches": 114,
+          "prefill_only_batches": 1,
+          "decode_only_batches": 222
+        },
+        "urgency": {
+          "ready": 1406,
+          "critical": 0,
+          "selected_critical": 0,
+          "omitted": 0,
+          "max_age": 0
+        },
+        "duration": {
+          "n": 337,
+          "min": 0.001,
+          "mean": 0.001,
+          "p50": 0.001,
+          "p95": 0.001,
+          "max": 0.001
+        }
+      }
+    }
+  ],
+  "total_seconds_including_time01": 50.03001072444022
+}

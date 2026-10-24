@@ -1,0 +1,102 @@
+\section{Related Work and Evaluation Scope}
+\paragraph{Simulation and benchmark comparisons.}
+Vidur combines operator profiling and predictive modeling with hierarchical
+scheduling; its Vidur-Bench suite supplies workloads, scheduling/batching
+policies, and performance metrics, while Vidur-Search explores deployment
+configurations \citep[Sections~4--6]{vidur2024}. Beyond these established comparisons, we ask which policy distinctions
+the shared model preserves: Section~\ref{sec:contract} proves reachable-state
+equivalence for fixed policies, and Section~\ref{sec:urgency} bounds mechanism activation.
+LLMServingSim and its heterogeneous/disaggregated successor also model
+hardware/software interactions \citep{llmservingsim2024,llmservingsim2026}.
+Our fixed-duration work ledger instead permits direct reasoning about
+execution semantics. Journal reconstruction verifies conformance to that
+model; physical prediction would require separate validation \citep{sargent2013}.
+
+\paragraph{Evaluation methodology and metrics.}
+Papaioannou and Doudali study how datasets and inference scenarios change
+LLM-system evaluations \citep{papaioannou2024workload}. Agrawal et al. identify
+anti-patterns in baseline comparisons, evaluation settings, and metric
+design, with a speculative-decoding case study
+\citep[Sections~3--4]{agrawal2025evaluation}; Etalon introduces a fluidity index to
+capture streaming experience missed by conventional summaries
+\citep[Sections~3--5]{agrawal2024etalon}. We adopt their caution about
+benchmark and metric choices. Section~\ref{sec:rankings} adds a matched
+account of source-mean, window-level, and cross-metric preferences after
+demonstrated redundancies are removed. Its absence of source-mean practical
+reversals has a specified threshold and denominator; it does not establish
+universal portability. We introduce neither a new streaming metric nor a
+general evaluation checklist.
+
+\paragraph{Serving and scheduling mechanisms.}
+Orca introduces iteration-level scheduling \citep{yu2022orca}; vLLM's
+PagedAttention addresses key--value (KV) cache fragmentation and sharing \citep{kwon2023vllm};
+Sarathi-Serve combines chunked prefill with stall-free batching
+\citep{agrawal2024sarathi}. Fu et al. learn relative output-length order to
+approximate shortest-job-first scheduling \citep{fu2024ranking}. Our
+prompt-length ordering uses observed inputs, without predicting output
+length or claiming the same objective or optimality.
+Bari et al. give a formal batching framework and distinguish the
+throughput-optimal construction from practical SLO-Aware LLM Inference
+(SLAI), which combines
+decode urgency and known prompt lengths
+\citep{slai2025}. SOLA jointly considers request/system state and work
+allocation to improve SLO attainment \citep{hong2025sola}. These systems evaluate active state-dependent mechanisms under their own
+execution assumptions; our adaptation has a fixed, inactive urgency gate. Full-context reservations also omit native paging, while
+disaggregation and migration, exemplified by DistServe and Llumnix
+\citep{zhong2024distserve,sun2024llumnix}, lie outside the evaluated contract.
+
+\paragraph{Length information and application objectives.}
+FastServe uses known input length to initialize a skip-join multilevel
+feedback queue, with output-token preemption and GPU--host state movement
+\citep{wu2026fastserve}. In contrast, our residents cannot be preempted;
+known prompt length changes only waiting admission order in SLO-gated.
+PLA-Serve, called LAPS in its published PDF, separates long and short
+prefills and combines queue separation with batching and execution
+optimizations \citep{she2026plaserve}. Its prompt-length awareness is
+therefore not equivalent to sorting one waiting list under constant batch
+cost. These systems optimize measured serving performance; our question
+is which differences remain executable after the contract is fixed.
+
+JITServe uses imprecise request information refined during generation to
+allocate service toward heterogeneous application objectives and maximize
+goodput \citep{zhang2026jitserve}. Its active objective-aware decisions
+contrast with our hidden metric deadlines and fixed token-gap gate.
+Our inactivity certificate concerns this particular adaptation, not a
+failure of objective-aware scheduling in JITServe or SLAI. Comparing their
+reported gains directly with ours would conflate information, resource,
+and execution assumptions.
+
+\paragraph{Binding constraints and throughput.}
+Dai et al.'s May 18, 2026 revision studies queueing stability with token-load-
+dependent batch time and a maximal-request-batch-size extension
+\citep{dai2026throughput}. The binding constraint matters in both studies,
+but the estimands differ. Our contract fixes batch time, limits residency to four or
+eight requests, and measures output divided by finite-window completion
+duration. Its original-contract chunked work cannot exhaust the token budget;
+Section~\ref{sec:budget} separately tests lower budgets. These drained
+rates are not a stability region, and the observed throughput losses neither
+refute Dai et al.'s results nor establish a new optimality theorem.
+
+Ao et al. model endogenous memory growth and linear iteration times,
+using a fluid benchmark to derive WAIT for known output lengths and Nested
+WAIT for unknown lengths \citep{ao2026fluid}. Their stability and asymptotic
+results are conditioned on memory assumptions; evaluation includes profiled
+simulation and supplemental GPU evidence. Our full-context reservations
+instead remove memory-growth admission risk, and our theorem characterizes
+behavioral equality rather than throughput optimality. The finite drained
+rates reported here cannot establish or refute those stability claims.
+
+\paragraph{Workload scope.}
+BurstGPT and ServeGen characterize production-derived workloads
+\citep{burstgpt2025,servegen2026}; resampling has a longer history in scheduler
+evaluation \citep{zakay2014resampling}. Our analysis instead conditions on a fixed
+selected corpus, with equal-window source means and explicit matched
+comparisons. This supplies evidence within those windows, not a new workload
+generator or an estimate of production-wide scheduler preferences.
+
+\paragraph{Inference and evidence reuse.}
+STAT01 diagnoses established inference procedures
+\citep{benjamini1995,benjamini2001dependency,holm1979,hoeffding1963};
+it introduces no new method. Historical inputs and rule outputs are reused,
+with separate common-model execution identities (Appendix~\ref{app:evidence}).
+Shared infrastructure does not constitute independent validation.

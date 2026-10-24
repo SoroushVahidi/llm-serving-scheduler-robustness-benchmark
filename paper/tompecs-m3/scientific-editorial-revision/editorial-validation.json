@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "base_commit": "03efa8eabcf5304a514dfd002b70b05c042cde36",
+  "checks": {
+    "sections/performance.tex_numbers_unchanged": true,
+    "sections/design.tex_numbers_unchanged": true,
+    "sections/example.tex_numbers_unchanged": true,
+    "sections/sensitivity.tex_numbers_unchanged": true,
+    "sections/inference.tex_numbers_unchanged": true,
+    "appendix_statistical_numbers_unchanged": true,
+    "frozen_handoff_unchanged": true,
+    "numbered_referenced_equations": 9,
+    "cited_references": 32,
+    "figure_labels": 4,
+    "table_labels": 12,
+    "no_private_paths_or_parallel_submission_identifiers": true
+  },
+  "protected_file_count": 152,
+  "pdfs": {
+    "manuscript": {
+      "pages": 29,
+      "sha256": "2b01a4e698f4bbde2604bf58636058e62bf6f828059335df7d274ee021adaae7",
+      "bytes": 770102
+    },
+    "acmsmall": {
+      "pages": 30,
+      "sha256": "81e0b339e2d133404e2a528fa94f1077983d7128b1f59910d960d465bd763c5b",
+      "bytes": 766206
+    }
+  },
+  "experiments_executed": 0,
+  "scientific_changes": "Only the BOUND01 theorem is newly integrated; empirical numerical claims are unchanged."
+}

@@ -1,0 +1,13 @@
+{
+  "old_rows": 18720,
+  "old_unique_configuration_count": 9360,
+  "m3_rows": 5760,
+  "m3_reused_pilot_rows": 144,
+  "m3_new_execution_rows": 5616,
+  "m3_unique_keys": 5760,
+  "literal_cell_key_intersection": 0,
+  "shared_window_region_labels": 720,
+  "historical_consolidated_exact_public_duplicate": true,
+  "historical_consolidated_sha256": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+  "interpretation": "Shared workloads/settings are reused design inputs. Different engine/policy/configuration identities define different experiments; label intersection is not evidence of independent samples. Historical matrix is included solely for frozen comparative verification, not counted as M3 cells."
+}

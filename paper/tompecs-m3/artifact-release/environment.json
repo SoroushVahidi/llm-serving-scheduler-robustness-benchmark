@@ -1,0 +1,23 @@
+{
+  "display_and_verification": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9",
+    "pdflatex": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+    "bibtex": "BibTeX 0.99d (TeX Live 2023/Debian)"
+  },
+  "frozen_execution": {
+    "c01_python": "3.12.13",
+    "stat01_python": "3.12.13",
+    "stat01_numpy": "2.5.2",
+    "stat01_scipy": "1.18.1",
+    "authority": "frozen launch manifests; not a fresh environment reproduction"
+  },
+  "missing_checks": [
+    "fresh dependency installation",
+    "second OS/architecture",
+    "new experiment execution (not authorized)"
+  ]
+}

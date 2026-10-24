@@ -1,0 +1,5 @@
+# Versions actually used for this saved-data verification/display pass.
+# Python 3.12.3; TeX Live 2023/Debian and Poppler installed separately.
+numpy==2.3.5
+scipy==1.17.1
+matplotlib==3.10.9

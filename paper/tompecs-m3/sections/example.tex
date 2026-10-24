@@ -1,0 +1,51 @@
+\subsection{A saved-record explanation of the trade-off}\label{sec:example}
+Consider BurstGPT window \texttt{burstgpt\_pilot\_v2\_w12}, setting
+\texttt{HIGH\_PRESSURE}, capacity 262,144 (eight resident slots).
+We selected this illustration retrospectively: among BurstGPT conditions
+where SLO-gated has lower mean latency, lower throughput and higher p95 than
+chunked-FCFS, it is first in lexical window/setting/capacity order. This is
+an outcome-selected example, not a random or representative window.
+Its frozen identity and verification records accompany the reproduction
+evidence (Appendix~\ref{app:evidence}).
+
+Both adaptations complete the same 200 requests and emit 3,520 output tokens.
+Table~\ref{tab:example-aggregate} uses all requests: mean latency falls by
+40.60\%, but p95 rises by 33.17\% and throughput falls by 14.63\%.
+The throughput denominator runs from first arrival to final completion,
+including drain; it grows from 1.150 to 1.347\,s. The p95 linearly
+interpolates ordered per-request latencies at zero-based position 189.05.
+It is a single-condition quantile, not the source mean of window p95s in
+Table~\ref{tab:absolute}.
+
+\begin{table}[!htbp]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{One outcome-selected BurstGPT condition, with identical completed
+inputs and output count. All times and rates are CM quantities. Duration
+includes the drain; percentages in the text are relative to chunked-FCFS.}
+\label{tab:example-aggregate}\input{major-revision/example-aggregates}
+\end{table}
+
+The saved journals show how admission competition remains active despite
+the nonbinding token budget. At 14\,ms, request 5 has just completed, leaving
+one slot; requests 13 and 14 have both arrived. Chunked-FCFS admits request
+13 (214 prompt tokens), whereas SLO-gated admits request 14 (201 tokens).
+The other request enters at 16\,ms in each run. This is the first difference
+in admitted membership, not merely in the order of spans within a batch.
+Request 26 has a 1,976-token prompt and 1,120 output tokens. Its first prefill
+starts at 26\,ms under chunked-FCFS and 223\,ms under SLO-gated; its first
+output occurs at 31 and 228\,ms, respectively. It completes last in both
+runs, at 1.150 and 1.347\,s. Thus its later service accounts exactly for
+the longer denominator in this condition, without changing total output.
+The admission rule observes its prompt length, not its output demand.
+Across all requests, 151 complete earlier under SLO-gated, 29 later and
+20 at the same time; the sum of latency changes is $-5.008$\,s. Mean latency
+therefore improves even while the last completion and upper quantile worsen.
+The p95 brackets involve other requests, so the final request alone does
+not explain the p95 change. This illustration explains compatibility of
+the objectives; ABL01 supplies the controlled intervention across the corpus.
+The full request timeline remains in the supplementary evidence.
+
+The example manifest records exact input/result/journal identities and
+SHA-256 hashes. Independent event reconstruction checks all 400 terminal
+states and 2,497 events against the displayed tables; the complete records
+support reproduction of the illustration without selecting a new condition.

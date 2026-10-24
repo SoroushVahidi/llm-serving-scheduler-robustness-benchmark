@@ -1,0 +1,77 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "engineering_boundary_cases": 3,
+  "checks": [
+    {
+      "age_s": 0.49499999999999994,
+      "urgent": false,
+      "spans": [
+        [
+          1,
+          "prefill",
+          0,
+          512
+        ],
+        [
+          2,
+          "prefill",
+          0,
+          512
+        ]
+      ]
+    },
+    {
+      "age_s": 0.495,
+      "urgent": true,
+      "spans": [
+        [
+          0,
+          "decode",
+          1,
+          2
+        ],
+        [
+          1,
+          "prefill",
+          0,
+          512
+        ],
+        [
+          2,
+          "prefill",
+          0,
+          511
+        ]
+      ]
+    },
+    {
+      "age_s": 0.49500000000000005,
+      "urgent": true,
+      "spans": [
+        [
+          0,
+          "decode",
+          1,
+          2
+        ],
+        [
+          1,
+          "prefill",
+          0,
+          512
+        ],
+        [
+          2,
+          "prefill",
+          0,
+          511
+        ]
+      ]
+    }
+  ],
+  "scientific_experiments_executed": 0,
+  "workload_simulation_called": false,
+  "policy_modified": false,
+  "configurable_slo_or_deadline_parameter": false,
+  "policy_sha256": "d54e96880afb9001dc0fbc19511bb6338367eb828948a48cd68a516e871fdbb1"
+}

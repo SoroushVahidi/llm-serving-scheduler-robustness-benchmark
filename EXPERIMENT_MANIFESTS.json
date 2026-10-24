@@ -1,0 +1,21 @@
+{
+  "time01": {
+    "code_commit": "f0d9e525fa99c960129a999993e91bd7a554e997",
+    "manifest_path": "evidence/time01/manifest.json",
+    "manifest_sha256": "d285be5066d727bf93c6e5266181b134e76dcaab371889a00ac6d5d7c10a57a2",
+    "status": "INDEPENDENTLY_REVIEWED_INCLUDED_RC3",
+    "original_manifest_bytes_unchanged": true
+  },
+  "abl01": {
+    "code_commit": "f0142a669488fe184b175828a922128d63c1bc03",
+    "manifest_path": "evidence/abl01/manifest.json",
+    "manifest_sha256": "aab60f02878174cf4e72167295586e2c4187f09c57affd149bbc79aac5f67fc0",
+    "status": "INDEPENDENTLY_REVIEWED_INCLUDED_RC3",
+    "original_manifest_bytes_unchanged": true
+  },
+  "review": {
+    "verdict_path": "verification/independent-review/VERDICTS.json",
+    "sha256": "afaffe4cb321093bd0d3ea06644a12f2d32bd7daecae0d8d651798bb4ac6b964",
+    "historical_review_required_flags": "retained unchanged; this dated review supersedes their pending interpretation"
+  }
+}

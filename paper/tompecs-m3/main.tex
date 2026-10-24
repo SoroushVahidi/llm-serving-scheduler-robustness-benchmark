@@ -1,0 +1,93 @@
+\ifdefined\MThreeSmall
+\documentclass[acmsmall,screen,nonacm]{acmart}
+\else
+\documentclass[manuscript,screen,review,nonacm]{acmart}
+\fi
+\usepackage{booktabs,tabularx,enumitem,amsmath}
+\usepackage{seqsplit}
+\usepackage{placeins}
+\emergencystretch=1em
+\renewcommand{\arraystretch}{1.12}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\setcopyright{none}
+\settopmatter{printacmref=false}
+\acmJournal{TOMPECS}
+\acmDOI{}
+\acmYear{2026}
+\title{Scheduler Equivalence and Performance Trade-offs under a Common LLM-Serving Contract}
+\author{Soroush Vahidi}
+\email{sv96@njit.edu}
+\affiliation{\department{Department of Computer Science}\institution{New Jersey Institute of Technology}\city{Newark}\state{New Jersey}\country{USA}}
+\newcommand{\cm}{CM-0.1}
+\newcommand{\anwg}{\ensuremath{\mathrm{ANWG}}}
+\begin{document}
+\begin{abstract}
+Scheduler rankings can conceal a more basic question: do distinct policies
+actually select different work? We study four large language model serving
+adaptations under a common execution contract that fixes information,
+admission, memory reservations, and batch timing. An admission-and-progress
+invariant proves that chunked first-come, first-served and decode-first
+select identical per-request work from an empty system, even with binding
+work budgets. Their normalized transitions and terminal outcomes coincide;
+the order of entries in an execution journal need not. A separate finite-work
+certificate rules out activation of the implemented decode-urgency gate
+in the evaluated fixed-duration regimes. A controlled prompt-ordering
+ablation identifies the source of the remaining performance trade-offs.
+Across 120 production-derived windows, the prompt-ordered adaptation reduces
+aggregate mean latency by 11.3--34.0\% relative to chunked first-come,
+first-served, alongside throughput losses and, on one source, increased
+mean window-p95 latency. Source-mean preferences exhibit no reversals
+exceeding the declared 10\% margin in both directions, while window-level
+and cross-metric reversals persist. A composition-dependent timing study
+preserves the pair's equivalence on a selected subset but exposes
+window-sensitive mean-latency effects under both clocks. The theorem assumes
+fixed-duration batches; the empirical results describe a finite, temporally
+related corpus. The synthetic timing models establish neither hardware
+performance nor universal scheduler rankings.
+\end{abstract}
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>10010147.10010341.10010370</concept_id>
+  <concept_desc>Computing methodologies~Simulation evaluation</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10011007.10010940.10011003.10011002</concept_id>
+  <concept_desc>Software and its engineering~Software performance</concept_desc>
+  <concept_significance>300</concept_significance>
+ </concept>
+</ccs2012>
+\end{CCSXML}
+\ccsdesc[500]{Computing methodologies~Simulation evaluation}
+\ccsdesc[300]{Software and its engineering~Software performance}
+\keywords{LLM serving, performance evaluation, scheduling, trace-driven simulation, ranking stability}
+\maketitle
+\input{sections/introduction}
+\FloatBarrier
+\input{sections/related}
+\FloatBarrier
+\input{sections/contract}
+\FloatBarrier
+\input{sections/design}
+\FloatBarrier
+\input{sections/performance}
+\FloatBarrier
+\input{sections/rankings}
+\FloatBarrier
+\input{sections/inference}
+\FloatBarrier
+\input{sections/discussion}
+\FloatBarrier
+\input{sections/declarations}
+\FloatBarrier
+\begingroup
+\interlinepenalty=10000
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+\endgroup
+\FloatBarrier
+\appendix
+\input{sections/appendix}
+\end{document}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "all_proposed_files_verified": 4104,
+  "abl01_journal_bytes_verified": 1440,
+  "newly_acquired_journals": 1404,
+  "simulations": 0,
+  "originals_modified": false,
+  "journal_semantics": "Independent prior replay of 36 stratified controls and 72 source journals reused; all 1440 actual journal bytes now hash-verified, not claimed freshly semantically replayed."
+}

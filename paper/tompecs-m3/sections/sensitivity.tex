@@ -1,0 +1,66 @@
+\subsection{A prospective token-budget sensitivity}\label{sec:budget}
+Before the reachable-state proof, we prospectively predicted that a smaller
+batch budget would separate chunked-FCFS from decode-first by allowing
+prefills to displace resident decodes. The unchanged engine requires every
+whole prompt to fit the budget. We therefore selected the first three
+BurstGPT windows in lexical order with maximum prompts above 512 and at
+most 1,024 tokens: \texttt{w16}, \texttt{w23}, and \texttt{w28}.
+All 200 requests, seeds, timing, and reservation rules remain fixed. The
+72 cells combine these windows, LOW/HIGH\_PRESSURE, eight slots, budgets
+32,768/2,048/1,024, and four adaptations; the 12 pilot cells are reused.
+Every cell passes the event referee and completes all requests; the 24
+baseline cells reproduce their archived outcomes.
+
+The prediction is rejected: all 12 perturbed chunked/decode-first matches
+retain identical normalized journals and terminal states. Theorem~\ref{thm:equivalence}
+now explains why truncation can affect only the youngest resident prefill.
+The perturbation nevertheless changes execution. At budget 1,024,
+SLO-gated omits 42 of 35,976 ready-decode opportunities, with maximum anchor
+age 2\,ms. Equation~\ref{eq:urgency-bound} gives respective 38, 51, and
+44\,ms upper bounds, below the 495\,ms gate. Independent reconstruction
+finds no activation in any of its 18 cells. No strict 10\% reversal occurs
+in 576 eligible budget comparisons, and all throughput changes are below
+0.4\% in magnitude. Complete effects and diagnostics remain in the
+supplement. These selected-window observations check conformance; the
+fixed-duration theorem supplies the broader equivalence result only under
+its stated assumptions.
+
+\subsection{Composition-dependent timing sensitivity}\label{sec:timing}
+TIME01 changes batch progression to
+\begin{equation}\label{eq:composition-time}
+ T(P_b,D_b)=\left(0.5+0.5\frac{P_b}{512}+0.5\frac{D_b}{8}\right)\mathrm{ms},
+\end{equation}
+where $P_b$ and $D_b$ are executed prefill and decode tokens after resource
+constraints. Arrivals within a batch become eligible at its actual end;
+completion and anchor updates use that end. Equation~\ref{eq:composition-time}
+is a synthetic timing function, not hardware-calibrated.
+The study pairs 384 variable-duration executions with existing fixed-duration
+results: eight deterministically selected windows per source, two settings
+(LOW/HIGH\_PRESSURE), two capacities, and four adaptations. Recursive
+stratification by mean prompt length, mean output length, and simultaneous
+arrival fraction selects a median window identifier per bin. This is
+purposive descriptor coverage, not a probability sample or evidence of
+blinding to prior outcomes; settings are not recalibrated for equal utilization.
+
+All 96 chunked-FCFS/decode-first pairs retain exactly equal normalized event
+trajectories, timestamps, and terminal metrics. In this nonbinding-budget
+design, common selected work has the same order-invariant duration and
+hence the same successor state. This explains the observed coupling
+without extending the fixed-duration Theorem~\ref{thm:equivalence}.
+Table~\ref{tab:time-sensitivity} separates timing effects from policy contrasts.
+Using the strict loser-relative $>10\%$ rule of Section~\ref{sec:rankings},
+there are no timing reversals in 792 eligible source-mean comparisons.
+At window level, two of 6,309 eligible comparisons reverse (27 zero-denominator
+exclusions). Both compare whole-FCFS with SLO-gated in BurstGPT window
+\texttt{w30}, LOW, eight slots: p95 latency and p95 TTFT. They are correlated
+tail endpoints in one condition, not independent replications. Absence of
+strict reversals does not imply identical rankings.
+
+\input{tables/time01}
+
+On the selected BurstGPT windows, SLO-gated mean latency is 2.12\% and
+1.88\% higher at four/eight slots under variable timing; it is already
+2.41\% and 2.29\% higher under fixed timing. This is subset sensitivity,
+not a timing-induced policy reversal. SLO-gated urgency remains inactive;
+the timing study establishes neither hardware benefits nor performance
+outside the selected windows.

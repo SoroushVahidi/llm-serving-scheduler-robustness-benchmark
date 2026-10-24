@@ -1,0 +1,10 @@
+{
+  "c01": "evidence/c01",
+  "time01": "evidence/time01",
+  "abl01": "evidence/abl01",
+  "time01_frozen_code": "code/time01/research/m3-time01",
+  "abl01_frozen_code": "code/abl01/research/m3-abl01",
+  "independent_review": "verification/independent-review",
+  "adapter": "tools/reproduce_extensions.py",
+  "immutable_originals_edited": false
+}

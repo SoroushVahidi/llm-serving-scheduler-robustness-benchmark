@@ -1,0 +1,142 @@
+\section{Absolute Performance and Trade-offs (RQ3)}\label{sec:performance}
+\subsection{Completion and performance magnitudes}
+Every cell completes all 200 requests: 1,152,000 request executions across
+repeated conditions, not independent requests. There is no horizon censoring
+and no undefined cell-level latency, TTFT, or TPOT endpoint. TPOT populations
+range from 103 to 200 because single-output requests are excluded from that
+particular metric. Across cells, mean latency ranges from 0.008314 to
+3.893923\,s, p95 latency from 0.008560 to 7.300052\,s, and token throughput
+from 332.489 to 7,766.685 tokens per simulated second.
+
+Table~\ref{tab:absolute} reports absolute source--capacity aggregates.
+Chunked-FCFS and decode-first share a row because their terminal records
+and all metrics are exactly equal; their separate identities remain in the artifact.
+
+\begin{table}[t]
+\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Absolute performance, equally averaging six settings within each
+window and 40 windows within each source. ``Slots'' are effective full-context
+residents. Mean and p95 columns are mean latency and \emph{mean window-level
+p95 latency}; throughput is output tokens per simulated second.}
+\label{tab:absolute}\input{tables/absolute}
+\end{table}
+
+\subsection{Mean latency gains do not imply a universal improvement}
+SLO-gated reduces aggregate mean latency against chunked-FCFS in all six
+source--capacity groups, by 11.3--34.0\%. The largest aggregate reduction is
+Azure at four slots, from 2.8132 to 1.8559\,s. At eight slots, BurstGPT changes
+from 0.1907 to 0.1692\,s, the smallest percentage improvement. This is a
+substantial difference in the model's mean response time, but it comes
+with a throughput reduction in every group, ranging from 1.65\% to 4.01\%.
+
+The tail comparison is less favorable. For BurstGPT, mean window-p95 latency
+rises from 1.0005 to 1.0377\,s at four slots and from 0.3707 to 0.4410\,s at
+eight slots: increases of 3.72\% and 18.97\%. Shorter average latency can
+therefore coexist with longer upper-tail latency under the same contract.
+At four-slot Bailian, \anwg\ is also 3.12\% lower for SLO-gated despite its
+24.05\% mean-latency reduction. Throughput, deadline attainment, and response
+time reward different aspects of the completed schedule.
+
+For a matched, fully completed 200-request condition, mean latency is
+$\sum_i(c_i-a_i)/200$, whereas token throughput is
+$\sum_i o_i/(\max_i c_i-\min_i a_i)$. Reducing the sum need not reduce the
+last completion or an upper quantile. Deadline attainment counts which
+completions cross synthetic deadlines; its Bailian loss is therefore
+compatible with the mean-latency gain. The source/capacity throughput means
+average window rates and are not inverses of mean durations. The following
+saved-record illustration connects these distinct objectives to the active
+admission ordering identified in Section~\ref{sec:contract}.
+
+\subsection{Controlled prompt-ordering ablation}\label{sec:ablation}
+ABL01 replaces only SLO-gated's prompt-length sorting of waiting requests
+with FCFS order, retaining its urgency, resident-prefill, and residual-decode
+logic. Under the original nonbinding budget, all resident work fits and
+waiting admissions cannot displace reservations. The control and
+chunked-FCFS consequently select the same work and share each batch end;
+induction from the empty state gives normalized trajectory equivalence.
+This conditional coupling permits reuse of 1,440 existing controls, not
+new simulations or independent replication of the C01 contrasts.
+
+Removing prompt ordering increases equally weighted aggregate mean latency
+from 0.9891 to 1.3660\,s (38.10\%), raises token throughput by 3.21\%, and
+reduces deadline attainment by 6.85 percentage points. Percent changes use
+the original SLO-gated aggregate as denominator; all 200 requests complete
+in every pair. Both arms have zero urgency activations. The intervention
+therefore attributes these trade-offs to waiting-request prompt ordering
+within this deterministic contract, rather than to urgency. Effects vary:
+in BurstGPT the control improves mean latency in 211 pairs, worsens it in
+198, and ties in 71 under the exact rule. Six nominally nonzero mean-latency
+differences across the full panel are within $10^{-12}$\,s; TPOT differences
+of order $10^{-16}$\,s are roundoff. Prompt ordering is neither uniformly
+beneficial nor established as optimal.
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{figures/absolute.pdf}
+\caption{Absolute performance across all six inherited settings, equally
+averaged over 40 windows per source. Solid circles: four slots; dashed
+squares: eight slots. L/Pre/K/Post/O/H abbreviate LOW through HIGH\_PRESSURE
+in their declared order. Chunked and decode-first curves coincide exactly.
+The p95 panels average window-level p95s. Both arrivals and synthetic
+deadlines change along the horizontal axis. Lines connect descriptive
+condition means, with no inferential uncertainty bands.}
+\Description{Twelve panels compare source means across six settings, three distinct adaptation behaviors, and two capacities. SLO-gated lowers mean latency, while throughput is lower and BurstGPT tail latency is higher.}
+\label{fig:absolute}
+\end{figure}
+
+\FloatBarrier
+\input{sections/example}
+
+\subsection{Capacity and inherited-setting effects}
+Increasing reservation capacity doubles permitted residency from four to
+eight. In every source--adaptation aggregate shown, mean and mean-p95 latency
+fall and throughput rises. For chunked-FCFS, Azure mean latency falls from
+2.8132 to 1.3626\,s while throughput rises from 3,746.2 to 7,018.7 tokens/s;
+BurstGPT changes from 0.5225 to 0.1907\,s and from 3,354.9 to 5,532.1 tokens/s.
+The capacity axis is predominantly a concurrency constraint in this model.
+The largest observed used KV is 47,872 tokens in the four-slot profile and
+62,880 in the eight-slot profile, both below even the smaller nominal
+capacity. These results do not measure native allocator pressure, eviction,
+or the benefit of paging at an exhausted used-token limit.
+
+Figure~\ref{fig:absolute} separates settings within each source--capacity.
+The inherited setting labels can produce large changes in goodput with
+small changes in latency or throughput. For Azure chunked-FCFS at four
+slots, LOW to HIGH\_PRESSURE changes mean latency from 2.7858 to 2.8269\,s
+and throughput from 3,745.9 to 3,746.3 tokens/s, while \anwg\ falls from
+0.291375 to 0.112625. Since the transformation also contracts deadline slack,
+this is not evidence for an isolated arrival-load effect on goodput.
+
+\subsection{Matched-window variation}
+Figure~\ref{fig:matched} displays all 40 window-level matched differences
+per source and capacity, averaging the six paired setting differences
+within each window. It complements the source means by showing where a
+performance difference changes sign or is concentrated. The vertical
+zero line represents equal performance; it is neither a confidence bound
+nor the 10\% practical-reversal threshold. For latency, a negative difference
+favors SLO-gated; for throughput, it favors chunked-FCFS.
+
+At the unaveraged condition level, SLO-gated uniquely minimizes mean latency
+in all 480 Azure conditions, 468 of 480 Bailian conditions, and only 198 of
+480 BurstGPT conditions. Its favorable source aggregates therefore do not
+mean that it wins every window/setting comparison. The tail and throughput
+distributions make the same distinction visible without reducing each
+comparison to a winner label.
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{figures/matched.pdf}
+\caption{Empirical distributions of SLO-gated minus chunked-FCFS differences.
+Each curve has 40 equally weighted windows; each point averages six matched
+setting differences within one window. The axes show absolute differences,
+not percentages. Positive latency differences and negative throughput
+differences are unfavorable to SLO-gated. All windows are retained.}
+\Description{Six empirical-distribution panels show all 40 matched window differences per source at each capacity for mean latency, p95 latency, and throughput. Vertical zero lines identify equality.}
+\label{fig:matched}
+\end{figure}
+
+\paragraph{Performance component of RQ3.}
+The surviving behaviors exchange average response time against throughput,
+tail latency, and deadline attainment. The capacity contrast is principally
+a residency constraint; the setting contrast jointly stresses arrivals
+and deadlines. These are trade-offs within the declared model.
+
+\input{sections/sensitivity}

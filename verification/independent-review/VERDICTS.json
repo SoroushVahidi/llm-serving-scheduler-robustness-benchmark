@@ -1,0 +1,26 @@
+{
+  "task_state": "COMPLETED_SUCCESS",
+  "manuscript_commit": "4c87f7172a17a50b18b83d21d7c8850c0cfbce60",
+  "time01": {
+    "classification": "VALID_WITH_QUALIFICATIONS",
+    "result_pairs": 384,
+    "independently_checked_variable_journals": 384,
+    "normalized_chunked_decode_pairs": 96,
+    "key_limit": "One uncalibrated synthetic timing model on 24 purposively selected windows; BurstGPT subset differs from full-corpus mean direction"
+  },
+  "abl01": {
+    "classification": "VALIDATED_AND_READY_TO_INTEGRATE",
+    "result_pairs": 1440,
+    "independently_checked_control_journals": 36,
+    "independently_checked_source_journals": 72,
+    "frozen_analysis_csvs_byte_identical": 8,
+    "frozen_verification_byte_identical": true,
+    "key_limit": "Conditional nonbinding-budget coupling; reused controls are not new simulations or independent replication"
+  },
+  "new_simulations": 0,
+  "manuscript_modified": false,
+  "rc2_modified": false,
+  "publication_performed": false,
+  "overall": "Integrate bounded findings through targeted author-reviewed revision; confirm both builds <=30 pages and separately stage/validate rc3 before publication",
+  "additional_experiment_required_for_bounded_claims": false
+}

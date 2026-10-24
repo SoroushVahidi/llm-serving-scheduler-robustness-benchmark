@@ -1,0 +1,76 @@
+{
+  "state": "COMPLETED_SUCCESS",
+  "baseline_commit": "8a32ecf6e5e5dcca114594b320ac7c5210d8c543",
+  "phase1_commit": "c99dce3b1cab29d057a72ad5976ac4b79248aa60",
+  "scientific_experiments_executed": 0,
+  "repository_tests": 378,
+  "c01_tests": 42,
+  "engineering_boundary_checks": 3,
+  "original_scientific_checks": 54,
+  "saved_slo_cells_reconstructed": 18,
+  "independent_check": "independent-check.json",
+  "generated_outputs_byte_identical": 3,
+  "original_frozen_tracked_files_preserved": 63,
+  "pr24_support_files_preserved": 19,
+  "pr24_raw_results_and_journals_preserved": 72,
+  "protected_hydrated_files": {
+    "/home/soroush/repos/llm-serving-scheduler-lssp-m3-focused-editorial-20261022/dataset/v1.1.0/scientific/campaign/consolidated.json": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "/home/soroush/repos/llm-serving-scheduler-lssp-m3-major-revision/dataset/v1.1.0/scientific/campaign/consolidated.json": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "/home/soroush/repos/llm-serving-scheduler-lssp-m3-budget-sensitivity/dataset/v1.1.0/scientific/campaign/consolidated.json": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26",
+    "/home/soroush/repos/llm-serving-scheduler-lssp-m3-urgency-mechanism/dataset/v1.1.0/scientific/campaign/consolidated.json": "73adf7d97f06985ec8f8e1c2f794fd43178433eb198e1c00705e817f4bde9c26"
+  },
+  "pdfs": {
+    "manuscript": {
+      "sha256": "adce14dd66d05b820a178a87506dbe181ca9baa3a5d829398241d2fdb45118fb",
+      "bytes": 726588,
+      "pages": 26,
+      "internal_destinations_checked": 70,
+      "visual_pages": [
+        1,
+        2,
+        5,
+        6,
+        14,
+        18,
+        19,
+        25
+      ]
+    },
+    "acmsmall": {
+      "sha256": "19ce1a02b6fee6134b3b241ebdbb11743d69ecb1df57d446570764ae97af5af4",
+      "bytes": 722821,
+      "pages": 26,
+      "internal_destinations_checked": 70,
+      "visual_pages": [
+        1,
+        2,
+        5,
+        6,
+        14,
+        18,
+        19,
+        25
+      ]
+    }
+  },
+  "logs": {
+    "/home/soroush/artifacts/lssp-m3-urgency-reduced.log": "649884c5d6bb5f8de2ace7ab33c1b8233b83fea2205f787ea005df558ad1ae26",
+    "/home/soroush/artifacts/lssp-m3-urgency-clean-audit.log": "278c35d6e89fc174694cbebee244fa303fb1a34b44009d4b9a7f2fa2e26e27f8",
+    "/home/soroush/artifacts/lssp-m3-urgency-independent.log": "af7f9d85eb52450a3616e97a32d0aaa1b40c455c2eb6830c3730ece53c828434",
+    "/home/soroush/artifacts/lssp-m3-urgency-c01-tests.log": "967a90f81cecadf06daa1a366bb275047d19ab77207db0cb708fbaae451f8f5f",
+    "/home/soroush/artifacts/lssp-m3-urgency-scientific.log": "b5b47459c0f186d874bccf502579aabe235934f9117bdc40ac674a4c232214b0",
+    "/home/soroush/artifacts/lssp-m3-urgency-regression.log": "de882a80b6745cca58a6ba73e2ff8764da8e0d5ca573238db38a9a441b93adb3",
+    "/home/soroush/artifacts/lssp-m3-urgency-build-acmsmall.log": "1c030e0b9c7d6c97eb5a50889c95993de4c8850343435e5d442220cba95c2995",
+    "/home/soroush/artifacts/lssp-m3-urgency-abstract.log": "ea6e603d649e1563ac7a65e213fa9334549ecfd5202e893a8385b89f5d4dffd9",
+    "/home/soroush/artifacts/lssp-m3-urgency-pr24-check.log": "296516e411cce00db7de90b2fb04be6f1d18fac7ff88166a8941e8e919c135f1",
+    "/home/soroush/artifacts/lssp-m3-urgency-build-manuscript.log": "c54ebf90f1115da750d0ce2ad0c2e4500f4e3efd7350415e94df7c38592d93a4",
+    "/home/soroush/artifacts/lssp-m3-urgency-audit.log": "278c35d6e89fc174694cbebee244fa303fb1a34b44009d4b9a7f2fa2e26e27f8"
+  },
+  "code_hashes": {
+    "check_certificate.py": "b5d38ba2336a12bc49ce706121ad458194a702e6566d2971993ebf4de16773d9",
+    "audit_urgency.py": "9a38cdb2810de1d6d5f917d11a972d4832a41b6beb1a4ba7ffd9775b8fcd2604",
+    "check_policy_boundary.py": "fe4bd1f89983ddc745959fd52646f3681c03d80d3b8ef1660226e6fbb0e76633"
+  },
+  "classification": "C with structural certificate; no new SLO experiment and no implementation defect found",
+  "active_jobs": []
+}

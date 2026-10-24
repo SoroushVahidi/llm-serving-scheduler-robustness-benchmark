@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "simulations": 0,
+  "independent_review_csvs": {
+    "abl01-nonzero-reversals.csv": "BYTE_IDENTICAL",
+    "abl01-reversal-counts.csv": "BYTE_IDENTICAL",
+    "time01-policy-contrasts.csv": "BYTE_IDENTICAL",
+    "time01-rank-changes.csv": "BYTE_IDENTICAL",
+    "table-abl01-all-endpoints.csv": "BYTE_IDENTICAL",
+    "table-time01.csv": "BYTE_IDENTICAL",
+    "source-capacity-effects.csv": "BYTE_IDENTICAL",
+    "time01-duration-composition.csv": "BYTE_IDENTICAL",
+    "time01-nonzero-reversals.csv": "BYTE_IDENTICAL",
+    "time01-stratified-effects.csv": "BYTE_IDENTICAL",
+    "abl01-rank-changes.csv": "BYTE_IDENTICAL",
+    "time01-reversal-counts.csv": "BYTE_IDENTICAL",
+    "abl01-effect-distributions.csv": "BYTE_IDENTICAL"
+  },
+  "journal_semantics": "REUSED_HASH_LINKED_INDEPENDENT_REVIEW",
+  "source_verification": "packaged source hashes against immutable manifests; external Git-blob checks reused from archived review",
+  "frozen_abl01_tables": "all eight CSVs and verification.json byte-identical"
+}

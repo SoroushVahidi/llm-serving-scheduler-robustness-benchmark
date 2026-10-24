@@ -1,0 +1,74 @@
+[
+  {
+    "source": "azure_llm_2024",
+    "profile": "kv131072",
+    "windows": 40,
+    "settings": [
+      "LOW",
+      "HIGH_PRESSURE"
+    ],
+    "chunked_mean": 2.806360319430077,
+    "slo_mean": 1.8501715694301197,
+    "slo_vs_chunked_pct": -34.072201754696366
+  },
+  {
+    "source": "azure_llm_2024",
+    "profile": "kv262144",
+    "windows": 40,
+    "settings": [
+      "LOW",
+      "HIGH_PRESSURE"
+    ],
+    "chunked_mean": 1.3558621319301063,
+    "slo_mean": 0.9292385069301362,
+    "slo_vs_chunked_pct": -31.46511838874502
+  },
+  {
+    "source": "bailian_qwen",
+    "profile": "kv131072",
+    "windows": 40,
+    "settings": [
+      "LOW",
+      "HIGH_PRESSURE"
+    ],
+    "chunked_mean": 2.2513215154406687,
+    "slo_mean": 1.7036221404406973,
+    "slo_vs_chunked_pct": -24.327905687551965
+  },
+  {
+    "source": "bailian_qwen",
+    "profile": "kv262144",
+    "windows": 40,
+    "settings": [
+      "LOW",
+      "HIGH_PRESSURE"
+    ],
+    "chunked_mean": 1.0279705154407435,
+    "slo_mean": 0.7942719529407575,
+    "slo_vs_chunked_pct": -22.733975244395744
+  },
+  {
+    "source": "burstgpt",
+    "profile": "kv131072",
+    "windows": 40,
+    "settings": [
+      "LOW",
+      "HIGH_PRESSURE"
+    ],
+    "chunked_mean": 0.4965613022704636,
+    "slo_mean": 0.42086689246841197,
+    "slo_vs_chunked_pct": -15.243719044546665
+  },
+  {
+    "source": "burstgpt",
+    "profile": "kv262144",
+    "windows": 40,
+    "settings": [
+      "LOW",
+      "HIGH_PRESSURE"
+    ],
+    "chunked_mean": 0.17810903089046443,
+    "slo_mean": 0.15675678089046474,
+    "slo_vs_chunked_pct": -11.988302835206122
+  }
+]
